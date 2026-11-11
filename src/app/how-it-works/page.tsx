@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import { COMPANY_CONFIG } from "@/data/company";
 import { BrandLogo } from "@/components/common/BrandLogo";
+import { Icon3DCheck, Icon3DCross } from "@/components/common/Icon3DBadges";
 
 /**
  * Photorealistic Top-Down Executive Chauffeur Sedan SVG
@@ -271,64 +272,127 @@ export default function HowItWorksPage() {
     },
   ];
 
-  // The Pre-Booked Guarantee Charter Pillars
+  // The Pre-Booked Guarantee Charter Pillars (Binding Passenger Charter)
   const preBookedGuarantees = [
     {
+      clause: "CLAUSE 01",
       title: "Guaranteed Vehicle Allocation",
-      tag: "Zero Cancellation",
-      desc: "Once your 10% deposit is logged, we legally commit your vehicle and driver. Unlike aggregator apps where drivers cancel repeatedly, your CabJatra chauffeur is guaranteed.",
+      tag: "Zero Cancellation SLA",
+      seal: "CONTRACTUAL DISPATCH",
+      desc: "Once your 10% advance deposit is logged, we legally commit your designated vehicle and chauffeur. While street apps cancel 2 to 3 times leaving passengers stranded, CabJatra provides contractual departure certainty.",
       highlight: "100% Departure Certainty",
+      subpoints: [
+        "Binding chauffeur assignment logged immediately upon confirmation",
+        "Dedicated backup reserve vehicle on standby for emergency redundancy",
+        "Digital driver voucher issued with direct WhatsApp supervisor hotline",
+      ],
       icon: ShieldCheck,
     },
     {
-      title: "100% Yellow-Board Commercial Legality",
-      tag: "STA Authorized",
-      desc: "Every vehicle operates with official Odisha State Transport commercial permits, comprehensive passenger insurance, and fitness certification. We strictly never dispatch private white-plate cars.",
+      clause: "CLAUSE 02",
+      title: "100% Commercial Yellow-Board Fleet",
+      tag: "STA Legal Compliance",
+      seal: "ODISHA STA PERMIT",
+      desc: "Every single vehicle operates strictly on yellow commercial registration with comprehensive state passenger transit insurance and rigorous annual RTO fitness certification. We never dispatch illegal white-plate cars.",
       highlight: "Comprehensive Insurance",
+      subpoints: [
+        "100% legal yellow-board commercial permits verified across all RTOs",
+        "Comprehensive passenger transit liability coverage for all highway journeys",
+        "Zero unauthorized private 'white plate' or uninspected vehicles dispatched",
+      ],
       icon: Car,
     },
     {
+      clause: "CLAUSE 03",
       title: "Zero Surge Pricing Shield",
       tag: "Transparent Tariffs",
-      desc: "Our tariffs are fixed and strictly mileage-calibrated. Whether it is heavy monsoon downpours, late-night arrivals, or crowded festival rushes like Rath Yatra, your tariff never surges.",
+      seal: "CALIBRATED MILEAGE",
+      desc: "Our tariffs are fixed and strictly mileage-calibrated before departure. Whether you encounter torrential monsoon storms, late-night BBI airport arrivals, or packed Rath Yatra pilgrim corridors, your tariff remains locked.",
       highlight: "Fixed Highway Mileage",
+      subpoints: [
+        "Strictly locked per-kilometer tariff that cannot fluctuate after booking",
+        "₹0 surge multipliers during rain, festival rushes, or midnight hours",
+        "Transparent 90% balance settlement settled directly via UPI or Cash",
+      ],
       icon: Zap,
     },
     {
-      title: "Pre-Cooled AC & Hygiene Guarantee",
-      tag: "Cabin Quality",
-      desc: "Every vehicle undergoes a pre-trip hygiene inspection. Dual-zone climate control is pre-cooled 15 minutes before boarding to beat Odisha humidity. Sanitized, non-smoking cabin assured.",
+      clause: "CLAUSE 04",
+      title: "Pre-Cooled AC & Executive Hygiene",
+      tag: "Cabin Quality Standard",
+      seal: "22°C PRE-COOLED SLA",
+      desc: "Your chauffeur arrives with the cabin pre-cooled to a soothing 22°C at least 15 minutes prior to boarding. Every car passes our mandatory 12-point hygiene checklist, non-smoking cabin audit, and chilled water restock.",
       highlight: "22°C Pre-Cooled AC",
+      subpoints: [
+        "Guaranteed dual-zone air conditioning running before passenger ingress",
+        "Multi-point sanitized upholstery, spotless carpets, and non-smoking cabin",
+        "Complimentary chilled packaged mineral water and high-speed phone charging",
+      ],
       icon: Award,
     },
   ];
 
-  // Comparison Matrix Data
+  // Comparison Matrix Data (Street Reality vs CabJatra Standard)
   const comparisonData = [
     {
-      aspect: "Pricing & Surcharges",
-      street: "2x – 3x surge multipliers during rain, night flights & festivals.",
-      cabjatra: "Strict zero-surge guarantee with transparent fixed per-km tariffs.",
+      category: "Pricing & Surcharges",
+      subtitle: "Surge Multipliers vs. Calibrated Transparency",
+      street: {
+        title: "Arbitrary 2x–3x Surge Surcharges",
+        desc: "Aggregators routinely multiply fares by 200%–300% during rain, midnight airport flights, or temple festivals without advance warning.",
+      },
+      cabjatra: {
+        title: "Strict Zero-Surge Mileage Protection",
+        desc: "Fixed per-km rate locked with 10% advance deposit. The price agreed upon booking is the exact price you pay, rain or shine.",
+      },
     },
     {
-      aspect: "Booking Commitment",
-      street: "Drivers cancel 2–3 times at will, leaving passengers stranded.",
-      cabjatra: "10% advance deposit legally locks your vehicle. Zero cancellations.",
+      category: "Booking Commitment",
+      subtitle: "Cancellation Lottery vs. Contractual Dispatch",
+      street: {
+        title: "2 to 3 Driver Cancellations Common",
+        desc: "Drivers arbitrarily accept and cancel rides based on destination preference, leaving families stranded with heavy luggage at gates.",
+      },
+      cabjatra: {
+        title: "100% Guaranteed Vehicle Allocation",
+        desc: "10% deposit creates an enforceable dispatch commitment. Chauffeur details issued hours in advance with zero driver cancellation.",
+      },
     },
     {
-      aspect: "Vehicle Legality",
-      street: "Often unauthorized private white-plate cars without passenger insurance.",
-      cabjatra: "100% yellow-board commercial fleet with comprehensive state permits.",
+      category: "Vehicle Legality & Safety",
+      subtitle: "Private White Plates vs. Commercial STA Fleet",
+      street: {
+        title: "Unlicensed Private 'White Plate' Cars",
+        desc: "Aggregators frequently dispatch private white-board vehicles that lack commercial permits and carry zero passenger transit insurance.",
+      },
+      cabjatra: {
+        title: "100% Yellow-Board Commercial Fleet",
+        desc: "Full Odisha State Transport Authority (STA) commercial permits, comprehensive passenger insurance, and verified fitness certificates.",
+      },
     },
     {
-      aspect: "Air Conditioning",
-      street: "Drivers frequently refuse AC or demand extra off-meter cash.",
-      cabjatra: "Guaranteed dual-zone AC, pre-cooled 15 mins prior to boarding.",
+      category: "Cabin Climate & Comfort",
+      subtitle: "AC Bargaining vs. Pre-Cooled Executive Sanctuary",
+      street: {
+        title: "AC Refused or Extra Cash Demanded",
+        desc: "Drivers frequently refuse to turn on air conditioning in humid weather, run blowers only, or demand off-meter cash bribes.",
+      },
+      cabjatra: {
+        title: "Guaranteed 22°C Pre-Cooled Dual-Zone AC",
+        desc: "Cabin pre-cooled 15 minutes before pickup. Full dual-zone AC included throughout your journey with zero bargaining.",
+      },
     },
     {
-      aspect: "Chauffeur Standards",
-      street: "Unscreened temporary drivers with zero accountability.",
-      cabjatra: "Police background-verified, uniformed, experienced local chauffeurs.",
+      category: "Chauffeur Standards & Etiquette",
+      subtitle: "Temporary Gig Workers vs. Vetted Professionals",
+      street: {
+        title: "Unvetted Drivers with Zero Accountability",
+        desc: "Random gig drivers with unverified backgrounds, erratic driving habits, and no recourse if service quality is substandard.",
+      },
+      cabjatra: {
+        title: "Background-Checked Executive Chauffeurs",
+        desc: "Police-verified local chauffeurs in clean uniform with deep route expertise across Odisha's highway corridors and temples.",
+      },
     },
   ];
 
@@ -704,55 +768,114 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* ================= SECTION 2: THE PRE-BOOKED GUARANTEE (CHARTER BENTO) ================= */}
-      <section className="py-12 sm:py-16 bg-[#FAF9F5] border-b border-[#E5EAE5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0ECEA]/80 text-[10px] font-bold text-[#073B3A] uppercase tracking-wider border border-[#C1DAD7]">
+      {/* ================= SECTION 2: THE PRE-BOOKED GUARANTEE (PASSENGER CHARTER) ================= */}
+      <section className="py-14 sm:py-20 bg-[#FAF9F5] border-b border-[#E5EAE5] relative overflow-hidden">
+        {/* Subtle decorative background watermarks */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#D9A52B]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#073B3A]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E0ECEA]/90 text-[10px] font-extrabold text-[#073B3A] uppercase tracking-wider border border-[#C1DAD7] shadow-xs">
               <ShieldCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
-              <span>Core Passenger Charter</span>
+              <span>Binding Passenger Charter • Enforceable Mobility SLA</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#182A2B]">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold font-display text-[#182A2B] tracking-tight">
               The Pre-Booked Guarantee
             </h2>
-            <p className="text-xs sm:text-sm text-[#667575] leading-relaxed">
-              Our 4 binding operational commitments that protect your journey against cancellations, surge extortion, and substandard vehicles.
+            <p className="text-xs sm:text-sm text-[#556464] leading-relaxed max-w-2xl mx-auto">
+              Our 4 binding operational commitments designed to eliminate the anxiety of travel across Odisha. Real contractual certainty backed by official dispatch protocols.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+          {/* SLA Performance Highlights Bar */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-12">
+            {[
+              { stat: "100%", label: "Departure Certainty", sub: "Contractual allocation" },
+              { stat: "10%", label: "Advance Commitment", sub: "Zero full lock-in" },
+              { stat: "₹0", label: "Surge Extortion", sub: "Calibrated fixed tariffs" },
+              { stat: "22°C", label: "Pre-Cooled AC", sub: "15 mins before boarding" },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl p-4 sm:p-5 border border-[#DCE4DC] shadow-xs text-center flex flex-col items-center justify-center hover:shadow-md transition-shadow"
+              >
+                <div className="text-xl sm:text-2xl font-black font-display text-[#073B3A] flex items-center gap-1">
+                  <span>{item.stat}</span>
+                  <Sparkles className="w-3 h-3 text-[#D9A52B]" />
+                </div>
+                <div className="text-xs font-bold text-[#182A2B] mt-0.5">{item.label}</div>
+                <div className="text-[10px] text-[#718080] font-medium mt-0.5">{item.sub}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* 4 High-Fidelity Charter Bento Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-7">
             {preBookedGuarantees.map((g, idx) => {
               const Icon = g.icon;
               return (
                 <div
                   key={idx}
-                  className="card-skeuo rounded-3xl p-6 sm:p-7 bg-white border border-[#D5DDD5] hover:shadow-xl transition-all space-y-4 flex flex-col justify-between"
+                  className="card-skeuo rounded-3xl p-6 sm:p-8 bg-white border border-[#D5DDD5] hover:border-[#073B3A]/40 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
                 >
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center shadow-md">
-                        <Icon className="w-6 h-6" />
+                  {/* Subtle Top-Right Ambient Halo */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#D9A52B]/10 to-transparent rounded-bl-full pointer-events-none group-hover:from-[#D9A52B]/20 transition-colors" />
+
+                  <div className="space-y-4 relative z-10">
+                    {/* Top Clause & Seal Badge */}
+                    <div className="flex items-center justify-between border-b border-[#EEF2EE] pb-3">
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10.5px] font-mono font-bold tracking-wider text-[#D9A52B] bg-[#073B3A] px-2.5 py-0.5 rounded-md shadow-xs">
+                          {g.clause}
+                        </span>
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#073B3A] bg-[#E0ECEA]/80 px-2.5 py-0.5 rounded-full border border-[#C1DAD7]">
+                          {g.seal}
+                        </span>
                       </div>
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#FAF9F5] text-[#073B3A] border border-[#C1DAD7]">
+                      <span className="text-[9.5px] font-bold uppercase tracking-wider text-[#556464] bg-[#FAF9F5] px-2 py-0.5 rounded-md border border-[#E5EAE5]">
                         {g.tag}
                       </span>
                     </div>
 
-                    <h3 className="text-lg sm:text-xl font-bold font-display text-[#182A2B]">
-                      {g.title}
-                    </h3>
+                    {/* Title & Icon Header */}
+                    <div className="flex items-start gap-4 pt-1">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#073B3A] via-[#0B4B48] to-[#021F20] text-[#D9A52B] flex items-center justify-center shadow-lg border border-white/20 shrink-0 group-hover:scale-105 transition-transform">
+                        <Icon className="w-6 h-6 sm:w-7 sm:h-7 drop-shadow-sm" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold font-display text-[#182A2B] group-hover:text-[#073B3A] transition-colors leading-tight">
+                          {g.title}
+                        </h3>
+                        <p className="text-xs sm:text-[13px] text-[#556464] leading-relaxed mt-1.5">
+                          {g.desc}
+                        </p>
+                      </div>
+                    </div>
 
-                    <p className="text-xs sm:text-sm text-[#556464] leading-relaxed">
-                      {g.desc}
-                    </p>
+                    {/* Micro-Checklist Points */}
+                    <div className="pt-2 pb-1 space-y-2 bg-[#FAF9F5] p-3.5 rounded-2xl border border-[#E5ECE5]">
+                      {g.subpoints.map((pt, pIdx) => (
+                        <div key={pIdx} className="flex items-start gap-2 text-xs text-[#384646]">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0 mt-0.5" />
+                          <span className="font-medium leading-snug">{pt}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="pt-3 border-t border-[#EEF2EE] flex items-center justify-between text-xs font-bold text-[#073B3A]">
-                    <span className="flex items-center gap-1.5">
-                      <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
-                      <span>{g.highlight}</span>
+                  {/* Bottom Verification Footer with 3D Badge */}
+                  <div className="pt-4 mt-4 border-t border-[#EEF2EE] flex items-center justify-between relative z-10">
+                    <div className="flex items-center gap-2">
+                      <Icon3DCheck size="sm" interactive={true} />
+                      <span className="text-xs font-bold text-[#073B3A] tracking-tight">
+                        {g.highlight}
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-bold text-[#D9A52B] uppercase tracking-wider bg-[#073B3A]/5 px-2.5 py-1 rounded-md">
+                      Charter Verified
                     </span>
-                    <span className="text-[#D9A52B]">Guarantee 0{idx + 1}</span>
                   </div>
                 </div>
               );
@@ -761,47 +884,140 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* ================= SECTION 3: COMPARISON MATRIX (STREET VS CABJATRA) ================= */}
-      <section className="py-12 sm:py-16 bg-[#F2F5F2] border-b border-[#E5EAE5]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-xl mx-auto mb-10 space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0ECEA]/80 text-[10px] font-bold text-[#073B3A] uppercase tracking-wider border border-[#C1DAD7]">
+      {/* ================= SECTION 3: COMPARATIVE STANDARD (3D INTERACTIVE CORRECT & CROSS) ================= */}
+      <section className="py-14 sm:py-20 bg-[#F2F5F2] border-b border-[#E5EAE5] relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Header */}
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 space-y-3">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E0ECEA]/90 text-[10px] font-extrabold text-[#073B3A] uppercase tracking-wider border border-[#C1DAD7] shadow-xs">
               <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
-              <span>Comparative Standard</span>
+              <span>Comparative Standard • The Mobility Divide</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#182A2B]">
+            <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#182A2B] tracking-tight">
               Why Pre-Booking Beats Street Hailing
             </h2>
-            <p className="text-xs sm:text-sm text-[#667575]">
-              Experience the difference between unverified street cars and CabJatra&apos;s verified chauffeur standard.
+            <p className="text-xs sm:text-sm text-[#667575] leading-relaxed max-w-xl mx-auto">
+              Experience the fundamental difference between the unpredictable street aggregator lottery and CabJatra&apos;s contractual executive mobility standard.
             </p>
           </div>
 
-          <div className="rounded-3xl border border-[#D5DDD5] bg-white shadow-xl overflow-hidden">
-            {/* Table Header */}
-            <div className="grid grid-cols-12 bg-gradient-to-r from-[#073B3A] to-[#041F20] text-white p-4 sm:p-5 text-xs font-bold uppercase tracking-wider">
-              <div className="col-span-4 sm:col-span-3">Feature</div>
-              <div className="col-span-4 sm:col-span-4 text-[#FED7D7]">Aggregator / Street Hailing</div>
-              <div className="col-span-4 sm:col-span-5 text-[#A7F3D0]">CabJatra Pre-Booked Standard</div>
+          {/* Dual Grand Category Banner */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-8">
+            {/* Street / Aggregator Card Header */}
+            <div className="bg-white/80 rounded-3xl p-5 sm:p-6 border-2 border-rose-200 shadow-sm flex items-center gap-4 bg-gradient-to-r from-rose-50/60 to-white">
+              <Icon3DCross size="lg" interactive={true} />
+              <div>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-rose-700 bg-rose-100 px-2.5 py-0.5 rounded-full border border-rose-200">
+                  Street Hailing / Aggregator Apps
+                </span>
+                <h3 className="text-base sm:text-lg font-bold font-display text-[#182A2B] mt-1">
+                  The Daily Uncertainty Lottery
+                </h3>
+                <p className="text-xs text-[#718080] mt-0.5">
+                  Frequent cancellations, 2x–3x surge extortion, and unvetted private cars.
+                </p>
+              </div>
             </div>
 
-            {/* Table Rows */}
-            <div className="divide-y divide-[#EEF2EE]">
-              {comparisonData.map((row, rIdx) => (
-                <div key={rIdx} className="grid grid-cols-12 p-4 sm:p-5 text-xs items-center gap-2">
-                  <div className="col-span-4 sm:col-span-3 font-bold text-[#182A2B]">
-                    {row.aspect}
+            {/* CabJatra Pre-Booked Standard Card Header */}
+            <div className="bg-white rounded-3xl p-5 sm:p-6 border-2 border-[#10B981]/50 shadow-md flex items-center gap-4 bg-gradient-to-r from-[#EAF3EC]/80 to-white ring-1 ring-[#073B3A]/10">
+              <Icon3DCheck size="lg" interactive={true} />
+              <div>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#064E3B] bg-[#D1FAE5] px-2.5 py-0.5 rounded-full border border-[#A7F3D0]">
+                  CabJatra Pre-Booked Standard
+                </span>
+                <h3 className="text-base sm:text-lg font-bold font-display text-[#073B3A] mt-1">
+                  Contractual Chauffeur Sanctuary
+                </h3>
+                <p className="text-xs text-[#556464] mt-0.5">
+                  100% Guaranteed vehicle dispatch, zero-surge fixed mileage, and 22°C pre-cooled AC.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 5 High-Contrast Comparison Feature Bento Cards */}
+          <div className="space-y-4 sm:space-y-5">
+            {comparisonData.map((item, idx) => (
+              <div
+                key={idx}
+                className="card-skeuo rounded-2xl sm:rounded-3xl p-4 sm:p-6 bg-white border border-[#D5DDD5] hover:border-[#D9A52B]/60 hover:shadow-xl transition-all duration-200 group"
+              >
+                {/* Feature Category Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-3 border-b border-[#EEF2EE] gap-1">
+                  <div className="flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-lg bg-[#073B3A] text-[#D9A52B] text-xs font-bold font-mono flex items-center justify-center shrink-0">
+                      0{idx + 1}
+                    </span>
+                    <h4 className="text-sm sm:text-base font-bold font-display text-[#182A2B]">
+                      {item.category}
+                    </h4>
                   </div>
-                  <div className="col-span-4 sm:col-span-4 text-[#742A2A] flex items-start gap-1.5 font-medium leading-snug">
-                    <X className="w-3.5 h-3.5 text-[#E53E3E] shrink-0 mt-0.5" />
-                    <span>{row.street}</span>
+                  <span className="text-[11px] text-[#718080] font-medium">
+                    {item.subtitle}
+                  </span>
+                </div>
+
+                {/* 2-Column Comparison Layout with 3D Badges */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                  {/* Left: Street Hailing (3D Crimson Cross) */}
+                  <div className="bg-rose-50/50 rounded-2xl p-4 sm:p-4.5 border border-rose-200/70 flex items-start gap-3.5 transition-all group-hover:bg-rose-50/80">
+                    <Icon3DCross size="md" interactive={true} className="mt-0.5 shrink-0" />
+                    <div className="space-y-1">
+                      <div className="text-xs sm:text-sm font-bold text-rose-950 leading-snug">
+                        {item.street.title}
+                      </div>
+                      <p className="text-xs text-rose-900/80 leading-relaxed font-normal">
+                        {item.street.desc}
+                      </p>
+                    </div>
                   </div>
-                  <div className="col-span-4 sm:col-span-5 text-[#22543D] flex items-start gap-1.5 font-bold leading-snug">
-                    <Check className="w-3.5 h-3.5 text-[#38A169] shrink-0 mt-0.5" />
-                    <span>{row.cabjatra}</span>
+
+                  {/* Right: CabJatra Standard (3D Emerald Check) */}
+                  <div className="bg-[#EBF5EE]/70 rounded-2xl p-4 sm:p-4.5 border-2 border-[#10B981]/40 shadow-xs flex items-start gap-3.5 transition-all group-hover:border-[#073B3A]/60 group-hover:bg-[#E3EFE7]">
+                    <Icon3DCheck size="md" interactive={true} className="mt-0.5 shrink-0" />
+                    <div className="space-y-1 flex-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-xs sm:text-sm font-bold text-[#064E3B] leading-snug">
+                          {item.cabjatra.title}
+                        </span>
+                        <span className="text-[9px] font-extrabold uppercase tracking-wider text-[#064E3B] bg-[#A7F3D0]/70 px-2 py-0.5 rounded-full shrink-0">
+                          Guaranteed
+                        </span>
+                      </div>
+                      <p className="text-xs text-[#1F4638] leading-relaxed font-medium">
+                        {item.cabjatra.desc}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              ))}
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Trust Action Callout */}
+          <div className="mt-10 sm:mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#073B3A] via-[#094847] to-[#041F20] text-white shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6 border border-white/10">
+            <div className="space-y-1 text-center sm:text-left">
+              <div className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider text-[#D9A52B]">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>Odisha Chauffeur Excellence</span>
+              </div>
+              <h3 className="text-lg sm:text-2xl font-bold font-display">
+                Ready to Experience Stress-Free Travel?
+              </h3>
+              <p className="text-xs sm:text-sm text-white/75 max-w-xl">
+                Lock your chauffeur today with a modest 10% advance deposit. 100% yellow-board commercial fleet and zero surge pricing guaranteed.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
+              <Link
+                href="/book-cab"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl btn-skeuo-gold text-[#062F31] font-bold text-xs sm:text-sm shadow-lg flex items-center justify-center gap-2 hover:brightness-105 active:scale-95 transition-all"
+              >
+                <span>Reserve Your Chauffeur</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>
