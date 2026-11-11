@@ -25,17 +25,21 @@ import {
   User,
   Mail,
   Camera,
+  Printer,
+  Copy,
 } from "lucide-react";
 import { ODISHA_TOURS, TourPackage } from "@/data/destinations";
 import { COMPANY_CONFIG } from "@/data/company";
 import { WhatsAppConsentCheckbox } from "@/components/common/WhatsAppConsentCheckbox";
 import { BrandLogo } from "@/components/common/BrandLogo";
+import { GlassCelebrationOrb } from "@/components/common/GlassCelebrationOrb";
 
 function TourBookingContent() {
   const searchParams = useSearchParams();
 
   // Wizard Steps: 1: Tour Circuit & Itinerary, 2: Dates & Vehicle Class, 3: Passenger & WhatsApp, 4: Confirmed
   const [currentStep, setCurrentStep] = useState<number>(1);
+  const [copiedRef, setCopiedRef] = useState(false);
 
   // Selected tour
   const [selectedTourSlug, setSelectedTourSlug] = useState<string>("golden-triangle-odisha");
@@ -128,6 +132,13 @@ function TourBookingContent() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleCopyRef = () => {
+    if (!enquiryRefId) return;
+    navigator.clipboard.writeText(enquiryRefId);
+    setCopiedRef(true);
+    setTimeout(() => setCopiedRef(false), 2200);
+  };
+
   // 3-Step Navigation Configuration with 100% Guaranteed High-Contrast Typography
   const stepsConfig = [
     { num: 1, label: "Choose Circuit", subtitle: "Itinerary Selection", icon: Compass },
@@ -150,34 +161,36 @@ function TourBookingContent() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#021617]/95 via-[#062F31]/88 to-[#FAF9F5]" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-20 sm:pt-20 pb-4">
-        {/* Compact Low-Profile Header Section */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2 mb-2 sm:mb-2.5 text-white">
-          <div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-lg sm:text-2xl font-bold font-display tracking-tight text-white leading-tight">
-                Book an Odisha Private Tour
-              </h1>
-              <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[10px] font-semibold text-[#D9A52B]">
-                <Palmtree className="w-3 h-3 text-[#D9A52B]" />
-                Curated Circuits
+      <div className={`relative z-10 mx-auto px-3.5 sm:px-6 lg:px-8 ${currentStep === 4 ? "pt-24 sm:pt-28 pb-16 max-w-4xl" : "pt-20 sm:pt-20 pb-4 max-w-5xl"}`}>
+        {/* Compact Low-Profile Header Section - Steps 1 to 3 */}
+        {currentStep < 4 && (
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2 mb-2 sm:mb-2.5 text-white">
+            <div>
+              <div className="flex items-center gap-2">
+                <h1 className="text-lg sm:text-2xl font-bold font-display tracking-tight text-white leading-tight">
+                  Book an Odisha Private Tour
+                </h1>
+                <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[10px] font-semibold text-[#D9A52B]">
+                  <Palmtree className="w-3 h-3 text-[#D9A52B]" />
+                  Curated Circuits
+                </span>
+              </div>
+              <p className="text-[11px] sm:text-xs text-white/80 line-clamp-1">
+                Explore sacred Jagannath Dham, UNESCO Konark chariot wheels &amp; Chilika dolphin trails with a dedicated chauffeur.
+              </p>
+            </div>
+            <div className="hidden lg:flex items-center gap-2 text-[11px] text-white/90">
+              <span className="flex items-center gap-1 bg-[#062F31]/80 px-2.5 py-1 rounded-lg border border-white/15">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
+                Dedicated Standby Chauffeur
+              </span>
+              <span className="flex items-center gap-1 bg-[#062F31]/80 px-2.5 py-1 rounded-lg border border-white/15">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#D9A52B]" />
+                10% Advance Model
               </span>
             </div>
-            <p className="text-[11px] sm:text-xs text-white/80 line-clamp-1">
-              Explore sacred Jagannath Dham, UNESCO Konark chariot wheels &amp; Chilika dolphin trails with a dedicated chauffeur.
-            </p>
           </div>
-          <div className="hidden lg:flex items-center gap-2 text-[11px] text-white/90">
-            <span className="flex items-center gap-1 bg-[#062F31]/80 px-2.5 py-1 rounded-lg border border-white/15">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
-              Dedicated Standby Chauffeur
-            </span>
-            <span className="flex items-center gap-1 bg-[#062F31]/80 px-2.5 py-1 rounded-lg border border-white/15">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#D9A52B]" />
-              10% Advance Model
-            </span>
-          </div>
-        </div>
+        )}
 
         {/* ================= 3-STEP NAVIGATION MATRIX (COMPACT SLIM BAR) ================= */}
         {currentStep < 4 && (
@@ -721,55 +734,228 @@ function TourBookingContent() {
 
         {/* ================= STEP 4: SUCCESS / ENQUIRY RECEIVED ================= */}
         {currentStep === 4 && (
-          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#D5DDD5] shadow-2xl space-y-4 text-center max-w-xl mx-auto animate-in zoom-in-95 duration-300">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-b from-[#084846] to-[#041F20] text-[#D9A52B] flex items-center justify-center mx-auto shadow-skeuo-button border-t border-white/20">
-              <Palmtree className="w-6 h-6" />
+          <div className="card-skeuo rounded-3xl p-5 sm:p-8 lg:p-9 border border-[#D5DDD5] shadow-2xl space-y-5 sm:space-y-6 text-center max-w-3xl mx-auto animate-in zoom-in-95 duration-300">
+            {/* 3D Glass Celebration Orb with Smooth Spring Bouncing Physics */}
+            <div className="pt-2">
+              <GlassCelebrationOrb size="lg" />
             </div>
 
-            <div className="space-y-1">
-              <div className="inline-block px-3 py-0.5 rounded-full bg-[#E0ECEA] text-[#073B3A] text-[10px] font-bold uppercase tracking-wider">
-                Tour Enquiry Successfully Received
+            <div className="space-y-1.5">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0ECEA] border border-[#B6D6D2] text-[#073B3A] text-[10.5px] sm:text-xs font-bold uppercase tracking-wider shadow-xs">
+                <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+                <span>Tour Itinerary Enquiry Confirmed</span>
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold font-display text-[#182A2B]">
-                Thank You, {primaryName || "Traveler"}!
+              <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#182A2B] tracking-tight">
+                Thank You, {primaryName || "Esteemed Traveler"}!
               </h2>
-              <p className="text-xs text-[#667575] max-w-md mx-auto leading-relaxed">
-                Your custom tour enquiry for {currentTour.title} has been routed to our Odisha holiday desk.
+              <p className="text-xs sm:text-sm text-[#556464] max-w-lg mx-auto leading-relaxed">
+                Your custom tour enquiry for {currentTour.title} has been logged with our Odisha holiday desk. Our senior tour specialist is preparing your complete route voucher and dedicated chauffeur assignment.
               </p>
             </div>
 
-            {/* Reference Badge */}
-            <div className="p-3.5 rounded-2xl bg-[#FAF9F5] border border-[#D5DDD5] inline-block w-full text-left shadow-xs">
-              <div className="flex items-center justify-between pb-1.5 border-b border-[#E5EAE5] text-xs">
-                <span className="text-[#667575]">Enquiry Reference ID:</span>
-                <strong className="font-mono text-xs text-[#073B3A] font-black">
-                  {enquiryRefId}
-                </strong>
+            {/* Digital Tour Reservation Voucher / Boarding Pass */}
+            <div className="rounded-2xl border-2 border-[#D9A52B]/40 bg-gradient-to-b from-[#FAF9F5] to-[#F3F6F3] shadow-card overflow-hidden text-left relative">
+              {/* Voucher Top Header Bar */}
+              <div className="bg-[#073B3A] text-white p-3 sm:p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#D9A52B]/30">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-[#D9A52B]/20 border border-[#D9A52B]/40 flex items-center justify-center text-[#D9A52B] font-bold text-xs">
+                    CJ
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#D9A52B] block leading-tight">
+                      Odisha Tour Mobility Voucher
+                    </span>
+                    <span className="text-xs sm:text-sm font-bold font-display text-white">
+                      Curated Private Circuit Dispatch
+                    </span>
+                  </div>
+                </div>
+
+                {/* Reference ID with Interactive Copy Button */}
+                <div className="flex items-center gap-2 self-start sm:self-auto bg-black/30 px-3 py-1 rounded-xl border border-white/15">
+                  <div>
+                    <span className="text-[9px] text-[#A7F3D0] block uppercase leading-none">Enquiry Ref:</span>
+                    <strong className="font-mono text-xs sm:text-sm text-[#FAF9F5] font-black">
+                      {enquiryRefId}
+                    </strong>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleCopyRef}
+                    className="p-1 px-1.5 rounded-md bg-white/10 hover:bg-white/20 text-[#D9A52B] transition cursor-pointer flex items-center gap-1 text-[10px] font-bold"
+                    title="Copy Reference ID"
+                  >
+                    {copiedRef ? (
+                      <>
+                        <Check className="w-3 h-3 text-[#10B981]" />
+                        <span className="text-[#10B981]">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3 h-3" />
+                        <span>Copy</span>
+                      </>
+                    )}
+                  </button>
+                </div>
               </div>
-              <div className="pt-1.5 text-[11px] text-[#455353] space-y-0.5">
-                <div>Circuit: <strong>{currentTour.title} ({currentTour.duration})</strong></div>
-                <div>Start Date: <strong>{travelDate}</strong></div>
-                <div>Group: <strong>{travelersCount} Person{travelersCount > 1 ? "s" : ""}</strong></div>
-                <div>Pickup: <strong>{pickupCity}</strong></div>
+
+              {/* Voucher Body (2 Columns) */}
+              <div className="p-4 sm:p-5 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs divide-y md:divide-y-0 md:divide-x divide-[#D5DDD5]">
+                {/* Column 1: Circuit & Schedule */}
+                <div className="space-y-2.5 pb-3 md:pb-0">
+                  <div className="flex items-center gap-1.5 text-[10.5px] font-bold text-[#073B3A] uppercase tracking-wider">
+                    <Compass className="w-3.5 h-3.5 text-[#D9A52B]" />
+                    <span>Selected Heritage Circuit</span>
+                  </div>
+
+                  <div className="bg-white p-2.5 rounded-xl border border-[#D5DDD5] space-y-1.5 shadow-xs">
+                    <div>
+                      <span className="text-[10px] text-[#667575] block">Circuit Title:</span>
+                      <strong className="text-sm font-bold text-[#182A2B]">
+                        {currentTour.title} ({currentTour.duration})
+                      </strong>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-[#667575] block">Destinations Covered:</span>
+                      <span className="text-xs font-semibold text-[#073B3A]">{currentTour.destinations.join(" ➔ ")}</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2 pt-1 border-t border-[#EEF2EE]">
+                      <div>
+                        <span className="text-[10px] text-[#667575] block">Start Date:</span>
+                        <strong className="text-xs text-[#182A2B]">{travelDate}</strong>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-[#667575] block">Starting Hub:</span>
+                        <strong className="text-xs text-[#073B3A]">{pickupCity}</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-[11px] text-[#455353] space-y-0.5">
+                    <div>Lead Guest: <strong className="text-[#182A2B]">{primaryName} (+91 {primaryPhone})</strong></div>
+                    <div>Travelers: <strong>{travelersCount} Guests</strong></div>
+                    {customRequests && <div>Special Halts: <span className="italic">{customRequests}</span></div>}
+                  </div>
+                </div>
+
+                {/* Column 2: Vehicle & Inclusions */}
+                <div className="space-y-2.5 pt-3 md:pt-0 md:pl-4">
+                  <div className="flex items-center gap-1.5 text-[10.5px] font-bold text-[#073B3A] uppercase tracking-wider">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
+                    <span>Allocated Vehicle &amp; Inclusions</span>
+                  </div>
+
+                  <div className="bg-white p-2.5 rounded-xl border border-[#D5DDD5] space-y-2 shadow-xs">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="text-[10px] text-[#667575] block">Vehicle Class:</span>
+                        <strong className="text-xs font-bold text-[#073B3A] capitalize">
+                          {selectedVehicleType === "suv" ? "Innova Crysta SUV" : selectedVehicleType === "traveller" ? "Group Tempo Traveller" : "Prime Sedan"}
+                        </strong>
+                      </div>
+                      <span className="px-2 py-0.5 rounded-full text-[9px] font-bold bg-[#E0ECEA] text-[#073B3A] border border-[#B6D6D2]">
+                        100% AC Cab
+                      </span>
+                    </div>
+
+                    <div className="space-y-1 text-[11px] text-[#455353] pt-1 border-t border-[#EEF2EE]">
+                      <div className="flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3 h-3 text-[#10B981]" />
+                        <span>Dedicated chauffeur on standby entire tour</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3 h-3 text-[#10B981]" />
+                        <span>All toll taxes, parking &amp; fuel included</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3 h-3 text-[#10B981]" />
+                        <span>10% Advance Model • Zero surge guarantee</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Priority Allocation Pulse Strip */}
+                  <div className="p-2 rounded-xl bg-emerald-50 border border-emerald-200 text-[10.5px] text-emerald-900 flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping shrink-0" />
+                    <span><strong>Live Queue:</strong> Custom Tour Itinerary &amp; Quote Processing</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Voucher Bottom Disclaimer Strip */}
+              <div className="bg-[#FAF9F5] px-4 py-2 border-t border-[#D5DDD5] text-[10.5px] text-[#667575] flex items-center justify-between">
+                <span>Official Tour Dispatch Voucher • Cabjatra Holiday Desk</span>
+                <span className="font-semibold text-[#073B3A]">Transparent 10% Advance Deposit Model</span>
               </div>
             </div>
 
-            {/* Actions */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            {/* Next Steps 3-Card Timeline */}
+            <div className="text-left space-y-2">
+              <span className="text-[11px] font-bold text-[#182A2B] uppercase tracking-wider block">
+                What Happens Next?
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+                <div className="p-3 rounded-xl bg-white border border-[#D5DDD5] shadow-xs space-y-1">
+                  <div className="w-5 h-5 rounded-full bg-[#073B3A] text-white flex items-center justify-center font-bold text-[10px]">
+                    1
+                  </div>
+                  <strong className="block text-[#182A2B] font-display text-xs">Holiday Desk Review</strong>
+                  <p className="text-[10.5px] text-[#667575] leading-tight">
+                    Our tour planner customizes halts, temple timings &amp; route buffers for your dates.
+                  </p>
+                </div>
+
+                <div className="p-3 rounded-xl bg-white border border-[#D5DDD5] shadow-xs space-y-1">
+                  <div className="w-5 h-5 rounded-full bg-[#D9A52B] text-[#062F31] flex items-center justify-center font-bold text-[10px]">
+                    2
+                  </div>
+                  <strong className="block text-[#182A2B] font-display text-xs">WhatsApp Quote &amp; Itinerary</strong>
+                  <p className="text-[10.5px] text-[#667575] leading-tight">
+                    You receive the full PDF itinerary, fixed quotation &amp; 10% advance link on WhatsApp.
+                  </p>
+                </div>
+
+                <div className="p-3 rounded-xl bg-white border border-[#D5DDD5] shadow-xs space-y-1">
+                  <div className="w-5 h-5 rounded-full bg-[#10B981] text-white flex items-center justify-center font-bold text-[10px]">
+                    3
+                  </div>
+                  <strong className="block text-[#182A2B] font-display text-xs">Dedicated Chauffeur Ready</strong>
+                  <p className="text-[10.5px] text-[#667575] leading-tight">
+                    Driver contacts you 1 day prior for smooth doorstep or BBI airport pickup.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Actions Bay */}
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5">
               <Link
                 href="/"
-                className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#FAF9F5] hover:bg-[#F2F5F2] border border-[#D5DDD5] text-[#182A2B] font-bold text-xs transition"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#FAF9F5] hover:bg-[#F2F5F2] border border-[#D5DDD5] text-[#182A2B] font-bold text-xs transition cursor-pointer text-center"
               >
                 Return to Homepage
               </Link>
+
+              <button
+                type="button"
+                onClick={() => typeof window !== "undefined" && window.print()}
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white hover:bg-[#FAF9F5] border border-[#D5DDD5] text-[#073B3A] font-bold text-xs inline-flex items-center justify-center gap-1.5 transition cursor-pointer shadow-xs"
+              >
+                <Printer className="w-3.5 h-3.5 text-[#073B3A]" />
+                <span>Print / Save Itinerary</span>
+              </button>
+
               <a
-                href={COMPANY_CONFIG.contact.whatsAppLink}
+                href={`${COMPANY_CONFIG.contact.whatsAppLink}?text=${encodeURIComponent(
+                  `Hi Cabjatra Tour Desk, I just requested tour reference ${enquiryRefId} (${currentTour.title}) starting ${travelDate} from ${pickupCity}. Please share the itinerary & quote.`
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#073B3A] hover:bg-[#062F31] text-white font-bold text-xs inline-flex items-center justify-center gap-2 transition shadow-skeuo-button"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#073B3A] hover:bg-[#062F31] text-white font-bold text-xs inline-flex items-center justify-center gap-2 transition shadow-skeuo-button cursor-pointer"
               >
-                <MessageSquare className="w-4 h-4 text-[#D9A52B]" />
-                <span>Chat with Tour Planner on WhatsApp</span>
+                <MessageSquare className="w-3.5 h-3.5 text-[#D9A52B]" />
+                <span>Chat with Tour Desk on WhatsApp</span>
               </a>
             </div>
           </div>

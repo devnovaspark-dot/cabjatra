@@ -27,17 +27,21 @@ import {
   Check,
   Navigation,
   Info,
+  Printer,
+  Copy,
 } from "lucide-react";
 import { COMPANY_CONFIG } from "@/data/company";
 import { VEHICLE_FLEET } from "@/data/vehicles";
 import { WhatsAppConsentCheckbox } from "@/components/common/WhatsAppConsentCheckbox";
 import { BrandLogo } from "@/components/common/BrandLogo";
+import { GlassCelebrationOrb } from "@/components/common/GlassCelebrationOrb";
 
 function CabBookingContent() {
   const searchParams = useSearchParams();
 
   // Wizard state (1: Trip Details, 2: Select Vehicle, 3: Passenger Info, 4: Review & Submit, 5: Confirmed)
   const [currentStep, setCurrentStep] = useState<number>(1);
+  const [copiedRef, setCopiedRef] = useState(false);
 
   // Form Fields
   const [serviceType, setServiceType] = useState<"outstation" | "airport" | "hourly" | "local">("outstation");
@@ -181,6 +185,13 @@ function CabBookingContent() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleCopyRef = () => {
+    if (!bookingReference) return;
+    navigator.clipboard.writeText(bookingReference);
+    setCopiedRef(true);
+    setTimeout(() => setCopiedRef(false), 2200);
+  };
+
   // 4-Step Navigation Configuration with 100% Guaranteed High-Contrast Typography
   const stepsConfig = [
     { num: 1, title: "Trip Details", subtitle: "Route & Schedule", icon: MapPin },
@@ -204,34 +215,36 @@ function CabBookingContent() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#021617]/95 via-[#062F31]/88 to-[#FAF9F5]" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-20 sm:pt-20 pb-4">
-        {/* Compact Low-Profile Header Section */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2 mb-2 sm:mb-2.5 text-white">
-          <div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-lg sm:text-2xl font-bold font-display tracking-tight text-white leading-tight">
-                Reserve Your Odisha Chauffeur
-              </h1>
-              <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[10px] font-semibold text-[#D9A52B]">
-                <Sparkles className="w-3 h-3 text-[#D9A52B]" />
-                10% Advance Deposit Model
+      <div className={`relative z-10 mx-auto px-3.5 sm:px-6 lg:px-8 ${currentStep === 5 ? "pt-24 sm:pt-28 pb-16 max-w-4xl" : "pt-20 sm:pt-20 pb-4 max-w-5xl"}`}>
+        {/* Compact Low-Profile Header Section - Only on Steps 1 to 4 */}
+        {currentStep < 5 && (
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2 mb-2 sm:mb-2.5 text-white">
+            <div>
+              <div className="flex items-center gap-2">
+                <h1 className="text-lg sm:text-2xl font-bold font-display tracking-tight text-white leading-tight">
+                  Reserve Your Odisha Chauffeur
+                </h1>
+                <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[10px] font-semibold text-[#D9A52B]">
+                  <Sparkles className="w-3 h-3 text-[#D9A52B]" />
+                  10% Advance Deposit Model
+                </span>
+              </div>
+              <p className="text-[11px] sm:text-xs text-white/80 line-clamp-1">
+                Punctual BBI airport pickups, outstation highway journeys &amp; city rentals with verified commercial chauffeurs.
+              </p>
+            </div>
+            <div className="hidden lg:flex items-center gap-2 text-[11px] text-white/90">
+              <span className="flex items-center gap-1 bg-[#062F31]/80 px-2.5 py-1 rounded-lg border border-white/15">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
+                100% Commercial Fleet
+              </span>
+              <span className="flex items-center gap-1 bg-[#062F31]/80 px-2.5 py-1 rounded-lg border border-white/15">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#D9A52B]" />
+                Zero Surge
               </span>
             </div>
-            <p className="text-[11px] sm:text-xs text-white/80 line-clamp-1">
-              Punctual BBI airport pickups, outstation highway journeys &amp; city rentals with verified commercial chauffeurs.
-            </p>
           </div>
-          <div className="hidden lg:flex items-center gap-2 text-[11px] text-white/90">
-            <span className="flex items-center gap-1 bg-[#062F31]/80 px-2.5 py-1 rounded-lg border border-white/15">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
-              100% Commercial Fleet
-            </span>
-            <span className="flex items-center gap-1 bg-[#062F31]/80 px-2.5 py-1 rounded-lg border border-white/15">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#D9A52B]" />
-              Zero Surge
-            </span>
-          </div>
-        </div>
+        )}
 
         {/* ================= 4-STEP NAVIGATION MATRIX (COMPACT SINGLE-WINDOW SLIM BAR) ================= */}
         {currentStep < 5 && (
@@ -1034,58 +1047,236 @@ function CabBookingContent() {
           </div>
         )}
 
-        {/* ================= STEP 5: SUCCESS / REQUEST RECEIVED ================= */}
+        {/* ================= STEP 5: 3D GLASS CELEBRATION & PRESTIGE CHAUFFEUR DISPATCH VOUCHER ================= */}
         {currentStep === 5 && (
-          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#D5DDD5] shadow-2xl space-y-4 text-center max-w-xl mx-auto animate-in zoom-in-95 duration-300">
-            {/* Success Icon */}
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-b from-[#084846] to-[#041F20] text-[#D9A52B] flex items-center justify-center mx-auto shadow-skeuo-button border-t border-white/20">
-              <FileCheck className="w-6 h-6" />
+          <div className="card-skeuo rounded-3xl p-5 sm:p-8 lg:p-9 border border-[#D5DDD5] shadow-2xl space-y-5 sm:space-y-6 text-center max-w-3xl mx-auto animate-in zoom-in-95 duration-300">
+            {/* 3D Glass Celebration Orb with Smooth Spring Bouncing Physics */}
+            <div className="pt-2">
+              <GlassCelebrationOrb size="lg" />
             </div>
 
-            <div className="space-y-1">
-              <div className="inline-block px-3 py-0.5 rounded-full bg-[#E0ECEA] text-[#073B3A] text-[10px] font-bold uppercase tracking-wider">
-                Booking Request Successfully Received
+            {/* Header Titles */}
+            <div className="space-y-1.5">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0ECEA] border border-[#B6D6D2] text-[#073B3A] text-[10.5px] sm:text-xs font-bold uppercase tracking-wider shadow-xs">
+                <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+                <span>Pre-Booked Chauffeur Dispatch Confirmed</span>
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold font-display text-[#182A2B]">
-                Thank You, {passengerName || "Traveler"}!
+              <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#182A2B] tracking-tight">
+                Thank You, {passengerName || "Esteemed Traveler"}!
               </h2>
-              <p className="text-xs text-[#667575] max-w-md mx-auto leading-relaxed">
-                Your travel request has been logged in our central Odisha operations queue.
+              <p className="text-xs sm:text-sm text-[#556464] max-w-lg mx-auto leading-relaxed">
+                Your chauffeur reservation is logged in our central Odisha dispatch queue. Our operations desk is preparing your verified yellow-board vehicle and chauffeur credentials.
               </p>
             </div>
 
-            {/* Reference Badge */}
-            <div className="p-3.5 rounded-2xl bg-[#FAF9F5] border border-[#D5DDD5] inline-block w-full text-left shadow-xs">
-              <div className="flex items-center justify-between pb-1.5 border-b border-[#E5EAE5] text-xs">
-                <span className="text-[#667575]">Booking Reference ID:</span>
-                <strong className="font-mono text-xs text-[#073B3A] font-black">
-                  {bookingReference}
-                </strong>
+            {/* Digital Chauffeur Reservation Voucher / Boarding Pass */}
+            <div className="rounded-2xl border-2 border-[#D9A52B]/40 bg-gradient-to-b from-[#FAF9F5] to-[#F3F6F3] shadow-card overflow-hidden text-left relative">
+              {/* Voucher Top Header Bar */}
+              <div className="bg-[#073B3A] text-white p-3 sm:p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#D9A52B]/30">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-[#D9A52B]/20 border border-[#D9A52B]/40 flex items-center justify-center text-[#D9A52B] font-bold text-xs">
+                    CJ
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#D9A52B] block leading-tight">
+                      Odisha Chauffeur Mobility Voucher
+                    </span>
+                    <span className="text-xs sm:text-sm font-bold font-display text-white">
+                      Commercial Pre-Booked Dispatch
+                    </span>
+                  </div>
+                </div>
+
+                {/* Reference ID with Interactive Copy Button */}
+                <div className="flex items-center gap-2 self-start sm:self-auto bg-black/30 px-3 py-1 rounded-xl border border-white/15">
+                  <div>
+                    <span className="text-[9px] text-[#A7F3D0] block uppercase leading-none">Booking Ref:</span>
+                    <strong className="font-mono text-xs sm:text-sm text-[#FAF9F5] font-black">
+                      {bookingReference}
+                    </strong>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleCopyRef}
+                    className="p-1 px-1.5 rounded-md bg-white/10 hover:bg-white/20 text-[#D9A52B] transition cursor-pointer flex items-center gap-1 text-[10px] font-bold"
+                    title="Copy Reference ID"
+                  >
+                    {copiedRef ? (
+                      <>
+                        <Check className="w-3 h-3 text-[#10B981]" />
+                        <span className="text-[#10B981]">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3 h-3" />
+                        <span>Copy</span>
+                      </>
+                    )}
+                  </button>
+                </div>
               </div>
-              <div className="pt-1.5 text-[11px] text-[#455353] space-y-0.5">
-                <div>Route: <strong>{pickupCity} ➔ {serviceType === "hourly" ? hourlyPackage : dropLocation}</strong></div>
-                <div>Vehicle: <strong>{selectedVehicle.name}</strong></div>
-                <div>Date &amp; Time: <strong>{pickupDate} at {pickupTime}</strong></div>
-                <div>Estimated Total: <strong>₹{fares.total.toLocaleString("en-IN")}</strong></div>
+
+              {/* Voucher Body (2 Columns) */}
+              <div className="p-4 sm:p-5 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs divide-y md:divide-y-0 md:divide-x divide-[#D5DDD5]">
+                {/* Column 1: Journey Details */}
+                <div className="space-y-2.5 pb-3 md:pb-0">
+                  <div className="flex items-center gap-1.5 text-[10.5px] font-bold text-[#073B3A] uppercase tracking-wider">
+                    <Compass className="w-3.5 h-3.5 text-[#D9A52B]" />
+                    <span>Journey Schedule &amp; Route</span>
+                  </div>
+                  
+                  <div className="bg-white p-2.5 rounded-xl border border-[#D5DDD5] space-y-1.5 shadow-xs">
+                    <div>
+                      <span className="text-[10px] text-[#667575] block">Corridor Route:</span>
+                      <strong className="text-sm font-bold text-[#182A2B]">
+                        {pickupCity} ➔ {serviceType === "hourly" ? hourlyPackage : dropLocation}
+                      </strong>
+                    </div>
+                    {pickupAddress && (
+                      <div>
+                        <span className="text-[10px] text-[#667575] block">Pickup Landmark / Address:</span>
+                        <span className="text-xs font-semibold text-[#182A2B]">{pickupAddress}</span>
+                      </div>
+                    )}
+                    <div className="grid grid-cols-2 gap-2 pt-1 border-t border-[#EEF2EE]">
+                      <div>
+                        <span className="text-[10px] text-[#667575] block">Date:</span>
+                        <strong className="text-xs text-[#182A2B]">{pickupDate}</strong>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-[#667575] block">Pickup Time:</span>
+                        <strong className="text-xs text-[#073B3A]">{pickupTime}</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-[11px] text-[#455353] space-y-0.5">
+                    <div>Lead Passenger: <strong className="text-[#182A2B]">{passengerName} (+91 {passengerPhone})</strong></div>
+                    <div>Travel Purpose: <span className="font-semibold text-[#073B3A]">{travelPurpose}</span></div>
+                    <div>Party Size: <strong>{passengerCount} Passengers • {luggageCount} Bags</strong></div>
+                  </div>
+                </div>
+
+                {/* Column 2: Vehicle & Advance Model Breakdown */}
+                <div className="space-y-2.5 pt-3 md:pt-0 md:pl-4">
+                  <div className="flex items-center gap-1.5 text-[10.5px] font-bold text-[#073B3A] uppercase tracking-wider">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
+                    <span>Allocated Fleet &amp; Tariff</span>
+                  </div>
+
+                  <div className="bg-white p-2.5 rounded-xl border border-[#D5DDD5] space-y-1.5 shadow-xs">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="text-[10px] text-[#667575] block">Assigned Class:</span>
+                        <strong className="text-xs font-bold text-[#073B3A]">{selectedVehicle.name}</strong>
+                      </div>
+                      <span className="px-2 py-0.5 rounded-full text-[9px] font-bold bg-[#E0ECEA] text-[#073B3A] border border-[#B6D6D2]">
+                        100% Yellow Board
+                      </span>
+                    </div>
+
+                    <div className="pt-1.5 border-t border-[#EEF2EE] space-y-1 text-xs">
+                      <div className="flex justify-between text-[#667575]">
+                        <span>Estimated Total Tariff:</span>
+                        <strong className="text-[#182A2B] font-bold text-sm">₹{fares.total.toLocaleString("en-IN")}</strong>
+                      </div>
+                      <div className="flex justify-between items-center bg-[#E0ECEA]/70 p-1.5 rounded-lg text-[#073B3A] font-semibold">
+                        <div>
+                          <span className="block text-[10.5px] font-bold">10% Advance Deposit Model:</span>
+                          <span className="text-[9px] text-[#455353]">Zero charged until fleet confirmed</span>
+                        </div>
+                        <strong className="font-black text-xs text-[#073B3A]">₹{fares.advance.toLocaleString("en-IN")}</strong>
+                      </div>
+                      <div className="flex justify-between text-[11px] text-[#667575]">
+                        <span>Remaining 90% (Pay to driver at trip end):</span>
+                        <strong className="text-[#182A2B]">₹{fares.balance.toLocaleString("en-IN")}</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Priority Allocation Pulse Strip */}
+                  <div className="p-2 rounded-xl bg-emerald-50 border border-emerald-200 text-[10.5px] text-emerald-900 flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping shrink-0" />
+                    <span><strong>Live Queue:</strong> Priority Chauffeur Allocation In Progress</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Voucher Bottom Disclaimer Strip */}
+              <div className="bg-[#FAF9F5] px-4 py-2 border-t border-[#D5DDD5] text-[10.5px] text-[#667575] flex items-center justify-between">
+                <span>Official Chauffeur Dispatch Voucher • Cabjatra Mobility Services</span>
+                <span className="font-semibold text-[#073B3A]">Zero Cancellation Fee on 6hr Notice</span>
               </div>
             </div>
 
-            {/* Actions */}
+            {/* Next Steps 3-Card Timeline */}
+            <div className="text-left space-y-2">
+              <span className="text-[11px] font-bold text-[#182A2B] uppercase tracking-wider block">
+                What Happens Next?
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+                <div className="p-3 rounded-xl bg-white border border-[#D5DDD5] shadow-xs space-y-1">
+                  <div className="w-5 h-5 rounded-full bg-[#073B3A] text-white flex items-center justify-center font-bold text-[10px]">
+                    1
+                  </div>
+                  <strong className="block text-[#182A2B] font-display text-xs">Fleet &amp; Driver Check</strong>
+                  <p className="text-[10.5px] text-[#667575] leading-tight">
+                    Operations team verifies sanitized vehicle readiness &amp; driver assignment within 15–20 mins.
+                  </p>
+                </div>
+
+                <div className="p-3 rounded-xl bg-white border border-[#D5DDD5] shadow-xs space-y-1">
+                  <div className="w-5 h-5 rounded-full bg-[#D9A52B] text-[#062F31] flex items-center justify-center font-bold text-[10px]">
+                    2
+                  </div>
+                  <strong className="block text-[#182A2B] font-display text-xs">WhatsApp Dispatch Voucher</strong>
+                  <p className="text-[10.5px] text-[#667575] leading-tight">
+                    Driver credentials, vehicle plate registration and 10% payment link arrive on your WhatsApp.
+                  </p>
+                </div>
+
+                <div className="p-3 rounded-xl bg-white border border-[#D5DDD5] shadow-xs space-y-1">
+                  <div className="w-5 h-5 rounded-full bg-[#10B981] text-white flex items-center justify-center font-bold text-[10px]">
+                    3
+                  </div>
+                  <strong className="block text-[#182A2B] font-display text-xs">Punctual Chauffeur Arrival</strong>
+                  <p className="text-[10.5px] text-[#667575] leading-tight">
+                    Your chauffeur arrives 10 minutes prior with dual-zone AC primed. Remaining 90% payable at drop.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Actions Bay */}
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5">
               <Link
                 href="/"
-                className="w-full sm:w-auto px-5 py-2.5 rounded-full bg-[#FAF9F5] hover:bg-[#F2F5F2] border border-[#D5DDD5] text-[#182A2B] font-bold text-xs transition"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#FAF9F5] hover:bg-[#F2F5F2] border border-[#D5DDD5] text-[#182A2B] font-bold text-xs transition cursor-pointer text-center"
               >
                 Return to Homepage
               </Link>
+              
+              <button
+                type="button"
+                onClick={() => typeof window !== "undefined" && window.print()}
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white hover:bg-[#FAF9F5] border border-[#D5DDD5] text-[#073B3A] font-bold text-xs inline-flex items-center justify-center gap-1.5 transition cursor-pointer shadow-xs"
+              >
+                <Printer className="w-3.5 h-3.5 text-[#073B3A]" />
+                <span>Print / Save Voucher</span>
+              </button>
+
               <a
-                href={COMPANY_CONFIG.contact.whatsAppLink}
+                href={`${COMPANY_CONFIG.contact.whatsAppLink}?text=${encodeURIComponent(
+                  `Hi Cabjatra Dispatch, I just booked reference ${bookingReference} (${pickupCity} to ${
+                    serviceType === "hourly" ? hourlyPackage : dropLocation
+                  }) on ${pickupDate}. Please confirm my chauffeur allocation status.`
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-5 py-2.5 rounded-full bg-[#073B3A] hover:bg-[#062F31] text-white font-bold text-xs inline-flex items-center justify-center gap-1.5 transition shadow-skeuo-button"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#073B3A] hover:bg-[#062F31] text-white font-bold text-xs inline-flex items-center justify-center gap-2 transition shadow-skeuo-button cursor-pointer"
               >
                 <MessageSquare className="w-3.5 h-3.5 text-[#D9A52B]" />
-                <span>Contact Dispatch on WhatsApp</span>
+                <span>Open Dispatch Desk on WhatsApp</span>
               </a>
             </div>
           </div>
