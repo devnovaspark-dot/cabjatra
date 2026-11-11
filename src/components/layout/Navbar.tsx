@@ -289,12 +289,16 @@ export const Navbar: React.FC = () => {
               )}
             </div>
 
-            {/* Destinations */}
+            {/* How It Works */}
             <Link
-              href="/#destinations"
-              className="px-3.5 py-2 rounded-full text-xs font-semibold text-[#FAF9F5]/90 hover:text-[#D9A52B] hover:bg-white/10 transition-colors"
+              href="/how-it-works"
+              className={`px-3.5 py-2 rounded-full text-xs font-semibold transition-colors ${
+                pathname === "/how-it-works"
+                  ? "text-[#D9A52B] bg-white/10 font-bold shadow-xs"
+                  : "text-[#FAF9F5]/90 hover:text-[#D9A52B] hover:bg-white/10"
+              }`}
             >
-              Destinations
+              How It Works
             </Link>
 
             {/* About Us */}
@@ -430,10 +434,14 @@ export const Navbar: React.FC = () => {
               </div>
 
               <Link
-                href="/#destinations"
-                className="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#182A2B] hover:bg-white"
+                href="/how-it-works"
+                className={`block px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-colors ${
+                  pathname === "/how-it-works"
+                    ? "text-[#073B3A] bg-white font-bold"
+                    : "text-[#182A2B] hover:bg-white"
+                }`}
               >
-                Destinations
+                How It Works
               </Link>
               <Link
                 href="/about"
