@@ -152,9 +152,9 @@ function TourBookingContent() {
           priority
           className="object-cover object-center brightness-[0.92] contrast-[1.05]"
         />
-        {/* Luminous, cinematic gradient that keeps temple architecture, skies & landscape clearly visible */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#021617]/75 via-[#062F31]/35 via-45% to-[#FAF9F5]" />
-        <div className="absolute inset-0 bg-radial-[at_center_top] from-transparent via-transparent to-black/25 pointer-events-none" />
+        {/* Balanced cinematic gradient overlay: pure transparent clarity without white shadow cast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#011415]/85 via-[#021819]/55 via-50% to-[#011415]/90" />
+        <div className="absolute inset-0 bg-radial-[at_center_top] from-transparent via-transparent to-black/40 pointer-events-none" />
       </div>
 
       <div

@@ -132,3 +132,4 @@ export const Icon3DCross: React.FC<Icon3DProps> = ({
     </div>
   );
 };
+

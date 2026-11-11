@@ -510,13 +510,12 @@ export default function HowItWorksPage() {
             alt="Puri-Konark Marine Drive Coastal Highway, Odisha"
             fill
             priority
-            className="object-cover object-center scale-102 opacity-35"
+            className="object-cover object-center scale-102"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#011415]/95 via-[#032123]/90 to-[#FAF9F5]" />
+          {/* Balanced cinematic gradient overlay: pure transparent clarity without white shadow cast */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#011415]/85 via-[#021819]/55 via-50% to-[#011415]/90" />
+          <div className="absolute inset-0 bg-radial-[at_center_top] from-transparent via-transparent to-black/40 pointer-events-none" />
         </div>
-
-        {/* Ambient Radial Lighting Glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[640px] h-80 bg-[#D9A52B]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 sm:space-y-5">
           {/* Eyebrow Pill */}
