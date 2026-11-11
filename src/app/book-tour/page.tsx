@@ -160,23 +160,20 @@ function TourBookingContent() {
       <div
         className={`relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 ${
           currentStep === 4
-            ? "pt-12 sm:pt-16 pb-6 min-h-[82vh] flex items-center justify-center"
-            : "pt-24 sm:pt-28 pb-16"
+            ? "pt-14 sm:pt-16 pb-6 min-h-[82vh] flex items-center justify-center"
+            : "pt-28 sm:pt-32 pb-12"
         }`}
       >
-        {/* Clean, Non-Text-Heavy Hero Header */}
+        {/* Clean, Non-Text-Heavy Hero Header - Zero Navbar Overlap */}
         {currentStep < 4 && (
-          <div className="text-center max-w-2xl mx-auto mb-8 text-white">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/35 backdrop-blur-md border border-white/20 text-xs font-semibold text-[#D9A52B] mb-3 shadow-sm">
+          <div className="text-center max-w-2xl mx-auto mb-5 text-white">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/45 backdrop-blur-md border border-[#D9A52B]/40 text-xs font-semibold text-[#D9A52B] mb-2 shadow-sm">
               <Palmtree className="w-3.5 h-3.5 text-[#D9A52B]" />
               <span>Curated Circuits • Standby Commercial Chauffeur</span>
             </div>
-            <h1 className="text-2xl sm:text-4xl font-extrabold font-display tracking-tight text-white drop-shadow-md">
+            <h1 className="text-xl sm:text-3xl font-extrabold font-display tracking-tight text-white drop-shadow-md">
               Book an Odisha Private Tour
             </h1>
-            <p className="mt-2 text-xs sm:text-sm text-white/85 font-medium leading-relaxed drop-shadow-xs">
-              Explore sacred Jagannath Dham, UNESCO Konark chariot wheels &amp; Chilika lake trails with a private standby chauffeur.
-            </p>
           </div>
         )}
 

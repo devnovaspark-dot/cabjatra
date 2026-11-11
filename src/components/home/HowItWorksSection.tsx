@@ -444,13 +444,13 @@ export const HowItWorksSection: React.FC = () => {
                 steeringAngle={steeringAngle}
               />
 
-              {/* Digital Cockpit HUD Tag */}
-              <div className="absolute -right-32 sm:-right-36 top-1/2 -translate-y-1/2 hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#062F31]/95 backdrop-blur-md border border-[#D9A52B]/40 text-white text-[10px] font-bold shadow-xl pointer-events-none whitespace-nowrap">
-                <span className="w-2 h-2 rounded-full bg-[#10B981] animate-ping" />
-                <Gauge className="w-3.5 h-3.5 text-[#D9A52B]" />
+              {/* Digital Cockpit HUD Tag — Neatly Centered Under Car, Never Overlapping Side Cards */}
+              <div className="absolute left-1/2 -translate-x-1/2 -bottom-8 hidden md:flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#062F31]/95 backdrop-blur-md border border-[#D9A52B]/50 text-white text-[9.5px] font-bold shadow-xl pointer-events-none whitespace-nowrap z-30">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-ping" />
+                <Gauge className="w-3 h-3 text-[#D9A52B]" />
                 <span className="font-mono text-[#D9A52B]">{carSpeed} km/h</span>
                 <span className="text-white/40">•</span>
-                <span className="text-[#FAF9F5]">NH-316 Dispatch</span>
+                <span className="text-[#FAF9F5]">NH-316</span>
               </div>
             </div>
 

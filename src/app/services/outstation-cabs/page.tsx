@@ -14,7 +14,7 @@ export default function OutstationCabsPage() {
       subtitle="Comfortable intercity travel across Odisha with experienced highway drivers"
       tagline="Travel across Odisha's cultural corridors in absolute peace"
       badge="Intercity & One-Way"
-      heroImage="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1200&auto=format&fit=crop"
+      heroImage="https://images.unsplash.com/photo-1775050416787-fe3179f0679e?q=85&w=1600&auto=format&fit=crop"
       overview="Whether visiting holy shrines in Puri, exploring the architectural marvel at Konark, or cruising along Chilika Lake, our outstation cabs provide unmatched reliability. Travel at your own pace with clean air-conditioned vehicles and drivers who know every highway bypass and authentic dhaba stop."
       whyUsPoints={[
         {

@@ -2,24 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import {
-  ShieldCheck,
-  CheckCircle2,
-  Sparkles,
-  Star,
-  MapPin,
-  Car,
-  Camera,
-  Heart,
-} from "lucide-react";
+import { ShieldCheck, CheckCircle2 } from "lucide-react";
 import { QuickBookingWidget } from "./QuickBookingWidget";
 
 interface HeroSlide {
   id: string;
   image: string;
-  title: string;
-  location: string;
-  badge: string;
+  alt: string;
 }
 
 const HERO_SLIDES: HeroSlide[] = [
@@ -27,49 +16,37 @@ const HERO_SLIDES: HeroSlide[] = [
     id: "marine-drive",
     image:
       "https://images.unsplash.com/photo-1775050416787-fe3179f0679e?q=85&w=2400&auto=format&fit=crop",
-    title: "Puri – Konark Marine Drive",
-    location: "Coastal Highway Corridor, Odisha",
-    badge: "Scenic Coastal Drive",
+    alt: "Puri – Konark Marine Drive coastal highway corridor with scenic palm trees",
   },
   {
     id: "coastal-palms",
     image:
       "https://images.unsplash.com/photo-1761531429136-9a21cb706fe7?q=85&w=2400&auto=format&fit=crop",
-    title: "Odisha Coastal Highway",
-    location: "Palm-lined Highway NH-316",
-    badge: "100% Commercial Fleet",
-  },
-  {
-    id: "happy-roadtrip",
-    image:
-      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=2400&auto=format&fit=crop",
-    title: "Golden Triangle Pilgrimage",
-    location: "Puri Jagannath Dham & Konark",
-    badge: "Happy Travelers Road Trip",
+    alt: "Odisha coastal highway corridor connecting Puri, Konark and Chilika",
   },
 ];
 
 export const HeroSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Auto-switch scenic background every 9 seconds
+  // Auto-switch scenic background every 10 seconds smoothly
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 9000);
+    }, 10000);
     return () => clearInterval(timer);
   }, []);
 
   const slide = HERO_SLIDES[currentSlide];
 
   return (
-    <section className="relative text-white overflow-hidden pt-20 sm:pt-26 lg:pt-30 pb-8 sm:pb-10 lg:pb-12 border-b border-black/20">
+    <section className="relative text-white overflow-hidden pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-10 lg:pb-12 border-b border-black/20">
       {/* High-Resolution HD Background with Car in Motion along Scenic Odisha Corridors */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
           key={slide.id}
           src={slide.image}
-          alt={`${slide.title} - ${slide.location}`}
+          alt={slide.alt}
           fill
           priority
           className="object-cover object-center scale-102 transition-all duration-1000 animate-in fade-in"
@@ -81,40 +58,8 @@ export const HeroSection: React.FC = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
-        {/* Floating Scenic Location Badge & Switcher */}
-        <div className="flex items-center justify-between mb-4 sm:mb-6 max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/45 backdrop-blur-md border border-white/20 text-[10.5px] sm:text-xs text-[#FAF9F5] shadow-md">
-            <span className="w-2 h-2 rounded-full bg-[#10B981] animate-ping" />
-            <span className="font-bold text-[#D9A52B]">{slide.title}</span>
-            <span className="text-white/60 hidden sm:inline">&bull;</span>
-            <span className="text-white/85 hidden sm:inline">{slide.location}</span>
-          </div>
-
-          {/* Quick Scene Switcher Dots */}
-          <div className="flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/15">
-            {HERO_SLIDES.map((s, idx) => (
-              <button
-                key={s.id}
-                type="button"
-                onClick={() => setCurrentSlide(idx)}
-                className={`transition-all rounded-full cursor-pointer ${
-                  idx === currentSlide
-                    ? "w-5 h-1.5 bg-[#D9A52B]"
-                    : "w-1.5 h-1.5 bg-white/40 hover:bg-white"
-                }`}
-                title={s.title}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Clean, Spacious & Uncluttered Header */}
+        {/* Clean, Spacious & Uncluttered Header — Pure Headline without Visual Noise */}
         <div className="max-w-4xl mx-auto text-center space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-          {/* Tradition & Mobility Collaborative Kicker */}
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-black/45 backdrop-blur-md border border-white/20 text-[10px] sm:text-xs font-semibold text-[#D9A52B] shadow-sm">
-            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D9A52B]" />
-            <span>Sacred Temples &bull; Coastal Corridors &bull; Chauffeur Distinction</span>
-          </div>
 
           {/* Majestic Headline */}
           <h1 className="text-2xl sm:text-5xl lg:text-7xl font-bold font-display tracking-tight text-white leading-tight sm:leading-[1.08] drop-shadow-lg">

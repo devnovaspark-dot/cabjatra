@@ -198,8 +198,8 @@ function CabBookingContent() {
       {/* Luminous Scenic Highway Travel Backdrop - High Clarity Without Murky Shadows */}
       <div className="absolute top-0 inset-x-0 h-[640px] sm:h-[720px] z-0 overflow-hidden pointer-events-none">
         <Image
-          src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=2400&auto=format&fit=crop"
-          alt="Scenic coastal highway journey through Odisha"
+          src="https://images.unsplash.com/photo-1775050416787-fe3179f0679e?q=85&w=2400&auto=format&fit=crop"
+          alt="Scenic coastal highway journey along Puri-Konark Marine Drive, Odisha"
           fill
           priority
           className="object-cover object-center brightness-[0.92] contrast-[1.05]"
@@ -212,23 +212,20 @@ function CabBookingContent() {
       <div
         className={`relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 ${
           currentStep === 5
-            ? "pt-12 sm:pt-16 pb-6 min-h-[82vh] flex items-center justify-center"
-            : "pt-24 sm:pt-28 pb-16"
+            ? "pt-14 sm:pt-16 pb-6 min-h-[82vh] flex items-center justify-center"
+            : "pt-28 sm:pt-32 pb-12"
         }`}
       >
-        {/* Clean, Non-Text-Heavy Hero Header */}
+        {/* Clean, Non-Text-Heavy Hero Header - Never overlaps with Floating Navbar */}
         {currentStep < 5 && (
-          <div className="text-center max-w-2xl mx-auto mb-8 text-white">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/35 backdrop-blur-md border border-white/20 text-xs font-semibold text-[#D9A52B] mb-3 shadow-sm">
+          <div className="text-center max-w-2xl mx-auto mb-5 text-white">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/45 backdrop-blur-md border border-[#D9A52B]/40 text-xs font-semibold text-[#D9A52B] mb-2 shadow-sm">
               <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
               <span>10% Advance Deposit Model • 100% Commercial Fleet</span>
             </div>
-            <h1 className="text-2xl sm:text-4xl font-extrabold font-display tracking-tight text-white drop-shadow-md">
+            <h1 className="text-xl sm:text-3xl font-extrabold font-display tracking-tight text-white drop-shadow-md">
               Reserve Your Odisha Chauffeur
             </h1>
-            <p className="mt-2 text-xs sm:text-sm text-white/85 font-medium leading-relaxed drop-shadow-xs">
-              Punctual airport pickups, outstation highway journeys &amp; city rentals with verified commercial chauffeurs.
-            </p>
           </div>
         )}
 
@@ -298,228 +295,188 @@ function CabBookingContent() {
 
         {/* Stable Main Card Container - Generous Spacing & Zero Layout Shifting */}
         <div className="max-w-4xl mx-auto">
-          {/* ================= STEP 1: ROUTE & SCHEDULE ================= */}
+          {/* ================= STEP 1: ROUTE & SCHEDULE (ZERO LAYOUT SHIFT) ================= */}
           {currentStep === 1 && (
             <form
               onSubmit={handleNextFromStep1}
-              className="card-skeuo rounded-3xl p-6 sm:p-8 lg:p-10 space-y-6 min-h-[580px] flex flex-col justify-between animate-in fade-in-50 duration-200"
+              className="card-skeuo rounded-3xl p-5 sm:p-7 border border-[#D5DDD5] shadow-xl space-y-4 animate-in fade-in-50 duration-200"
             >
-              <div className="space-y-6">
-                {/* Header */}
-                <div className="border-b border-[#E5ECE5] pb-4 flex items-center justify-between gap-3">
-                  <div>
-                    <h2 className="text-lg sm:text-xl font-bold font-display text-[#182A2B]">
-                      Select Service &amp; Schedule
-                    </h2>
-                    <p className="text-xs text-[#667575] mt-0.5">
-                      Choose your travel format and enter your journey coordinates.
-                    </p>
-                  </div>
-                  <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#073B3A] font-semibold bg-[#E0ECEA] px-3 py-1 rounded-full border border-[#C1DAD7]">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
-                    <span>Free Cancellation (6hr notice)</span>
-                  </span>
+              {/* Header */}
+              <div className="border-b border-[#E5ECE5] pb-3 flex items-center justify-between gap-3">
+                <div>
+                  <h2 className="text-base sm:text-lg font-bold font-display text-[#182A2B]">
+                    Select Service &amp; Schedule
+                  </h2>
+                  <p className="text-xs text-[#667575]">
+                    Choose your travel format and enter your journey coordinates.
+                  </p>
                 </div>
+                <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#073B3A] font-semibold bg-[#E0ECEA] px-3 py-1 rounded-full border border-[#C1DAD7]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
+                  <span>Free Cancellation (6hr notice)</span>
+                </span>
+              </div>
 
-                {/* 4 Spacious Service Cards */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-                  {[
-                    { id: "outstation", label: "Outstation", desc: "Puri, Konark, Intercity", icon: Compass },
-                    { id: "airport", label: "Airport Transfer", desc: "BBI Arrivals & Drops", icon: Plane },
-                    { id: "hourly", label: "Hourly Rental", desc: "Chauffeur on Standby", icon: Clock },
-                    { id: "local", label: "Local City Ride", desc: "Doorstep Scheduled", icon: Car },
-                  ].map((srv) => {
-                    const Icon = srv.icon;
-                    const isSelected = serviceType === srv.id;
-                    return (
-                      <button
-                        key={srv.id}
-                        type="button"
-                        onClick={() => setServiceType(srv.id as any)}
-                        className={`p-4 rounded-2xl border text-left transition-all flex flex-col justify-between cursor-pointer min-h-[96px] ${
-                          isSelected
-                            ? "border-2 border-[#D9A52B] card-skeuo-dark text-white shadow-md ring-2 ring-[#D9A52B]/30"
-                            : "card-skeuo text-[#182A2B] hover:border-[#073B3A]/40"
-                        }`}
-                      >
-                        <div className="flex items-center justify-between w-full mb-2">
-                          <div
-                            className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${
-                              isSelected ? "medallion-dark text-[#D9A52B]" : "panel-recessed text-[#073B3A]"
-                            }`}
-                          >
-                            <Icon className="w-4 h-4" />
-                          </div>
-                          {isSelected && (
-                            <span className="text-xs font-bold text-[#D9A52B] bg-white/10 px-2 py-0.5 rounded-md">
-                              Active
-                            </span>
-                          )}
-                        </div>
-                        <div>
-                          <span className="text-xs sm:text-sm font-bold font-display block leading-tight">
-                            {srv.label}
-                          </span>
-                          <span
-                            className={`text-[11px] block mt-0.5 truncate ${
-                              isSelected ? "text-[#E0ECEA]/80" : "text-[#667575]"
-                            }`}
-                          >
-                            {srv.desc}
-                          </span>
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
+              {/* 4 Service Tabs Segmented Control (Fixed Height 48px - Zero Layout Shift) */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 p-1.5 bg-[#EEF2EE] rounded-2xl border border-[#D5DDD5]">
+                {[
+                  { id: "outstation", label: "Outstation Highway", icon: Compass },
+                  { id: "airport", label: "Airport Transfer", icon: Plane },
+                  { id: "hourly", label: "Hourly Rental", icon: Clock },
+                  { id: "local", label: "Local City Ride", icon: Car },
+                ].map((srv) => {
+                  const Icon = srv.icon;
+                  const isSelected = serviceType === srv.id;
+                  return (
+                    <button
+                      key={srv.id}
+                      type="button"
+                      onClick={() => setServiceType(srv.id as any)}
+                      className={`h-10 px-2 sm:px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 sm:gap-2 transition-all cursor-pointer select-none ${
+                        isSelected
+                          ? "bg-[#073B3A] text-white shadow-md ring-1 ring-[#D9A52B]/40"
+                          : "text-[#556464] hover:text-[#182A2B] hover:bg-white/60"
+                      }`}
+                    >
+                      <Icon className={`w-3.5 h-3.5 shrink-0 ${isSelected ? "text-[#D9A52B]" : "text-[#073B3A]"}`} />
+                      <span className="truncate">{srv.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
 
-                {/* Outstation Trip Toggle */}
-                {serviceType === "outstation" && (
-                  <div className="flex items-center gap-2 p-1.5 bg-[#EEF2EE] rounded-2xl w-fit border border-[#D5DDD5]">
+              {/* Fixed-Height Sub-Option Bar (Always 40px - Never disappears, Zero Shifting!) */}
+              <div className="h-10 flex items-center justify-between px-1">
+                {serviceType === "outstation" ? (
+                  <div className="flex items-center gap-1.5 p-1 bg-[#EEF2EE] rounded-xl border border-[#D5DDD5]">
                     <button
                       type="button"
                       onClick={() => setTripWay("oneway")}
-                      className={`px-4 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                        tripWay === "oneway"
-                          ? "bg-[#073B3A] text-white shadow-skeuo-button"
-                          : "text-[#667575] hover:text-[#182A2B]"
+                      className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                        tripWay === "oneway" ? "bg-[#073B3A] text-white shadow-xs" : "text-[#667575] hover:text-[#182A2B]"
                       }`}
                     >
-                      One-Way Highway Drop
+                      One-Way Drop
                     </button>
                     <button
                       type="button"
                       onClick={() => setTripWay("round")}
-                      className={`px-4 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                        tripWay === "round"
-                          ? "bg-[#073B3A] text-white shadow-skeuo-button"
-                          : "text-[#667575] hover:text-[#182A2B]"
+                      className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                        tripWay === "round" ? "bg-[#073B3A] text-white shadow-xs" : "text-[#667575] hover:text-[#182A2B]"
                       }`}
                     >
                       Round Trip Return
                     </button>
                   </div>
+                ) : serviceType === "airport" ? (
+                  <span className="text-xs font-bold text-[#073B3A] inline-flex items-center gap-1.5 bg-[#E0ECEA]/80 px-3 py-1 rounded-full border border-[#B6D6D2]">
+                    <Plane className="w-3.5 h-3.5 text-[#D9A52B]" />
+                    <span>BBI Airport Flight-Radar Synchronized</span>
+                  </span>
+                ) : serviceType === "hourly" ? (
+                  <span className="text-xs font-bold text-[#073B3A] inline-flex items-center gap-1.5 bg-[#E0ECEA]/80 px-3 py-1 rounded-full border border-[#B6D6D2]">
+                    <Clock className="w-3.5 h-3.5 text-[#D9A52B]" />
+                    <span>Standby Chauffeur • Multi-Stop Errand Freedom</span>
+                  </span>
+                ) : (
+                  <span className="text-xs font-bold text-[#073B3A] inline-flex items-center gap-1.5 bg-[#E0ECEA]/80 px-3 py-1 rounded-full border border-[#B6D6D2]">
+                    <Car className="w-3.5 h-3.5 text-[#D9A52B]" />
+                    <span>Guaranteed Driver Allocation • Zero Cancellations</span>
+                  </span>
                 )}
 
-                {/* Stable, Predictable 2-Column Form Fields Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-                  {/* Field 1: Pickup Hub */}
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-[#073B3A]" />
-                      <span>Pickup Hub / Origin City *</span>
-                    </label>
-                    <select
-                      value={pickupCity}
-                      onChange={(e) => setPickupCity(e.target.value)}
-                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
-                    >
-                      {COMPANY_CONFIG.operatingCities.map((c) => (
-                        <option key={c.code} value={c.name}>
-                          {c.name} ({c.badge})
-                        </option>
-                      ))}
-                    </select>
-                    {formErrors.pickupCity && (
-                      <p className="text-xs text-rose-600 font-medium">{formErrors.pickupCity}</p>
+                <span className="text-[11px] text-[#667575] font-semibold hidden sm:inline">
+                  100% Commercial Fleet
+                </span>
+              </div>
+
+              {/* Rock-Solid 2x2 Form Fields Grid (Fixed Slot Architecture - Zero Shifting) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                {/* Field 1: Pickup Hub / Origin City (Slot 1) */}
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#073B3A]" />
+                    <span>Pickup Hub / Origin City *</span>
+                  </label>
+                  <select
+                    value={pickupCity}
+                    onChange={(e) => setPickupCity(e.target.value)}
+                    className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
+                  >
+                    {COMPANY_CONFIG.operatingCities.map((c) => (
+                      <option key={c.code} value={c.name}>
+                        {c.name} ({c.badge})
+                      </option>
+                    ))}
+                  </select>
+                  {formErrors.pickupCity && (
+                    <p className="text-[11px] text-rose-600 font-medium">{formErrors.pickupCity}</p>
+                  )}
+                </div>
+
+                {/* Field 2: Destination / Hourly Package / Flight (Slot 2) */}
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
+                    {serviceType === "hourly" ? (
+                      <Clock className="w-3.5 h-3.5 text-[#073B3A]" />
+                    ) : (
+                      <MapPin className="w-3.5 h-3.5 text-[#D9A52B]" />
                     )}
-                  </div>
-
-                  {/* Field 2: Pickup Landmark / Flight */}
-                  {serviceType === "airport" ? (
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                        <Plane className="w-3.5 h-3.5 text-[#073B3A]" />
-                        <span>Flight Number (BBI Arrival Radar)</span>
-                      </label>
-                      <input
-                        type="text"
-                        value={flightNumber}
-                        onChange={(e) => setFlightNumber(e.target.value.toUpperCase())}
-                        placeholder="e.g. 6E 2145 / AI 778"
-                        className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
-                      />
-                    </div>
-                  ) : (
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                        <Navigation className="w-3.5 h-3.5 text-[#667575]" />
-                        <span>Pickup Address / Landmark</span>
-                      </label>
-                      <input
-                        type="text"
-                        value={pickupAddress}
-                        onChange={(e) => setPickupAddress(e.target.value)}
-                        placeholder="e.g. Mayfair Lagoon / Patia / Master Canteen"
-                        className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
-                      />
-                    </div>
-                  )}
-
-                  {/* Field 3: Drop Destination / Package */}
+                    <span>{serviceType === "hourly" ? "Hourly Standby Package *" : "Drop Destination / Area *"}</span>
+                  </label>
                   {serviceType === "hourly" ? (
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                        <Clock className="w-3.5 h-3.5 text-[#073B3A]" />
-                        <span>Hourly Standby Package *</span>
-                      </label>
-                      <select
-                        value={hourlyPackage}
-                        onChange={(e) => setHourlyPackage(e.target.value)}
-                        className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
-                      >
-                        <option value="4 Hours / 40 Km">4 Hours / 40 Km</option>
-                        <option value="8 Hours / 80 Km">8 Hours / 80 Km (Recommended)</option>
-                        <option value="12 Hours / 120 Km">12 Hours / 120 Km</option>
-                      </select>
-                    </div>
+                    <select
+                      value={hourlyPackage}
+                      onChange={(e) => setHourlyPackage(e.target.value)}
+                      className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
+                    >
+                      <option value="4 Hours / 40 Km">4 Hours / 40 Km</option>
+                      <option value="8 Hours / 80 Km">8 Hours / 80 Km (Recommended)</option>
+                      <option value="12 Hours / 120 Km">12 Hours / 120 Km</option>
+                    </select>
                   ) : (
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-[#D9A52B]" />
-                        <span>Drop Destination *</span>
-                      </label>
-                      <input
-                        type="text"
-                        value={dropLocation}
-                        onChange={(e) => setDropLocation(e.target.value)}
-                        placeholder="e.g. Puri Jagannath Temple / Konark / Cuttack"
-                        className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
-                        required
-                      />
-                      {formErrors.dropLocation && (
-                        <p className="text-xs text-rose-600 font-medium">{formErrors.dropLocation}</p>
-                      )}
-                    </div>
+                    <input
+                      type="text"
+                      value={dropLocation}
+                      onChange={(e) => setDropLocation(e.target.value)}
+                      placeholder={serviceType === "airport" ? "e.g. BBI Terminal 1 / Hotel Mayfair" : "e.g. Puri Jagannath Temple / Konark"}
+                      className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
+                      required
+                    />
                   )}
+                  {formErrors.dropLocation && (
+                    <p className="text-[11px] text-rose-600 font-medium">{formErrors.dropLocation}</p>
+                  )}
+                </div>
 
-                  {/* Field 4: Pickup Date & Time */}
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-[#073B3A]" />
-                      <span>Pickup Date &amp; Time *</span>
-                    </label>
-                    <div className="grid grid-cols-2 gap-2">
-                      <input
-                        type="date"
-                        value={pickupDate}
-                        onChange={(e) => setPickupDate(e.target.value)}
-                        className="w-full h-12 px-3 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
-                        required
-                      />
-                      <input
-                        type="time"
-                        value={pickupTime}
-                        onChange={(e) => setPickupTime(e.target.value)}
-                        className="w-full h-12 px-3 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
-                        required
-                      />
-                    </div>
+                {/* Field 3: Pickup Date & Time (Slot 3) */}
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
+                    <Calendar className="w-3.5 h-3.5 text-[#073B3A]" />
+                    <span>Pickup Date &amp; Time *</span>
+                  </label>
+                  <div className="grid grid-cols-2 gap-2">
+                    <input
+                      type="date"
+                      value={pickupDate}
+                      onChange={(e) => setPickupDate(e.target.value)}
+                      className="w-full h-11 px-3 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
+                      required
+                    />
+                    <input
+                      type="time"
+                      value={pickupTime}
+                      onChange={(e) => setPickupTime(e.target.value)}
+                      className="w-full h-11 px-3 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
+                      required
+                    />
                   </div>
+                </div>
 
-                  {/* Field 5: Return Date (Only when Round Trip is selected) */}
-                  {serviceType === "outstation" && tripWay === "round" && (
-                    <div className="md:col-span-2 space-y-1.5 pt-1">
+                {/* Field 4: Return Date OR Landmark OR Flight (Slot 4 - Never shifts the grid!) */}
+                <div className="space-y-1">
+                  {serviceType === "outstation" && tripWay === "round" ? (
+                    <>
                       <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
                         <Calendar className="w-3.5 h-3.5 text-[#D9A52B]" />
                         <span>Return Journey Date *</span>
@@ -528,41 +485,69 @@ function CabBookingContent() {
                         type="date"
                         value={returnDate}
                         onChange={(e) => setReturnDate(e.target.value)}
-                        className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
+                        className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
                         required
                       />
-                    </div>
+                    </>
+                  ) : serviceType === "airport" ? (
+                    <>
+                      <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
+                        <Plane className="w-3.5 h-3.5 text-[#073B3A]" />
+                        <span>Flight Number (Optional Radar Tracking)</span>
+                      </label>
+                      <input
+                        type="text"
+                        value={flightNumber}
+                        onChange={(e) => setFlightNumber(e.target.value.toUpperCase())}
+                        placeholder="e.g. 6E 2145 / AI 778"
+                        className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
+                        <Navigation className="w-3.5 h-3.5 text-[#667575]" />
+                        <span>Pickup Landmark / Doorstep Address</span>
+                      </label>
+                      <input
+                        type="text"
+                        value={pickupAddress}
+                        onChange={(e) => setPickupAddress(e.target.value)}
+                        placeholder="e.g. Mayfair Lagoon / Patia / KIIT Square"
+                        className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
+                      />
+                    </>
                   )}
                 </div>
+              </div>
 
-                {/* Subtle Route Preview Strip */}
-                <div className="p-3.5 rounded-2xl bg-gradient-to-r from-[#062F31] to-[#041F20] text-white border border-[#D9A52B]/30 flex flex-wrap items-center justify-between text-xs gap-3">
-                  <div className="flex items-center gap-2">
-                    <Compass className="w-4 h-4 text-[#D9A52B] shrink-0" />
-                    <span className="font-bold text-white text-xs sm:text-sm">
-                      {pickupCity} ➔ {serviceType === "hourly" ? hourlyPackage : dropLocation}
-                    </span>
-                    <span className="text-xs text-[#A7F3D0]">
-                      ({serviceType === "airport" ? "~16 km BBI Transit" : "~65 km via NH-316"})
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs">
-                    <span className="text-[#D9A52B] font-bold">10% Advance Deposit</span>
-                    <span className="text-white/50">•</span>
-                    <span className="text-[#A7F3D0]">100% Commercial Fleet</span>
-                  </div>
+              {/* Subtle Route Preview Strip */}
+              <div className="p-3 rounded-xl bg-gradient-to-r from-[#062F31] to-[#041F20] text-white border border-[#D9A52B]/30 flex flex-wrap items-center justify-between text-xs gap-2">
+                <div className="flex items-center gap-2">
+                  <Compass className="w-4 h-4 text-[#D9A52B] shrink-0" />
+                  <span className="font-bold text-white text-xs sm:text-sm">
+                    {pickupCity} ➔ {serviceType === "hourly" ? hourlyPackage : dropLocation}
+                  </span>
+                  <span className="text-[11px] text-[#A7F3D0]">
+                    ({serviceType === "airport" ? "~16 km BBI Transit" : "~65 km via NH-316"})
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 text-[11px]">
+                  <span className="text-[#D9A52B] font-bold">10% Advance Deposit</span>
+                  <span className="text-white/40">•</span>
+                  <span className="text-[#A7F3D0]">100% Commercial Fleet</span>
                 </div>
               </div>
 
               {/* Step 1 Actions */}
-              <div className="pt-4 border-t border-[#EEF2EE] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="pt-3 border-t border-[#EEF2EE] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <span className="text-xs text-[#667575] flex items-center gap-1.5 font-medium">
                   <ShieldCheck className="w-4 h-4 text-[#D9A52B]" />
-                  <span>No advance payment charged until chauffeur allocation is confirmed.</span>
+                  <span>No payment charged until chauffeur allocation is confirmed.</span>
                 </span>
                 <button
                   type="submit"
-                  className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#D9A52B] via-[#E6B543] to-[#C99320] text-[#062F31] font-bold text-sm inline-flex items-center justify-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
+                  className="px-7 py-3 rounded-xl bg-gradient-to-r from-[#D9A52B] via-[#E6B543] to-[#C99320] text-[#062F31] font-bold text-xs sm:text-sm inline-flex items-center justify-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
                 >
                   <span>Continue to Select Vehicle</span>
                   <ArrowRight className="w-4 h-4 text-[#062F31]" />
