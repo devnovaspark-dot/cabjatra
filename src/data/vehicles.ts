@@ -2,13 +2,14 @@ export interface VehicleCategory {
   id: string;
   name: string;
   subtitle: string;
-  category: "Hatchback" | "Sedan" | "SUV" | "Tempo Traveller";
-  models: string;
+  category: "Hatchback" | "Sedan" | "SUV" | "Large car" | "Mini bus";
+  models: string; // The exact example cars from FRD!
   passengers: number;
   luggage: number;
   ac: boolean;
   image: string;
   indicativeBaseFare: string;
+  ratePerKm: number;
   features: string[];
   recommendedFor: string;
   tag?: string;
@@ -17,83 +18,107 @@ export interface VehicleCategory {
 export const VEHICLE_FLEET: VehicleCategory[] = [
   {
     id: "hatchback",
-    name: "Economy Hatchback",
-    subtitle: "Agile, comfortable & cost-efficient for compact groups",
+    name: "Hatchback",
+    subtitle: "Agile, air-conditioned & budget-efficient for compact travel",
     category: "Hatchback",
-    models: "Maruti Suzuki WagonR, Swift, Celerio or equivalent",
+    models: "Maruti Alto, Swift, WagonR",
     passengers: 4,
     luggage: 2,
     ac: true,
     image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=900&auto=format&fit=crop",
     indicativeBaseFare: "Commercial Permit • AC Guaranteed",
+    ratePerKm: 11,
     features: [
-      "Full AC with clean fabric seating",
-      "Compact luggage storage (2 medium bags)",
-      "Punctual point-to-point city transit",
-      "Fuel & chauffeur allowances included in base quote"
+      "Full AC with clean fabric upholstery",
+      "Compact luggage storage (2 travel bags)",
+      "Punctual point-to-point urban & transit transfers",
+      "Experienced yellow-board commercial chauffeur"
     ],
     recommendedFor: "Solo travelers, couples, quick local transfers and daily airport connections",
     tag: "Budget Friendly"
   },
   {
     id: "sedan",
-    name: "Executive Prime Sedan",
-    subtitle: "The gold standard for comfortable family & business travel",
+    name: "Sedan",
+    subtitle: "The gold standard for comfortable family & executive highway travel",
     category: "Sedan",
-    models: "Maruti Suzuki Dzire, Toyota Etios, Hyundai Aura or equivalent",
+    models: "Swift Dzire, Toyota Etios, Honda Amaze",
     passengers: 4,
     luggage: 3,
     ac: true,
     image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=900&auto=format&fit=crop",
     indicativeBaseFare: "Chauffeur Driven • Dual-Zone AC",
+    ratePerKm: 13,
     features: [
-      "Extra rear legroom & plush upholstery",
+      "Extra rear legroom & plush ergonomic seating",
       "Generous boot space for up to 3 large suitcases",
-      "Smooth highway stability for Puri & Konark trips",
-      "Phone charger & bottled water provision"
+      "Smooth highway stability for Puri & Konark coastal corridors",
+      "Mobile charger & chilled bottled water provision"
     ],
     recommendedFor: "Small families, business executives, comfortable Golden Triangle tours",
     tag: "Most Popular"
   },
   {
     id: "suv",
-    name: "Premium Luxury SUV",
-    subtitle: "Maximum space, power and high-ride comfort for highway trails",
+    name: "SUV",
+    subtitle: "High ground clearance & rugged highway durability for all Odisha terrains",
     category: "SUV",
-    models: "Toyota Innova Crysta, Maruti Ertiga, Kia Carens or equivalent",
-    passengers: 7,
-    luggage: 5,
+    models: "Mahindra Bolero, Scorpio, Maruti Brezza",
+    passengers: 6,
+    luggage: 3,
     ac: true,
-    image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=900&auto=format&fit=crop",
-    indicativeBaseFare: "Innova Crysta Class • Extra Legroom",
+    image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=900&auto=format&fit=crop",
+    indicativeBaseFare: "High Ground Clearance • Rugged AC",
+    ratePerKm: 16,
     features: [
-      "Dual-zone climate control with rear AC vents",
-      "Captains chairs / flexible 6-7 seat configuration",
-      "Expansive luggage bay for multi-day tour luggage",
-      "Superior highway suspension for comfortable long journeys"
+      "High ground clearance for interior routes and ghat corridors",
+      "Comfortable seating configuration for up to 6 passengers",
+      "Dedicated boot and roof space for 3 suitcases",
+      "Tough suspension built for temple hinterlands and coastal roads"
+    ],
+    recommendedFor: "Medium families, interior temple routes, rural highways & weekend excursions",
+    tag: "Rugged Highway"
+  },
+  {
+    id: "large-car",
+    name: "Large car",
+    subtitle: "Premium 7-seater space, dual-blower AC, and royal ride quality",
+    category: "Large car",
+    models: "Toyota Innova Crysta, Kia Carens, Maruti Ertiga",
+    passengers: 7,
+    luggage: 4,
+    ac: true,
+    image: "https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=900&auto=format&fit=crop",
+    indicativeBaseFare: "Innova Crysta Class • Captain Seats",
+    ratePerKm: 19,
+    features: [
+      "Dual-zone climate control with dedicated rear AC roof vents",
+      "Plush captain chairs / flexible 7-passenger configuration",
+      "Expansive rear luggage bay accommodating 4 large suitcases",
+      "Superior highway suspension for fatigue-free long-distance journeys"
     ],
     recommendedFor: "Larger families, senior citizens requiring easy ingress, multi-day Odisha expeditions",
     tag: "Premium Comfort"
   },
   {
-    id: "tempo-traveller",
-    name: "Luxury Tempo Traveller",
-    subtitle: "Spacious group travel solution with panoramic windows",
-    category: "Tempo Traveller",
-    models: "Force Urbania / Traveller 12-17 Seater AC",
-    passengers: 15,
+    id: "mini-bus",
+    name: "Mini bus",
+    subtitle: "Spacious group travel solution with push-back seats and high roof aisle",
+    category: "Mini bus",
+    models: "Tempo Traveller, Force Urbania",
+    passengers: 17,
     luggage: 10,
     ac: true,
     image: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop",
     indicativeBaseFare: "Push-back Seats • Group Travel",
+    ratePerKm: 28,
     features: [
-      "Reclining push-back individual seats with armrests",
-      "High roof with standing aisle space",
-      "Dedicated overhead luggage racks & separate boot",
-      "PA audio system for guided group tours & yatras"
+      "Individual reclining push-back seats with padded armrests",
+      "High-roof standing aisle with panoramic tour windows",
+      "Dedicated heavy luggage bay & overhead racks for 10 bags",
+      "Integrated PA audio microphone system for guided pilgrimages & yatras"
     ],
-    recommendedFor: "Family pilgrimage yatras, wedding entourages, corporate offsites, school groups",
+    recommendedFor: "Family pilgrimage yatras, wedding entourages, corporate offsites, tour groups",
     tag: "Large Groups"
   }
 ];
-

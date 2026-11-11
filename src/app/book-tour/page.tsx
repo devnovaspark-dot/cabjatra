@@ -42,7 +42,7 @@ function TourBookingContent() {
   // Selected tour
   const [selectedTourSlug, setSelectedTourSlug] = useState<string>("golden-triangle-odisha");
   const [activeDayIndex, setActiveDayIndex] = useState<number>(0);
-  const [selectedVehicleType, setSelectedVehicleType] = useState<"sedan" | "suv" | "traveller">("sedan");
+  const [selectedVehicleType, setSelectedVehicleType] = useState<string>("sedan");
 
   // Itinerary Details
   const [travelDate, setTravelDate] = useState("2026-11-20");
@@ -480,31 +480,39 @@ function TourBookingContent() {
                   <label className="text-xs font-bold text-[#182A2B] uppercase tracking-wider block">
                     Select Vehicle Class:
                   </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     {[
                       {
                         id: "sedan",
-                        name: "Executive Prime Sedan",
-                        models: "Dzire / Etios",
+                        name: "Sedan",
+                        models: "Swift Dzire, Toyota Etios, Honda Amaze",
                         capacity: "Up to 4 Guests",
-                        luggage: "2-3 Bags",
+                        luggage: "3 Bags",
                         ideal: "Couples & Small Families",
                       },
                       {
                         id: "suv",
-                        name: "Premium Highway SUV",
-                        models: "Toyota Innova Crysta",
-                        capacity: "Up to 6-7 Guests",
-                        luggage: "4 Bags",
-                        ideal: "Families & Temple Groups",
+                        name: "SUV",
+                        models: "Mahindra Bolero, Scorpio, Maruti Brezza",
+                        capacity: "Up to 6 Guests",
+                        luggage: "3 Bags",
+                        ideal: "Ghats & Rugged Routes",
                       },
                       {
-                        id: "traveller",
-                        name: "Group Tempo Traveller",
-                        models: "Force Urbania / Traveller",
-                        capacity: "Up to 12-16 Guests",
+                        id: "large-car",
+                        name: "Large car",
+                        models: "Toyota Innova Crysta, Kia Carens, Maruti Ertiga",
+                        capacity: "Up to 7 Guests",
+                        luggage: "4 Bags",
+                        ideal: "Families & Senior Citizens",
+                      },
+                      {
+                        id: "mini-bus",
+                        name: "Mini bus",
+                        models: "Tempo Traveller, Force Urbania",
+                        capacity: "Up to 17 Guests",
                         luggage: "10 Bags",
-                        ideal: "Large Family Pilgrimages",
+                        ideal: "Large Pilgrimage Sanghas",
                       },
                     ].map((veh) => {
                       const isSelected = selectedVehicleType === veh.id;
@@ -793,10 +801,12 @@ function TourBookingContent() {
                       <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Vehicle Class:</span>
                       <strong className="text-xs font-bold text-[#182A2B] block truncate capitalize">
                         {selectedVehicleType === "sedan"
-                          ? "Prime Sedan"
+                          ? "Sedan (Dzire / Etios / Amaze)"
                           : selectedVehicleType === "suv"
-                          ? "Highway SUV"
-                          : "Tempo Traveller"}
+                          ? "SUV (Bolero / Scorpio / Brezza)"
+                          : selectedVehicleType === "large-car"
+                          ? "Large car (Innova Crysta / Carens)"
+                          : "Mini bus (Force Urbania)"}
                       </strong>
                     </div>
                     <div className="bg-[#E0ECEA]/70 p-1.5 rounded-lg border border-[#C1DAD7]">

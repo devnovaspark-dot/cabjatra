@@ -99,18 +99,28 @@ function CabBookingContent() {
 
   // Calculate dynamic indicative fare estimates based on inputs
   const calculateEstimatedFare = () => {
+    const categoryMultipliers: Record<string, number> = {
+      Hatchback: 0.85,
+      Sedan: 1.0,
+      SUV: 1.35,
+      "Large car": 1.55,
+      "Mini bus": 2.3,
+    };
+    const mult = categoryMultipliers[selectedVehicle.category] || 1.0;
+
     let base = 1950;
     if (serviceType === "airport") {
-      base = selectedVehicle.category === "SUV" ? 1150 : 650;
+      base = Math.round(650 * mult);
     } else if (serviceType === "hourly") {
-      if (hourlyPackage.startsWith("4")) base = selectedVehicle.category === "SUV" ? 1799 : 1199;
-      else if (hourlyPackage.startsWith("12")) base = selectedVehicle.category === "SUV" ? 3599 : 2599;
-      else base = selectedVehicle.category === "SUV" ? 2699 : 1899;
+      let hourlyBase = 1899;
+      if (hourlyPackage.startsWith("4")) hourlyBase = 1199;
+      else if (hourlyPackage.startsWith("12")) hourlyBase = 2599;
+      base = Math.round(hourlyBase * mult);
     } else if (serviceType === "outstation") {
-      base = selectedVehicle.category === "SUV" ? 2950 : 1950;
+      base = Math.round(1950 * mult);
       if (tripWay === "round") base = Math.round(base * 1.8);
     } else {
-      base = selectedVehicle.category === "SUV" ? 850 : 550;
+      base = Math.round(550 * mult);
     }
 
     const advance10 = Math.round(base * 0.1);
@@ -576,8 +586,8 @@ function CabBookingContent() {
                   </span>
                 </div>
 
-                {/* 4 Balanced Vehicle Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {/* 5 Real Vehicle Cards with Given Names from FRD */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3.5 sm:gap-4">
                   {VEHICLE_FLEET.map((v) => {
                     const isSelected = selectedVehicleId === v.id;
                     return (
@@ -597,58 +607,62 @@ function CabBookingContent() {
                               src={v.image}
                               alt={v.name}
                               fill
+                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
                               className="object-cover group-hover:scale-105 transition-transform duration-500"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
 
-                            <div className="absolute top-2.5 left-2.5 bg-[#062F31]/90 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 rounded-md border border-white/15">
+                            <div className="absolute top-2 left-2 bg-[#062F31]/95 backdrop-blur-md text-white text-[9.5px] sm:text-[10px] font-bold px-2 py-0.5 rounded-md border border-white/15">
                               {v.category}
                             </div>
 
                             {v.tag && (
-                              <div className="absolute top-2.5 right-2.5 bg-[#D9A52B] text-[#062F31] text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs">
+                              <div className="absolute top-2 right-2 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs">
                                 {v.tag}
                               </div>
                             )}
 
-                            <div className="absolute bottom-2 left-3 right-3 text-white">
-                              <h3 className="text-sm font-bold font-display leading-tight">{v.name}</h3>
-                              <p className="text-[11px] text-white/80 line-clamp-1">{v.subtitle}</p>
+                            <div className="absolute bottom-2 left-2.5 right-2.5 text-white">
+                              <h3 className="text-base font-bold font-display leading-tight">{v.name}</h3>
+                              <p className="text-[10px] text-white/85 line-clamp-1">{v.subtitle}</p>
                             </div>
                           </div>
 
                           {/* Specs Mini Bay */}
-                          <div className="p-3 space-y-2">
+                          <div className="p-2.5 sm:p-3 space-y-2">
                             <div className="grid grid-cols-3 divide-x divide-[#E5EAE5] border border-[#E5EAE5] bg-[#FAF9F5] rounded-xl py-1.5 text-center text-xs">
                               <div>
-                                <span className="font-bold text-[#182A2B] flex items-center justify-center gap-1">
-                                  <Users className="w-3 h-3 text-[#073B3A]" />
+                                <span className="font-bold text-[#182A2B] flex items-center justify-center gap-1 text-[11px]">
+                                  <Users className="w-3.5 h-3.5 text-[#073B3A]" />
                                   {v.passengers}
                                 </span>
-                                <span className="text-[10px] text-[#667575]">Seats</span>
+                                <span className="text-[9.5px] text-[#667575]">Seats</span>
                               </div>
                               <div>
-                                <span className="font-bold text-[#182A2B] flex items-center justify-center gap-1">
-                                  <Briefcase className="w-3 h-3 text-[#073B3A]" />
+                                <span className="font-bold text-[#182A2B] flex items-center justify-center gap-1 text-[11px]">
+                                  <Briefcase className="w-3.5 h-3.5 text-[#073B3A]" />
                                   {v.luggage}
                                 </span>
-                                <span className="text-[10px] text-[#667575]">Bags</span>
+                                <span className="text-[9.5px] text-[#667575]">Bags</span>
                               </div>
-                              <div className="font-bold text-[#10B981] flex items-center justify-center gap-1">
-                                <CheckCircle2 className="w-3 h-3" />
+                              <div className="font-bold text-[#10B981] flex items-center justify-center gap-0.5 text-[10px]">
+                                <CheckCircle2 className="w-3.5 h-3.5" />
                                 <span>100% AC</span>
                               </div>
                             </div>
 
-                            <p className="text-xs text-[#667575] leading-tight line-clamp-1">
-                              <strong>Fleet:</strong> {v.models}
-                            </p>
+                            <div className="text-[11px] text-[#556464] bg-[#FAF9F5] p-2 rounded-xl border border-[#E5EAE5] leading-snug">
+                              <span className="font-bold text-[#182A2B] block text-[10px] uppercase tracking-wider text-[#073B3A]">
+                                Example Cars:
+                              </span>
+                              <span className="text-[#182A2B] font-semibold">{v.models}</span>
+                            </div>
                           </div>
                         </div>
 
-                        <div className="p-3 pt-0 border-t border-[#EEF2EE] flex items-center justify-between mt-2">
+                        <div className="p-2.5 sm:p-3 pt-0 border-t border-[#EEF2EE] flex items-center justify-between mt-1">
                           <div>
-                            <span className="text-[9px] font-bold uppercase text-[#667575] block">Indicative Tariff</span>
+                            <span className="text-[9px] font-bold uppercase text-[#667575] block">Base Rate</span>
                             <span className="text-xs font-bold text-[#073B3A]">{v.indicativeBaseFare}</span>
                           </div>
 
@@ -953,6 +967,8 @@ function CabBookingContent() {
                     <div className="text-xs pt-1 border-t border-[#EEF2EE]">
                       <span className="text-[#667575] text-[11px] block">Allocated Fleet:</span>
                       <strong className="text-[#073B3A] font-bold text-sm">{selectedVehicle.name} ({selectedVehicle.category})</strong>
+                      <span className="text-[11px] text-[#556464] block mt-0.5">Example: {selectedVehicle.models}</span>
+                      <span className="text-[10.5px] text-[#073B3A] font-semibold block">Capacity: {selectedVehicle.passengers} Seats • {selectedVehicle.luggage} Bags • 100% Commercial AC</span>
                     </div>
                     <div className="text-xs">
                       <span className="text-[#667575] text-[11px] block">Lead Passenger:</span>

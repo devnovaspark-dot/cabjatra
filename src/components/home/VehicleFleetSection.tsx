@@ -9,7 +9,7 @@ import { VEHICLE_FLEET } from "@/data/vehicles";
 export const VehicleFleetSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
-  const categories = ["All", "Sedan", "SUV", "Tempo Traveller"];
+  const categories = ["All", "Hatchback", "Sedan", "SUV", "Large car", "Mini bus"];
 
   const filteredVehicles = activeCategory === "All"
     ? VEHICLE_FLEET
@@ -46,14 +46,14 @@ export const VehicleFleetSection: React.FC = () => {
                     : "text-[#556464] hover:text-[#182A2B] hover:bg-white/70"
                 }`}
               >
-                {cat === "All" ? "All Fleet" : cat === "SUV" ? "SUVs (Innova)" : cat}
+                {cat === "All" ? "All Fleet" : cat}
               </button>
             ))}
           </div>
         </div>
 
         {/* Fleet Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5">
           {filteredVehicles.map((vehicle) => (
             <div
               key={vehicle.id}
