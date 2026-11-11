@@ -883,7 +883,7 @@ function TourBookingContent() {
 
               {/* Voucher Bottom Disclaimer Strip */}
               <div className="bg-[#FAF9F5] px-4 py-2 border-t border-[#D5DDD5] text-[10.5px] text-[#667575] flex items-center justify-between">
-                <span>Official Tour Dispatch Voucher • Cabjatra Holiday Desk</span>
+                <span>Official Tour Dispatch Voucher • NovaSpark Digital Marketing Pvt. Ltd.</span>
                 <span className="font-semibold text-[#073B3A]">Transparent 10% Advance Deposit Model</span>
               </div>
             </div>

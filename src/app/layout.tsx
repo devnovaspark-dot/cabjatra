@@ -40,7 +40,9 @@ export const metadata: Metadata = {
     "Odisha outstation cabs",
     "CABJATRA",
   ],
-  authors: [{ name: "CABJATRA Mobility" }],
+  authors: [{ name: "NovaSpark Digital Marketing Pvt. Ltd." }],
+  creator: "NovaSpark Digital Marketing Pvt. Ltd.",
+  publisher: "NovaSpark Digital Marketing Pvt. Ltd.",
 };
 
 export default function RootLayout({

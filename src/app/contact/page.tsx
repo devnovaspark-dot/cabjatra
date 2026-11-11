@@ -91,7 +91,7 @@ export default function ContactPage() {
     },
     {
       q: "Do you provide official GST invoices for business travel?",
-      a: "Yes. All corporate travels, executive rentals, and airport commutes receive an official GST tax invoice issued by Cabjatra Mobility Services Pvt. Ltd. for clean corporate expense claims.",
+      a: "Yes. All corporate travels, executive rentals, and airport commutes receive an official GST tax invoice issued by NovaSpark Digital Marketing Pvt. Ltd. for clean corporate expense claims.",
     },
     {
       q: "How does the 10% advance deposit work?",

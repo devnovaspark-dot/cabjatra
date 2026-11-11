@@ -483,23 +483,23 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* ================= TIER 4: CLEAN CORPORATE LEGAL BAR WITH NOVASPARK ================= */}
+        {/* ================= TIER 4: CORPORATE LEGAL BAR & COPYRIGHTS ================= */}
         <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[#E0ECEA]/70 text-center sm:text-left">
           <div className="space-y-0.5">
             <p>
-              © 2026 <span className="text-white font-bold">{COMPANY_CONFIG.legalBusinessName}</span>. All rights reserved.
+              © 2026 <span className="text-white font-bold">{COMPANY_CONFIG.legalBusinessName}</span> All rights reserved.
             </p>
             <p className="text-[10px] text-[#E0ECEA]/50">
-              State Transport Authority (STA) Odisha Guidelines Compliant • Pre-Booked Commercial Mobility Platform
+              All legals, brand assets &amp; copyrights held by NovaSpark Digital Marketing Pvt. Ltd. • State Transport Authority (STA) Odisha Guidelines Compliant
             </p>
           </div>
 
           {/* NovaSpark Digital Marketing Official Placement */}
           <div className="flex items-center gap-2 bg-black/40 px-3.5 py-1.5 rounded-full border border-white/10 shadow-xs">
-            <span className="text-[10px] text-[#E0ECEA]/75">Digital Marketing &amp; Strategy by</span>
+            <span className="text-[10px] text-[#E0ECEA]/75">Platform &amp; Legal Entity:</span>
             <span className="inline-flex items-center gap-1 text-[#D9A52B] font-bold tracking-wide text-[11px]">
               <Sparkles className="w-3 h-3 text-[#D9A52B]" />
-              <span>NovaSpark Digital Marketing</span>
+              <span>NovaSpark Digital Marketing Pvt. Ltd.</span>
             </span>
           </div>
         </div>

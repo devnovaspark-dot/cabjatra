@@ -11,8 +11,8 @@ export const COMPANY_CONFIG = {
   tagline: "Every Journey Begins with CABJATRA",
   subTagline: "Premium Pre-Booked Cabs & Curated Odisha Travel Experiences",
   
-  // Requirement 5: Legal Registered Entity Placeholder
-  legalBusinessName: "Cabjatra Mobility Services Pvt. Ltd.",
+  // Requirement 5: Legal Registered Entity & Copyright Holder
+  legalBusinessName: "NovaSpark Digital Marketing Pvt. Ltd.",
   cinOrRegistration: "U63090OR2026PTC045182 (Odisha STA Verified)",
   gstin: "21AABCC1234D1Z5",
   

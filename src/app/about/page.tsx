@@ -487,13 +487,13 @@ export default function AboutPage() {
             </div>
             
             <p className="text-xs text-[#556464] leading-relaxed">
-              <strong>CabJatra</strong> is an officially registered brand identity operated in accordance with the Motor Vehicles Act and transport directives of the State of Odisha. We hold comprehensive legal charter for commercial passenger transport across India.
+              <strong>CabJatra</strong> is an officially registered pre-booked mobility platform. All operational charters, brand assets, intellectual property, and copyrights are owned and held by <strong>NovaSpark Digital Marketing Pvt. Ltd.</strong> in accordance with the Motor Vehicles Act and transport directives of the State of Odisha.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
               <div className="p-3 rounded-xl bg-[#FAF9F5] border border-[#E5EAE5]">
                 <span className="text-[10px] text-[#667575] uppercase font-bold block">
-                  Registered Legal Entity
+                  Registered Legal Entity &amp; Copyright Holder
                 </span>
                 <strong className="text-[#182A2B] text-xs">
                   {COMPANY_CONFIG.legalBusinessName}
