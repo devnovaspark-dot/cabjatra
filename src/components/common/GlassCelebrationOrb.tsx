@@ -16,7 +16,7 @@ export function GlassCelebrationOrb({ className = "", size = "md" }: GlassCelebr
   const isLg = size === "lg";
 
   return (
-    <div className={`flex flex-col items-center justify-center relative select-none pt-7 pb-1.5 ${className}`}>
+    <div className={`flex flex-col items-center justify-center relative select-none pt-1.5 pb-1 ${className}`}>
       {/* Outer ambient glow / aura */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full bg-gradient-to-r from-emerald-400/25 via-[#D9A52B]/20 to-teal-400/25 blur-xl pointer-events-none" />
 
