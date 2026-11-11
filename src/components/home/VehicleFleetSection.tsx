@@ -3,11 +3,13 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Users, Briefcase, Snowflake, Check, ArrowRight, ShieldCheck, Sparkles, Star } from "lucide-react";
+import { Users, Briefcase, Snowflake, Check, ArrowRight, ShieldCheck, Sparkles, Star, RotateCw, Eye } from "lucide-react";
 import { VEHICLE_FLEET } from "@/data/vehicles";
+import { CarModel3D } from "@/components/common/CarModel3D";
 
 export const VehicleFleetSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [visualMode, setVisualMode] = useState<"3d" | "photo">("3d");
 
   const categories = ["All", "Hatchback", "Sedan", "SUV", "Large car", "Mini bus"];
 
@@ -33,22 +35,53 @@ export const VehicleFleetSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Interactive Category Filter Pills - Scroll-Safe on Mobile */}
-          <div className="flex items-center gap-1 sm:gap-1.5 p-1.5 panel-recessed rounded-2xl max-w-full overflow-x-auto scrollbar-none self-start md:self-auto">
-            {categories.map((cat) => (
+          {/* Controls: Category Filter + 3D Mode Toggle */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 self-start md:self-auto">
+            {/* 3D vs Photo View Toggle */}
+            <div className="flex items-center gap-1 p-1 bg-white/80 rounded-xl border border-[#D5DDD5] shadow-xs">
               <button
-                key={cat}
                 type="button"
-                onClick={() => setActiveCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all shrink-0 select-none ${
-                  activeCategory === cat
-                    ? "btn-skeuo-dark text-white font-bold"
-                    : "text-[#556464] hover:text-[#182A2B] hover:bg-white/70"
+                onClick={() => setVisualMode("3d")}
+                className={`px-3 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer select-none ${
+                  visualMode === "3d"
+                    ? "bg-[#073B3A] text-[#D9A52B] shadow-xs"
+                    : "text-[#556464] hover:text-[#182A2B]"
                 }`}
               >
-                {cat === "All" ? "All Fleet" : cat}
+                <RotateCw className="w-3.5 h-3.5" />
+                <span>3D Models</span>
               </button>
-            ))}
+              <button
+                type="button"
+                onClick={() => setVisualMode("photo")}
+                className={`px-3 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer select-none ${
+                  visualMode === "photo"
+                    ? "bg-[#073B3A] text-white shadow-xs"
+                    : "text-[#556464] hover:text-[#182A2B]"
+                }`}
+              >
+                <Eye className="w-3.5 h-3.5" />
+                <span>Photos</span>
+              </button>
+            </div>
+
+            {/* Interactive Category Filter Pills */}
+            <div className="flex items-center gap-1 sm:gap-1.5 p-1.5 panel-recessed rounded-2xl max-w-full overflow-x-auto scrollbar-none">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all shrink-0 select-none ${
+                    activeCategory === cat
+                      ? "btn-skeuo-dark text-white font-bold"
+                      : "text-[#556464] hover:text-[#182A2B] hover:bg-white/70"
+                  }`}
+                >
+                  {cat === "All" ? "All Fleet" : cat}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -60,32 +93,51 @@ export const VehicleFleetSection: React.FC = () => {
               className="card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group"
             >
               <div>
-                {/* Vehicle Visual with Real Automotive Aesthetic - Guaranteed Visible Height on Mobile */}
-                <div className="relative h-44 sm:h-48 w-full bg-[#FAF9F5] overflow-hidden border-b border-[#D6E0D6]">
-                  <Image
-                    src={vehicle.image}
-                    alt={`${vehicle.name} - CabJatra Odisha Fleet`}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-                  
-                  {/* Category Pill */}
-                  <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#062F31]/95 backdrop-blur-md text-[#FAF9F5] text-[9.5px] sm:text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 shadow-md">
-                    {vehicle.category}
-                  </div>
-
-                  {vehicle.tag && (
-                    <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] sm:text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_2px_4px_rgba(0,0,0,0.3)]">
-                      {vehicle.tag}
+                {/* Visual: 3D Turntable or Real Automotive Photograph */}
+                {visualMode === "3d" ? (
+                  <div className="relative h-44 sm:h-48 w-full bg-gradient-to-b from-[#FAF9F5] to-[#E8EFE8] overflow-hidden border-b border-[#D6E0D6]">
+                    <CarModel3D
+                      vehicleId={vehicle.id}
+                      categoryName={vehicle.name}
+                      height={180}
+                      autoRotate={true}
+                    />
+                    <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#062F31]/95 backdrop-blur-md text-[#FAF9F5] text-[9.5px] sm:text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 shadow-md pointer-events-none">
+                      {vehicle.category}
                     </div>
-                  )}
-
-                  <div className="absolute bottom-2.5 sm:bottom-3 left-3 right-3 text-white">
-                    <span className="text-base font-bold font-display drop-shadow-md">{vehicle.name}</span>
+                    {vehicle.tag && (
+                      <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] sm:text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_2px_4px_rgba(0,0,0,0.3)] pointer-events-none">
+                        {vehicle.tag}
+                      </div>
+                    )}
                   </div>
-                </div>
+                ) : (
+                  <div className="relative h-44 sm:h-48 w-full bg-[#FAF9F5] overflow-hidden border-b border-[#D6E0D6]">
+                    <Image
+                      src={vehicle.image}
+                      alt={`${vehicle.name} - CabJatra Odisha Fleet`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                    
+                    {/* Category Pill */}
+                    <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#062F31]/95 backdrop-blur-md text-[#FAF9F5] text-[9.5px] sm:text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 shadow-md">
+                      {vehicle.category}
+                    </div>
+
+                    {vehicle.tag && (
+                      <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] sm:text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_2px_4px_rgba(0,0,0,0.3)]">
+                        {vehicle.tag}
+                      </div>
+                    )}
+
+                    <div className="absolute bottom-2.5 sm:bottom-3 left-3 right-3 text-white">
+                      <span className="text-base font-bold font-display drop-shadow-md">{vehicle.name}</span>
+                    </div>
+                  </div>
+                )}
 
                 {/* Specs Strip */}
                 <div className="grid grid-cols-3 divide-x divide-[#D6E0D6] border-b border-[#D6E0D6] panel-recessed py-2.5 text-center text-xs">

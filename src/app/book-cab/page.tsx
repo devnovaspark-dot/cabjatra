@@ -26,12 +26,15 @@ import {
   Navigation,
   Printer,
   Copy,
+  RotateCw,
+  Eye,
 } from "lucide-react";
 import { COMPANY_CONFIG } from "@/data/company";
 import { VEHICLE_FLEET } from "@/data/vehicles";
 import { WhatsAppConsentCheckbox } from "@/components/common/WhatsAppConsentCheckbox";
 import { BrandLogo } from "@/components/common/BrandLogo";
 import { GlassCelebrationOrb } from "@/components/common/GlassCelebrationOrb";
+import { CarModel3D } from "@/components/common/CarModel3D";
 
 function CabBookingContent() {
   const searchParams = useSearchParams();
@@ -39,6 +42,7 @@ function CabBookingContent() {
   // Wizard state (1: Trip Details, 2: Select Vehicle, 3: Passenger Info, 4: Review & Submit, 5: Confirmed)
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [copiedRef, setCopiedRef] = useState(false);
+  const [fleetVisualMode, setFleetVisualMode] = useState<"3d" | "photo">("3d");
 
   // Form Fields
   const [serviceType, setServiceType] = useState<"outstation" | "airport" | "hourly" | "local">("outstation");
@@ -571,7 +575,7 @@ function CabBookingContent() {
             <div className="card-skeuo rounded-3xl p-6 sm:p-8 lg:p-10 space-y-6 min-h-[580px] flex flex-col justify-between animate-in fade-in-50 duration-200">
               <div className="space-y-6">
                 {/* Header */}
-                <div className="border-b border-[#E5ECE5] pb-4 flex items-center justify-between gap-3">
+                <div className="border-b border-[#E5ECE5] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
                     <h2 className="text-lg sm:text-xl font-bold font-display text-[#182A2B]">
                       Choose Your Vehicle Class
@@ -580,10 +584,34 @@ function CabBookingContent() {
                       All vehicles are 100% yellow-board commercial with dual-zone AC and background-verified chauffeurs.
                     </p>
                   </div>
-                  <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#073B3A] font-semibold bg-[#E0ECEA] px-3 py-1 rounded-full border border-[#C1DAD7]">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
-                    <span>Clean &amp; Sanitized Fleet</span>
-                  </span>
+
+                  {/* 3D vs Photo View Toggle */}
+                  <div className="flex items-center gap-1.5 p-1 bg-[#EEF2EE] rounded-xl border border-[#D5DDD5] self-start sm:self-auto">
+                    <button
+                      type="button"
+                      onClick={() => setFleetVisualMode("3d")}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer select-none ${
+                        fleetVisualMode === "3d"
+                          ? "bg-[#073B3A] text-[#D9A52B] shadow-xs"
+                          : "text-[#667575] hover:text-[#182A2B]"
+                      }`}
+                    >
+                      <RotateCw className="w-3.5 h-3.5" />
+                      <span>3D Models</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setFleetVisualMode("photo")}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer select-none ${
+                        fleetVisualMode === "photo"
+                          ? "bg-[#073B3A] text-white shadow-xs"
+                          : "text-[#667575] hover:text-[#182A2B]"
+                      }`}
+                    >
+                      <Eye className="w-3.5 h-3.5" />
+                      <span>Photos</span>
+                    </button>
+                  </div>
                 </div>
 
                 {/* 5 Real Vehicle Cards with Given Names from FRD */}
@@ -601,31 +629,61 @@ function CabBookingContent() {
                         }`}
                       >
                         <div>
-                          {/* Vehicle Image */}
-                          <div className="relative h-36 w-full overflow-hidden bg-[#FAF9F5]">
-                            <Image
-                              src={v.image}
-                              alt={v.name}
-                              fill
-                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
-                              className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-
-                            <div className="absolute top-2 left-2 bg-[#062F31]/95 backdrop-blur-md text-white text-[9.5px] sm:text-[10px] font-bold px-2 py-0.5 rounded-md border border-white/15">
-                              {v.category}
-                            </div>
-
-                            {v.tag && (
-                              <div className="absolute top-2 right-2 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs">
-                                {v.tag}
+                          {/* Visual Presentation: Interactive 3D Model or High-Res Photograph */}
+                          {fleetVisualMode === "3d" ? (
+                            <div className="relative h-44 w-full bg-gradient-to-b from-[#FAF9F5] to-[#E9EFE9] border-b border-[#D6E0D6] overflow-hidden">
+                              <CarModel3D
+                                vehicleId={v.id}
+                                categoryName={v.name}
+                                height={176}
+                                autoRotate={!isSelected}
+                              />
+                              <div className="absolute top-2 left-2 bg-[#062F31]/95 backdrop-blur-md text-white text-[9px] font-bold px-2 py-0.5 rounded-md border border-white/15 pointer-events-none">
+                                {v.category}
                               </div>
-                            )}
-
-                            <div className="absolute bottom-2 left-2.5 right-2.5 text-white">
-                              <h3 className="text-base font-bold font-display leading-tight">{v.name}</h3>
-                              <p className="text-[10px] text-white/85 line-clamp-1">{v.subtitle}</p>
+                              {v.tag && (
+                                <div className="absolute top-2 right-2 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs pointer-events-none">
+                                  {v.tag}
+                                </div>
+                              )}
                             </div>
+                          ) : (
+                            <div className="relative h-44 w-full overflow-hidden bg-[#FAF9F5] border-b border-[#D6E0D6]">
+                              <Image
+                                src={v.image}
+                                alt={v.name}
+                                fill
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+
+                              <div className="absolute top-2 left-2 bg-[#062F31]/95 backdrop-blur-md text-white text-[9.5px] sm:text-[10px] font-bold px-2 py-0.5 rounded-md border border-white/15">
+                                {v.category}
+                              </div>
+
+                              {v.tag && (
+                                <div className="absolute top-2 right-2 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs">
+                                  {v.tag}
+                                </div>
+                              )}
+
+                              <div className="absolute bottom-2 left-2.5 right-2.5 text-white">
+                                <h3 className="text-base font-bold font-display leading-tight">{v.name}</h3>
+                                <p className="text-[10px] text-white/85 line-clamp-1">{v.subtitle}</p>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Card Title & Category */}
+                          <div className="p-3 pb-0">
+                            <div className="flex items-center justify-between">
+                              <h3 className="text-base font-bold font-display text-[#182A2B] leading-tight">{v.name}</h3>
+                              <span className="text-[9.5px] font-bold text-[#073B3A] bg-[#E0ECEA] px-2 py-0.5 rounded-md">
+                                {v.category}
+                              </span>
+                            </div>
+                            <p className="text-[11px] text-[#556464] line-clamp-1 mt-0.5">{v.subtitle}</p>
                           </div>
 
                           {/* Specs Mini Bay */}
@@ -969,6 +1027,10 @@ function CabBookingContent() {
                       <strong className="text-[#073B3A] font-bold text-sm">{selectedVehicle.name} ({selectedVehicle.category})</strong>
                       <span className="text-[11px] text-[#556464] block mt-0.5">Example: {selectedVehicle.models}</span>
                       <span className="text-[10.5px] text-[#073B3A] font-semibold block">Capacity: {selectedVehicle.passengers} Seats • {selectedVehicle.luggage} Bags • 100% Commercial AC</span>
+                      {/* Interactive 3D Model Preview */}
+                      <div className="h-32 w-full rounded-xl overflow-hidden bg-gradient-to-b from-white to-[#EBF2EB] border border-[#D5DDD5] mt-2 shadow-inner">
+                        <CarModel3D vehicleId={selectedVehicle.id} height={128} autoRotate={true} />
+                      </div>
                     </div>
                     <div className="text-xs">
                       <span className="text-[#667575] text-[11px] block">Lead Passenger:</span>
