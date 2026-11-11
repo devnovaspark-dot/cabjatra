@@ -194,11 +194,7 @@ function CabBookingContent() {
   ];
 
   return (
-    <div
-      className={`relative min-h-screen bg-[#FAF9F5] text-[#182A2B] overflow-hidden ${
-        currentStep === 5 ? "pb-6 flex flex-col justify-center" : "pb-16 sm:pb-20"
-      }`}
-    >
+    <div className="relative min-h-screen bg-[#FAF9F5] text-[#182A2B] overflow-hidden pb-16 sm:pb-20">
       {/* Luminous Scenic Highway Travel Backdrop - High Clarity Without Murky Shadows */}
       <div className="absolute top-0 inset-x-0 h-[640px] sm:h-[720px] z-0 overflow-hidden pointer-events-none">
         <Image
@@ -216,7 +212,7 @@ function CabBookingContent() {
       <div
         className={`relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 ${
           currentStep === 5
-            ? "pt-24 sm:pt-28 pb-6 flex-1 flex flex-col items-center justify-center"
+            ? "pt-36 sm:pt-44 pb-20"
             : "pt-28 sm:pt-32 pb-12"
         }`}
       >
