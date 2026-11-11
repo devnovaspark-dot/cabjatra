@@ -117,7 +117,7 @@ export const Footer: React.FC = () => {
 
         {/* ================= TIER 2: 4-COLUMN ARCHITECTURAL DIRECTORY GRID ================= */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-10 sm:pb-12 border-b border-white/10 text-xs">
-          {/* Column 1: Brand Authority & State Fleet Certification (4 Cols) */}
+          {/* Column 1: Brand Authority, Description, Credentials & Socials (4 Cols) */}
           <div className="lg:col-span-4 space-y-4">
             <Link href="/" className="inline-block" aria-label="CABJATRA Home">
               <BrandLogo size="lg" variant="light" />
@@ -127,8 +127,66 @@ export const Footer: React.FC = () => {
               Odisha&apos;s dedicated pre-booked mobility platform connecting pilgrims, families, and corporate executives with certified commercial chauffeurs, guaranteed on-time dispatch, and pristine AC fleet.
             </p>
 
+            {/* Branded Social Channels (Facebook, Instagram, X/Twitter, LinkedIn) - FBM Requirement */}
+            <div className="flex items-center gap-2 pt-0.5">
+              <span className="text-[10px] text-[#D9A52B] font-bold uppercase tracking-wider mr-1">
+                Follow Us:
+              </span>
+              {/* Facebook */}
+              <a
+                href={COMPANY_CONFIG.socials.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-xl bg-white/5 hover:bg-[#1877F2] hover:text-white border border-white/10 flex items-center justify-center transition-all text-[#E0ECEA]/80 shadow-xs active:scale-95"
+                aria-label="Facebook"
+              >
+                <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.63 13.77 5.63c1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/>
+                </svg>
+              </a>
+
+              {/* Instagram */}
+              <a
+                href={COMPANY_CONFIG.socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-xl bg-white/5 hover:bg-[#E4405F] hover:text-white border border-white/10 flex items-center justify-center transition-all text-[#E0ECEA]/80 shadow-xs active:scale-95"
+                aria-label="Instagram"
+              >
+                <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+
+              {/* Twitter / X */}
+              <a
+                href={COMPANY_CONFIG.socials.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-xl bg-white/5 hover:bg-black hover:text-white border border-white/10 flex items-center justify-center transition-all text-[#E0ECEA]/80 shadow-xs active:scale-95"
+                aria-label="Twitter / X"
+              >
+                <svg className="w-3.5 h-3.5 fill-currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href={COMPANY_CONFIG.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-xl bg-white/5 hover:bg-[#0A66C2] hover:text-white border border-white/10 flex items-center justify-center transition-all text-[#E0ECEA]/80 shadow-xs active:scale-95"
+                aria-label="LinkedIn"
+              >
+                <svg className="w-3.5 h-3.5 fill-currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+            </div>
+
             {/* Official Operating Credentials Box */}
-            <div className="p-3.5 rounded-2xl bg-black/40 border border-white/15 space-y-2.5 text-[11px] text-[#E0ECEA]/90 shadow-skeuo-inset">
+            <div className="p-3.5 rounded-2xl bg-black/40 border border-white/15 space-y-2 text-[11px] text-[#E0ECEA]/90 shadow-skeuo-inset">
               <div className="flex items-start gap-2">
                 <ShieldCheck className="w-4 h-4 text-[#D9A52B] shrink-0 mt-0.5" />
                 <div>
@@ -148,22 +206,59 @@ export const Footer: React.FC = () => {
               <div className="flex items-start gap-2 pt-1 border-t border-white/10">
                 <MapPin className="w-4 h-4 text-[#D9A52B] shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-white block">Odisha Central Hub</span>
+                  <span className="font-bold text-white block">Registered Physical Address</span>
                   <span className="text-[10px] text-[#E0ECEA]/70">{COMPANY_CONFIG.contact.registeredAddress}</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Column 2: Navigation & Services (3 Cols) */}
+          {/* Column 2: Quick Links (3 Cols) — Matches FBM Requirement 3 & 4 */}
           <div className="lg:col-span-3 space-y-3.5">
             <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#D9A52B] flex items-center gap-1.5 pb-1 border-b border-white/10">
               <Compass className="w-3.5 h-3.5 text-[#D9A52B]" />
-              <span>Explore &amp; Services</span>
+              <span>Quick Links</span>
             </h4>
             
             <ul className="space-y-2 text-xs">
               <li>
+                <Link
+                  href="/"
+                  className="hover:text-[#D9A52B] text-[#E0ECEA]/80 transition-colors flex items-center gap-2 py-0.5 group"
+                >
+                  <span>Home</span>
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-[#D9A52B] text-white font-semibold transition-colors flex items-center justify-between group py-0.5"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <span>About Us</span>
+                  </span>
+                  <span className="text-[9.5px] text-[#D9A52B] font-bold bg-[#D9A52B]/10 px-2 py-0.5 rounded-full border border-[#D9A52B]/30">
+                    Company Info
+                  </span>
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-[#D9A52B] text-white font-semibold transition-colors flex items-center justify-between group py-0.5"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <span>Contact Us</span>
+                  </span>
+                  <span className="text-[9.5px] text-[#10B981] font-bold bg-[#10B981]/10 px-2 py-0.5 rounded-full border border-[#10B981]/30">
+                    24/7 Desk
+                  </span>
+                </Link>
+              </li>
+
+              <li className="pt-1">
                 <Link
                   href="/book-cab"
                   className="hover:text-[#D9A52B] transition-all text-white font-semibold flex items-center justify-between group p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10"
@@ -196,50 +291,20 @@ export const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/services/airport-transfers"
-                  className="hover:text-[#D9A52B] text-[#E0ECEA]/80 transition-colors flex items-center gap-2 py-1 group"
+                  className="hover:text-[#D9A52B] text-[#E0ECEA]/80 transition-colors flex items-center gap-2 py-0.5 group"
                 >
                   <Plane className="w-3.5 h-3.5 text-[#D9A52B] group-hover:translate-x-0.5 transition-transform" />
-                  <span>BBI Airport Transfers (Flight Radar)</span>
+                  <span>BBI Airport Transfers</span>
                 </Link>
               </li>
 
               <li>
                 <Link
                   href="/services/outstation-cabs"
-                  className="hover:text-[#D9A52B] text-[#E0ECEA]/80 transition-colors flex items-center gap-2 py-1 group"
+                  className="hover:text-[#D9A52B] text-[#E0ECEA]/80 transition-colors flex items-center gap-2 py-0.5 group"
                 >
                   <Compass className="w-3.5 h-3.5 text-[#D9A52B] group-hover:translate-x-0.5 transition-transform" />
                   <span>Outstation Highway Cabs</span>
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/services/hourly-rentals"
-                  className="hover:text-[#D9A52B] text-[#E0ECEA]/80 transition-colors flex items-center gap-2 py-1 group"
-                >
-                  <Clock className="w-3.5 h-3.5 text-[#D9A52B] group-hover:translate-x-0.5 transition-transform" />
-                  <span>Hourly Rentals (Standby Chauffeur)</span>
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/services/odisha-tours"
-                  className="hover:text-[#D9A52B] text-[#E0ECEA]/80 transition-colors flex items-center gap-2 py-1 group"
-                >
-                  <Sparkles className="w-3.5 h-3.5 text-[#D9A52B] group-hover:translate-x-0.5 transition-transform" />
-                  <span>Curated Odisha Tour Packages</span>
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/services#corporate"
-                  className="hover:text-[#D9A52B] text-[#E0ECEA]/80 transition-colors flex items-center gap-2 py-1 group"
-                >
-                  <Award className="w-3.5 h-3.5 text-[#D9A52B] group-hover:translate-x-0.5 transition-transform" />
-                  <span>Corporate Mobility &amp; Conclaves</span>
                 </Link>
               </li>
             </ul>
@@ -249,10 +314,10 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-3 space-y-3.5">
             <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#D9A52B] flex items-center gap-1.5 pb-1 border-b border-white/10">
               <Navigation className="w-3.5 h-3.5 text-[#D9A52B]" />
-              <span>Popular Highway Routes</span>
+              <span>Popular Routes</span>
             </h4>
 
-            <ul className="space-y-2.5 text-xs text-[#E0ECEA]/85">
+            <ul className="space-y-2 text-xs text-[#E0ECEA]/85">
               <li>
                 <Link
                   href="/book-cab?service=outstation&to=Puri%20Golden%20Beach"
@@ -265,7 +330,7 @@ export const Footer: React.FC = () => {
                   <div className="text-[10px] text-[#E0ECEA]/70 mt-0.5 flex items-center gap-2">
                     <span>60 km • 1 hr 20 min</span>
                     <span>•</span>
-                    <span className="text-[#10B981]">NH-316 Highway</span>
+                    <span className="text-[#10B981]">NH-316</span>
                   </div>
                 </Link>
               </li>
@@ -282,7 +347,7 @@ export const Footer: React.FC = () => {
                   <div className="text-[10px] text-[#E0ECEA]/70 mt-0.5 flex items-center gap-2">
                     <span>Citywide 24/7</span>
                     <span>•</span>
-                    <span className="text-[#D9A52B]">Zero Flight Delay Fees</span>
+                    <span className="text-[#D9A52B]">Zero Waiting Fees</span>
                   </div>
                 </Link>
               </li>
@@ -316,55 +381,45 @@ export const Footer: React.FC = () => {
                   </div>
                 </Link>
               </li>
-
-              <li>
-                <Link
-                  href="/book-cab?service=local&to=Cuttack%20Badambadi"
-                  className="hover:text-[#D9A52B] transition-colors flex items-center justify-between group pt-1"
-                >
-                  <span className="text-[#E0ECEA]/80">Bhubaneswar ⇄ Cuttack Express (NH-16)</span>
-                  <ArrowRight className="w-3 h-3 text-[#D9A52B] group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-              </li>
             </ul>
           </div>
 
-          {/* Column 4: Support & Compliance (2 Cols) */}
+          {/* Column 4: Legal & Contact (2 Cols) — Matches FBM Requirement 2 & 4 */}
           <div className="lg:col-span-2 space-y-3.5">
             <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#D9A52B] flex items-center gap-1.5 pb-1 border-b border-white/10">
               <FileCheck2 className="w-3.5 h-3.5 text-[#D9A52B]" />
-              <span>Compliance &amp; Desk</span>
+              <span>Legal &amp; Policy</span>
             </h4>
 
             <ul className="space-y-2 text-xs text-[#E0ECEA]/80">
               <li>
-                <Link href="/privacy-policy" className="hover:text-[#D9A52B] transition-colors block py-0.5">
-                  Privacy Policy &amp; Safety
+                <Link href="/privacy-policy" className="hover:text-[#D9A52B] text-white font-semibold transition-colors block py-0.5">
+                  Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms-conditions" className="hover:text-[#D9A52B] transition-colors block py-0.5">
-                  Terms &amp; Chauffeur Charter
+                <Link href="/terms-conditions" className="hover:text-[#D9A52B] text-white font-semibold transition-colors block py-0.5">
+                  Terms &amp; Conditions
                 </Link>
               </li>
               <li>
                 <Link href="/cancellation-policy" className="hover:text-[#D9A52B] transition-colors block py-0.5">
-                  100% Refund Guarantee Policy
+                  Refund &amp; Cancellation
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="hover:text-[#D9A52B] transition-colors block py-0.5">
-                  About Our Standards &amp; Fleet
+                  About Us
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-[#D9A52B] transition-colors block py-0.5">
-                  24/7 Operations Desk
+                  Contact Us
                 </Link>
               </li>
             </ul>
 
-            {/* Interactive Click-to-Copy Helpline Cards (Formatted with Zero Cutoff) */}
+            {/* Interactive Click-to-Copy Helpline Cards */}
             <div className="pt-2 border-t border-white/10 space-y-2">
               <button
                 type="button"
@@ -411,110 +466,76 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* ================= TIER 3: ACTIVE DISPATCH HUBS & BRANDED SOCIALS ================= */}
-        <div className="py-4 sm:py-5 border-b border-white/10 text-xs text-[#E0ECEA]/75 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-          {/* Active Operating Hubs with Live Status Indicator */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
-            <span className="font-bold text-white flex items-center gap-1.5 mr-1">
-              <Radio className="w-3.5 h-3.5 text-[#10B981] animate-pulse" />
-              <span>Active Dispatch Hubs:</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
-              Bhubaneswar (BBI Airport &amp; Infocity)
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
-              Puri Jagannath Dham
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
-              Cuttack CDA &amp; Badambadi
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
-              Konark Marine Drive
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
-              Chilika Satapada
-            </span>
-          </div>
-
-          {/* Tactile Branded Social Links with Real SVGs */}
-          <div className="flex items-center gap-2 text-xs">
-            {/* Facebook */}
-            <a
-              href={COMPANY_CONFIG.socials.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-8 h-8 rounded-xl bg-white/5 hover:bg-[#1877F2] hover:text-white border border-white/10 flex items-center justify-center transition-all text-[#E0ECEA]/80 shadow-xs active:scale-95"
-              aria-label="Facebook"
-            >
-              <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
-                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.63 13.77 5.63c1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/>
-              </svg>
-            </a>
-
-            {/* Instagram */}
-            <a
-              href={COMPANY_CONFIG.socials.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-8 h-8 rounded-xl bg-white/5 hover:bg-[#E4405F] hover:text-white border border-white/10 flex items-center justify-center transition-all text-[#E0ECEA]/80 shadow-xs active:scale-95"
-              aria-label="Instagram"
-            >
-              <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-            </a>
-
-            {/* Twitter / X */}
-            <a
-              href={COMPANY_CONFIG.socials.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-8 h-8 rounded-xl bg-white/5 hover:bg-black hover:text-white border border-white/10 flex items-center justify-center transition-all text-[#E0ECEA]/80 shadow-xs active:scale-95"
-              aria-label="Twitter / X"
-            >
-              <svg className="w-3.5 h-3.5 fill-currentColor" viewBox="0 0 24 24">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-            </a>
-
-            {/* LinkedIn */}
-            <a
-              href={COMPANY_CONFIG.socials.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-8 h-8 rounded-xl bg-white/5 hover:bg-[#0A66C2] hover:text-white border border-white/10 flex items-center justify-center transition-all text-[#E0ECEA]/80 shadow-xs active:scale-95"
-              aria-label="LinkedIn"
-            >
-              <svg className="w-3.5 h-3.5 fill-currentColor" viewBox="0 0 24 24">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
-            </a>
-          </div>
+        {/* ================= TIER 3: ACTIVE DISPATCH HUBS ================= */}
+        <div className="py-3 sm:py-4 border-b border-white/10 text-xs text-[#E0ECEA]/75 flex flex-wrap items-center justify-center sm:justify-start gap-2">
+          <span className="font-bold text-white flex items-center gap-1.5 mr-1">
+            <Radio className="w-3.5 h-3.5 text-[#10B981] animate-pulse" />
+            <span>Active Dispatch Hubs:</span>
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+            Bhubaneswar (BBI Airport &amp; Infocity)
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+            Puri Jagannath Dham
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+            Cuttack CDA &amp; Badambadi
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+            Konark Marine Drive
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+            Chilika Satapada
+          </span>
         </div>
 
-        {/* ================= TIER 4: CORPORATE LEGAL BAR & COPYRIGHTS ================= */}
-        <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[#E0ECEA]/70 text-center sm:text-left">
-          <div className="space-y-0.5">
-            <p>
-              © 2026 <span className="text-white font-bold">{COMPANY_CONFIG.legalBusinessName}</span> All rights reserved.
-            </p>
-            <p className="text-[10px] text-[#E0ECEA]/50">
-              All legals, brand assets &amp; copyrights held by NovaSpark Digital Marketing Pvt. Ltd. • State Transport Authority (STA) Odisha Guidelines Compliant
+        {/* ================= TIER 4: CORPORATE LEGAL BAR (FBM REQUIREMENT 5) ================= */}
+        <div className="pt-5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#E0ECEA]/75">
+          {/* Quick Legal Text Links */}
+          <div className="space-y-1.5 text-center md:text-left">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-3 sm:gap-x-4 gap-y-1 text-xs">
+              <Link href="/privacy-policy" className="text-white font-semibold hover:text-[#D9A52B] transition-colors underline-offset-4 hover:underline">
+                Privacy Policy
+              </Link>
+              <span className="text-white/30">•</span>
+              <Link href="/terms-conditions" className="text-white font-semibold hover:text-[#D9A52B] transition-colors underline-offset-4 hover:underline">
+                Terms &amp; Conditions
+              </Link>
+              <span className="text-white/30">•</span>
+              <Link href="/cancellation-policy" className="text-white font-semibold hover:text-[#D9A52B] transition-colors underline-offset-4 hover:underline">
+                Refund Policy
+              </Link>
+              <span className="text-white/30">•</span>
+              <Link href="/about" className="text-white font-semibold hover:text-[#D9A52B] transition-colors underline-offset-4 hover:underline">
+                About Us
+              </Link>
+              <span className="text-white/30">•</span>
+              <Link href="/contact" className="text-white font-semibold hover:text-[#D9A52B] transition-colors underline-offset-4 hover:underline">
+                Contact Us
+              </Link>
+            </div>
+            <p className="text-[10px] text-[#E0ECEA]/60 max-w-xl">
+              CabJatra is an official pre-booked mobility brand operated by <strong>{COMPANY_CONFIG.legalBusinessName}</strong>. State Transport Authority (STA) Odisha Guidelines Compliant.
             </p>
           </div>
 
-          {/* NovaSpark Digital Marketing Official Placement */}
-          <div className="flex items-center gap-2 bg-black/40 px-3.5 py-1.5 rounded-full border border-white/10 shadow-xs">
-            <span className="text-[10px] text-[#E0ECEA]/75">Platform &amp; Legal Entity:</span>
-            <span className="inline-flex items-center gap-1 text-[#D9A52B] font-bold tracking-wide text-[11px]">
-              <Sparkles className="w-3 h-3 text-[#D9A52B]" />
-              <span>NovaSpark Digital Marketing Pvt. Ltd.</span>
-            </span>
+          {/* FBM Requirement 5: Dedicated Highlighted Legal Entity Box */}
+          <div className="p-3 sm:p-3.5 rounded-2xl bg-black/60 border-2 border-[#D9A52B]/60 shadow-[0_4px_20px_rgba(0,0,0,0.5)] text-center md:text-right shrink-0">
+            <div className="text-white font-bold text-xs sm:text-sm font-display tracking-tight flex items-center justify-center md:justify-end gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-[#D9A52B]" />
+              <span>{COMPANY_CONFIG.legalBusinessName}</span>
+            </div>
+            <div className="text-[11px] text-[#A7F3D0] font-bold mt-0.5">
+              &copy; 2026 All rights reserved.
+            </div>
+            <div className="text-[9.5px] text-[#E0ECEA]/70 mt-0.5">
+              Official Legal Business Name &bull; CIN: {COMPANY_CONFIG.cinOrRegistration}
+            </div>
           </div>
         </div>
       </div>
