@@ -52,50 +52,64 @@ export const Footer: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ================= TIER 1: BESPOKE LUXURY CONCIERGE DISPATCH LOUNGE ================= */}
-        <div className="mb-7 sm:mb-9 p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#062F31] via-[#042426] to-[#021718] border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.2)] flex flex-col lg:flex-row items-center justify-between gap-6 backdrop-blur-2xl relative overflow-hidden group">
-          {/* Subtle Konark Gold Corner Sheen */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#D9A52B]/10 rounded-full blur-2xl pointer-events-none" />
+        <div className="mb-7 sm:mb-9 p-4 sm:p-6 lg:p-7 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#063336] via-[#042426] to-[#021415] border border-[#D9A52B]/40 shadow-[0_20px_50px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-1px_0_rgba(0,0,0,0.5)] flex flex-col lg:flex-row items-center justify-between gap-6 backdrop-blur-2xl relative overflow-hidden group">
+          {/* Top Gold Shimmer Edge Line */}
+          <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#D9A52B]/90 via-50% to-transparent pointer-events-none" />
 
+          {/* Ambient Corner Lighting Sheens */}
+          <div className="absolute -top-16 -right-16 w-64 h-64 bg-[#D9A52B]/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-[#10B981]/10 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Content & Typography */}
           <div className="space-y-2.5 text-center lg:text-left relative z-10 max-w-2xl">
             {/* Live Operations Beacon */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/50 border border-[#D9A52B]/40 text-[10.5px] font-bold text-[#D9A52B] shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shadow-[0_0_8px_#10B981]" />
-              <span>Bhubaneswar Central Dispatch • Live 24/7 Operations Desk</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-[#D9A52B]/50 text-[10.5px] font-bold text-[#D9A52B] shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_8px_rgba(0,0,0,0.4)] backdrop-blur-md">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" />
+              </span>
+              <span>Bhubaneswar Central Dispatch &bull; Live 24/7 Operations Desk</span>
             </div>
 
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold font-display text-white tracking-tight">
-              Need Instant Chauffeur Dispatch or a Custom Tour Plan?
+              Need Instant Chauffeur Dispatch or a{" "}
+              <span className="text-[#D9A52B] italic font-normal">Custom Tour Plan?</span>
             </h3>
 
-            <p className="text-xs sm:text-sm text-[#E0ECEA]/80 leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#E0ECEA]/85 leading-relaxed font-normal">
               Book verified yellow-board commercial fleet with background-checked chauffeurs. Simple 10% advance deposit after fleet confirmation.
             </p>
           </div>
 
+          {/* Tactile Luxury Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto shrink-0 relative z-10">
-            {/* WhatsApp Luxury Action Button */}
+            {/* WhatsApp Emerald Luxury Button */}
             <a
               href={COMPANY_CONFIG.contact.whatsAppLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto justify-center px-6 py-3.5 rounded-2xl bg-gradient-to-b from-[#25D366] to-[#128C7E] text-white font-bold text-xs inline-flex items-center gap-2.5 shadow-[0_8px_25px_rgba(37,211,102,0.35),inset_0_1px_0_rgba(255,255,255,0.4)] border-t border-white/40 hover:brightness-110 transition-all hover:scale-[1.02] active:scale-98 select-none"
+              className="w-full sm:w-auto justify-center px-5 sm:px-6 py-3 rounded-2xl bg-gradient-to-b from-[#22C55E] via-[#16A34A] to-[#15803D] text-white font-bold text-xs inline-flex items-center gap-2.5 shadow-[0_10px_25px_rgba(22,163,74,0.35),inset_0_1px_0_rgba(255,255,255,0.45),0_2px_4px_rgba(0,0,0,0.3)] border-t border-white/40 border-b border-[#0E602F] hover:brightness-110 transition-all hover:scale-[1.02] active:scale-98 select-none"
             >
-              <MessageSquare className="w-4 h-4 text-white fill-white shrink-0" />
+              <div className="w-8 h-8 rounded-xl bg-black/15 flex items-center justify-center shrink-0 border border-white/20">
+                <MessageSquare className="w-4 h-4 text-white fill-white" />
+              </div>
               <div className="text-left leading-tight">
-                <span className="block font-bold">WhatsApp Operations Desk</span>
-                <span className="block text-[9.5px] font-normal text-white/90">Instant Booking • &lt; 2 min response</span>
+                <span className="block font-bold text-white text-xs">WhatsApp Operations Desk</span>
+                <span className="block text-[9.5px] font-medium text-white/90">Instant Booking &bull; &lt; 2 min response</span>
               </div>
             </a>
 
-            {/* Helpline Click-to-Call */}
+            {/* Helpline Tactile Luxury Button */}
             <a
               href={`tel:${COMPANY_CONFIG.contact.phoneRaw}`}
-              className="w-full sm:w-auto justify-center px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/15 text-white border border-white/20 font-bold text-xs inline-flex items-center gap-2.5 backdrop-blur-md transition-all active:scale-98 shadow-sm select-none"
+              className="w-full sm:w-auto justify-center px-5 sm:px-6 py-3 rounded-2xl bg-gradient-to-b from-[#093D3F] to-[#042022] hover:from-[#0C4A4C] hover:to-[#06282B] text-white border border-[#D9A52B]/45 hover:border-[#D9A52B]/75 font-bold text-xs inline-flex items-center gap-2.5 backdrop-blur-md transition-all hover:scale-[1.02] active:scale-98 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_8px_20px_rgba(0,0,0,0.4)] select-none"
             >
-              <Phone className="w-4 h-4 text-[#D9A52B] shrink-0" />
+              <div className="w-8 h-8 rounded-xl bg-[#D9A52B]/15 flex items-center justify-center shrink-0 border border-[#D9A52B]/40">
+                <Phone className="w-4 h-4 text-[#D9A52B]" />
+              </div>
               <div className="text-left leading-tight">
-                <span className="block text-[#D9A52B] text-[9.5px] font-semibold uppercase tracking-wider">Customer Helpline</span>
-                <span className="block text-white font-bold">{COMPANY_CONFIG.contact.phoneDisplay}</span>
+                <span className="block text-[#D9A52B] text-[9.5px] font-bold uppercase tracking-wider">Customer Helpline</span>
+                <span className="block text-white font-bold text-xs">{COMPANY_CONFIG.contact.phoneDisplay}</span>
               </div>
             </a>
           </div>
