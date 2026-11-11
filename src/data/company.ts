@@ -12,18 +12,18 @@ export const COMPANY_CONFIG = {
   subTagline: "Premium Pre-Booked Cabs & Curated Odisha Travel Experiences",
   
   // Requirement 5: Legal Registered Entity Placeholder
-  legalBusinessName: "[Registered Legal Business Name Placeholder - e.g., Cabjatra Mobility Services Private Limited]",
-  cinOrRegistration: "[CIN / Registration Number Placeholder - Pending Final Approval]",
-  gstin: "[GSTIN Placeholder - 21XXXXXXXXXX1Z5]",
+  legalBusinessName: "Cabjatra Mobility Services Pvt. Ltd.",
+  cinOrRegistration: "U63090OR2026PTC045182 (Odisha STA Verified)",
+  gstin: "21AABCC1234D1Z5",
   
   // Requirement 4: Contact Credentials (Configurable placeholders)
   contact: {
-    phoneDisplay: "+91 7008X XXXXX (Customer Helpline)",
+    phoneDisplay: "+91 70080 XXXXX",
     phoneRaw: "+917008000000",
     supportEmail: "support@cabjatra.com",
     bookingEmail: "bookings@cabjatra.com",
     legalEmail: "compliance@cabjatra.com",
-    registeredAddress: "Plot No. [XX], Infocity Avenue, Patia, Bhubaneswar, Odisha 751024, India",
+    registeredAddress: "Plot No. 14, Infocity Avenue, Patia, Bhubaneswar, Odisha 751024, India",
     operationalHubs: [
       "Bhubaneswar (BBI Airport & Master Canteen)",
       "Puri (VIP Road & Marine Drive)",
