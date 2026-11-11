@@ -160,7 +160,7 @@ function TourBookingContent() {
       <div
         className={`relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 ${
           currentStep === 4
-            ? "pt-14 sm:pt-16 pb-6 min-h-[82vh] flex items-center justify-center"
+            ? "pt-28 sm:pt-36 pb-16 min-h-[85vh] flex flex-col items-center justify-start"
             : "pt-28 sm:pt-32 pb-12"
         }`}
       >
@@ -725,7 +725,7 @@ function TourBookingContent() {
 
           {/* ================= STEP 4: COMPACT CONFIRMATION & OFFICIAL TOUR VOUCHER ================= */}
           {currentStep === 4 && (
-            <div className="w-full max-w-lg mx-auto card-skeuo rounded-3xl p-4 sm:p-6 border border-[#D5DDD5] shadow-2xl space-y-3 text-center animate-in zoom-in-95 duration-300">
+            <div className="w-full max-w-lg mx-auto mt-3 sm:mt-6 card-skeuo rounded-3xl p-4 sm:p-6 border border-[#D5DDD5] shadow-2xl space-y-3 text-center animate-in zoom-in-95 duration-300">
               {/* 3D Glass Celebration Orb - Continuously Bouncing Ball */}
               <GlassCelebrationOrb size="md" />
 
