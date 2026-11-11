@@ -7,7 +7,7 @@ export const TrustSafetySection: React.FC = () => {
     {
       title: "Chauffeur Screening & Commercial Licensing",
       desc: "Every driver undergoes background verification, holds a valid commercial driving license (yellow-board endorsement), and has verified highway expertise across Odisha corridors.",
-      icon: <FileCheck2 className="w-5 h-5 text-[#073B3A]" />,
+      icon: <FileCheck2 className="w-5 h-5 text-[#D9A52B]" />,
       actionText: "View Driver Policy",
       actionLink: "/terms-conditions",
       badge: "Strict Screening",
@@ -15,7 +15,7 @@ export const TrustSafetySection: React.FC = () => {
     {
       title: "Vehicle Standards & AC Sanitization",
       desc: "Cabs are commercially registered with state transport permits, functioning dual-zone climate control, clean fabric or leatherette upholstery, and secure luggage boot space.",
-      icon: <ShieldCheck className="w-5 h-5 text-[#073B3A]" />,
+      icon: <ShieldCheck className="w-5 h-5 text-[#D9A52B]" />,
       actionText: "Fleet Standards",
       actionLink: "/services",
       badge: "Commercial Yellow Board",
@@ -23,7 +23,7 @@ export const TrustSafetySection: React.FC = () => {
     {
       title: "24/7 Operations Desk Support",
       desc: "Live travel desk support for flight arrivals at BBI Airport, train delays, intermediate sightseeing halts, and instant WhatsApp chauffeur coordination.",
-      icon: <Headphones className="w-5 h-5 text-[#073B3A]" />,
+      icon: <Headphones className="w-5 h-5 text-[#D9A52B]" />,
       actionText: "Contact Support Desk",
       actionLink: "/contact",
       badge: "Human Travel Desk",
@@ -31,7 +31,7 @@ export const TrustSafetySection: React.FC = () => {
     {
       title: "Transparent Cancellation & Refund Terms",
       desc: "Full refund of advance deposit for outstation trips cancelled with 12+ hours notice. Zero cancellation fee for rescheduled flights or weather disruptions.",
-      icon: <RotateCcw className="w-5 h-5 text-[#073B3A]" />,
+      icon: <RotateCcw className="w-5 h-5 text-[#D9A52B]" />,
       actionText: "Cancellation Matrix",
       actionLink: "/cancellation-policy",
       badge: "No Penalty Reschedules",
@@ -66,28 +66,28 @@ export const TrustSafetySection: React.FC = () => {
           {pillars.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-[#D5DDD5] shadow-skeuo hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+              className="card-skeuo rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex flex-col justify-between group"
             >
-              <div className="space-y-2.5 sm:space-y-3">
+              <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#FAF9F5] to-[#EEF2EE] border border-[#E5EAE5] flex items-center justify-center group-hover:bg-[#073B3A] group-hover:text-white transition-colors shadow-xs">
+                  <div className="w-11 h-11 rounded-2xl medallion-dark flex items-center justify-center transition-transform group-hover:scale-105">
                     {item.icon}
                   </div>
-                  <span className="text-[8.5px] sm:text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#F2F5F2] text-[#667575]">
+                  <span className="text-[9.5px] font-bold text-[#073B3A] bg-gradient-to-b from-[#F2F6F2] to-[#E3EDE3] px-2.5 py-1 rounded-full border border-[#BED2BE] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.04)]">
                     {item.badge}
                   </span>
                 </div>
 
-                <h3 className="text-sm sm:text-base font-bold text-[#182A2B] group-hover:text-[#073B3A] transition-colors leading-snug">
+                <h3 className="text-base font-bold text-[#182A2B] group-hover:text-[#073B3A] transition-colors leading-snug font-display">
                   {item.title}
                 </h3>
 
-                <p className="text-[11px] sm:text-xs text-[#667575] leading-relaxed">
+                <p className="text-[11.5px] sm:text-xs text-[#556464] leading-relaxed">
                   {item.desc}
                 </p>
               </div>
 
-              <div className="mt-4 sm:mt-6 pt-3 sm:pt-3.5 border-t border-[#F2F5F2]">
+              <div className="mt-4 sm:mt-6 pt-3.5 border-t border-[#E5ECE5]">
                 <Link
                   href={item.actionLink}
                   className="text-xs font-bold text-[#073B3A] hover:underline inline-flex items-center gap-1 group-hover:text-[#062F31]"

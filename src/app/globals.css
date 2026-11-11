@@ -61,6 +61,118 @@
   background: #639d99;
 }
 
+@layer components {
+  /* True Skeuomorphic Tactile Card Surface */
+  .card-skeuo {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F9FBF9 100%);
+    border: 1px solid #D4DDD4;
+    box-shadow: 
+      inset 0 1px 0 0 #FFFFFF,
+      inset 0 2px 0 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.05),
+      0 6px 20px -3px rgba(7, 59, 58, 0.08),
+      0 2px 6px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-skeuo:hover {
+    border-color: rgba(217, 165, 43, 0.55);
+    box-shadow: 
+      inset 0 1px 0 0 #FFFFFF,
+      inset 0 2px 0 0 rgba(255, 255, 255, 0.95),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.05),
+      0 20px 38px -6px rgba(7, 59, 58, 0.16),
+      0 6px 14px rgba(0, 0, 0, 0.06);
+    transform: translateY(-4px);
+  }
+
+  /* Skeuomorphic Dark Luxury Card */
+  .card-skeuo-dark {
+    background: linear-gradient(145deg, #073B3A 0%, #052A2C 55%, #031C1D 100%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.22),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.5),
+      0 18px 40px -4px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-skeuo-dark:hover {
+    border-color: rgba(217, 165, 43, 0.6);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.6),
+      0 24px 48px -4px rgba(0, 0, 0, 0.6);
+    transform: translateY(-4px);
+  }
+
+  /* Tactile Recessed / Inset Panel */
+  .panel-recessed {
+    background: linear-gradient(180deg, #EDF2ED 0%, #F6F9F6 100%);
+    border: 1px solid #D3DDD3;
+    box-shadow:
+      inset 0 2px 5px 0 rgba(0, 0, 0, 0.06),
+      inset 0 1px 2px 0 rgba(0, 0, 0, 0.04),
+      0 1px 0 0 #FFFFFF;
+  }
+
+  /* Skeuomorphic Tactile Medallion Icon */
+  .medallion-dark {
+    background: linear-gradient(180deg, #0A4E4C 0%, #052829 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.28);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.25),
+      inset 0 -2px 0 0 rgba(0, 0, 0, 0.35),
+      0 4px 12px rgba(7, 59, 58, 0.25);
+  }
+
+  /* Skeuomorphic Tactile Gold Button */
+  .btn-skeuo-gold {
+    background: linear-gradient(180deg, #E6B543 0%, #D9A52B 55%, #C28D1E 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.65);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.6),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.2),
+      0 4px 14px rgba(217, 165, 43, 0.35);
+    transition: all 0.2s ease;
+  }
+  .btn-skeuo-gold:hover {
+    filter: brightness(1.05);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.8),
+      0 6px 18px rgba(217, 165, 43, 0.45);
+  }
+  .btn-skeuo-gold:active {
+    transform: translateY(1px);
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.25),
+      0 2px 6px rgba(217, 165, 43, 0.2);
+  }
+
+  /* Skeuomorphic Tactile Dark Button */
+  .btn-skeuo-dark {
+    background: linear-gradient(180deg, #094B49 0%, #062F31 60%, #031E1F 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.45);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+      0 4px 14px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease;
+  }
+  .btn-skeuo-dark:hover {
+    filter: brightness(1.1);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+      0 6px 18px rgba(0, 0, 0, 0.35);
+  }
+  .btn-skeuo-dark:active {
+    transform: translateY(1px);
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.4),
+      0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+}
+
 /* Respect user reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
   *,

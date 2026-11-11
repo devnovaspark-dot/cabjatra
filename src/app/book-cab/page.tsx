@@ -297,19 +297,19 @@ function CabBookingContent() {
         {currentStep === 1 && (
           <form
             onSubmit={handleNextFromStep1}
-            className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-10 border border-[#D5DDD5] shadow-[0_25px_60px_rgba(0,0,0,0.14)] space-y-5 sm:space-y-8 animate-in fade-in-50 duration-200"
+            className="card-skeuo rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 space-y-6 sm:space-y-8 animate-in fade-in-50 duration-200"
           >
             {/* Header */}
-            <div className="border-b border-[#EEF2EE] pb-3 sm:pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="border-b border-[#E5ECE5] pb-3 sm:pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#062F31] bg-[#D9A52B] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full inline-block shadow-xs">
+                <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider text-[#062F31] bg-[#D9A52B] px-3 py-1 rounded-full inline-block shadow-xs">
                   Step 1 of 4 • Route &amp; Schedule
                 </span>
                 <h2 className="text-xl sm:text-3xl font-bold font-display text-[#182A2B] mt-1">
                   Select Service &amp; Schedule
                 </h2>
               </div>
-              <span className="text-[11px] sm:text-xs text-[#073B3A] font-semibold flex items-center gap-1.5 bg-[#E0ECEA]/70 px-2.5 sm:px-3 py-1 rounded-full border border-[#C1DAD7] self-start sm:self-auto">
+              <span className="text-[11px] sm:text-xs text-[#073B3A] font-semibold flex items-center gap-1.5 bg-[#E0ECEA]/80 px-3 py-1 rounded-full border border-[#C1DAD7] self-start sm:self-auto shadow-xs">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
                 <span>Zero cancellation fee on 6hr notice</span>
               </span>
@@ -320,7 +320,7 @@ function CabBookingContent() {
               <label className="text-[11px] sm:text-xs font-bold text-[#182A2B] uppercase tracking-wider block">
                 Choose Travel Category:
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5">
                 {[
                   { id: "outstation", label: "Outstation Highway", icon: Compass, desc: "Puri, Konark, Chilika & intercity" },
                   { id: "airport", label: "Airport Transfer", icon: Plane, desc: "BBI arrivals & departures" },
@@ -334,28 +334,28 @@ function CabBookingContent() {
                       key={srv.id}
                       type="button"
                       onClick={() => setServiceType(srv.id as any)}
-                      className={`p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all flex flex-col justify-between group cursor-pointer ${
+                      className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all flex flex-col justify-between group cursor-pointer ${
                         isSelected
-                          ? "border-2 border-[#D9A52B] bg-[#073B3A] text-white shadow-card ring-2 ring-[#073B3A]/30 scale-[1.01]"
-                          : "border-[#D5DDD5] hover:border-[#073B3A]/40 text-[#182A2B] bg-[#FAF9F5] hover:bg-white"
+                          ? "border-2 border-[#D9A52B] card-skeuo-dark text-white shadow-[0_10px_25px_rgba(7,59,58,0.35)] scale-[1.01]"
+                          : "card-skeuo text-[#182A2B] hover:border-[#073B3A]/40"
                       }`}
                     >
                       <div>
                         <div
-                          className={`w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center mb-2 sm:mb-3 transition-colors ${
-                            isSelected ? "bg-white/15 text-[#D9A52B]" : "bg-white text-[#073B3A] shadow-xs"
+                          className={`w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center mb-2.5 sm:mb-3 transition-colors ${
+                            isSelected ? "medallion-dark text-[#D9A52B]" : "panel-recessed text-[#073B3A] shadow-xs"
                           }`}
                         >
                           <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                         </div>
-                        <span className="text-[11px] sm:text-xs font-bold font-display block leading-snug">{srv.label}</span>
-                        <p className={`text-[9.5px] sm:text-[10px] mt-0.5 sm:mt-1 leading-tight line-clamp-2 ${isSelected ? "text-[#E0ECEA]/90" : "text-[#667575]"}`}>
+                        <span className="text-xs sm:text-sm font-bold font-display block leading-snug">{srv.label}</span>
+                        <p className={`text-[10px] sm:text-[11px] mt-1 leading-tight line-clamp-2 ${isSelected ? "text-[#E0ECEA]/90" : "text-[#556464]"}`}>
                           {srv.desc}
                         </p>
                       </div>
 
-                      <div className="mt-2 sm:mt-3 pt-1.5 sm:pt-2 border-t border-black/5 flex items-center justify-end">
-                        <span className={`text-[8.5px] sm:text-[9px] font-bold uppercase ${isSelected ? "text-[#D9A52B]" : "text-transparent"}`}>
+                      <div className="mt-3 pt-2 border-t border-black/5 flex items-center justify-end">
+                        <span className={`text-[9px] font-bold uppercase ${isSelected ? "text-[#D9A52B]" : "text-transparent"}`}>
                           Selected ✓
                         </span>
                       </div>
@@ -567,13 +567,13 @@ function CabBookingContent() {
 
             {/* Step 1 Actions */}
             <div className="pt-4 border-t border-[#EEF2EE] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <span className="text-xs text-[#667575] flex items-center gap-1.5">
+              <span className="text-xs text-[#556464] flex items-center gap-1.5 font-medium">
                 <ShieldCheck className="w-4 h-4 text-[#D9A52B]" />
                 Zero advance payment charged until fleet assignment is confirmed.
               </span>
               <button
                 type="submit"
-                className="px-8 py-3.5 rounded-full bg-gradient-to-b from-[#E6B543] to-[#C99320] text-[#062F31] font-bold text-xs inline-flex items-center justify-center gap-2 border-t border-white/40 shadow-skeuo-gold hover:brightness-105 active:translate-y-0.5 transition-all cursor-pointer"
+                className="px-8 py-3.5 rounded-xl btn-skeuo-gold text-[#062F31] font-bold text-xs sm:text-sm inline-flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Continue to Select Vehicle</span>
                 <ArrowRight className="w-4 h-4 text-[#062F31]" />
@@ -584,25 +584,25 @@ function CabBookingContent() {
 
         {/* ================= STEP 2: SELECT VEHICLE SHOWROOM ================= */}
         {currentStep === 2 && (
-          <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#D5DDD5] shadow-[0_25px_60px_rgba(0,0,0,0.14)] space-y-8 animate-in fade-in-50 duration-200">
+          <div className="card-skeuo rounded-3xl p-6 sm:p-10 space-y-8 animate-in fade-in-50 duration-200">
             {/* Header */}
-            <div className="border-b border-[#EEF2EE] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="border-b border-[#E5ECE5] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#062F31] bg-[#D9A52B] px-3 py-1 rounded-full inline-block shadow-xs">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#062F31] bg-[#D9A52B] px-3 py-1 rounded-full inline-block shadow-xs">
                   Step 2 of 4 • Commercial Fleet Selection
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#182A2B] mt-1.5">
                   Choose Your Vehicle Class
                 </h2>
               </div>
-              <span className="text-xs text-[#073B3A] font-semibold flex items-center gap-1.5 bg-[#E0ECEA]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
+              <span className="text-xs text-[#073B3A] font-semibold flex items-center gap-1.5 bg-[#E0ECEA]/80 px-3 py-1 rounded-full border border-[#C1DAD7] shadow-xs">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
                 100% Dual-Zone AC &amp; Sanitized Interior
               </span>
             </div>
 
             {/* Vehicle Showroom Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
               {VEHICLE_FLEET.map((v) => {
                 const isSelected = selectedVehicleId === v.id;
                 return (
@@ -611,8 +611,8 @@ function CabBookingContent() {
                     onClick={() => setSelectedVehicleId(v.id)}
                     className={`rounded-3xl border transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between group ${
                       isSelected
-                        ? "border-2 border-[#073B3A] bg-[#FAF9F5] shadow-card ring-2 ring-[#073B3A]/30 scale-[1.01]"
-                        : "border-[#D5DDD5] hover:border-[#073B3A]/40 bg-white hover:shadow-soft"
+                        ? "border-2 border-[#D9A52B] card-skeuo ring-2 ring-[#073B3A]/30 shadow-[0_14px_30px_rgba(7,59,58,0.25)] scale-[1.01]"
+                        : "card-skeuo hover:border-[#073B3A]/40"
                     }`}
                   >
                     <div>
@@ -706,7 +706,7 @@ function CabBookingContent() {
               <button
                 type="button"
                 onClick={handleNextFromStep2}
-                className="px-8 py-3.5 rounded-full bg-gradient-to-b from-[#E6B543] to-[#C99320] text-[#062F31] font-bold text-xs inline-flex items-center gap-2 border-t border-white/40 shadow-skeuo-gold hover:brightness-105 active:translate-y-0.5 transition-all cursor-pointer"
+                className="px-8 py-3.5 rounded-xl btn-skeuo-gold text-[#062F31] font-bold text-xs sm:text-sm inline-flex items-center gap-2 cursor-pointer"
               >
                 <span>Continue to Passenger Details</span>
                 <ArrowRight className="w-4 h-4 text-[#062F31]" />
@@ -719,19 +719,19 @@ function CabBookingContent() {
         {currentStep === 3 && (
           <form
             onSubmit={handleNextFromStep3}
-            className="bg-white rounded-3xl p-6 sm:p-10 border border-[#D5DDD5] shadow-[0_25px_60px_rgba(0,0,0,0.14)] space-y-8 animate-in fade-in-50 duration-200"
+            className="card-skeuo rounded-3xl p-6 sm:p-10 space-y-8 animate-in fade-in-50 duration-200"
           >
             {/* Header */}
-            <div className="border-b border-[#EEF2EE] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="border-b border-[#E5ECE5] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#062F31] bg-[#D9A52B] px-3 py-1 rounded-full inline-block shadow-xs">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#062F31] bg-[#D9A52B] px-3 py-1 rounded-full inline-block shadow-xs">
                   Step 3 of 4 • Lead Passenger Information
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#182A2B] mt-1.5">
                   Contact &amp; Group Details
                 </h2>
               </div>
-              <span className="text-xs text-[#073B3A] font-semibold flex items-center gap-1.5 bg-[#E0ECEA]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
+              <span className="text-xs text-[#073B3A] font-semibold flex items-center gap-1.5 bg-[#E0ECEA]/80 px-3 py-1 rounded-full border border-[#C1DAD7] shadow-xs">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
                 WhatsApp dispatch voucher will be sent here
               </span>
@@ -908,7 +908,7 @@ function CabBookingContent() {
 
               <button
                 type="submit"
-                className="px-8 py-3.5 rounded-full bg-gradient-to-b from-[#E6B543] to-[#C99320] text-[#062F31] font-bold text-xs inline-flex items-center gap-2 border-t border-white/40 shadow-skeuo-gold hover:brightness-105 active:translate-y-0.5 transition-all cursor-pointer"
+                className="px-8 py-3.5 rounded-xl btn-skeuo-gold text-[#062F31] font-bold text-xs sm:text-sm inline-flex items-center gap-2 cursor-pointer"
               >
                 <span>Review Fare &amp; Boarding Pass</span>
                 <ArrowRight className="w-4 h-4 text-[#062F31]" />
@@ -919,18 +919,18 @@ function CabBookingContent() {
 
         {/* ================= STEP 4: REVIEW & SUBMIT DISPATCH REQUEST ================= */}
         {currentStep === 4 && (
-          <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#D5DDD5] shadow-[0_25px_60px_rgba(0,0,0,0.14)] space-y-8 animate-in fade-in-50 duration-200">
+          <div className="card-skeuo rounded-3xl p-6 sm:p-10 space-y-8 animate-in fade-in-50 duration-200">
             {/* Header */}
-            <div className="border-b border-[#EEF2EE] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="border-b border-[#E5ECE5] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#062F31] bg-[#D9A52B] px-3 py-1 rounded-full inline-block shadow-xs">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#062F31] bg-[#D9A52B] px-3 py-1 rounded-full inline-block shadow-xs">
                   Step 4 of 4 • Final Review
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#182A2B] mt-1.5">
                   Confirm Chauffeur Dispatch Request
                 </h2>
               </div>
-              <span className="text-xs text-[#073B3A] font-semibold flex items-center gap-1.5 bg-[#E0ECEA]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
+              <span className="text-xs text-[#073B3A] font-semibold flex items-center gap-1.5 bg-[#E0ECEA]/80 px-3 py-1 rounded-full border border-[#C1DAD7] shadow-xs">
                 <ShieldCheck className="w-4 h-4 text-[#D9A52B]" />
                 10% Advance Deposit Model
               </span>

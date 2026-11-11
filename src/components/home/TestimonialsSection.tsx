@@ -74,51 +74,54 @@ export const TestimonialsSection: React.FC = () => {
           {experiences.map((exp, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-7 border border-[#D5DDD5] shadow-skeuo hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+              className="card-skeuo rounded-2xl sm:rounded-3xl p-5 sm:p-7 flex flex-col justify-between group relative overflow-hidden"
             >
-              <div className="space-y-3 sm:space-y-4">
+              {/* Gold Top Sheen Accent on Hover */}
+              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#D9A52B]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+              <div className="space-y-3.5 sm:space-y-4">
                 {/* Header: Stars & Route Pill */}
                 <div className="flex items-start justify-between gap-2">
-                  <div className="space-y-1">
-                    <div className="flex text-[#D9A52B]">
+                  <div className="space-y-1.5">
+                    <div className="flex text-[#D9A52B] drop-shadow-xs">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-[#D9A52B]" />
+                        <Star key={i} className="w-4 h-4 fill-[#D9A52B]" />
                       ))}
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#E0ECEA] text-[#073B3A] inline-block">
+                    <span className="text-[9.5px] font-extrabold uppercase tracking-wider px-3 py-0.5 rounded-full bg-gradient-to-b from-[#FAF9F5] to-[#E3EDE3] text-[#073B3A] inline-block border border-[#BED2BE] shadow-xs">
                       {exp.travelerType}
                     </span>
                   </div>
-                  <Quote className="w-8 h-8 text-[#E5EAE5] shrink-0" />
+                  <Quote className="w-8 h-8 text-[#D9A52B]/30 shrink-0" />
                 </div>
 
-                {/* Route Strip */}
-                <div className="text-[11px] font-semibold text-[#182A2B] bg-[#FAF9F5] p-2.5 rounded-xl border border-[#E5EAE5] flex items-center gap-2">
+                {/* Route Strip - Recessed Travel Voucher Tag */}
+                <div className="text-[11px] font-semibold text-[#182A2B] panel-recessed p-2.5 rounded-xl border border-[#D6E0D6] flex items-center gap-2 shadow-[inset_0_1px_3px_rgba(0,0,0,0.04)]">
                   <MapPin className="w-3.5 h-3.5 text-[#D9A52B] shrink-0" />
                   <span className="truncate">{exp.route}</span>
                 </div>
 
                 {/* Quote Text */}
-                <p className="text-[11px] sm:text-xs text-[#455353] leading-relaxed italic line-clamp-4 sm:line-clamp-none">
+                <p className="text-[11.5px] sm:text-xs text-[#455353] leading-relaxed italic line-clamp-4 sm:line-clamp-none font-sans">
                   &ldquo;{exp.feedback}&rdquo;
                 </p>
 
                 {/* Driver & Vehicle Tag */}
-                <div className="pt-2 border-t border-[#F2F5F2] flex flex-wrap items-center justify-between text-[10px] text-[#667575] gap-1">
-                  <span className="font-semibold text-[#073B3A] flex items-center gap-1">
-                    <UserCheck className="w-3 h-3 text-[#D9A52B]" />
-                    {exp.driverMention}
+                <div className="pt-2.5 border-t border-[#E5ECE5] flex flex-wrap items-center justify-between text-[10px] sm:text-[10.5px] text-[#556464] gap-1">
+                  <span className="font-bold text-[#073B3A] flex items-center gap-1.5 bg-[#FAF9F5] px-2.5 py-1 rounded-lg border border-[#D6E0D6] shadow-xs">
+                    <UserCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
+                    <span>{exp.driverMention}</span>
                   </span>
-                  <span className="bg-[#FAF9F5] px-2 py-0.5 rounded border border-[#E5EAE5]">
+                  <span className="bg-[#FAF9F5] px-2.5 py-1 rounded-lg border border-[#D6E0D6] text-[10px] font-semibold shadow-xs">
                     {exp.vehicle}
                   </span>
                 </div>
               </div>
 
               {/* Traveler User ID Profile Footer with Real Avatar Image */}
-              <div className="mt-4 sm:mt-6 pt-3 sm:pt-3.5 border-t border-[#F2F5F2] flex items-center justify-between">
+              <div className="mt-5 sm:mt-6 pt-3.5 border-t border-[#E5ECE5] flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-[#D9A52B]/60 shadow-xs shrink-0">
+                  <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-[#D9A52B] shadow-[0_2px_8px_rgba(217,165,43,0.35)] shrink-0">
                     <Image
                       src={exp.avatar}
                       alt={exp.author}
@@ -127,14 +130,14 @@ export const TestimonialsSection: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-[#182A2B] flex items-center gap-1">
+                    <h4 className="text-xs sm:text-sm font-bold text-[#182A2B] flex items-center gap-1 font-display">
                       <span>{exp.author}</span>
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
                     </h4>
-                    <span className="text-[10px] text-[#667575]">{exp.location}</span>
+                    <span className="text-[10.5px] text-[#556464]">{exp.location}</span>
                   </div>
                 </div>
-                <span className="text-[9px] text-[#667575] font-medium bg-[#F2F5F2] px-2 py-0.5 rounded">
+                <span className="text-[9.5px] text-[#556464] font-semibold bg-[#F2F5F2] px-2.5 py-1 rounded-full border border-[#D6E0D6] shadow-xs">
                   {exp.date}
                 </span>
               </div>

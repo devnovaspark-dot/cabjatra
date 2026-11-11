@@ -50,9 +50,12 @@ export const QuickBookingWidget: React.FC = () => {
   ] as const;
 
   return (
-    <div className="w-full bg-[#062F31]/85 backdrop-blur-2xl rounded-2xl sm:rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.2)] border border-white/20 p-3.5 sm:p-6 lg:p-7 text-white transition-all duration-300">
+    <div className="w-full card-skeuo-dark rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-7 text-white transition-all duration-300 relative overflow-hidden group">
+      {/* Top Amber Corner Glow */}
+      <div className="absolute top-0 right-0 w-80 h-80 bg-[#D9A52B]/12 rounded-full blur-3xl pointer-events-none" />
+
       {/* Service Type 2x2 Grid on Mobile, 4 Cols on Tablet/Desktop - Zero Horizontal Scroll */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 p-1.5 bg-black/40 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 border border-white/10">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 p-1.5 bg-black/50 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 border border-white/15 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = serviceType === tab.id;
@@ -67,8 +70,8 @@ export const QuickBookingWidget: React.FC = () => {
               }}
               className={`relative py-2 sm:py-3 px-2 sm:px-3 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-semibold transition-all duration-200 flex items-center justify-center gap-1.5 sm:gap-2 select-none ${
                 isActive
-                  ? "bg-gradient-to-b from-[#E6B543] to-[#C99320] text-[#062F31] shadow-skeuo-gold border-t border-white/40 font-bold scale-[1.01]"
-                  : "text-white/80 hover:text-white hover:bg-white/10 active:scale-98"
+                  ? "btn-skeuo-gold text-[#062F31] font-bold scale-[1.01]"
+                  : "text-white/85 hover:text-white hover:bg-white/10 active:scale-98"
               }`}
             >
               <Icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 transition-transform duration-200 ${isActive ? "text-[#062F31]" : "text-[#D9A52B]"}`} />
@@ -90,7 +93,7 @@ export const QuickBookingWidget: React.FC = () => {
             <select
               value={pickupCity}
               onChange={(e) => setPickupCity(e.target.value)}
-              className="w-full h-11 sm:h-12 px-3 sm:px-3.5 rounded-xl border border-white/20 bg-white text-xs font-bold text-[#182A2B] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#D9A52B] transition-all cursor-pointer"
+              className="w-full h-11 sm:h-12 px-3 sm:px-3.5 rounded-xl border border-white/20 bg-white text-xs font-bold text-[#182A2B] shadow-[inset_0_1px_2px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.15)] focus:outline-none focus:ring-2 focus:ring-[#D9A52B] transition-all cursor-pointer"
             >
               {COMPANY_CONFIG.operatingCities.map((c) => (
                 <option key={c.code} value={c.name}>
@@ -111,7 +114,7 @@ export const QuickBookingWidget: React.FC = () => {
             <select
               value={dropLocation}
               onChange={(e) => setDropLocation(e.target.value)}
-              className="w-full h-11 sm:h-12 px-3 sm:px-3.5 rounded-xl border border-white/20 bg-white text-xs font-bold text-[#182A2B] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#D9A52B] transition-all cursor-pointer"
+              className="w-full h-11 sm:h-12 px-3 sm:px-3.5 rounded-xl border border-white/20 bg-white text-xs font-bold text-[#182A2B] shadow-[inset_0_1px_2px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.15)] focus:outline-none focus:ring-2 focus:ring-[#D9A52B] transition-all cursor-pointer"
             >
               <option value="4 Hours / 40 Km Package">4 Hours / 40 Km</option>
               <option value="8 Hours / 80 Km Package">8 Hours / 80 Km (Recommended)</option>
@@ -126,7 +129,7 @@ export const QuickBookingWidget: React.FC = () => {
                 if (inputError) setInputError("");
               }}
               placeholder="e.g. Puri Golden Beach, Konark, Cuttack"
-              className="w-full h-11 sm:h-12 px-3 sm:px-3.5 rounded-xl border border-white/20 bg-white text-xs font-bold text-[#182A2B] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#D9A52B] transition-all placeholder:text-[#667575]/70"
+              className="w-full h-11 sm:h-12 px-3 sm:px-3.5 rounded-xl border border-white/20 bg-white text-xs font-bold text-[#182A2B] shadow-[inset_0_1px_2px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.15)] focus:outline-none focus:ring-2 focus:ring-[#D9A52B] transition-all placeholder:text-[#667575]/70"
               required
             />
           )}
@@ -146,14 +149,14 @@ export const QuickBookingWidget: React.FC = () => {
               type="date"
               value={pickupDate}
               onChange={(e) => setPickupDate(e.target.value)}
-              className="w-full h-11 sm:h-12 px-2 sm:px-2.5 rounded-xl border border-white/20 bg-white text-xs font-bold text-[#182A2B] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#D9A52B] transition-all cursor-pointer"
+              className="w-full h-11 sm:h-12 px-2 sm:px-2.5 rounded-xl border border-white/20 bg-white text-xs font-bold text-[#182A2B] shadow-[inset_0_1px_2px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.15)] focus:outline-none focus:ring-2 focus:ring-[#D9A52B] transition-all cursor-pointer"
               required
             />
             <input
               type="time"
               value={pickupTime}
               onChange={(e) => setPickupTime(e.target.value)}
-              className="w-full h-11 sm:h-12 px-2 sm:px-2.5 rounded-xl border border-white/20 bg-white text-xs font-bold text-[#182A2B] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#D9A52B] transition-all cursor-pointer"
+              className="w-full h-11 sm:h-12 px-2 sm:px-2.5 rounded-xl border border-white/20 bg-white text-xs font-bold text-[#182A2B] shadow-[inset_0_1px_2px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.15)] focus:outline-none focus:ring-2 focus:ring-[#D9A52B] transition-all cursor-pointer"
               required
             />
           </div>
@@ -163,7 +166,7 @@ export const QuickBookingWidget: React.FC = () => {
         <div className="space-y-1 flex flex-col justify-end">
           <button
             type="submit"
-            className="w-full h-11 sm:h-12 rounded-xl font-bold text-xs text-[#062F31] bg-gradient-to-b from-[#E6B543] to-[#C99320] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 transition-all flex items-center justify-center gap-2 group active:translate-y-0.5 select-none"
+            className="w-full h-11 sm:h-12 rounded-xl font-bold text-xs text-[#062F31] btn-skeuo-gold flex items-center justify-center gap-2 group select-none"
           >
             <span>Search Cabs &amp; Tariffs</span>
             <ArrowRight className="w-4 h-4 text-[#062F31] group-hover:translate-x-1 transition-transform" />

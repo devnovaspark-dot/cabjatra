@@ -241,35 +241,35 @@ function TourBookingContent() {
 
         {/* ================= STEP 1: VISUAL CIRCUIT EXPLORER (NON-TEXT HEAVY) ================= */}
         {currentStep === 1 && (
-          <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-10 border border-[#D5DDD5] shadow-[0_25px_60px_rgba(0,0,0,0.14)] space-y-5 sm:space-y-8 animate-in fade-in-50 duration-200">
+          <div className="card-skeuo rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 space-y-6 sm:space-y-8 animate-in fade-in-50 duration-200">
             {/* Header */}
-            <div className="border-b border-[#EEF2EE] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="border-b border-[#E5ECE5] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#062F31] bg-[#D9A52B] px-3 py-1 rounded-full inline-block shadow-xs">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#062F31] bg-[#D9A52B] px-3 py-1 rounded-full inline-block shadow-xs">
                   Step 1 of 3 • Select Your Preferred Circuit
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#182A2B] mt-1.5">
                   Curated Odisha Itineraries
                 </h2>
               </div>
-              <span className="text-xs text-[#073B3A] font-semibold flex items-center gap-1.5 bg-[#E0ECEA]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
+              <span className="text-xs text-[#073B3A] font-semibold flex items-center gap-1.5 bg-[#E0ECEA]/80 px-3 py-1 rounded-full border border-[#C1DAD7] shadow-xs">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
                 Private Chauffeur Standby Throughout
               </span>
             </div>
 
             {/* Visual Tour Circuit Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
               {ODISHA_TOURS.map((t) => {
                 const isSelected = selectedTourSlug === t.slug;
                 return (
                   <div
                     key={t.id}
                     onClick={() => setSelectedTourSlug(t.slug)}
-                    className={`rounded-3xl overflow-hidden border cursor-pointer transition-all duration-300 flex flex-col justify-between group ${
+                    className={`rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 flex flex-col justify-between group ${
                       isSelected
-                        ? "border-2 border-[#D9A52B] bg-[#FAF9F5] shadow-card ring-2 ring-[#073B3A]/30 scale-[1.01]"
-                        : "border-[#D5DDD5] hover:border-[#073B3A]/40 bg-white hover:shadow-soft"
+                        ? "card-skeuo border-2 border-[#D9A52B] ring-2 ring-[#073B3A]/30 shadow-[0_14px_30px_rgba(7,59,58,0.25)] scale-[1.01]"
+                        : "card-skeuo hover:border-[#073B3A]/40"
                     }`}
                   >
                     <div>
@@ -428,19 +428,19 @@ function TourBookingContent() {
         {currentStep === 2 && (
           <form
             onSubmit={handleStep2Next}
-            className="bg-white rounded-3xl p-6 sm:p-10 border border-[#D5DDD5] shadow-[0_25px_60px_rgba(0,0,0,0.14)] space-y-8 animate-in fade-in-50 duration-200"
+            className="card-skeuo rounded-3xl p-6 sm:p-10 space-y-8 animate-in fade-in-50 duration-200"
           >
             {/* Header */}
-            <div className="border-b border-[#EEF2EE] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="border-b border-[#E5ECE5] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#062F31] bg-[#D9A52B] px-3 py-1 rounded-full inline-block shadow-xs">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#062F31] bg-[#D9A52B] px-3 py-1 rounded-full inline-block shadow-xs">
                   Step 2 of 3 • Dates &amp; Vehicle Class
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#182A2B] mt-1.5">
                   Configure Your Tour Journey
                 </h2>
               </div>
-              <span className="text-xs text-[#073B3A] font-semibold flex items-center gap-1.5 bg-[#E0ECEA]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
+              <span className="text-xs text-[#073B3A] font-semibold flex items-center gap-1.5 bg-[#E0ECEA]/80 px-3 py-1 rounded-full border border-[#C1DAD7] shadow-xs">
                 <Clock className="w-3.5 h-3.5 text-[#D9A52B]" />
                 Selected: {currentTour.title}
               </span>
@@ -602,19 +602,19 @@ function TourBookingContent() {
         {currentStep === 3 && (
           <form
             onSubmit={handleStep3Submit}
-            className="bg-white rounded-3xl p-6 sm:p-10 border border-[#D5DDD5] shadow-[0_25px_60px_rgba(0,0,0,0.14)] space-y-8 animate-in fade-in-50 duration-200"
+            className="card-skeuo rounded-3xl p-6 sm:p-10 space-y-8 animate-in fade-in-50 duration-200"
           >
             {/* Header */}
-            <div className="border-b border-[#EEF2EE] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="border-b border-[#E5ECE5] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#062F31] bg-[#D9A52B] px-3 py-1 rounded-full inline-block shadow-xs">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#062F31] bg-[#D9A52B] px-3 py-1 rounded-full inline-block shadow-xs">
                   Step 3 of 3 • Traveler Information
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#182A2B] mt-1.5">
                   Confirm Lead Traveler Details
                 </h2>
               </div>
-              <span className="text-xs text-[#073B3A] font-semibold flex items-center gap-1.5 bg-[#E0ECEA]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
+              <span className="text-xs text-[#073B3A] font-semibold flex items-center gap-1.5 bg-[#E0ECEA]/80 px-3 py-1 rounded-full border border-[#C1DAD7] shadow-xs">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
                 Personalized Itinerary &amp; Quote on WhatsApp
               </span>

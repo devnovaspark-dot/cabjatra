@@ -73,68 +73,68 @@ export const HowItWorksSection: React.FC = () => {
           {guaranteeSteps.map((st, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-7 border border-[#D5DDD5] shadow-skeuo hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative group overflow-hidden"
+              className="card-skeuo rounded-2xl sm:rounded-3xl p-5 sm:p-7 flex flex-col justify-between relative group overflow-hidden"
             >
-              {/* Subtle Ambient Bevel Highlight */}
-              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#D9A52B]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Gold Ambient Top Bevel Accent */}
+              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#D9A52B]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               <div>
                 {/* Header: Metallic Step & 3D Icon Bay */}
-                <div className="flex items-center justify-between mb-3.5 sm:mb-5">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#084846] to-[#041F20] border-t border-white/20 flex items-center justify-center shadow-skeuo-button group-hover:scale-105 transition-transform">
+                <div className="flex items-center justify-between mb-4 sm:mb-5">
+                  <div className="w-12 h-12 rounded-2xl medallion-dark flex items-center justify-center text-[#D9A52B] group-hover:scale-105 transition-transform">
                     {st.icon}
                   </div>
-                  <span className="font-display font-extrabold text-xl sm:text-2xl text-[#D9A52B] drop-shadow-sm">
+                  <span className="font-display font-black text-2xl sm:text-3xl text-[#D9A52B] drop-shadow-sm">
                     {st.step}
                   </span>
                 </div>
 
                 {/* Badge */}
-                <span className="text-[8.5px] sm:text-[9px] font-bold uppercase tracking-wider px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-[#E0ECEA] text-[#073B3A] inline-block mb-2 sm:mb-3 border border-[#C1DAD7]">
+                <span className="text-[9.5px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-gradient-to-b from-[#FAF9F5] to-[#E3EDE3] text-[#073B3A] inline-block mb-3 border border-[#BED2BE] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.04)]">
                   {st.badge}
                 </span>
 
-                <h3 className="text-sm sm:text-base font-bold text-[#182A2B] group-hover:text-[#073B3A] transition-colors font-display">
+                <h3 className="text-base sm:text-lg font-bold text-[#182A2B] group-hover:text-[#073B3A] transition-colors font-display">
                   {st.title}
                 </h3>
 
-                <p className="text-[11px] sm:text-xs text-[#667575] leading-relaxed mt-2 sm:mt-2.5">
+                <p className="text-[11.5px] sm:text-xs text-[#556464] leading-relaxed mt-2.5">
                   {st.desc}
                 </p>
               </div>
 
               {/* Card Footer Feature Pill */}
-              <div className="mt-4 sm:mt-6 pt-2.5 sm:pt-3.5 border-t border-[#F2F5F2] flex items-center justify-between text-[10px] sm:text-[11px] text-[#073B3A] font-semibold">
+              <div className="mt-5 sm:mt-6 pt-3.5 border-t border-[#E5ECE5] flex items-center justify-between text-[11px] text-[#073B3A] font-bold">
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
                   <span>{st.highlight}</span>
                 </span>
-                <span className="w-2 h-2 rounded-full bg-[#D9A52B]" />
+                <span className="w-2 h-2 rounded-full bg-[#D9A52B] shadow-[0_0_6px_#D9A52B]" />
               </div>
             </div>
           ))}
         </div>
 
         {/* High-Conversion Comparison Matrix: CabJatra vs. Generic Aggregators */}
-        <div className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D5DDD5] shadow-skeuo p-4 sm:p-8 lg:p-10">
+        <div className="card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden p-5 sm:p-8 lg:p-10">
           <div className="max-w-2xl mb-6 sm:mb-8">
-            <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#D9A52B]">
+            <span className="text-[9.5px] sm:text-[10px] font-extrabold uppercase tracking-wider text-[#D9A52B] block">
               Why Travelers Choose CabJatra Over Aggregators
             </span>
-            <h3 className="text-xl sm:text-2xl font-bold font-display text-[#182A2B] mt-1">
+            <h3 className="text-xl sm:text-3xl font-bold font-display text-[#182A2B] mt-1 drop-shadow-sm">
               The 10% Advance Guarantee Difference
             </h3>
-            <p className="text-xs text-[#667575] mt-1 leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#556464] mt-1.5 leading-relaxed">
               Why do generic ride-hailing apps fail tourists and families in Odisha? When drivers can cancel at will, your entire holiday schedule breaks down. Here is how our verified dispatch model protects you:
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {/* Generic Ride Apps Column */}
-            <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-[#FAF9F5] border border-rose-200/60 space-y-3 sm:space-y-4">
+            <div className="p-5 sm:p-7 rounded-2xl bg-gradient-to-b from-[#FFF5F5] to-[#FEECEC] border-2 border-rose-200/90 shadow-[inset_0_1px_0_#FFF,0_4px_14px_rgba(244,63,94,0.06)] space-y-3.5 sm:space-y-4">
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-rose-500" />
-                <h4 className="text-xs sm:text-sm font-bold text-rose-950 uppercase tracking-wide">
+                <span className="w-3 h-3 rounded-full bg-rose-500 shadow-[0_0_6px_#F43F5E]" />
+                <h4 className="text-xs sm:text-sm font-black text-rose-950 uppercase tracking-wide">
                   Generic App Aggregators
                 </h4>
               </div>
@@ -160,15 +160,17 @@ export const HowItWorksSection: React.FC = () => {
             </div>
 
             {/* CabJatra Verified Model Column */}
-            <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#062F31] to-[#041F20] text-white space-y-3 sm:space-y-4 shadow-skeuo-button border-t border-white/20">
-              <div className="flex items-center justify-between">
+            <div className="p-5 sm:p-7 rounded-2xl card-skeuo-dark text-white space-y-3.5 sm:space-y-4 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-[#D9A52B]/15 rounded-full blur-2xl pointer-events-none" />
+
+              <div className="flex items-center justify-between relative z-10">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#10B981] animate-pulse" />
+                  <span className="w-3 h-3 rounded-full bg-[#10B981] animate-pulse shadow-[0_0_8px_#10B981]" />
                   <h4 className="text-xs sm:text-sm font-bold text-[#FAF9F5] uppercase tracking-wide">
                     CabJatra Verified Model
                   </h4>
                 </div>
-                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#D9A52B] text-[#062F31]">
+                <span className="text-[9.5px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full btn-skeuo-gold text-[#062F31]">
                   100% Guaranteed
                 </span>
               </div>

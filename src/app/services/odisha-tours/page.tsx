@@ -95,7 +95,7 @@ export default function OdishaToursServicePage() {
             {ODISHA_TOURS.map((tour) => (
               <div
                 key={tour.id}
-                className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-soft hover:shadow-card transition-all flex flex-col justify-between group"
+                className="card-skeuo rounded-3xl overflow-hidden flex flex-col justify-between group"
               >
                 <div>
                   <div className="relative h-52 w-full overflow-hidden">
@@ -171,7 +171,7 @@ export default function OdishaToursServicePage() {
                 <div className="p-6 pt-0">
                   <Link
                     href={`/book-tour?tour=${tour.slug}`}
-                    className="w-full py-3 px-4 rounded-xl bg-brand-900 hover:bg-brand-800 text-white text-xs font-bold transition flex items-center justify-center gap-2 group-hover:bg-accent-500 group-hover:text-slate-950 shadow-sm"
+                    className="w-full py-3 px-4 rounded-xl btn-skeuo-dark text-white text-xs font-bold transition flex items-center justify-center gap-2 group-hover:btn-skeuo-gold group-hover:text-[#062F31]"
                   >
                     <span>Customize This Itinerary</span>
                     <ArrowRight className="w-3.5 h-3.5" />

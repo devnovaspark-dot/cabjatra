@@ -20,43 +20,46 @@ export const FinalCtaSection: React.FC = () => {
     <section className="py-10 sm:py-16 lg:py-20 bg-[#FAF9F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Luxury Architectural Pavilion Card with Centered Content */}
-        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#062F31] via-[#041F20] to-[#073B3A] text-white p-5 sm:p-12 lg:p-16 border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.25)] text-center flex flex-col items-center justify-center">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden card-skeuo-dark text-white p-6 sm:p-12 lg:p-16 text-center flex flex-col items-center justify-center group">
           {/* Subtle Ambient Background Photography */}
-          <div className="absolute inset-0 z-0 opacity-20 mix-blend-luminosity pointer-events-none">
+          <div className="absolute inset-0 z-0 opacity-25 mix-blend-luminosity pointer-events-none">
             <Image
               src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=1600&auto=format&fit=crop"
               alt="Scenic coastal highway in Odisha"
               fill
-              className="object-cover object-center"
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-1000"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#041F20] via-[#041F20]/80 to-[#041F20]/90" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#021718] via-[#041F20]/85 to-[#073B3A]/90" />
           </div>
+
+          {/* Konark Gold Ambient Glow */}
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D9A52B]/15 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-3xl mx-auto space-y-4 sm:space-y-6 flex flex-col items-center justify-center">
             {/* Centered Badge */}
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[9.5px] sm:text-[10px] font-semibold text-[#D9A52B] shadow-soft">
-              <ShieldCheck className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-[#D9A52B]/40 text-[10px] sm:text-[10.5px] font-bold text-[#D9A52B] shadow-md">
+              <ShieldCheck className="w-4 h-4" />
               <span>Odisha&apos;s Dedicated Chauffeur Mobility Platform</span>
             </div>
 
             {/* Centered Headline */}
             <div className="space-y-2 sm:space-y-3">
-              <h2 className="text-2xl sm:text-5xl font-bold font-display tracking-tight text-[#FAF9F5] leading-tight">
+              <h2 className="text-2xl sm:text-5xl font-bold font-display tracking-tight text-[#FAF9F5] leading-tight drop-shadow-md">
                 Ready to Experience Odisha with <br />
                 <span className="italic font-display font-normal text-[#D9A52B]">
                   Private Chauffeur Comfort?
                 </span>
               </h2>
-              <p className="text-xs sm:text-base text-[#E0ECEA]/85 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-xs sm:text-base text-[#E0ECEA]/90 leading-relaxed max-w-2xl mx-auto">
                 Whether arriving at Biju Patnaik Airport, heading out on an intercity pilgrimage to Puri, or planning a multi-day Golden Triangle tour—reserve your vehicle with complete peace of mind.
               </p>
             </div>
 
             {/* Centered Action Triggers */}
-            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2.5 sm:gap-4 pt-1 sm:pt-2 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 pt-1 sm:pt-2 w-full sm:w-auto">
               <Link
                 href="/book-cab"
-                className="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 rounded-full font-bold text-xs text-[#062F31] bg-gradient-to-b from-[#E6B543] to-[#C99320] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 transition-all inline-flex items-center justify-center gap-2 active:translate-y-0.5"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold text-xs text-[#062F31] btn-skeuo-gold inline-flex items-center justify-center gap-2"
               >
                 <Car className="w-4 h-4 text-[#062F31]" />
                 <span>Plan Your Journey</span>
@@ -67,7 +70,7 @@ export const FinalCtaSection: React.FC = () => {
                 href={COMPANY_CONFIG.contact.whatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-3.5 rounded-full font-semibold text-xs text-white bg-gradient-to-b from-[#084846] to-[#041F20] border-t border-white/20 shadow-skeuo-button hover:brightness-110 transition-all inline-flex items-center justify-center gap-2 active:translate-y-0.5"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-xs text-white btn-skeuo-dark inline-flex items-center justify-center gap-2"
               >
                 <MessageSquare className="w-4 h-4 text-[#D9A52B]" />
                 <span>WhatsApp Operations Desk</span>
@@ -75,7 +78,7 @@ export const FinalCtaSection: React.FC = () => {
 
               <a
                 href={`tel:${COMPANY_CONFIG.contact.phoneRaw}`}
-                className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-[#E0ECEA] hover:text-white transition-colors px-3 py-1.5 sm:py-2"
+                className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-[#E0ECEA] hover:text-white transition-colors px-3 py-2 bg-black/30 rounded-xl border border-white/10"
               >
                 <Phone className="w-3.5 h-3.5 text-[#D9A52B]" />
                 <span>Helpline: {COMPANY_CONFIG.contact.phoneDisplay}</span>

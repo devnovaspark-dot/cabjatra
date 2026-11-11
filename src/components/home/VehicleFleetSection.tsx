@@ -34,16 +34,16 @@ export const VehicleFleetSection: React.FC = () => {
           </div>
 
           {/* Interactive Category Filter Pills - Scroll-Safe on Mobile */}
-          <div className="flex items-center gap-1 sm:gap-1.5 p-1 bg-white rounded-2xl border border-[#D5DDD5] shadow-skeuo max-w-full overflow-x-auto scrollbar-none self-start md:self-auto">
+          <div className="flex items-center gap-1 sm:gap-1.5 p-1.5 panel-recessed rounded-2xl max-w-full overflow-x-auto scrollbar-none self-start md:self-auto">
             {categories.map((cat) => (
               <button
                 key={cat}
                 type="button"
                 onClick={() => setActiveCategory(cat)}
-                className={`px-3 sm:px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all shrink-0 select-none ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all shrink-0 select-none ${
                   activeCategory === cat
-                    ? "bg-[#073B3A] text-white shadow-skeuo-button font-bold"
-                    : "text-[#667575] hover:text-[#182A2B] hover:bg-[#FAF9F5]"
+                    ? "btn-skeuo-dark text-white font-bold"
+                    : "text-[#556464] hover:text-[#182A2B] hover:bg-white/70"
                 }`}
               >
                 {cat === "All" ? "All Fleet" : cat === "SUV" ? "SUVs (Innova)" : cat}
@@ -57,11 +57,11 @@ export const VehicleFleetSection: React.FC = () => {
           {filteredVehicles.map((vehicle) => (
             <div
               key={vehicle.id}
-              className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D5DDD5] shadow-skeuo hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+              className="card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group"
             >
               <div>
                 {/* Vehicle Visual with Real Automotive Aesthetic - Guaranteed Visible Height on Mobile */}
-                <div className="relative h-44 sm:h-48 w-full bg-[#FAF9F5] overflow-hidden border-b border-[#E5EAE5]">
+                <div className="relative h-44 sm:h-48 w-full bg-[#FAF9F5] overflow-hidden border-b border-[#D6E0D6]">
                   <Image
                     src={vehicle.image}
                     alt={`${vehicle.name} - CabJatra Odisha Fleet`}
@@ -69,56 +69,56 @@ export const VehicleFleetSection: React.FC = () => {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
                   
                   {/* Category Pill */}
-                  <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#062F31]/90 backdrop-blur-md text-[#FAF9F5] text-[9px] sm:text-[10px] font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/15">
+                  <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#062F31]/95 backdrop-blur-md text-[#FAF9F5] text-[9.5px] sm:text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 shadow-md">
                     {vehicle.category}
                   </div>
 
                   {vehicle.tag && (
-                    <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 bg-[#D9A52B] text-[#062F31] text-[8.5px] sm:text-[9px] font-bold uppercase tracking-wider px-2 sm:px-2.5 py-0.5 rounded-full shadow-sm">
+                    <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] sm:text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_2px_4px_rgba(0,0,0,0.3)]">
                       {vehicle.tag}
                     </div>
                   )}
 
                   <div className="absolute bottom-2.5 sm:bottom-3 left-3 right-3 text-white">
-                    <span className="text-sm font-bold font-display drop-shadow-sm">{vehicle.name}</span>
+                    <span className="text-base font-bold font-display drop-shadow-md">{vehicle.name}</span>
                   </div>
                 </div>
 
                 {/* Specs Strip */}
-                <div className="grid grid-cols-3 divide-x divide-[#E5EAE5] border-b border-[#E5EAE5] bg-[#FAF9F5] py-2 text-center text-xs">
+                <div className="grid grid-cols-3 divide-x divide-[#D6E0D6] border-b border-[#D6E0D6] panel-recessed py-2.5 text-center text-xs">
                   <div className="flex flex-col items-center">
                     <span className="font-bold text-[#182A2B] flex items-center gap-1 text-[11px] sm:text-xs">
                       <Users className="w-3.5 h-3.5 text-[#073B3A]" />
                       {vehicle.passengers}
                     </span>
-                    <span className="text-[9px] sm:text-[10px] text-[#667575]">Seats</span>
+                    <span className="text-[9.5px] text-[#556464] font-medium">Seats</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <span className="font-bold text-[#182A2B] flex items-center gap-1 text-[11px] sm:text-xs">
                       <Briefcase className="w-3.5 h-3.5 text-[#073B3A]" />
                       {vehicle.luggage}
                     </span>
-                    <span className="text-[9px] sm:text-[10px] text-[#667575]">Bags</span>
+                    <span className="text-[9.5px] text-[#556464] font-medium">Bags</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <span className="font-bold text-[#182A2B] flex items-center gap-1 text-[11px] sm:text-xs">
                       <Snowflake className="w-3.5 h-3.5 text-[#073B3A]" />
                       Dual AC
                     </span>
-                    <span className="text-[9px] sm:text-[10px] text-[#667575]">Climate</span>
+                    <span className="text-[9.5px] text-[#556464] font-medium">Climate</span>
                   </div>
                 </div>
 
                 {/* Body Details */}
-                <div className="p-3.5 sm:p-5 space-y-2.5 sm:space-y-3">
-                  <div className="text-[10px] sm:text-[11px] text-[#667575] bg-[#FAF9F5] p-2 rounded-xl border border-[#E5EAE5]">
+                <div className="p-4 sm:p-5 space-y-3">
+                  <div className="text-[10.5px] sm:text-[11px] text-[#556464] bg-[#FAF9F5] p-2.5 rounded-xl border border-[#D6E0D6] shadow-[inset_0_1px_2px_rgba(0,0,0,0.03)]">
                     <strong className="text-[#182A2B]">Standard Models:</strong> {vehicle.models}
                   </div>
 
-                  <ul className="space-y-1 sm:space-y-1.5 pt-0.5">
+                  <ul className="space-y-1.5 pt-0.5">
                     {vehicle.features.slice(0, 3).map((feat, i) => (
                       <li key={i} className="flex items-start gap-1.5 text-[11px] sm:text-xs text-[#455353]">
                         <Check className="w-3 h-3 text-[#073B3A] shrink-0 mt-0.5" />
@@ -127,15 +127,15 @@ export const VehicleFleetSection: React.FC = () => {
                     ))}
                   </ul>
 
-                  {/* Fleet Verification Badge */}
-                  <div className="pt-0.5">
-                    <div className="p-2 sm:p-2.5 rounded-xl bg-[#FAF9F5] border border-[#D5DDD5] text-center shadow-skeuo-inset">
-                      <div className="text-[8.5px] sm:text-[9px] uppercase font-bold text-[#667575]">
-                        State Transport Permit
+                  {/* Fleet Verification Badge - Skeuomorphic RTO Yellow Plate */}
+                  <div className="pt-1">
+                    <div className="p-2.5 rounded-xl bg-gradient-to-r from-[#FCD34D] via-[#FBBF24] to-[#F59E0B] border-2 border-[#182A2B]/80 text-[#182A2B] text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_2px_6px_rgba(0,0,0,0.12)]">
+                      <div className="text-[8.5px] uppercase font-extrabold tracking-widest text-[#182A2B]/80">
+                        ODISHA STA TRANSPORT PERMIT
                       </div>
-                      <div className="text-[11px] sm:text-xs font-bold text-[#073B3A] mt-0.5 flex items-center justify-center gap-1 sm:gap-1.5">
-                        <ShieldCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
-                        <span>Commercial Yellow Board Guarantee</span>
+                      <div className="text-[11px] sm:text-xs font-black text-[#182A2B] mt-0.5 flex items-center justify-center gap-1.5">
+                        <ShieldCheck className="w-3.5 h-3.5 text-[#062F31]" />
+                        <span>100% COMMERCIAL YELLOW BOARD</span>
                       </div>
                     </div>
                   </div>
@@ -143,10 +143,10 @@ export const VehicleFleetSection: React.FC = () => {
               </div>
 
               {/* Select Action */}
-              <div className="p-3.5 sm:p-5 pt-0">
+              <div className="p-4 sm:p-5 pt-0">
                 <Link
                   href={`/book-cab?vehicle=${vehicle.id}`}
-                  className="w-full py-2 sm:py-2.5 px-3 rounded-xl bg-gradient-to-b from-[#084846] to-[#062F31] border-t border-white/20 hover:brightness-110 text-white text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-skeuo-button active:translate-y-0.5"
+                  className="w-full py-2.5 px-4 rounded-xl btn-skeuo-dark text-white text-xs font-bold transition-all flex items-center justify-center gap-2"
                 >
                   <span>Select {vehicle.category}</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#D9A52B]" />
