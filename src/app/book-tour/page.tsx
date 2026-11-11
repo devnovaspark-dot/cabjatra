@@ -157,7 +157,13 @@ function TourBookingContent() {
         <div className="absolute inset-0 bg-radial-[at_center_top] from-transparent via-transparent to-black/25 pointer-events-none" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28">
+      <div
+        className={`relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 ${
+          currentStep === 4
+            ? "pt-12 sm:pt-16 pb-6 min-h-[82vh] flex items-center justify-center"
+            : "pt-24 sm:pt-28 pb-16"
+        }`}
+      >
         {/* Clean, Non-Text-Heavy Hero Header */}
         {currentStep < 4 && (
           <div className="text-center max-w-2xl mx-auto mb-8 text-white">
@@ -720,182 +726,112 @@ function TourBookingContent() {
             </form>
           )}
 
-          {/* ================= STEP 4: SUCCESS / ENQUIRY RECEIVED ================= */}
+          {/* ================= STEP 4: COMPACT CONFIRMATION & OFFICIAL TOUR VOUCHER ================= */}
           {currentStep === 4 && (
-            <div className="card-skeuo rounded-3xl p-6 sm:p-10 border border-[#D5DDD5] shadow-2xl space-y-6 text-center max-w-3xl mx-auto animate-in zoom-in-95 duration-300">
-              {/* 3D Glass Celebration Orb */}
-              <div className="pt-2">
-                <GlassCelebrationOrb size="lg" />
-              </div>
+            <div className="w-full max-w-lg mx-auto card-skeuo rounded-3xl p-4 sm:p-6 border border-[#D5DDD5] shadow-2xl space-y-3 text-center animate-in zoom-in-95 duration-300">
+              {/* 3D Glass Celebration Orb - Continuously Bouncing Ball */}
+              <GlassCelebrationOrb size="md" />
 
-              <div className="space-y-2">
-                <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E0ECEA] border border-[#B6D6D2] text-[#073B3A] text-xs font-bold uppercase tracking-wider shadow-xs">
-                  <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
-                  <span>Tour Enquiry Confirmed</span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#182A2B] tracking-tight">
+              {/* Clean Compact Title */}
+              <div className="space-y-0.5">
+                <h2 className="text-xl sm:text-2xl font-bold font-display text-[#182A2B] tracking-tight">
                   Thank You, {primaryName || "Esteemed Traveler"}!
                 </h2>
-                <p className="text-xs sm:text-sm text-[#556464] max-w-lg mx-auto leading-relaxed">
-                  Your custom tour enquiry for {currentTour.title} has been logged with our Odisha holiday desk. Our senior tour specialist is preparing your complete itinerary voucher and dedicated chauffeur assignment.
+                <p className="text-xs text-[#556464]">
+                  Your tour enquiry is logged. Custom itinerary details sent to your WhatsApp.
                 </p>
               </div>
 
-              {/* Digital Tour Reservation Voucher */}
-              <div className="rounded-2xl border-2 border-[#D9A52B]/40 bg-gradient-to-b from-[#FAF9F5] to-[#F3F6F3] shadow-card overflow-hidden text-left relative">
-                {/* Header */}
-                <div className="bg-[#073B3A] text-white p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#D9A52B]/30">
-                  <div className="flex items-center gap-2.5">
+              {/* Compact Digital Tour Boarding Pass */}
+              <div className="rounded-2xl border border-[#D5DDD5] bg-[#FAF9F5] shadow-xs overflow-hidden text-left text-xs">
+                {/* Pass Header */}
+                <div className="bg-[#073B3A] text-white px-3.5 py-2 flex items-center justify-between border-b border-[#D9A52B]/30">
+                  <div className="flex items-center gap-2">
                     <BrandLogo size="sm" variant="light" showTagline={false} />
-                    <div className="hidden sm:block border-l border-white/20 pl-2.5">
-                      <span className="text-[10px] uppercase font-bold tracking-wider text-[#D9A52B] block leading-tight">
-                        Official Tour Voucher
-                      </span>
-                      <span className="text-xs font-semibold text-white/90">
-                        Curated Circuit Dispatch
-                      </span>
-                    </div>
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#D9A52B]">
+                      Tour Voucher
+                    </span>
                   </div>
-
-                  {/* Reference ID with Copy Button */}
-                  <div className="flex items-center gap-2 self-start sm:self-auto bg-black/30 px-3 py-1.5 rounded-xl border border-white/15">
-                    <div>
-                      <span className="text-[9px] text-[#A7F3D0] block uppercase leading-none">Enquiry Ref:</span>
-                      <strong className="font-mono text-xs sm:text-sm text-[#FAF9F5] font-black">
-                        {enquiryRefId}
-                      </strong>
-                    </div>
+                  <div className="flex items-center gap-1.5 bg-black/30 px-2 py-0.5 rounded-lg border border-white/15">
+                    <span className="text-[9px] text-[#A7F3D0] uppercase">Ref:</span>
+                    <strong className="font-mono text-xs text-[#FAF9F5] font-black">
+                      {enquiryRefId}
+                    </strong>
                     <button
                       type="button"
                       onClick={handleCopyRef}
-                      className="p-1 px-2 rounded-md bg-white/10 hover:bg-white/20 text-[#D9A52B] transition cursor-pointer flex items-center gap-1 text-[11px] font-bold"
-                      title="Copy Reference ID"
+                      className="p-1 rounded text-[#D9A52B] hover:text-white transition cursor-pointer"
+                      title="Copy Reference"
                     >
-                      {copiedRef ? (
-                        <>
-                          <Check className="w-3.5 h-3.5 text-[#10B981]" />
-                          <span className="text-[#10B981]">Copied</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-3.5 h-3.5" />
-                          <span>Copy</span>
-                        </>
-                      )}
+                      {copiedRef ? <Check className="w-3.5 h-3.5 text-[#10B981]" /> : <Copy className="w-3.5 h-3.5" />}
                     </button>
                   </div>
                 </div>
 
-                {/* Voucher Body (2 Columns) */}
-                <div className="p-5 grid grid-cols-1 md:grid-cols-2 gap-5 text-xs divide-y md:divide-y-0 md:divide-x divide-[#D5DDD5]">
-                  {/* Column 1: Circuit & Schedule */}
-                  <div className="space-y-3 pb-3 md:pb-0">
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-[#073B3A] uppercase tracking-wider">
-                      <Compass className="w-4 h-4 text-[#D9A52B]" />
-                      <span>Selected Heritage Circuit</span>
+                {/* Pass Details (2 Columns) */}
+                <div className="p-3 sm:p-3.5 grid grid-cols-2 gap-3 divide-x divide-[#E5ECE5]">
+                  <div className="space-y-1">
+                    <div>
+                      <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Circuit:</span>
+                      <strong className="text-xs font-bold text-[#182A2B] block truncate">
+                        {currentTour.title}
+                      </strong>
                     </div>
-
-                    <div className="bg-white p-3 rounded-xl border border-[#D5DDD5] space-y-1.5 shadow-xs">
-                      <div>
-                        <span className="text-[10px] text-[#667575] block">Circuit Title:</span>
-                        <strong className="text-sm font-bold text-[#182A2B]">
-                          {currentTour.title} ({currentTour.duration})
-                        </strong>
-                      </div>
-                      <div>
-                        <span className="text-[10px] text-[#667575] block">Destinations Covered:</span>
-                        <span className="text-xs font-semibold text-[#073B3A]">{currentTour.destinations.join(" ➔ ")}</span>
-                      </div>
-                      <div className="grid grid-cols-2 gap-2 pt-1 border-t border-[#EEF2EE]">
-                        <div>
-                          <span className="text-[10px] text-[#667575] block">Start Date:</span>
-                          <strong className="text-xs text-[#182A2B]">{travelDate}</strong>
-                        </div>
-                        <div>
-                          <span className="text-[10px] text-[#667575] block">Starting Hub:</span>
-                          <strong className="text-xs text-[#073B3A]">{pickupCity}</strong>
-                        </div>
-                      </div>
+                    <div>
+                      <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Duration & Hub:</span>
+                      <span className="text-xs font-semibold text-[#073B3A] block truncate">
+                        {currentTour.duration} • from {pickupCity}
+                      </span>
                     </div>
-
-                    <div className="text-xs text-[#455353] space-y-0.5">
-                      <div>Lead Guest: <strong className="text-[#182A2B]">{primaryName} (+91 {primaryPhone})</strong></div>
-                      <div>Travelers: <strong>{travelersCount} Guests</strong></div>
-                      {customRequests && <div>Special Halts: <span className="italic">{customRequests}</span></div>}
+                    <div>
+                      <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Start Date:</span>
+                      <span className="text-xs font-semibold text-[#182A2B] block truncate">
+                        {travelDate} ({travelersCount} Guests)
+                      </span>
                     </div>
                   </div>
 
-                  {/* Column 2: Vehicle & Inclusions */}
-                  <div className="space-y-3 pt-3 md:pt-0 md:pl-5">
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-[#073B3A] uppercase tracking-wider">
-                      <ShieldCheck className="w-4 h-4 text-[#10B981]" />
-                      <span>Allocated Vehicle &amp; Inclusions</span>
+                  <div className="pl-3 space-y-1">
+                    <div>
+                      <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Vehicle Class:</span>
+                      <strong className="text-xs font-bold text-[#182A2B] block truncate capitalize">
+                        {selectedVehicleType === "sedan"
+                          ? "Prime Sedan"
+                          : selectedVehicleType === "suv"
+                          ? "Highway SUV"
+                          : "Tempo Traveller"}
+                      </strong>
                     </div>
-
-                    <div className="bg-white p-3 rounded-xl border border-[#D5DDD5] space-y-2 shadow-xs">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <span className="text-[10px] text-[#667575] block">Vehicle Class:</span>
-                          <strong className="text-xs font-bold text-[#073B3A] capitalize">
-                            {selectedVehicleType === "sedan"
-                              ? "Executive Prime Sedan"
-                              : selectedVehicleType === "suv"
-                              ? "Premium Highway SUV (Innova Crysta)"
-                              : "Group Tempo Traveller"}
-                          </strong>
-                        </div>
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#E0ECEA] text-[#073B3A] border border-[#B6D6D2]">
-                          Commercial Permit
-                        </span>
-                      </div>
-
-                      <div className="pt-2 border-t border-[#EEF2EE] space-y-1 text-xs">
-                        <div className="text-[#667575] flex items-center gap-1.5">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
-                          <span>Dedicated Standby Chauffeur &amp; Fuel</span>
-                        </div>
-                        <div className="text-[#667575] flex items-center gap-1.5">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
-                          <span>Interstate Highway Tolls &amp; Parking</span>
-                        </div>
-                        <div className="text-[#667575] flex items-center gap-1.5">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
-                          <span>10% Advance Deposit Model (Zero Surge)</span>
-                        </div>
-                      </div>
+                    <div className="bg-[#E0ECEA]/70 p-1.5 rounded-lg border border-[#C1DAD7]">
+                      <span className="text-[9px] font-bold text-[#073B3A] uppercase block">Standby Chauffeur:</span>
+                      <strong className="text-xs font-extrabold text-[#073B3A] block">
+                        Commercial Permit Included
+                      </strong>
                     </div>
-
-                    {/* Live Desk Notice */}
-                    <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 flex items-center gap-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping shrink-0" />
-                      <span><strong>Odisha Holiday Desk:</strong> Reviewing Custom Route Options</span>
+                    <div className="text-[10px] text-[#667575] leading-tight">
+                      Zero cancellation fee on 6hr notice.
                     </div>
                   </div>
-                </div>
-
-                {/* Footer */}
-                <div className="bg-[#FAF9F5] px-5 py-2.5 border-t border-[#D5DDD5] text-xs text-[#667575] flex items-center justify-between">
-                  <span>Official Tour Dispatch Voucher • NovaSpark Digital Marketing Pvt. Ltd.</span>
-                  <span className="font-semibold text-[#073B3A]">Zero Cancellation Fee on 6hr Notice</span>
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+              {/* Compact Action Buttons */}
+              <div className="pt-1 flex items-center justify-center gap-2">
                 <Link
                   href="/"
-                  className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#FAF9F5] hover:bg-[#F2F5F2] border border-[#D5DDD5] text-[#182A2B] font-bold text-xs transition cursor-pointer text-center"
+                  className="px-4 py-2 rounded-xl bg-[#FAF9F5] hover:bg-[#EEF2EE] border border-[#D5DDD5] text-[#182A2B] font-bold text-xs transition cursor-pointer"
                 >
-                  Return to Homepage
+                  Home
                 </Link>
 
                 <button
                   type="button"
                   onClick={() => typeof window !== "undefined" && window.print()}
-                  className="w-full sm:w-auto px-6 py-3 rounded-xl bg-white hover:bg-[#FAF9F5] border border-[#D5DDD5] text-[#073B3A] font-bold text-xs inline-flex items-center justify-center gap-2 transition cursor-pointer shadow-xs"
+                  className="px-3 py-2 rounded-xl bg-white hover:bg-[#FAF9F5] border border-[#D5DDD5] text-[#073B3A] font-bold text-xs inline-flex items-center gap-1 transition cursor-pointer shadow-xs"
+                  title="Print Voucher"
                 >
-                  <Printer className="w-4 h-4 text-[#073B3A]" />
-                  <span>Print Voucher</span>
+                  <Printer className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Print</span>
                 </button>
 
                 <a
@@ -904,10 +840,10 @@ function TourBookingContent() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-7 py-3 rounded-xl bg-[#073B3A] hover:bg-[#062F31] text-white font-bold text-xs inline-flex items-center justify-center gap-2 transition shadow-skeuo-button cursor-pointer"
+                  className="px-4 sm:px-5 py-2 rounded-xl bg-[#073B3A] hover:bg-[#062F31] text-white font-bold text-xs inline-flex items-center gap-2 transition shadow-skeuo-button cursor-pointer"
                 >
                   <MessageSquare className="w-4 h-4 text-[#D9A52B]" />
-                  <span>Open WhatsApp Tour Desk</span>
+                  <span>WhatsApp Tour Desk</span>
                 </a>
               </div>
             </div>
