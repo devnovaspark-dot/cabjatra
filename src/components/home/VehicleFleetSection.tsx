@@ -60,15 +60,16 @@ export const VehicleFleetSection: React.FC = () => {
               className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D5DDD5] shadow-skeuo hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
-                {/* Vehicle Visual with Real Automotive Aesthetic */}
-                <div className="relative h-38 sm:h-48 w-full bg-[#FAF9F5] overflow-hidden p-3 sm:p-4 flex items-center justify-center border-b border-[#E5EAE5]">
+                {/* Vehicle Visual with Real Automotive Aesthetic - Guaranteed Visible Height on Mobile */}
+                <div className="relative h-44 sm:h-48 w-full bg-[#FAF9F5] overflow-hidden border-b border-[#E5EAE5]">
                   <Image
                     src={vehicle.image}
                     alt={`${vehicle.name} - CabJatra Odisha Fleet`}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                   
                   {/* Category Pill */}
                   <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#062F31]/90 backdrop-blur-md text-[#FAF9F5] text-[9px] sm:text-[10px] font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/15">
