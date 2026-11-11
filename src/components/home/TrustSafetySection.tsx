@@ -39,7 +39,7 @@ export const TrustSafetySection: React.FC = () => {
   ];
 
   return (
-    <section className="py-8 sm:py-12 lg:py-14 bg-[#FAF9F5] border-b border-[#E5EAE5]">
+    <section className="py-8 sm:py-12 lg:py-14 bg-[#F2F5F2] border-b border-[#E5EAE5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 sm:mb-7 gap-3 sm:gap-4">
           <div>

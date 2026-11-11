@@ -19,17 +19,17 @@ export default function HomePage() {
       {/* SECTION 2 — POPULAR HIGHWAY CORRIDORS (ASYMMETRIC BENTO SHOWCASE) */}
       <PopularJourneysSection />
 
-      {/* SECTION 3 — CORE DEDICATED MOBILITY VERTICALS */}
+      {/* SECTION 3 — THE PRE-BOOKED GUARANTEE (HOW CABJATRA WORKS & 10% ADVANCE MATRIX) */}
+      <HowItWorksSection />
+
+      {/* SECTION 4 — CORE DEDICATED MOBILITY VERTICALS */}
       <ServicesSection />
 
-      {/* SECTION 4 — CHOOSE YOUR VEHICLE (AUTOMOTIVE FLEET SHOWROOM) */}
+      {/* SECTION 5 — CHOOSE YOUR VEHICLE (AUTOMOTIVE FLEET SHOWROOM) */}
       <VehicleFleetSection />
 
-      {/* SECTION 5 — EXPLORE TIMELESS ODISHA (MAGAZINE TRAVELOGUE) */}
+      {/* SECTION 6 — EXPLORE TIMELESS ODISHA (MAGAZINE TRAVELOGUE) */}
       <OdishaDestinationsSection />
-
-      {/* SECTION 6 — HOW CABJATRA WORKS & THE 10% ADVANCE GUARANTEE MATRIX */}
-      <HowItWorksSection />
 
       {/* SECTION 7 — TRUST, SAFETY & LEGAL COMPLIANCE PROTOCOLS */}
       <TrustSafetySection />
