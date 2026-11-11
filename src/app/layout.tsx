@@ -80,14 +80,41 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${sansFont.variable} ${displayFont.variable}`}>
+    <html lang="en" className={`${sansFont.variable} ${displayFont.variable}`} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* Strip browser extension injected attributes (e.g. McAfee, Bitwarden, LastPass fdprocessedid) before React hydration */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                if (typeof window !== 'undefined' && window.MutationObserver) {
+                  var observer = new MutationObserver(function(mutations) {
+                    for (var i = 0; i < mutations.length; i++) {
+                      var m = mutations[i];
+                      if (m.type === 'attributes' && m.attributeName === 'fdprocessedid') {
+                        m.target.removeAttribute('fdprocessedid');
+                      }
+                    }
+                  });
+                  observer.observe(document.documentElement, {
+                    attributes: true,
+                    subtree: true,
+                    attributeFilter: ['fdprocessedid']
+                  });
+                }
+              })();
+            `,
+          }}
+        />
       </head>
-      <body className="min-h-screen bg-sand-50/50 text-navy-800 antialiased flex flex-col font-sans selection:bg-brand-200 selection:text-brand-950 max-w-full overflow-x-hidden">
+      <body
+        className="min-h-screen bg-sand-50/50 text-navy-800 antialiased flex flex-col font-sans selection:bg-brand-200 selection:text-brand-950 max-w-full overflow-x-hidden"
+        suppressHydrationWarning
+      >
         <Navbar />
         <main className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>
         <Footer />

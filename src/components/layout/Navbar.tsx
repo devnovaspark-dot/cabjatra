@@ -140,6 +140,7 @@ export const Navbar: React.FC = () => {
             <div className="relative" ref={dropdownRef}>
               <button
                 type="button"
+                suppressHydrationWarning
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
