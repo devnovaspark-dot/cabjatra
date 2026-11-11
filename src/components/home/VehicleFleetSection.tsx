@@ -2,14 +2,12 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Users, Briefcase, Snowflake, Check, ArrowRight, ShieldCheck, Sparkles, Star, RotateCw, Eye } from "lucide-react";
+import { Users, Briefcase, ArrowRight, Sparkles } from "lucide-react";
 import { VEHICLE_FLEET } from "@/data/vehicles";
 import { CarModel3D } from "@/components/common/CarModel3D";
 
 export const VehicleFleetSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
-  const [visualMode, setVisualMode] = useState<"3d" | "photo">("3d");
 
   const categories = ["All", "Hatchback", "Sedan", "SUV", "Large car", "Mini bus"];
 
@@ -25,182 +23,105 @@ export const VehicleFleetSection: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#073B3A] mb-2 bg-[#E0ECEA]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
               <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
-              <span>Standardized Commercial Fleet</span>
+              <span>Interactive 3D Fleet Showroom</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-bold text-[#182A2B] font-display">
               Choose Your Vehicle Category
             </h2>
             <p className="text-xs sm:text-sm text-[#667575] mt-1 sm:mt-1.5 max-w-xl">
-              Every vehicle operates under a strict state commercial transport permit (yellow board), with functioning dual-zone AC, comprehensive passenger insurance, and verified chauffeurs.
+              100% yellow-board commercial permits, functioning dual-zone AC, comprehensive passenger insurance, and verified chauffeurs.
             </p>
           </div>
 
-          {/* Controls: Category Filter + 3D Mode Toggle */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 self-start md:self-auto">
-            {/* 3D vs Photo View Toggle */}
-            <div className="flex items-center gap-1 p-1 bg-white/80 rounded-xl border border-[#D5DDD5] shadow-xs">
+          {/* Interactive Category Filter Pills */}
+          <div className="flex items-center gap-1 sm:gap-1.5 p-1.5 panel-recessed rounded-2xl max-w-full overflow-x-auto scrollbar-none self-start md:self-auto">
+            {categories.map((cat) => (
               <button
+                key={cat}
                 type="button"
-                onClick={() => setVisualMode("3d")}
-                className={`px-3 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer select-none ${
-                  visualMode === "3d"
-                    ? "bg-[#073B3A] text-[#D9A52B] shadow-xs"
-                    : "text-[#556464] hover:text-[#182A2B]"
+                onClick={() => setActiveCategory(cat)}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all shrink-0 select-none ${
+                  activeCategory === cat
+                    ? "btn-skeuo-dark text-white font-bold"
+                    : "text-[#556464] hover:text-[#182A2B] hover:bg-white/70"
                 }`}
               >
-                <RotateCw className="w-3.5 h-3.5" />
-                <span>3D Models</span>
+                {cat === "All" ? "All Fleet" : cat}
               </button>
-              <button
-                type="button"
-                onClick={() => setVisualMode("photo")}
-                className={`px-3 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer select-none ${
-                  visualMode === "photo"
-                    ? "bg-[#073B3A] text-white shadow-xs"
-                    : "text-[#556464] hover:text-[#182A2B]"
-                }`}
-              >
-                <Eye className="w-3.5 h-3.5" />
-                <span>Photos</span>
-              </button>
-            </div>
-
-            {/* Interactive Category Filter Pills */}
-            <div className="flex items-center gap-1 sm:gap-1.5 p-1.5 panel-recessed rounded-2xl max-w-full overflow-x-auto scrollbar-none">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  type="button"
-                  onClick={() => setActiveCategory(cat)}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all shrink-0 select-none ${
-                    activeCategory === cat
-                      ? "btn-skeuo-dark text-white font-bold"
-                      : "text-[#556464] hover:text-[#182A2B] hover:bg-white/70"
-                  }`}
-                >
-                  {cat === "All" ? "All Fleet" : cat}
-                </button>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* Fleet Grid */}
+        {/* Fleet Grid - Clean, 3D Only, Minimal & Relevant */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5">
           {filteredVehicles.map((vehicle) => (
             <div
               key={vehicle.id}
-              className="card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group"
+              className="card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group bg-white border border-[#E2E8E2] hover:border-[#073B3A]/40 hover:shadow-lg transition-all"
             >
               <div>
-                {/* Visual: 3D Turntable or Real Automotive Photograph */}
-                {visualMode === "3d" ? (
-                  <div className="relative h-44 sm:h-48 w-full bg-gradient-to-b from-[#FAF9F5] to-[#E8EFE8] overflow-hidden border-b border-[#D6E0D6]">
-                    <CarModel3D
-                      vehicleId={vehicle.id}
-                      categoryName={vehicle.name}
-                      height={180}
-                      autoRotate={true}
-                    />
-                    <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#062F31]/95 backdrop-blur-md text-[#FAF9F5] text-[9.5px] sm:text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 shadow-md pointer-events-none">
-                      {vehicle.category}
+                {/* 3D Turntable Studio Stage */}
+                <div className="relative h-44 sm:h-48 w-full bg-gradient-to-b from-[#FAF9F5] to-[#E8EFE8] overflow-hidden border-b border-[#D6E0D6]">
+                  <CarModel3D
+                    vehicleId={vehicle.id}
+                    categoryName={vehicle.name}
+                    height={180}
+                    autoRotate={true}
+                  />
+                  <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#062F31]/95 backdrop-blur-md text-[#FAF9F5] text-[9.5px] sm:text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-white/20 shadow-md pointer-events-none">
+                    {vehicle.category}
+                  </div>
+                  {vehicle.tag && (
+                    <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] sm:text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-xs pointer-events-none">
+                      {vehicle.tag}
                     </div>
-                    {vehicle.tag && (
-                      <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] sm:text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_2px_4px_rgba(0,0,0,0.3)] pointer-events-none">
-                        {vehicle.tag}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <div className="relative h-44 sm:h-48 w-full bg-[#FAF9F5] overflow-hidden border-b border-[#D6E0D6]">
-                    <Image
-                      src={vehicle.image}
-                      alt={`${vehicle.name} - CabJatra Odisha Fleet`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-                    
-                    {/* Category Pill */}
-                    <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#062F31]/95 backdrop-blur-md text-[#FAF9F5] text-[9.5px] sm:text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 shadow-md">
-                      {vehicle.category}
-                    </div>
-
-                    {vehicle.tag && (
-                      <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] sm:text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_2px_4px_rgba(0,0,0,0.3)]">
-                        {vehicle.tag}
-                      </div>
-                    )}
-
-                    <div className="absolute bottom-2.5 sm:bottom-3 left-3 right-3 text-white">
-                      <span className="text-base font-bold font-display drop-shadow-md">{vehicle.name}</span>
-                    </div>
-                  </div>
-                )}
-
-                {/* Specs Strip */}
-                <div className="grid grid-cols-3 divide-x divide-[#D6E0D6] border-b border-[#D6E0D6] panel-recessed py-2.5 text-center text-xs">
-                  <div className="flex flex-col items-center">
-                    <span className="font-bold text-[#182A2B] flex items-center gap-1 text-[11px] sm:text-xs">
-                      <Users className="w-3.5 h-3.5 text-[#073B3A]" />
-                      {vehicle.passengers}
-                    </span>
-                    <span className="text-[9.5px] text-[#556464] font-medium">Seats</span>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <span className="font-bold text-[#182A2B] flex items-center gap-1 text-[11px] sm:text-xs">
-                      <Briefcase className="w-3.5 h-3.5 text-[#073B3A]" />
-                      {vehicle.luggage}
-                    </span>
-                    <span className="text-[9.5px] text-[#556464] font-medium">Bags</span>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <span className="font-bold text-[#182A2B] flex items-center gap-1 text-[11px] sm:text-xs">
-                      <Snowflake className="w-3.5 h-3.5 text-[#073B3A]" />
-                      Dual AC
-                    </span>
-                    <span className="text-[9.5px] text-[#556464] font-medium">Climate</span>
-                  </div>
+                  )}
                 </div>
 
-                {/* Body Details */}
-                <div className="p-4 sm:p-5 space-y-3">
-                  <div className="text-[10.5px] sm:text-[11px] text-[#556464] bg-[#FAF9F5] p-2.5 rounded-xl border border-[#D6E0D6] shadow-[inset_0_1px_2px_rgba(0,0,0,0.03)]">
-                    <strong className="text-[#182A2B]">Standard Models:</strong> {vehicle.models}
+                {/* Content: Name, Example Models, Specs */}
+                <div className="p-3.5 sm:p-4 space-y-2.5">
+                  <div>
+                    <h3 className="text-base sm:text-lg font-bold font-display text-[#182A2B] leading-tight">
+                      {vehicle.name}
+                    </h3>
+                    <p className="text-[11px] text-[#556464] font-medium mt-0.5 line-clamp-1" title={vehicle.models}>
+                      {vehicle.models}
+                    </p>
                   </div>
 
-                  <ul className="space-y-1.5 pt-0.5">
-                    {vehicle.features.slice(0, 3).map((feat, i) => (
-                      <li key={i} className="flex items-start gap-1.5 text-[11px] sm:text-xs text-[#455353]">
-                        <Check className="w-3 h-3 text-[#073B3A] shrink-0 mt-0.5" />
-                        <span className="line-clamp-1">{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Fleet Verification Badge - Skeuomorphic RTO Yellow Plate */}
-                  <div className="pt-1">
-                    <div className="p-2.5 rounded-xl bg-gradient-to-r from-[#FCD34D] via-[#FBBF24] to-[#F59E0B] border-2 border-[#182A2B]/80 text-[#182A2B] text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_2px_6px_rgba(0,0,0,0.12)]">
-                      <div className="text-[8.5px] uppercase font-extrabold tracking-widest text-[#182A2B]/80">
-                        ODISHA STA TRANSPORT PERMIT
-                      </div>
-                      <div className="text-[11px] sm:text-xs font-black text-[#182A2B] mt-0.5 flex items-center justify-center gap-1.5">
-                        <ShieldCheck className="w-3.5 h-3.5 text-[#062F31]" />
-                        <span>100% COMMERCIAL YELLOW BOARD</span>
-                      </div>
-                    </div>
+                  {/* Compact Specs Strip */}
+                  <div className="flex items-center justify-between py-1.5 px-2.5 bg-[#FAF9F5] rounded-xl border border-[#E5EAE5] text-[11px] text-[#455353] font-semibold">
+                    <span className="flex items-center gap-1">
+                      <Users className="w-3.5 h-3.5 text-[#073B3A]" />
+                      {vehicle.passengers} Seats
+                    </span>
+                    <span className="text-[#C1DAD7]">•</span>
+                    <span className="flex items-center gap-1">
+                      <Briefcase className="w-3.5 h-3.5 text-[#073B3A]" />
+                      {vehicle.luggage} Bags
+                    </span>
+                    <span className="text-[#C1DAD7]">•</span>
+                    <span className="text-[#10B981] font-bold">AC</span>
                   </div>
                 </div>
               </div>
 
-              {/* Select Action */}
-              <div className="p-4 sm:p-5 pt-0">
+              {/* Action Button & Base Rate */}
+              <div className="p-3.5 sm:p-4 pt-0 border-t border-[#EEF2EE] flex items-center justify-between mt-2">
+                <div>
+                  <span className="text-[9px] uppercase font-bold text-[#778686] block leading-none">
+                    Starting
+                  </span>
+                  <span className="text-sm font-extrabold text-[#062F31]">
+                    ₹{vehicle.ratePerKm}/km
+                  </span>
+                </div>
+
                 <Link
                   href={`/book-cab?vehicle=${vehicle.id}`}
-                  className="w-full py-2.5 px-4 rounded-xl btn-skeuo-dark text-white text-xs font-bold transition-all flex items-center justify-center gap-2"
+                  className="py-2 px-3.5 rounded-xl btn-skeuo-dark text-white text-xs font-bold transition-all flex items-center gap-1.5 hover:brightness-110 active:scale-[0.98]"
                 >
-                  <span>Select {vehicle.category}</span>
+                  <span>Select</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#D9A52B]" />
                 </Link>
               </div>

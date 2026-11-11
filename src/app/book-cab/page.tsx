@@ -42,7 +42,6 @@ function CabBookingContent() {
   // Wizard state (1: Trip Details, 2: Select Vehicle, 3: Passenger Info, 4: Review & Submit, 5: Confirmed)
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [copiedRef, setCopiedRef] = useState(false);
-  const [fleetVisualMode, setFleetVisualMode] = useState<"3d" | "photo">("3d");
 
   // Form Fields
   const [serviceType, setServiceType] = useState<"outstation" | "airport" | "hourly" | "local">("outstation");
@@ -102,7 +101,7 @@ function CabBookingContent() {
     VEHICLE_FLEET.find((v) => v.id === selectedVehicleId) || VEHICLE_FLEET[1];
 
   // Calculate dynamic indicative fare estimates based on inputs
-  const calculateEstimatedFare = () => {
+  const calculateEstimatedFare = (categoryOverride?: string) => {
     const categoryMultipliers: Record<string, number> = {
       Hatchback: 0.85,
       Sedan: 1.0,
@@ -110,7 +109,8 @@ function CabBookingContent() {
       "Large car": 1.55,
       "Mini bus": 2.3,
     };
-    const mult = categoryMultipliers[selectedVehicle.category] || 1.0;
+    const targetCategory = categoryOverride || selectedVehicle.category;
+    const mult = categoryMultipliers[targetCategory] || 1.0;
 
     let base = 1950;
     if (serviceType === "airport") {
@@ -574,154 +574,97 @@ function CabBookingContent() {
           {currentStep === 2 && (
             <div className="card-skeuo rounded-3xl p-6 sm:p-8 lg:p-10 space-y-6 min-h-[580px] flex flex-col justify-between animate-in fade-in-50 duration-200">
               <div className="space-y-6">
-                {/* Header */}
+                {/* Clean Header - 3D Focused */}
                 <div className="border-b border-[#E5ECE5] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
                     <h2 className="text-lg sm:text-xl font-bold font-display text-[#182A2B]">
                       Choose Your Vehicle Class
                     </h2>
                     <p className="text-xs text-[#667575] mt-0.5">
-                      All vehicles are 100% yellow-board commercial with dual-zone AC and background-verified chauffeurs.
+                      100% Yellow-Board Commercial Fleet • Dual-Zone AC • Verified Chauffeurs
                     </p>
                   </div>
 
-                  {/* 3D vs Photo View Toggle */}
-                  <div className="flex items-center gap-1.5 p-1 bg-[#EEF2EE] rounded-xl border border-[#D5DDD5] self-start sm:self-auto">
-                    <button
-                      type="button"
-                      onClick={() => setFleetVisualMode("3d")}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer select-none ${
-                        fleetVisualMode === "3d"
-                          ? "bg-[#073B3A] text-[#D9A52B] shadow-xs"
-                          : "text-[#667575] hover:text-[#182A2B]"
-                      }`}
-                    >
-                      <RotateCw className="w-3.5 h-3.5" />
-                      <span>3D Models</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setFleetVisualMode("photo")}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer select-none ${
-                        fleetVisualMode === "photo"
-                          ? "bg-[#073B3A] text-white shadow-xs"
-                          : "text-[#667575] hover:text-[#182A2B]"
-                      }`}
-                    >
-                      <Eye className="w-3.5 h-3.5" />
-                      <span>Photos</span>
-                    </button>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#E0ECEA]/70 border border-[#C1DAD7] text-xs font-semibold text-[#073B3A] self-start sm:self-auto">
+                    <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+                    <span>360° Interactive 3D Fleet</span>
                   </div>
                 </div>
 
-                {/* 5 Real Vehicle Cards with Given Names from FRD */}
+                {/* 5 Clean 3D Vehicle Cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3.5 sm:gap-4">
                   {VEHICLE_FLEET.map((v) => {
                     const isSelected = selectedVehicleId === v.id;
+                    const vFare = calculateEstimatedFare(v.category);
                     return (
                       <div
                         key={v.id}
                         onClick={() => setSelectedVehicleId(v.id)}
-                        className={`rounded-2xl border transition-all duration-200 cursor-pointer overflow-hidden flex flex-col justify-between group select-none ${
+                        className={`rounded-2xl border transition-all duration-200 cursor-pointer overflow-hidden flex flex-col justify-between group select-none bg-white ${
                           isSelected
-                            ? "border-2 border-[#D9A52B] card-skeuo ring-2 ring-[#073B3A]/30 shadow-lg scale-[1.01]"
-                            : "card-skeuo hover:border-[#073B3A]/40"
+                            ? "border-2 border-[#D9A52B] ring-2 ring-[#073B3A]/20 shadow-lg scale-[1.01]"
+                            : "border-[#E2E8E2] hover:border-[#073B3A]/40 hover:shadow-md"
                         }`}
                       >
                         <div>
-                          {/* Visual Presentation: Interactive 3D Model or High-Res Photograph */}
-                          {fleetVisualMode === "3d" ? (
-                            <div className="relative h-44 w-full bg-gradient-to-b from-[#FAF9F5] to-[#E9EFE9] border-b border-[#D6E0D6] overflow-hidden">
-                              <CarModel3D
-                                vehicleId={v.id}
-                                categoryName={v.name}
-                                height={176}
-                                autoRotate={!isSelected}
-                              />
-                              <div className="absolute top-2 left-2 bg-[#062F31]/95 backdrop-blur-md text-white text-[9px] font-bold px-2 py-0.5 rounded-md border border-white/15 pointer-events-none">
-                                {v.category}
-                              </div>
-                              {v.tag && (
-                                <div className="absolute top-2 right-2 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs pointer-events-none">
-                                  {v.tag}
-                                </div>
-                              )}
+                          {/* Pure 3D Automotive Studio Stage */}
+                          <div className="relative h-44 w-full bg-gradient-to-b from-[#FAF9F5] to-[#E9EFE9] border-b border-[#D6E0D6] overflow-hidden">
+                            <CarModel3D
+                              vehicleId={v.id}
+                              categoryName={v.name}
+                              height={176}
+                              autoRotate={!isSelected}
+                            />
+                            <div className="absolute top-2 left-2 bg-[#062F31]/95 backdrop-blur-md text-white text-[9.5px] font-bold px-2 py-0.5 rounded-md border border-white/15 pointer-events-none">
+                              {v.category}
                             </div>
-                          ) : (
-                            <div className="relative h-44 w-full overflow-hidden bg-[#FAF9F5] border-b border-[#D6E0D6]">
-                              <Image
-                                src={v.image}
-                                alt={v.name}
-                                fill
-                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
-                                className="object-cover group-hover:scale-105 transition-transform duration-500"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-
-                              <div className="absolute top-2 left-2 bg-[#062F31]/95 backdrop-blur-md text-white text-[9.5px] sm:text-[10px] font-bold px-2 py-0.5 rounded-md border border-white/15">
-                                {v.category}
+                            {v.tag && (
+                              <div className="absolute top-2 right-2 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs pointer-events-none">
+                                {v.tag}
                               </div>
-
-                              {v.tag && (
-                                <div className="absolute top-2 right-2 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs">
-                                  {v.tag}
-                                </div>
-                              )}
-
-                              <div className="absolute bottom-2 left-2.5 right-2.5 text-white">
-                                <h3 className="text-base font-bold font-display leading-tight">{v.name}</h3>
-                                <p className="text-[10px] text-white/85 line-clamp-1">{v.subtitle}</p>
-                              </div>
-                            </div>
-                          )}
-
-                          {/* Card Title & Category */}
-                          <div className="p-3 pb-0">
-                            <div className="flex items-center justify-between">
-                              <h3 className="text-base font-bold font-display text-[#182A2B] leading-tight">{v.name}</h3>
-                              <span className="text-[9.5px] font-bold text-[#073B3A] bg-[#E0ECEA] px-2 py-0.5 rounded-md">
-                                {v.category}
-                              </span>
-                            </div>
-                            <p className="text-[11px] text-[#556464] line-clamp-1 mt-0.5">{v.subtitle}</p>
+                            )}
                           </div>
 
-                          {/* Specs Mini Bay */}
-                          <div className="p-2.5 sm:p-3 space-y-2">
-                            <div className="grid grid-cols-3 divide-x divide-[#E5EAE5] border border-[#E5EAE5] bg-[#FAF9F5] rounded-xl py-1.5 text-center text-xs">
-                              <div>
-                                <span className="font-bold text-[#182A2B] flex items-center justify-center gap-1 text-[11px]">
-                                  <Users className="w-3.5 h-3.5 text-[#073B3A]" />
-                                  {v.passengers}
-                                </span>
-                                <span className="text-[9.5px] text-[#667575]">Seats</span>
-                              </div>
-                              <div>
-                                <span className="font-bold text-[#182A2B] flex items-center justify-center gap-1 text-[11px]">
-                                  <Briefcase className="w-3.5 h-3.5 text-[#073B3A]" />
-                                  {v.luggage}
-                                </span>
-                                <span className="text-[9.5px] text-[#667575]">Bags</span>
-                              </div>
-                              <div className="font-bold text-[#10B981] flex items-center justify-center gap-0.5 text-[10px]">
-                                <CheckCircle2 className="w-3.5 h-3.5" />
-                                <span>100% AC</span>
-                              </div>
+                          {/* Vehicle Info: Name, Models & Compact Specs */}
+                          <div className="p-3.5 space-y-2.5">
+                            <div>
+                              <h3 className="text-base font-bold font-display text-[#182A2B] leading-tight">
+                                {v.name}
+                              </h3>
+                              <p className="text-[11px] text-[#556464] font-medium mt-0.5 line-clamp-1" title={v.models}>
+                                {v.models}
+                              </p>
                             </div>
 
-                            <div className="text-[11px] text-[#556464] bg-[#FAF9F5] p-2 rounded-xl border border-[#E5EAE5] leading-snug">
-                              <span className="font-bold text-[#182A2B] block text-[10px] uppercase tracking-wider text-[#073B3A]">
-                                Example Cars:
+                            {/* Minimal Specs Strip */}
+                            <div className="flex items-center justify-between py-1.5 px-2.5 bg-[#FAF9F5] rounded-xl border border-[#E5EAE5] text-[11px] text-[#455353] font-semibold">
+                              <span className="flex items-center gap-1">
+                                <Users className="w-3.5 h-3.5 text-[#073B3A]" />
+                                {v.passengers} Seats
                               </span>
-                              <span className="text-[#182A2B] font-semibold">{v.models}</span>
+                              <span className="text-[#C1DAD7]">•</span>
+                              <span className="flex items-center gap-1">
+                                <Briefcase className="w-3.5 h-3.5 text-[#073B3A]" />
+                                {v.luggage} Bags
+                              </span>
+                              <span className="text-[#C1DAD7]">•</span>
+                              <span className="text-[#10B981] font-bold">AC</span>
                             </div>
                           </div>
                         </div>
 
-                        <div className="p-2.5 sm:p-3 pt-0 border-t border-[#EEF2EE] flex items-center justify-between mt-1">
+                        {/* Bottom Tariff & Action Button */}
+                        <div className="p-3.5 pt-0 border-t border-[#EEF2EE] flex items-center justify-between mt-1">
                           <div>
-                            <span className="text-[9px] font-bold uppercase text-[#667575] block">Base Rate</span>
-                            <span className="text-xs font-bold text-[#073B3A]">{v.indicativeBaseFare}</span>
+                            <span className="text-[9px] uppercase font-bold text-[#667575] block leading-none">
+                              Est. Tariff
+                            </span>
+                            <span className="text-sm font-extrabold text-[#062F31]">
+                              ₹{vFare.total.toLocaleString("en-IN")}
+                            </span>
+                            <span className="text-[9px] font-semibold text-[#D9A52B] block leading-none mt-0.5">
+                              10% Adv: ₹{vFare.advance.toLocaleString("en-IN")}
+                            </span>
                           </div>
 
                           <div
