@@ -150,14 +150,14 @@ function TourBookingContent() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#021617]/95 via-[#062F31]/88 to-[#FAF9F5]" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36">
+      <div className="relative z-10 max-w-5xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-24 sm:pt-36">
         {/* Title Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 text-white space-y-3">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-xs font-semibold text-[#D9A52B] shadow-sm">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 text-white space-y-2.5 sm:space-y-3">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[10px] sm:text-xs font-semibold text-[#D9A52B] shadow-sm">
             <Palmtree className="w-3.5 h-3.5 text-[#D9A52B]" />
             <span>Curated Odisha Tours • Golden Triangle &amp; Eco-Trails</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-bold font-display tracking-tight text-white leading-tight">
+          <h1 className="text-2xl sm:text-5xl font-bold font-display tracking-tight text-white leading-tight">
             Book an Odisha Private Tour
           </h1>
           <p className="text-xs sm:text-sm text-white/90 max-w-xl mx-auto leading-relaxed">
@@ -165,10 +165,10 @@ function TourBookingContent() {
           </p>
         </div>
 
-        {/* ================= 3-STEP NAVIGATION MATRIX (100% MAXIMUM VISIBILITY) ================= */}
+        {/* ================= 3-STEP NAVIGATION MATRIX (100% MAXIMUM VISIBILITY & ZERO OVERFLOW) ================= */}
         {currentStep < 4 && (
-          <div className="mb-10 max-w-3xl mx-auto">
-            <div className="grid grid-cols-3 gap-3 sm:gap-4">
+          <div className="mb-6 sm:mb-10 max-w-3xl mx-auto">
+            <div className="grid grid-cols-3 gap-1.5 sm:gap-4">
               {stepsConfig.map((s) => {
                 const isCurrent = currentStep === s.num;
                 const isPassed = currentStep > s.num;
@@ -181,9 +181,9 @@ function TourBookingContent() {
                       if (isPassed) setCurrentStep(s.num);
                     }}
                     disabled={!isPassed && !isCurrent}
-                    className={`p-3.5 sm:p-4 rounded-2xl border text-left transition-all duration-300 flex items-center gap-3 relative select-none ${
+                    className={`p-2 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all duration-300 flex items-center gap-1.5 sm:gap-3 relative select-none ${
                       isCurrent
-                        ? "bg-gradient-to-b from-[#0C4E4B] to-[#041F20] text-white border-2 border-[#D9A52B] shadow-[0_10px_25px_rgba(217,165,43,0.3)] scale-[1.02] ring-2 ring-[#D9A52B]/40"
+                        ? "bg-gradient-to-b from-[#0C4E4B] to-[#041F20] text-white border-2 border-[#D9A52B] shadow-[0_10px_25px_rgba(217,165,43,0.3)] scale-[1.01] ring-2 ring-[#D9A52B]/40"
                         : isPassed
                         ? "bg-[#073B3A]/95 text-white border border-[#10B981] shadow-sm cursor-pointer hover:brightness-110"
                         : "bg-[#062F31]/85 backdrop-blur-xl border border-white/20 text-white shadow-sm"
@@ -191,7 +191,7 @@ function TourBookingContent() {
                   >
                     {/* Step Numeral Badge */}
                     <div
-                      className={`w-9 h-9 rounded-xl flex items-center justify-center font-bold text-xs shrink-0 transition-all ${
+                      className={`w-6 h-6 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center font-bold text-[10px] sm:text-xs shrink-0 transition-all ${
                         isCurrent
                           ? "bg-[#D9A52B] text-[#062F31] shadow-md font-black"
                           : isPassed
@@ -199,14 +199,14 @@ function TourBookingContent() {
                           : "bg-white/15 text-[#FAF9F5] border border-white/20 font-bold"
                       }`}
                     >
-                      {isPassed ? <CheckCircle2 className="w-5 h-5 text-white" /> : `0${s.num}`}
+                      {isPassed ? <CheckCircle2 className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-white" /> : `0${s.num}`}
                     </div>
 
                     {/* Step Title & Subtitle with 100% Visibility */}
                     <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-1.5">
+                      <div className="flex items-center gap-1">
                         <span
-                          className={`text-xs sm:text-sm font-bold font-display truncate ${
+                          className={`text-[10.5px] sm:text-sm font-bold font-display truncate ${
                             isCurrent
                               ? "text-white drop-shadow-sm"
                               : isPassed
@@ -217,11 +217,11 @@ function TourBookingContent() {
                           {s.label}
                         </span>
                         {isCurrent && (
-                          <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shrink-0" />
+                          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#10B981] animate-pulse shrink-0" />
                         )}
                       </div>
                       <p
-                        className={`text-[10px] sm:text-[11px] truncate font-medium ${
+                        className={`hidden sm:block text-[11px] truncate font-medium ${
                           isCurrent
                             ? "text-[#D9A52B] font-bold"
                             : isPassed
@@ -241,7 +241,7 @@ function TourBookingContent() {
 
         {/* ================= STEP 1: VISUAL CIRCUIT EXPLORER (NON-TEXT HEAVY) ================= */}
         {currentStep === 1 && (
-          <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#D5DDD5] shadow-[0_25px_60px_rgba(0,0,0,0.14)] space-y-8 animate-in fade-in-50 duration-200">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-10 border border-[#D5DDD5] shadow-[0_25px_60px_rgba(0,0,0,0.14)] space-y-5 sm:space-y-8 animate-in fade-in-50 duration-200">
             {/* Header */}
             <div className="border-b border-[#EEF2EE] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>

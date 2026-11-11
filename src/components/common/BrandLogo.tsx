@@ -16,23 +16,23 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   showTagline = true,
   className = "",
 }) => {
-  // Dimensions based on size
+  // Responsive dimensions based on size
   const iconDimensions = {
-    sm: "w-8 h-8",
-    md: "w-10 h-10",
-    lg: "w-12 h-12",
+    sm: "w-7 h-7 sm:w-8 sm:h-8",
+    md: "w-8 h-8 sm:w-10 sm:h-10",
+    lg: "w-10 h-10 sm:w-12 sm:h-12",
   }[size];
 
   const titleSizes = {
-    sm: "text-lg",
-    md: "text-xl sm:text-2xl",
-    lg: "text-2xl sm:text-3xl",
+    sm: "text-base sm:text-lg",
+    md: "text-lg sm:text-2xl",
+    lg: "text-xl sm:text-3xl",
   }[size];
 
   const taglineSizes = {
     sm: "text-[7px]",
-    md: "text-[8.5px]",
-    lg: "text-[10px]",
+    md: "text-[7.5px] sm:text-[8.5px]",
+    lg: "text-[8.5px] sm:text-[10px]",
   }[size];
 
   const isLight = variant === "light";

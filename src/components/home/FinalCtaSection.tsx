@@ -17,10 +17,10 @@ import { COMPANY_CONFIG } from "@/data/company";
 
 export const FinalCtaSection: React.FC = () => {
   return (
-    <section className="py-14 sm:py-20 bg-[#FAF9F5]">
+    <section className="py-10 sm:py-16 lg:py-20 bg-[#FAF9F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Luxury Architectural Pavilion Card with Centered Content */}
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#062F31] via-[#041F20] to-[#073B3A] text-white p-8 sm:p-14 lg:p-16 border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.25)] text-center flex flex-col items-center justify-center">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#062F31] via-[#041F20] to-[#073B3A] text-white p-5 sm:p-12 lg:p-16 border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.25)] text-center flex flex-col items-center justify-center">
           {/* Subtle Ambient Background Photography */}
           <div className="absolute inset-0 z-0 opacity-20 mix-blend-luminosity pointer-events-none">
             <Image
@@ -32,16 +32,16 @@ export const FinalCtaSection: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-[#041F20] via-[#041F20]/80 to-[#041F20]/90" />
           </div>
 
-          <div className="relative z-10 max-w-3xl mx-auto space-y-6 flex flex-col items-center justify-center">
+          <div className="relative z-10 max-w-3xl mx-auto space-y-4 sm:space-y-6 flex flex-col items-center justify-center">
             {/* Centered Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[10px] font-semibold text-[#D9A52B] shadow-soft">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[9.5px] sm:text-[10px] font-semibold text-[#D9A52B] shadow-soft">
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>Odisha&apos;s Dedicated Chauffeur Mobility Platform</span>
             </div>
 
             {/* Centered Headline */}
-            <div className="space-y-3">
-              <h2 className="text-3xl sm:text-5xl font-bold font-display tracking-tight text-[#FAF9F5] leading-tight">
+            <div className="space-y-2 sm:space-y-3">
+              <h2 className="text-2xl sm:text-5xl font-bold font-display tracking-tight text-[#FAF9F5] leading-tight">
                 Ready to Experience Odisha with <br />
                 <span className="italic font-display font-normal text-[#D9A52B]">
                   Private Chauffeur Comfort?
@@ -53,10 +53,10 @@ export const FinalCtaSection: React.FC = () => {
             </div>
 
             {/* Centered Action Triggers */}
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2.5 sm:gap-4 pt-1 sm:pt-2 w-full sm:w-auto">
               <Link
                 href="/book-cab"
-                className="px-7 py-3.5 rounded-full font-bold text-xs text-[#062F31] bg-gradient-to-b from-[#E6B543] to-[#C99320] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 transition-all inline-flex items-center gap-2 active:translate-y-0.5"
+                className="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 rounded-full font-bold text-xs text-[#062F31] bg-gradient-to-b from-[#E6B543] to-[#C99320] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 transition-all inline-flex items-center justify-center gap-2 active:translate-y-0.5"
               >
                 <Car className="w-4 h-4 text-[#062F31]" />
                 <span>Plan Your Journey</span>
@@ -67,7 +67,7 @@ export const FinalCtaSection: React.FC = () => {
                 href={COMPANY_CONFIG.contact.whatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3.5 rounded-full font-semibold text-xs text-white bg-gradient-to-b from-[#084846] to-[#041F20] border-t border-white/20 shadow-skeuo-button hover:brightness-110 transition-all inline-flex items-center gap-2 active:translate-y-0.5"
+                className="w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-3.5 rounded-full font-semibold text-xs text-white bg-gradient-to-b from-[#084846] to-[#041F20] border-t border-white/20 shadow-skeuo-button hover:brightness-110 transition-all inline-flex items-center justify-center gap-2 active:translate-y-0.5"
               >
                 <MessageSquare className="w-4 h-4 text-[#D9A52B]" />
                 <span>WhatsApp Operations Desk</span>
@@ -75,7 +75,7 @@ export const FinalCtaSection: React.FC = () => {
 
               <a
                 href={`tel:${COMPANY_CONFIG.contact.phoneRaw}`}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#E0ECEA] hover:text-white transition-colors px-3 py-2"
+                className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-[#E0ECEA] hover:text-white transition-colors px-3 py-1.5 sm:py-2"
               >
                 <Phone className="w-3.5 h-3.5 text-[#D9A52B]" />
                 <span>Helpline: {COMPANY_CONFIG.contact.phoneDisplay}</span>
@@ -83,18 +83,18 @@ export const FinalCtaSection: React.FC = () => {
             </div>
 
             {/* Centered Trust Assurance Strip */}
-            <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-[11px] text-[#E0ECEA]/75">
+            <div className="pt-4 sm:pt-6 border-t border-white/10 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2 sm:gap-6 text-[10px] sm:text-[11px] text-[#E0ECEA]/75">
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#D9A52B]" />
-                10% advance deposit only after availability verification
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#D9A52B] shrink-0" />
+                <span>10% advance deposit only after availability verification</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#D9A52B]" />
-                Verified chauffeurs &amp; clean commercial AC vehicles
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#D9A52B] shrink-0" />
+                <span>Verified chauffeurs &amp; clean commercial AC vehicles</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-[#D9A52B]" />
-                Zero last-minute driver cancellations
+                <Clock className="w-3.5 h-3.5 text-[#D9A52B] shrink-0" />
+                <span>Zero last-minute driver cancellations</span>
               </span>
             </div>
           </div>

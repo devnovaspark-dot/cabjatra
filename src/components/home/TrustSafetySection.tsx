@@ -39,18 +39,18 @@ export const TrustSafetySection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-[#FAF9F5] border-b border-[#E5EAE5]">
+    <section className="py-12 sm:py-20 lg:py-24 bg-[#FAF9F5] border-b border-[#E5EAE5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-3 sm:gap-4">
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0ECEA]/70 text-[10px] font-bold text-[#073B3A] uppercase tracking-wider mb-2 border border-[#C1DAD7]">
               <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
               <span>Safety &amp; Compliance Standards</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#182A2B] font-display">
+            <h2 className="text-2xl sm:text-4xl font-bold text-[#182A2B] font-display">
               Trust &amp; Safety Protocols
             </h2>
-            <p className="text-xs sm:text-sm text-[#667575] mt-1.5 max-w-xl">
+            <p className="text-xs sm:text-sm text-[#667575] mt-1 sm:mt-1.5 max-w-xl">
               From driver background checks to transparent cancellation refunds, our operations protocol is built to protect travelers at every stage.
             </p>
           </div>
@@ -62,32 +62,32 @@ export const TrustSafetySection: React.FC = () => {
         </div>
 
         {/* 4 Trust & Safety Pillars with Distinct Skeuomorphic Depth */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {pillars.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-3xl p-6 border border-[#D5DDD5] shadow-skeuo hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-[#D5DDD5] shadow-skeuo hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
             >
-              <div className="space-y-3">
+              <div className="space-y-2.5 sm:space-y-3">
                 <div className="flex items-center justify-between">
-                  <div className="w-11 h-11 rounded-2xl bg-gradient-to-b from-[#FAF9F5] to-[#EEF2EE] border border-[#E5EAE5] flex items-center justify-center group-hover:bg-[#073B3A] group-hover:text-white transition-colors shadow-xs">
+                  <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#FAF9F5] to-[#EEF2EE] border border-[#E5EAE5] flex items-center justify-center group-hover:bg-[#073B3A] group-hover:text-white transition-colors shadow-xs">
                     {item.icon}
                   </div>
-                  <span className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#F2F5F2] text-[#667575]">
+                  <span className="text-[8.5px] sm:text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#F2F5F2] text-[#667575]">
                     {item.badge}
                   </span>
                 </div>
 
-                <h3 className="text-base font-bold text-[#182A2B] group-hover:text-[#073B3A] transition-colors leading-snug">
+                <h3 className="text-sm sm:text-base font-bold text-[#182A2B] group-hover:text-[#073B3A] transition-colors leading-snug">
                   {item.title}
                 </h3>
 
-                <p className="text-xs text-[#667575] leading-relaxed">
+                <p className="text-[11px] sm:text-xs text-[#667575] leading-relaxed">
                   {item.desc}
                 </p>
               </div>
 
-              <div className="mt-6 pt-3.5 border-t border-[#F2F5F2]">
+              <div className="mt-4 sm:mt-6 pt-3 sm:pt-3.5 border-t border-[#F2F5F2]">
                 <Link
                   href={item.actionLink}
                   className="text-xs font-bold text-[#073B3A] hover:underline inline-flex items-center gap-1 group-hover:text-[#062F31]"

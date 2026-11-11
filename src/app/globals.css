@@ -19,11 +19,21 @@
     background-color: #FAF9F5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   body {
     overflow-x: hidden;
+    max-width: 100vw;
     background-color: #FAF9F5;
+    position: relative;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
 
   ::selection {

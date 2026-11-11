@@ -204,14 +204,14 @@ function CabBookingContent() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#021617]/95 via-[#062F31]/88 to-[#FAF9F5]" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36">
+      <div className="relative z-10 max-w-5xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-24 sm:pt-36">
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-10 text-white space-y-3">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-xs font-semibold text-[#D9A52B] shadow-sm">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 text-white space-y-2.5 sm:space-y-3">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[10px] sm:text-xs font-semibold text-[#D9A52B] shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
             <span>Pre-Booked Chauffeur Dispatch • 10% Advance Deposit Model</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-bold font-display tracking-tight text-white leading-tight">
+          <h1 className="text-2xl sm:text-5xl font-bold font-display tracking-tight text-white leading-tight">
             Reserve Your Odisha Chauffeur
           </h1>
           <p className="text-xs sm:text-sm text-white/90 max-w-xl mx-auto leading-relaxed">
@@ -219,10 +219,10 @@ function CabBookingContent() {
           </p>
         </div>
 
-        {/* ================= 4-STEP NAVIGATION MATRIX (100% MAXIMUM VISIBILITY) ================= */}
+        {/* ================= 4-STEP NAVIGATION MATRIX (100% MAXIMUM VISIBILITY & ZERO OVERFLOW) ================= */}
         {currentStep < 5 && (
-          <div className="mb-10 max-w-4xl mx-auto">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div className="mb-6 sm:mb-10 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
               {stepsConfig.map((s) => {
                 const isCurrent = currentStep === s.num;
                 const isPassed = currentStep > s.num;
@@ -235,9 +235,9 @@ function CabBookingContent() {
                       if (isPassed) setCurrentStep(s.num);
                     }}
                     disabled={!isPassed && !isCurrent}
-                    className={`p-3.5 sm:p-4 rounded-2xl border text-left transition-all duration-300 flex items-center gap-3 relative select-none ${
+                    className={`p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all duration-300 flex items-center gap-2 sm:gap-3 relative select-none ${
                       isCurrent
-                        ? "bg-gradient-to-b from-[#0C4E4B] to-[#041F20] text-white border-2 border-[#D9A52B] shadow-[0_10px_25px_rgba(217,165,43,0.3)] scale-[1.02] ring-2 ring-[#D9A52B]/40"
+                        ? "bg-gradient-to-b from-[#0C4E4B] to-[#041F20] text-white border-2 border-[#D9A52B] shadow-[0_10px_25px_rgba(217,165,43,0.3)] scale-[1.01] ring-2 ring-[#D9A52B]/40"
                         : isPassed
                         ? "bg-[#073B3A]/95 text-white border border-[#10B981] shadow-sm cursor-pointer hover:brightness-110"
                         : "bg-[#062F31]/85 backdrop-blur-xl border border-white/20 text-white shadow-sm"
@@ -245,7 +245,7 @@ function CabBookingContent() {
                   >
                     {/* Step Numeral Badge */}
                     <div
-                      className={`w-9 h-9 rounded-xl flex items-center justify-center font-bold text-xs shrink-0 transition-all ${
+                      className={`w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center font-bold text-[11px] sm:text-xs shrink-0 transition-all ${
                         isCurrent
                           ? "bg-[#D9A52B] text-[#062F31] shadow-md font-black"
                           : isPassed
@@ -253,12 +253,12 @@ function CabBookingContent() {
                           : "bg-white/15 text-[#FAF9F5] border border-white/20 font-bold"
                       }`}
                     >
-                      {isPassed ? <CheckCircle2 className="w-5 h-5 text-white" /> : `0${s.num}`}
+                      {isPassed ? <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-white" /> : `0${s.num}`}
                     </div>
 
                     {/* Step Title & Subtitle with 100% Visibility */}
                     <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-1.5">
+                      <div className="flex items-center gap-1">
                         <span
                           className={`text-xs sm:text-sm font-bold font-display truncate ${
                             isCurrent
@@ -271,11 +271,11 @@ function CabBookingContent() {
                           {s.title}
                         </span>
                         {isCurrent && (
-                          <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shrink-0" />
+                          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#10B981] animate-pulse shrink-0" />
                         )}
                       </div>
                       <p
-                        className={`text-[10px] sm:text-[11px] truncate font-medium ${
+                        className={`text-[9px] sm:text-[11px] truncate font-medium ${
                           isCurrent
                             ? "text-[#D9A52B] font-bold"
                             : isPassed
@@ -297,30 +297,30 @@ function CabBookingContent() {
         {currentStep === 1 && (
           <form
             onSubmit={handleNextFromStep1}
-            className="bg-white rounded-3xl p-6 sm:p-10 border border-[#D5DDD5] shadow-[0_25px_60px_rgba(0,0,0,0.14)] space-y-8 animate-in fade-in-50 duration-200"
+            className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-10 border border-[#D5DDD5] shadow-[0_25px_60px_rgba(0,0,0,0.14)] space-y-5 sm:space-y-8 animate-in fade-in-50 duration-200"
           >
             {/* Header */}
-            <div className="border-b border-[#EEF2EE] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="border-b border-[#EEF2EE] pb-3 sm:pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#062F31] bg-[#D9A52B] px-3 py-1 rounded-full inline-block shadow-xs">
+                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#062F31] bg-[#D9A52B] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full inline-block shadow-xs">
                   Step 1 of 4 • Route &amp; Schedule
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#182A2B] mt-1.5">
+                <h2 className="text-xl sm:text-3xl font-bold font-display text-[#182A2B] mt-1">
                   Select Service &amp; Schedule
                 </h2>
               </div>
-              <span className="text-xs text-[#073B3A] font-semibold flex items-center gap-1.5 bg-[#E0ECEA]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
+              <span className="text-[11px] sm:text-xs text-[#073B3A] font-semibold flex items-center gap-1.5 bg-[#E0ECEA]/70 px-2.5 sm:px-3 py-1 rounded-full border border-[#C1DAD7] self-start sm:self-auto">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
-                Zero cancellation fee on 6hr notice
+                <span>Zero cancellation fee on 6hr notice</span>
               </span>
             </div>
 
             {/* Service Type Selection Cards */}
             <div className="space-y-2">
-              <label className="text-xs font-bold text-[#182A2B] uppercase tracking-wider block">
+              <label className="text-[11px] sm:text-xs font-bold text-[#182A2B] uppercase tracking-wider block">
                 Choose Travel Category:
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
                 {[
                   { id: "outstation", label: "Outstation Highway", icon: Compass, desc: "Puri, Konark, Chilika & intercity" },
                   { id: "airport", label: "Airport Transfer", icon: Plane, desc: "BBI arrivals & departures" },
@@ -334,7 +334,7 @@ function CabBookingContent() {
                       key={srv.id}
                       type="button"
                       onClick={() => setServiceType(srv.id as any)}
-                      className={`p-4 rounded-2xl border text-left transition-all flex flex-col justify-between group cursor-pointer ${
+                      className={`p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all flex flex-col justify-between group cursor-pointer ${
                         isSelected
                           ? "border-2 border-[#D9A52B] bg-[#073B3A] text-white shadow-card ring-2 ring-[#073B3A]/30 scale-[1.01]"
                           : "border-[#D5DDD5] hover:border-[#073B3A]/40 text-[#182A2B] bg-[#FAF9F5] hover:bg-white"
@@ -342,20 +342,20 @@ function CabBookingContent() {
                     >
                       <div>
                         <div
-                          className={`w-9 h-9 rounded-xl flex items-center justify-center mb-3 transition-colors ${
+                          className={`w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center mb-2 sm:mb-3 transition-colors ${
                             isSelected ? "bg-white/15 text-[#D9A52B]" : "bg-white text-[#073B3A] shadow-xs"
                           }`}
                         >
-                          <Icon className="w-5 h-5" />
+                          <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                         </div>
-                        <span className="text-xs font-bold font-display block">{srv.label}</span>
-                        <p className={`text-[10px] mt-1 leading-tight ${isSelected ? "text-[#E0ECEA]/90" : "text-[#667575]"}`}>
+                        <span className="text-[11px] sm:text-xs font-bold font-display block leading-snug">{srv.label}</span>
+                        <p className={`text-[9.5px] sm:text-[10px] mt-0.5 sm:mt-1 leading-tight line-clamp-2 ${isSelected ? "text-[#E0ECEA]/90" : "text-[#667575]"}`}>
                           {srv.desc}
                         </p>
                       </div>
 
-                      <div className="mt-3 pt-2 border-t border-black/5 flex items-center justify-end">
-                        <span className={`text-[9px] font-bold uppercase ${isSelected ? "text-[#D9A52B]" : "text-transparent"}`}>
+                      <div className="mt-2 sm:mt-3 pt-1.5 sm:pt-2 border-t border-black/5 flex items-center justify-end">
+                        <span className={`text-[8.5px] sm:text-[9px] font-bold uppercase ${isSelected ? "text-[#D9A52B]" : "text-transparent"}`}>
                           Selected ✓
                         </span>
                       </div>

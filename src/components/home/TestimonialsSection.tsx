@@ -42,41 +42,41 @@ export const TestimonialsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-[#FAF9F5] border-b border-[#E5EAE5]">
+    <section className="py-12 sm:py-20 lg:py-24 bg-[#FAF9F5] border-b border-[#E5EAE5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-3 sm:gap-4">
           <div>
             <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E0ECEA]/70 text-[10px] font-bold text-[#073B3A] uppercase tracking-wider mb-2 border border-[#C1DAD7]">
               <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
               <span>Verified Passenger Reviews</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#182A2B] font-display">
+            <h2 className="text-2xl sm:text-4xl font-bold text-[#182A2B] font-display">
               Real Traveler Experiences
             </h2>
-            <p className="text-xs sm:text-sm text-[#667575] mt-1.5 max-w-xl">
+            <p className="text-xs sm:text-sm text-[#667575] mt-1 sm:mt-1.5 max-w-xl">
               Authentic feedback from families, solo pilgrims, and corporate professionals who rely on our pre-booked mobility across Odisha.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-2xl border border-[#D5DDD5] shadow-xs">
+          <div className="flex items-center gap-2 bg-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl border border-[#D5DDD5] shadow-xs self-start md:self-auto">
             <div className="flex text-[#D9A52B]">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-[#D9A52B]" />
+                <Star key={i} className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-[#D9A52B]" />
               ))}
             </div>
-            <span className="text-xs font-bold text-[#182A2B]">4.9 / 5.0 Average Rating</span>
+            <span className="text-[11px] sm:text-xs font-bold text-[#182A2B]">4.9 / 5.0 Average Rating</span>
           </div>
         </div>
 
         {/* 3 Authentic Traveler Vouchers with Real User Avatars */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           {experiences.map((exp, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-3xl p-6 sm:p-7 border border-[#D5DDD5] shadow-skeuo hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-7 border border-[#D5DDD5] shadow-skeuo hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
             >
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {/* Header: Stars & Route Pill */}
                 <div className="flex items-start justify-between gap-2">
                   <div className="space-y-1">
@@ -99,7 +99,7 @@ export const TestimonialsSection: React.FC = () => {
                 </div>
 
                 {/* Quote Text */}
-                <p className="text-xs text-[#455353] leading-relaxed italic">
+                <p className="text-[11px] sm:text-xs text-[#455353] leading-relaxed italic line-clamp-4 sm:line-clamp-none">
                   &ldquo;{exp.feedback}&rdquo;
                 </p>
 
@@ -116,7 +116,7 @@ export const TestimonialsSection: React.FC = () => {
               </div>
 
               {/* Traveler User ID Profile Footer with Real Avatar Image */}
-              <div className="mt-6 pt-3.5 border-t border-[#F2F5F2] flex items-center justify-between">
+              <div className="mt-4 sm:mt-6 pt-3 sm:pt-3.5 border-t border-[#F2F5F2] flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-[#D9A52B]/60 shadow-xs shrink-0">
                     <Image

@@ -85,9 +85,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-sand-50/50 text-navy-800 antialiased flex flex-col font-sans selection:bg-brand-200 selection:text-brand-950">
+      <body className="min-h-screen bg-sand-50/50 text-navy-800 antialiased flex flex-col font-sans selection:bg-brand-200 selection:text-brand-950 max-w-full overflow-x-hidden">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>
         <Footer />
         <FloatingWhatsAppButton />
       </body>

@@ -18,7 +18,7 @@ import { QuickBookingWidget } from "./QuickBookingWidget";
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative text-white overflow-hidden pt-28 sm:pt-36 pb-16 lg:pt-40 lg:pb-24 border-b border-black/20">
+    <section className="relative text-white overflow-hidden pt-24 sm:pt-36 pb-10 sm:pb-16 lg:pt-40 lg:pb-24 border-b border-black/20">
       {/* Authentic Odisha Cultural Heritage Background (Iconic Konark Sun Temple Chariot & Kalinga Architecture) */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
@@ -32,17 +32,17 @@ export const HeroSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/45 to-black/85" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
         {/* Clean, Spacious & Uncluttered Header */}
-        <div className="max-w-4xl mx-auto text-center space-y-5 mb-10 sm:mb-12">
+        <div className="max-w-4xl mx-auto text-center space-y-3.5 sm:space-y-5 mb-8 sm:mb-12">
           {/* Tradition & Mobility Collaborative Kicker */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-xs font-semibold text-[#D9A52B] shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[10px] sm:text-xs font-semibold text-[#D9A52B] shadow-sm">
+            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D9A52B]" />
             <span>Sacred Temples • Coastal Corridors • Chauffeur Distinction</span>
           </div>
 
-          {/* Majestic Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold font-display tracking-tight text-white leading-[1.08]">
+          {/* Majestic Headline - Compact on Mobile, Grand on Desktop */}
+          <h1 className="text-2xl sm:text-5xl lg:text-7xl font-bold font-display tracking-tight text-white leading-tight sm:leading-[1.08]">
             Discover Timeless Odisha, <br />
             <span className="italic font-display font-normal text-[#D9A52B]">
               Traveled in Private Comfort.
@@ -50,23 +50,23 @@ export const HeroSection: React.FC = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg text-white/90 max-w-2xl mx-auto font-normal leading-relaxed">
+          <p className="text-xs sm:text-lg text-white/90 max-w-2xl mx-auto font-normal leading-relaxed">
             From punctual BBI airport pickups and sacred pilgrimages to Puri &amp; Konark, to scenic drives along Marine Drive—experience dedicated commercial chauffeurs with guaranteed on-time dispatch.
           </p>
 
           {/* Clean Assurance Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2 text-xs text-white/90">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/35 backdrop-blur-md border border-white/15 shadow-sm">
-              <Star className="w-3.5 h-3.5 text-[#D9A52B] fill-[#D9A52B]" />
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-1 sm:pt-2 text-[10px] sm:text-xs text-white/90">
+            <span className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-black/35 backdrop-blur-md border border-white/15 shadow-sm">
+              <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D9A52B] fill-[#D9A52B]" />
               <span>4.9 / 5.0 (14,200+ Journeys)</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/35 backdrop-blur-md border border-white/15 shadow-sm">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <span className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-black/35 backdrop-blur-md border border-white/15 shadow-sm">
+              <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D9A52B]" />
               <span>10% Advance Deposit Model</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/35 backdrop-blur-md border border-white/15 shadow-sm">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#D9A52B]" />
-              <span>100% Yellow-Board Commercial Fleet</span>
+            <span className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-black/35 backdrop-blur-md border border-white/15 shadow-sm">
+              <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D9A52B]" />
+              <span>100% Commercial Yellow-Board</span>
             </span>
           </div>
         </div>

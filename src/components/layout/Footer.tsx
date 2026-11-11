@@ -46,13 +46,13 @@ export const Footer: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ================= TIER 1: INTERACTIVE CONCIERGE DISPATCH RIBBON ================= */}
-        <div className="mb-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#073B3A]/90 via-[#062F31]/95 to-[#041F20] border border-white/15 shadow-[0_15px_35px_rgba(0,0,0,0.35)] flex flex-col lg:flex-row items-center justify-between gap-6 backdrop-blur-xl">
+        <div className="mb-8 sm:mb-12 p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#073B3A]/90 via-[#062F31]/95 to-[#041F20] border border-white/15 shadow-[0_15px_35px_rgba(0,0,0,0.35)] flex flex-col lg:flex-row items-center justify-between gap-5 sm:gap-6 backdrop-blur-xl">
           <div className="space-y-2 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/30 border border-white/15 text-[10px] font-bold text-[#D9A52B]">
               <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
               <span>Bhubaneswar Operations Desk • Live 24/7 Standby</span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
+            <h3 className="text-lg sm:text-2xl font-bold font-display text-white">
               Need Instant Chauffeur Dispatch or a Custom Tour Plan?
             </h3>
             <p className="text-xs text-[#E0ECEA]/80 max-w-xl">
@@ -60,13 +60,13 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2.5 sm:gap-3 w-full sm:w-auto shrink-0">
             {/* WhatsApp Direct Action */}
             <a
               href={COMPANY_CONFIG.contact.whatsAppLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-3 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-[#041F20] font-bold text-xs inline-flex items-center gap-2 shadow-[0_6px_20px_rgba(37,211,102,0.35)] transition-all hover:scale-[1.02] active:scale-98"
+              className="w-full sm:w-auto justify-center px-5 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-[#041F20] font-bold text-xs inline-flex items-center gap-2 shadow-[0_6px_20px_rgba(37,211,102,0.35)] transition-all hover:scale-[1.02] active:scale-98"
             >
               <MessageSquare className="w-4 h-4 text-[#041F20] fill-[#041F20]" />
               <span>WhatsApp Operations</span>
@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
             {/* Helpline Click-to-Call */}
             <a
               href={`tel:${COMPANY_CONFIG.contact.phoneRaw}`}
-              className="px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/15 text-white border border-white/20 font-bold text-xs inline-flex items-center gap-2 backdrop-blur-md transition-all active:scale-98"
+              className="w-full sm:w-auto justify-center px-5 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/15 text-white border border-white/20 font-bold text-xs inline-flex items-center gap-2 backdrop-blur-md transition-all active:scale-98"
             >
               <Phone className="w-4 h-4 text-[#D9A52B]" />
               <span>{COMPANY_CONFIG.contact.phoneDisplay}</span>
@@ -84,7 +84,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* ================= TIER 2: MAIN DIRECTORY GRID ================= */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-white/10 text-xs">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 pb-8 sm:pb-12 border-b border-white/10 text-xs">
           {/* Col 1: Brand Authority (4 Cols) */}
           <div className="lg:col-span-4 space-y-4">
             <Link href="/" className="inline-block" aria-label="CABJATRA Home">
