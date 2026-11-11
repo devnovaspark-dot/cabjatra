@@ -11,29 +11,17 @@ import {
   CheckCircle2,
   Clock,
   MessageSquare,
-  Sparkles,
 } from "lucide-react";
 import { COMPANY_CONFIG } from "@/data/company";
-import PixelCard from "@/components/common/PixelCard";
 
 export const FinalCtaSection: React.FC = () => {
   return (
     <section className="py-8 sm:py-10 lg:py-12 bg-[#FAF9F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Luxury Architectural Pavilion Card with Centered Content & Interactive Pixel Shimmer */}
-        <PixelCard
-          variant="gold"
-          gap={5}
-          speed={22}
-          pixelSize={2.2}
-          opacity={0.32}
-          glow={0.5}
-          fade={0.25}
-          shape="diamond"
-          className="relative rounded-2xl sm:rounded-3xl overflow-hidden card-skeuo-dark text-white p-6 sm:p-8 lg:p-12 text-center flex flex-col items-center justify-center group w-full"
-        >
+        {/* Luxury Architectural Pavilion Card with Centered Content */}
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden card-skeuo-dark text-white p-6 sm:p-8 lg:p-12 text-center flex flex-col items-center justify-center group w-full border border-white/15 shadow-2xl">
           {/* Subtle Ambient Background Photography */}
-          <div className="absolute inset-0 z-0 opacity-25 mix-blend-luminosity pointer-events-none">
+          <div className="absolute inset-0 z-0 opacity-30 mix-blend-luminosity pointer-events-none">
             <Image
               src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=1600&auto=format&fit=crop"
               alt="Scenic coastal highway in Odisha"
@@ -70,7 +58,7 @@ export const FinalCtaSection: React.FC = () => {
             <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 pt-1 sm:pt-2 w-full sm:w-auto">
               <Link
                 href="/book-cab"
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold text-xs text-[#062F31] btn-skeuo-gold inline-flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold text-xs text-[#062F31] btn-skeuo-gold inline-flex items-center justify-center gap-2 shadow-skeuo-gold hover:brightness-105 transition-all"
               >
                 <Car className="w-4 h-4 text-[#062F31]" />
                 <span>Plan Your Journey</span>
@@ -81,7 +69,7 @@ export const FinalCtaSection: React.FC = () => {
                 href={COMPANY_CONFIG.contact.whatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-xs text-white btn-skeuo-dark inline-flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-xs text-white btn-skeuo-dark inline-flex items-center justify-center gap-2 shadow-sm hover:brightness-110 transition-all"
               >
                 <MessageSquare className="w-4 h-4 text-[#D9A52B]" />
                 <span>WhatsApp Operations Desk</span>
@@ -112,7 +100,7 @@ export const FinalCtaSection: React.FC = () => {
               </span>
             </div>
           </div>
-        </PixelCard>
+        </div>
       </div>
     </section>
   );
