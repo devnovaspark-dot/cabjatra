@@ -354,6 +354,14 @@ export const Navbar: React.FC = () => {
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
           <div className="mt-2.5 lg:hidden rounded-3xl border border-[#D5DDD5] bg-[#FAF9F5] p-5 space-y-3.5 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200">
+            {/* Mobile Drawer Brand Header */}
+            <div className="flex items-center justify-between pb-3 border-b border-[#E5EAE5]">
+              <BrandLogo size="sm" variant="dark" />
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#E0ECEA] text-[#073B3A]">
+                24/7 Dispatch
+              </span>
+            </div>
+
             {/* Quick Mobile Action Cards: Book a Cab & Book a Tour */}
             <div className="grid grid-cols-2 gap-2.5 pb-2.5 border-b border-[#E5EAE5]">
               <Link

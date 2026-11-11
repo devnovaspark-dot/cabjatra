@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#021718] text-[#E0ECEA] pt-12 sm:pt-16 pb-8 border-t-2 border-[#D9A52B]/30 font-sans relative overflow-hidden">
+    <footer className="bg-[#021718] text-[#E0ECEA] pt-8 sm:pt-10 pb-6 border-t-2 border-[#D9A52B]/30 font-sans relative overflow-hidden">
       {/* Luxury Ambient Lighting Glows */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#073B3A]/30 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[450px] h-[450px] bg-[#D9A52B]/10 rounded-full blur-[130px] pointer-events-none" />
@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ================= TIER 1: BESPOKE LUXURY CONCIERGE DISPATCH LOUNGE ================= */}
-        <div className="mb-10 sm:mb-14 p-5 sm:p-7 lg:p-9 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#062F31] via-[#042426] to-[#021718] border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.2)] flex flex-col lg:flex-row items-center justify-between gap-6 backdrop-blur-2xl relative overflow-hidden group">
+        <div className="mb-7 sm:mb-9 p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#062F31] via-[#042426] to-[#021718] border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.2)] flex flex-col lg:flex-row items-center justify-between gap-6 backdrop-blur-2xl relative overflow-hidden group">
           {/* Subtle Konark Gold Corner Sheen */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#D9A52B]/10 rounded-full blur-2xl pointer-events-none" />
 

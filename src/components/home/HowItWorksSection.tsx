@@ -342,10 +342,10 @@ export const HowItWorksSection: React.FC = () => {
   const carY = scrollProgress * carMaxTravel;
 
   return (
-    <section ref={sectionRef} className="py-12 sm:py-20 lg:py-24 bg-[#F2F5F2] border-b border-[#E5EAE5] overflow-hidden">
+    <section ref={sectionRef} className="py-8 sm:py-12 lg:py-14 bg-[#F2F5F2] border-b border-[#E5EAE5] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E0ECEA]/70 text-[10px] font-bold text-[#073B3A] uppercase tracking-wider mb-2 border border-[#C1DAD7] shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
             <span>The Pre-Booked Guarantee</span>
@@ -365,7 +365,7 @@ export const HowItWorksSection: React.FC = () => {
         </div>
 
         {/* ================= VERTICAL HIGHWAY SIMULATION TIMELINE ================= */}
-        <div ref={roadTrackRef} className="relative mb-12 sm:mb-20">
+        <div ref={roadTrackRef} className="relative mb-8 sm:mb-10">
           {/* ================= DESKTOP & MOBILE ASPHALT ROAD TRACK ================= */}
           {/* Desktop: Centered Highway Spine. Mobile: Left-Aligned Road. */}
           <div className="absolute top-0 bottom-0 left-6 sm:left-10 lg:left-1/2 -translate-x-1/2 w-20 sm:w-24 bg-[#1A2526] rounded-2xl border-x-2 border-white/40 shadow-[inset_0_0_15px_rgba(0,0,0,0.8),0_10px_25px_rgba(0,0,0,0.15)] overflow-visible z-10 pointer-events-none">

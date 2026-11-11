@@ -147,7 +147,7 @@ function TourBookingContent() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-[#FAF9F5] text-[#182A2B] overflow-hidden pb-16 sm:pb-24">
+    <div className="relative min-h-screen bg-[#FAF9F5] text-[#182A2B] overflow-hidden pb-8 sm:pb-12">
       {/* High-Resolution Scenic Heritage Travel Backdrop */}
       <div className="absolute top-0 inset-x-0 h-[520px] z-0 overflow-hidden pointer-events-none">
         <Image
@@ -758,15 +758,13 @@ function TourBookingContent() {
               {/* Voucher Top Header Bar */}
               <div className="bg-[#073B3A] text-white p-3 sm:p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#D9A52B]/30">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-[#D9A52B]/20 border border-[#D9A52B]/40 flex items-center justify-center text-[#D9A52B] font-bold text-xs">
-                    CJ
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#D9A52B] block leading-tight">
-                      Odisha Tour Mobility Voucher
+                  <BrandLogo size="sm" variant="light" showTagline={false} />
+                  <div className="hidden sm:block border-l border-white/20 pl-2.5">
+                    <span className="text-[9.5px] uppercase font-bold tracking-wider text-[#D9A52B] block leading-tight">
+                      Official Tour Voucher
                     </span>
-                    <span className="text-xs sm:text-sm font-bold font-display text-white">
-                      Curated Private Circuit Dispatch
+                    <span className="text-xs font-semibold text-white/90">
+                      Curated Circuit Dispatch
                     </span>
                   </div>
                 </div>

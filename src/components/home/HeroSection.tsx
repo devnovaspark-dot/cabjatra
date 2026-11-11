@@ -18,7 +18,7 @@ import { QuickBookingWidget } from "./QuickBookingWidget";
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative text-white overflow-hidden pt-24 sm:pt-36 pb-10 sm:pb-16 lg:pt-40 lg:pb-24 border-b border-black/20">
+    <section className="relative text-white overflow-hidden pt-20 sm:pt-28 lg:pt-32 pb-8 sm:pb-10 lg:pb-12 border-b border-black/20">
       {/* Authentic Odisha Cultural Heritage Background (Iconic Konark Sun Temple Chariot & Kalinga Architecture) */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
@@ -34,7 +34,7 @@ export const HeroSection: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
         {/* Clean, Spacious & Uncluttered Header */}
-        <div className="max-w-4xl mx-auto text-center space-y-3.5 sm:space-y-5 mb-8 sm:mb-12">
+        <div className="max-w-4xl mx-auto text-center space-y-2.5 sm:space-y-4 mb-6 sm:mb-8">
           {/* Tradition & Mobility Collaborative Kicker */}
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[10px] sm:text-xs font-semibold text-[#D9A52B] shadow-sm">
             <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D9A52B]" />

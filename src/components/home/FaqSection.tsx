@@ -14,10 +14,10 @@ export const FaqSection: React.FC = () => {
   };
 
   return (
-    <section className="py-12 sm:py-20 lg:py-24 bg-[#F2F5F2] border-b border-[#E5EAE5]" id="faq">
+    <section className="py-8 sm:py-12 lg:py-14 bg-[#F2F5F2] border-b border-[#E5EAE5]" id="faq">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Clean and Centered as Before */}
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12 space-y-2 sm:space-y-2.5">
+        <div className="text-center max-w-2xl mx-auto mb-5 sm:mb-7 space-y-2 sm:space-y-2.5">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0ECEA]/80 text-[10px] font-bold text-[#073B3A] uppercase tracking-wider border border-[#C1DAD7]">
             <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
             <span>Frequently Asked Questions</span>

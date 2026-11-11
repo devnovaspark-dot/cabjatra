@@ -17,10 +17,10 @@ import { COMPANY_CONFIG } from "@/data/company";
 
 export const FinalCtaSection: React.FC = () => {
   return (
-    <section className="py-10 sm:py-16 lg:py-20 bg-[#FAF9F5]">
+    <section className="py-8 sm:py-10 lg:py-12 bg-[#FAF9F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Luxury Architectural Pavilion Card with Centered Content */}
-        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden card-skeuo-dark text-white p-6 sm:p-12 lg:p-16 text-center flex flex-col items-center justify-center group">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden card-skeuo-dark text-white p-6 sm:p-8 lg:p-12 text-center flex flex-col items-center justify-center group">
           {/* Subtle Ambient Background Photography */}
           <div className="absolute inset-0 z-0 opacity-25 mix-blend-luminosity pointer-events-none">
             <Image
