@@ -84,44 +84,68 @@ export default function AboutPage() {
     {
       city: "Bhubaneswar",
       code: "BBI",
-      role: "Central Operations & Airport Hub",
-      detail: "Biju Patnaik International Airport, Master Canteen, and Patia IT Corridor.",
+      tag: "Capital & Transit Corridor",
+      role: "Central Operations & Airport Standby",
+      detail: "Biju Patnaik International Airport (BBI), Master Canteen Central Junction, and Patia Tech Corridor.",
       standby: "Live 24/7 Standby",
+      image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=85&w=900&auto=format&fit=crop",
+      link: "/book-cab?from=Bhubaneswar",
+      cta: "Book Cab from BBI",
     },
     {
       city: "Puri Dham",
       code: "PURI",
-      role: "Pilgrimage & Coastal Hub",
-      detail: "Grand Road Jagannath Temple, VIP Road, and Golden Beach Marine Drive.",
+      tag: "Sacred Pilgrimage",
+      role: "Pilgrimage & Coastal Fleet Cell",
+      detail: "Grand Road Jagannath Temple, VIP Road, Golden Beach, and Marine Drive Coastal Express.",
       standby: "Live 24/7 Standby",
+      image: "https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?q=85&w=900&auto=format&fit=crop",
+      link: "/destinations/puri",
+      cta: "Explore Puri Circuits",
     },
     {
       city: "Cuttack",
       code: "CTC",
+      tag: "Silver City Corridor",
       role: "Commercial & High Court Corridor",
-      detail: "Badambadi Transit Hub, OMP Square, and CDA Judicial District.",
+      detail: "Badambadi Transit Hub, OMP Square, Netaji Birthplace, and CDA Judicial District.",
       standby: "Standby Fleet Active",
+      image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=85&w=900&auto=format&fit=crop",
+      link: "/book-cab?from=Cuttack",
+      cta: "Book Cuttack Cab",
     },
     {
       city: "Konark",
       code: "KNR",
+      tag: "UNESCO World Heritage",
       role: "Heritage & Sun Temple Gateway",
-      detail: "UNESCO Sun Temple, Chandrabhaga Beach, and coastal forest trails.",
+      detail: "UNESCO 13th-century Sun Temple, Chandrabhaga Blue Flag Beach, and coastal forest trails.",
       standby: "Daily Tour Dispatch",
+      image: "https://images.unsplash.com/photo-1576235282476-debff2a4d0b9?q=85&w=900&auto=format&fit=crop",
+      link: "/destinations/konark",
+      cta: "Konark Day Tour",
     },
     {
       city: "Chilika",
       code: "CHK",
+      tag: "Lagoon & Wildlife",
       role: "Eco-Tourism & Dolphin Lagoon",
-      detail: "Barkul OTDC Harbor, Satapada Dolphin Center, and Kalijai Island.",
+      detail: "Barkul OTDC Harbor, Satapada Irrawaddy Dolphin Sanctuary, and Kalijai Temple Island.",
       standby: "Tour Circuit Standby",
+      image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=85&w=900&auto=format&fit=crop",
+      link: "/destinations/chilika",
+      cta: "Chilika Safari Tour",
     },
     {
       city: "Berhampur",
       code: "BAM",
+      tag: "Southern Gateway",
       role: "South Odisha Gateway",
-      detail: "Silk City Junction, Gopalpur-on-Sea, and Taratarini Shaktipeeth.",
+      detail: "Silk City Junction, Gopalpur-on-Sea coastal stretch, and Taratarini Hilltop Shaktipeeth.",
       standby: "Highway Corridor Fleet",
+      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=85&w=900&auto=format&fit=crop",
+      link: "/book-cab?from=Berhampur",
+      cta: "Book Highway Cab",
     },
   ];
 
@@ -435,39 +459,69 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {operatingHubs.map((hub, idx) => (
               <div
                 key={idx}
-                className="card-skeuo rounded-2xl p-4 sm:p-5 space-y-3 transition-all duration-200 hover:shadow-md"
+                className="card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-[#D5DDD5] bg-white"
               >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#FAF9F5] border border-[#D5DDD5] text-[#073B3A] inline-block mb-1">
-                      Hub {hub.code}
+                {/* Visual Imagery Header */}
+                <div className="relative h-44 sm:h-48 w-full overflow-hidden border-b border-[#D6E0D6]">
+                  <Image
+                    src={hub.image}
+                    alt={`${hub.city} - ${hub.role}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#021718]/90 via-[#021718]/40 to-transparent" />
+
+                  {/* Top Bar Badges */}
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                    <span className="px-2.5 py-1 rounded-xl bg-gradient-to-br from-[#F2C052] to-[#D9A52B] text-[#062F31] font-black text-xs shadow-md tracking-wider">
+                      HUB {hub.code}
                     </span>
-                    <h3 className="text-base sm:text-lg font-bold font-display text-[#182A2B]">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[10px] font-bold border border-white/20 shadow-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+                      {hub.standby}
+                    </span>
+                  </div>
+
+                  {/* Bottom Text Overlay */}
+                  <div className="absolute bottom-3 left-4 right-4 text-white">
+                    <span className="text-[10px] font-bold text-[#D9A52B] uppercase tracking-wider block">
+                      {hub.tag}
+                    </span>
+                    <h3 className="text-base sm:text-lg font-bold font-display text-white drop-shadow-sm">
                       {hub.city}
                     </h3>
                   </div>
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#E0ECEA] text-[#073B3A] text-[9.5px] font-bold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
-                    {hub.standby}
-                  </span>
                 </div>
 
-                <div className="space-y-1">
-                  <span className="text-xs font-semibold text-[#073B3A] block">
-                    {hub.role}
-                  </span>
-                  <p className="text-[11px] text-[#556464] leading-relaxed">
-                    {hub.detail}
-                  </p>
-                </div>
+                {/* Card Content & Routing CTA */}
+                <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
+                  <div className="space-y-1.5">
+                    <span className="text-xs font-bold text-[#073B3A] block">
+                      {hub.role}
+                    </span>
+                    <p className="text-xs text-[#556464] leading-relaxed">
+                      {hub.detail}
+                    </p>
+                  </div>
 
-                <div className="pt-2 border-t border-[#E5ECE5] flex items-center justify-between text-[11px]">
-                  <span className="text-[#667575]">Commercial Yellow-Board</span>
-                  <span className="font-bold text-[#073B3A]">Instant Dispatch</span>
+                  <div className="pt-3 border-t border-[#E5ECE5] flex items-center justify-between text-xs">
+                    <span className="font-bold text-[#073B3A] flex items-center gap-1.5">
+                      <Car className="w-3.5 h-3.5 text-[#D9A52B]" />
+                      <span>Yellow-Board Fleet</span>
+                    </span>
+                    <Link
+                      href={hub.link}
+                      className="inline-flex items-center gap-1 font-bold text-[#073B3A] hover:text-[#D9A52B] transition-colors group/link"
+                    >
+                      <span>{hub.cta}</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}

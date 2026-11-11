@@ -598,52 +598,163 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-            <div className="card-skeuo p-5 rounded-2xl space-y-2.5">
-              <div className="w-8 h-8 rounded-xl bg-[#073B3A] text-[#D9A52B] flex items-center justify-center font-bold text-xs">
-                01
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+            {/* HUB 1: BHUBANESWAR */}
+            <div className="card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-[#D5DDD5] bg-white">
+              <div className="relative h-44 sm:h-48 w-full overflow-hidden border-b border-[#D6E0D6]">
+                <Image
+                  src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=85&w=900&auto=format&fit=crop"
+                  alt="Bhubaneswar Airport & Central Operations Hub"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#021718]/90 via-[#021718]/40 to-transparent" />
+                
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                  <span className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#F2C052] to-[#D9A52B] text-[#062F31] flex items-center justify-center font-black text-xs shadow-md">
+                    01
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[10px] font-bold border border-white/20 shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+                    Airport Standby 24/7
+                  </span>
+                </div>
+
+                <div className="absolute bottom-3 left-4 right-4 text-white">
+                  <span className="text-[10px] font-semibold text-[#D9A52B] uppercase tracking-wider block">
+                    Capital &amp; Airport Corridor
+                  </span>
+                  <h3 className="text-base sm:text-lg font-bold font-display text-white drop-shadow-sm">
+                    Bhubaneswar Central Hub
+                  </h3>
+                </div>
               </div>
-              <h3 className="text-base font-bold font-display text-[#182A2B]">
-                Bhubaneswar Central Hub
-              </h3>
-              <p className="text-xs text-[#556464] leading-relaxed">
-                Covers Biju Patnaik International Airport (BBI), Master Canteen Railway Junction, and Patia IT Corridor. Primary dispatch standby depot.
-              </p>
-              <div className="pt-2 border-t border-[#E5ECE5] text-[11px] font-bold text-[#073B3A] flex items-center justify-between">
-                <span>Airport Standby Active</span>
-                <span className="text-[#D9A52B]">Live 24/7</span>
+
+              <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
+                <p className="text-xs text-[#556464] leading-relaxed">
+                  Covers Biju Patnaik International Airport (BBI), Master Canteen Railway Junction, and Patia IT Corridor. Primary dispatch standby depot.
+                </p>
+
+                <div className="pt-3 border-t border-[#E5ECE5] flex items-center justify-between text-xs">
+                  <span className="font-bold text-[#073B3A] flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-[#D9A52B]" />
+                    <span>&lt; 15 Min Deployment</span>
+                  </span>
+                  <Link
+                    href="/book-cab?service=airport"
+                    className="inline-flex items-center gap-1 font-bold text-[#073B3A] hover:text-[#D9A52B] transition-colors"
+                  >
+                    <span>Airport Transfer</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
             </div>
 
-            <div className="card-skeuo p-5 rounded-2xl space-y-2.5">
-              <div className="w-8 h-8 rounded-xl bg-[#073B3A] text-[#D9A52B] flex items-center justify-center font-bold text-xs">
-                02
+            {/* HUB 2: PURI JAGANNATH DHAM */}
+            <div className="card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-[#D5DDD5] bg-white">
+              <div className="relative h-44 sm:h-48 w-full overflow-hidden border-b border-[#D6E0D6]">
+                <Image
+                  src="https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?q=85&w=900&auto=format&fit=crop"
+                  alt="Puri Jagannath Dham Support Cell"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#021718]/90 via-[#021718]/40 to-transparent" />
+                
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                  <span className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#F2C052] to-[#D9A52B] text-[#062F31] flex items-center justify-center font-black text-xs shadow-md">
+                    02
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[10px] font-bold border border-white/20 shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+                    Pilgrim Fast-Track
+                  </span>
+                </div>
+
+                <div className="absolute bottom-3 left-4 right-4 text-white">
+                  <span className="text-[10px] font-semibold text-[#D9A52B] uppercase tracking-wider block">
+                    Temple &amp; Coastal Hub
+                  </span>
+                  <h3 className="text-base sm:text-lg font-bold font-display text-white drop-shadow-sm">
+                    Puri Jagannath Dham Cell
+                  </h3>
+                </div>
               </div>
-              <h3 className="text-base font-bold font-display text-[#182A2B]">
-                Puri Jagannath Dham Support Cell
-              </h3>
-              <p className="text-xs text-[#556464] leading-relaxed">
-                Stationed along VIP Road and Marine Drive. Coordinates temple darshan drop-offs, beach resort pickups, and Konark Marine Drive transfers.
-              </p>
-              <div className="pt-2 border-t border-[#E5ECE5] text-[11px] font-bold text-[#073B3A] flex items-center justify-between">
-                <span>Pilgrim Fast-Track</span>
-                <span className="text-[#D9A52B]">Live 24/7</span>
+
+              <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
+                <p className="text-xs text-[#556464] leading-relaxed">
+                  Stationed along VIP Road and Marine Drive. Coordinates temple darshan drop-offs, beach resort pickups, and Konark Marine Drive transfers.
+                </p>
+
+                <div className="pt-3 border-t border-[#E5ECE5] flex items-center justify-between text-xs">
+                  <span className="font-bold text-[#073B3A] flex items-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
+                    <span>Temple Pass Standby</span>
+                  </span>
+                  <Link
+                    href="/book-tour?destination=puri"
+                    className="inline-flex items-center gap-1 font-bold text-[#073B3A] hover:text-[#D9A52B] transition-colors"
+                  >
+                    <span>Puri Circuit</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
             </div>
 
-            <div className="card-skeuo p-5 rounded-2xl space-y-2.5">
-              <div className="w-8 h-8 rounded-xl bg-[#073B3A] text-[#D9A52B] flex items-center justify-center font-bold text-xs">
-                03
+            {/* HUB 3: CORPORATE & EVENT LOGISTICS */}
+            <div className="card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-[#D5DDD5] bg-white">
+              <div className="relative h-44 sm:h-48 w-full overflow-hidden border-b border-[#D6E0D6]">
+                <Image
+                  src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=85&w=900&auto=format&fit=crop"
+                  alt="Corporate & Event Logistics Fleet"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#021718]/90 via-[#021718]/40 to-transparent" />
+                
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                  <span className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#F2C052] to-[#D9A52B] text-[#062F31] flex items-center justify-center font-black text-xs shadow-md">
+                    03
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[10px] font-bold border border-white/20 shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+                    GST Desk Active
+                  </span>
+                </div>
+
+                <div className="absolute bottom-3 left-4 right-4 text-white">
+                  <span className="text-[10px] font-semibold text-[#D9A52B] uppercase tracking-wider block">
+                    Institutional Mobility
+                  </span>
+                  <h3 className="text-base sm:text-lg font-bold font-display text-white drop-shadow-sm">
+                    Corporate &amp; Event Logistics
+                  </h3>
+                </div>
               </div>
-              <h3 className="text-base font-bold font-display text-[#182A2B]">
-                Corporate &amp; Event Logistics
-              </h3>
-              <p className="text-xs text-[#556464] leading-relaxed">
-                Handles executive corporate mobility, government summits, institutional conferences, and multi-vehicle convoy delegations across Odisha.
-              </p>
-              <div className="pt-2 border-t border-[#E5ECE5] text-[11px] font-bold text-[#073B3A] flex items-center justify-between">
-                <span>GST Invoicing Compliant</span>
-                <span className="text-[#D9A52B]">Desk Active</span>
+
+              <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
+                <p className="text-xs text-[#556464] leading-relaxed">
+                  Handles executive corporate mobility, government summits, institutional conferences, and multi-vehicle convoy delegations across Odisha.
+                </p>
+
+                <div className="pt-3 border-t border-[#E5ECE5] flex items-center justify-between text-xs">
+                  <span className="font-bold text-[#073B3A] flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
+                    <span>Multi-Cab Convoys</span>
+                  </span>
+                  <Link
+                    href="/services/hourly-rentals"
+                    className="inline-flex items-center gap-1 font-bold text-[#073B3A] hover:text-[#D9A52B] transition-colors"
+                  >
+                    <span>Hourly Hire</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
