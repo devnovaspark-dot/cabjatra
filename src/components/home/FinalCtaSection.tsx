@@ -14,13 +14,24 @@ import {
   Sparkles,
 } from "lucide-react";
 import { COMPANY_CONFIG } from "@/data/company";
+import PixelCard from "@/components/common/PixelCard";
 
 export const FinalCtaSection: React.FC = () => {
   return (
     <section className="py-8 sm:py-10 lg:py-12 bg-[#FAF9F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Luxury Architectural Pavilion Card with Centered Content */}
-        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden card-skeuo-dark text-white p-6 sm:p-8 lg:p-12 text-center flex flex-col items-center justify-center group">
+        {/* Luxury Architectural Pavilion Card with Centered Content & Interactive Pixel Shimmer */}
+        <PixelCard
+          variant="gold"
+          gap={5}
+          speed={22}
+          pixelSize={2.2}
+          opacity={0.32}
+          glow={0.5}
+          fade={0.25}
+          shape="diamond"
+          className="relative rounded-2xl sm:rounded-3xl overflow-hidden card-skeuo-dark text-white p-6 sm:p-8 lg:p-12 text-center flex flex-col items-center justify-center group w-full"
+        >
           {/* Subtle Ambient Background Photography */}
           <div className="absolute inset-0 z-0 opacity-25 mix-blend-luminosity pointer-events-none">
             <Image
@@ -101,7 +112,7 @@ export const FinalCtaSection: React.FC = () => {
               </span>
             </div>
           </div>
-        </div>
+        </PixelCard>
       </div>
     </section>
   );

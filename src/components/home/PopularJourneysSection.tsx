@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Clock, ArrowRight, ShieldCheck, MapPin, Sparkles, Plane, Compass, Navigation } from "lucide-react";
+import PixelCard from "@/components/common/PixelCard";
 
 export const PopularJourneysSection: React.FC = () => {
   return (
@@ -31,10 +32,20 @@ export const PopularJourneysSection: React.FC = () => {
           </Link>
         </div>
 
-        {/* Asymmetric Bento Showcase Grid */}
+        {/* Asymmetric Bento Showcase Grid with Interactive PixelCard Effects */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
           {/* BENTO 1: THE ICONIC CORRIDOR (BHUBANESWAR TO PURI) — 7 Columns, Large Feature */}
-          <div className="lg:col-span-7 card-skeuo-dark rounded-2xl sm:rounded-3xl overflow-hidden relative group flex flex-col justify-between min-h-[340px] sm:min-h-[420px]">
+          <PixelCard
+            variant="gold"
+            gap={6}
+            speed={25}
+            pixelSize={2.4}
+            opacity={0.3}
+            glow={0.4}
+            fade={0.3}
+            shape="diamond"
+            className="lg:col-span-7 card-skeuo-dark rounded-2xl sm:rounded-3xl overflow-hidden relative group flex flex-col justify-between min-h-[340px] sm:min-h-[420px]"
+          >
             {/* Top Amber Ambient Sheen */}
             <div className="absolute top-0 right-0 w-80 h-80 bg-[#D9A52B]/15 rounded-full blur-3xl pointer-events-none" />
 
@@ -106,10 +117,21 @@ export const PopularJourneysSection: React.FC = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </PixelCard>
 
           {/* BENTO 2: BBI AIRPORT TRANSFERS — 5 Columns */}
-          <div className="lg:col-span-5 card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group">
+          <PixelCard
+            variant="emerald"
+            gap={6}
+            speed={25}
+            pixelSize={2.2}
+            opacity={0.25}
+            glow={0.35}
+            fade={0.25}
+            shape="circle"
+            theme="light"
+            className="lg:col-span-5 card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group"
+          >
             <div className="relative h-40 sm:h-52 w-full overflow-hidden border-b border-[#D6E0D6]">
               <Image
                 src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=900&auto=format&fit=crop"
@@ -152,10 +174,21 @@ export const PopularJourneysSection: React.FC = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </PixelCard>
 
           {/* BENTO 3: THE SUN TEMPLE & MARINE DRIVE CIRCUIT (KONARK) — 6 Columns */}
-          <div className="lg:col-span-6 card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group">
+          <PixelCard
+            variant="gold"
+            gap={6}
+            speed={25}
+            pixelSize={2.2}
+            opacity={0.25}
+            glow={0.35}
+            fade={0.25}
+            shape="diamond"
+            theme="light"
+            className="lg:col-span-6 card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group"
+          >
             <div className="relative h-40 sm:h-52 w-full overflow-hidden border-b border-[#D6E0D6]">
               <Image
                 src="https://images.unsplash.com/photo-1576235282476-debff2a4d0b9?q=80&w=900&auto=format&fit=crop"
@@ -197,10 +230,21 @@ export const PopularJourneysSection: React.FC = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </PixelCard>
 
           {/* BENTO 4: TWIN CITY CORRIDOR (BHUBANESWAR TO CUTTACK) — 6 Columns */}
-          <div className="lg:col-span-6 card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group">
+          <PixelCard
+            variant="gold"
+            gap={6}
+            speed={25}
+            pixelSize={2.2}
+            opacity={0.25}
+            glow={0.35}
+            fade={0.25}
+            shape="square"
+            theme="light"
+            className="lg:col-span-6 card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group"
+          >
             <div className="relative h-40 sm:h-52 w-full overflow-hidden border-b border-[#D6E0D6]">
               <Image
                 src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=900&auto=format&fit=crop"
@@ -242,7 +286,7 @@ export const PopularJourneysSection: React.FC = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </PixelCard>
         </div>
       </div>
     </section>

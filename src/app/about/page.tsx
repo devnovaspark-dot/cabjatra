@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { COMPANY_CONFIG } from "@/data/company";
 import { BrandLogo } from "@/components/common/BrandLogo";
+import PixelCard from "@/components/common/PixelCard";
 
 export const metadata = {
   title: "About Us — CabJatra Odisha Chauffeur Mobility",
@@ -260,9 +261,19 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Right 5 Columns: Visual Cutout & Mission Card */}
+            {/* Right 5 Columns: Visual Cutout & Mission Card with PixelCard */}
             <div className="lg:col-span-5 relative">
-              <div className="card-skeuo-dark rounded-3xl overflow-hidden p-6 text-white relative shadow-2xl group">
+              <PixelCard
+                variant="gold"
+                gap={5}
+                speed={25}
+                pixelSize={2.2}
+                opacity={0.3}
+                glow={0.4}
+                fade={0.25}
+                shape="diamond"
+                className="card-skeuo-dark rounded-3xl overflow-hidden p-6 text-white relative shadow-2xl group w-full"
+              >
                 {/* Background Temple Cutout */}
                 <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
                   <Image
@@ -303,7 +314,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </PixelCard>
             </div>
           </div>
         </div>
@@ -522,7 +533,17 @@ export default function AboutPage() {
       {/* ================= SECTION 6: GRAND LUXURY CLOSING CTA ================= */}
       <section className="py-8 sm:py-10 lg:py-12 bg-[#FAF9F5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden card-skeuo-dark text-white p-6 sm:p-8 lg:p-12 text-center flex flex-col items-center justify-center group">
+          <PixelCard
+            variant="gold"
+            gap={5}
+            speed={22}
+            pixelSize={2.2}
+            opacity={0.32}
+            glow={0.5}
+            fade={0.25}
+            shape="diamond"
+            className="relative rounded-2xl sm:rounded-3xl overflow-hidden card-skeuo-dark text-white p-6 sm:p-8 lg:p-12 text-center flex flex-col items-center justify-center group w-full"
+          >
             <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D9A52B]/15 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative z-10 max-w-3xl mx-auto space-y-4 flex flex-col items-center justify-center">
@@ -568,7 +589,7 @@ export default function AboutPage() {
                 </Link>
               </div>
             </div>
-          </div>
+          </PixelCard>
         </div>
       </section>
     </div>
