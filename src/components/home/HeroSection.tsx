@@ -8,8 +8,6 @@ import {
   CheckCircle2,
   ArrowRight,
   Compass,
-  ChevronLeft,
-  ChevronRight,
   MessageSquare,
   Sparkles,
   Car,
@@ -72,14 +70,6 @@ export const HeroSection: React.FC = () => {
 
   const slide = HERO_SLIDES[currentSlide];
 
-  const handlePrev = () => {
-    setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
-  };
-
-  const handleNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-  };
-
   return (
     <section className="relative text-white overflow-hidden min-h-[75vh] sm:min-h-[82vh] lg:min-h-[86vh] flex flex-col justify-between pt-28 sm:pt-36 pb-10 sm:pb-14 border-b border-black/20">
       {/* High-Resolution HD Background Carousel */}
@@ -96,29 +86,6 @@ export const HeroSection: React.FC = () => {
         {/* Balanced cinematic gradient overlay: ensures road, sky & landscape shine through while text is readable */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#011415]/85 via-[#021819]/55 via-50% to-[#011415]/90" />
         <div className="absolute inset-0 bg-radial-[at_center_top] from-transparent via-transparent to-black/40 pointer-events-none" />
-      </div>
-
-      {/* Manual Slide Navigation Arrows (Desktop / Tablet) */}
-      <div className="absolute inset-y-0 left-3 sm:left-6 lg:left-8 z-20 flex items-center pointer-events-none">
-        <button
-          type="button"
-          onClick={handlePrev}
-          aria-label="Previous slide"
-          className="pointer-events-auto w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/70 backdrop-blur-md border border-white/20 text-white hover:text-[#D9A52B] transition-all flex items-center justify-center shadow-lg active:scale-95 cursor-pointer"
-        >
-          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-        </button>
-      </div>
-
-      <div className="absolute inset-y-0 right-3 sm:right-6 lg:right-8 z-20 flex items-center pointer-events-none">
-        <button
-          type="button"
-          onClick={handleNext}
-          aria-label="Next slide"
-          className="pointer-events-auto w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/70 backdrop-blur-md border border-white/20 text-white hover:text-[#D9A52B] transition-all flex items-center justify-center shadow-lg active:scale-95 cursor-pointer"
-        >
-          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-        </button>
       </div>
 
       {/* Slide Top Indicator Pill */}
@@ -179,22 +146,22 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Direct Booking Actions (Seamless CTAs) */}
-          <div className="pt-4 sm:pt-6 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 max-w-xl mx-auto">
+          {/* Direct Booking Actions (Refined, Slender Hero CTAs) */}
+          <div className="pt-3 sm:pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5 max-w-xl mx-auto">
             <Link
               href="/book-cab"
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl btn-skeuo-gold text-[#062F31] font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-xl hover:scale-102 active:scale-98 transition-all group cursor-pointer"
+              className="w-full sm:w-auto px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#D9A52B] via-[#E5B543] to-[#C99320] text-[#062F31] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(217,165,43,0.35),inset_0_1px_0_rgba(255,255,255,0.6)] hover:brightness-105 hover:shadow-[0_6px_22px_rgba(217,165,43,0.45)] hover:scale-[1.01] active:scale-[0.98] transition-all group cursor-pointer border border-[#F2C868]/60"
             >
-              <Car className="w-5 h-5 text-[#062F31]" />
+              <Car className="w-4 h-4 text-[#062F31]" />
               <span>Book Your Chauffeur Cab</span>
-              <ArrowRight className="w-5 h-5 text-[#062F31] group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 text-[#062F31] group-hover:translate-x-0.5 transition-transform" />
             </Link>
 
             <Link
               href="/book-tour"
-              className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-black/45 hover:bg-black/65 backdrop-blur-md border border-white/25 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all hover:border-[#D9A52B] active:scale-98 cursor-pointer shadow-lg"
+              className="w-full sm:w-auto px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/25 hover:border-[#D9A52B]/70 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-[0_4px_16px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.15)] hover:scale-[1.01] active:scale-[0.98] cursor-pointer"
             >
-              <Compass className="w-5 h-5 text-[#D9A52B]" />
+              <Compass className="w-4 h-4 text-[#D9A52B]" />
               <span>Explore Curated Tours</span>
             </Link>
           </div>
