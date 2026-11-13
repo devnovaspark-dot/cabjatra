@@ -883,139 +883,134 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* ================= SECTION 3: COMPARATIVE STANDARD (3D INTERACTIVE CORRECT & CROSS) ================= */}
-      <section className="py-14 sm:py-20 bg-[#F2F5F2] border-b border-[#E5EAE5] relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Header */}
-          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 space-y-3">
+      {/* ================= SECTION 3: COMPARATIVE STANDARD (COMPACT MASTER COMPARISON CARD) ================= */}
+      <section className="py-10 sm:py-14 bg-[#F2F5F2] border-b border-[#E5EAE5] relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Compact Section Header */}
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-2">
             <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E0ECEA]/90 text-[10px] font-extrabold text-[#073B3A] uppercase tracking-wider border border-[#C1DAD7] shadow-xs">
               <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
               <span>Comparative Standard • The Mobility Divide</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#182A2B] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-[#182A2B] tracking-tight">
               Why Pre-Booking Beats Street Hailing
             </h2>
             <p className="text-xs sm:text-sm text-[#667575] leading-relaxed max-w-xl mx-auto">
-              Experience the fundamental difference between the unpredictable street aggregator lottery and CabJatra&apos;s contractual executive mobility standard.
+              Compare the unpredictable street aggregator lottery against CabJatra&apos;s contractual pre-booked mobility standard.
             </p>
           </div>
 
-          {/* Dual Grand Category Banner */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-8">
-            {/* Street / Aggregator Card Header */}
-            <div className="bg-white/80 rounded-3xl p-5 sm:p-6 border-2 border-rose-200 shadow-sm flex items-center gap-4 bg-gradient-to-r from-rose-50/60 to-white">
-              <Icon3DCross size="lg" interactive={true} />
-              <div>
-                <span className="text-[10px] font-extrabold uppercase tracking-wider text-rose-700 bg-rose-100 px-2.5 py-0.5 rounded-full border border-rose-200">
-                  Street Hailing / Aggregator Apps
-                </span>
-                <h3 className="text-base sm:text-lg font-bold font-display text-[#182A2B] mt-1">
-                  The Daily Uncertainty Lottery
-                </h3>
-                <p className="text-xs text-[#718080] mt-0.5">
-                  Frequent cancellations, 2x–3x surge extortion, and unvetted private cars.
-                </p>
-              </div>
-            </div>
-
-            {/* CabJatra Pre-Booked Standard Card Header */}
-            <div className="bg-white rounded-3xl p-5 sm:p-6 border-2 border-[#10B981]/50 shadow-md flex items-center gap-4 bg-gradient-to-r from-[#EAF3EC]/80 to-white ring-1 ring-[#073B3A]/10">
-              <Icon3DCheck size="lg" interactive={true} />
-              <div>
-                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#064E3B] bg-[#D1FAE5] px-2.5 py-0.5 rounded-full border border-[#A7F3D0]">
-                  CabJatra Pre-Booked Standard
-                </span>
-                <h3 className="text-base sm:text-lg font-bold font-display text-[#073B3A] mt-1">
-                  Contractual Ride Sanctuary
-                </h3>
-                <p className="text-xs text-[#556464] mt-0.5">
-                  100% Guaranteed vehicle dispatch, zero-surge fixed mileage, and 22°C pre-cooled AC.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* 5 High-Contrast Comparison Feature Bento Cards */}
-          <div className="space-y-4 sm:space-y-5">
-            {comparisonData.map((item, idx) => (
-              <div
-                key={idx}
-                className="card-skeuo rounded-2xl sm:rounded-3xl p-4 sm:p-6 bg-white border border-[#D5DDD5] hover:border-[#D9A52B]/60 hover:shadow-xl transition-all duration-200 group"
-              >
-                {/* Feature Category Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-3 border-b border-[#EEF2EE] gap-1">
-                  <div className="flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-lg bg-[#073B3A] text-[#D9A52B] text-xs font-bold font-mono flex items-center justify-center shrink-0">
-                      0{idx + 1}
+          {/* Master Compact Comparison Card */}
+          <div className="card-skeuo rounded-2xl sm:rounded-3xl bg-white border border-[#D5DDD5] shadow-xl overflow-hidden">
+            {/* Unified Comparison Header Columns */}
+            <div className="grid grid-cols-1 md:grid-cols-2 border-b border-[#E5ECE5]">
+              {/* Left Column Header: Street Hailing / Aggregator Apps */}
+              <div className="p-3.5 sm:p-4 bg-gradient-to-r from-rose-50/90 via-rose-50/40 to-white flex items-center justify-between border-b md:border-b-0 md:border-r border-rose-100">
+                <div className="flex items-center gap-2.5">
+                  <Icon3DCross size="md" interactive={true} />
+                  <div>
+                    <span className="text-[9.5px] font-extrabold uppercase tracking-wider text-rose-700 bg-rose-100 px-2 py-0.5 rounded-full border border-rose-200">
+                      Street Hailing / Apps
                     </span>
-                    <h4 className="text-sm sm:text-base font-bold font-display text-[#182A2B]">
-                      {item.category}
-                    </h4>
-                  </div>
-                  <span className="text-[11px] text-[#718080] font-medium">
-                    {item.subtitle}
-                  </span>
-                </div>
-
-                {/* 2-Column Comparison Layout with 3D Badges */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-                  {/* Left: Street Hailing (3D Crimson Cross) */}
-                  <div className="bg-rose-50/50 rounded-2xl p-4 sm:p-4.5 border border-rose-200/70 flex items-start gap-3.5 transition-all group-hover:bg-rose-50/80">
-                    <Icon3DCross size="md" interactive={true} className="mt-0.5 shrink-0" />
-                    <div className="space-y-1">
-                      <div className="text-xs sm:text-sm font-bold text-rose-950 leading-snug">
-                        {item.street.title}
-                      </div>
-                      <p className="text-xs text-rose-900/80 leading-relaxed font-normal">
-                        {item.street.desc}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Right: CabJatra Standard (3D Emerald Check) */}
-                  <div className="bg-[#EBF5EE]/70 rounded-2xl p-4 sm:p-4.5 border-2 border-[#10B981]/40 shadow-xs flex items-start gap-3.5 transition-all group-hover:border-[#073B3A]/60 group-hover:bg-[#E3EFE7]">
-                    <Icon3DCheck size="md" interactive={true} className="mt-0.5 shrink-0" />
-                    <div className="space-y-1 flex-1">
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="text-xs sm:text-sm font-bold text-[#064E3B] leading-snug">
-                          {item.cabjatra.title}
-                        </span>
-                        <span className="text-[9px] font-extrabold uppercase tracking-wider text-[#064E3B] bg-[#A7F3D0]/70 px-2 py-0.5 rounded-full shrink-0">
-                          Guaranteed
-                        </span>
-                      </div>
-                      <p className="text-xs text-[#1F4638] leading-relaxed font-medium">
-                        {item.cabjatra.desc}
-                      </p>
-                    </div>
+                    <h3 className="text-xs sm:text-sm font-bold font-display text-[#182A2B] mt-0.5">
+                      The Street Lottery
+                    </h3>
                   </div>
                 </div>
+                <span className="text-[10px] text-rose-700 font-semibold bg-rose-100/60 px-2 py-0.5 rounded-md hidden sm:inline-block">
+                  Cancellations &amp; Surges
+                </span>
               </div>
-            ))}
-          </div>
 
-          {/* Bottom Trust Action Callout */}
-          <div className="mt-10 sm:mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#073B3A] via-[#094847] to-[#041F20] text-white shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6 border border-white/10">
-            <div className="space-y-1 text-center sm:text-left">
-              <div className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider text-[#D9A52B]">
-                <ShieldCheck className="w-3.5 h-3.5" />
-                <span>Odisha Cab Service Excellence</span>
+              {/* Right Column Header: CabJatra Pre-Booked Standard */}
+              <div className="p-3.5 sm:p-4 bg-gradient-to-r from-[#EAF3EC] via-[#F2F8F4] to-white flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <Icon3DCheck size="md" interactive={true} />
+                  <div>
+                    <span className="text-[9.5px] font-extrabold uppercase tracking-wider text-[#064E3B] bg-[#D1FAE5] px-2 py-0.5 rounded-full border border-[#A7F3D0]">
+                      CabJatra Standard
+                    </span>
+                    <h3 className="text-xs sm:text-sm font-bold font-display text-[#073B3A] mt-0.5">
+                      Pre-Booked Certainty
+                    </h3>
+                  </div>
+                </div>
+                <span className="text-[10px] font-bold text-[#064E3B] bg-[#A7F3D0] px-2.5 py-0.5 rounded-full border border-[#6EE7B7] flex items-center gap-1 shadow-xs">
+                  <Check className="w-3 h-3 stroke-[3]" /> 100% Guaranteed
+                </span>
               </div>
-              <h3 className="text-lg sm:text-2xl font-bold font-display">
-                Ready to Experience Stress-Free Travel?
-              </h3>
-              <p className="text-xs sm:text-sm text-white/75 max-w-xl">
-                Lock your cab today with a modest 10% advance deposit. 100% yellow-board commercial fleet and zero surge pricing guaranteed.
-              </p>
             </div>
 
-            <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
+            {/* 5 Compact Comparison Matrix Rows */}
+            <div className="divide-y divide-[#EAEFEA]">
+              {comparisonData.map((item, idx) => (
+                <div key={idx} className="group hover:bg-[#FAFBF9] transition-colors">
+                  {/* Category Ribbon */}
+                  <div className="px-3.5 py-1 sm:px-4 bg-[#FAF9F5] border-b border-[#F0F4F0] flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="w-4 h-4 rounded bg-[#073B3A] text-[#D9A52B] text-[9.5px] font-bold font-mono flex items-center justify-center shrink-0">
+                        {idx + 1}
+                      </span>
+                      <span className="text-[11px] sm:text-xs font-bold text-[#182A2B] tracking-tight">
+                        {item.category}
+                      </span>
+                    </div>
+                    <span className="text-[10px] text-[#718080] font-medium hidden sm:inline">
+                      {item.subtitle}
+                    </span>
+                  </div>
+
+                  {/* Dual Comparison Columns */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#EAEFEA]">
+                    {/* Left: Street Flaws */}
+                    <div className="p-3 sm:p-3.5 bg-rose-50/20 group-hover:bg-rose-50/40 transition-colors flex items-start gap-2.5">
+                      <Icon3DCross size="sm" interactive={true} className="mt-0.5 shrink-0" />
+                      <div className="space-y-0.5 min-w-0 flex-1">
+                        <h4 className="text-xs sm:text-[12.5px] font-bold text-rose-950 leading-snug">
+                          {item.street.title}
+                        </h4>
+                        <p className="text-[11px] text-[#556464] leading-relaxed">
+                          {item.street.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Right: CabJatra Standard */}
+                    <div className="p-3 sm:p-3.5 bg-[#EBF5EE]/25 group-hover:bg-[#EBF5EE]/50 transition-colors flex items-start gap-2.5">
+                      <Icon3DCheck size="sm" interactive={true} className="mt-0.5 shrink-0" />
+                      <div className="space-y-0.5 min-w-0 flex-1">
+                        <div className="flex items-center justify-between gap-2">
+                          <h4 className="text-xs sm:text-[12.5px] font-bold text-[#064E3B] leading-snug">
+                            {item.cabjatra.title}
+                          </h4>
+                          <span className="text-[8.5px] font-extrabold uppercase tracking-wider text-[#064E3B] bg-[#A7F3D0]/80 px-1.5 py-0.5 rounded shrink-0">
+                            Locked
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-[#1F4638] leading-relaxed font-medium">
+                          {item.cabjatra.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Compact Bottom Trust & Action Strip */}
+            <div className="px-4 py-3 sm:px-6 sm:py-3.5 bg-gradient-to-r from-[#073B3A] via-[#094847] to-[#041F20] text-white flex flex-col sm:flex-row items-center justify-between gap-3 text-xs border-t border-[#D9A52B]/30 shadow-inner">
+              <div className="flex items-center gap-2.5 text-center sm:text-left">
+                <ShieldCheck className="w-4 h-4 text-[#D9A52B] shrink-0" />
+                <span className="text-[11px] sm:text-xs text-[#E0ECEA]">
+                  <strong className="text-white font-semibold">The 10% Advance Model:</strong> Locks commercial driver &amp; vehicle dispatch &bull; 100% refundable on 6hr notice.
+                </span>
+              </div>
               <Link
                 href="/book-cab"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl btn-skeuo-gold text-[#062F31] font-bold text-xs sm:text-sm shadow-lg flex items-center justify-center gap-2 hover:brightness-105 active:scale-95 transition-all"
+                className="px-4 py-1.5 rounded-full bg-[#D9A52B] hover:bg-[#E5B543] text-[#062F31] font-bold text-xs inline-flex items-center gap-1.5 transition-all shadow-sm shrink-0 active:scale-95"
               >
                 <span>Reserve Your Cab</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>
