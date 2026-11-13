@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import { COMPANY_CONFIG } from "@/data/company";
 import { BrandLogo } from "@/components/common/BrandLogo";
+import { Icon3DCheck, Icon3DCross } from "@/components/common/Icon3DBadges";
 
 export const metadata = {
   title: "About Us — CabJatra Odisha Cab Service",
@@ -251,81 +252,169 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Right 6 Columns: Graphical Comparison Visual Card */}
+            {/* Right 6 Columns: Graphical Comparison Visual Card with 3D Tactile Badges */}
             <div className="lg:col-span-6">
-              <div className="rounded-3xl border border-[#D5DDD5] bg-white shadow-xl overflow-hidden">
-                <div className="p-4 sm:p-5 bg-gradient-to-r from-[#073B3A] to-[#041F20] text-white flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#D9A52B] block">
-                      Comparative Mobility Standards
-                    </span>
+              <div className="card-skeuo rounded-3xl border border-[#D5DDD5] bg-white shadow-2xl overflow-hidden group hover:border-[#D9A52B]/50 transition-all duration-300">
+                {/* Executive Header with Live Status Tag */}
+                <div className="p-4 sm:p-5 bg-gradient-to-r from-[#073B3A] via-[#094847] to-[#041F20] text-white flex items-center justify-between border-b border-[#D9A52B]/30 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-[#D9A52B]/10 rounded-full blur-2xl pointer-events-none" />
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-ping" />
+                      <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#D9A52B] block">
+                        Comparative Mobility Standard
+                      </span>
+                    </div>
                     <h3 className="text-base sm:text-lg font-bold font-display text-white">
                       The Street Reality vs. CabJatra
                     </h3>
                   </div>
-                  <BrandLogo size="sm" variant="light" />
+                  <div className="relative z-10 flex flex-col items-end gap-1">
+                    <BrandLogo size="sm" variant="light" showTagline={false} />
+                    <span className="text-[9.5px] font-bold text-[#A7F3D0] bg-white/10 px-2 py-0.5 rounded-full border border-white/15">
+                      STA Verified
+                    </span>
+                  </div>
                 </div>
 
-                <div className="p-5 sm:p-6 space-y-4">
-                  {/* Item 1: Pricing */}
-                  <div className="grid grid-cols-2 gap-3 pb-3 border-b border-[#EEF2EE]">
-                    <div className="p-3 rounded-xl bg-[#FFF5F5] border border-[#FED7D7] text-xs space-y-1">
-                      <span className="text-[10px] font-bold text-[#E53E3E] uppercase flex items-center gap-1">
-                        <X className="w-3.5 h-3.5" /> Aggregators / Street
-                      </span>
-                      <p className="text-[#742A2A] text-[11px] font-medium leading-snug">
-                        2x – 3x surge multipliers during rain, festivals &amp; airport rush.
+                {/* Dual Column Headings */}
+                <div className="grid grid-cols-2 bg-[#FAF9F5] border-b border-[#EEF2EE] text-[10.5px] font-extrabold uppercase tracking-wider py-2 px-4 sm:px-5">
+                  <span className="text-rose-700 flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-rose-500" />
+                    Street Hailing / Apps
+                  </span>
+                  <span className="text-[#064E3B] flex items-center gap-1.5 justify-end">
+                    <span className="w-2 h-2 rounded-full bg-[#10B981]" />
+                    CabJatra Standard
+                  </span>
+                </div>
+
+                {/* 4 Sleek Comparative Matrix Rows with 3D Badges */}
+                <div className="p-4 sm:p-5 space-y-3 bg-gradient-to-b from-white to-[#FAF9F5]">
+                  {/* Item 1: Surge Pricing */}
+                  <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+                    <div className="p-3 rounded-2xl bg-gradient-to-br from-rose-50/70 to-rose-100/20 border border-rose-200/70 space-y-1 hover:border-rose-300 transition-colors">
+                      <div className="flex items-center gap-1.5">
+                        <Icon3DCross size="sm" interactive={true} />
+                        <span className="text-[11px] font-bold text-rose-950 leading-tight">
+                          2x–3x Surge Surcharges
+                        </span>
+                      </div>
+                      <p className="text-[10.5px] text-rose-900/80 leading-relaxed pl-1">
+                        Arbitrary multiplier spikes during rain, temple rush &amp; midnight arrivals.
                       </p>
                     </div>
-                    <div className="p-3 rounded-xl bg-[#F0FFF4] border border-[#C6F6D5] text-xs space-y-1">
-                      <span className="text-[10px] font-bold text-[#22543D] uppercase flex items-center gap-1">
-                        <Check className="w-3.5 h-3.5 text-[#38A169]" /> CabJatra Protocol
-                      </span>
-                      <p className="text-[#22543D] text-[11px] font-bold leading-snug">
-                        Zero surge guarantee. Transparent fixed highway tariffs.
+
+                    <div className="p-3 rounded-2xl bg-gradient-to-br from-[#EBF5EE] to-[#E3EFE7] border border-[#10B981]/40 space-y-1 hover:border-[#073B3A]/60 transition-colors shadow-xs">
+                      <div className="flex items-center justify-between gap-1">
+                        <div className="flex items-center gap-1.5">
+                          <Icon3DCheck size="sm" interactive={true} />
+                          <span className="text-[11px] font-bold text-[#064E3B] leading-tight">
+                            Zero Surge Guarantee
+                          </span>
+                        </div>
+                      </div>
+                      <p className="text-[10.5px] text-[#1F4638] leading-relaxed pl-1 font-medium">
+                        Fixed per-km rate locked upfront. Exactly what you agree is what you pay.
                       </p>
                     </div>
                   </div>
 
-                  {/* Item 2: Vehicles */}
-                  <div className="grid grid-cols-2 gap-3 pb-3 border-b border-[#EEF2EE]">
-                    <div className="p-3 rounded-xl bg-[#FFF5F5] border border-[#FED7D7] text-xs space-y-1">
-                      <span className="text-[10px] font-bold text-[#E53E3E] uppercase flex items-center gap-1">
-                        <X className="w-3.5 h-3.5" /> Aggregators / Street
-                      </span>
-                      <p className="text-[#742A2A] text-[11px] font-medium leading-snug">
-                        Unauthorized private white-plate cars without commercial permits.
+                  {/* Item 2: Vehicle Permits & Insurance */}
+                  <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+                    <div className="p-3 rounded-2xl bg-gradient-to-br from-rose-50/70 to-rose-100/20 border border-rose-200/70 space-y-1 hover:border-rose-300 transition-colors">
+                      <div className="flex items-center gap-1.5">
+                        <Icon3DCross size="sm" interactive={true} />
+                        <span className="text-[11px] font-bold text-rose-950 leading-tight">
+                          Private White Plates
+                        </span>
+                      </div>
+                      <p className="text-[10.5px] text-rose-900/80 leading-relaxed pl-1">
+                        Unpermitted private cars without commercial permits or passenger insurance.
                       </p>
                     </div>
-                    <div className="p-3 rounded-xl bg-[#F0FFF4] border border-[#C6F6D5] text-xs space-y-1">
-                      <span className="text-[10px] font-bold text-[#22543D] uppercase flex items-center gap-1">
-                        <Check className="w-3.5 h-3.5 text-[#38A169]" /> CabJatra Protocol
-                      </span>
-                      <p className="text-[#22543D] text-[11px] font-bold leading-snug">
-                        100% yellow-board commercial fleet with passenger insurance.
+
+                    <div className="p-3 rounded-2xl bg-gradient-to-br from-[#EBF5EE] to-[#E3EFE7] border border-[#10B981]/40 space-y-1 hover:border-[#073B3A]/60 transition-colors shadow-xs">
+                      <div className="flex items-center justify-between gap-1">
+                        <div className="flex items-center gap-1.5">
+                          <Icon3DCheck size="sm" interactive={true} />
+                          <span className="text-[11px] font-bold text-[#064E3B] leading-tight">
+                            100% Yellow-Board
+                          </span>
+                        </div>
+                      </div>
+                      <p className="text-[10.5px] text-[#1F4638] leading-relaxed pl-1 font-medium">
+                        Full Odisha STA commercial carriage permits with comprehensive insurance.
                       </p>
                     </div>
                   </div>
 
-                  {/* Item 3: Deposit */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="p-3 rounded-xl bg-[#FFF5F5] border border-[#FED7D7] text-xs space-y-1">
-                      <span className="text-[10px] font-bold text-[#E53E3E] uppercase flex items-center gap-1">
-                        <X className="w-3.5 h-3.5" /> Aggregators / Street
-                      </span>
-                      <p className="text-[#742A2A] text-[11px] font-medium leading-snug">
-                        100% upfront lock-in or zero-commitment sudden cancellations.
+                  {/* Item 3: Advance Deposit */}
+                  <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+                    <div className="p-3 rounded-2xl bg-gradient-to-br from-rose-50/70 to-rose-100/20 border border-rose-200/70 space-y-1 hover:border-rose-300 transition-colors">
+                      <div className="flex items-center gap-1.5">
+                        <Icon3DCross size="sm" interactive={true} />
+                        <span className="text-[11px] font-bold text-rose-950 leading-tight">
+                          100% Upfront or Nil
+                        </span>
+                      </div>
+                      <p className="text-[10.5px] text-rose-900/80 leading-relaxed pl-1">
+                        Forced 100% full payment lock-in or 0-commitment sudden driver drops.
                       </p>
                     </div>
-                    <div className="p-3 rounded-xl bg-[#F0FFF4] border border-[#C6F6D5] text-xs space-y-1">
-                      <span className="text-[10px] font-bold text-[#22543D] uppercase flex items-center gap-1">
-                        <Check className="w-3.5 h-3.5 text-[#38A169]" /> CabJatra Protocol
-                      </span>
-                      <p className="text-[#22543D] text-[11px] font-bold leading-snug">
-                        10% advance deposit to lock. Remaining 90% paid at drop.
+
+                    <div className="p-3 rounded-2xl bg-gradient-to-br from-[#EBF5EE] to-[#E3EFE7] border border-[#10B981]/40 space-y-1 hover:border-[#073B3A]/60 transition-colors shadow-xs">
+                      <div className="flex items-center justify-between gap-1">
+                        <div className="flex items-center gap-1.5">
+                          <Icon3DCheck size="sm" interactive={true} />
+                          <span className="text-[11px] font-bold text-[#064E3B] leading-tight">
+                            10% Advance Security
+                          </span>
+                        </div>
+                      </div>
+                      <p className="text-[10.5px] text-[#1F4638] leading-relaxed pl-1 font-medium">
+                        Lock your ride with 10% deposit. Settle the remaining 90% only after arrival.
                       </p>
                     </div>
                   </div>
+
+                  {/* Item 4: Air Conditioning & Hygiene */}
+                  <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+                    <div className="p-3 rounded-2xl bg-gradient-to-br from-rose-50/70 to-rose-100/20 border border-rose-200/70 space-y-1 hover:border-rose-300 transition-colors">
+                      <div className="flex items-center gap-1.5">
+                        <Icon3DCross size="sm" interactive={true} />
+                        <span className="text-[11px] font-bold text-rose-950 leading-tight">
+                          AC Refused / Demands
+                        </span>
+                      </div>
+                      <p className="text-[10.5px] text-rose-900/80 leading-relaxed pl-1">
+                        Blowers only in high humidity, or demands for extra unmetered cash tips.
+                      </p>
+                    </div>
+
+                    <div className="p-3 rounded-2xl bg-gradient-to-br from-[#EBF5EE] to-[#E3EFE7] border border-[#10B981]/40 space-y-1 hover:border-[#073B3A]/60 transition-colors shadow-xs">
+                      <div className="flex items-center justify-between gap-1">
+                        <div className="flex items-center gap-1.5">
+                          <Icon3DCheck size="sm" interactive={true} />
+                          <span className="text-[11px] font-bold text-[#064E3B] leading-tight">
+                            22°C Pre-Cooled AC
+                          </span>
+                        </div>
+                      </div>
+                      <p className="text-[10.5px] text-[#1F4638] leading-relaxed pl-1 font-medium">
+                        Cabin pre-cooled 15 mins prior to boarding. Guaranteed dual-zone AC running.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card Footer Trust Bar */}
+                <div className="px-4 py-2.5 bg-[#FAF9F5] border-t border-[#E5EAE5] flex items-center justify-between text-[10.5px] text-[#556464] font-medium">
+                  <span className="flex items-center gap-1 text-[#073B3A] font-bold">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
+                    Contractual Departure Protection
+                  </span>
+                  <span className="text-[#D9A52B] font-bold">14,200+ Dispatched</span>
                 </div>
               </div>
             </div>
@@ -335,56 +424,90 @@ export default function AboutPage() {
       </section>
 
       {/* ================= STORYTELLING INFOGRAPHIC: 4-STEP TRAVEL LIFECYCLE ================= */}
-      <section className="py-12 sm:py-16 bg-[#F2F5F2] border-b border-[#E5EAE5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0ECEA]/80 text-[10px] font-bold text-[#073B3A] uppercase tracking-wider border border-[#C1DAD7]">
+      <section className="py-14 sm:py-20 bg-[#F2F5F2] border-b border-[#E5EAE5] relative overflow-hidden">
+        {/* Subtle ambient highway glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[#D9A52B]/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14 space-y-2.5">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E0ECEA] text-[10px] font-extrabold text-[#073B3A] uppercase tracking-wider border border-[#C1DAD7] shadow-xs">
               <Compass className="w-3.5 h-3.5 text-[#D9A52B]" />
-              <span>The Journey Experience</span>
+              <span>The Journey Experience • Step-by-Step</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#182A2B]">
+            <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#182A2B] tracking-tight">
               How Your Journey Unfolds
             </h2>
-            <p className="text-xs sm:text-sm text-[#667575] leading-relaxed">
-              From reservation to final destination drop-off, our operational protocol guarantees seamless peace of mind.
+            <p className="text-xs sm:text-sm text-[#667575] leading-relaxed max-w-xl mx-auto">
+              From instant online reservation to scenic highway drop-off, every phase follows a verified operational standard.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {journeySteps.map((step, idx) => {
-              const Icon = step.icon;
-              return (
-                <div
-                  key={idx}
-                  className="card-skeuo rounded-3xl p-6 bg-white border border-[#D5DDD5] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
-                >
-                  <div className="space-y-3.5">
-                    <div className="flex items-center justify-between">
-                      <span className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center font-bold text-sm shadow-md">
-                        {step.num}
-                      </span>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#073B3A] bg-[#E0ECEA] px-2.5 py-0.5 rounded-full">
-                        {step.time}
-                      </span>
+          {/* Interactive Connected Pipeline Grid */}
+          <div className="relative">
+            {/* Desktop Connector Beam Line */}
+            <div className="hidden lg:block absolute top-[44px] left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-[#D9A52B]/40 via-[#10B981]/50 to-[#D9A52B]/40 z-0" />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 relative z-10">
+              {journeySteps.map((step, idx) => {
+                const Icon = step.icon;
+                const metaChips = [
+                  { tag: "10% Lock", label: "Instant WhatsApp Voucher" },
+                  { tag: "22°C AC Primed", label: "Dual-Zone Pre-Cooled" },
+                  { tag: "Radar Sync", label: "Doorstep Luggage Assist" },
+                  { tag: "Drop 90%", label: "Destination Settlement" },
+                ];
+                const meta = metaChips[idx];
+
+                return (
+                  <div
+                    key={idx}
+                    className="card-skeuo rounded-3xl p-6 bg-white border border-[#D5DDD5] hover:border-[#D9A52B]/60 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                  >
+                    {/* Top ambient hover glow */}
+                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#D9A52B]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                    <div className="space-y-4">
+                      {/* Step Header with Beacon Badge */}
+                      <div className="flex items-center justify-between">
+                        <div className="relative">
+                          <span className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center font-bold text-base shadow-md group-hover:scale-105 group-hover:shadow-[0_0_15px_rgba(217,165,43,0.35)] transition-all">
+                            {step.num}
+                          </span>
+                          <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#10B981] border-2 border-white" />
+                        </div>
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#073B3A] bg-[#E0ECEA] px-2.5 py-1 rounded-full border border-[#C1DAD7]">
+                          {step.time}
+                        </span>
+                      </div>
+
+                      {/* Step Content */}
+                      <div className="space-y-1.5">
+                        <div className="flex items-center gap-1.5">
+                          <Icon className="w-4 h-4 text-[#D9A52B] shrink-0" />
+                          <h3 className="text-base font-bold font-display text-[#182A2B] group-hover:text-[#073B3A] transition-colors">
+                            {step.title}
+                          </h3>
+                        </div>
+                        <p className="text-xs text-[#556464] leading-relaxed">
+                          {step.desc}
+                        </p>
+                      </div>
                     </div>
 
-                    <div className="space-y-1">
-                      <h3 className="text-base font-bold font-display text-[#182A2B] group-hover:text-[#073B3A] transition-colors">
-                        {step.title}
-                      </h3>
-                      <p className="text-xs text-[#556464] leading-relaxed">
-                        {step.desc}
-                      </p>
+                    {/* Bottom Outcome Pill */}
+                    <div className="pt-4 mt-4 border-t border-[#EEF2EE] flex items-center justify-between text-xs">
+                      <span className="flex items-center gap-1.5 font-bold text-[#073B3A]">
+                        <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0" />
+                        <span>{meta.label}</span>
+                      </span>
+                      <span className="text-[10px] font-bold text-[#D9A52B] bg-[#FAF9F5] px-2 py-0.5 rounded border border-[#E5EAE5]">
+                        {meta.tag}
+                      </span>
                     </div>
                   </div>
-
-                  <div className="pt-4 mt-4 border-t border-[#EEF2EE] flex items-center gap-1.5 text-xs font-semibold text-[#10B981]">
-                    <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
-                    <span>Verified Protocol</span>
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -408,14 +531,14 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
             
             {/* PILLAR 1: 10% ADVANCE DEPOSIT */}
-            <div className="card-skeuo rounded-3xl p-6 sm:p-7 bg-white border border-[#D5DDD5] hover:shadow-xl transition-all space-y-4 flex flex-col justify-between">
-              <div className="space-y-3">
+            <div className="card-skeuo rounded-3xl p-6 sm:p-7 bg-white border border-[#D5DDD5] hover:border-[#D9A52B]/60 hover:shadow-2xl transition-all duration-300 space-y-4 flex flex-col justify-between group">
+              <div className="space-y-3.5">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center shadow-md">
-                    <Lock className="w-6 h-6" />
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                    <Lock className="w-6 h-6 text-[#D9A52B]" />
                   </div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#FAF9F5] text-[#073B3A] border border-[#C1DAD7]">
-                    Financial Security
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#E0ECEA] text-[#073B3A] border border-[#C1DAD7]">
+                    Financial Security • Escrow
                   </span>
                 </div>
 
@@ -424,18 +547,41 @@ export default function AboutPage() {
                 </h3>
 
                 <p className="text-xs sm:text-sm text-[#556464] leading-relaxed">
-                  Unlike street operators asking for full advance or apps with zero cancellation consequences, CabJatra locks your vehicle and driver with only a 10% advance deposit. The remaining 90% is settled at your destination.
+                  Unlike informal street operators demanding 100% advance or ride apps that cancel at the last minute, CabJatra locks your vehicle and driver with only a 10% advance deposit. Settle the 90% balance only at your final destination.
                 </p>
 
-                {/* Graphic 10/90 Progress Bar */}
-                <div className="p-3 rounded-2xl bg-[#FAF9F5] border border-[#E5EAE5] space-y-2">
-                  <div className="flex justify-between text-xs font-bold">
-                    <span className="text-[#073B3A]">10% Booking Deposit (Locks Ride)</span>
-                    <span className="text-[#556464]">90% Paid at Destination</span>
+                {/* Tactile 10/90 Split Escrow Visual */}
+                <div className="p-3.5 rounded-2xl bg-gradient-to-br from-[#FAF9F5] to-[#F2F5F2] border border-[#D5DDD5] space-y-3">
+                  <div className="grid grid-cols-2 gap-2 text-left">
+                    <div className="p-2.5 rounded-xl bg-white border border-[#D9A52B]/40 shadow-xs">
+                      <div className="flex items-center gap-1.5 text-[#073B3A] text-xs font-bold">
+                        <Lock className="w-3.5 h-3.5 text-[#D9A52B]" />
+                        <span>10% Advance</span>
+                      </div>
+                      <span className="text-[10px] text-[#667575] block mt-0.5">Locks Dedicated Car &amp; Driver</span>
+                    </div>
+
+                    <div className="p-2.5 rounded-xl bg-white border border-[#10B981]/40 shadow-xs">
+                      <div className="flex items-center gap-1.5 text-[#064E3B] text-xs font-bold">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
+                        <span>90% At Drop</span>
+                      </div>
+                      <span className="text-[10px] text-[#667575] block mt-0.5">Pay via UPI / Cash after Arrival</span>
+                    </div>
                   </div>
-                  <div className="w-full h-3 rounded-full bg-[#E0E7E0] overflow-hidden flex">
-                    <div className="w-[10%] bg-gradient-to-r from-[#D9A52B] to-[#E6B543] h-full" />
-                    <div className="w-[90%] bg-[#073B3A] h-full" />
+
+                  {/* Two-Tone Progress Track */}
+                  <div className="space-y-1">
+                    <div className="w-full h-3 rounded-full bg-[#E0E7E0] overflow-hidden flex shadow-inner">
+                      <div className="w-[10%] bg-gradient-to-r from-[#D9A52B] to-[#F2C052] h-full relative">
+                        <span className="absolute inset-0 bg-white/20 animate-pulse" />
+                      </div>
+                      <div className="w-[90%] bg-gradient-to-r from-[#073B3A] to-[#0A4E4D] h-full" />
+                    </div>
+                    <div className="flex justify-between text-[10px] font-bold text-[#667575] px-0.5">
+                      <span className="text-[#966E0C]">10% Locked Upfront</span>
+                      <span className="text-[#073B3A]">90% Settle After Safe Drop</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -443,21 +589,21 @@ export default function AboutPage() {
               <div className="pt-3 border-t border-[#EEF2EE] flex items-center justify-between text-xs font-bold text-[#073B3A]">
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
-                  <span>Zero Financial Lock-in</span>
+                  <span>100% Instant Refund if Cancelled Early</span>
                 </span>
                 <span className="text-[#D9A52B]">Pillar 01</span>
               </div>
             </div>
 
-            {/* PILLAR 2: 100% COMMERCIAL FLEET */}
-            <div className="card-skeuo rounded-3xl p-6 sm:p-7 bg-white border border-[#D5DDD5] hover:shadow-xl transition-all space-y-4 flex flex-col justify-between">
-              <div className="space-y-3">
+            {/* PILLAR 2: 100% COMMERCIAL FLEET WITH REALISTIC HSRP PLATE */}
+            <div className="card-skeuo rounded-3xl p-6 sm:p-7 bg-white border border-[#D5DDD5] hover:border-[#D9A52B]/60 hover:shadow-2xl transition-all duration-300 space-y-4 flex flex-col justify-between group">
+              <div className="space-y-3.5">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center shadow-md">
-                    <Car className="w-6 h-6" />
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                    <Car className="w-6 h-6 text-[#D9A52B]" />
                   </div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#FAF9F5] text-[#073B3A] border border-[#C1DAD7]">
-                    State STA Permit
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#E0ECEA] text-[#073B3A] border border-[#C1DAD7]">
+                    State STA Permit • RTO Verified
                   </span>
                 </div>
 
@@ -466,17 +612,39 @@ export default function AboutPage() {
                 </h3>
 
                 <p className="text-xs sm:text-sm text-[#556464] leading-relaxed">
-                  Every vehicle operates under a strict Odisha commercial transport permit. We strictly never dispatch private white-plate cars, ensuring full passenger insurance and legal compliance.
+                  Every vehicle operates under a strict Odisha State Transport commercial permit. We strictly never dispatch private white-plate cars, ensuring comprehensive passenger insurance, verified highway fitness, and lawful transit.
                 </p>
 
-                {/* Graphic Odisha RTO Yellow Number Plate Mockup */}
-                <div className="p-3 rounded-2xl bg-gradient-to-r from-[#FCD34D] via-[#FBBF24] to-[#F59E0B] border-2 border-[#182A2B]/80 text-[#182A2B] text-center shadow-md">
-                  <div className="text-[9px] uppercase font-black tracking-widest text-[#182A2B]/80">
-                    ODISHA STATE TRANSPORT AUTHORITY
-                  </div>
-                  <div className="text-sm font-black text-[#182A2B] mt-0.5 flex items-center justify-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-[#062F31]" />
-                    <span>OD • 02 • AA • 2026 (COMMERCIAL YELLOW PLATE)</span>
+                {/* Hyper-Realistic Indian HSRP Commercial Plate Mockup */}
+                <div className="relative rounded-2xl p-1 bg-gradient-to-b from-[#333] via-[#111] to-[#222] shadow-xl border border-black/30">
+                  <div className="rounded-xl bg-gradient-to-r from-[#FBC02D] via-[#F9A825] to-[#F57F17] p-2.5 sm:p-3 flex items-center justify-between border-2 border-black/80 relative overflow-hidden">
+                    {/* HSRP Blue IND Strip with Hologram Badge */}
+                    <div className="w-10 sm:w-11 self-stretch rounded-lg bg-[#003399] flex flex-col items-center justify-between py-1 px-0.5 text-white shadow-inner shrink-0">
+                      <div className="w-3.5 h-3.5 rounded-full border border-white/60 bg-white/20 flex items-center justify-center">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#D9A52B]" />
+                      </div>
+                      <span className="text-[11px] font-black tracking-wider leading-none text-white drop-shadow">
+                        IND
+                      </span>
+                    </div>
+
+                    {/* Embossed Commercial Plate Number */}
+                    <div className="flex-1 text-center px-2">
+                      <div className="text-[9px] font-extrabold tracking-widest text-[#182A2B]/85 uppercase">
+                        ODISHA STATE TRANSPORT AUTHORITY
+                      </div>
+                      <div className="text-base sm:text-xl font-black font-mono tracking-widest text-[#111827] drop-shadow-[0_1px_0_rgba(255,255,255,0.4)] mt-0.5">
+                        OD • 02 • AA • 2026
+                      </div>
+                      <div className="text-[8.5px] font-extrabold text-[#073B3A] tracking-wider uppercase">
+                        COMMERCIAL CARRIAGE • COMPREHENSIVE PASSENGER COVER
+                      </div>
+                    </div>
+
+                    {/* Laser Hologram Badge */}
+                    <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-white/60 via-[#E0E7E0] to-white/40 border border-black/20 flex items-center justify-center shadow-xs shrink-0">
+                      <ShieldCheck className="w-4 h-4 text-[#073B3A]" />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -484,21 +652,21 @@ export default function AboutPage() {
               <div className="pt-3 border-t border-[#EEF2EE] flex items-center justify-between text-xs font-bold text-[#073B3A]">
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
-                  <span>Comprehensive Passenger Insurance</span>
+                  <span>Zero White-Plate Private Cars Allowed</span>
                 </span>
                 <span className="text-[#D9A52B]">Pillar 02</span>
               </div>
             </div>
 
             {/* PILLAR 3: ZERO SURGE PRICING */}
-            <div className="card-skeuo rounded-3xl p-6 sm:p-7 bg-white border border-[#D5DDD5] hover:shadow-xl transition-all space-y-4 flex flex-col justify-between">
-              <div className="space-y-3">
+            <div className="card-skeuo rounded-3xl p-6 sm:p-7 bg-white border border-[#D5DDD5] hover:border-[#D9A52B]/60 hover:shadow-2xl transition-all duration-300 space-y-4 flex flex-col justify-between group">
+              <div className="space-y-3.5">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center shadow-md">
-                    <Zap className="w-6 h-6" />
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                    <Zap className="w-6 h-6 text-[#D9A52B]" />
                   </div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#FAF9F5] text-[#073B3A] border border-[#C1DAD7]">
-                    Transparent Tariffs
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#E0ECEA] text-[#073B3A] border border-[#C1DAD7]">
+                    Transparent Tariffs • No Hidden Tolls
                   </span>
                 </div>
 
@@ -507,39 +675,56 @@ export default function AboutPage() {
                 </h3>
 
                 <p className="text-xs sm:text-sm text-[#556464] leading-relaxed">
-                  Our tariffs are fixed, transparent, and calibrated strictly by actual highway mileage. You will never face sudden 2x or 3x surge multipliers during heavy monsoon downpours or festival rushes like Rath Yatra.
+                  Our tariffs are fixed, transparent, and calibrated strictly by actual highway mileage. You will never face sudden 2x or 3x surge multipliers during heavy monsoon downpours, midnight train delays, or festival rushes like Rath Yatra.
                 </p>
 
-                {/* Graphic Fixed Tariff Metric */}
-                <div className="p-3 rounded-2xl bg-[#FAF9F5] border border-[#E5EAE5] flex items-center justify-between text-xs">
-                  <div>
-                    <span className="text-[10px] text-[#667575] uppercase font-bold block">Surge Multiplier:</span>
-                    <span className="text-sm font-extrabold text-[#10B981]">1.0x (Never Surged)</span>
+                {/* Tactile Surge Comparison Meter */}
+                <div className="p-3.5 rounded-2xl bg-gradient-to-br from-[#FAF9F5] to-[#F2F5F2] border border-[#D5DDD5] space-y-2.5">
+                  <div className="grid grid-cols-2 gap-2 text-left">
+                    <div className="p-2.5 rounded-xl bg-white border border-[#10B981]/50 shadow-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-bold text-[#667575] uppercase">CabJatra Tariff</span>
+                        <span className="w-2 h-2 rounded-full bg-[#10B981]" />
+                      </div>
+                      <div className="text-base font-extrabold text-[#064E3B] mt-0.5">1.0x Fixed Rate</div>
+                      <span className="text-[10px] text-[#10B981] font-semibold block">Locked Upfront • No Surge</span>
+                    </div>
+
+                    <div className="p-2.5 rounded-xl bg-white/70 border border-rose-200 shadow-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-bold text-rose-800 uppercase">Aggregator Apps</span>
+                        <span className="w-2 h-2 rounded-full bg-rose-500" />
+                      </div>
+                      <div className="text-base font-extrabold text-rose-700 mt-0.5 line-through">2.5x–3.0x Peak</div>
+                      <span className="text-[10px] text-rose-600 font-semibold block">Rain &amp; Festival Surges</span>
+                    </div>
                   </div>
-                  <span className="px-3 py-1 rounded-xl bg-[#E0ECEA] text-[#073B3A] font-bold text-[11px]">
-                    Fixed Mileage Rate
-                  </span>
+
+                  <div className="px-2.5 py-1.5 rounded-lg bg-[#E0ECEA]/70 flex items-center justify-between text-[11px] text-[#073B3A] font-semibold">
+                    <span>Rain / Late-Night Surcharge:</span>
+                    <span className="font-extrabold text-[#064E3B]">₹0.00 (Always Included)</span>
+                  </div>
                 </div>
               </div>
 
               <div className="pt-3 border-t border-[#EEF2EE] flex items-center justify-between text-xs font-bold text-[#073B3A]">
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
-                  <span>No Festival or Late-Night Surcharges</span>
+                  <span>Honest Per-KM Quotation on WhatsApp</span>
                 </span>
                 <span className="text-[#D9A52B]">Pillar 03</span>
               </div>
             </div>
 
             {/* PILLAR 4: VERIFIED DRIVER HOSPITALITY */}
-            <div className="card-skeuo rounded-3xl p-6 sm:p-7 bg-white border border-[#D5DDD5] hover:shadow-xl transition-all space-y-4 flex flex-col justify-between">
-              <div className="space-y-3">
+            <div className="card-skeuo rounded-3xl p-6 sm:p-7 bg-white border border-[#D5DDD5] hover:border-[#D9A52B]/60 hover:shadow-2xl transition-all duration-300 space-y-4 flex flex-col justify-between group">
+              <div className="space-y-3.5">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center shadow-md">
-                    <HeartHandshake className="w-6 h-6" />
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                    <HeartHandshake className="w-6 h-6 text-[#D9A52B]" />
                   </div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#FAF9F5] text-[#073B3A] border border-[#C1DAD7]">
-                    Courteous Service
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#E0ECEA] text-[#073B3A] border border-[#C1DAD7]">
+                    Courteous Service • Local Ethos
                   </span>
                 </div>
 
@@ -551,20 +736,31 @@ export default function AboutPage() {
                   Our drivers are verified local professionals with extensive highway experience, clean driving records, and courteous pilgrimage etiquette. Trained to assist with luggage, family needs, and senior citizens.
                 </p>
 
-                {/* Graphic Driver Checklist */}
-                <div className="p-3 rounded-2xl bg-[#FAF9F5] border border-[#E5EAE5] grid grid-cols-2 gap-2 text-[11px]">
-                  <span className="flex items-center gap-1 font-semibold text-[#182A2B]">
-                    <Check className="w-3.5 h-3.5 text-[#10B981]" /> Police Verified
-                  </span>
-                  <span className="flex items-center gap-1 font-semibold text-[#182A2B]">
-                    <Check className="w-3.5 h-3.5 text-[#10B981]" /> Odia &amp; Hindi Fluent
-                  </span>
-                  <span className="flex items-center gap-1 font-semibold text-[#182A2B]">
-                    <Check className="w-3.5 h-3.5 text-[#10B981]" /> Punctual Attendance
-                  </span>
-                  <span className="flex items-center gap-1 font-semibold text-[#182A2B]">
-                    <Check className="w-3.5 h-3.5 text-[#10B981]" /> Non-Smoking Fleet
-                  </span>
+                {/* Tactile Driver Credential Chips */}
+                <div className="p-3.5 rounded-2xl bg-gradient-to-br from-[#FAF9F5] to-[#F2F5F2] border border-[#D5DDD5] space-y-2.5">
+                  <div className="grid grid-cols-2 gap-2 text-[11px]">
+                    <div className="flex items-center gap-1.5 p-2 rounded-xl bg-white border border-[#D5DDD5] font-semibold text-[#182A2B]">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                      <span>Police Verified</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 p-2 rounded-xl bg-white border border-[#D5DDD5] font-semibold text-[#182A2B]">
+                      <Users className="w-3.5 h-3.5 text-[#073B3A] shrink-0" />
+                      <span>Odia &amp; Hindi Fluent</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 p-2 rounded-xl bg-white border border-[#D5DDD5] font-semibold text-[#182A2B]">
+                      <Navigation className="w-3.5 h-3.5 text-[#D9A52B] shrink-0" />
+                      <span>5+ Yrs Highway Mastery</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 p-2 rounded-xl bg-white border border-[#D5DDD5] font-semibold text-[#182A2B]">
+                      <Sparkles className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                      <span>Non-Smoking Fleet</span>
+                    </div>
+                  </div>
+
+                  <div className="px-2.5 py-1.5 rounded-lg bg-white border border-[#E5EAE5] text-[10.5px] text-[#556464] italic flex items-center gap-1.5">
+                    <span className="text-[#D9A52B] font-bold">★ 4.9/5:</span>
+                    <span>&ldquo;Courteous, smooth driving along Marine Drive for our elderly parents.&rdquo;</span>
+                  </div>
                 </div>
               </div>
 
@@ -608,75 +804,119 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-            <div className="card-skeuo p-5 rounded-2xl bg-white border border-[#D5DDD5] space-y-2 flex flex-col justify-between">
-              <div>
-                <div className="w-8 h-8 rounded-xl bg-[#073B3A] text-[#D9A52B] flex items-center justify-center font-bold text-xs mb-2.5">
-                  01
+            <div className="card-skeuo p-5 rounded-3xl bg-white border border-[#D5DDD5] hover:border-[#D9A52B]/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-3 flex flex-col justify-between group">
+              <div className="space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition-transform">
+                    01
+                  </div>
+                  <span className="text-[9.5px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E0ECEA] text-[#073B3A] border border-[#C1DAD7]">
+                    Climate Protocol
+                  </span>
                 </div>
-                <h4 className="font-bold text-sm text-[#182A2B] font-display">
+                <h4 className="font-bold text-sm sm:text-base text-[#182A2B] font-display group-hover:text-[#073B3A] transition-colors">
                   Dual-Zone AC Guaranteed
                 </h4>
-                <p className="text-xs text-[#556464] leading-relaxed mt-1">
-                  Air conditioning pre-cooled 15 minutes before passenger boarding to combat coastal Odisha humidity.
+                <div className="inline-block px-2 py-0.5 rounded-md bg-[#FAF9F5] border border-[#E5EAE5] text-[10px] font-bold text-[#073B3A]">
+                  22°C Pre-Cooled 15 Mins Early
+                </div>
+                <p className="text-xs text-[#556464] leading-relaxed">
+                  Air conditioning actively cooled prior to passenger boarding. Dual blowers keep both front and rear passengers comfortable in coastal humidity.
                 </p>
               </div>
-              <div className="pt-2 border-t border-[#EEF2EE] flex items-center gap-1.5 text-[11px] font-bold text-[#10B981]">
-                <Check className="w-3.5 h-3.5" />
-                <span>100% Functioning AC</span>
+              <div className="pt-3 border-t border-[#EEF2EE] flex items-center justify-between text-xs font-bold text-[#073B3A]">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
+                  <span>100% Functioning AC</span>
+                </span>
+                <span className="text-[10px] text-[#D9A52B] font-mono">SPEC-01</span>
               </div>
             </div>
 
-            <div className="card-skeuo p-5 rounded-2xl bg-white border border-[#D5DDD5] space-y-2 flex flex-col justify-between">
-              <div>
-                <div className="w-8 h-8 rounded-xl bg-[#073B3A] text-[#D9A52B] flex items-center justify-center font-bold text-xs mb-2.5">
-                  02
+            <div className="card-skeuo p-5 rounded-3xl bg-white border border-[#D5DDD5] hover:border-[#D9A52B]/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-3 flex flex-col justify-between group">
+              <div className="space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition-transform">
+                    02
+                  </div>
+                  <span className="text-[9.5px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E0ECEA] text-[#073B3A] border border-[#C1DAD7]">
+                    State Permits
+                  </span>
                 </div>
-                <h4 className="font-bold text-sm text-[#182A2B] font-display">
-                  State Legal Compliance
+                <h4 className="font-bold text-sm sm:text-base text-[#182A2B] font-display group-hover:text-[#073B3A] transition-colors">
+                  Odisha STA Legal Compliance
                 </h4>
-                <p className="text-xs text-[#556464] leading-relaxed mt-1">
-                  Valid Odisha commercial transport permit, commercial passenger insurance, and fitness certificates.
+                <div className="inline-block px-2 py-0.5 rounded-md bg-[#FAF9F5] border border-[#E5EAE5] text-[10px] font-bold text-[#073B3A]">
+                  Commercial Yellow Plate Permit
+                </div>
+                <p className="text-xs text-[#556464] leading-relaxed">
+                  Valid Odisha commercial transport permit, full passenger insurance coverage, and annual RTO roadworthiness fitness certificates.
                 </p>
               </div>
-              <div className="pt-2 border-t border-[#EEF2EE] flex items-center gap-1.5 text-[11px] font-bold text-[#10B981]">
-                <Check className="w-3.5 h-3.5" />
-                <span>STA Permit Certified</span>
+              <div className="pt-3 border-t border-[#EEF2EE] flex items-center justify-between text-xs font-bold text-[#073B3A]">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
+                  <span>STA Permit Certified</span>
+                </span>
+                <span className="text-[10px] text-[#D9A52B] font-mono">SPEC-02</span>
               </div>
             </div>
 
-            <div className="card-skeuo p-5 rounded-2xl bg-white border border-[#D5DDD5] space-y-2 flex flex-col justify-between">
-              <div>
-                <div className="w-8 h-8 rounded-xl bg-[#073B3A] text-[#D9A52B] flex items-center justify-center font-bold text-xs mb-2.5">
-                  03
+            <div className="card-skeuo p-5 rounded-3xl bg-white border border-[#D5DDD5] hover:border-[#D9A52B]/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-3 flex flex-col justify-between group">
+              <div className="space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition-transform">
+                    03
+                  </div>
+                  <span className="text-[9.5px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E0ECEA] text-[#073B3A] border border-[#C1DAD7]">
+                    Cabin Hygiene
+                  </span>
                 </div>
-                <h4 className="font-bold text-sm text-[#182A2B] font-display">
+                <h4 className="font-bold text-sm sm:text-base text-[#182A2B] font-display group-hover:text-[#073B3A] transition-colors">
                   Sanitized Pristine Interiors
                 </h4>
-                <p className="text-xs text-[#556464] leading-relaxed mt-1">
-                  Daily sanitized fabric upholstery, clean floor mats, and non-smoking cabins for comfortable family travel.
+                <div className="inline-block px-2 py-0.5 rounded-md bg-[#FAF9F5] border border-[#E5EAE5] text-[10px] font-bold text-[#073B3A]">
+                  12-Point Hygiene Protocol
+                </div>
+                <p className="text-xs text-[#556464] leading-relaxed">
+                  Daily deep-cleaned fabric upholstery, fresh floor mats, sanitized luggage boot, and strictly tobacco-free non-smoking family cabins.
                 </p>
               </div>
-              <div className="pt-2 border-t border-[#EEF2EE] flex items-center gap-1.5 text-[11px] font-bold text-[#10B981]">
-                <Check className="w-3.5 h-3.5" />
-                <span>Non-Smoking Cabins</span>
+              <div className="pt-3 border-t border-[#EEF2EE] flex items-center justify-between text-xs font-bold text-[#073B3A]">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
+                  <span>Non-Smoking Cabins</span>
+                </span>
+                <span className="text-[10px] text-[#D9A52B] font-mono">SPEC-03</span>
               </div>
             </div>
 
-            <div className="card-skeuo p-5 rounded-2xl bg-white border border-[#D5DDD5] space-y-2 flex flex-col justify-between">
-              <div>
-                <div className="w-8 h-8 rounded-xl bg-[#073B3A] text-[#D9A52B] flex items-center justify-center font-bold text-xs mb-2.5">
-                  04
+            <div className="card-skeuo p-5 rounded-3xl bg-white border border-[#D5DDD5] hover:border-[#D9A52B]/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-3 flex flex-col justify-between group">
+              <div className="space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition-transform">
+                    04
+                  </div>
+                  <span className="text-[9.5px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E0ECEA] text-[#073B3A] border border-[#C1DAD7]">
+                    Command Desk
+                  </span>
                 </div>
-                <h4 className="font-bold text-sm text-[#182A2B] font-display">
-                  Live Dispatch Radar
+                <h4 className="font-bold text-sm sm:text-base text-[#182A2B] font-display group-hover:text-[#073B3A] transition-colors">
+                  Live Dispatch Operations Radar
                 </h4>
-                <p className="text-xs text-[#556464] leading-relaxed mt-1">
-                  Central Bhubaneswar operations desk continuously monitors highway transit and flight arrivals 24/7.
+                <div className="inline-block px-2 py-0.5 rounded-md bg-[#FAF9F5] border border-[#E5EAE5] text-[10px] font-bold text-[#073B3A]">
+                  BBI Airport &amp; Highway Sync
+                </div>
+                <p className="text-xs text-[#556464] leading-relaxed">
+                  Central Bhubaneswar desk tracks flight arrivals and highway transit 24/7. Instant driver contact and trip coordination via WhatsApp.
                 </p>
               </div>
-              <div className="pt-2 border-t border-[#EEF2EE] flex items-center gap-1.5 text-[11px] font-bold text-[#10B981]">
-                <Check className="w-3.5 h-3.5" />
-                <span>24/7 Control Room Active</span>
+              <div className="pt-3 border-t border-[#EEF2EE] flex items-center justify-between text-xs font-bold text-[#073B3A]">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
+                  <span>24/7 Operations Desk</span>
+                </span>
+                <span className="text-[10px] text-[#D9A52B] font-mono">SPEC-04</span>
               </div>
             </div>
           </div>
@@ -749,17 +989,17 @@ export default function AboutPage() {
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-[#EEF2EE] flex items-center justify-between text-xs">
-                    <span className="font-bold text-[#073B3A] flex items-center gap-1.5">
+                  <div className="pt-3 border-t border-[#EEF2EE] flex items-center justify-between text-xs gap-2">
+                    <span className="font-bold text-[11px] text-[#073B3A] flex items-center gap-1.5">
                       <Car className="w-3.5 h-3.5 text-[#D9A52B]" />
-                      <span>Yellow-Board Fleet</span>
+                      <span>100% Yellow-Board</span>
                     </span>
                     <Link
                       href={hub.link}
-                      className="inline-flex items-center gap-1 font-bold text-[#073B3A] hover:text-[#D9A52B] transition-colors group/link"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FAF9F5] border border-[#D5DDD5] hover:border-[#D9A52B] font-bold text-xs text-[#073B3A] hover:text-[#062F31] hover:bg-[#FDF9EE] transition-all shadow-xs group/link"
                     >
                       <span>{hub.cta}</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
+                      <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform text-[#D9A52B]" />
                     </Link>
                   </div>
                 </div>
@@ -772,40 +1012,63 @@ export default function AboutPage() {
       {/* ================= SECTION: CORPORATE GOVERNANCE & CHARTER ================= */}
       <section className="py-12 bg-white border-b border-[#E5EAE5]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="card-skeuo p-6 sm:p-8 rounded-3xl space-y-3.5 border border-[#D5DDD5]">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-[#D9A52B]" />
-              <h3 className="text-base font-bold font-display text-[#182A2B]">
-                Corporate Governance &amp; Regulatory Compliance
-              </h3>
+          <div className="card-skeuo p-6 sm:p-8 rounded-3xl space-y-4 border border-[#D5DDD5] bg-gradient-to-br from-white via-white to-[#FAF9F5] shadow-lg relative overflow-hidden">
+            {/* Top gold line */}
+            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#D9A52B] via-[#F2C052] to-[#073B3A]" />
+
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center shadow-md shrink-0">
+                  <ShieldCheck className="w-6 h-6 text-[#D9A52B]" />
+                </div>
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold font-display text-[#182A2B]">
+                    Corporate Governance &amp; Regulatory Compliance
+                  </h3>
+                  <span className="text-[10.5px] font-bold text-[#073B3A] uppercase tracking-wider block">
+                    Odisha Commercial Motor Vehicles Framework
+                  </span>
+                </div>
+              </div>
+
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0ECEA] border border-[#C1DAD7] text-xs font-bold text-[#073B3A] self-start sm:self-auto">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
+                <span>MCA Registered Entity</span>
+              </div>
             </div>
             
-            <p className="text-xs text-[#556464] leading-relaxed">
-              <strong>CabJatra</strong> is an officially registered pre-booked mobility platform. All operational charters, brand assets, intellectual property, and copyrights are owned and held by <strong>NovaSpark Digital Marketing Pvt. Ltd.</strong> in accordance with the Motor Vehicles Act and transport directives of the State of Odisha.
+            <p className="text-xs sm:text-sm text-[#556464] leading-relaxed">
+              <strong>CabJatra</strong> is an officially registered pre-booked mobility platform. All operational charters, vehicle compliance standards, brand trademarks, and guest protections are governed by <strong>NovaSpark Digital Marketing Pvt. Ltd.</strong> in strict accordance with the Motor Vehicles Act and transport directives of the State of Odisha.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
-              <div className="p-3.5 rounded-2xl bg-[#FAF9F5] border border-[#E5EAE5]">
+              <div className="p-4 rounded-2xl bg-[#FAF9F5] border border-[#E5EAE5] space-y-1 hover:border-[#D9A52B]/40 transition-colors">
                 <span className="text-[10px] text-[#667575] uppercase font-bold block">
-                  Registered Legal Entity &amp; Copyright Holder
+                  Registered Legal Entity &amp; Trademark Holder
                 </span>
-                <strong className="text-[#182A2B] text-xs block mt-0.5">
+                <strong className="text-[#182A2B] text-xs sm:text-sm block">
                   {COMPANY_CONFIG.legalBusinessName}
                 </strong>
-                <span className="text-[10px] text-[#073B3A] block mt-0.5 font-semibold">
-                  Registration: {COMPANY_CONFIG.cinOrRegistration}
+                <span className="text-[11px] text-[#073B3A] block font-semibold">
+                  CIN / Reg: {COMPANY_CONFIG.cinOrRegistration}
+                </span>
+                <span className="text-[10px] text-[#667575] block mt-0.5">
+                  Ministry of Corporate Affairs • Govt of India
                 </span>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-[#FAF9F5] border border-[#E5EAE5]">
+              <div className="p-4 rounded-2xl bg-[#FAF9F5] border border-[#E5EAE5] space-y-1 hover:border-[#073B3A]/40 transition-colors">
                 <span className="text-[10px] text-[#667575] uppercase font-bold block">
                   Central Operations Headquarters
                 </span>
-                <strong className="text-[#182A2B] text-xs block mt-0.5">
+                <strong className="text-[#182A2B] text-xs sm:text-sm block">
                   Infocity Avenue, Patia, Bhubaneswar
                 </strong>
-                <span className="text-[10px] text-[#073B3A] block mt-0.5 font-semibold">
-                  Pin 751024 • 24/7 Operations Desk Active
+                <span className="text-[11px] text-[#073B3A] block font-semibold">
+                  Odisha 751024 • 24/7 Operations Desk
+                </span>
+                <span className="text-[10px] text-[#667575] block mt-0.5">
+                  Direct Desk: {COMPANY_CONFIG.contact.phoneDisplay}
                 </span>
               </div>
             </div>
