@@ -12,13 +12,10 @@ import {
   Navigation,
   Flame,
   Volume2,
-  Sun,
-  Sunset,
-  Moon,
 } from "lucide-react";
 import { COMPANY_CONFIG } from "@/data/company";
 
-type TimeOfDay = "day" | "sunset" | "night";
+type TimeOfDay = "sunrise" | "day" | "sunset" | "night";
 
 interface TourDestination {
   id: string;
@@ -114,13 +111,23 @@ const ODISHA_DESTINATIONS: TourDestination[] = [
   },
 ];
 
-// Helper to determine time of day from local hour
-const detectLocalTimeOfDay = (): TimeOfDay => {
+// Pure automatic real-time daily sunrise, day, sunset, and night calculation
+const getRealtimeTimeOfDay = (): TimeOfDay => {
   if (typeof window === "undefined") return "sunset";
-  const hour = new Date().getHours();
-  if (hour >= 6 && hour < 17) return "day"; // 6:00 AM - 4:59 PM
-  if (hour >= 17 && hour < 19) return "sunset"; // 5:00 PM - 6:59 PM (Golden Hour)
-  return "night"; // 7:00 PM - 5:59 AM (Night)
+  const now = new Date();
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+  const time = hour + minute / 60;
+
+  // Real-time daily astronomical cycle:
+  // 05:00 - 06:45: Sunrise (Dawn / Morning Golden Hour)
+  // 06:45 - 16:45: Daytime (Bright Coastal Sun)
+  // 16:45 - 18:30: Sunset (Evening Golden Hour / Dusk)
+  // 18:30 - 05:00: Night (Starlit Sky & Glowing Moon)
+  if (time >= 5.0 && time < 6.75) return "sunrise";
+  if (time >= 6.75 && time < 16.75) return "day";
+  if (time >= 16.75 && time < 18.5) return "sunset";
+  return "night";
 };
 
 export const HeroSection: React.FC = () => {
@@ -128,14 +135,15 @@ export const HeroSection: React.FC = () => {
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>("sunset");
   const [isSprint, setIsSprint] = useState(false);
   const [honkActive, setHonkActive] = useState(false);
-  const [hasUserToggledTime, setHasUserToggledTime] = useState(false);
 
-  // Auto-detect local time of day on client mount
+  // Automatically update the environment based on the user's real-time daily cycle
   useEffect(() => {
-    if (!hasUserToggledTime) {
-      setTimeOfDay(detectLocalTimeOfDay());
-    }
-  }, [hasUserToggledTime]);
+    setTimeOfDay(getRealtimeTimeOfDay());
+    const interval = setInterval(() => {
+      setTimeOfDay(getRealtimeTimeOfDay());
+    }, 30000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Auto-cycle through destinations every 8 seconds
   useEffect(() => {
@@ -157,23 +165,20 @@ export const HeroSection: React.FC = () => {
     setIsSprint((prev) => !prev);
   };
 
-  const handleTimeSelect = (mode: TimeOfDay) => {
-    setHasUserToggledTime(true);
-    setTimeOfDay(mode);
-  };
-
   return (
-    <section className="relative text-white overflow-hidden min-h-[92vh] sm:min-h-[98vh] flex flex-col justify-between pt-24 sm:pt-28 pb-6 sm:pb-8 border-b border-[#D9A52B]/35 select-none transition-colors duration-1000 bg-[#073B3A]">
+    <section className="relative text-white overflow-hidden min-h-[92vh] sm:min-h-[98vh] flex flex-col justify-between pt-24 sm:pt-28 pb-4 sm:pb-6 border-b border-[#D9A52B]/35 select-none transition-colors duration-1000 bg-[#073B3A]">
       
       {/* =========================================================================
-          LAYER 1: REALISTIC ODISHA SKY & ATMOSPHERE (DAY / SUNSET / NIGHT DYNAMICS)
+          LAYER 1: REALISTIC ODISHA SKY & ATMOSPHERE (AUTOMATIC REALTIME DYNAMICS)
           ========================================================================= */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         
-        {/* Dynamic Sky Gradient according to Time of Day */}
+        {/* Dynamic Sky Gradient according to Realtime Day / Sunset / Night */}
         <div
           className={`absolute inset-0 transition-all duration-1000 ${
-            timeOfDay === "day"
+            timeOfDay === "sunrise"
+              ? "bg-gradient-to-b from-[#181D3B] via-[#7B1D3A] via-35% via-[#B45309] via-60% to-[#083533]"
+              : timeOfDay === "day"
               ? "bg-gradient-to-b from-[#0B5269] via-[#0E687A] via-45% to-[#114D4C]"
               : timeOfDay === "sunset"
               ? "bg-gradient-to-b from-[#18163B] via-[#7B241C] via-35% via-[#A04000] via-60% to-[#083533]"
@@ -199,15 +204,21 @@ export const HeroSection: React.FC = () => {
         )}
 
         {/* ================= CELESTIAL ORBS: REALISTIC SUN / REALISTIC MOON ================= */}
+        {timeOfDay === "sunrise" && (
+          /* Realistic Morning Dawn Sun Emerging on Horizon */
+          <div className="absolute top-24 sm:top-28 right-16 sm:right-36 pointer-events-none transition-all duration-1000">
+            <div className="absolute -inset-14 rounded-full bg-[#F43F5E]/30 blur-3xl animate-celestial-pulse" />
+            <div className="absolute -inset-5 rounded-full bg-[#FBBF24]/40 blur-xl" />
+            <div className="relative w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-gradient-to-tr from-[#FBBF24] via-[#F43F5E] to-[#FFFBEB] shadow-[0_0_60px_rgba(251,191,36,0.8)]" />
+          </div>
+        )}
+
         {timeOfDay === "day" && (
           /* Realistic Radiant Day Sun with Solar Corona & Atmospheric Rays */
           <div className="absolute top-8 sm:top-12 right-12 sm:right-32 pointer-events-none transition-all duration-1000">
-            {/* Outer Solar Corona Glow */}
             <div className="absolute -inset-10 rounded-full bg-[#FEF08A]/25 blur-3xl animate-celestial-pulse" />
             <div className="absolute -inset-4 rounded-full bg-[#FDE047]/35 blur-xl" />
-            {/* Brilliant Solar Disc */}
             <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-[#FDE047] via-[#FFFBEB] to-[#FFFFFF] shadow-[0_0_50px_rgba(254,240,138,0.9),0_0_100px_rgba(253,224,71,0.4)]" />
-            {/* Warm Horizon Flare Streak */}
             <div className="absolute top-1/2 -left-24 -right-24 h-0.5 bg-gradient-to-r from-transparent via-[#FEF08A]/40 to-transparent blur-xs -translate-y-1/2" />
           </div>
         )}
@@ -215,12 +226,9 @@ export const HeroSection: React.FC = () => {
         {timeOfDay === "sunset" && (
           /* Realistic Sinking Sunset Sun over the Bay of Bengal Horizon */
           <div className="absolute top-20 sm:top-24 right-16 sm:right-36 pointer-events-none transition-all duration-1000">
-            {/* Fiery Golden Hour Dusk Aura */}
             <div className="absolute -inset-16 rounded-full bg-[#EA580C]/35 blur-3xl animate-celestial-pulse" />
             <div className="absolute -inset-6 rounded-full bg-[#F59E0B]/45 blur-xl" />
-            {/* Sinking Deep Amber Solar Core */}
             <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-b from-[#FEF08A] via-[#F97316] to-[#DC2626] shadow-[0_0_60px_rgba(249,115,22,0.85),0_0_120px_rgba(220,38,38,0.5)]" />
-            {/* Dramatic Twilight Horizon Beam */}
             <div className="absolute top-1/2 -left-36 -right-36 h-1 bg-gradient-to-r from-transparent via-[#FDE047]/50 via-50% to-transparent blur-xs -translate-y-1/2" />
           </div>
         )}
@@ -228,11 +236,9 @@ export const HeroSection: React.FC = () => {
         {timeOfDay === "night" && (
           /* Realistic Glowing Lunar Sphere with Geological Maria & Lunar Halos */
           <div className="absolute top-10 sm:top-14 right-14 sm:right-36 pointer-events-none transition-all duration-1000">
-            {/* Soft Outer Atmospheric Lunar Aura */}
             <div className="absolute -inset-12 rounded-full bg-[#FEF08A]/15 blur-2xl animate-celestial-pulse" />
             <div className="absolute -inset-4 rounded-full bg-[#E2E8F0]/20 blur-md" />
             
-            {/* High-Fidelity Detailed Moon SVG */}
             <svg
               className="relative w-16 h-16 sm:w-20 sm:h-20 drop-shadow-[0_0_28px_rgba(254,240,138,0.7)]"
               viewBox="0 0 100 100"
@@ -253,17 +259,12 @@ export const HeroSection: React.FC = () => {
                 </radialGradient>
               </defs>
 
-              {/* Main Lunar Disc */}
               <circle cx="50" cy="50" r="46" fill="url(#moonGlowGrad)" />
-
-              {/* Geological Lunar Maria (Basalt Plains: Sea of Tranquility & Ocean of Storms) */}
               <ellipse cx="38" cy="36" rx="14" ry="11" fill="url(#craterDarkGrad)" />
               <ellipse cx="58" cy="42" rx="12" ry="14" fill="url(#craterDarkGrad)" />
               <ellipse cx="44" cy="64" rx="16" ry="10" fill="url(#craterDarkGrad)" />
               <ellipse cx="64" cy="68" rx="9" ry="8" fill="url(#craterDarkGrad)" />
               <circle cx="28" cy="54" r="5" fill="url(#craterDarkGrad)" />
-
-              {/* Subtle Crater Rim Highlights */}
               <circle cx="36" cy="34" r="4.5" stroke="#FFFFFF" strokeWidth="0.8" strokeOpacity="0.45" fill="none" />
               <circle cx="56" cy="62" r="3" stroke="#FFFFFF" strokeWidth="0.6" strokeOpacity="0.4" fill="none" />
             </svg>
@@ -278,12 +279,24 @@ export const HeroSection: React.FC = () => {
               <linearGradient id="cloudGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop
                   offset="0%"
-                  stopColor={timeOfDay === "day" ? "#FFFFFF" : timeOfDay === "sunset" ? "#FED7AA" : "#CBD5E1"}
+                  stopColor={
+                    timeOfDay === "day"
+                      ? "#FFFFFF"
+                      : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                      ? "#FED7AA"
+                      : "#CBD5E1"
+                  }
                   stopOpacity="0.8"
                 />
                 <stop
                   offset="100%"
-                  stopColor={timeOfDay === "day" ? "#BAE6FD" : timeOfDay === "sunset" ? "#C084FC" : "#334155"}
+                  stopColor={
+                    timeOfDay === "day"
+                      ? "#BAE6FD"
+                      : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                      ? "#C084FC"
+                      : "#334155"
+                  }
                   stopOpacity="0"
                 />
               </linearGradient>
@@ -316,12 +329,24 @@ export const HeroSection: React.FC = () => {
               <linearGradient id="cloudGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop
                   offset="0%"
-                  stopColor={timeOfDay === "day" ? "#FFFFFF" : timeOfDay === "sunset" ? "#FDBA74" : "#E2E8F0"}
+                  stopColor={
+                    timeOfDay === "day"
+                      ? "#FFFFFF"
+                      : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                      ? "#FDBA74"
+                      : "#E2E8F0"
+                  }
                   stopOpacity="0.9"
                 />
                 <stop
                   offset="60%"
-                  stopColor={timeOfDay === "day" ? "#E0F2FE" : timeOfDay === "sunset" ? "#E879F9" : "#64748B"}
+                  stopColor={
+                    timeOfDay === "day"
+                      ? "#E0F2FE"
+                      : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                      ? "#E879F9"
+                      : "#64748B"
+                  }
                   stopOpacity="0.5"
                 />
                 <stop offset="100%" stopColor="#000000" stopOpacity="0" />
@@ -352,33 +377,30 @@ export const HeroSection: React.FC = () => {
         {/* Flock 1: High-Altitude Gliding Terns across Odisha Horizon */}
         <div className="absolute top-20 sm:top-24 left-0 w-64 h-16 pointer-events-none animate-bird-flight-1">
           <div className="flex items-center gap-6">
-            {/* Bird 1 (Flock Leader) */}
             <svg
               viewBox="0 0 50 24"
               className={`w-7 h-4 ${
                 timeOfDay === "day"
                   ? "text-white/85"
-                  : timeOfDay === "sunset"
+                  : timeOfDay === "sunset" || timeOfDay === "sunrise"
                   ? "text-[#FED7AA]"
                   : "text-[#E2E8F0]/70"
               }`}
             >
               <ellipse cx="25" cy="13" rx="7" ry="2.2" fill="currentColor" />
               <polygon points="20,13 14,14 16,12" fill="currentColor" />
-              {/* Articulated Flapping Wings */}
               <g className="animate-bird-wing">
                 <path d="M 23,12 Q 17,2 9,1 Q 14,8 21,13 Z" fill="currentColor" />
                 <path d="M 27,12 Q 33,2 41,1 Q 36,8 29,13 Z" fill="currentColor" />
               </g>
             </svg>
 
-            {/* Bird 2 (Echelon Wingman) */}
             <svg
               viewBox="0 0 50 24"
               className={`w-5 h-3 -mt-3 ${
                 timeOfDay === "day"
                   ? "text-white/75"
-                  : timeOfDay === "sunset"
+                  : timeOfDay === "sunset" || timeOfDay === "sunrise"
                   ? "text-[#FED7AA]/80"
                   : "text-[#E2E8F0]/60"
               }`}
@@ -390,13 +412,12 @@ export const HeroSection: React.FC = () => {
               </g>
             </svg>
 
-            {/* Bird 3 (Trailing Wingman) */}
             <svg
               viewBox="0 0 50 24"
               className={`w-6 h-3.5 mt-2 ${
                 timeOfDay === "day"
                   ? "text-white/80"
-                  : timeOfDay === "sunset"
+                  : timeOfDay === "sunset" || timeOfDay === "sunrise"
                   ? "text-[#FED7AA]/75"
                   : "text-[#E2E8F0]/65"
               }`}
@@ -431,20 +452,19 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* ================= REALISTIC BAY OF BENGAL ROLLING SURF & HORIZON ================= */}
-        <div className="absolute bottom-32 sm:bottom-36 inset-x-0 h-32 pointer-events-none overflow-hidden">
-          {/* Deep Coastal Sea Gradient according to Time of Day */}
+        <div className="absolute bottom-28 sm:bottom-32 inset-x-0 h-32 pointer-events-none overflow-hidden">
           <div
             className={`absolute inset-0 transition-all duration-1000 ${
               timeOfDay === "day"
                 ? "bg-gradient-to-t from-[#024959] via-[#056075] to-transparent"
-                : timeOfDay === "sunset"
+                : timeOfDay === "sunset" || timeOfDay === "sunrise"
                 ? "bg-gradient-to-t from-[#052E30] via-[#5B2516] to-transparent"
                 : "bg-gradient-to-t from-[#02181A] via-[#032629] to-transparent"
             }`}
           />
 
-          {/* Sunset Sunbeam Specular Shimmer on Ocean Waters */}
-          {timeOfDay === "sunset" && (
+          {/* Sunset Specular Shimmer on Ocean Waters */}
+          {(timeOfDay === "sunset" || timeOfDay === "sunrise") && (
             <div className="absolute bottom-6 right-24 sm:right-48 w-48 sm:w-72 h-14 bg-gradient-to-t from-transparent via-[#FDE047]/25 to-transparent blur-md pointer-events-none" />
           )}
 
@@ -453,12 +473,24 @@ export const HeroSection: React.FC = () => {
             <svg viewBox="0 0 1200 45" className="w-1/2 h-full fill-none" preserveAspectRatio="none">
               <path
                 d="M 0,22 Q 75,4 150,22 T 300,22 T 450,22 T 600,22 T 750,22 T 900,22 T 1050,22 T 1200,22"
-                stroke={timeOfDay === "day" ? "#A7F3D0" : timeOfDay === "sunset" ? "#FED7AA" : "#99F6E4"}
+                stroke={
+                  timeOfDay === "day"
+                    ? "#A7F3D0"
+                    : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                    ? "#FED7AA"
+                    : "#99F6E4"
+                }
                 strokeWidth="1.6"
               />
               <path
                 d="M 0,30 Q 60,16 120,30 T 240,30 T 360,30 T 480,30 T 600,30 T 720,30 T 840,30 T 960,30 T 1080,30 T 1200,30"
-                stroke={timeOfDay === "day" ? "#BAE6FD" : timeOfDay === "sunset" ? "#FDBA74" : "#5EEAD4"}
+                stroke={
+                  timeOfDay === "day"
+                    ? "#BAE6FD"
+                    : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                    ? "#FDBA74"
+                    : "#5EEAD4"
+                }
                 strokeWidth="1.2"
                 strokeOpacity="0.6"
               />
@@ -466,12 +498,24 @@ export const HeroSection: React.FC = () => {
             <svg viewBox="0 0 1200 45" className="w-1/2 h-full fill-none" preserveAspectRatio="none">
               <path
                 d="M 0,22 Q 75,4 150,22 T 300,22 T 450,22 T 600,22 T 750,22 T 900,22 T 1050,22 T 1200,22"
-                stroke={timeOfDay === "day" ? "#A7F3D0" : timeOfDay === "sunset" ? "#FED7AA" : "#99F6E4"}
+                stroke={
+                  timeOfDay === "day"
+                    ? "#A7F3D0"
+                    : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                    ? "#FED7AA"
+                    : "#99F6E4"
+                }
                 strokeWidth="1.6"
               />
               <path
                 d="M 0,30 Q 60,16 120,30 T 240,30 T 360,30 T 480,30 T 600,30 T 720,30 T 840,30 T 960,30 T 1080,30 T 1200,30"
-                stroke={timeOfDay === "day" ? "#BAE6FD" : timeOfDay === "sunset" ? "#FDBA74" : "#5EEAD4"}
+                stroke={
+                  timeOfDay === "day"
+                    ? "#BAE6FD"
+                    : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                    ? "#FDBA74"
+                    : "#5EEAD4"
+                }
                 strokeWidth="1.2"
                 strokeOpacity="0.6"
               />
@@ -481,60 +525,97 @@ export const HeroSection: React.FC = () => {
 
         {/* =========================================================================
             LAYER 1B: REALISTIC ODISHA TREES & ARCHITECTURAL LANDMARKS
-            (Segmented Coconut Palms, Layered Casuarinas, Jagannath Temple & Konark)
+            (Positioned seamlessly right above the open highway)
             ========================================================================= */}
-        <div className="absolute bottom-24 sm:bottom-28 inset-x-0 h-44 sm:h-52 pointer-events-none overflow-hidden opacity-95">
+        <div className="absolute bottom-22 sm:bottom-26 inset-x-0 h-44 sm:h-52 pointer-events-none overflow-hidden opacity-95">
           <svg viewBox="0 0 1440 180" className="w-full h-full" preserveAspectRatio="none">
             <defs>
-              {/* Natural Tree Trunk Gradient */}
               <linearGradient id="palmTrunkWood" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#4A3423" />
                 <stop offset="45%" stopColor="#785338" />
                 <stop offset="100%" stopColor="#2F1F14" />
               </linearGradient>
 
-              {/* Lush Palm Fronds Foliage Gradient */}
               <linearGradient id="palmFrondGreen" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop
                   offset="0%"
-                  stopColor={timeOfDay === "day" ? "#22C55E" : timeOfDay === "sunset" ? "#EAB308" : "#0D6E66"}
+                  stopColor={
+                    timeOfDay === "day"
+                      ? "#22C55E"
+                      : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                      ? "#EAB308"
+                      : "#0D6E66"
+                  }
                 />
                 <stop
                   offset="100%"
-                  stopColor={timeOfDay === "day" ? "#14532D" : timeOfDay === "sunset" ? "#713F12" : "#042D2B"}
+                  stopColor={
+                    timeOfDay === "day"
+                      ? "#14532D"
+                      : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                      ? "#713F12"
+                      : "#042D2B"
+                  }
                 />
               </linearGradient>
 
-              {/* Casuarina Needle Evergreen Gradient */}
               <linearGradient id="casuarinaNeedles" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop
                   offset="0%"
-                  stopColor={timeOfDay === "day" ? "#15803D" : timeOfDay === "sunset" ? "#CA8A04" : "#0B4B48"}
+                  stopColor={
+                    timeOfDay === "day"
+                      ? "#15803D"
+                      : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                      ? "#CA8A04"
+                      : "#0B4B48"
+                  }
                 />
                 <stop
                   offset="100%"
-                  stopColor={timeOfDay === "day" ? "#052E16" : timeOfDay === "sunset" ? "#451A03" : "#021E20"}
+                  stopColor={
+                    timeOfDay === "day"
+                      ? "#052E16"
+                      : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                      ? "#451A03"
+                      : "#021E20"
+                  }
                 />
               </linearGradient>
 
-              {/* Temple Kalinga Khondalite Stone Gradient */}
               <linearGradient id="templeKhondaliteStone" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop
                   offset="0%"
-                  stopColor={timeOfDay === "day" ? "#134E4A" : timeOfDay === "sunset" ? "#78350F" : "#0F3D3B"}
+                  stopColor={
+                    timeOfDay === "day"
+                      ? "#134E4A"
+                      : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                      ? "#78350F"
+                      : "#0F3D3B"
+                  }
                 />
                 <stop
                   offset="50%"
-                  stopColor={timeOfDay === "day" ? "#0F766E" : timeOfDay === "sunset" ? "#9A3412" : "#0A2F31"}
+                  stopColor={
+                    timeOfDay === "day"
+                      ? "#0F766E"
+                      : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                      ? "#9A3412"
+                      : "#0A2F31"
+                  }
                 />
                 <stop offset="100%" stopColor="#021B1C" />
               </linearGradient>
 
-              {/* Coastal Golden Sand Dunes of Chandrabhaga & Puri */}
               <linearGradient id="coastalSandDunes" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop
                   offset="0%"
-                  stopColor={timeOfDay === "day" ? "#CA8A04" : timeOfDay === "sunset" ? "#9A3412" : "#785317"}
+                  stopColor={
+                    timeOfDay === "day"
+                      ? "#CA8A04"
+                      : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                      ? "#9A3412"
+                      : "#785317"
+                  }
                   stopOpacity="0.45"
                 />
                 <stop offset="100%" stopColor="#021C1D" stopOpacity="0.9" />
@@ -547,16 +628,14 @@ export const HeroSection: React.FC = () => {
               fill="url(#coastalSandDunes)"
             />
 
-            {/* ================= REALISTIC LEFT GROVE: ODISHA COCONUT PALM & CASUARINAS ================= */}
-            {/* Casuarina Tree 1 (Background Needle Tiers) */}
+            {/* Casuarina Tree 1 */}
             <g className="animate-casuarina-sway">
               <rect x="58" y="100" width="6" height="80" fill="#2E1D13" rx="2" />
               <path d="M 61,45 L 78,85 L 68,85 L 82,120 L 72,120 L 86,155 L 36,155 L 50,120 L 40,120 L 54,85 L 44,85 Z" fill="url(#casuarinaNeedles)" />
             </g>
 
-            {/* Natural Arched Odisha Coconut Palm Tree */}
+            {/* Realistic Coconut Palm Tree */}
             <g className="animate-palm-sway" transform="translate(110, 0)">
-              {/* Segmented Weathered Trunk */}
               <path
                 d="M 20,180 Q 15,120 28,68 Q 32,58 36,46"
                 stroke="url(#palmTrunkWood)"
@@ -564,33 +643,24 @@ export const HeroSection: React.FC = () => {
                 fill="none"
                 strokeLinecap="round"
               />
-              {/* Trunk Notches / Rings */}
               <line x1="16" y1="160" x2="22" y2="162" stroke="#25160E" strokeWidth="1.2" />
               <line x1="17" y1="135" x2="24" y2="137" stroke="#25160E" strokeWidth="1.2" />
               <line x1="21" y1="105" x2="27" y2="107" stroke="#25160E" strokeWidth="1.2" />
               <line x1="27" y1="75" x2="33" y2="76" stroke="#25160E" strokeWidth="1.2" />
 
-              {/* Clustered Coconuts under Frond Base */}
               <circle cx="34" cy="48" r="3.2" fill="#713F12" />
               <circle cx="38" cy="49" r="3" fill="#854D0E" />
               <circle cx="35" cy="52" r="2.8" fill="#58310C" />
 
-              {/* Realistic Arching Tropical Palm Fronds */}
-              {/* Frond 1 (Left Swept Drooping) */}
               <path d="M 36,46 Q 10,32 -25,48 Q -5,30 36,46" fill="url(#palmFrondGreen)" />
-              {/* Frond 2 (Far Left High Arch) */}
               <path d="M 36,46 Q 5,12 -18,22 Q 2,22 36,46" fill="url(#palmFrondGreen)" />
-              {/* Frond 3 (Center Top Frond) */}
               <path d="M 36,46 Q 30,8 34,-6 Q 42,12 36,46" fill="url(#palmFrondGreen)" />
-              {/* Frond 4 (Right High Arch) */}
               <path d="M 36,46 Q 65,10 85,20 Q 64,22 36,46" fill="url(#palmFrondGreen)" />
-              {/* Frond 5 (Right Swept Drooping) */}
               <path d="M 36,46 Q 75,34 98,54 Q 72,36 36,46" fill="url(#palmFrondGreen)" />
-              {/* Frond 6 (Down Right) */}
               <path d="M 36,46 Q 60,56 70,72 Q 52,52 36,46" fill="url(#palmFrondGreen)" />
             </g>
 
-            {/* Casuarina Tree 2 (Foreground Needle Tiers) */}
+            {/* Casuarina Tree 2 */}
             <g className="animate-casuarina-sway" style={{ animationDelay: "1.2s" }}>
               <rect x="220" y="110" width="7" height="70" fill="#2E1D13" rx="2" />
               <path d="M 223,60 L 240,95 L 232,95 L 246,130 L 236,130 L 250,165 L 196,165 L 210,130 L 200,130 L 214,95 L 206,95 Z" fill="url(#casuarinaNeedles)" />
@@ -598,7 +668,6 @@ export const HeroSection: React.FC = () => {
 
             {/* ================= THE SACRED PURI JAGANNATH TEMPLE SHIKHARA ================= */}
             <g transform="translate(390, 0)">
-              {/* Main 214-Foot Rekha Deula Tower Spire */}
               <path
                 d="M 52,180 L 68,110 L 82,50 L 92,24 L 97,14 L 102,24 L 112,50 L 126,110 L 142,180 Z"
                 fill="url(#templeKhondaliteStone)"
@@ -606,23 +675,19 @@ export const HeroSection: React.FC = () => {
                 strokeWidth="1.2"
                 strokeOpacity="0.4"
               />
-              {/* Stepped Horizontal Kalinga Bhumi Carved Ridges */}
               <line x1="70" y1="110" x2="124" y2="110" stroke="#2DD4BF" strokeWidth="0.9" opacity="0.5" />
               <line x1="76" y1="85" x2="118" y2="85" stroke="#2DD4BF" strokeWidth="0.9" opacity="0.5" />
               <line x1="84" y1="60" x2="110" y2="60" stroke="#2DD4BF" strokeWidth="0.9" opacity="0.5" />
               <line x1="90" y1="36" x2="104" y2="36" stroke="#2DD4BF" strokeWidth="0.9" opacity="0.5" />
               
-              {/* Sacred Golden Neela Chakra atop Kalasa */}
               <circle cx="97" cy="13" r="5.5" stroke="#D9A52B" strokeWidth="1.6" fill="#042F31" />
               <circle cx="97" cy="13" r="2" fill="#FACC15" />
 
-              {/* Fluttering Sacred Saffron Patitapabana Flag */}
               <g className="animate-flag-flutter" transform="translate(97, 9)">
                 <polygon points="0,0 24,-5 0,-11" fill="#EA580C" />
                 <polygon points="0,0 17,-4 0,-8" fill="#F97316" />
               </g>
 
-              {/* Jagamohana Pyramidal Audience Hall */}
               <polygon
                 points="126,180 156,120 186,180"
                 fill="url(#templeKhondaliteStone)"
@@ -634,15 +699,10 @@ export const HeroSection: React.FC = () => {
 
             {/* ================= THE 13TH-CENTURY KONARK SUN TEMPLE CHARIOT WHEEL ================= */}
             <g transform="translate(730, 48)">
-              {/* Konark Stepped Vimana Silhouette */}
               <polygon points="0,132 50,55 100,132" fill="url(#templeKhondaliteStone)" opacity="0.9" />
-              
-              {/* Monumental 16-Spoke Stone Chariot Wheel */}
               <circle cx="165" cy="95" r="35" stroke="#D9A52B" strokeWidth="3.2" fill="#032628" />
               <circle cx="165" cy="95" r="30" stroke="#2DD4BF" strokeWidth="1.2" fill="none" opacity="0.6" />
               <circle cx="165" cy="95" r="9" fill="#D9A52B" stroke="#000000" strokeWidth="1" />
-              
-              {/* Intricate Carved Spokes with Sunbeams */}
               <line x1="165" y1="60" x2="165" y2="130" stroke="#FDE047" strokeWidth="2.2" />
               <line x1="130" y1="95" x2="200" y2="95" stroke="#FDE047" strokeWidth="2.2" />
               <line x1="140" y1="70" x2="190" y2="120" stroke="#D9A52B" strokeWidth="1.6" />
@@ -655,17 +715,14 @@ export const HeroSection: React.FC = () => {
 
             {/* ================= CHILIKA LAGOON WATERS & WOODEN FISHING BOATS ================= */}
             <g transform="translate(1060, 92)">
-              {/* Traditional Wooden Fishing Boat (Nauka) */}
               <path d="M 45,62 Q 72,74 100,62 L 95,56 L 50,56 Z" fill="#2E1D13" stroke="#D9A52B" strokeWidth="1" />
-              {/* Triangular White/Beige Sail */}
               <polygon points="72,56 72,18 95,50" fill="#F8FAFC" opacity="0.85" />
               <polygon points="72,56 72,26 54,52" fill="#E2E8F0" opacity="0.7" />
-              {/* Rolling Hills of Satapada & Barkul */}
               <path d="M 110,88 Q 170,35 230,88" stroke="#0B524E" strokeWidth="2.5" fill="none" />
               <path d="M 210,88 Q 270,25 330,88" stroke="#073B3A" strokeWidth="3" fill="none" />
             </g>
 
-            {/* ================= RIGHT COASTAL CASUARINA RESERVE FOREST ================= */}
+            {/* Casuarina Forest Right */}
             <g className="animate-casuarina-sway" style={{ animationDelay: "2s" }}>
               <rect x="1330" y="105" width="6" height="75" fill="#2E1D13" rx="2" />
               <path d="M 1333,55 L 1350,90 L 1342,90 L 1356,125 L 1346,125 L 1360,160 L 1306,160 L 1320,125 L 1310,125 L 1324,90 L 1316,90 Z" fill="url(#casuarinaNeedles)" />
@@ -676,67 +733,19 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* =========================================================================
-          LAYER 2: HERO BRANDING, HIGH-CONVERTING HEADLINE & CTAS
+          LAYER 2: HERO BRANDING, HIGH-CONVERTING HEADLINE & CTAS (CLEAN, NO TABS)
           ========================================================================= */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center space-y-3 sm:space-y-3.5">
         
-        {/* Top Header Row: Status Kicker + Interactive Time-of-Day Switcher */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
-          
-          {/* Status Kicker Pill with Live Beacon */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#D9A52B]/50 text-xs font-semibold text-[#D9A52B] shadow-xl">
+        {/* Status Kicker Pill with Live Beacon (No Manual Tabs) */}
+        <div className="flex items-center justify-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#D9A52B]/50 text-xs font-semibold text-[#D9A52B] shadow-xl">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10B981]"></span>
             </span>
             <span>Verified Odisha Highway Network • Direct Dispatch Across 30 Districts</span>
           </div>
-
-          {/* Interactive Day / Sunset / Night Environment Switcher */}
-          <div className="inline-flex items-center p-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 shadow-xl">
-            <button
-              type="button"
-              onClick={() => handleTimeSelect("day")}
-              className={`px-2.5 py-1 rounded-full text-[11px] font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
-                timeOfDay === "day"
-                  ? "bg-[#D9A52B] text-[#062F31] shadow-md font-extrabold"
-                  : "text-white/80 hover:text-white hover:bg-white/10"
-              }`}
-              title="Switch to Coastal Daylight"
-            >
-              <Sun className="w-3 h-3 text-amber-500" />
-              <span>Day</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleTimeSelect("sunset")}
-              className={`px-2.5 py-1 rounded-full text-[11px] font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
-                timeOfDay === "sunset"
-                  ? "bg-[#EA580C] text-white shadow-md font-extrabold"
-                  : "text-white/80 hover:text-white hover:bg-white/10"
-              }`}
-              title="Switch to Golden Hour Sunset"
-            >
-              <Sunset className="w-3 h-3 text-orange-300" />
-              <span>Sunset</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleTimeSelect("night")}
-              className={`px-2.5 py-1 rounded-full text-[11px] font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
-                timeOfDay === "night"
-                  ? "bg-[#064E3B] text-[#FDE047] border border-[#D9A52B]/40 shadow-md font-extrabold"
-                  : "text-white/80 hover:text-white hover:bg-white/10"
-              }`}
-              title="Switch to Starlit Night"
-            >
-              <Moon className="w-3 h-3 text-yellow-300" />
-              <span>Night</span>
-            </button>
-          </div>
-
         </div>
 
         {/* Short, Direct, High-Converting Headline */}
@@ -776,7 +785,7 @@ export const HeroSection: React.FC = () => {
       {/* =========================================================================
           LAYER 3: INTERACTIVE ODISHA TOUR CIRCUIT SELECTOR (ZERO LAYOUT SHIFT)
           ========================================================================= */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-5 sm:mt-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-4 sm:mt-5">
         
         {/* Circuit Bar Header */}
         <div className="flex items-center justify-between gap-2 mb-2">
@@ -866,21 +875,19 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* =========================================================================
-          LAYER 4: REALISTIC ASPHALT HIGHWAY DECK & RUNNING COMMERCIAL CAB
-          (Fixed HUD Structure - Zero Height/Width Shifts)
+          LAYER 4: REALISTIC FULL-WIDTH OPEN HIGHWAY (NOT IN A BOX!)
+          (Edge-to-edge highway surface, roadside cat-eye studs, passing milestones)
           ========================================================================= */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-3.5 sm:mt-4">
+      <div className="relative z-10 w-full mt-4 sm:mt-5 overflow-hidden">
         
-        {/* Full-Width Asphalt Highway Deck */}
-        <div className="relative rounded-3xl overflow-hidden border-2 border-[#D9A52B]/45 bg-[#141B1C] shadow-[0_20px_50px_rgba(0,0,0,0.85)] p-3 sm:p-4">
-          
-          {/* Stable Fixed-Height Telemetry HUD (Zero Layout Shifts) */}
-          <div className="h-11 min-h-[44px] flex items-center justify-between gap-3 pb-2.5 border-b border-white/10 text-xs">
+        {/* Floating Highway Telemetry HUD Ribbon (Stable & Zero Shift) */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-2">
+          <div className="h-10 min-h-[40px] px-3.5 sm:px-4 rounded-xl bg-black/65 backdrop-blur-md border border-white/15 flex items-center justify-between text-xs text-white shadow-xl">
             
             {/* Left Slot: Fixed Min-Width Container with Truncate */}
-            <div className="flex items-center gap-2 min-w-0 max-w-[60%] sm:max-w-[70%]">
+            <div className="flex items-center gap-2 min-w-0 max-w-[65%] sm:max-w-[70%]">
               <span className="w-2 h-2 rounded-full bg-[#10B981] animate-ping shrink-0" />
-              <div className="truncate text-white font-medium">
+              <div className="truncate font-medium">
                 <span className="text-white/70">Passing: </span>
                 <span className="text-[#D9A52B] font-display font-bold">
                   {activeDest.name}
@@ -892,7 +899,7 @@ export const HeroSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Slot: Stable Route Actions (Fixed Sizes) */}
+            {/* Right Slot: Stable Route Telemetry (Fixed Sizes) */}
             <div className="flex items-center gap-3 shrink-0 text-[11px]">
               <span className="hidden sm:inline text-white/80 font-mono">
                 Speed: <strong className="text-[#D9A52B]">{currentSpeed} km/h</strong>
@@ -903,318 +910,314 @@ export const HeroSection: React.FC = () => {
               </span>
               <span className="hidden md:inline text-white/30">•</span>
               
-              {/* Stable Fixed-Width Booking Button */}
+              {/* Stable Fixed-Width Route Booking Button */}
               <Link
                 href={activeDest.bookLink}
-                className="w-32 sm:w-36 h-7.5 px-3 rounded-xl bg-[#D9A52B] hover:brightness-110 text-[#062F31] font-extrabold text-[11px] transition flex items-center justify-center gap-1 shadow-md shrink-0 cursor-pointer"
+                className="w-32 sm:w-36 h-7 px-3 rounded-lg bg-[#D9A52B] hover:brightness-110 text-[#062F31] font-extrabold text-[11px] transition flex items-center justify-center gap-1 shadow-md shrink-0 cursor-pointer"
               >
                 <span>Book This Route</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#062F31]" />
               </Link>
             </div>
           </div>
+        </div>
 
-          {/* Highway Asphalt Road Surface with Moving Center Stripes & Realistic Passing Milestones */}
-          <div className="relative h-28 sm:h-32 w-full mt-2 overflow-hidden rounded-2xl bg-gradient-to-b from-[#131A1B] via-[#1A2223] to-[#101617] border-y-2 border-[#374749] flex items-center shadow-inner">
-            
-            {/* Real Asphalt Fine Mineral Texture */}
-            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#FFF_1px,transparent_1px)] [background-size:4px_4px]" />
+        {/* FULL-WIDTH OPEN ASPHALT HIGHWAY SURFACE (NO BOX, EDGE-TO-EDGE) */}
+        <div className="w-full relative h-28 sm:h-34 bg-gradient-to-b from-[#121819] via-[#1B2324] to-[#0F1415] border-y border-[#3A4A4C] flex items-center overflow-hidden shadow-[inset_0_4px_12px_rgba(0,0,0,0.8)]">
+          
+          {/* Real Asphalt Fine Mineral Texture */}
+          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#FFF_1px,transparent_1px)] [background-size:4px_4px]" />
 
-            {/* Upper Highway Shoulder Solid White Line with Roadside Cat-Eye Reflectors */}
-            <div className="absolute top-2.5 inset-x-0 h-0.5 bg-white/70 shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
-            <div className="absolute top-1.5 inset-x-0 flex justify-around pointer-events-none opacity-80">
-              {Array.from({ length: 12 }).map((_, i) => (
+          {/* Highway Steel Guardrail along the Top Shoulder Verge */}
+          <div className="absolute top-0 inset-x-0 h-2 bg-[#263133] border-b border-[#3E4F52] flex items-center pointer-events-none">
+            <div className="w-full h-0.5 bg-gradient-to-r from-slate-400 via-slate-200 to-slate-400 opacity-60" />
+          </div>
+
+          {/* Roadside Retro-Reflective Amber Cat-Eye Studs */}
+          <div className="absolute top-3.5 inset-x-0 flex justify-around pointer-events-none opacity-85">
+            {Array.from({ length: 24 }).map((_, i) => (
+              <span
+                key={i}
+                className="w-1.5 h-1.5 rounded-full bg-amber-400 shadow-[0_0_6px_#F59E0B]"
+              />
+            ))}
+          </div>
+
+          {/* Upper Highway Shoulder Solid Continuous White Line */}
+          <div className="absolute top-4 inset-x-0 h-0.5 bg-white/75 shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
+
+          {/* ================= AUTHENTIC PASSING INDIAN NATIONAL HIGHWAY MILESTONE 1 ================= */}
+          <div className="absolute top-1.5 z-10 animate-passing-milestone-1 pointer-events-none">
+            <div className="w-24 h-11 rounded-t-2xl overflow-hidden border border-black/40 shadow-2xl flex flex-col items-center">
+              <div className="w-full bg-[#FACC15] text-[#062F31] font-black text-[8px] text-center py-0.5 border-b border-black/20">
+                {activeDest.nhNumber}
+              </div>
+              <div className="w-full bg-[#FFFFFF] text-[#062F31] flex flex-col items-center justify-center py-0.5 px-1 leading-tight">
+                <span className="text-[7.5px] font-extrabold truncate w-full text-center">
+                  {activeDest.shortName}
+                </span>
+                <span className="text-[8px] font-black font-mono text-[#B91C1C]">
+                  {activeDest.km}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* ================= PASSING HIGHWAY GANTRY MILESTONE 2 ================= */}
+          <div className="absolute top-1.5 z-10 animate-passing-milestone-2 pointer-events-none">
+            <div className="p-1 px-2.5 rounded-lg bg-[#073B3A] border border-[#D9A52B] text-white shadow-xl flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full bg-[#10B981] text-white flex items-center justify-center font-black text-[7.5px]">
+                STA
+              </div>
+              <div>
+                <div className="text-[8.5px] font-black uppercase tracking-wider text-[#D9A52B]">
+                  ODISHA COMMERCIAL HIGHWAY
+                </div>
+                <div className="text-[7px] text-white/80">100% Commercial Fleet • Zero Surge</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Moving Dashed Center Yellow Lane Divider Stripes */}
+          <div className="absolute top-1/2 -translate-y-1/2 inset-x-0 h-1 flex overflow-hidden pointer-events-none">
+            <div
+              className={`flex shrink-0 w-[200%] ${
+                isSprint ? "animate-road-flow-fast" : "animate-road-flow"
+              }`}
+            >
+              {Array.from({ length: 50 }).map((_, i) => (
                 <span
                   key={i}
-                  className="w-1.5 h-1.5 rounded-full bg-amber-400 shadow-[0_0_6px_#F59E0B]"
+                  className="inline-block w-8 sm:w-12 h-1 bg-[#FACC15] mr-6 sm:mr-8 rounded-full shadow-[0_0_8px_rgba(250,204,21,0.7)] shrink-0"
                 />
               ))}
             </div>
-
-            {/* ================= AUTHENTIC PASSING INDIAN NATIONAL HIGHWAY MILESTONE 1 ================= */}
-            <div className="absolute top-1 z-10 animate-passing-milestone-1 pointer-events-none">
-              {/* Milestone Pillar: Semicircular Canary Yellow Top + White Concrete Base */}
-              <div className="w-24 h-11 rounded-t-2xl overflow-hidden border border-black/40 shadow-2xl flex flex-col items-center">
-                {/* Yellow Top Half for National Highway */}
-                <div className="w-full bg-[#FACC15] text-[#062F31] font-black text-[8px] text-center py-0.5 border-b border-black/20">
-                  {activeDest.nhNumber}
-                </div>
-                {/* Stark White Lower Body with Odia & English Destination Name */}
-                <div className="w-full bg-[#FFFFFF] text-[#062F31] flex flex-col items-center justify-center py-0.5 px-1 leading-tight">
-                  <span className="text-[7.5px] font-extrabold truncate w-full text-center">
-                    {activeDest.shortName}
-                  </span>
-                  <span className="text-[8px] font-black font-mono text-[#B91C1C]">
-                    {activeDest.km}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* ================= PASSING HIGHWAY GANTRY MILESTONE 2 ================= */}
-            <div className="absolute top-1 z-10 animate-passing-milestone-2 pointer-events-none">
-              <div className="p-1 px-2.5 rounded-lg bg-[#073B3A] border border-[#D9A52B] text-white shadow-xl flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-[#10B981] text-white flex items-center justify-center font-black text-[7.5px]">
-                  STA
-                </div>
-                <div>
-                  <div className="text-[8.5px] font-black uppercase tracking-wider text-[#D9A52B]">
-                    ODISHA COMMERCIAL HIGHWAY
-                  </div>
-                  <div className="text-[7px] text-white/80">100% Commercial Fleet • Zero Surge</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Moving Dashed Center Yellow Lane Divider Stripes */}
-            <div className="absolute top-1/2 -translate-y-1/2 inset-x-0 h-1 flex overflow-hidden pointer-events-none">
-              <div
-                className={`flex shrink-0 w-[200%] ${
-                  isSprint ? "animate-road-flow-fast" : "animate-road-flow"
-                }`}
-              >
-                {Array.from({ length: 40 }).map((_, i) => (
-                  <span
-                    key={i}
-                    className="inline-block w-8 sm:w-12 h-1 bg-[#FACC15] mr-6 sm:mr-8 rounded-full shadow-[0_0_8px_rgba(250,204,21,0.7)] shrink-0"
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Lower Highway Shoulder Solid White Line */}
-            <div className="absolute bottom-2.5 inset-x-0 h-0.5 bg-white/70 shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
-
-            {/* ================= THE RUNNING BRANDED COMMERCIAL CAR ================= */}
-            <div className="relative z-20 left-4 sm:left-14 lg:left-20 flex items-center">
-              
-              {/* Visual Honk Soundwave Animation */}
-              {honkActive && (
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 pointer-events-none flex items-center gap-1 z-30">
-                  <span className="w-6 h-6 rounded-full border-2 border-[#D9A52B] animate-ping" />
-                  <span className="w-10 h-10 rounded-full border-2 border-[#D9A52B]/60 animate-ping" />
-                  <span className="text-xs font-black text-[#D9A52B] font-mono tracking-widest uppercase bg-black/60 px-1.5 py-0.5 rounded">
-                    HONK!
-                  </span>
-                </div>
-              )}
-
-              {/* Suspension Micro-Bounce Chassis */}
-              <div className="relative animate-car-chassis">
-                
-                {/* Volumetric Projector Headlight Beam (Changes with Time of Day) */}
-                <div className="absolute top-[28px] left-[225px] w-64 sm:w-96 h-28 pointer-events-none z-10 animate-headlight-beam">
-                  <svg viewBox="0 0 350 100" className="w-full h-full overflow-visible">
-                    <defs>
-                      <linearGradient id="headlightVolumetricBeam" x1="0%" y1="30%" x2="100%" y2="50%">
-                        <stop
-                          offset="0%"
-                          stopColor="#FEF08A"
-                          stopOpacity={timeOfDay === "night" ? "0.9" : timeOfDay === "sunset" ? "0.75" : "0.35"}
-                        />
-                        <stop
-                          offset="25%"
-                          stopColor="#FDE047"
-                          stopOpacity={timeOfDay === "night" ? "0.45" : timeOfDay === "sunset" ? "0.35" : "0.15"}
-                        />
-                        <stop offset="100%" stopColor="#EAB308" stopOpacity="0" />
-                      </linearGradient>
-                    </defs>
-                    <polygon points="0,30 350,0 350,100 0,55" fill="url(#headlightVolumetricBeam)" />
-                  </svg>
-                </div>
-
-                {/* Red LED Tail Lamp Streak */}
-                <div className="absolute top-[34px] -left-10 w-16 h-3 bg-gradient-to-l from-[#EF4444] to-transparent rounded-full blur-[2px] opacity-80 pointer-events-none" />
-
-                {/* High-Fidelity Executive Commercial Sedan SVG */}
-                <svg
-                  width="240"
-                  height="78"
-                  viewBox="0 0 250 85"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="relative z-20 filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.85)]"
-                >
-                  <defs>
-                    {/* Metallic Deep Emerald Paint reacting to Time of Day */}
-                    <linearGradient id="realCarBody" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop
-                        offset="0%"
-                        stopColor={timeOfDay === "day" ? "#16A34A" : timeOfDay === "sunset" ? "#B45309" : "#147B72"}
-                      />
-                      <stop offset="25%" stopColor="#0B4B48" />
-                      <stop offset="65%" stopColor="#073B3A" />
-                      <stop offset="90%" stopColor="#032425" />
-                      <stop offset="100%" stopColor="#011415" />
-                    </linearGradient>
-
-                    {/* Windshield Tint & Sky Reflection */}
-                    <linearGradient id="realCarGlass" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#334155" stopOpacity="0.9" />
-                      <stop offset="50%" stopColor="#0F172A" stopOpacity="0.95" />
-                      <stop offset="100%" stopColor="#020617" stopOpacity="0.95" />
-                    </linearGradient>
-                  </defs>
-
-                  {/* Asphalt Contact Shadow */}
-                  <ellipse cx="125" cy="74" rx="110" ry="5.5" fill="#000000" fillOpacity="0.85" />
-
-                  {/* Aerodynamic Sedan Body Profile */}
-                  <path
-                    d="M 18,52 
-                       C 18,48 24,44 38,44 
-                       L 58,44 
-                       L 82,20 
-                       C 86,16 94,14 105,14 
-                       L 155,14 
-                       C 168,14 175,18 185,25 
-                       L 204,44 
-                       L 236,46 
-                       C 244,46 248,50 248,56 
-                       L 246,65 
-                       C 246,68 242,70 236,70 
-                       L 216,70 
-                       C 214,60 202,54 190,54 
-                       C 178,54 166,60 164,70 
-                       L 86,70 
-                       C 84,60 72,54 60,54 
-                       C 48,54 36,60 34,70 
-                       L 18,70 
-                       Z"
-                    fill="url(#realCarBody)"
-                    stroke="#0E5853"
-                    strokeWidth="1.2"
-                  />
-
-                  {/* Chrome Beltline & Window Trim */}
-                  <path
-                    d="M 86,22 L 130,22 L 130,42 L 67,42 Z"
-                    fill="url(#realCarGlass)"
-                    stroke="#CBD5E1"
-                    strokeWidth="0.8"
-                  />
-                  <path
-                    d="M 134,22 L 154,22 L 178,42 L 134,42 Z"
-                    fill="url(#realCarGlass)"
-                    stroke="#CBD5E1"
-                    strokeWidth="0.8"
-                  />
-
-                  {/* Glass Diagonal Glare */}
-                  <polygon points="100,22 110,22 90,42 80,42" fill="#FFFFFF" fillOpacity="0.25" />
-                  <polygon points="148,22 154,22 144,42 138,42" fill="#FFFFFF" fillOpacity="0.25" />
-
-                  {/* Door Separation Grooves */}
-                  <line x1="132" y1="20" x2="132" y2="68" stroke="#041E20" strokeWidth="1" />
-                  <line x1="78" y1="42" x2="78" y2="68" stroke="#041E20" strokeWidth="0.8" />
-                  <line x1="184" y1="42" x2="184" y2="68" stroke="#041E20" strokeWidth="0.8" />
-
-                  {/* Chrome Door Handles */}
-                  <rect x="115" y="47" width="8" height="1.8" rx="0.9" fill="#E2E8F0" />
-                  <rect x="145" y="47" width="8" height="1.8" rx="0.9" fill="#E2E8F0" />
-
-                  {/* ================= CABJATRA BRANDED DOOR CREST ================= */}
-                  <g transform="translate(94, 51)">
-                    <rect x="0" y="0" width="34" height="13" rx="2.5" fill="#032021" stroke="#D9A52B" strokeWidth="0.8" />
-                    <text x="17" y="6.8" fill="#D9A52B" fontSize="4.4" fontWeight="900" fontFamily="sans-serif" textAnchor="middle" letterSpacing="0.4">
-                      CABJATRA
-                    </text>
-                    <text x="17" y="10.8" fill="#F2C052" fontSize="2.4" fontWeight="bold" fontFamily="sans-serif" textAnchor="middle" letterSpacing="0.2">
-                      ODISHA CAB
-                    </text>
-                  </g>
-
-                  {/* ================= AUTHENTIC ODISHA YELLOW COMMERCIAL PLATE ================= */}
-                  <g transform="translate(14, 57)">
-                    <rect x="0" y="0" width="13" height="5.5" rx="1" fill="#FACC15" stroke="#000000" strokeWidth="0.6" />
-                    <text x="6.5" y="4" fill="#000000" fontSize="2.6" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
-                      OD 02 CJ
-                    </text>
-                  </g>
-
-                  {/* Dual Xenon Headlight Bulb */}
-                  <path
-                    d="M 234,48 L 244,52 L 246,58 L 235,56 Z"
-                    fill="#FEF08A"
-                    stroke="#FFFFFF"
-                    strokeWidth="0.8"
-                  />
-                  <circle cx="242" cy="53" r="2.2" fill="#FFFFFF" />
-
-                  {/* Red LED Tail Lamp */}
-                  <path
-                    d="M 20,48 L 28,48 L 26,55 L 18,54 Z"
-                    fill="#EF4444"
-                    stroke="#DC2626"
-                    strokeWidth="0.8"
-                  />
-                  <rect x="20" y="49" width="4" height="3" rx="0.5" fill="#FFFFFF" fillOpacity="0.8" />
-                </svg>
-
-                {/* Front Spinning Alloy Wheel with Disc Rotor & Red Brake Caliper */}
-                <div
-                  className={`absolute top-[48px] left-[165px] w-[35px] h-[35px] rounded-full z-30 ${
-                    isSprint ? "animate-wheel-spin-fast" : "animate-wheel-spin"
-                  }`}
-                >
-                  <svg viewBox="0 0 36 36" className="w-full h-full">
-                    <circle cx="18" cy="18" r="17" fill="#18181B" stroke="#27272A" strokeWidth="2" />
-                    <circle cx="18" cy="18" r="12" fill="#71717A" stroke="#E4E4E7" strokeWidth="1" />
-                    <rect x="22" y="10" width="4" height="8" rx="1.5" fill="#EF4444" />
-                    <line x1="18" y1="18" x2="18" y2="6" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-                    <line x1="18" y1="18" x2="29" y2="14" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-                    <line x1="18" y1="18" x2="25" y2="28" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-                    <line x1="18" y1="18" x2="11" y2="28" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-                    <line x1="18" y1="18" x2="7" y2="14" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-                    <circle cx="18" cy="18" r="3.5" fill="#D9A52B" stroke="#000000" strokeWidth="0.6" />
-                  </svg>
-                </div>
-
-                {/* Rear Spinning Alloy Wheel */}
-                <div
-                  className={`absolute top-[48px] left-[40px] w-[35px] h-[35px] rounded-full z-30 ${
-                    isSprint ? "animate-wheel-spin-fast" : "animate-wheel-spin"
-                  }`}
-                >
-                  <svg viewBox="0 0 36 36" className="w-full h-full">
-                    <circle cx="18" cy="18" r="17" fill="#18181B" stroke="#27272A" strokeWidth="2" />
-                    <circle cx="18" cy="18" r="12" fill="#71717A" stroke="#E4E4E7" strokeWidth="1" />
-                    <rect x="22" y="10" width="4" height="8" rx="1.5" fill="#EF4444" />
-                    <line x1="18" y1="18" x2="18" y2="6" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-                    <line x1="18" y1="18" x2="29" y2="14" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-                    <line x1="18" y1="18" x2="25" y2="28" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-                    <line x1="18" y1="18" x2="11" y2="28" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-                    <line x1="18" y1="18" x2="7" y2="14" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-                    <circle cx="18" cy="18" r="3.5" fill="#D9A52B" stroke="#000000" strokeWidth="0.6" />
-                  </svg>
-                </div>
-
-              </div>
-            </div>
-
           </div>
 
-          {/* Bottom Highway Feature Strip */}
-          <div className="pt-2 flex flex-wrap items-center justify-between text-[11px] text-white/85 gap-2">
-            <span className="flex items-center gap-1.5 text-[#D9A52B] font-bold">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Realistic Passing Odisha Highway • Synchronized with Local Time of Day</span>
-            </span>
+          {/* Lower Highway Shoulder Solid Continuous White Line */}
+          <div className="absolute bottom-3 inset-x-0 h-0.5 bg-white/75 shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
 
-            <div className="flex items-center gap-3">
-              <span className="flex items-center gap-1 font-semibold text-white">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
-                <span>100% Commercial Fleet</span>
-              </span>
-              <span className="flex items-center gap-1 font-semibold text-white">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
-                <span>22°C AC Primed</span>
-              </span>
-              <span className="flex items-center gap-1 font-semibold text-white">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
-                <span>Zero Surge Traps</span>
-              </span>
+          {/* ================= THE RUNNING BRANDED COMMERCIAL CAR ON OPEN HIGHWAY ================= */}
+          <div className="relative z-20 left-4 sm:left-14 lg:left-24 flex items-center">
+            
+            {/* Visual Honk Soundwave Animation */}
+            {honkActive && (
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 pointer-events-none flex items-center gap-1 z-30">
+                <span className="w-6 h-6 rounded-full border-2 border-[#D9A52B] animate-ping" />
+                <span className="w-10 h-10 rounded-full border-2 border-[#D9A52B]/60 animate-ping" />
+                <span className="text-xs font-black text-[#D9A52B] font-mono tracking-widest uppercase bg-black/60 px-1.5 py-0.5 rounded">
+                  HONK!
+                </span>
+              </div>
+            )}
+
+            {/* Suspension Micro-Bounce Chassis */}
+            <div className="relative animate-car-chassis">
+              
+              {/* Volumetric Projector Headlight Beam (Reacts to Realtime Time of Day) */}
+              <div className="absolute top-[28px] left-[225px] w-64 sm:w-96 h-28 pointer-events-none z-10 animate-headlight-beam">
+                <svg viewBox="0 0 350 100" className="w-full h-full overflow-visible">
+                  <defs>
+                    <linearGradient id="headlightVolumetricBeam" x1="0%" y1="30%" x2="100%" y2="50%">
+                      <stop
+                        offset="0%"
+                        stopColor="#FEF08A"
+                        stopOpacity={
+                          timeOfDay === "night"
+                            ? "0.9"
+                            : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                            ? "0.75"
+                            : "0.35"
+                        }
+                      />
+                      <stop
+                        offset="25%"
+                        stopColor="#FDE047"
+                        stopOpacity={
+                          timeOfDay === "night"
+                            ? "0.45"
+                            : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                            ? "0.35"
+                            : "0.15"
+                        }
+                      />
+                      <stop offset="100%" stopColor="#EAB308" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <polygon points="0,30 350,0 350,100 0,55" fill="url(#headlightVolumetricBeam)" />
+                </svg>
+              </div>
+
+              {/* Red LED Tail Lamp Streak */}
+              <div className="absolute top-[34px] -left-10 w-16 h-3 bg-gradient-to-l from-[#EF4444] to-transparent rounded-full blur-[2px] opacity-80 pointer-events-none" />
+
+              {/* High-Fidelity Executive Commercial Sedan SVG */}
+              <svg
+                width="240"
+                height="78"
+                viewBox="0 0 250 85"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="relative z-20 filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.85)]"
+              >
+                <defs>
+                  <linearGradient id="realCarBody" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop
+                      offset="0%"
+                      stopColor={
+                        timeOfDay === "day"
+                          ? "#16A34A"
+                          : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                          ? "#B45309"
+                          : "#147B72"
+                      }
+                    />
+                    <stop offset="25%" stopColor="#0B4B48" />
+                    <stop offset="65%" stopColor="#073B3A" />
+                    <stop offset="90%" stopColor="#032425" />
+                    <stop offset="100%" stopColor="#011415" />
+                  </linearGradient>
+
+                  <linearGradient id="realCarGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#334155" stopOpacity="0.9" />
+                    <stop offset="50%" stopColor="#0F172A" stopOpacity="0.95" />
+                    <stop offset="100%" stopColor="#020617" stopOpacity="0.95" />
+                  </linearGradient>
+                </defs>
+
+                {/* Asphalt Contact Shadow */}
+                <ellipse cx="125" cy="74" rx="110" ry="5.5" fill="#000000" fillOpacity="0.85" />
+
+                {/* Aerodynamic Sedan Body Profile */}
+                <path
+                  d="M 18,52 
+                     C 18,48 24,44 38,44 
+                     L 58,44 
+                     L 82,20 
+                     C 86,16 94,14 105,14 
+                     L 155,14 
+                     C 168,14 175,18 185,25 
+                     L 204,44 
+                     L 236,46 
+                     C 244,46 248,50 248,56 
+                     L 246,65 
+                     C 246,68 242,70 236,70 
+                     L 216,70 
+                     C 214,60 202,54 190,54 
+                     C 178,54 166,60 164,70 
+                     L 86,70 
+                     C 84,60 72,54 60,54 
+                     C 48,54 36,60 34,70 
+                     L 18,70 
+                     Z"
+                  fill="url(#realCarBody)"
+                  stroke="#0E5853"
+                  strokeWidth="1.2"
+                />
+
+                {/* Chrome Beltline & Window Trim */}
+                <path
+                  d="M 86,22 L 130,22 L 130,42 L 67,42 Z"
+                  fill="url(#realCarGlass)"
+                  stroke="#CBD5E1"
+                  strokeWidth="0.8"
+                />
+                <path
+                  d="M 134,22 L 154,22 L 178,42 L 134,42 Z"
+                  fill="url(#realCarGlass)"
+                  stroke="#CBD5E1"
+                  strokeWidth="0.8"
+                />
+
+                {/* Glass Diagonal Glare */}
+                <polygon points="100,22 110,22 90,42 80,42" fill="#FFFFFF" fillOpacity="0.25" />
+                <polygon points="148,22 154,22 144,42 138,42" fill="#FFFFFF" fillOpacity="0.25" />
+
+                {/* Door Separation Grooves */}
+                <line x1="132" y1="20" x2="132" y2="68" stroke="#041E20" strokeWidth="1" />
+                <line x1="78" y1="42" x2="78" y2="68" stroke="#041E20" strokeWidth="0.8" />
+                <line x1="184" y1="42" x2="184" y2="68" stroke="#041E20" strokeWidth="0.8" />
+
+                {/* Chrome Door Handles */}
+                <rect x="115" y="47" width="8" height="1.8" rx="0.9" fill="#E2E8F0" />
+                <rect x="145" y="47" width="8" height="1.8" rx="0.9" fill="#E2E8F0" />
+
+                {/* ================= CABJATRA BRANDED DOOR CREST ================= */}
+                <g transform="translate(94, 51)">
+                  <rect x="0" y="0" width="34" height="13" rx="2.5" fill="#032021" stroke="#D9A52B" strokeWidth="0.8" />
+                  <text x="17" y="6.8" fill="#D9A52B" fontSize="4.4" fontWeight="900" fontFamily="sans-serif" textAnchor="middle" letterSpacing="0.4">
+                    CABJATRA
+                  </text>
+                  <text x="17" y="10.8" fill="#F2C052" fontSize="2.4" fontWeight="bold" fontFamily="sans-serif" textAnchor="middle" letterSpacing="0.2">
+                    ODISHA CAB
+                  </text>
+                </g>
+
+                {/* ================= AUTHENTIC ODISHA YELLOW COMMERCIAL PLATE ================= */}
+                <g transform="translate(14, 57)">
+                  <rect x="0" y="0" width="13" height="5.5" rx="1" fill="#FACC15" stroke="#000000" strokeWidth="0.6" />
+                  <text x="6.5" y="4" fill="#000000" fontSize="2.6" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+                    OD 02 CJ
+                  </text>
+                </g>
+
+                {/* Dual Xenon Headlight Bulb */}
+                <path
+                  d="M 234,48 L 244,52 L 246,58 L 235,56 Z"
+                  fill="#FEF08A"
+                  stroke="#FFFFFF"
+                  strokeWidth="0.8"
+                />
+                <circle cx="242" cy="53" r="2.2" fill="#FFFFFF" />
+
+                {/* Red LED Tail Lamp */}
+                <path
+                  d="M 20,48 L 28,48 L 26,55 L 18,54 Z"
+                  fill="#EF4444"
+                  stroke="#DC2626"
+                  strokeWidth="0.8"
+                />
+                <rect x="20" y="49" width="4" height="3" rx="0.5" fill="#FFFFFF" fillOpacity="0.8" />
+              </svg>
+
+              {/* Front Spinning Alloy Wheel with Disc Rotor & Red Brake Caliper */}
+              <div
+                className={`absolute top-[48px] left-[165px] w-[35px] h-[35px] rounded-full z-30 ${
+                  isSprint ? "animate-wheel-spin-fast" : "animate-wheel-spin"
+                }`}
+              >
+                <svg viewBox="0 0 36 36" className="w-full h-full">
+                  <circle cx="18" cy="18" r="17" fill="#18181B" stroke="#27272A" strokeWidth="2" />
+                  <circle cx="18" cy="18" r="12" fill="#71717A" stroke="#E4E4E7" strokeWidth="1" />
+                  <rect x="22" y="10" width="4" height="8" rx="1.5" fill="#EF4444" />
+                  <line x1="18" y1="18" x2="18" y2="6" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="18" y1="18" x2="29" y2="14" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="18" y1="18" x2="25" y2="28" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="18" y1="18" x2="11" y2="28" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="18" y1="18" x2="7" y2="14" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+                  <circle cx="18" cy="18" r="3.5" fill="#D9A52B" stroke="#000000" strokeWidth="0.6" />
+                </svg>
+              </div>
+
+              {/* Rear Spinning Alloy Wheel */}
+              <div
+                className={`absolute top-[48px] left-[40px] w-[35px] h-[35px] rounded-full z-30 ${
+                  isSprint ? "animate-wheel-spin-fast" : "animate-wheel-spin"
+                }`}
+              >
+                <svg viewBox="0 0 36 36" className="w-full h-full">
+                  <circle cx="18" cy="18" r="17" fill="#18181B" stroke="#27272A" strokeWidth="2" />
+                  <circle cx="18" cy="18" r="12" fill="#71717A" stroke="#E4E4E7" strokeWidth="1" />
+                  <rect x="22" y="10" width="4" height="8" rx="1.5" fill="#EF4444" />
+                  <line x1="18" y1="18" x2="18" y2="6" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="18" y1="18" x2="29" y2="14" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="18" y1="18" x2="25" y2="28" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="18" y1="18" x2="11" y2="28" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="18" y1="18" x2="7" y2="14" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+                  <circle cx="18" cy="18" r="3.5" fill="#D9A52B" stroke="#000000" strokeWidth="0.6" />
+                </svg>
+              </div>
+
             </div>
           </div>
 
@@ -1223,9 +1226,9 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* =========================================================================
-          LAYER 5: BOTTOM THREE FOUNDATIONAL SERVICE GUARANTEES
+          LAYER 5: BOTTOM FOUNDATIONAL SERVICE GUARANTEES
           ========================================================================= */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-3.5 sm:mt-4 pt-3 border-t border-white/15 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-white/90">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-2.5 pt-2 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-white/90">
         <span className="inline-flex items-center gap-1.5 font-medium">
           <ShieldCheck className="w-4 h-4 text-[#D9A52B]" />
           <span>100% Yellow-Board Commercial Fleet</span>
