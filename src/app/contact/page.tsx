@@ -71,7 +71,7 @@ export default function ContactPage() {
     <div className="bg-[#FAF9F5] min-h-screen text-[#182A2B]">
       {/* ================= EDITORIAL OPERATIONS HERO BANNER ================= */}
       {/* pt-36 sm:pt-44 ensures floating navbar never overlaps any text */}
-      <section className="relative text-white overflow-hidden pt-36 sm:pt-44 pb-16 sm:pb-20 border-b border-black/20">
+      <section className="relative text-white overflow-hidden pt-36 sm:pt-44 pb-20 sm:pb-24 border-b border-black/20">
         {/* High-Resolution Scenic Backdrop */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
@@ -82,66 +82,90 @@ export default function ContactPage() {
             className="object-cover object-center scale-102"
           />
           {/* Balanced cinematic gradient overlay: pure transparent clarity without white shadow cast */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#011415]/85 via-[#021819]/55 via-50% to-[#011415]/90" />
-          <div className="absolute inset-0 bg-radial-[at_center_top] from-transparent via-transparent to-black/40 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#011415]/85 via-[#021819]/60 via-50% to-[#011415]/95" />
+          <div className="absolute inset-0 bg-radial-[at_center_top] from-transparent via-transparent to-black/50 pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          {/* Live Status Pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/45 backdrop-blur-md border border-[#D9A52B]/40 text-xs font-semibold text-[#D9A52B] shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-[#10B981] animate-ping" />
-            <span>24/7 Operations Concierge • Direct Human Response</span>
+          {/* Live Status Pill with Radar Beacon */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-[#D9A52B]/40 text-xs font-semibold text-[#D9A52B] shadow-lg">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10B981]"></span>
+            </span>
+            <span>24/7 Operations Command • Direct Human Response</span>
           </div>
 
-          {/* Clean Headline */}
+          {/* Clean Headline with Gold Accent */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-display tracking-tight text-white leading-tight">
-            Connect with Our Dispatch Desk
+            Connect with Our{" "}
+            <span className="italic font-display font-normal text-[#D9A52B]">
+              Dispatch Desk
+            </span>
           </h1>
 
           {/* Minimal Subtitle */}
-          <p className="text-xs sm:text-base text-white/85 max-w-xl mx-auto font-normal leading-relaxed">
+          <p className="text-xs sm:text-base text-white/90 max-w-xl mx-auto font-normal leading-relaxed">
             Direct coordination for airport arrivals, outstation highway transfers, and verified cab bookings across Odisha.
           </p>
         </div>
       </section>
 
-      {/* ================= HERO SPOTLIGHT: GRAPHIC-RICH WHATSAPP & CALL CARDS ================= */}
-      <section className="relative z-20 -mt-10 sm:-mt-14 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-7">
+      {/* ================= HERO SPOTLIGHT: GRAPHIC-RICH WHATSAPP & CALL CARDS WITH ANIMATIONS ================= */}
+      <section className="relative z-20 -mt-12 sm:-mt-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-7">
           
           {/* ================= CARD 1: WHATSAPP CONCIERGE ================= */}
-          <div className="relative rounded-3xl p-6 sm:p-8 bg-gradient-to-b from-[#053222] via-[#032318] to-[#01140E] text-white border-2 border-[#25D366]/40 shadow-2xl overflow-hidden flex flex-col justify-between group hover:border-[#25D366]/70 transition-all duration-300">
-            {/* Graphic Background Radial Mesh */}
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#25D366]/20 rounded-full blur-3xl pointer-events-none group-hover:bg-[#25D366]/30 transition-all duration-500" />
+          <div className="relative rounded-3xl p-6 sm:p-8 bg-gradient-to-b from-[#053222]/95 via-[#032318]/95 to-[#01140E]/95 backdrop-blur-xl text-white border-2 border-[#25D366]/40 hover:border-[#25D366]/80 shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_30px_rgba(37,211,102,0.15)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.6),0_0_45px_rgba(37,211,102,0.25)] overflow-hidden flex flex-col justify-between group transition-all duration-500">
+            {/* Top glowing ambient hairline */}
+            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#25D366] to-transparent opacity-80" />
+
+            {/* Graphic Background Radial Mesh with pulse */}
+            <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#25D366]/20 rounded-full blur-3xl pointer-events-none group-hover:bg-[#25D366]/30 transition-all duration-700" />
             
             {/* Subtle Graphic Grid Lines */}
             <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#25D366_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
             <div className="relative z-10 space-y-5">
-              {/* Top Tag & Status */}
-              <div className="flex items-center justify-between">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] text-xs font-bold uppercase tracking-wider">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
+              {/* Top Tag & Interactive Live Status */}
+              <div className="flex items-center justify-between gap-2">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#25D366]/15 border border-[#25D366]/40 text-[#25D366] text-xs font-bold uppercase tracking-wider">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#25D366]"></span>
+                  </span>
                   <span>Instant WhatsApp Desk</span>
                 </div>
-                <span className="text-[11px] font-semibold text-[#A7F3D0] bg-black/40 px-2.5 py-0.5 rounded-full border border-white/10">
-                  Reply &lt; 90s
-                </span>
+
+                {/* Animated Typing Indicator Pill */}
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/50 border border-white/10 text-white text-[11px] font-semibold backdrop-blur-md">
+                  <span className="text-[#A7F3D0]">Online</span>
+                  <span className="flex items-center gap-1 px-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-typing-1" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-typing-2" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-typing-3" />
+                  </span>
+                  <span className="text-[10px] text-[#A7F3D0]/80">Avg &lt; 60s</span>
+                </div>
               </div>
 
               {/* Graphic Icon & Number */}
               <div className="flex items-center gap-4 pt-1">
-                {/* 3D Glassmorphic WhatsApp Icon Badge */}
-                <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-gradient-to-br from-[#25D366] via-[#1EB853] to-[#0E7A3E] p-0.5 shadow-[0_8px_20px_rgba(37,211,102,0.35),inset_0_1px_1px_rgba(255,255,255,0.7)] shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                {/* 3D Glassmorphic WhatsApp Icon Badge with subtle floating animation */}
+                <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-gradient-to-br from-[#25D366] via-[#1EB853] to-[#0E7A3E] p-0.5 shadow-[0_10px_25px_rgba(37,211,102,0.4),inset_0_1px_1px_rgba(255,255,255,0.7)] shrink-0 flex items-center justify-center animate-float-subtle group-hover:scale-105 transition-transform duration-300">
                   <div className="w-full h-full rounded-[14px] bg-gradient-to-b from-white/20 to-transparent flex items-center justify-center">
                     <MessageSquare className="w-8 h-8 sm:w-9 sm:h-9 text-white fill-white drop-shadow-md" />
                   </div>
                 </div>
 
                 <div className="min-w-0">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#A7F3D0] block">
-                    WhatsApp Helpline
-                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#A7F3D0] block">
+                      WhatsApp Helpline
+                    </span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#25D366]" />
+                    <span className="text-[10px] font-bold text-[#A7F3D0]/80 uppercase">Verified Business</span>
+                  </div>
                   <div className="flex items-center gap-2 mt-0.5">
                     <span className="text-xl sm:text-2xl font-extrabold font-display text-white tracking-tight">
                       {COMPANY_CONFIG.contact.whatsAppHelpNumber}
@@ -149,12 +173,12 @@ export default function ContactPage() {
                     <button
                       type="button"
                       onClick={() => handleCopy(COMPANY_CONFIG.contact.whatsAppHelpNumber, "whatsapp")}
-                      className="p-1 px-2 rounded-lg bg-white/10 hover:bg-white/20 text-[#A7F3D0] hover:text-white text-[11px] font-bold transition flex items-center gap-1 cursor-pointer"
+                      className="p-1 px-2.5 rounded-lg bg-white/10 hover:bg-[#25D366]/20 border border-white/10 hover:border-[#25D366]/40 text-[#A7F3D0] hover:text-white text-[11px] font-bold transition flex items-center gap-1 cursor-pointer active:scale-95"
                       title="Copy Number"
                     >
                       {copiedWhatsApp ? (
                         <>
-                          <Check className="w-3 h-3 text-[#25D366]" />
+                          <Check className="w-3 h-3 text-[#25D366] animate-checkmark-spring" />
                           <span className="text-[#25D366]">Copied</span>
                         </>
                       ) : (
@@ -173,13 +197,13 @@ export default function ContactPage() {
                 Instant fare estimates, vehicle interior photos, custom temple itineraries, and verified digital vouchers directly on your WhatsApp.
               </p>
 
-              {/* Graphical Quick Action Chips */}
+              {/* Graphical Quick Action Chips (Pre-filled WhatsApp inquiries) */}
               <div className="flex flex-wrap gap-2 pt-1">
                 <a
                   href={`https://wa.me/917008000000?text=${encodeURIComponent("Hi CabJatra, I need a cab for Bhubaneswar Airport (BBI) pickup.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#25D366]/20 border border-white/10 hover:border-[#25D366]/40 text-xs text-white/90 transition cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#25D366]/25 border border-white/10 hover:border-[#25D366]/50 text-xs text-white/90 hover:text-white transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
                 >
                   <Plane className="w-3.5 h-3.5 text-[#25D366]" />
                   <span>Airport Transfer</span>
@@ -189,7 +213,7 @@ export default function ContactPage() {
                   href={`https://wa.me/917008000000?text=${encodeURIComponent("Hi CabJatra, I want to book a cab for Puri Jagannath Dham.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#25D366]/20 border border-white/10 hover:border-[#25D366]/40 text-xs text-white/90 transition cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#25D366]/25 border border-white/10 hover:border-[#25D366]/50 text-xs text-white/90 hover:text-white transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
                 >
                   <Compass className="w-3.5 h-3.5 text-[#D9A52B]" />
                   <span>Puri Dham Tour</span>
@@ -199,62 +223,91 @@ export default function ContactPage() {
                   href={`https://wa.me/917008000000?text=${encodeURIComponent("Hi CabJatra, I need a quote for an outstation highway cab.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#25D366]/20 border border-white/10 hover:border-[#25D366]/40 text-xs text-white/90 transition cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#25D366]/25 border border-white/10 hover:border-[#25D366]/50 text-xs text-white/90 hover:text-white transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
                 >
                   <Car className="w-3.5 h-3.5 text-[#10B981]" />
                   <span>Outstation Cab</span>
                 </a>
+
+                <a
+                  href={`https://wa.me/917008000000?text=${encodeURIComponent("Hi CabJatra, I want to book a Konark Sun Temple and Marine Drive tour.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#25D366]/25 border border-white/10 hover:border-[#25D366]/50 text-xs text-white/90 hover:text-white transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+                  <span>Konark Marine Drive</span>
+                </a>
               </div>
             </div>
 
-            {/* Slender, Tactile WhatsApp CTA Button */}
+            {/* Slender, Tactile WhatsApp CTA Button with Shimmer */}
             <div className="pt-6 relative z-10">
               <a
                 href={COMPANY_CONFIG.contact.whatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 px-6 rounded-full bg-gradient-to-r from-[#25D366] via-[#22BF5B] to-[#128C7E] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(37,211,102,0.35),inset_0_1px_0_rgba(255,255,255,0.4)] hover:brightness-105 active:scale-[0.98] transition-all group/btn cursor-pointer"
+                className="shimmer-btn w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-[#25D366] via-[#22BF5B] to-[#128C7E] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_6px_20px_rgba(37,211,102,0.4),inset_0_1px_0_rgba(255,255,255,0.4)] hover:brightness-105 active:scale-[0.98] transition-all group/btn cursor-pointer border border-[#86EFAC]/40"
               >
                 <MessageSquare className="w-4 h-4 fill-white" />
                 <span>Chat on WhatsApp Now</span>
-                <ArrowRight className="w-4 h-4 text-white group-hover/btn:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-white group-hover/btn:translate-x-1.5 transition-transform" />
               </a>
             </div>
           </div>
 
           {/* ================= CARD 2: 24/7 VOICE HELPLINE ================= */}
-          <div className="relative rounded-3xl p-6 sm:p-8 bg-gradient-to-b from-[#073235] via-[#042426] to-[#011416] text-white border-2 border-[#D9A52B]/40 shadow-2xl overflow-hidden flex flex-col justify-between group hover:border-[#D9A52B]/70 transition-all duration-300">
-            {/* Graphic Background Radial Mesh */}
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#D9A52B]/15 rounded-full blur-3xl pointer-events-none group-hover:bg-[#D9A52B]/25 transition-all duration-500" />
+          <div className="relative rounded-3xl p-6 sm:p-8 bg-gradient-to-b from-[#083538]/95 via-[#042426]/95 to-[#011416]/95 backdrop-blur-xl text-white border-2 border-[#D9A52B]/40 hover:border-[#D9A52B]/80 shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_30px_rgba(217,165,43,0.15)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.6),0_0_45px_rgba(217,165,43,0.25)] overflow-hidden flex flex-col justify-between group transition-all duration-500">
+            {/* Top glowing ambient hairline */}
+            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#D9A52B] to-transparent opacity-80" />
+
+            {/* Graphic Background Radial Mesh with pulse */}
+            <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#D9A52B]/15 rounded-full blur-3xl pointer-events-none group-hover:bg-[#D9A52B]/25 transition-all duration-700" />
             
             {/* Subtle Graphic Grid Lines */}
             <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#D9A52B_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
             <div className="relative z-10 space-y-5">
-              {/* Top Tag & Status */}
-              <div className="flex items-center justify-between">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D9A52B]/20 border border-[#D9A52B]/40 text-[#D9A52B] text-xs font-bold uppercase tracking-wider">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D9A52B] animate-pulse" />
+              {/* Top Tag & Interactive Live Voice Equalizer */}
+              <div className="flex items-center justify-between gap-2">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D9A52B]/15 border border-[#D9A52B]/40 text-[#D9A52B] text-xs font-bold uppercase tracking-wider">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D9A52B] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D9A52B]"></span>
+                  </span>
                   <span>24/7 Phone Helpline</span>
                 </div>
-                <span className="text-[11px] font-semibold text-[#A7F3D0] bg-black/40 px-2.5 py-0.5 rounded-full border border-white/10">
-                  Zero IVR Waiting
-                </span>
+
+                {/* Animated Soundwave Equalizer Pill */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/50 border border-white/10 text-white text-[11px] font-semibold backdrop-blur-md">
+                  <span className="text-[#F2C052]">Live Human</span>
+                  <div className="flex items-end gap-1 h-3.5 px-0.5">
+                    <span className="w-1 bg-[#D9A52B] rounded-full animate-eq-1" />
+                    <span className="w-1 bg-[#D9A52B] rounded-full animate-eq-2" />
+                    <span className="w-1 bg-[#D9A52B] rounded-full animate-eq-3" />
+                    <span className="w-1 bg-[#D9A52B] rounded-full animate-eq-4" />
+                  </div>
+                  <span className="text-[10px] text-white/70">Zero IVR</span>
+                </div>
               </div>
 
               {/* Graphic Icon & Number */}
               <div className="flex items-center gap-4 pt-1">
-                {/* 3D Gold Metallic Phone Icon Badge */}
-                <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-gradient-to-br from-[#F5CB68] via-[#D9A52B] to-[#996D12] p-0.5 shadow-[0_8px_20px_rgba(217,165,43,0.35),inset_0_1px_1px_rgba(255,255,255,0.8)] shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                {/* 3D Gold Metallic Phone Icon Badge with subtle floating animation */}
+                <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-gradient-to-br from-[#F5CB68] via-[#D9A52B] to-[#996D12] p-0.5 shadow-[0_10px_25px_rgba(217,165,43,0.4),inset_0_1px_1px_rgba(255,255,255,0.8)] shrink-0 flex items-center justify-center animate-float-subtle group-hover:scale-105 transition-transform duration-300">
                   <div className="w-full h-full rounded-[14px] bg-gradient-to-b from-white/25 to-transparent flex items-center justify-center">
                     <Phone className="w-8 h-8 sm:w-9 sm:h-9 text-[#062F31] fill-[#062F31] drop-shadow-md" />
                   </div>
                 </div>
 
                 <div className="min-w-0">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#D9A52B] block">
-                    Direct Operations Line
-                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#D9A52B] block">
+                      Direct Operations Line
+                    </span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#D9A52B]" />
+                    <span className="text-[10px] font-bold text-[#F2C052]/80 uppercase">Bhubaneswar HQ</span>
+                  </div>
                   <div className="flex items-center gap-2 mt-0.5">
                     <a
                       href={`tel:${COMPANY_CONFIG.contact.phoneRaw}`}
@@ -265,12 +318,12 @@ export default function ContactPage() {
                     <button
                       type="button"
                       onClick={() => handleCopy(COMPANY_CONFIG.contact.phoneDisplay, "phone")}
-                      className="p-1 px-2 rounded-lg bg-white/10 hover:bg-white/20 text-[#D9A52B] hover:text-white text-[11px] font-bold transition flex items-center gap-1 cursor-pointer"
+                      className="p-1 px-2.5 rounded-lg bg-white/10 hover:bg-[#D9A52B]/20 border border-white/10 hover:border-[#D9A52B]/40 text-[#D9A52B] hover:text-white text-[11px] font-bold transition flex items-center gap-1 cursor-pointer active:scale-95"
                       title="Copy Number"
                     >
                       {copiedPhone ? (
                         <>
-                          <Check className="w-3 h-3 text-[#10B981]" />
+                          <Check className="w-3 h-3 text-[#10B981] animate-checkmark-spring" />
                           <span className="text-[#10B981]">Copied</span>
                         </>
                       ) : (
@@ -291,34 +344,57 @@ export default function ContactPage() {
 
               {/* Graphical Priority Highlights */}
               <div className="flex flex-wrap gap-2 pt-1 text-xs">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 border border-white/10 text-white/90">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#D9A52B]/20 border border-white/10 hover:border-[#D9A52B]/40 text-white/90 hover:text-white transition-all duration-200 hover:scale-105">
                   <Clock className="w-3.5 h-3.5 text-[#D9A52B]" />
                   <span>Midnight BBI Pickups</span>
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 border border-white/10 text-white/90">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#D9A52B]/20 border border-white/10 hover:border-[#D9A52B]/40 text-white/90 hover:text-white transition-all duration-200 hover:scale-105">
                   <Zap className="w-3.5 h-3.5 text-[#10B981]" />
                   <span>Immediate Dispatch</span>
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 border border-white/10 text-white/90">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#D9A52B]/20 border border-white/10 hover:border-[#D9A52B]/40 text-white/90 hover:text-white transition-all duration-200 hover:scale-105">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
                   <span>Highway Emergency</span>
                 </span>
               </div>
             </div>
 
-            {/* Slender, Tactile Phone Call CTA Button */}
+            {/* Slender, Tactile Phone Call CTA Button with Shimmer */}
             <div className="pt-6 relative z-10">
               <a
                 href={`tel:${COMPANY_CONFIG.contact.phoneRaw}`}
-                className="w-full py-3 px-6 rounded-full bg-gradient-to-r from-[#D9A52B] via-[#E5B543] to-[#C99320] text-[#062F31] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(217,165,43,0.35),inset_0_1px_0_rgba(255,255,255,0.6)] hover:brightness-105 active:scale-[0.98] transition-all group/call cursor-pointer border border-[#F2C868]/60"
+                className="shimmer-btn w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-[#D9A52B] via-[#E5B543] to-[#C99320] text-[#062F31] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_6px_20px_rgba(217,165,43,0.4),inset_0_1px_0_rgba(255,255,255,0.6)] hover:brightness-105 active:scale-[0.98] transition-all group/call cursor-pointer border border-[#F2C868]/60"
               >
                 <Phone className="w-4 h-4 fill-[#062F31]" />
                 <span>Call Operations Desk Now</span>
-                <ArrowRight className="w-4 h-4 text-[#062F31] group-hover/call:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-[#062F31] group-hover/call:translate-x-1.5 transition-transform" />
               </a>
             </div>
           </div>
 
+        </div>
+
+        {/* Live Operational Metrics Ribbon (Seamless visual transition into body) */}
+        <div className="mt-5 p-3.5 sm:p-4 rounded-2xl bg-white border border-[#D5DDD5] shadow-lg flex flex-wrap items-center justify-around gap-3 text-xs">
+          <div className="flex items-center gap-2 text-[#073B3A] font-bold">
+            <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
+            <span>Avg Response: &lt; 60 Seconds</span>
+          </div>
+          <div className="hidden sm:block w-px h-4 bg-[#E0E7E0]" />
+          <div className="flex items-center gap-2 text-[#073B3A] font-bold">
+            <Headphones className="w-4 h-4 text-[#D9A52B]" />
+            <span>Zero IVR • Direct Human Line</span>
+          </div>
+          <div className="hidden sm:block w-px h-4 bg-[#E0E7E0]" />
+          <div className="flex items-center gap-2 text-[#073B3A] font-bold">
+            <Navigation className="w-4 h-4 text-[#10B981]" />
+            <span>Bhubaneswar 24/7 Radar Desk</span>
+          </div>
+          <div className="hidden sm:block w-px h-4 bg-[#E0E7E0]" />
+          <div className="flex items-center gap-2 text-[#073B3A] font-bold">
+            <ShieldCheck className="w-4 h-4 text-[#D9A52B]" />
+            <span>100% Commercial STA Permits</span>
+          </div>
         </div>
       </section>
 
