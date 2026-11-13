@@ -41,8 +41,8 @@ const ODISHA_DESTINATIONS: TourDestination[] = [
     odiaName: "ପୁରୀ-କୋଣାର୍କ ମେରାଇନ୍ ଡ୍ରାଇଭ୍",
     km: "35 KM",
     nhNumber: "OD-SH",
-    highway: "Coastal Highway Corridor",
-    duration: "45 mins Cruise",
+    highway: "Coastal Corridor",
+    duration: "45 mins",
     tag: "Scenic Ocean Highway",
     fare: "₹13/km Fixed",
     landmarkTitle: "Casuarina Coast & Bay of Bengal Waves",
@@ -56,8 +56,8 @@ const ODISHA_DESTINATIONS: TourDestination[] = [
     odiaName: "ଶ୍ରୀକ୍ଷେତ୍ର ପୁରୀ ଜଗନ୍ନାଥ ଧାମ",
     km: "60 KM",
     nhNumber: "NH 316",
-    highway: "NH-316 Heritage Corridor",
-    duration: "1 hr 15 mins",
+    highway: "Heritage Corridor",
+    duration: "1.2 hrs",
     tag: "Char Dham Pilgrimage",
     fare: "₹13/km Fixed",
     landmarkTitle: "12th-Century Jagannath Temple & Bada Danda",
@@ -71,8 +71,8 @@ const ODISHA_DESTINATIONS: TourDestination[] = [
     odiaName: "କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର",
     km: "65 KM",
     nhNumber: "NH 316A",
-    highway: "UNESCO Heritage Highway",
-    duration: "1 hr 25 mins",
+    highway: "UNESCO Highway",
+    duration: "1.4 hrs",
     tag: "Architectural Wonder",
     fare: "₹13/km Fixed",
     landmarkTitle: "13th-Century Monolithic Chariot Wheels",
@@ -86,8 +86,8 @@ const ODISHA_DESTINATIONS: TourDestination[] = [
     odiaName: "ଚିଲିକା ଡଲ୍ଫିନ୍ ହ୍ରଦ",
     km: "105 KM",
     nhNumber: "NH 16",
-    highway: "NH-16 & Satapada Trail",
-    duration: "2 hrs 10 mins",
+    highway: "Lagoon Trail",
+    duration: "2.1 hrs",
     tag: "Asia's Largest Lagoon",
     fare: "₹13/km Fixed",
     landmarkTitle: "Satapada Dolphin Waters & Traditional Boats",
@@ -101,8 +101,8 @@ const ODISHA_DESTINATIONS: TourDestination[] = [
     odiaName: "ଭୁବନେଶ୍ୱର ଏୟାରପୋର୍ଟ",
     km: "00 KM",
     nhNumber: "BBI-AIR",
-    highway: "Bhubaneswar Capital Express",
-    duration: "10 mins Standby",
+    highway: "Capital Express",
+    duration: "10 mins",
     tag: "Airport Pickup",
     fare: "Flat Airport Rate",
     landmarkTitle: "Biju Patnaik International Airport Gateway",
@@ -192,10 +192,8 @@ export const HeroSection: React.FC = () => {
         {/* ================= STARFIELD (NIGHT ONLY) ================= */}
         {timeOfDay === "night" && (
           <div className="absolute inset-0 transition-opacity duration-1000 opacity-60">
-            {/* Fine twinkling star grid */}
             <div className="absolute inset-0 bg-[radial-gradient(#FFFFFF_1px,transparent_1px)] [background-size:24px_24px] opacity-40" />
             <div className="absolute inset-0 bg-[radial-gradient(#FDE047_1.5px,transparent_1.5px)] [background-size:68px_68px] opacity-50" />
-            {/* Brighter Sirius & Polaris Constellation Stars */}
             <span className="absolute top-16 left-[22%] w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#FFF] animate-pulse" />
             <span className="absolute top-28 left-[48%] w-1 h-1 rounded-full bg-[#FEF08A] shadow-[0_0_6px_#FEF08A] animate-ping" />
             <span className="absolute top-12 left-[74%] w-1.5 h-1.5 rounded-full bg-[#93C5FD] shadow-[0_0_8px_#93C5FD] animate-pulse" />
@@ -205,7 +203,6 @@ export const HeroSection: React.FC = () => {
 
         {/* ================= CELESTIAL ORBS: REALISTIC SUN / REALISTIC MOON ================= */}
         {timeOfDay === "sunrise" && (
-          /* Realistic Morning Dawn Sun Emerging on Horizon */
           <div className="absolute top-24 sm:top-28 right-16 sm:right-36 pointer-events-none transition-all duration-1000">
             <div className="absolute -inset-14 rounded-full bg-[#F43F5E]/30 blur-3xl animate-celestial-pulse" />
             <div className="absolute -inset-5 rounded-full bg-[#FBBF24]/40 blur-xl" />
@@ -214,7 +211,6 @@ export const HeroSection: React.FC = () => {
         )}
 
         {timeOfDay === "day" && (
-          /* Realistic Radiant Day Sun with Solar Corona & Atmospheric Rays */
           <div className="absolute top-8 sm:top-12 right-12 sm:right-32 pointer-events-none transition-all duration-1000">
             <div className="absolute -inset-10 rounded-full bg-[#FEF08A]/25 blur-3xl animate-celestial-pulse" />
             <div className="absolute -inset-4 rounded-full bg-[#FDE047]/35 blur-xl" />
@@ -224,7 +220,6 @@ export const HeroSection: React.FC = () => {
         )}
 
         {timeOfDay === "sunset" && (
-          /* Realistic Sinking Sunset Sun over the Bay of Bengal Horizon */
           <div className="absolute top-20 sm:top-24 right-16 sm:right-36 pointer-events-none transition-all duration-1000">
             <div className="absolute -inset-16 rounded-full bg-[#EA580C]/35 blur-3xl animate-celestial-pulse" />
             <div className="absolute -inset-6 rounded-full bg-[#F59E0B]/45 blur-xl" />
@@ -234,7 +229,6 @@ export const HeroSection: React.FC = () => {
         )}
 
         {timeOfDay === "night" && (
-          /* Realistic Glowing Lunar Sphere with Geological Maria & Lunar Halos */
           <div className="absolute top-10 sm:top-14 right-14 sm:right-36 pointer-events-none transition-all duration-1000">
             <div className="absolute -inset-12 rounded-full bg-[#FEF08A]/15 blur-2xl animate-celestial-pulse" />
             <div className="absolute -inset-4 rounded-full bg-[#E2E8F0]/20 blur-md" />
@@ -272,7 +266,6 @@ export const HeroSection: React.FC = () => {
         )}
 
         {/* ================= VOLUMETRIC MULTI-LAYER DRIFTING CLOUDS ================= */}
-        {/* Layer A: High-Altitude Cirrus Clouds (Slow Parallax) */}
         <div className="absolute top-6 sm:top-10 inset-x-0 h-28 sm:h-36 opacity-35 animate-clouds-slow flex w-[200%] pointer-events-none">
           <svg viewBox="0 0 1400 120" className="w-1/2 h-full fill-current" preserveAspectRatio="none">
             <defs>
@@ -322,7 +315,7 @@ export const HeroSection: React.FC = () => {
           </svg>
         </div>
 
-        {/* Layer B: Volumetric Cumulus Clouds (Medium Parallax) */}
+        {/* Volumetric Cumulus Clouds */}
         <div className="absolute top-16 sm:top-20 inset-x-0 h-32 sm:h-40 opacity-45 animate-clouds-medium flex w-[200%] pointer-events-none">
           <svg viewBox="0 0 1400 130" className="w-1/2 h-full" preserveAspectRatio="none">
             <defs>
@@ -373,8 +366,7 @@ export const HeroSection: React.FC = () => {
           </svg>
         </div>
 
-        {/* ================= REALISTIC COASTAL BIRDS WITH FLAPPING WINGS ================= */}
-        {/* Flock 1: High-Altitude Gliding Terns across Odisha Horizon */}
+        {/* ================= REALISTIC BIRDS WITH FLAPPING WINGS ================= */}
         <div className="absolute top-20 sm:top-24 left-0 w-64 h-16 pointer-events-none animate-bird-flight-1">
           <div className="flex items-center gap-6">
             <svg
@@ -431,26 +423,6 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Flock 2: Distant Chilika Migratory Herons (Slower, Higher Parallax) */}
-        <div className="absolute top-12 left-0 w-44 h-12 pointer-events-none animate-bird-flight-2 opacity-65">
-          <div className="flex items-center gap-4">
-            <svg viewBox="0 0 50 24" className="w-4 h-2.5 text-white/60">
-              <ellipse cx="25" cy="13" rx="5" ry="1.5" fill="currentColor" />
-              <g className="animate-bird-wing-fast">
-                <path d="M 23,12 Q 18,4 11,3 Q 15,8 21,13 Z" fill="currentColor" />
-                <path d="M 27,12 Q 32,4 39,3 Q 35,8 29,13 Z" fill="currentColor" />
-              </g>
-            </svg>
-            <svg viewBox="0 0 50 24" className="w-3.5 h-2 -mt-2 text-white/50">
-              <ellipse cx="25" cy="13" rx="4.5" ry="1.3" fill="currentColor" />
-              <g className="animate-bird-wing">
-                <path d="M 23,12 Q 18,4 11,3 Q 15,8 21,13 Z" fill="currentColor" />
-                <path d="M 27,12 Q 32,4 39,3 Q 35,8 29,13 Z" fill="currentColor" />
-              </g>
-            </svg>
-          </div>
-        </div>
-
         {/* ================= REALISTIC BAY OF BENGAL ROLLING SURF & HORIZON ================= */}
         <div className="absolute bottom-28 sm:bottom-32 inset-x-0 h-32 pointer-events-none overflow-hidden">
           <div
@@ -463,12 +435,10 @@ export const HeroSection: React.FC = () => {
             }`}
           />
 
-          {/* Sunset Specular Shimmer on Ocean Waters */}
           {(timeOfDay === "sunset" || timeOfDay === "sunrise") && (
             <div className="absolute bottom-6 right-24 sm:right-48 w-48 sm:w-72 h-14 bg-gradient-to-t from-transparent via-[#FDE047]/25 to-transparent blur-md pointer-events-none" />
           )}
 
-          {/* Animated Rolling White Foam Wave Crests */}
           <div className="absolute bottom-3 inset-x-0 h-10 animate-ocean-wave-roll flex w-[200%] opacity-70">
             <svg viewBox="0 0 1200 45" className="w-1/2 h-full fill-none" preserveAspectRatio="none">
               <path
@@ -524,8 +494,8 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* =========================================================================
-            LAYER 1B: REALISTIC ODISHA TREES & ARCHITECTURAL LANDMARKS
-            (Positioned seamlessly right above the open highway)
+            LAYER 1B: REALISTIC 3D TREES & MONUMENTS
+            (TRUNKS STAY ROOTED ON THE GROUND - ONLY LEAVES & FRONDS FLUTTER)
             ========================================================================= */}
         <div className="absolute bottom-22 sm:bottom-26 inset-x-0 h-44 sm:h-52 pointer-events-none overflow-hidden opacity-95">
           <svg viewBox="0 0 1440 180" className="w-full h-full" preserveAspectRatio="none">
@@ -628,18 +598,27 @@ export const HeroSection: React.FC = () => {
               fill="url(#coastalSandDunes)"
             />
 
-            {/* Casuarina Tree 1 */}
-            <g className="animate-casuarina-sway">
-              <rect x="58" y="100" width="6" height="80" fill="#2E1D13" rx="2" />
-              <path d="M 61,45 L 78,85 L 68,85 L 82,120 L 72,120 L 86,155 L 36,155 L 50,120 L 40,120 L 54,85 L 44,85 Z" fill="url(#casuarinaNeedles)" />
+            {/* ================= CASUARINA TREE 1 (TRUNK FIRMLY ROOTED, LEAVES SHIMMER) ================= */}
+            <g>
+              {/* Static Grounded Trunk */}
+              <rect x="58" y="100" width="7" height="80" fill="#2E1D13" rx="2" />
+              {/* 3D Needle Tiers Flutter in Breeze */}
+              <g className="animate-foliage-shimmer">
+                <path d="M 61,120 L 86,155 L 36,155 Z" fill="url(#casuarinaNeedles)" />
+                <path d="M 61,85 L 82,120 L 40,120 Z" fill="url(#casuarinaNeedles)" />
+              </g>
+              <g className="animate-foliage-shimmer-fast">
+                <path d="M 61,45 L 78,85 L 44,85 Z" fill="url(#casuarinaNeedles)" />
+              </g>
             </g>
 
-            {/* Realistic Coconut Palm Tree */}
-            <g className="animate-palm-sway" transform="translate(110, 0)">
+            {/* ================= REALISTIC 3D COCONUT PALM TREE (TRUNK ROOTED, FRONDS WAVE) ================= */}
+            <g transform="translate(110, 0)">
+              {/* Grounded Natural Wood Trunk (NO UP/DOWN MOVEMENT) */}
               <path
                 d="M 20,180 Q 15,120 28,68 Q 32,58 36,46"
                 stroke="url(#palmTrunkWood)"
-                strokeWidth="5"
+                strokeWidth="5.5"
                 fill="none"
                 strokeLinecap="round"
               />
@@ -648,22 +627,38 @@ export const HeroSection: React.FC = () => {
               <line x1="21" y1="105" x2="27" y2="107" stroke="#25160E" strokeWidth="1.2" />
               <line x1="27" y1="75" x2="33" y2="76" stroke="#25160E" strokeWidth="1.2" />
 
+              {/* Clustered Coconuts under Frond Base */}
               <circle cx="34" cy="48" r="3.2" fill="#713F12" />
               <circle cx="38" cy="49" r="3" fill="#854D0E" />
               <circle cx="35" cy="52" r="2.8" fill="#58310C" />
 
-              <path d="M 36,46 Q 10,32 -25,48 Q -5,30 36,46" fill="url(#palmFrondGreen)" />
-              <path d="M 36,46 Q 5,12 -18,22 Q 2,22 36,46" fill="url(#palmFrondGreen)" />
-              <path d="M 36,46 Q 30,8 34,-6 Q 42,12 36,46" fill="url(#palmFrondGreen)" />
-              <path d="M 36,46 Q 65,10 85,20 Q 64,22 36,46" fill="url(#palmFrondGreen)" />
-              <path d="M 36,46 Q 75,34 98,54 Q 72,36 36,46" fill="url(#palmFrondGreen)" />
-              <path d="M 36,46 Q 60,56 70,72 Q 52,52 36,46" fill="url(#palmFrondGreen)" />
+              {/* Individual 3D Palm Fronds Waving in the Sea Breeze */}
+              <g className="animate-leaf-flutter-left">
+                <path d="M 36,46 Q 10,32 -25,48 Q -5,30 36,46" fill="url(#palmFrondGreen)" />
+                <path d="M 36,46 Q 5,12 -18,22 Q 2,22 36,46" fill="url(#palmFrondGreen)" opacity="0.9" />
+              </g>
+
+              <g className="animate-leaf-flutter-top">
+                <path d="M 36,46 Q 30,8 34,-6 Q 42,12 36,46" fill="url(#palmFrondGreen)" />
+              </g>
+
+              <g className="animate-leaf-flutter-right">
+                <path d="M 36,46 Q 65,10 85,20 Q 64,22 36,46" fill="url(#palmFrondGreen)" opacity="0.9" />
+                <path d="M 36,46 Q 75,34 98,54 Q 72,36 36,46" fill="url(#palmFrondGreen)" />
+                <path d="M 36,46 Q 60,56 70,72 Q 52,52 36,46" fill="url(#palmFrondGreen)" opacity="0.8" />
+              </g>
             </g>
 
-            {/* Casuarina Tree 2 */}
-            <g className="animate-casuarina-sway" style={{ animationDelay: "1.2s" }}>
+            {/* ================= CASUARINA TREE 2 ================= */}
+            <g>
               <rect x="220" y="110" width="7" height="70" fill="#2E1D13" rx="2" />
-              <path d="M 223,60 L 240,95 L 232,95 L 246,130 L 236,130 L 250,165 L 196,165 L 210,130 L 200,130 L 214,95 L 206,95 Z" fill="url(#casuarinaNeedles)" />
+              <g className="animate-foliage-shimmer">
+                <path d="M 223,130 L 250,165 L 196,165 Z" fill="url(#casuarinaNeedles)" />
+                <path d="M 223,95 L 246,130 L 200,130 Z" fill="url(#casuarinaNeedles)" />
+              </g>
+              <g className="animate-foliage-shimmer-fast">
+                <path d="M 223,60 L 240,95 L 206,95 Z" fill="url(#casuarinaNeedles)" />
+              </g>
             </g>
 
             {/* ================= THE SACRED PURI JAGANNATH TEMPLE SHIKHARA ================= */}
@@ -722,10 +717,16 @@ export const HeroSection: React.FC = () => {
               <path d="M 210,88 Q 270,25 330,88" stroke="#073B3A" strokeWidth="3" fill="none" />
             </g>
 
-            {/* Casuarina Forest Right */}
-            <g className="animate-casuarina-sway" style={{ animationDelay: "2s" }}>
+            {/* ================= CASUARINA FOREST RIGHT ================= */}
+            <g>
               <rect x="1330" y="105" width="6" height="75" fill="#2E1D13" rx="2" />
-              <path d="M 1333,55 L 1350,90 L 1342,90 L 1356,125 L 1346,125 L 1360,160 L 1306,160 L 1320,125 L 1310,125 L 1324,90 L 1316,90 Z" fill="url(#casuarinaNeedles)" />
+              <g className="animate-foliage-shimmer">
+                <path d="M 1333,125 L 1360,160 L 1306,160 Z" fill="url(#casuarinaNeedles)" />
+                <path d="M 1333,90 L 1356,125 L 1310,125 Z" fill="url(#casuarinaNeedles)" />
+              </g>
+              <g className="animate-foliage-shimmer-fast">
+                <path d="M 1333,55 L 1350,90 L 1316,90 Z" fill="url(#casuarinaNeedles)" />
+              </g>
             </g>
           </svg>
         </div>
@@ -737,7 +738,7 @@ export const HeroSection: React.FC = () => {
           ========================================================================= */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center space-y-3 sm:space-y-3.5">
         
-        {/* Status Kicker Pill with Live Beacon (No Manual Tabs) */}
+        {/* Status Kicker Pill with Live Beacon */}
         <div className="flex items-center justify-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#D9A52B]/50 text-xs font-semibold text-[#D9A52B] shadow-xl">
             <span className="relative flex h-2.5 w-2.5">
@@ -783,15 +784,15 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* =========================================================================
-          LAYER 3: INTERACTIVE ODISHA TOUR CIRCUIT SELECTOR (ZERO LAYOUT SHIFT)
+          LAYER 3: ULTRA-CLEAN TOUR MILESTONE CARDS (MINIMALIST & TEXT-LIGHT)
           ========================================================================= */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-4 sm:mt-5">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-4 sm:mt-5">
         
-        {/* Circuit Bar Header */}
+        {/* Minimal Circuit Bar Header */}
         <div className="flex items-center justify-between gap-2 mb-2">
           <span className="text-[10.5px] font-extrabold uppercase tracking-widest text-[#D9A52B] flex items-center gap-1.5 drop-shadow">
             <Navigation className="w-3.5 h-3.5 text-[#D9A52B]" />
-            <span>Odisha Tour Milestones • Tap to Cruise Circuit</span>
+            <span>Popular Odisha Circuits</span>
           </span>
 
           {/* Interactive Sprint & Horn Controls */}
@@ -822,7 +823,7 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* 5 Milestone Signboard Tabs (Stable Grid with Zero Layout Shift) */}
+        {/* 5 Clean Minimalist Milestone Cards (No heavy text clutter) */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-2.5">
           {ODISHA_DESTINATIONS.map((dest, idx) => {
             const isSelected = activeDestIndex === idx;
@@ -832,35 +833,30 @@ export const HeroSection: React.FC = () => {
                 key={dest.id}
                 type="button"
                 onClick={() => setActiveDestIndex(idx)}
-                className={`text-left p-2.5 rounded-2xl transition-all duration-300 relative overflow-hidden group cursor-pointer border ${
+                className={`text-left px-3 py-2 sm:py-2.5 rounded-2xl transition-all duration-300 relative overflow-hidden group cursor-pointer border ${
                   isSelected
-                    ? "bg-gradient-to-br from-[#064E3B]/95 via-[#043E2E]/95 to-[#022A1F]/95 border-[#D9A52B] ring-2 ring-[#D9A52B]/60 shadow-[0_0_20px_rgba(217,165,43,0.35)]"
-                    : "bg-black/60 hover:bg-black/80 border-white/15 hover:border-[#D9A52B]/50 backdrop-blur-md"
+                    ? "bg-gradient-to-br from-[#064E3B] via-[#043E2E] to-[#022A1F] border-[#D9A52B] ring-2 ring-[#D9A52B]/60 shadow-[0_0_20px_rgba(217,165,43,0.35)]"
+                    : "bg-black/55 hover:bg-black/75 border-white/15 hover:border-[#D9A52B]/50 backdrop-blur-md"
                 }`}
               >
-                {/* Distance & Tag Indicator */}
-                <div className="flex items-center justify-between gap-1 mb-1">
-                  <span className="text-[10px] font-bold text-[#A7F3D0] uppercase truncate">
-                    {dest.tag}
-                  </span>
+                {/* Short Clean Name & KM */}
+                <div className="flex items-center justify-between gap-1">
+                  <div className="font-bold text-xs sm:text-sm text-white font-display truncate group-hover:text-[#D9A52B] transition-colors">
+                    {dest.shortName}
+                  </div>
                   <span
-                    className={`text-[9.5px] font-black font-mono px-2 py-0.5 rounded shadow-xs ${
-                      isSelected ? "bg-[#D9A52B] text-[#062F31]" : "bg-white/15 text-white"
+                    className={`text-[9.5px] font-black font-mono px-1.5 py-0.5 rounded shrink-0 shadow-xs ${
+                      isSelected ? "bg-[#D9A52B] text-[#062F31]" : "bg-white/15 text-white/90"
                     }`}
                   >
                     {dest.km}
                   </span>
                 </div>
 
-                {/* Destination Name */}
-                <div className="font-bold text-xs sm:text-sm text-white font-display truncate group-hover:text-[#D9A52B] transition-colors">
-                  {dest.name}
-                </div>
-
-                {/* Corridor detail & duration */}
-                <div className="text-[10px] text-white/75 font-medium flex items-center justify-between mt-0.5">
-                  <span className="truncate">{dest.shortName}</span>
-                  <span className="text-white/50 text-[9px] shrink-0">{dest.duration}</span>
+                {/* Minimal Duration & Highway */}
+                <div className="text-[10px] text-white/65 font-medium flex items-center justify-between mt-1">
+                  <span className="truncate">{dest.highway}</span>
+                  <span className="text-[#A7F3D0] text-[9.5px] font-mono shrink-0">{dest.duration}</span>
                 </div>
 
                 {/* Bottom Active Glow Bar */}
@@ -881,14 +877,14 @@ export const HeroSection: React.FC = () => {
       <div className="relative z-10 w-full mt-4 sm:mt-5 overflow-hidden">
         
         {/* Floating Highway Telemetry HUD Ribbon (Stable & Zero Shift) */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-2">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-2">
           <div className="h-10 min-h-[40px] px-3.5 sm:px-4 rounded-xl bg-black/65 backdrop-blur-md border border-white/15 flex items-center justify-between text-xs text-white shadow-xl">
             
             {/* Left Slot: Fixed Min-Width Container with Truncate */}
             <div className="flex items-center gap-2 min-w-0 max-w-[65%] sm:max-w-[70%]">
               <span className="w-2 h-2 rounded-full bg-[#10B981] animate-ping shrink-0" />
               <div className="truncate font-medium">
-                <span className="text-white/70">Passing: </span>
+                <span className="text-white/70">Cruising Corridor: </span>
                 <span className="text-[#D9A52B] font-display font-bold">
                   {activeDest.name}
                 </span>{" "}

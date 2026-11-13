@@ -508,22 +508,75 @@
   animation: cloudDriftSlow 80s linear infinite;
 }
 
-/* Realistic Tree Organic Wind Flexion */
-@keyframes palmTreeFlex {
-  0%, 100% { transform: rotate(0deg) skewX(0deg); }
-  50% { transform: rotate(2.8deg) skewX(1.6deg); }
+/* Realistic 3D Palm Leaves / Fronds Breeze Animation (Trunk stays firmly rooted) */
+@keyframes leafFlutterLeft {
+  0%, 100% {
+    transform: rotate(0deg) skewX(0deg);
+  }
+  50% {
+    transform: rotate(-3.5deg) skewX(-1.5deg);
+  }
 }
-.animate-palm-sway {
-  animation: palmTreeFlex 5.2s ease-in-out infinite;
+.animate-leaf-flutter-left {
+  animation: leafFlutterLeft 3.6s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: right bottom;
+}
+
+@keyframes leafFlutterRight {
+  0%, 100% {
+    transform: rotate(0deg) skewX(0deg);
+  }
+  50% {
+    transform: rotate(4deg) skewX(2deg);
+  }
+}
+.animate-leaf-flutter-right {
+  animation: leafFlutterRight 4.2s ease-in-out infinite 0.6s;
+  transform-box: fill-box;
+  transform-origin: left bottom;
+}
+
+@keyframes leafFlutterTop {
+  0%, 100% {
+    transform: rotate(0deg) scaleY(1);
+  }
+  50% {
+    transform: rotate(2.5deg) scaleY(1.04);
+  }
+}
+.animate-leaf-flutter-top {
+  animation: leafFlutterTop 3s ease-in-out infinite 0.3s;
+  transform-box: fill-box;
   transform-origin: bottom center;
 }
 
-@keyframes casuarinaSway {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(2deg); }
+/* Casuarina Needle Foliage Soft Wind Shimmer (Trunk stays firmly rooted) */
+@keyframes needleFoliageShimmer {
+  0%, 100% {
+    transform: skewX(0deg);
+  }
+  50% {
+    transform: skewX(1.8deg);
+  }
 }
-.animate-casuarina-sway {
-  animation: casuarinaSway 4.2s ease-in-out infinite;
+.animate-foliage-shimmer {
+  animation: needleFoliageShimmer 3.8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: bottom center;
+}
+
+@keyframes needleFoliageShimmerFast {
+  0%, 100% {
+    transform: skewX(0deg);
+  }
+  50% {
+    transform: skewX(-2deg);
+  }
+}
+.animate-foliage-shimmer-fast {
+  animation: needleFoliageShimmerFast 3.2s ease-in-out infinite 0.8s;
+  transform-box: fill-box;
   transform-origin: bottom center;
 }
 
