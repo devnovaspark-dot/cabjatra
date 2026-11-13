@@ -101,17 +101,17 @@ export const HeroSection: React.FC = () => {
 
         {/* Majestic Central Content */}
         <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6 my-auto">
-          {/* Majestic Headline */}
+          {/* Direct, High-Converting Cab Booking Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold font-display tracking-tight text-white leading-tight sm:leading-[1.08] drop-shadow-xl">
-            Discover Timeless Odisha, <br />
+            Book Chauffeur Cabs <br />
             <span className="italic font-display font-normal text-[#D9A52B]">
-              Traveled in Private Comfort.
+              Across Odisha.
             </span>
           </h1>
 
-          {/* Subtitle */}
+          {/* Punchy, Clear Subtitle */}
           <p className="text-xs sm:text-base lg:text-lg text-white/95 max-w-2xl mx-auto font-normal leading-relaxed drop-shadow-md">
-            From punctual BBI airport pickups and sacred pilgrimages to Puri &amp; Konark, to scenic drives along Marine Drive—experience dedicated commercial chauffeurs with guaranteed on-time dispatch.
+            Punctual BBI airport pickups, outstation highway journeys &amp; temple tours. 100% yellow-board commercial fleet, zero surge pricing &amp; guaranteed on-time dispatch.
           </p>
 
           {/* Happy Customer Social Proof Pill */}
