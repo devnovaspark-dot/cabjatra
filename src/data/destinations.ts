@@ -33,7 +33,7 @@ export const ODISHA_DESTINATIONS: DestinationItem[] = [
     ],
     suggestedDuration: "1 to 2 Days",
     recommendedTourSlug: "puri-jagannath-pilgrimage-trail",
-    indicativeTourPrice: "Dedicated Chauffeur Circuit • Transparent Estimate"
+    indicativeTourPrice: "Dedicated Tour Circuit • Transparent Estimate"
   },
   {
     id: "konark",
@@ -53,7 +53,7 @@ export const ODISHA_DESTINATIONS: DestinationItem[] = [
     ],
     suggestedDuration: "Half-Day to Full-Day",
     recommendedTourSlug: "konark-marine-drive-excursion",
-    indicativeTourPrice: "Dedicated Chauffeur Circuit • Transparent Estimate"
+    indicativeTourPrice: "Dedicated Tour Circuit • Transparent Estimate"
   },
   {
     id: "chilika",
@@ -73,7 +73,7 @@ export const ODISHA_DESTINATIONS: DestinationItem[] = [
     ],
     suggestedDuration: "Full-Day Trip",
     recommendedTourSlug: "chilika-dolphin-lagoon-safari",
-    indicativeTourPrice: "Dedicated Chauffeur Circuit • Transparent Estimate"
+    indicativeTourPrice: "Dedicated Tour Circuit • Transparent Estimate"
   },
   {
     id: "dhauli",
@@ -93,7 +93,7 @@ export const ODISHA_DESTINATIONS: DestinationItem[] = [
     ],
     suggestedDuration: "3 to 4 Hours",
     recommendedTourSlug: "dhauli-pipili-heritage-half-day",
-    indicativeTourPrice: "Dedicated Chauffeur Circuit • Transparent Estimate"
+    indicativeTourPrice: "Dedicated Tour Circuit • Transparent Estimate"
   },
   {
     id: "bhubaneswar",
@@ -114,7 +114,7 @@ export const ODISHA_DESTINATIONS: DestinationItem[] = [
     ],
     suggestedDuration: "1 to 2 Days",
     recommendedTourSlug: "bhubaneswar-temple-trail",
-    indicativeTourPrice: "Dedicated Chauffeur Circuit • Transparent Estimate"
+    indicativeTourPrice: "Dedicated Tour Circuit • Transparent Estimate"
   },
   {
     id: "gopalpur",
@@ -134,7 +134,7 @@ export const ODISHA_DESTINATIONS: DestinationItem[] = [
     ],
     suggestedDuration: "2 Days / 1 Night",
     recommendedTourSlug: "gopalpur-tampara-weekend",
-    indicativeTourPrice: "Dedicated Chauffeur Circuit • Transparent Estimate"
+    indicativeTourPrice: "Dedicated Tour Circuit • Transparent Estimate"
   }
 ];
 
@@ -170,7 +170,7 @@ export const ODISHA_TOURS: TourPackage[] = [
     heroImage: "https://images.unsplash.com/photo-1576235282476-debff2a4d0b9?q=80&w=1200&auto=format&fit=crop",
     inclusions: [
       "Private air-conditioned cab for entire 3-day itinerary",
-      "Dedicated chauffeur with verified background and local route expertise",
+      "Dedicated driver with verified background and local route expertise",
       "All fuel costs, driver allowances, toll taxes, and parking fees",
       "Doorstep pickup and airport/railway station drop-off"
     ],
@@ -198,7 +198,7 @@ export const ODISHA_TOURS: TourPackage[] = [
       }
     ],
     indicativePrice: {
-      sedan: "Chauffeur & Fuel Included • Custom Quote",
+      sedan: "Driver & Fuel Included • Custom Quote",
       suv: "Innova Crysta Option • Custom Quote",
       traveller: "Group Van Option • Custom Quote"
     },
@@ -214,7 +214,7 @@ export const ODISHA_TOURS: TourPackage[] = [
     startingCity: "Bhubaneswar",
     heroImage: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?q=80&w=1200&auto=format&fit=crop",
     inclusions: [
-      "Dedicated AC cab with chauffeur for 12 hours / 180 km",
+      "Dedicated AC cab with driver for 12 hours / 180 km",
       "Fuel, interstate / toll taxes, parking fees",
       "Flexible stopovers for breakfast and coconut water along highway"
     ],
@@ -231,7 +231,7 @@ export const ODISHA_TOURS: TourPackage[] = [
       }
     ],
     indicativePrice: {
-      sedan: "Chauffeur & Fuel Included • Custom Quote",
+      sedan: "Driver & Fuel Included • Custom Quote",
       suv: "Innova Crysta Option • Custom Quote",
       traveller: "Group Van Option • Custom Quote"
     },
@@ -247,7 +247,7 @@ export const ODISHA_TOURS: TourPackage[] = [
     startingCity: "Bhubaneswar or Puri",
     heroImage: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1200&auto=format&fit=crop",
     inclusions: [
-      "Chauffeur-driven AC cab round-trip to Satapada / Barkul",
+      "Driver-driven AC cab round-trip to Satapada / Barkul",
       "Assistance with OTDC certified boat hire counters",
       "Luggage and bag safety while on boat safari"
     ],
@@ -263,7 +263,7 @@ export const ODISHA_TOURS: TourPackage[] = [
       }
     ],
     indicativePrice: {
-      sedan: "Chauffeur & Fuel Included • Custom Quote",
+      sedan: "Driver & Fuel Included • Custom Quote",
       suv: "Innova Crysta Option • Custom Quote",
       traveller: "Group Van Option • Custom Quote"
     },

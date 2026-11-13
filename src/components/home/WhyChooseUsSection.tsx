@@ -13,7 +13,7 @@ export const WhyChooseUsSection: React.FC = () => {
   const benefits = [
     {
       title: "Verified Travel Partners",
-      desc: "Chauffeur partners pass background checks, possess valid commercial licenses, and undergo regular vehicle inspection standards.",
+      desc: "Commercial driver partners pass background checks, possess valid commercial licenses, and undergo regular vehicle inspection standards.",
       icon: <ShieldCheck className="w-5 h-5 text-[#073B3A]" />,
       tag: "Driver Quality",
     },

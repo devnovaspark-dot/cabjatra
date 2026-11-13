@@ -29,7 +29,7 @@ export const VehicleFleetSection: React.FC = () => {
               Choose Your Vehicle Category
             </h2>
             <p className="text-xs sm:text-sm text-[#667575] mt-1 sm:mt-1.5 max-w-xl">
-              100% yellow-board commercial permits, functioning dual-zone AC, comprehensive passenger insurance, and verified chauffeurs.
+              100% yellow-board commercial permits, functioning dual-zone AC, comprehensive passenger insurance, and verified drivers.
             </p>
           </div>
 

@@ -1,13 +1,13 @@
 # CABJATRA — Premium Cab Booking & Odisha Travel Platform
 
-**CABJATRA** is a premium pre-booked chauffeur mobility and Odisha travel platform built with Next.js 15 (App Router), React 19, TypeScript, and Tailwind CSS. The platform connects domestic and international travelers, pilgrims, and corporate professionals with background-verified commercial chauffeurs and clean, air-conditioned fleet across Odisha.
+**CABJATRA** is a premium pre-booked cab service and Odisha travel platform built with Next.js 15 (App Router), React 19, TypeScript, and Tailwind CSS. The platform connects domestic and international travelers, pilgrims, and corporate professionals with background-verified commercial drivers and clean, air-conditioned fleet across Odisha.
 
 ---
 
 ## Key Features
 
 - **Iconic Odisha Visual Storytelling**: Authentic imagery celebrating UNESCO World Heritage Konark Sun Temple, Puri Jagannath Dham, Marine Drive, and Chilika Lagoon.
-- **Pre-Booked Chauffeur Dispatch (`/book-cab`)**:
+- **Pre-Booked Cab Dispatch (`/book-cab`)**:
   - Interactive 4-step concierge booking terminal (Route, Vehicle Selection, Passenger Info, Boarding Pass Review).
   - Real-time route distance preview, travel duration, and transparent 10% advance deposit breakdown.
   - Standardized commercial fleet categories: Sedans, Innova Crysta SUVs, Kia Carens, and Tempo Travellers.

@@ -237,7 +237,7 @@ function CabBookingContent() {
               <span>10% Advance Deposit Model • 100% Commercial Fleet</span>
             </div>
             <h1 className="text-xl sm:text-3xl font-extrabold font-display tracking-tight text-white drop-shadow-md">
-              Reserve Your Odisha Chauffeur
+              Reserve Your Odisha Cab
             </h1>
           </div>
         )}
@@ -389,7 +389,7 @@ function CabBookingContent() {
                 ) : serviceType === "hourly" ? (
                   <span className="text-xs font-bold text-[#073B3A] inline-flex items-center gap-1.5 bg-[#E0ECEA]/80 px-3 py-1 rounded-full border border-[#B6D6D2]">
                     <Clock className="w-3.5 h-3.5 text-[#D9A52B]" />
-                    <span>Standby Chauffeur • Multi-Stop Errand Freedom</span>
+                    <span>Standby Driver • Multi-Stop Errand Freedom</span>
                   </span>
                 ) : (
                   <span className="text-xs font-bold text-[#073B3A] inline-flex items-center gap-1.5 bg-[#E0ECEA]/80 px-3 py-1 rounded-full border border-[#B6D6D2]">
@@ -556,7 +556,7 @@ function CabBookingContent() {
               <div className="pt-3 border-t border-[#EEF2EE] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <span className="text-xs text-[#667575] flex items-center gap-1.5 font-medium">
                   <ShieldCheck className="w-4 h-4 text-[#D9A52B]" />
-                  <span>No payment charged until chauffeur allocation is confirmed.</span>
+                  <span>No payment charged until driver allocation is confirmed.</span>
                 </span>
                 <button
                   type="submit"
@@ -580,7 +580,7 @@ function CabBookingContent() {
                       Choose Your Vehicle Class
                     </h2>
                     <p className="text-xs text-[#667575] mt-0.5">
-                      100% Yellow-Board Commercial Fleet • Dual-Zone AC • Verified Chauffeurs
+                      100% Yellow-Board Commercial Fleet • Dual-Zone AC • Verified Drivers
                     </p>
                   </div>
 
@@ -723,7 +723,7 @@ function CabBookingContent() {
                       Lead Passenger &amp; Contact
                     </h2>
                     <p className="text-xs text-[#667575] mt-0.5">
-                      Your chauffeur details and official dispatch voucher will be sent here.
+                      Your driver details and official dispatch voucher will be sent here.
                     </p>
                   </div>
                   <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#073B3A] font-semibold bg-[#E0ECEA] px-3 py-1 rounded-full border border-[#C1DAD7]">
@@ -922,7 +922,7 @@ function CabBookingContent() {
                 <div className="border-b border-[#E5ECE5] pb-4 flex items-center justify-between gap-3">
                   <div>
                     <h2 className="text-lg sm:text-xl font-bold font-display text-[#182A2B]">
-                      Review &amp; Confirm Chauffeur Dispatch
+                      Review &amp; Confirm Cab Dispatch
                     </h2>
                     <p className="text-xs text-[#667575] mt-0.5">
                       Verify your trip parameters and the 10% advance deposit breakdown.
@@ -1011,7 +1011,7 @@ function CabBookingContent() {
                         <div className="flex items-center justify-between text-[#073B3A] bg-[#E0ECEA]/70 p-3 rounded-xl font-semibold border border-[#C1DAD7]">
                           <div>
                             <span className="block font-bold text-xs">10% Advance Deposit:</span>
-                            <span className="text-[10px] text-[#455353]">Required upon chauffeur allocation</span>
+                            <span className="text-[10px] text-[#455353]">Required upon driver allocation</span>
                           </div>
                           <strong className="text-[#073B3A] font-black text-base">
                             ₹{fares.advance.toLocaleString("en-IN")}
@@ -1033,7 +1033,7 @@ function CabBookingContent() {
                         <span>Zero Financial Lock-In</span>
                       </div>
                       <p className="leading-relaxed text-[11px]">
-                        Submitting this form does not charge your card. Your verified chauffeur allocation and 10% payment link will be sent to your WhatsApp.
+                        Submitting this form does not charge your card. Your verified driver allocation and 10% payment link will be sent to your WhatsApp.
                       </p>
                     </div>
                   </div>
@@ -1056,7 +1056,7 @@ function CabBookingContent() {
                   onClick={handleSubmitBooking}
                   className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#D9A52B] via-[#E6B543] to-[#C99320] text-[#062F31] font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
                 >
-                  <span>Confirm Chauffeur Reservation</span>
+                  <span>Confirm Cab Reservation</span>
                   <ArrowRight className="w-4 h-4 text-[#062F31]" />
                 </button>
               </div>
@@ -1075,18 +1075,18 @@ function CabBookingContent() {
                   Thank You, {passengerName || "Esteemed Traveler"}!
                 </h2>
                 <p className="text-xs text-[#556464]">
-                  Your chauffeur reservation is logged. Live allocation details sent to your WhatsApp.
+                  Your cab reservation is logged. Live allocation details sent to your WhatsApp.
                 </p>
               </div>
 
-              {/* Compact Digital Chauffeur Boarding Pass */}
+              {/* Compact Digital Cab Boarding Pass */}
               <div className="rounded-2xl border border-[#D5DDD5] bg-[#FAF9F5] shadow-xs overflow-hidden text-left text-xs">
                 {/* Pass Header */}
                 <div className="bg-[#073B3A] text-white px-3.5 py-2 flex items-center justify-between border-b border-[#D9A52B]/30">
                   <div className="flex items-center gap-2">
                     <BrandLogo size="sm" variant="light" showTagline={false} />
                     <span className="text-[10px] uppercase font-bold tracking-wider text-[#D9A52B]">
-                      Chauffeur Voucher
+                      Cab Voucher
                     </span>
                   </div>
                   <div className="flex items-center gap-1.5 bg-black/30 px-2 py-0.5 rounded-lg border border-white/15">
@@ -1171,7 +1171,7 @@ function CabBookingContent() {
                   href={`${COMPANY_CONFIG.contact.whatsAppLink}?text=${encodeURIComponent(
                     `Hi Cabjatra Dispatch, I just booked reference ${bookingReference} (${pickupCity} to ${
                       serviceType === "hourly" ? hourlyPackage : dropLocation
-                    }) on ${pickupDate}. Please confirm my chauffeur allocation status.`
+                    }) on ${pickupDate}. Please confirm my driver allocation status.`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"

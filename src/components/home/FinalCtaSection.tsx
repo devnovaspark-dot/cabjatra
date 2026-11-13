@@ -38,7 +38,7 @@ export const FinalCtaSection: React.FC = () => {
             {/* Centered Badge */}
             <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-[#D9A52B]/40 text-[10px] sm:text-[10.5px] font-bold text-[#D9A52B] shadow-md">
               <ShieldCheck className="w-4 h-4" />
-              <span>Odisha&apos;s Dedicated Chauffeur Mobility Platform</span>
+              <span>Odisha&apos;s Dedicated Cab Booking Platform</span>
             </div>
 
             {/* Centered Headline */}
@@ -46,7 +46,7 @@ export const FinalCtaSection: React.FC = () => {
               <h2 className="text-2xl sm:text-5xl font-bold font-display tracking-tight text-[#FAF9F5] leading-tight drop-shadow-md">
                 Ready to Experience Odisha with <br />
                 <span className="italic font-display font-normal text-[#D9A52B]">
-                  Private Chauffeur Comfort?
+                  Comfortable Cab Travel?
                 </span>
               </h2>
               <p className="text-xs sm:text-base text-[#E0ECEA]/90 leading-relaxed max-w-2xl mx-auto">
@@ -92,7 +92,7 @@ export const FinalCtaSection: React.FC = () => {
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#D9A52B] shrink-0" />
-                <span>Verified chauffeurs &amp; clean commercial AC vehicles</span>
+                <span>Verified drivers &amp; clean commercial AC vehicles</span>
               </span>
               <span className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-[#D9A52B] shrink-0" />

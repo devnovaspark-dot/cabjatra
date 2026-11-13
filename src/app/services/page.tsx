@@ -47,7 +47,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#073B3A] text-[10px] font-semibold text-[#D9A52B] mb-3 border border-white/10">
             <ShieldCheck className="w-3.5 h-3.5" />
-            <span>Chauffeur Mobility Standards</span>
+            <span>Cab Service Standards</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display tracking-tight text-[#FAF9F5]">
             Our Services

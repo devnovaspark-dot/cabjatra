@@ -169,7 +169,7 @@ function TourBookingContent() {
           <div className="text-center max-w-2xl mx-auto mb-5 text-white">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/45 backdrop-blur-md border border-[#D9A52B]/40 text-xs font-semibold text-[#D9A52B] mb-2 shadow-sm">
               <Palmtree className="w-3.5 h-3.5 text-[#D9A52B]" />
-              <span>Curated Circuits • Standby Commercial Chauffeur</span>
+              <span>Curated Circuits • Dedicated Commercial Driver</span>
             </div>
             <h1 className="text-xl sm:text-3xl font-extrabold font-display tracking-tight text-white drop-shadow-md">
               Book an Odisha Private Tour
@@ -254,12 +254,12 @@ function TourBookingContent() {
                       Select Preferred Circuit
                     </h2>
                     <p className="text-xs text-[#667575] mt-0.5">
-                      Handcrafted cultural, coastal, and wildlife journeys with dedicated standby chauffeurs.
+                      Handcrafted cultural, coastal, and wildlife journeys with dedicated standby drivers.
                     </p>
                   </div>
                   <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#073B3A] font-semibold bg-[#E0ECEA] px-3 py-1 rounded-full border border-[#C1DAD7]">
                     <ShieldCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
-                    <span>Private Standby Chauffeur</span>
+                    <span>Dedicated Standby Driver</span>
                   </span>
                 </div>
 
@@ -598,7 +598,7 @@ function TourBookingContent() {
                       Lead Traveler Details
                     </h2>
                     <p className="text-xs text-[#667575] mt-0.5">
-                      Your personalized itinerary quote and dedicated chauffeur details will be sent here.
+                      Your personalized itinerary quote and dedicated driver details will be sent here.
                     </p>
                   </div>
                   <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#073B3A] font-semibold bg-[#E0ECEA] px-3 py-1 rounded-full border border-[#C1DAD7]">
@@ -810,7 +810,7 @@ function TourBookingContent() {
                       </strong>
                     </div>
                     <div className="bg-[#E0ECEA]/70 p-1.5 rounded-lg border border-[#C1DAD7]">
-                      <span className="text-[9px] font-bold text-[#073B3A] uppercase block">Standby Chauffeur:</span>
+                      <span className="text-[9px] font-bold text-[#073B3A] uppercase block">Standby Driver:</span>
                       <strong className="text-xs font-extrabold text-[#073B3A] block">
                         Commercial Permit Included
                       </strong>

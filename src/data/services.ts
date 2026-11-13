@@ -18,7 +18,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     slug: "airport-transfers",
     title: "Airport Transfers",
     shortDesc: "Punctual, stress-free pickups and drops to & from Biju Patnaik International Airport (BBI).",
-    fullDesc: "Dedicated airport chauffeur service with flight tracking, zero wait anxiety, doorstep luggage assistance, and air-conditioned comfortable rides across Bhubaneswar, Cuttack, and Puri.",
+    fullDesc: "Dedicated airport cab service with flight tracking, zero wait anxiety, doorstep luggage assistance, and air-conditioned comfortable rides across Bhubaneswar, Cuttack, and Puri.",
     iconName: "Plane",
     heroImage: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200&auto=format&fit=crop",
     features: [
@@ -35,13 +35,13 @@ export const SERVICES_DATA: ServiceItem[] = [
     id: "outstation-cabs",
     slug: "outstation-cabs",
     title: "Outstation Cabs",
-    shortDesc: "Reliable one-way and round-trip intercity cabs with seasoned highway chauffeurs.",
-    fullDesc: "Travel across Odisha's cultural corridors, beaches, and historic towns with peace of mind. Experienced chauffeurs who know local terrain, transparent toll & tax clarity, and well-maintained vehicles.",
+    shortDesc: "Reliable one-way and round-trip intercity cabs with seasoned highway drivers.",
+    fullDesc: "Travel across Odisha's cultural corridors, beaches, and historic towns with peace of mind. Experienced drivers who know local terrain, transparent toll & tax clarity, and well-maintained vehicles.",
     iconName: "Compass",
     heroImage: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1200&auto=format&fit=crop",
     features: [
       "One-way & multi-day round trip packages",
-      "Experienced highway chauffeurs with verified records",
+      "Experienced highway drivers with verified records",
       "Clean sanitized cars with active air-conditioning",
       "Flexible stopovers at authentic dhaba & temple sites"
     ],
@@ -53,7 +53,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     id: "hourly-rentals",
     slug: "hourly-rentals",
     title: "Hourly & Day Rentals",
-    shortDesc: "Dedicated car and chauffeur at your disposal for city meetings, shopping, or temple visits.",
+    shortDesc: "Dedicated car and driver at your disposal for city meetings, shopping, or temple visits.",
     fullDesc: "Retain your cab as long as you need. Move between client meetings in Patia, shopping in Master Canteen, or temple hopping in Old Town without re-booking repeatedly.",
     iconName: "Clock",
     heroImage: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1200&auto=format&fit=crop",
@@ -61,9 +61,9 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Flexible packages: 4 Hrs / 40 Km up to 12 Hrs / 120 Km",
       "Unlimited stops and wait-time within booked slot",
       "Ideal for multi-stop corporate appointments",
-      "Chauffeur handles parking and navigation"
+      "Driver handles parking and navigation"
     ],
-    startingFareNote: "Flexible block packages • Chauffeur on standby",
+    startingFareNote: "Flexible block packages • Driver on standby",
     idealFor: "Corporate executives, wedding guests, shoppers, day-long temple yatras",
     popularRoutes: ["Bhubaneswar City Tour (8h/80km)", "Puri Temple & Beach Crawl (6h/60km)", "Cuttack Heritage Loop (8h/80km)"]
   },
@@ -78,7 +78,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     features: [
       "Guaranteed vehicle assignment upon confirmation",
       "Zero last-minute driver cancellations",
-      "Clean interiors with courteous chauffeurs",
+      "Clean interiors with courteous drivers",
       "Scheduled pickup right at your doorstep"
     ],
     startingFareNote: "Transparent distance tariffs • Zero surge multipliers",

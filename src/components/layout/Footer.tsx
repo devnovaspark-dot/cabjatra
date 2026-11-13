@@ -72,12 +72,12 @@ export const Footer: React.FC = () => {
             </div>
 
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold font-display text-white tracking-tight">
-              Need Instant Chauffeur Dispatch or a{" "}
+              Need Instant Cab Dispatch or a{" "}
               <span className="text-[#D9A52B] italic font-normal">Custom Tour Plan?</span>
             </h3>
 
             <p className="text-xs sm:text-sm text-[#E0ECEA]/85 leading-relaxed font-normal">
-              Book verified yellow-board commercial fleet with background-checked chauffeurs. Simple 10% advance deposit after fleet confirmation.
+              Book verified yellow-board commercial fleet with background-checked drivers. Simple 10% advance deposit after fleet confirmation.
             </p>
           </div>
 
@@ -124,7 +124,7 @@ export const Footer: React.FC = () => {
             </Link>
 
             <p className="text-xs text-[#E0ECEA]/80 leading-relaxed max-w-sm">
-              Odisha&apos;s dedicated pre-booked mobility platform connecting pilgrims, families, and corporate executives with certified commercial chauffeurs, guaranteed on-time dispatch, and pristine AC fleet.
+              Odisha&apos;s dedicated pre-booked mobility platform connecting pilgrims, families, and corporate executives with certified commercial drivers, guaranteed on-time dispatch, and pristine AC fleet.
             </p>
 
             {/* Branded Social Channels (Facebook, Instagram, X/Twitter, LinkedIn) - FBM Requirement */}

@@ -2,9 +2,9 @@ import React from "react";
 import { ServiceDetailPage } from "@/components/services/ServiceDetailPage";
 
 export const metadata = {
-  title: "Outstation Cabs Odisha — CABJATRA Intercity Chauffeurs",
+  title: "Outstation Cabs Odisha — CABJATRA Intercity Cab Service",
   description:
-    "Reliable one-way and round-trip outstation cabs from Bhubaneswar, Puri, and Cuttack. Experienced highway chauffeurs, clean AC cars, and transparent per-km billing.",
+    "Reliable one-way and round-trip outstation cabs from Bhubaneswar, Puri, and Cuttack. Experienced highway drivers, clean AC cars, and transparent per-km billing.",
 };
 
 export default function OutstationCabsPage() {
@@ -18,7 +18,7 @@ export default function OutstationCabsPage() {
       overview="Whether visiting holy shrines in Puri, exploring the architectural marvel at Konark, or cruising along Chilika Lake, our outstation cabs provide unmatched reliability. Travel at your own pace with clean air-conditioned vehicles and drivers who know every highway bypass and authentic dhaba stop."
       whyUsPoints={[
         {
-          title: "Seasoned Highway Chauffeurs",
+          title: "Seasoned Highway Drivers",
           desc: "Our outstation drivers have over 5+ years of highway experience across NH-16, NH-316, and coastal state expressways with clean safety records.",
         },
         {
@@ -61,7 +61,7 @@ export default function OutstationCabsPage() {
         },
       ]}
       inclusions={[
-        "Chauffeur allowance (driver batta) included in standard outstation packages",
+        "Driver allowance (batta) included in standard outstation packages",
         "Air-conditioned private sedan or SUV with ample boot capacity",
         "Toll tax guidance and route planning support",
         "Doorstep pickup and drop at your chosen hotel or residence",

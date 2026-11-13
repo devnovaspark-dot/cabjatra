@@ -22,13 +22,13 @@ import {
 } from "lucide-react";
 
 /**
- * Photorealistic Top-Down Executive Chauffeur Sedan SVG
+ * Photorealistic Top-Down Executive Commercial Sedan SVG
  * Crafted with realistic metallic reflections, curved aerodynamic contours,
  * tinted windshield with specular glare, panoramic sunroof, alloy rims,
  * Odisha commercial yellow plate, dual Xenon projector headlights with
  * volumetric road illumination, and dynamic LED brake lights.
  */
-function RealisticChauffeurCar({
+function RealisticCommercialCar({
   speed,
   isReversing,
   steeringAngle = 0,
@@ -262,10 +262,10 @@ export const HowItWorksSection: React.FC = () => {
       km: "KM 25",
       milestone: "Fleet Safety Inspection",
       title: "Dispatch Fleet Verification",
-      desc: "Our Odisha operations desk manually verifies commercial vehicle fitness, yellow-board compliance, and matches an experienced, police-verified local chauffeur.",
+      desc: "Our Odisha operations desk manually verifies commercial vehicle fitness, yellow-board compliance, and matches an experienced, police-verified local driver.",
       icon: <ShieldCheck className="w-5 h-5 text-[#D9A52B]" />,
       badge: "Manual Verification",
-      feature: "Background verified & highway-certified chauffeur",
+      feature: "Background verified & highway-certified driver",
       corridor: "State Transport Authority (STA) Compliant",
     },
     {
@@ -273,7 +273,7 @@ export const HowItWorksSection: React.FC = () => {
       km: "KM 48",
       milestone: "Reservation Lock-in",
       title: "10% Advance Deposit Model",
-      desc: "Once your cab and chauffeur are allocated, lock your ride with a transparent 10% advance deposit. Zero surge pricing guaranteed. Remaining 90% is settled at drop.",
+      desc: "Once your cab and driver are allocated, lock your ride with a transparent 10% advance deposit. Zero surge pricing guaranteed. Remaining 90% is settled at drop.",
       icon: <CheckCircle2 className="w-5 h-5 text-[#D9A52B]" />,
       badge: "Accountability Guarantee",
       feature: "Zero surge traps • 100% refundable on 6hr notice",
@@ -283,8 +283,8 @@ export const HowItWorksSection: React.FC = () => {
       step: "04",
       km: "KM 65",
       milestone: "Punctual Destination Arrival",
-      title: "Punctual Chauffeur Arrival",
-      desc: "Your uniformed chauffeur coordinates via phone & WhatsApp, arrives with AC active at your doorstep 10 mins prior, and handles all luggage with zero cancellations.",
+      title: "Punctual Driver Arrival",
+      desc: "Your professional driver coordinates via phone & WhatsApp, arrives with AC active at your doorstep 10 mins prior, and handles all luggage with zero cancellations.",
       icon: <UserCheck className="w-5 h-5 text-[#D9A52B]" />,
       badge: "Zero Cancellations",
       feature: "Guaranteed on-time arrival with luggage assistance",
@@ -430,7 +430,7 @@ export const HowItWorksSection: React.FC = () => {
               style={{ height: `${carY + 56}px` }}
             />
 
-            {/* ================= THE REAL SIMULATED CHAUFFEUR CAR ================= */}
+            {/* ================= THE REAL SIMULATED COMMERCIAL SEDAN ================= */}
             <div
               className="absolute left-1/2 -translate-x-1/2 will-change-transform z-20 pointer-events-auto cursor-grab"
               style={{
@@ -438,7 +438,7 @@ export const HowItWorksSection: React.FC = () => {
                 transition: "transform 0.04s linear",
               }}
             >
-              <RealisticChauffeurCar
+              <RealisticCommercialCar
                 speed={carSpeed}
                 isReversing={isReversing}
                 steeringAngle={steeringAngle}
@@ -654,7 +654,7 @@ export const HowItWorksSection: React.FC = () => {
               <ul className="space-y-2.5 text-xs text-[#E0ECEA]/90 relative z-10">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#D9A52B] shrink-0 mt-0.5" />
-                  <span><strong>Zero Driver Cancellations:</strong> Your allocated chauffeur and commercial vehicle are contractually locked.</span>
+                  <span><strong>Zero Driver Cancellations:</strong> Your allocated driver and commercial vehicle are contractually locked.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#D9A52B] shrink-0 mt-0.5" />

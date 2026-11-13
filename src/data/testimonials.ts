@@ -19,7 +19,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     location: "Kolkata to Puri & Konark",
     tripType: "3-Day Odisha Golden Triangle Tour",
     rating: 5,
-    quote: "Traveling with elderly parents can be challenging, but our CABJATRA chauffeur Subash was exceptionally polite, patient, and drove with great care along the Marine Drive. The car was spotless and the AC was crisp. Highly recommended for family pilgrimage trips.",
+    quote: "Traveling with elderly parents can be challenging, but our CABJATRA driver Subash was exceptionally polite, patient, and drove with great care along the Marine Drive. The car was spotless and the AC was crisp. Highly recommended for family pilgrimage trips.",
     date: "February 2026",
     avatarText: "AM",
     isSample: true
@@ -55,7 +55,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     location: "Cuttack / Bhubaneswar",
     tripType: "Multi-Day Hourly Rentals (Fleet of 4 Sedans)",
     rating: 5,
-    quote: "We hired CABJATRA for an academic conference spanning Utkal University and KIIT campus. Chauffeurs adhered strictly to timelines and coordinate smoothly via WhatsApp. Superb corporate travel support.",
+    quote: "We hired CABJATRA for an academic conference spanning Utkal University and KIIT campus. Drivers adhered strictly to timelines and coordinate smoothly via WhatsApp. Superb corporate travel support.",
     date: "January 2026",
     avatarText: "DR",
     isSample: true

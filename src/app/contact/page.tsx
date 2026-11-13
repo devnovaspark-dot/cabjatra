@@ -55,7 +55,7 @@ export default function ContactPage() {
     },
     {
       q: "Can you arrange early morning or midnight airport pickups at BBI?",
-      a: "Yes, absolutely. We operate around the clock with live flight radar tracking. Even if your flight is delayed, your verified chauffeur will be waiting at the arrival terminal with AC primed.",
+      a: "Yes, absolutely. We operate around the clock with live flight radar tracking. Even if your flight is delayed, your verified driver will be waiting at the arrival terminal with AC primed.",
     },
     {
       q: "How do I confirm a booking on WhatsApp?",
@@ -100,7 +100,7 @@ export default function ContactPage() {
 
           {/* Minimal Subtitle */}
           <p className="text-xs sm:text-base text-white/85 max-w-xl mx-auto font-normal leading-relaxed">
-            Direct coordination for airport arrivals, outstation highway transfers, and verified chauffeur bookings across Odisha.
+            Direct coordination for airport arrivals, outstation highway transfers, and verified cab bookings across Odisha.
           </p>
         </div>
       </section>
@@ -429,7 +429,7 @@ export default function ContactPage() {
                     href="/book-cab"
                     className="p-2 rounded-xl bg-[#FAF9F5] hover:bg-[#E0ECEA]/60 border border-[#D5DDD5] flex items-center justify-between group transition text-xs font-bold text-[#182A2B] cursor-pointer"
                   >
-                    <span>Reserve Chauffeur Cab</span>
+                    <span>Reserve a Cab Now</span>
                     <ArrowRight className="w-3.5 h-3.5 text-[#D9A52B] group-hover:translate-x-1 transition-transform" />
                   </Link>
                   <Link

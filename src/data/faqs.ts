@@ -12,17 +12,17 @@ export const FAQS_DATA: FaqItem[] = [
   },
   {
     question: "Is my booking confirmed immediately upon submitting the website form?",
-    answer: "No. Submitting a booking request on our website initiates an immediate availability check rather than an automated confirmation. Because we guarantee vehicle cleanliness, verified chauffeur allocation, and strict arrival standards, our team manually verifies route readiness and vehicle assignment before issuing your confirmed booking voucher. This prevents frustrating last-minute cancellations.",
+    answer: "No. Submitting a booking request on our website initiates an immediate availability check rather than an automated confirmation. Because we guarantee vehicle cleanliness, verified driver allocation, and strict arrival standards, our team manually verifies route readiness and vehicle assignment before issuing your confirmed booking voucher. This prevents frustrating last-minute cancellations.",
     category: "booking"
   },
   {
     question: "When do I pay the 10% advance?",
-    answer: "You only pay the 10% advance AFTER our operations team reviews your trip details and confirms that a suitable vehicle and chauffeur are available for your slot. Once confirmed, you will receive an official payment notification with a secure link via WhatsApp and SMS. The remaining 90% balance is payable directly to your chauffeur at the completion of your journey (via Cash or UPI).",
+    answer: "You only pay the 10% advance AFTER our operations team reviews your trip details and confirms that a suitable vehicle and driver are available for your slot. Once confirmed, you will receive an official payment notification with a secure link via WhatsApp and SMS. The remaining 90% balance is payable directly to your driver at the completion of your journey (via Cash or UPI).",
     category: "payment"
   },
   {
     question: "How does vehicle availability get checked?",
-    answer: "Our centralized Odisha dispatch desk reviews your requested pickup timing, route feasibility, and vehicle category against our active fleet schedule across Bhubaneswar, Cuttack, and Puri. Once a chauffeur partner meets our service benchmarks (clean vehicle, verified license, route familiarity), your vehicle is reserved and the confirmation notification is sent to you, usually within 15–30 minutes.",
+    answer: "Our centralized Odisha dispatch desk reviews your requested pickup timing, route feasibility, and vehicle category against our active fleet schedule across Bhubaneswar, Cuttack, and Puri. Once a driver partner meets our service benchmarks (clean vehicle, verified license, route familiarity), your vehicle is reserved and the confirmation notification is sent to you, usually within 15–30 minutes.",
     category: "service"
   },
   {

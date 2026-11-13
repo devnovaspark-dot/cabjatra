@@ -54,7 +54,7 @@ export default function LocalCityRidesPage() {
         },
       ]}
       inclusions={[
-        "Chauffeur-driven AC hatchback or sedan reserved specifically for your scheduled time",
+        "Driver-driven AC hatchback or sedan reserved specifically for your scheduled time",
         "Doorstep pickup from residential complexes, hospitals, or hotels",
         "Driver contact sharing 20 minutes prior to pickup",
         "Direct point-to-point route transit",

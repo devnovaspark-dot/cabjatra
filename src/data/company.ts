@@ -90,7 +90,7 @@ export const COMPANY_CONFIG = {
   // Advance Payment Rule: Explicitly 10%
   bookingRules: {
     advancePercentage: 10,
-    policySummary: "Submitting a booking request initiates an availability verification. Once confirmed by our dispatch desk, a secure link to pay the 10% advance is provided via WhatsApp/SMS to seal the booking. Remaining balance is payable to the chauffeur upon ride completion.",
+    policySummary: "Submitting a booking request initiates an availability verification. Once confirmed by our dispatch desk, a secure link to pay the 10% advance is provided via WhatsApp/SMS to seal the booking. Remaining balance is payable to the driver upon ride completion.",
   }
 };
 

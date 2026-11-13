@@ -5,7 +5,7 @@ import { ShieldCheck, FileCheck2, Headphones, RotateCcw, ArrowRight, Sparkles, C
 export const TrustSafetySection: React.FC = () => {
   const pillars = [
     {
-      title: "Chauffeur Screening & Commercial Licensing",
+      title: "Driver Screening & Commercial Licensing",
       desc: "Every driver undergoes background verification, holds a valid commercial driving license (yellow-board endorsement), and has verified highway expertise across Odisha corridors.",
       icon: <FileCheck2 className="w-5 h-5 text-[#D9A52B]" />,
       actionText: "View Driver Policy",
@@ -22,7 +22,7 @@ export const TrustSafetySection: React.FC = () => {
     },
     {
       title: "24/7 Operations Desk Support",
-      desc: "Live travel desk support for flight arrivals at BBI Airport, train delays, intermediate sightseeing halts, and instant WhatsApp chauffeur coordination.",
+      desc: "Live travel desk support for flight arrivals at BBI Airport, train delays, intermediate sightseeing halts, and instant WhatsApp driver coordination.",
       icon: <Headphones className="w-5 h-5 text-[#D9A52B]" />,
       actionText: "Contact Support Desk",
       actionLink: "/contact",

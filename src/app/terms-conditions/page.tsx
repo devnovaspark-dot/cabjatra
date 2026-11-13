@@ -7,7 +7,7 @@ import { PlaceholderNotice } from "@/components/common/PlaceholderNotice";
 export const metadata = {
   title: "Terms and Conditions — CabJatra Odisha",
   description:
-    "Terms and Conditions governing pre-booked cab reservations, 10% advance deposit, availability verification, and chauffeur travel with CabJatra.",
+    "Terms and Conditions governing pre-booked cab reservations, 10% advance deposit, availability verification, and cab travel with CabJatra.",
 };
 
 export default function TermsConditionsPage() {
@@ -48,7 +48,7 @@ export default function TermsConditionsPage() {
               1. Nature of Service &amp; Availability Verification
             </h2>
             <p>
-              CabJatra operates a pre-booked chauffeur mobility platform. Submitting a booking or tour request on this website constitutes an <strong>enquiry and availability request</strong>. A booking is formally confirmed <em>only after</em> our operations team verifies vehicle availability and the customer completes the mandatory 10% advance deposit.
+              CabJatra operates a pre-booked cab mobility platform. Submitting a booking or tour request on this website constitutes an <strong>enquiry and availability request</strong>. A booking is formally confirmed <em>only after</em> our operations team verifies vehicle availability and the customer completes the mandatory 10% advance deposit.
             </p>
           </section>
 
@@ -58,8 +58,8 @@ export default function TermsConditionsPage() {
               2. Advance Deposit &amp; Payment Settlement
             </h2>
             <ul className="list-disc pl-5 space-y-1 text-[#667575]">
-              <li><strong>10% Advance Deposit:</strong> Required upon availability confirmation to secure vehicle and chauffeur allocation.</li>
-              <li><strong>90% Balance Payment:</strong> Payable directly to the assigned chauffeur partner at the completion of the trip via Cash or standard UPI (Google Pay, PhonePe, Paytm).</li>
+              <li><strong>10% Advance Deposit:</strong> Required upon availability confirmation to secure vehicle and driver allocation.</li>
+              <li><strong>90% Balance Payment:</strong> Payable directly to the assigned driver partner at the completion of the trip via Cash or standard UPI (Google Pay, PhonePe, Paytm).</li>
               <li>Official tax invoices are issued electronically following trip conclusion.</li>
             </ul>
           </section>
@@ -85,7 +85,7 @@ export default function TermsConditionsPage() {
               4. Luggage Policy &amp; Vehicle Capacity
             </h2>
             <p>
-              Passengers must adhere to the passenger and luggage seating capacities specified during vehicle selection. Chauffeurs reserve the right to decline passengers or excess cargo exceeding lawful motor vehicle capacity regulations.
+              Passengers must adhere to the passenger and luggage seating capacities specified during vehicle selection. Drivers reserve the right to decline passengers or excess cargo exceeding lawful motor vehicle capacity regulations.
             </p>
           </section>
 
@@ -95,7 +95,7 @@ export default function TermsConditionsPage() {
               5. Passenger Conduct &amp; Safety
             </h2>
             <p>
-              Smoking, consumption of alcohol, or conveyance of contraband materials inside vehicles is strictly prohibited under Indian Motor Vehicle laws. Passengers are expected to maintain courteous conduct with chauffeurs.
+              Smoking, consumption of alcohol, or conveyance of contraband materials inside vehicles is strictly prohibited under Indian Motor Vehicle laws. Passengers are expected to maintain courteous conduct with drivers.
             </p>
           </section>
 

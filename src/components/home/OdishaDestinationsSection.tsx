@@ -26,7 +26,7 @@ export const OdishaDestinationsSection: React.FC = () => {
               Explore Timeless Odisha
             </h2>
             <p className="text-xs sm:text-sm text-[#667575] mt-1 sm:mt-1.5 max-w-xl">
-              From the cosmic chariot stones of Konark to the sacred shores of Puri and the tranquil dolphin waters of Chilika Lagoon, explore Odisha with dedicated chauffeur comfort.
+              From the cosmic chariot stones of Konark to the sacred shores of Puri and the tranquil dolphin waters of Chilika Lagoon, explore Odisha with reliable cab comfort.
             </p>
           </div>
 

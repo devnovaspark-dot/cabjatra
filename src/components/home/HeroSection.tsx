@@ -37,7 +37,7 @@ const HERO_SLIDES: HeroSlide[] = [
       "https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?q=85&w=2400&auto=format&fit=crop",
     title: "Sacred Jagannath Puri Dham",
     location: "Grand Road Heritage Corridor",
-    badge: "Pilgrimage Chauffeur",
+    badge: "Pilgrimage Cab Special",
   },
   {
     id: "konark-sun-temple",
@@ -103,7 +103,7 @@ export const HeroSection: React.FC = () => {
         <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6 my-auto">
           {/* Direct, High-Converting Cab Booking Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold font-display tracking-tight text-white leading-tight sm:leading-[1.08] drop-shadow-xl">
-            Book Chauffeur Cabs <br />
+            Book Reliable Cabs <br />
             <span className="italic font-display font-normal text-[#D9A52B]">
               Across Odisha.
             </span>
@@ -153,7 +153,7 @@ export const HeroSection: React.FC = () => {
               className="w-full sm:w-auto px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#D9A52B] via-[#E5B543] to-[#C99320] text-[#062F31] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(217,165,43,0.35),inset_0_1px_0_rgba(255,255,255,0.6)] hover:brightness-105 hover:shadow-[0_6px_22px_rgba(217,165,43,0.45)] hover:scale-[1.01] active:scale-[0.98] transition-all group cursor-pointer border border-[#F2C868]/60"
             >
               <Car className="w-4 h-4 text-[#062F31]" />
-              <span>Book Your Chauffeur Cab</span>
+              <span>Book Your Cab Now</span>
               <ArrowRight className="w-4 h-4 text-[#062F31] group-hover:translate-x-0.5 transition-transform" />
             </Link>
 

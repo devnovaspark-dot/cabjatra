@@ -89,7 +89,7 @@ export const Navbar: React.FC = () => {
     {
       title: "Hourly Rentals",
       slug: "hourly-rentals",
-      desc: "Flexible 4, 8, or 12-hour packages with chauffeur on standby.",
+      desc: "Flexible 4, 8, or 12-hour packages with dedicated driver on standby.",
       icon: <Clock className="w-4 h-4 text-[#073B3A]" />,
     },
     {
@@ -273,7 +273,7 @@ export const Navbar: React.FC = () => {
                   <div className="mt-3.5 pt-3 border-t border-[#F2F5F2] flex items-center justify-between text-[11px] text-[#667575] px-1">
                     <span className="flex items-center gap-1.5">
                       <ShieldCheck className="w-3.5 h-3.5 text-[#073B3A]" />
-                      Verified Chauffeurs • Commercial Fleet
+                      Verified Drivers • Commercial Fleet
                     </span>
                     <a
                       href={COMPANY_CONFIG.contact.whatsAppLink}

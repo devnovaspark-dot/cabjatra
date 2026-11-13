@@ -96,7 +96,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 className="px-6 py-3.5 rounded-full bg-gradient-to-b from-[#E6B543] to-[#C99320] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 text-[#062F31] font-bold text-xs inline-flex items-center gap-2 active:translate-y-0.5 transition-all"
               >
                 <Car className="w-4 h-4 text-[#062F31]" />
-                <span>Reserve This Chauffeur Service</span>
+                <span>Reserve This Cab Service</span>
                 <ArrowRight className="w-4 h-4 text-[#062F31]" />
               </Link>
 
@@ -142,7 +142,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               Why Choose Our {title}
             </h2>
             <p className="text-xs sm:text-sm text-[#667575] mt-1.5">
-              Strict sanitization, zero surge gouging, and courteous chauffeurs who treat passenger comfort as paramount.
+              Strict sanitization, zero surge gouging, and courteous drivers who treat passenger comfort as paramount.
             </p>
           </div>
 
@@ -210,7 +210,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                       {rf.route}
                     </h3>
                     <p className="text-xs text-[#667575]">
-                      Distance: <span className="font-semibold text-[#182A2B]">{rf.distance}</span> • Dedicated AC vehicle with verified chauffeur
+                      Distance: <span className="font-semibold text-[#182A2B]">{rf.distance}</span> • Dedicated AC vehicle with verified driver
                     </p>
                   </div>
 
@@ -339,7 +339,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
           </h2>
 
           <p className="text-xs sm:text-sm text-[#E0ECEA]/80 max-w-xl mx-auto leading-relaxed">
-            Submit your itinerary details today. Our operations team verifies vehicle readiness and confirms your private chauffeur with a 10% advance deposit.
+            Submit your itinerary details today. Our operations team verifies vehicle readiness and confirms your dedicated driver with a 10% advance deposit.
           </p>
 
           <div className="pt-3 flex flex-wrap justify-center gap-4">

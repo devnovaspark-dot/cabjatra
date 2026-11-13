@@ -71,8 +71,8 @@ export default function PrivacyPolicyPage() {
               We collect and process your personal information strictly for legitimate commercial and travel coordination purposes:
             </p>
             <ul className="list-disc pl-5 space-y-1 text-[#667575]">
-              <li>To check vehicle availability across our Odisha chauffeur fleet.</li>
-              <li>To issue official booking vouchers and provide chauffeur contact details.</li>
+              <li>To check vehicle availability across our Odisha commercial cab fleet.</li>
+              <li>To issue official booking vouchers and provide driver contact details.</li>
               <li>To deliver accurate route estimates and transparent billing.</li>
               <li>To verify the 10% advance deposit and assist during your trip.</li>
             </ul>
@@ -89,7 +89,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <ul className="list-disc pl-5 space-y-1 text-[#667575]">
               <li><strong>Explicit Opt-In:</strong> WhatsApp communication consent is explicitly requested during booking and is <em>never preselected</em>.</li>
-              <li><strong>Essential Booking Updates:</strong> Used exclusively for sending vehicle assignment vouchers, chauffeur phone numbers, driver live coordinates, and the 10% advance invoice link.</li>
+              <li><strong>Essential Booking Updates:</strong> Used exclusively for sending vehicle assignment vouchers, driver phone numbers, driver live coordinates, and the 10% advance invoice link.</li>
               <li><strong>Marketing Messages:</strong> Optional seasonal Odisha tour deals are separate from booking alerts and require a distinct affirmative consent checkbox.</li>
               <li><strong>Opt-Out Right:</strong> Customers can stop receiving messages at any time by replying &quot;STOP&quot; on WhatsApp or by contacting support.</li>
             </ul>
@@ -102,7 +102,7 @@ export default function PrivacyPolicyPage() {
               <span>Information Sharing With Service Partners</span>
             </h2>
             <p>
-              To complete your journey, we disclose relevant trip coordinates (pickup location, passenger name, contact number) to the assigned chauffeur partner for the duration of the booked ride only. We do not sell, rent, or trade customer contact details to unrelated third-party advertisers.
+              To complete your journey, we disclose relevant trip coordinates (pickup location, passenger name, contact number) to the assigned driver partner for the duration of the booked ride only. We do not sell, rent, or trade customer contact details to unrelated third-party advertisers.
             </p>
           </section>
 

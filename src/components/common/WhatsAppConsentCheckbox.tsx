@@ -41,7 +41,7 @@ export const WhatsAppConsentCheckbox: React.FC<WhatsAppConsentProps> = ({
             </span>
           </div>
           <p className="text-[11px] text-[#667575] mt-0.5 leading-relaxed">
-            Receive prompt dispatch notification, chauffeur contact details, car assignment, and the secure 10% advance confirmation link directly on WhatsApp.
+            Receive prompt dispatch notification, driver contact details, car assignment, and the secure 10% advance confirmation link directly on WhatsApp.
           </p>
         </div>
       </div>
@@ -56,7 +56,7 @@ export const WhatsAppConsentCheckbox: React.FC<WhatsAppConsentProps> = ({
             className="mt-0.5 w-4 h-4 rounded border-[#E5EAE5] text-[#073B3A] focus:ring-[#073B3A] cursor-pointer accent-[#073B3A]"
           />
           <span className="text-xs text-[#182A2B] leading-normal">
-            <strong className="font-semibold text-[#182A2B]">I consent to receive essential booking updates</strong>, chauffeur assignment, and reservation alerts via WhatsApp from CabJatra.{" "}
+            <strong className="font-semibold text-[#182A2B]">I consent to receive essential booking updates</strong>, driver assignment, and reservation alerts via WhatsApp from CabJatra.{" "}
             <span className="text-[#667575]">(Not preselected; required for instant voucher delivery)</span>
           </span>
         </label>

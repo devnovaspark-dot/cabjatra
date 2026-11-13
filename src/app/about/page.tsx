@@ -29,9 +29,9 @@ import { COMPANY_CONFIG } from "@/data/company";
 import { BrandLogo } from "@/components/common/BrandLogo";
 
 export const metadata = {
-  title: "About Us — CabJatra Odisha Chauffeur Mobility",
+  title: "About Us — CabJatra Odisha Cab Service",
   description:
-    "Discover the story behind CabJatra: our founding mission, 10% advance deposit model, 100% commercial yellow-board fleet, and verified chauffeur standards across Odisha.",
+    "Discover the story behind CabJatra: our founding mission, 10% advance deposit model, 100% commercial yellow-board fleet, and verified driver standards across Odisha.",
 };
 
 export default function AboutPage() {
@@ -47,7 +47,7 @@ export default function AboutPage() {
       num: "02",
       title: "15-Min Pre-Arrival Priming",
       time: "T-Minus 15 Mins",
-      desc: "Chauffeur arrives at your pickup hub early. Dual-zone AC is cooled to 22°C and vehicle boot is prepared for your luggage.",
+      desc: "Driver arrives at your pickup hub early. Dual-zone AC is cooled to 22°C and vehicle boot is prepared for your luggage.",
       icon: Clock,
     },
     {
@@ -158,7 +158,7 @@ export default function AboutPage() {
           {/* Kicker Pill */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/45 backdrop-blur-md border border-[#D9A52B]/40 text-xs font-semibold text-[#D9A52B] shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
-            <span>Odisha Chauffeur Distinction • Established Mobility Protocol</span>
+            <span>Odisha Cab Service Distinction • Established Mobility Protocol</span>
           </div>
 
           {/* Regal Headline */}
@@ -246,7 +246,7 @@ export default function AboutPage() {
                   The Cultural Ethos: Atithi Devo Bhava
                 </span>
                 <p className="text-xs text-[#182A2B] italic font-medium leading-relaxed">
-                  &ldquo;A guest arriving in Odisha is not a transaction; they are sacred. Our chauffeurs take pride in courteous hospitality, punctuality, and ensuring every family reaches safely.&rdquo;
+                  &ldquo;A guest arriving in Odisha is not a transaction; they are sacred. Our drivers take pride in courteous hospitality, punctuality, and ensuring every family reaches safely.&rdquo;
                 </p>
               </div>
             </div>
@@ -334,7 +334,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= STORYTELLING INFOGRAPHIC: 4-STEP CHAUFFEUR LIFECYCLE ================= */}
+      {/* ================= STORYTELLING INFOGRAPHIC: 4-STEP TRAVEL LIFECYCLE ================= */}
       <section className="py-12 sm:py-16 bg-[#F2F5F2] border-b border-[#E5EAE5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
@@ -531,7 +531,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* PILLAR 4: VERIFIED CHAUFFEUR HOSPITALITY */}
+            {/* PILLAR 4: VERIFIED DRIVER HOSPITALITY */}
             <div className="card-skeuo rounded-3xl p-6 sm:p-7 bg-white border border-[#D5DDD5] hover:shadow-xl transition-all space-y-4 flex flex-col justify-between">
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -544,14 +544,14 @@ export default function AboutPage() {
                 </div>
 
                 <h3 className="text-lg sm:text-xl font-bold font-display text-[#182A2B]">
-                  Verified Chauffeur Hospitality
+                  Verified Driver Hospitality
                 </h3>
 
                 <p className="text-xs sm:text-sm text-[#556464] leading-relaxed">
-                  Our chauffeurs are verified local professionals with extensive highway experience, clean driving records, and courteous pilgrimage etiquette. Trained to assist with luggage, family needs, and senior citizens.
+                  Our drivers are verified local professionals with extensive highway experience, clean driving records, and courteous pilgrimage etiquette. Trained to assist with luggage, family needs, and senior citizens.
                 </p>
 
-                {/* Graphic Chauffeur Checklist */}
+                {/* Graphic Driver Checklist */}
                 <div className="p-3 rounded-2xl bg-[#FAF9F5] border border-[#E5EAE5] grid grid-cols-2 gap-2 text-[11px]">
                   <span className="flex items-center gap-1 font-semibold text-[#182A2B]">
                     <Check className="w-3.5 h-3.5 text-[#10B981]" /> Police Verified
@@ -822,13 +822,13 @@ export default function AboutPage() {
             <div className="relative z-10 max-w-2xl mx-auto space-y-4 flex flex-col items-center justify-center">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/40 backdrop-blur-md border border-[#D9A52B]/40 text-xs font-bold text-[#D9A52B]">
                 <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
-                <span>Odisha Chauffeur Distinction</span>
+                <span>Odisha Cab Service Distinction</span>
               </div>
 
               <h2 className="text-2xl sm:text-4xl font-bold font-display tracking-tight text-white leading-tight">
                 Ready to Experience Odisha with <br />
                 <span className="italic font-display font-normal text-[#D9A52B]">
-                  Punctual Chauffeur Comfort?
+                  Comfortable Cab Travel?
                 </span>
               </h2>
 
@@ -841,7 +841,7 @@ export default function AboutPage() {
                   href="/book-cab"
                   className="px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#D9A52B] via-[#E5B543] to-[#C99320] text-[#062F31] font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-[0_4px_16px_rgba(217,165,43,0.35)] hover:brightness-105 active:scale-[0.98] transition-all cursor-pointer border border-[#F2C868]/60"
                 >
-                  <span>Book a Chauffeur Cab</span>
+                  <span>Book Your Cab Now</span>
                   <ArrowRight className="w-4 h-4 text-[#062F31]" />
                 </Link>
 

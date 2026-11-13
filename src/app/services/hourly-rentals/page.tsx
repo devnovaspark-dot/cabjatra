@@ -4,18 +4,18 @@ import { ServiceDetailPage } from "@/components/services/ServiceDetailPage";
 export const metadata = {
   title: "Hourly & Day Car Rentals — CABJATRA Odisha",
   description:
-    "Hire a private car and chauffeur by the hour in Bhubaneswar and Cuttack. 4-hour, 8-hour, and 12-hour packages for business meetings, shopping, and temple tours.",
+    "Hire a private car and driver by the hour in Bhubaneswar and Cuttack. 4-hour, 8-hour, and 12-hour packages for business meetings, shopping, and temple tours.",
 };
 
 export default function HourlyRentalsPage() {
   return (
     <ServiceDetailPage
       title="Hourly & Day Rentals"
-      subtitle="Dedicated car and chauffeur at your service for city meetings, errands, and temple tours"
+      subtitle="Dedicated car and driver at your service for city meetings, errands, and temple tours"
       tagline="Move around town with zero waiting anxiety"
       badge="Flexible Packages"
       heroImage="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1200&auto=format&fit=crop"
-      overview="Need to attend multiple meetings across Patia, Saheed Nagar, and Secretariat? Or taking your family for a full-day temple tour of Lingaraj, Mukteshwar, and Khandagiri caves? Keep a private CABJATRA chauffeur and comfortable vehicle on standby for your entire schedule."
+      overview="Need to attend multiple meetings across Patia, Saheed Nagar, and Secretariat? Or taking your family for a full-day temple tour of Lingaraj, Mukteshwar, and Khandagiri caves? Keep a private CABJATRA driver and comfortable vehicle on standby for your entire schedule."
       whyUsPoints={[
         {
           title: "Zero Repeated Re-Bookings",
@@ -54,7 +54,7 @@ export default function HourlyRentalsPage() {
         },
       ]}
       inclusions={[
-        "Chauffeur and car on continuous standby during the booked time slot",
+        "Driver and car on continuous standby during the booked time slot",
         "Air-conditioning operational throughout all transit intervals",
         "Assistance with luggage loading and city parking coordination",
         "Option to extend hours on request with transparent per-hour tariffs",
@@ -68,7 +68,7 @@ export default function HourlyRentalsPage() {
       serviceFaq={[
         {
           q: "What happens if my meetings run longer than 8 hours?",
-          a: "You can easily extend your hourly package! Just inform your chauffeur or contact our dispatch desk. Extra hours and extra kilometres are billed at standard, pre-disclosed rates.",
+          a: "You can easily extend your hourly package! Just inform your driver or contact our dispatch desk. Extra hours and extra kilometres are billed at standard, pre-disclosed rates.",
         },
         {
           q: "Can I use an hourly package to go between Bhubaneswar and Cuttack?",

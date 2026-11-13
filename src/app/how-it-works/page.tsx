@@ -31,13 +31,13 @@ import { BrandLogo } from "@/components/common/BrandLogo";
 import { Icon3DCheck, Icon3DCross } from "@/components/common/Icon3DBadges";
 
 /**
- * Photorealistic Top-Down Executive Chauffeur Sedan SVG
+ * Photorealistic Top-Down Executive Commercial Sedan SVG
  * Crafted with realistic metallic reflections, curved aerodynamic contours,
  * tinted windshield with specular glare, panoramic sunroof, alloy rims,
  * Odisha commercial yellow plate, dual Xenon projector headlights with
  * volumetric road illumination, and dynamic LED brake lights.
  */
-function RealisticChauffeurCar({
+function RealisticCommercialCar({
   speed,
   isReversing,
   steeringAngle = 0,
@@ -242,10 +242,10 @@ export default function HowItWorksPage() {
       km: "KM 25",
       milestone: "Fleet Safety Inspection",
       title: "Operations Verification & Tariff Quote",
-      desc: "Our central Odisha operations desk verifies vehicle readiness, mechanical fitness, yellow-board compliance, and matches an experienced, police-verified local chauffeur.",
+      desc: "Our central Odisha operations desk verifies vehicle readiness, mechanical fitness, yellow-board compliance, and matches an experienced, police-verified local driver.",
       icon: <ShieldCheck className="w-5 h-5 text-[#D9A52B]" />,
       badge: "STA Commercial Check",
-      feature: "Background verified & highway-certified chauffeur",
+      feature: "Background verified & highway-certified driver",
       corridor: "State Transport Authority (STA) Compliant",
     },
     {
@@ -263,8 +263,8 @@ export default function HowItWorksPage() {
       step: "04",
       km: "KM 65",
       milestone: "Punctual Destination Arrival",
-      title: "Guaranteed Punctual Chauffeur Arrival",
-      desc: "Your uniformed chauffeur coordinates via phone & WhatsApp, arrives with AC pre-cooled 15 mins prior, handles your luggage, and drives you safely with zero cancellations.",
+      title: "Guaranteed Punctual Driver Arrival",
+      desc: "Your professional driver coordinates via phone & WhatsApp, arrives with AC pre-cooled 15 mins prior, handles your luggage, and drives you safely with zero cancellations.",
       icon: <UserCheck className="w-5 h-5 text-[#D9A52B]" />,
       badge: "Zero Cancellations",
       feature: "Punctual airport & doorstep greeting with luggage assist",
@@ -279,10 +279,10 @@ export default function HowItWorksPage() {
       title: "Guaranteed Vehicle Allocation",
       tag: "Zero Cancellation SLA",
       seal: "CONTRACTUAL DISPATCH",
-      desc: "Once your 10% advance deposit is logged, we legally commit your designated vehicle and chauffeur. While street apps cancel 2 to 3 times leaving passengers stranded, CabJatra provides contractual departure certainty.",
+      desc: "Once your 10% advance deposit is logged, we legally commit your designated vehicle and driver. While street apps cancel 2 to 3 times leaving passengers stranded, CabJatra provides contractual departure certainty.",
       highlight: "100% Departure Certainty",
       subpoints: [
-        "Binding chauffeur assignment logged immediately upon confirmation",
+        "Binding driver assignment logged immediately upon confirmation",
         "Dedicated backup reserve vehicle on standby for emergency redundancy",
         "Digital driver voucher issued with direct WhatsApp supervisor hotline",
       ],
@@ -321,7 +321,7 @@ export default function HowItWorksPage() {
       title: "Pre-Cooled AC & Executive Hygiene",
       tag: "Cabin Quality Standard",
       seal: "22°C PRE-COOLED SLA",
-      desc: "Your chauffeur arrives with the cabin pre-cooled to a soothing 22°C at least 15 minutes prior to boarding. Every car passes our mandatory 12-point hygiene checklist, non-smoking cabin audit, and chilled water restock.",
+      desc: "Your driver arrives with the cabin pre-cooled to a soothing 22°C at least 15 minutes prior to boarding. Every car passes our mandatory 12-point hygiene checklist, non-smoking cabin audit, and chilled water restock.",
       highlight: "22°C Pre-Cooled AC",
       subpoints: [
         "Guaranteed dual-zone air conditioning running before passenger ingress",
@@ -355,7 +355,7 @@ export default function HowItWorksPage() {
       },
       cabjatra: {
         title: "100% Guaranteed Vehicle Allocation",
-        desc: "10% deposit creates an enforceable dispatch commitment. Chauffeur details issued hours in advance with zero driver cancellation.",
+        desc: "10% deposit creates an enforceable dispatch commitment. Driver details issued hours in advance with zero driver cancellation.",
       },
     },
     {
@@ -383,15 +383,15 @@ export default function HowItWorksPage() {
       },
     },
     {
-      category: "Chauffeur Standards & Etiquette",
+      category: "Driver Standards & Etiquette",
       subtitle: "Temporary Gig Workers vs. Vetted Professionals",
       street: {
         title: "Unvetted Drivers with Zero Accountability",
         desc: "Random gig drivers with unverified backgrounds, erratic driving habits, and no recourse if service quality is substandard.",
       },
       cabjatra: {
-        title: "Background-Checked Executive Chauffeurs",
-        desc: "Police-verified local chauffeurs in clean uniform with deep route expertise across Odisha's highway corridors and temples.",
+        title: "Background-Checked Professional Drivers",
+        desc: "Police-verified local drivers in clean uniform with deep route expertise across Odisha's highway corridors and temples.",
       },
     },
   ];
@@ -399,15 +399,15 @@ export default function HowItWorksPage() {
   const faqs = [
     {
       q: "How does the 10% advance deposit model protect me?",
-      a: "The 10% advance deposit creates a binding mutual commitment. You are never forced into a 100% upfront lock-in, and our operations desk reserves your designated vehicle and chauffeur. The remaining 90% is settled directly at your final destination via Cash or UPI.",
+      a: "The 10% advance deposit creates a binding mutual commitment. You are never forced into a 100% upfront lock-in, and our operations desk reserves your designated vehicle and driver. The remaining 90% is settled directly at your final destination via Cash or UPI.",
     },
     {
       q: "What happens if my flight arrives late at Bhubaneswar (BBI) Airport?",
-      a: "Our dispatch desk continuously tracks your flight number via live radar. If your flight is delayed or rescheduled, your chauffeur adjusts arrival time automatically at zero extra waiting charge.",
+      a: "Our dispatch desk continuously tracks your flight number via live radar. If your flight is delayed or rescheduled, your driver adjusts arrival time automatically at zero extra waiting charge.",
     },
     {
-      q: "When and how do I receive my chauffeur's details?",
-      a: "Once your 10% advance deposit is verified, your official CabJatra digital ride voucher with booking reference is generated. Your chauffeur's full name, phone number, and vehicle registration are dispatched via WhatsApp well prior to pickup.",
+      q: "When and how do I receive my driver's details?",
+      a: "Once your 10% advance deposit is verified, your official CabJatra digital ride voucher with booking reference is generated. Your driver's full name, phone number, and vehicle registration are dispatched via WhatsApp well prior to pickup.",
     },
     {
       q: "Can I modify or cancel my reservation?",
@@ -528,13 +528,13 @@ export default function HowItWorksPage() {
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-display tracking-tight text-white leading-tight">
             How CabJatra Works: <br />
             <span className="italic font-display font-normal text-[#D9A52B]">
-              Punctual, Principled Chauffeur Travel.
+              Punctual, Principled Cab Travel.
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-xs sm:text-base text-white/90 max-w-2xl mx-auto font-normal leading-relaxed">
-            From seamless online reservation and our 10% advance deposit model to background-verified chauffeurs and The Pre-Booked Guarantee—explore how we deliver total arrival certainty across Odisha.
+            From seamless online reservation and our 10% advance deposit model to background-verified drivers and The Pre-Booked Guarantee—explore how we deliver total arrival certainty across Odisha.
           </p>
 
           {/* 3 Quick Pillar Badges */}
@@ -569,7 +569,7 @@ export default function HowItWorksPage() {
               How to Book &amp; Travel with CabJatra
             </h2>
             <p className="text-xs sm:text-sm text-[#556464] mt-2 leading-relaxed">
-              Experience our 4-step verified dispatch lifecycle—from transparent per-km quote and 10% advance deposit to guaranteed chauffeur arrival.
+              Experience our 4-step verified dispatch lifecycle—from transparent per-km quote and 10% advance deposit to guaranteed driver arrival.
             </p>
 
             {/* Interactive Scroll Hint Badge */}
@@ -605,7 +605,7 @@ export default function HowItWorksPage() {
                 style={{ height: `${carY + 56}px` }}
               />
 
-              {/* ================= THE REAL SIMULATED CHAUFFEUR CAR ================= */}
+              {/* ================= THE REAL SIMULATED COMMERCIAL SEDAN ================= */}
               <div
                 className="absolute left-1/2 -translate-x-1/2 will-change-transform z-20 pointer-events-auto cursor-grab"
                 style={{
@@ -613,7 +613,7 @@ export default function HowItWorksPage() {
                   transition: "transform 0.04s linear",
                 }}
               >
-                <RealisticChauffeurCar
+                <RealisticCommercialCar
                   speed={carSpeed}
                   isReversing={isReversing}
                   steeringAngle={steeringAngle}
@@ -926,7 +926,7 @@ export default function HowItWorksPage() {
                   CabJatra Pre-Booked Standard
                 </span>
                 <h3 className="text-base sm:text-lg font-bold font-display text-[#073B3A] mt-1">
-                  Contractual Chauffeur Sanctuary
+                  Contractual Ride Sanctuary
                 </h3>
                 <p className="text-xs text-[#556464] mt-0.5">
                   100% Guaranteed vehicle dispatch, zero-surge fixed mileage, and 22°C pre-cooled AC.
@@ -999,13 +999,13 @@ export default function HowItWorksPage() {
             <div className="space-y-1 text-center sm:text-left">
               <div className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider text-[#D9A52B]">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span>Odisha Chauffeur Excellence</span>
+                <span>Odisha Cab Service Excellence</span>
               </div>
               <h3 className="text-lg sm:text-2xl font-bold font-display">
                 Ready to Experience Stress-Free Travel?
               </h3>
               <p className="text-xs sm:text-sm text-white/75 max-w-xl">
-                Lock your chauffeur today with a modest 10% advance deposit. 100% yellow-board commercial fleet and zero surge pricing guaranteed.
+                Lock your cab today with a modest 10% advance deposit. 100% yellow-board commercial fleet and zero surge pricing guaranteed.
               </p>
             </div>
 
@@ -1014,7 +1014,7 @@ export default function HowItWorksPage() {
                 href="/book-cab"
                 className="w-full sm:w-auto px-6 py-3.5 rounded-xl btn-skeuo-gold text-[#062F31] font-bold text-xs sm:text-sm shadow-lg flex items-center justify-center gap-2 hover:brightness-105 active:scale-95 transition-all"
               >
-                <span>Reserve Your Chauffeur</span>
+                <span>Reserve Your Cab</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -1083,7 +1083,7 @@ export default function HowItWorksPage() {
               </div>
 
               <h2 className="text-2xl sm:text-4xl font-bold font-display tracking-tight text-white leading-tight">
-                Reserve Your Chauffeur with <br />
+                Reserve Your Cab with <br />
                 <span className="italic font-display font-normal text-[#D9A52B]">
                   The Pre-Booked Guarantee.
                 </span>
@@ -1098,7 +1098,7 @@ export default function HowItWorksPage() {
                   href="/book-cab"
                   className="px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#D9A52B] via-[#E5B543] to-[#C99320] text-[#062F31] font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-[0_4px_16px_rgba(217,165,43,0.35)] hover:brightness-105 active:scale-[0.98] transition-all cursor-pointer border border-[#F2C868]/60"
                 >
-                  <span>Book Your Chauffeur Cab</span>
+                  <span>Book Your Cab Now</span>
                   <ArrowRight className="w-4 h-4 text-[#062F31]" />
                 </Link>
 

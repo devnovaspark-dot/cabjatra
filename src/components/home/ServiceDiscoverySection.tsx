@@ -42,7 +42,7 @@ const CATEGORIES: DiscoveryCategory[] = [
   },
   {
     title: "Hourly Rentals",
-    subtitle: "Flexible 4, 8, or 12-hour packages. Cab and chauffeur remain on call for meetings and shopping.",
+    subtitle: "Flexible 4, 8, or 12-hour packages. Cab and driver remain on call for meetings and shopping.",
     icon: <Clock className="w-5 h-5 text-white" />,
     image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=600&auto=format&fit=crop",
     link: "/services/hourly-rentals",
@@ -83,7 +83,7 @@ export const ServiceDiscoverySection: React.FC = () => {
               Book Your Journey
             </h2>
             <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-xl">
-              Choose the travel format that fits your schedule. Every ride comes with a sanitized car and a courteous chauffeur.
+              Choose the travel format that fits your schedule. Every ride comes with a sanitized car and a courteous driver.
             </p>
           </div>
 

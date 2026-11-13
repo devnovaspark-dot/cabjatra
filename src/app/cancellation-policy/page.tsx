@@ -48,7 +48,7 @@ export default function CancellationPolicyPage() {
               1. Customer Cancellation &amp; Advance Refund Matrix
             </h2>
             <p>
-              Because CabJatra operates on a dedicated chauffeur assignment model, our cancellation terms are designed to respect both our travelers&apos; flexibility and our chauffeurs&apos; committed time slots:
+              Because CabJatra operates on a dedicated driver assignment model, our cancellation terms are designed to respect both our travelers&apos; flexibility and our drivers&apos; committed time slots:
             </p>
 
             <div className="overflow-x-auto pt-2">
@@ -103,7 +103,7 @@ export default function CancellationPolicyPage() {
               2. Flight Rescheduling &amp; Airport Delay Protection
             </h2>
             <p>
-              For <strong>Airport Transfers</strong> at Biju Patnaik International Airport (BBI), flight delays or rescheduled arrivals do <strong>NOT</strong> count as customer cancellations. As long as you notify us or provide your flight number during booking, we adjust chauffeur dispatch timing at zero cancellation charge.
+              For <strong>Airport Transfers</strong> at Biju Patnaik International Airport (BBI), flight delays or rescheduled arrivals do <strong>NOT</strong> count as customer cancellations. As long as you notify us or provide your flight number during booking, we adjust driver dispatch timing at zero cancellation charge.
             </p>
           </section>
 

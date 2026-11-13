@@ -44,7 +44,7 @@ const VERTICALS: MobilityVertical[] = [
     shortTag: "BBI Radar Tracked",
     tagline: "Live flight-radar synchronized meet & greet at Biju Patnaik Airport (BBI)",
     description:
-      "Your commercial chauffeur monitors your inbound flight number in real time. If your flight is delayed or lands early, dispatch automatically reschedules your pickup with a complimentary 45-minute terminal baggage wait buffer.",
+      "Your commercial driver monitors your inbound flight number in real time. If your flight is delayed or lands early, dispatch automatically reschedules your pickup with a complimentary 45-minute terminal baggage wait buffer.",
     image:
       "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=85&w=1200&auto=format&fit=crop",
     icon: Plane,
@@ -66,7 +66,7 @@ const VERTICALS: MobilityVertical[] = [
     shortTag: "NH-16 & NH-316",
     tagline: "Point-to-point intercity highway journeys with verified commercial drivers",
     description:
-      "Direct intercity connectivity between Bhubaneswar, Puri, Cuttack, Konark, Sambalpur, and Rourkela. Driven by seasoned highway chauffeurs with dual-zone air conditioning, comprehensive passenger insurance, and verified vehicle fitness.",
+      "Direct intercity connectivity between Bhubaneswar, Puri, Cuttack, Konark, Sambalpur, and Rourkela. Driven by seasoned highway drivers with dual-zone air conditioning, comprehensive passenger insurance, and verified vehicle fitness.",
     image:
       "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=1200&auto=format&fit=crop",
     icon: Compass,
@@ -88,13 +88,13 @@ const VERTICALS: MobilityVertical[] = [
     shortTag: "Heritage & Nature",
     tagline: "Sacred Golden Triangle & Chilika dolphin trails with standby luggage custody",
     description:
-      "Experience timeless Odisha—from Puri Jagannath Dham and Konark Sun Temple to the serene dolphin lagoons of Chilika Satapada. Your private chauffeur remains on standby at every temple gate, safeguarding your family luggage during darshans.",
+      "Experience timeless Odisha—from Puri Jagannath Dham and Konark Sun Temple to the serene dolphin lagoons of Chilika Satapada. Your dedicated driver remains on standby at every temple gate, safeguarding your family luggage during darshans.",
     image:
       "https://images.unsplash.com/photo-1600100397608-f010f421a182?q=85&w=1200&auto=format&fit=crop",
     icon: Palmtree,
     badge: "Curated Heritage Trails",
     perks: [
-      { label: "Darshan Custody", desc: "Chauffeur safeguards luggage at shrines" },
+      { label: "Darshan Custody", desc: "Driver safeguards luggage at shrines" },
       { label: "Flexible Photo Halts", desc: "Unlimited scenic stops on Marine Drive" },
       { label: "Local Route Guidance", desc: "Drivers versed in temple darshan protocols" },
     ],
@@ -106,24 +106,24 @@ const VERTICALS: MobilityVertical[] = [
   {
     id: "hourly",
     num: "04",
-    title: "Hourly Chauffeur Standby",
+    title: "Hourly Cab & Driver Standby",
     shortTag: "4, 8 & 12 Hr Flexible",
-    tagline: "Dedicated executive vehicle and uniformed chauffeur on call across the city",
+    tagline: "Dedicated executive vehicle and professional driver on call across the city",
     description:
-      "Complete multi-stop errands, executive conclave meetings, hospital visits, or wedding logistics with a dedicated chauffeur on standby. The air-conditioned vehicle remains exclusively reserved and parked at your location between stops.",
+      "Complete multi-stop errands, executive conclave meetings, hospital visits, or wedding logistics with a dedicated driver on standby. The air-conditioned vehicle remains exclusively reserved and parked at your location between stops.",
     image:
       "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=85&w=1200&auto=format&fit=crop",
     icon: Clock,
     badge: "Standby On-Demand",
     perks: [
-      { label: "Chauffeur on Standby", desc: "Car remains parked outside your venues" },
+      { label: "Driver on Standby", desc: "Car remains parked outside your venues" },
       { label: "Unlimited City Stops", desc: "Multi-point itinerary in one reservation" },
       { label: "Pre-Cooled Cabin", desc: "AC running and doors opened on return" },
     ],
     ctaText: "Reserve Hourly Rental",
     ctaLink: "/book-cab?service=hourly",
     learnMoreLink: "/services/hourly-rentals",
-    whatsappText: "Hi CabJatra Desk, I need an hourly standby chauffeur package in Bhubaneswar.",
+    whatsappText: "Hi CabJatra Desk, I need an hourly standby cab package in Bhubaneswar.",
   },
   {
     id: "corporate",
@@ -202,7 +202,7 @@ export const ServicesSection: React.FC = () => {
               <span>Dedicated Mobility Verticals</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#182A2B] font-display tracking-tight">
-              Odisha Chauffeur Ecosystem
+              Odisha Cab Service Ecosystem
             </h2>
             <p className="text-xs sm:text-sm text-[#556464] mt-2 leading-relaxed">
               Six dedicated travel verticals designed around commercial safety, punctual driver arrival, and verified 10% advance deposits—eliminating aggregator cancellation traps across Odisha.

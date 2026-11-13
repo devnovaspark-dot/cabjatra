@@ -19,7 +19,7 @@ export default function AirportTransfersPage() {
       whyUsPoints={[
         {
           title: "Flight Delay Tracking",
-          desc: "We track your flight number in real-time. If your incoming flight is delayed or rescheduled, your chauffeur's arrival time is automatically adjusted at no extra waiting penalty.",
+          desc: "We track your flight number in real-time. If your incoming flight is delayed or rescheduled, your driver's arrival time is automatically adjusted at no extra waiting penalty.",
         },
         {
           title: "Zero Surge at Odd Hours",
@@ -27,7 +27,7 @@ export default function AirportTransfersPage() {
         },
         {
           title: "Doorstep Luggage Assistance",
-          desc: "Our polite chauffeurs meet you outside the arrival gate with your name placard and assist with loading and unloading heavy suitcases.",
+          desc: "Our polite drivers meet you outside the arrival gate with your name placard and assist with loading and unloading heavy suitcases.",
         },
       ]}
       routeFares={[
@@ -61,7 +61,7 @@ export default function AirportTransfersPage() {
         },
       ]}
       inclusions={[
-        "Chauffeur-driven AC car reserved exclusively for you",
+        "Commercial AC car reserved exclusively for you",
         "Complimentary 45 minutes of post-landing buffer wait time",
         "Airport parking charge included in final booking quote",
         "WhatsApp driver coordination 30 minutes prior to pickup",
@@ -75,7 +75,7 @@ export default function AirportTransfersPage() {
       serviceFaq={[
         {
           q: "What if my flight arrives earlier or later than scheduled?",
-          a: "Please input your active Flight Number during booking. Our dispatch desk continuously tracks real-time radar arrivals at BBI and updates the chauffeur's dispatch time accordingly.",
+          a: "Please input your active Flight Number during booking. Our dispatch desk continuously tracks real-time radar arrivals at BBI and updates the driver's dispatch time accordingly.",
         },
         {
           q: "Where does the driver meet me at BBI Airport?",

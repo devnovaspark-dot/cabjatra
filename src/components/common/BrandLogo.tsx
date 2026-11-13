@@ -13,7 +13,7 @@ interface BrandLogoProps {
  * Bespoke Odisha Luxury Mobility Brand Insignia & Crest
  * 
  * Fuses the sacred Konark Sun Temple 24-spoke Chariot Wheel (Chakra) with
- * sleek aerodynamic chauffeur mobility wings and high-precision metallic 24K gold foil optics.
+ * sleek aerodynamic cab mobility wings and high-precision metallic 24K gold foil optics.
  */
 export const BrandLogo: React.FC<BrandLogoProps> = ({
   size = "md",
@@ -224,7 +224,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           <span className="w-1.5 h-1.5 rounded-full bg-[#D9A52B] ml-1 shadow-[0_0_6px_#D9A52B] hidden sm:inline-block" />
         </div>
 
-        {/* Tagline: Odisha Chauffeur Mobility */}
+        {/* Tagline: Odisha Cab Service */}
         {showTagline && (
           <div className="flex items-center gap-1 mt-0.5 sm:mt-1">
             <span
@@ -232,7 +232,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
                 isLight ? "text-[#E0ECEA]/85" : "text-[#4A6462]"
               }`}
             >
-              Odisha Chauffeur Mobility
+              Odisha Cab Service
             </span>
           </div>
         )}

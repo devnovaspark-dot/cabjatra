@@ -32,7 +32,7 @@ export const VEHICLE_FLEET: VehicleCategory[] = [
       "Full AC with clean fabric upholstery",
       "Compact luggage storage (2 travel bags)",
       "Punctual point-to-point urban & transit transfers",
-      "Experienced yellow-board commercial chauffeur"
+      "Experienced yellow-board commercial driver"
     ],
     recommendedFor: "Solo travelers, couples, quick local transfers and daily airport connections",
     tag: "Budget Friendly"
@@ -47,7 +47,7 @@ export const VEHICLE_FLEET: VehicleCategory[] = [
     luggage: 3,
     ac: true,
     image: "/images/fleet/sedan.webp",
-    indicativeBaseFare: "Chauffeur Driven • Dual-Zone AC",
+    indicativeBaseFare: "Verified Driver • Dual-Zone AC",
     ratePerKm: 13,
     features: [
       "Extra rear legroom & plush ergonomic seating",

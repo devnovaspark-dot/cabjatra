@@ -18,7 +18,7 @@ export const PopularJourneysSection: React.FC = () => {
               Popular Journeys &amp; Routes
             </h2>
             <p className="text-xs sm:text-sm text-[#667575] mt-1 sm:mt-1.5 max-w-xl">
-              Travel between Odisha&apos;s primary economic and spiritual hubs with verified commercial chauffeurs, guaranteed on-time departure, and clean air-conditioned vehicles.
+              Travel between Odisha&apos;s primary economic and spiritual hubs with verified commercial drivers, guaranteed on-time departure, and clean air-conditioned vehicles.
             </p>
           </div>
 
@@ -73,7 +73,7 @@ export const PopularJourneysSection: React.FC = () => {
                   Bhubaneswar ⇄ Puri Golden Beach
                 </h3>
                 <p className="text-xs sm:text-sm text-[#E0ECEA]/90 max-w-xl mt-1.5 leading-relaxed line-clamp-3 sm:line-clamp-none">
-                  Direct highway transit via NH-316 to Lord Jagannath Temple &amp; the Blue Flag Golden Beach. Chauffeurs hold designated temple parking passes and know the Marine Drive bypass.
+                  Direct highway transit via NH-316 to Lord Jagannath Temple &amp; the Blue Flag Golden Beach. Drivers hold designated temple parking passes and know the Marine Drive bypass.
                 </p>
               </div>
 

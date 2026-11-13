@@ -49,11 +49,11 @@ export default function OdishaToursServicePage() {
             </h1>
 
             <p className="text-lg text-slate-200 font-medium">
-              Explore the Golden Triangle, sacred Jagannath Dham, coastal Marine Drive, and Chilika wildlife with private chauffeur-driven comfort.
+              Explore the Golden Triangle, sacred Jagannath Dham, coastal Marine Drive, and Chilika wildlife with private cab comfort.
             </p>
 
             <p className="text-sm text-slate-300 leading-relaxed">
-              Every tour itinerary is designed with thoughtful pacing, safe luggage custody during temple visits, and knowledgeable chauffeurs who understand local traditions and darshan timings.
+              Every tour itinerary is designed with thoughtful pacing, safe luggage custody during temple visits, and knowledgeable drivers who understand local traditions and darshan timings.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-4">
@@ -188,13 +188,13 @@ export default function OdishaToursServicePage() {
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold">
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            <span>Chauffeur Integrity Guarantee</span>
+            <span>Driver Integrity Guarantee</span>
           </div>
           <h3 className="text-2xl font-bold font-display text-slate-900">
             Odisha Pilgrimage &amp; Temple Safety
           </h3>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Temple visits to Sri Jagannath Dham and Konark involve complex security lines and mobile phone restrictions. Your CABJATRA chauffeur guards your luggage safely in the locked air-conditioned car, providing you full tranquility during spiritual darshans.
+            Temple visits to Sri Jagannath Dham and Konark involve complex security lines and mobile phone restrictions. Your CABJATRA driver guards your luggage safely in the locked air-conditioned car, providing you full tranquility during spiritual darshans.
           </p>
         </div>
       </section>

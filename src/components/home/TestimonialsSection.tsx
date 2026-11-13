@@ -38,7 +38,7 @@ const EXPERIENCES: TestimonialItem[] = [
     travelerType: "Family Pilgrimage with Senior Parents",
     location: "Kolkata, West Bengal",
     route: "BBI Airport ➔ Puri Jagannath Dham ➔ Konark Marine Drive",
-    driverMention: "Chauffeur Subash Chandra",
+    driverMention: "Driver Subash Chandra",
     driverExp: "9+ Yrs Odisha Highway",
     vehicle: "Toyota Innova Crysta (7-Seater AC)",
     fleetId: "Fleet: CJ-084",
@@ -54,7 +54,7 @@ const EXPERIENCES: TestimonialItem[] = [
     travelerType: "Corporate Business Traveler",
     location: "Bengaluru, Karnataka",
     route: "BBI Airport Radar ➔ Patia Infocity Tech Park",
-    driverMention: "Chauffeur Rakesh Mohapatra",
+    driverMention: "Driver Rakesh Mohapatra",
     driverExp: "7+ Yrs Airport Radar Desk",
     vehicle: "Executive Prime Sedan (Dual-Zone AC)",
     fleetId: "Fleet: CJ-021",
@@ -70,7 +70,7 @@ const EXPERIENCES: TestimonialItem[] = [
     travelerType: "Nature & Coastal Eco-Safari",
     location: "Mumbai, Maharashtra",
     route: "Bhubaneswar ➔ Satapada Chilika Dolphin Lagoon",
-    driverMention: "Chauffeur Manoj Kumar",
+    driverMention: "Driver Manoj Kumar",
     driverExp: "11+ Yrs Coastal Corridors",
     vehicle: "Premium Highway SUV (Innova Crysta)",
     fleetId: "Fleet: CJ-067",
@@ -99,7 +99,7 @@ export const TestimonialsSection: React.FC = () => {
               Real Traveler Experiences
             </h2>
             <p className="text-xs sm:text-sm text-[#556464] mt-2 leading-relaxed">
-              Authentic feedback from families, solo pilgrims, and corporate executives who depend on our pre-booked chauffeur mobility across Odisha.
+              Authentic feedback from families, solo pilgrims, and corporate executives who depend on our pre-booked cab service across Odisha.
             </p>
           </div>
 
@@ -170,7 +170,7 @@ export const TestimonialsSection: React.FC = () => {
                   &ldquo;{exp.feedback}&rdquo;
                 </p>
 
-                {/* Chauffeur & Vehicle Credentials Strip - Generous, NO Truncation */}
+                {/* Driver & Vehicle Credentials Strip - Generous, NO Truncation */}
                 <div className="pt-3 border-t border-[#E5ECE5] bg-[#FAF9F5] p-3 rounded-2xl border border-[#D8E2D8] space-y-2">
                   <div className="flex items-center justify-between text-xs font-bold text-[#073B3A]">
                     <div className="flex items-center gap-1.5">
@@ -237,7 +237,7 @@ export const TestimonialsSection: React.FC = () => {
                 100% Commercial Fleet &bull; Zero Driver Cancellations
               </strong>
               <p className="text-[11px] text-[#A7F3D0] mt-0.5">
-                Every reservation is backed by our verified chauffeur dispatch protocol across Odisha.
+                Every reservation is backed by our verified driver dispatch protocol across Odisha.
               </p>
             </div>
           </div>
