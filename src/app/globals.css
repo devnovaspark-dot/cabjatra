@@ -425,6 +425,39 @@
   animation: motionStreakAnim 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
+/* Realistic Passing Odisha Tour Places Panorama & Milestones */
+@keyframes passingOdishaPanorama {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-passing-odisha {
+  animation: passingOdishaPanorama 40s linear infinite;
+}
+.animate-passing-odisha-fast {
+  animation: passingOdishaPanorama 20s linear infinite;
+}
+
+@keyframes passingMilestonePost {
+  0% { transform: translateX(110vw); opacity: 0; }
+  5% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(-30vw); opacity: 0; }
+}
+.animate-passing-milestone-1 {
+  animation: passingMilestonePost 14s linear infinite;
+}
+.animate-passing-milestone-2 {
+  animation: passingMilestonePost 14s linear infinite 7s;
+}
+
+@keyframes cloudDriftSky {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-clouds-glide {
+  animation: cloudDriftSky 120s linear infinite;
+}
+
 
 /* Respect user reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
