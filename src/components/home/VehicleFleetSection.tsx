@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Users, Briefcase, ArrowRight, Sparkles } from "lucide-react";
 import { VEHICLE_FLEET } from "@/data/vehicles";
-import { CarModel3D } from "@/components/common/CarModel3D";
 
 export const VehicleFleetSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
@@ -23,7 +23,7 @@ export const VehicleFleetSection: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#073B3A] mb-2 bg-[#E0ECEA]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
               <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
-              <span>Interactive 3D Fleet Showroom</span>
+              <span>Verified Commercial Fleet Showroom</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-bold text-[#182A2B] font-display">
               Choose Your Vehicle Category
@@ -60,19 +60,24 @@ export const VehicleFleetSection: React.FC = () => {
               className="card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group bg-white border border-[#E2E8E2] hover:border-[#073B3A]/40 hover:shadow-lg transition-all"
             >
               <div>
-                {/* 3D Turntable Studio Stage */}
+                {/* Real Commercial Vehicle Showcase */}
                 <div className="relative h-44 sm:h-48 w-full bg-gradient-to-b from-[#FAF9F5] to-[#E8EFE8] overflow-hidden border-b border-[#D6E0D6]">
-                  <CarModel3D
-                    vehicleId={vehicle.id}
-                    categoryName={vehicle.name}
-                    height={180}
-                    autoRotate={true}
+                  <Image
+                    src={vehicle.image}
+                    alt={`${vehicle.name} - ${vehicle.models}`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 20vw"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    priority={vehicle.id === "sedan" || vehicle.id === "hatchback"}
                   />
-                  <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#062F31]/95 backdrop-blur-md text-[#FAF9F5] text-[9.5px] sm:text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-white/20 shadow-md pointer-events-none">
+                  {/* Subtle lower gradient vignette for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+
+                  <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#062F31]/95 backdrop-blur-md text-[#FAF9F5] text-[9.5px] sm:text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-white/20 shadow-md pointer-events-none z-10">
                     {vehicle.category}
                   </div>
                   {vehicle.tag && (
-                    <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] sm:text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-xs pointer-events-none">
+                    <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] sm:text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-xs pointer-events-none z-10">
                       {vehicle.tag}
                     </div>
                   )}

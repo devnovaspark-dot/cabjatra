@@ -34,7 +34,6 @@ import { VEHICLE_FLEET } from "@/data/vehicles";
 import { WhatsAppConsentCheckbox } from "@/components/common/WhatsAppConsentCheckbox";
 import { BrandLogo } from "@/components/common/BrandLogo";
 import { GlassCelebrationOrb } from "@/components/common/GlassCelebrationOrb";
-import { CarModel3D } from "@/components/common/CarModel3D";
 
 function CabBookingContent() {
   const searchParams = useSearchParams();
@@ -587,7 +586,7 @@ function CabBookingContent() {
 
                   <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#E0ECEA]/70 border border-[#C1DAD7] text-xs font-semibold text-[#073B3A] self-start sm:self-auto">
                     <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
-                    <span>360° Interactive 3D Fleet</span>
+                    <span>Verified Commercial Fleet</span>
                   </div>
                 </div>
 
@@ -607,19 +606,23 @@ function CabBookingContent() {
                         }`}
                       >
                         <div>
-                          {/* Pure 3D Automotive Studio Stage */}
+                          {/* Real Commercial Vehicle Showcase */}
                           <div className="relative h-44 w-full bg-gradient-to-b from-[#FAF9F5] to-[#E9EFE9] border-b border-[#D6E0D6] overflow-hidden">
-                            <CarModel3D
-                              vehicleId={v.id}
-                              categoryName={v.name}
-                              height={176}
-                              autoRotate={!isSelected}
+                            <Image
+                              src={v.image}
+                              alt={`${v.name} - ${v.models}`}
+                              fill
+                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 20vw"
+                              className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                             />
-                            <div className="absolute top-2 left-2 bg-[#062F31]/95 backdrop-blur-md text-white text-[9.5px] font-bold px-2 py-0.5 rounded-md border border-white/15 pointer-events-none">
+                            {/* Subtle lower vignette for depth */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+
+                            <div className="absolute top-2 left-2 bg-[#062F31]/95 backdrop-blur-md text-white text-[9.5px] font-bold px-2 py-0.5 rounded-md border border-white/15 pointer-events-none z-10">
                               {v.category}
                             </div>
                             {v.tag && (
-                              <div className="absolute top-2 right-2 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs pointer-events-none">
+                              <div className="absolute top-2 right-2 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs pointer-events-none z-10">
                                 {v.tag}
                               </div>
                             )}
@@ -970,9 +973,14 @@ function CabBookingContent() {
                       <strong className="text-[#073B3A] font-bold text-sm">{selectedVehicle.name} ({selectedVehicle.category})</strong>
                       <span className="text-[11px] text-[#556464] block mt-0.5">Example: {selectedVehicle.models}</span>
                       <span className="text-[10.5px] text-[#073B3A] font-semibold block">Capacity: {selectedVehicle.passengers} Seats • {selectedVehicle.luggage} Bags • 100% Commercial AC</span>
-                      {/* Interactive 3D Model Preview */}
-                      <div className="h-32 w-full rounded-xl overflow-hidden bg-gradient-to-b from-white to-[#EBF2EB] border border-[#D5DDD5] mt-2 shadow-inner">
-                        <CarModel3D vehicleId={selectedVehicle.id} height={128} autoRotate={true} />
+                      {/* Real Vehicle Photo Preview */}
+                      <div className="relative h-32 w-full rounded-xl overflow-hidden bg-gradient-to-b from-white to-[#EBF2EB] border border-[#D5DDD5] mt-2 shadow-inner">
+                        <Image
+                          src={selectedVehicle.image}
+                          alt={selectedVehicle.name}
+                          fill
+                          className="object-cover object-center"
+                        />
                       </div>
                     </div>
                     <div className="text-xs">

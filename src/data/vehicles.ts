@@ -25,7 +25,7 @@ export const VEHICLE_FLEET: VehicleCategory[] = [
     passengers: 4,
     luggage: 2,
     ac: true,
-    image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=900&auto=format&fit=crop",
+    image: "/images/fleet/hatchback.webp",
     indicativeBaseFare: "Commercial Permit • AC Guaranteed",
     ratePerKm: 11,
     features: [
@@ -46,7 +46,7 @@ export const VEHICLE_FLEET: VehicleCategory[] = [
     passengers: 4,
     luggage: 3,
     ac: true,
-    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=900&auto=format&fit=crop",
+    image: "/images/fleet/sedan.webp",
     indicativeBaseFare: "Chauffeur Driven • Dual-Zone AC",
     ratePerKm: 13,
     features: [
@@ -67,7 +67,7 @@ export const VEHICLE_FLEET: VehicleCategory[] = [
     passengers: 6,
     luggage: 3,
     ac: true,
-    image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=900&auto=format&fit=crop",
+    image: "/images/fleet/suv.webp",
     indicativeBaseFare: "High Ground Clearance • Rugged AC",
     ratePerKm: 16,
     features: [
@@ -88,7 +88,7 @@ export const VEHICLE_FLEET: VehicleCategory[] = [
     passengers: 7,
     luggage: 4,
     ac: true,
-    image: "https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=900&auto=format&fit=crop",
+    image: "/images/fleet/large-car.webp",
     indicativeBaseFare: "Innova Crysta Class • Captain Seats",
     ratePerKm: 19,
     features: [
@@ -109,7 +109,7 @@ export const VEHICLE_FLEET: VehicleCategory[] = [
     passengers: 17,
     luggage: 10,
     ac: true,
-    image: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop",
+    image: "/images/fleet/mini-bus.webp",
     indicativeBaseFare: "Push-back Seats • Group Travel",
     ratePerKm: 28,
     features: [
