@@ -450,15 +450,93 @@
   animation: passingMilestonePost 14s linear infinite 7s;
 }
 
-@keyframes cloudDriftSky {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+/* Realistic Bird Wing Flapping with Articulation */
+@keyframes birdWingFlapUpAndDown {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(-0.75);
+  }
 }
-.animate-clouds-glide {
-  animation: cloudDriftSky 120s linear infinite;
+.animate-bird-wing {
+  animation: birdWingFlapUpAndDown 0.65s ease-in-out infinite;
+  transform-origin: center;
+}
+.animate-bird-wing-fast {
+  animation: birdWingFlapUpAndDown 0.48s ease-in-out infinite;
+  transform-origin: center;
 }
 
-/* Odisha Coastal Environment Keyframes (Flag flutter, Tree sway, Ocean surf) */
+/* Realistic Bird Flight Paths across Odisha Sky */
+@keyframes birdGlideFlight1 {
+  0% { transform: translate3d(105vw, 0, 0); }
+  50% { transform: translate3d(50vw, -18px, 0); }
+  100% { transform: translate3d(-15vw, 8px, 0); }
+}
+.animate-bird-flight-1 {
+  animation: birdGlideFlight1 22s linear infinite;
+}
+
+@keyframes birdGlideFlight2 {
+  0% { transform: translate3d(105vw, 0, 0); }
+  45% { transform: translate3d(55vw, 14px, 0); }
+  100% { transform: translate3d(-15vw, -12px, 0); }
+}
+.animate-bird-flight-2 {
+  animation: birdGlideFlight2 32s linear infinite 8s;
+}
+
+/* Celestial Aura Pulses (Sun / Moon) */
+@keyframes celestialAuraPulse {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+.animate-celestial-pulse {
+  animation: celestialAuraPulse 4s ease-in-out infinite;
+}
+
+/* Multi-layer Cloud Parallax Drift */
+@keyframes cloudDriftSlow {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+.animate-clouds-slow {
+  animation: cloudDriftSlow 140s linear infinite;
+}
+.animate-clouds-medium {
+  animation: cloudDriftSlow 80s linear infinite;
+}
+
+/* Realistic Tree Organic Wind Flexion */
+@keyframes palmTreeFlex {
+  0%, 100% { transform: rotate(0deg) skewX(0deg); }
+  50% { transform: rotate(2.8deg) skewX(1.6deg); }
+}
+.animate-palm-sway {
+  animation: palmTreeFlex 5.2s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes casuarinaSway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(2deg); }
+}
+.animate-casuarina-sway {
+  animation: casuarinaSway 4.2s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* Ocean Wave Rise and Rolling Surf */
+@keyframes oceanWaveRise {
+  0%, 100% { transform: translate3d(0, 0, 0) scaleY(1); opacity: 0.65; }
+  50% { transform: translate3d(0, -4px, 0) scaleY(1.2); opacity: 0.95; }
+}
+.animate-ocean-wave-roll {
+  animation: oceanWaveRise 3.2s ease-in-out infinite;
+}
+
+/* Flag Flutter */
 @keyframes flagFlutterAnim {
   0%, 100% { transform: rotate(0deg) skewY(0deg); }
   25% { transform: rotate(-4deg) skewY(-3deg) scaleX(0.96); }
@@ -468,32 +546,6 @@
 .animate-flag-flutter {
   animation: flagFlutterAnim 1.6s ease-in-out infinite;
   transform-origin: left center;
-}
-
-@keyframes treeSwayAnim {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(2.5deg); }
-}
-.animate-tree-sway {
-  animation: treeSwayAnim 4.5s ease-in-out infinite;
-  transform-origin: bottom center;
-}
-
-@keyframes oceanSurfRoll {
-  0%, 100% { transform: translateY(0px) scaleY(1); opacity: 0.6; }
-  50% { transform: translateY(-3px) scaleY(1.15); opacity: 0.9; }
-}
-.animate-ocean-surf {
-  animation: oceanSurfRoll 3s ease-in-out infinite;
-}
-
-@keyframes birdsFlock {
-  0% { transform: translateX(110vw) translateY(0); }
-  50% { transform: translateX(50vw) translateY(-15px); }
-  100% { transform: translateX(-20vw) translateY(10px); }
-}
-.animate-birds-flock {
-  animation: birdsFlock 28s linear infinite;
 }
 
 
