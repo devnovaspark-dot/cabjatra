@@ -403,42 +403,18 @@ export const HeroSection: React.FC = () => {
 
             {/* Distant Eastern Ghats Mountain Contours */}
             <path
-              d="M 0,165 Q 220,115 480,140 T 960,130 T 1440,150 L 1440,220 L 0,220 Z"
+              d="M 0,155 Q 220,105 480,130 T 960,120 T 1440,140 L 1440,220 L 0,220 Z"
               fill="url(#hillsMistGrad)"
-            />
-
-            {/* Bay of Bengal Ocean Expanse with Turquoise Glisten */}
-            <path
-              d="M 0,172 Q 320,146 700,160 T 1440,166 L 1440,220 L 0,220 Z"
-              fill="url(#bengalOceanGrad)"
-            />
-
-            {/* Animated Ocean Wave Foam Lines */}
-            <path
-              d="M 0,170 Q 160,163 320,170 T 640,170 T 960,170 T 1280,170 T 1440,170"
-              stroke="#FFFFFF"
-              strokeWidth="1.8"
-              strokeOpacity="0.65"
-              fill="none"
-              className="animate-ocean-wave-roll"
-            />
-            <path
-              d="M 0,175 Q 180,169 360,175 T 720,175 T 1080,175 T 1440,175"
-              stroke="#99F6E4"
-              strokeWidth="1.4"
-              strokeOpacity="0.5"
-              fill="none"
-              className="animate-ocean-wave-roll"
             />
 
             {/* Main Undulating Golden Sand Dunes (Chandrabhaga / Marine Drive) */}
             <path
-              d="M 0,220 Q 260,145 560,172 T 1100,160 T 1440,190 L 1440,220 Z"
+              d="M 0,220 Q 260,135 560,162 T 1100,150 T 1440,180 L 1440,220 Z"
               fill="url(#chandrabhagaDunes)"
             />
             {/* Sunlit Dune Crest Highlight Line */}
             <path
-              d="M 0,220 Q 260,145 560,172 T 1100,160 T 1440,190"
+              d="M 0,220 Q 260,135 560,162 T 1100,150 T 1440,180"
               stroke="#FDE68A"
               strokeWidth="2"
               strokeOpacity="0.75"
@@ -447,7 +423,7 @@ export const HeroSection: React.FC = () => {
 
             {/* Secondary Foreground Coastal Ridge with Warm Terracotta Shadow */}
             <path
-              d="M 0,220 Q 380,178 780,190 T 1440,202 L 1440,220 Z"
+              d="M 0,220 Q 380,172 780,184 T 1440,195 L 1440,220 Z"
               fill="url(#lowerDuneSlope)"
             />
 
