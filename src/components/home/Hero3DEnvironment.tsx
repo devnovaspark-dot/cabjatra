@@ -4,106 +4,119 @@ import React, { useRef, useEffect } from "react";
 import * as THREE from "three";
 
 export type TimeOfDay = "sunrise" | "day" | "sunset" | "night";
+export type OdishaLocationId = "marine-drive" | "puri-dham" | "konark" | "chilika" | "airport";
 
 interface Hero3DEnvironmentProps {
   timeOfDay: TimeOfDay;
+  activeLocationId: OdishaLocationId;
 }
 
 /**
  * Photorealistic 3D Highway & Odisha Coastal Environment using Three.js
  * Features:
- * 1. Cinematic 3/4 perspective chase camera viewing an endless realistic highway.
- * 2. Executive commercial sedan with PBR metallic paint, clearcoat reflections,
- *    Odisha commercial yellow plate, spinning alloy wheels, and volumetric LED headlights.
- * 3. Rooted 3D coconut palms and casuarina pines with natural wind-fluttering foliage (trunks remain 100% stationary).
- * 4. Bay of Bengal coastal sea with undulating specular waves and golden sand dunes.
- * 5. Distant iconic Odisha landmarks: Konark Sun Temple chariot wheel & Puri Jagannath Temple shikhara.
- * 6. Passing Indian National Highway stone milestone pillars.
- * 7. Realtime atmospheric lighting: Day, Sunset/Golden Hour, Night (starfield + glowing moon), Sunrise.
- * 8. Pure atmospheric open sky in the upper 28% of the viewport (zero collision with navbar).
+ * 1. Cinematic 3/4 front beauty tracking angle (sleek executive commercial sedan with
+ *    chrome grille, projector LED headlamps, metallic paint reflections, spinning alloy wheels).
+ * 2. Morphing environment featuring Odisha's iconic locations:
+ *    - Marine Drive: Ocean surf waves, sand dunes, coastal breeze, lighthouse.
+ *    - Puri Dham: Sacred Jagannath Temple shikhara with fluttering Patitapabana flag.
+ *    - Konark: Colossal 13th-century stone chariot wheel with 8 carved spokes.
+ *    - Chilika Lagoon: Serene water ripples, traditional wooden boats, jumping dolphins.
+ *    - BBI Airport: Modern highway gantry, sleek streetlights, expressway infrastructure.
+ * 3. Grounded 3D coconut palms & casuarina pines with wind-fluttering leaves (100% stationary trunks).
+ * 4. Automatic real-time celestial lighting (Day, Sunset, Night with 1,400 twinkling stars & glowing moon, Sunrise).
+ * 5. Upper 30% of viewport remains serene open sky (zero collision with navbar).
+ * 6. Smooth 60 FPS animation loop with delta-time and interactive mouse parallax.
  */
-export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay }) => {
+export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({
+  timeOfDay,
+  activeLocationId,
+}) => {
   const mountRef = useRef<HTMLDivElement>(null);
+  const locationRef = useRef<OdishaLocationId>(activeLocationId);
+
+  // Keep locationRef updated without triggering full WebGL teardown/rebuild
+  useEffect(() => {
+    locationRef.current = activeLocationId;
+  }, [activeLocationId]);
 
   useEffect(() => {
     const container = mountRef.current;
     if (!container) return;
 
-    // =========================================================================
-    // 1. SCENE & DIMENSIONS
-    // =========================================================================
     let width = container.clientWidth || window.innerWidth;
     let height = container.clientHeight || window.innerHeight;
 
     const scene = new THREE.Scene();
 
-    // Color definitions for each lighting condition
+    // =========================================================================
+    // 1. THEME LIGHTING CONFIGURATION
+    // =========================================================================
     const THEME_CONFIG = {
       sunrise: {
-        skyTop: 0x1b1933,
-        skyBottom: 0xc26510,
+        skyTop: 0x1a1638,
+        skyBottom: 0xc45e12,
         fogColor: 0x8a4522,
-        ambientColor: 0x824933,
-        ambientIntensity: 1.3,
-        sunColor: 0xffa055,
-        sunIntensity: 3.2,
-        sunPos: new THREE.Vector3(22, 16, -65),
-        showSun: true,
-        showMoon: false,
-        showStars: false,
-        headlightIntensity: 1.8,
-        roadTone: 0x221817,
-      },
-      day: {
-        skyTop: 0x073b40,
-        skyBottom: 0x0d585e,
-        fogColor: 0x09484e,
-        ambientColor: 0xe0f2fe,
-        ambientIntensity: 1.6,
-        sunColor: 0xfffbeb,
-        sunIntensity: 3.6,
-        sunPos: new THREE.Vector3(25, 26, -70),
-        showSun: true,
-        showMoon: false,
-        showStars: false,
-        headlightIntensity: 0.8,
-        roadTone: 0x1b2326,
-      },
-      sunset: {
-        skyTop: 0x18112a,
-        skyBottom: 0xb4450a,
-        fogColor: 0x6e2612,
-        ambientColor: 0x733221,
+        ambientColor: 0x8a523a,
         ambientIntensity: 1.4,
-        sunColor: 0xf97316,
+        sunColor: 0xffa858,
         sunIntensity: 3.4,
-        sunPos: new THREE.Vector3(18, 12, -60),
+        sunPos: new THREE.Vector3(24, 18, -60),
         showSun: true,
         showMoon: false,
         showStars: false,
         headlightIntensity: 2.2,
+        roadTone: 0x221817,
+      },
+      day: {
+        skyTop: 0x063a40,
+        skyBottom: 0x0c575e,
+        fogColor: 0x0a4a50,
+        ambientColor: 0xe0f2fe,
+        ambientIntensity: 1.7,
+        sunColor: 0xfffbeb,
+        sunIntensity: 3.8,
+        sunPos: new THREE.Vector3(26, 28, -65),
+        showSun: true,
+        showMoon: false,
+        showStars: false,
+        headlightIntensity: 1.0,
+        roadTone: 0x1b2326,
+      },
+      sunset: {
+        skyTop: 0x1b112c,
+        skyBottom: 0xb54308,
+        fogColor: 0x732813,
+        ambientColor: 0x7d3725,
+        ambientIntensity: 1.5,
+        sunColor: 0xf97316,
+        sunIntensity: 3.6,
+        sunPos: new THREE.Vector3(20, 14, -55),
+        showSun: true,
+        showMoon: false,
+        showStars: false,
+        headlightIntensity: 2.6,
         roadTone: 0x241614,
       },
       night: {
         skyTop: 0x01080d,
         skyBottom: 0x041922,
         fogColor: 0x03141c,
-        ambientColor: 0x0b2736,
-        ambientIntensity: 0.85,
+        ambientColor: 0x0d2e3d,
+        ambientIntensity: 0.95,
         sunColor: 0x93c5fd,
-        sunIntensity: 1.2,
-        sunPos: new THREE.Vector3(24, 24, -60),
+        sunIntensity: 1.4,
+        sunPos: new THREE.Vector3(24, 25, -55),
         showSun: false,
         showMoon: true,
         showStars: true,
-        headlightIntensity: 4.5,
+        headlightIntensity: 5.2,
         roadTone: 0x0e1518,
       },
     }[timeOfDay];
 
-    scene.fog = new THREE.FogExp2(THEME_CONFIG.fogColor, 0.0125);
+    scene.fog = new THREE.FogExp2(THEME_CONFIG.fogColor, 0.011);
 
-    // Procedural Atmospheric Sky Background with Soft Horizon Haze
+    // Procedural Atmospheric Sky Background
     const skyCanvas = document.createElement("canvas");
     skyCanvas.width = 16;
     skyCanvas.height = 512;
@@ -114,7 +127,7 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
       const bottomColorStr = `#${THEME_CONFIG.skyBottom.toString(16).padStart(6, "0")}`;
       const fogColorStr = `#${THEME_CONFIG.fogColor.toString(16).padStart(6, "0")}`;
       grad.addColorStop(0, topColorStr);
-      grad.addColorStop(0.6, bottomColorStr);
+      grad.addColorStop(0.58, bottomColorStr);
       grad.addColorStop(1, fogColorStr);
       skyCtx.fillStyle = grad;
       skyCtx.fillRect(0, 0, 16, 512);
@@ -123,12 +136,12 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     scene.background = skyTexture;
 
     // =========================================================================
-    // 2. CAMERA (BEAUTY 3/4 CHASE PERSPECTIVE)
-    // Camera is framed so the upper 28% of the viewport is purely serene open sky.
+    // 2. CAMERA (AUTOMOTIVE 3/4 FRONT BEAUTY ANGLE)
+    // Framed with the car on the right side and wide open horizon on the left.
     // =========================================================================
-    const camera = new THREE.PerspectiveCamera(46, width / height, 0.1, 400);
-    const cameraBasePos = new THREE.Vector3(2.4, 2.1, 7.8);
-    const cameraTarget = new THREE.Vector3(0.3, 1.1, -6);
+    const camera = new THREE.PerspectiveCamera(44, width / height, 0.1, 400);
+    const cameraBasePos = new THREE.Vector3(3.2, 1.85, 4.4);
+    const cameraTarget = new THREE.Vector3(-0.4, 1.05, -3.8);
     camera.position.copy(cameraBasePos);
     camera.lookAt(cameraTarget);
 
@@ -143,7 +156,7 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.25;
+    renderer.toneMappingExposure = 1.28;
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
@@ -173,28 +186,26 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     mainLight.shadow.mapSize.width = 1024;
     mainLight.shadow.mapSize.height = 1024;
     mainLight.shadow.camera.near = 0.5;
-    mainLight.shadow.camera.far = 120;
-    mainLight.shadow.camera.left = -20;
-    mainLight.shadow.camera.right = 20;
-    mainLight.shadow.camera.top = 20;
-    mainLight.shadow.camera.bottom = -20;
+    mainLight.shadow.camera.far = 130;
+    mainLight.shadow.camera.left = -22;
+    mainLight.shadow.camera.right = 22;
+    mainLight.shadow.camera.top = 22;
+    mainLight.shadow.camera.bottom = -22;
     scene.add(mainLight);
 
-    // Blue/Cyan Rim Light (Coastal Marine bounce)
-    const rimLight = new THREE.DirectionalLight(0x38bdf8, 1.4);
-    rimLight.position.set(-15, 8, 10);
+    // Coastal Marine Rim Light
+    const rimLight = new THREE.DirectionalLight(0x38bdf8, 1.6);
+    rimLight.position.set(-18, 9, 8);
     scene.add(rimLight);
 
-    // Under-chassis Warm Gold Bounce (CabJatra Golden Signature)
-    const goldUnderLight = new THREE.DirectionalLight(0xd9a52b, 0.7);
+    // Underbody Warm Gold Fill (CabJatra Golden Signature)
+    const goldUnderLight = new THREE.DirectionalLight(0xd9a52b, 0.85);
     goldUnderLight.position.set(0, -2, 2);
     scene.add(goldUnderLight);
 
     // =========================================================================
     // 5. CELESTIAL ELEMENTS (SUN / MOON / STARS)
     // =========================================================================
-    // Starfield for night sky
-    let starsPoints: THREE.Points | null = null;
     if (THEME_CONFIG.showStars) {
       const starGeo = new THREE.BufferGeometry();
       const starCount = 1400;
@@ -203,7 +214,7 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
 
       for (let i = 0; i < starCount; i++) {
         const x = (Math.random() - 0.5) * 260;
-        const y = Math.random() * 80 + 10;
+        const y = Math.random() * 80 + 12;
         const z = -Math.random() * 150 - 20;
         starPositions[i * 3] = x;
         starPositions[i * 3 + 1] = y;
@@ -212,16 +223,16 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
         const tint = Math.random();
         if (tint > 0.8) {
           starColors[i * 3] = 1.0;
-          starColors[i * 3 + 1] = 0.85;
-          starColors[i * 3 + 2] = 0.6; // Gold star
+          starColors[i * 3 + 1] = 0.88;
+          starColors[i * 3 + 2] = 0.65;
         } else if (tint > 0.4) {
-          starColors[i * 3] = 0.75;
-          starColors[i * 3 + 1] = 0.9;
-          starColors[i * 3 + 2] = 1.0; // Ice blue
+          starColors[i * 3] = 0.8;
+          starColors[i * 3 + 1] = 0.92;
+          starColors[i * 3 + 2] = 1.0;
         } else {
           starColors[i * 3] = 1.0;
           starColors[i * 3 + 1] = 1.0;
-          starColors[i * 3 + 2] = 1.0; // Crisp white
+          starColors[i * 3 + 2] = 1.0;
         }
       }
       starGeo.setAttribute("position", new THREE.BufferAttribute(starPositions, 3));
@@ -234,54 +245,43 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
         opacity: 0.95,
         fog: false,
       });
-      starsPoints = new THREE.Points(starGeo, starMat);
+      const starsPoints = new THREE.Points(starGeo, starMat);
       scene.add(starsPoints);
     }
 
-    // Glowing Celestial Orb (Sun or Moon)
     const orbGroup = new THREE.Group();
     orbGroup.position.copy(THEME_CONFIG.sunPos);
 
     if (THEME_CONFIG.showSun) {
-      const sunCoreMat = new THREE.MeshBasicMaterial({
-        color: THEME_CONFIG.sunColor,
-        fog: false,
-      });
+      const sunCoreMat = new THREE.MeshBasicMaterial({ color: THEME_CONFIG.sunColor, fog: false });
       const sunCore = new THREE.Mesh(new THREE.SphereGeometry(3.2, 32, 32), sunCoreMat);
       orbGroup.add(sunCore);
 
-      // Corona Bloom Shell
       const coronaMat = new THREE.MeshBasicMaterial({
         color: THEME_CONFIG.sunColor,
         transparent: true,
-        opacity: 0.35,
+        opacity: 0.38,
         fog: false,
       });
-      const corona = new THREE.Mesh(new THREE.SphereGeometry(5.4, 24, 24), coronaMat);
+      const corona = new THREE.Mesh(new THREE.SphereGeometry(5.6, 24, 24), coronaMat);
       orbGroup.add(corona);
     } else if (THEME_CONFIG.showMoon) {
-      const moonMat = new THREE.MeshBasicMaterial({
-        color: 0xfef9c3,
-        fog: false,
-      });
+      const moonMat = new THREE.MeshBasicMaterial({ color: 0xfef9c3, fog: false });
       const moon = new THREE.Mesh(new THREE.SphereGeometry(3.0, 32, 32), moonMat);
       orbGroup.add(moon);
 
-      // Soft Luminous Lunar Halo
       const haloMat = new THREE.MeshBasicMaterial({
         color: 0x93c5fd,
         transparent: true,
-        opacity: 0.22,
+        opacity: 0.25,
         fog: false,
       });
-      const halo = new THREE.Mesh(new THREE.SphereGeometry(4.8, 24, 24), haloMat);
+      const halo = new THREE.Mesh(new THREE.SphereGeometry(5.0, 24, 24), haloMat);
       orbGroup.add(halo);
     }
     scene.add(orbGroup);
 
-    // =========================================================================
-    // 6. VOLUMETRIC DRIFTING CLOUDS
-    // =========================================================================
+    // Drifting Volumetric Clouds
     const cloudGroup = new THREE.Group();
     const cloudMat = new THREE.MeshStandardMaterial({
       color: timeOfDay === "night" ? 0x1e3a47 : timeOfDay === "sunset" ? 0xca7853 : 0xffffff,
@@ -297,7 +297,7 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
       const puffs = 4 + Math.floor(Math.random() * 4);
       for (let p = 0; p < puffs; p++) {
         const r = 2.4 + Math.random() * 2.8;
-        const puff = new THREE.Mesh(new THREE.SphereGeometry(r, 12, 12), cloudMat);
+        const puff = new THREE.Mesh(new THREE.SphereGeometry(r, 14, 14), cloudMat);
         puff.position.set(
           (p - puffs / 2) * 2.6 + (Math.random() - 0.5) * 1.5,
           (Math.random() - 0.5) * 1.2,
@@ -316,16 +316,15 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     scene.add(cloudGroup);
 
     // =========================================================================
-    // 7. HIGHWAY ROAD SURFACE & PAVEMENT
+    // 6. HIGHWAY ROAD SURFACE & PAVEMENT
     // =========================================================================
-    const ROAD_WIDTH = 7.4;
+    const ROAD_WIDTH = 7.6;
     const ROAD_LENGTH = 180;
 
-    // Asphalt Pavement
     const roadMat = new THREE.MeshStandardMaterial({
       color: THEME_CONFIG.roadTone,
-      roughness: 0.82,
-      metalness: 0.12,
+      roughness: 0.78,
+      metalness: 0.14,
     });
     const roadGeo = new THREE.PlaneGeometry(ROAD_WIDTH, ROAD_LENGTH, 1, 60);
     const roadMesh = new THREE.Mesh(roadGeo, roadMat);
@@ -334,11 +333,8 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     roadMesh.receiveShadow = true;
     scene.add(roadMesh);
 
-    // Shoulders (Left & Right Curb/Verge)
-    const curbMat = new THREE.MeshStandardMaterial({
-      color: 0x334155,
-      roughness: 0.9,
-    });
+    // Shoulders
+    const curbMat = new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.9 });
     const leftCurb = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.12, ROAD_LENGTH), curbMat);
     leftCurb.position.set(-ROAD_WIDTH / 2 - 0.15, 0.05, -40);
     scene.add(leftCurb);
@@ -347,7 +343,7 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     rightCurb.position.set(ROAD_WIDTH / 2 + 0.15, 0.05, -40);
     scene.add(rightCurb);
 
-    // Solid Continuous Shoulder Lines (White)
+    // Solid Continuous White Shoulder Lines
     const lineMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
     const leftLine = new THREE.Mesh(new THREE.PlaneGeometry(0.14, ROAD_LENGTH), lineMat);
     leftLine.rotation.x = -Math.PI / 2;
@@ -377,7 +373,7 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
       centerDashes.push(dash);
     }
 
-    // Modern Highway Steel Guardrail (Right Verge)
+    // Modern Highway Steel Guardrail (Right Shoulder Verge)
     const railMat = new THREE.MeshStandardMaterial({
       color: 0x94a3b8,
       metalness: 0.92,
@@ -390,7 +386,6 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     guardrail.position.set(ROAD_WIDTH / 2 + 0.6, 0.5, -40);
     scene.add(guardrail);
 
-    // Guardrail Support Posts
     const postMat = new THREE.MeshStandardMaterial({ color: 0x475569, metalness: 0.8 });
     for (let p = 0; p < 25; p++) {
       const post = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.65, 8), postMat);
@@ -402,7 +397,7 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     const catEyeMat = new THREE.MeshStandardMaterial({
       color: 0xf59e0b,
       emissive: 0xf59e0b,
-      emissiveIntensity: timeOfDay === "night" ? 1.5 : 0.6,
+      emissiveIntensity: timeOfDay === "night" ? 1.6 : 0.6,
       metalness: 0.3,
       roughness: 0.2,
     });
@@ -416,23 +411,18 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
       scene.add(catEyeRight);
     }
 
-    // =========================================================================
-    // 8. ODISHA MARINE DRIVE COASTAL OCEAN & SAND DUNES (LEFT SIDE)
-    // =========================================================================
-    // Golden Sand Dunes
+    // Golden Sand Dunes (Left Verge)
     const duneMat = new THREE.MeshStandardMaterial({
       color: timeOfDay === "sunset" ? 0x9a5822 : 0x78562c,
       roughness: 0.95,
       metalness: 0.02,
     });
-    const duneGeo = new THREE.PlaneGeometry(16, ROAD_LENGTH, 12, 40);
-    // Displace vertices to form natural rolling dunes
+    const duneGeo = new THREE.PlaneGeometry(16, ROAD_LENGTH, 16, 40);
     const posAttr = duneGeo.attributes.position;
     for (let i = 0; i < posAttr.count; i++) {
       const u = posAttr.getX(i);
       const v = posAttr.getY(i);
-      const heightVal = Math.sin(u * 0.4) * 0.6 + Math.cos(v * 0.15) * 0.4;
-      posAttr.setZ(i, heightVal);
+      posAttr.setZ(i, Math.sin(u * 0.4) * 0.65 + Math.cos(v * 0.15) * 0.45);
     }
     duneGeo.computeVertexNormals();
     const duneMesh = new THREE.Mesh(duneGeo, duneMat);
@@ -441,19 +431,19 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     duneMesh.receiveShadow = true;
     scene.add(duneMesh);
 
-    // Bay of Bengal Ocean Surface
+    // Bay of Bengal Ocean Surface (Left Horizon)
     const waterMat = new THREE.MeshStandardMaterial({
-      color: timeOfDay === "night" ? 0x07222f : 0x0a4d55,
-      metalness: 0.88,
-      roughness: 0.18,
+      color: timeOfDay === "night" ? 0x07222f : 0x0b545d,
+      metalness: 0.9,
+      roughness: 0.16,
     });
-    const waterGeo = new THREE.PlaneGeometry(60, ROAD_LENGTH, 24, 40);
+    const waterGeo = new THREE.PlaneGeometry(65, ROAD_LENGTH, 28, 40);
     const waterMesh = new THREE.Mesh(waterGeo, waterMat);
     waterMesh.rotation.x = -Math.PI / 2;
-    waterMesh.position.set(-ROAD_WIDTH / 2 - 42, -0.4, -40);
+    waterMesh.position.set(-ROAD_WIDTH / 2 - 44, -0.38, -40);
     scene.add(waterMesh);
 
-    // Right Side Lush Ground (Casuarina forest verge)
+    // Right Side Ground
     const rightTerrainMat = new THREE.MeshStandardMaterial({
       color: timeOfDay === "night" ? 0x051d1e : 0x073534,
       roughness: 0.92,
@@ -467,7 +457,7 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     scene.add(rightTerrain);
 
     // =========================================================================
-    // 9. REALISTIC 3D TREES WITH WIND-FLUTTERING LEAVES
+    // 7. REALISTIC 3D TREES WITH WIND-FLUTTERING LEAVES
     // Rooted trunks remain 100% stationary; only the fronds/foliage oscillate!
     // =========================================================================
     interface TreeRig {
@@ -479,43 +469,31 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
 
     const treeRigs: TreeRig[] = [];
 
-    // Bark and foliage materials
-    const palmBarkMat = new THREE.MeshStandardMaterial({
-      color: 0x3d2719,
-      roughness: 0.9,
-    });
+    const palmBarkMat = new THREE.MeshStandardMaterial({ color: 0x3d2719, roughness: 0.88 });
     const palmLeafMat = new THREE.MeshStandardMaterial({
       color: 0x0f5e55,
-      roughness: 0.45,
+      roughness: 0.42,
       metalness: 0.08,
       side: THREE.DoubleSide,
     });
+    const casuarinaBarkMat = new THREE.MeshStandardMaterial({ color: 0x271911, roughness: 0.92 });
+    const casuarinaFoliageMat = new THREE.MeshStandardMaterial({ color: 0x0a4a44, roughness: 0.82 });
 
-    const casuarinaBarkMat = new THREE.MeshStandardMaterial({
-      color: 0x271911,
-      roughness: 0.95,
-    });
-    const casuarinaFoliageMat = new THREE.MeshStandardMaterial({
-      color: 0x0a4a44,
-      roughness: 0.85,
-    });
-
-    // Helper: Create 3D Coconut Palm with anchored trunk and animated fronds
     const createPalmTree = (x: number, z: number, scale = 1.0) => {
       const treeGroup = new THREE.Group();
       treeGroup.position.set(x, 0, z);
       treeGroup.scale.set(scale, scale, scale);
 
-      // Curved Rooted Trunk (Stationary)
+      // Curved Smooth Rooted Trunk (Stationary)
       const trunkPoints: THREE.Vector3[] = [];
-      const trunkHeight = 6.2;
+      const trunkHeight = 6.4;
       for (let i = 0; i <= 8; i++) {
         const t = i / 8;
-        const curveX = Math.sin(t * Math.PI * 0.7) * 0.6;
+        const curveX = Math.sin(t * Math.PI * 0.7) * 0.65;
         trunkPoints.push(new THREE.Vector3(curveX, t * trunkHeight, 0));
       }
       const trunkCurve = new THREE.CatmullRomCurve3(trunkPoints);
-      const trunkGeo = new THREE.TubeGeometry(trunkCurve, 16, 0.22, 8, false);
+      const trunkGeo = new THREE.TubeGeometry(trunkCurve, 20, 0.22, 12, false);
       const trunkMesh = new THREE.Mesh(trunkGeo, palmBarkMat);
       trunkMesh.castShadow = true;
       treeGroup.add(trunkMesh);
@@ -524,7 +502,7 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
       const crownTop = trunkPoints[trunkPoints.length - 1];
       const nutMat = new THREE.MeshStandardMaterial({ color: 0x58310c, roughness: 0.8 });
       for (let n = 0; n < 4; n++) {
-        const nut = new THREE.Mesh(new THREE.SphereGeometry(0.18, 8, 8), nutMat);
+        const nut = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 10), nutMat);
         nut.position.set(
           crownTop.x + (Math.random() - 0.5) * 0.35,
           crownTop.y - 0.25,
@@ -533,7 +511,7 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
         treeGroup.add(nut);
       }
 
-      // Radiating 3D Palm Fronds (Dynamic Leaves)
+      // Radiating 3D Palm Fronds
       const animatedFronds: THREE.Object3D[] = [];
       const FROND_COUNT = 8;
       for (let f = 0; f < FROND_COUNT; f++) {
@@ -543,22 +521,21 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
         const angle = (f / FROND_COUNT) * Math.PI * 2;
         frondPivot.rotation.y = angle;
 
-        // Arching Frond Stem
         const stemCurve = new THREE.CubicBezierCurve3(
           new THREE.Vector3(0, 0, 0),
-          new THREE.Vector3(0, 0.4, 0.8),
-          new THREE.Vector3(0, 0.2, 1.8),
-          new THREE.Vector3(0, -0.6, 2.5)
+          new THREE.Vector3(0, 0.45, 0.9),
+          new THREE.Vector3(0, 0.2, 1.9),
+          new THREE.Vector3(0, -0.65, 2.6)
         );
-        const stemGeo = new THREE.TubeGeometry(stemCurve, 10, 0.04, 6, false);
+        const stemGeo = new THREE.TubeGeometry(stemCurve, 12, 0.04, 8, false);
         const stemMesh = new THREE.Mesh(stemGeo, palmBarkMat);
         frondPivot.add(stemMesh);
 
-        // Frond Leaf Blades (Blade Surface)
-        const bladeGeo = new THREE.PlaneGeometry(0.7, 2.2, 4, 8);
+        // Curved organic leaf blade
+        const bladeGeo = new THREE.PlaneGeometry(0.75, 2.3, 6, 10);
         const bladeMesh = new THREE.Mesh(bladeGeo, palmLeafMat);
         bladeMesh.rotation.x = Math.PI / 4;
-        bladeMesh.position.set(0, -0.1, 1.3);
+        bladeMesh.position.set(0, -0.1, 1.35);
         bladeMesh.castShadow = true;
         frondPivot.add(bladeMesh);
 
@@ -567,34 +544,26 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
       }
 
       scene.add(treeGroup);
-      treeRigs.push({
-        group: treeGroup,
-        leaves: animatedFronds,
-        type: "palm",
-        baseZ: z,
-      });
+      treeRigs.push({ group: treeGroup, leaves: animatedFronds, type: "palm", baseZ: z });
     };
 
-    // Helper: Create 3D Casuarina Pine with anchored trunk and swaying foliage
     const createCasuarinaTree = (x: number, z: number, scale = 1.0) => {
       const treeGroup = new THREE.Group();
       treeGroup.position.set(x, 0, z);
       treeGroup.scale.set(scale, scale, scale);
 
-      // Sturdy Grounded Trunk (Stationary)
-      const trunkGeo = new THREE.CylinderGeometry(0.14, 0.24, 7.5, 8);
+      const trunkGeo = new THREE.CylinderGeometry(0.14, 0.25, 7.6, 12);
       const trunk = new THREE.Mesh(trunkGeo, casuarinaBarkMat);
-      trunk.position.y = 3.75;
+      trunk.position.y = 3.8;
       trunk.castShadow = true;
       treeGroup.add(trunk);
 
-      // Layered Conical Needle Foliage Tiers (Sways in wind)
       const animatedTiers: THREE.Object3D[] = [];
       const TIERS = 4;
       for (let t = 0; t < TIERS; t++) {
         const tierHeight = 2.4 - t * 0.3;
-        const tierRadius = 1.4 - t * 0.25;
-        const coneGeo = new THREE.ConeGeometry(tierRadius, tierHeight, 8);
+        const tierRadius = 1.45 - t * 0.25;
+        const coneGeo = new THREE.ConeGeometry(tierRadius, tierHeight, 14);
         const coneMesh = new THREE.Mesh(coneGeo, casuarinaFoliageMat);
         coneMesh.position.y = 3.8 + t * 1.5;
         coneMesh.castShadow = true;
@@ -603,25 +572,18 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
       }
 
       scene.add(treeGroup);
-      treeRigs.push({
-        group: treeGroup,
-        leaves: animatedTiers,
-        type: "casuarina",
-        baseZ: z,
-      });
+      treeRigs.push({ group: treeGroup, leaves: animatedTiers, type: "casuarina", baseZ: z });
     };
 
-    // Plant roadside groves (left coast and right forest)
+    // Plant roadside groves
     for (let i = 0; i < 9; i++) {
       const zPos = -i * 18 - 4;
-      // Left side coastal palms
-      createPalmTree(-ROAD_WIDTH / 2 - 3.8 - (i % 2) * 1.8, zPos, 0.95 + (i % 3) * 0.15);
-      // Right side casuarina pine grove
-      createCasuarinaTree(ROAD_WIDTH / 2 + 3.2 + (i % 3) * 1.6, zPos - 6, 0.9 + (i % 2) * 0.2);
+      createPalmTree(-ROAD_WIDTH / 2 - 4.2 - (i % 2) * 1.8, zPos, 0.95 + (i % 3) * 0.15);
+      createCasuarinaTree(ROAD_WIDTH / 2 + 3.4 + (i % 3) * 1.6, zPos - 6, 0.9 + (i % 2) * 0.2);
     }
 
     // =========================================================================
-    // 10. PASSING AUTHENTIC INDIAN NATIONAL HIGHWAY MILESTONE PILLARS
+    // 8. PASSING AUTHENTIC INDIAN NATIONAL HIGHWAY MILESTONE PILLARS
     // =========================================================================
     interface MilestoneRig {
       mesh: THREE.Group;
@@ -630,10 +592,11 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     const milestones: MilestoneRig[] = [];
 
     const MILESTONE_DATA = [
+      { code: "OD-SH", text: "Marine Drive", km: "35 KM" },
       { code: "NH 316", text: "Puri Dham", km: "60 KM" },
       { code: "NH 316A", text: "Konark", km: "65 KM" },
-      { code: "OD-SH", text: "Marine Drive", km: "35 KM" },
       { code: "NH 16", text: "Chilika", km: "105 KM" },
+      { code: "BBI-AIR", text: "BBI Airport", km: "00 KM" },
     ];
 
     const createMilestoneMesh = (index: number, zPos: number) => {
@@ -641,7 +604,6 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
       const mGroup = new THREE.Group();
       mGroup.position.set(ROAD_WIDTH / 2 + 1.25, 0, zPos);
 
-      // Rounded Milestone Stone Body
       const stoneGeo = new THREE.CylinderGeometry(0.24, 0.24, 0.8, 16);
       const stoneMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.85 });
       const stone = new THREE.Mesh(stoneGeo, stoneMat);
@@ -649,17 +611,12 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
       stone.castShadow = true;
       mGroup.add(stone);
 
-      // Top Dome (Yellow for National Highway)
       const domeGeo = new THREE.SphereGeometry(0.24, 16, 8, 0, Math.PI * 2, 0, Math.PI / 2);
-      const yellowDomeMat = new THREE.MeshStandardMaterial({
-        color: 0xfacc15,
-        roughness: 0.4,
-      });
+      const yellowDomeMat = new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.4 });
       const dome = new THREE.Mesh(domeGeo, yellowDomeMat);
       dome.position.y = 0.8;
       mGroup.add(dome);
 
-      // Milestone Text Plate via Canvas Texture
       const mCanvas = document.createElement("canvas");
       mCanvas.width = 128;
       mCanvas.height = 128;
@@ -688,21 +645,13 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
       milestones.push({ mesh: mGroup, baseZ: zPos });
     };
 
-    for (let m = 0; m < 4; m++) {
-      createMilestoneMesh(m, -m * 36 - 10);
+    for (let m = 0; m < 5; m++) {
+      createMilestoneMesh(m, -m * 32 - 10);
     }
 
     // =========================================================================
-    // 11. ICONIC DISTANT ODISHA LANDMARKS (KONARK WHEEL & PURI JAGANNATH)
-    // Sits peacefully on the horizon under atmospheric fog.
+    // 9. LOCATION-SPECIFIC 3D ODISHA ENVIRONMENTS (MORPHING & DYNAMIC)
     // =========================================================================
-    const landmarkGroup = new THREE.Group();
-    landmarkGroup.position.set(0, 0, -95);
-
-    // Konark Sun Temple Chariot Wheel (Mid-Left Coast)
-    const wheelStand = new THREE.Group();
-    wheelStand.position.set(-24, 4.2, 0);
-
     const stoneMaterial = new THREE.MeshStandardMaterial({
       color: 0x3d3935,
       roughness: 0.9,
@@ -714,58 +663,162 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
       roughness: 0.25,
     });
 
-    // Outer Rim of Konark Chariot Wheel
-    const rimTorus = new THREE.Mesh(new THREE.TorusGeometry(5.2, 0.38, 12, 32), stoneMaterial);
-    wheelStand.add(rimTorus);
+    // --- A. PURI DHAM (JAGANNATH TEMPLE) ---
+    const puriGroup = new THREE.Group();
+    puriGroup.position.set(-22, 0, -68);
 
-    // Inner Axle Hub
-    const hubMesh = new THREE.Mesh(new THREE.CylinderGeometry(1.2, 1.2, 0.9, 16), goldOrnamentMat);
-    hubMesh.rotation.x = Math.PI / 2;
-    wheelStand.add(hubMesh);
-
-    // 8 Major Spokes
-    for (let s = 0; s < 8; s++) {
-      const sp = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 4.9, 8), stoneMaterial);
-      sp.rotation.z = (s / 8) * Math.PI * 2;
-      wheelStand.add(sp);
-    }
-    landmarkGroup.add(wheelStand);
-
-    // Puri Jagannath Temple Shikhara (Mid-Right Skyline)
-    const templeGroup = new THREE.Group();
-    templeGroup.position.set(28, 0, 0);
-
-    // Stepped Shikhara Curvilinear Tower
-    const shikharaGeo = new THREE.ConeGeometry(5.2, 15, 8);
+    const shikharaGeo = new THREE.ConeGeometry(5.8, 18, 12);
     const shikhara = new THREE.Mesh(shikharaGeo, stoneMaterial);
-    shikhara.position.y = 7.5;
-    templeGroup.add(shikhara);
+    shikhara.position.y = 9;
+    puriGroup.add(shikhara);
 
-    // Amalaka Stone Disc
-    const amalaka = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 2.2, 0.8, 16), goldOrnamentMat);
-    amalaka.position.y = 15.2;
-    templeGroup.add(amalaka);
+    const amalaka = new THREE.Mesh(new THREE.CylinderGeometry(1.8, 2.4, 0.9, 16), goldOrnamentMat);
+    amalaka.position.y = 18.2;
+    puriGroup.add(amalaka);
 
-    // Golden Kalasha on Spire
-    const kalasha = new THREE.Mesh(new THREE.SphereGeometry(0.7, 12, 12), goldOrnamentMat);
-    kalasha.position.y = 16.2;
-    templeGroup.add(kalasha);
+    const kalasha = new THREE.Mesh(new THREE.SphereGeometry(0.8, 14, 14), goldOrnamentMat);
+    kalasha.position.y = 19.3;
+    puriGroup.add(kalasha);
 
-    // The Sacred Fluttering Flag (Patitapabana)
-    const flagGeo = new THREE.PlaneGeometry(1.8, 1.1);
-    const flagMat = new THREE.MeshStandardMaterial({
-      color: 0xea580c,
-      side: THREE.DoubleSide,
-    });
+    const flagGeo = new THREE.PlaneGeometry(2.4, 1.4);
+    const flagMat = new THREE.MeshStandardMaterial({ color: 0xea580c, side: THREE.DoubleSide });
     const flagMesh = new THREE.Mesh(flagGeo, flagMat);
-    flagMesh.position.set(0.9, 16.3, 0);
-    templeGroup.add(flagMesh);
+    flagMesh.position.set(1.2, 19.5, 0);
+    puriGroup.add(flagMesh);
+    scene.add(puriGroup);
 
-    landmarkGroup.add(templeGroup);
-    scene.add(landmarkGroup);
+    // --- B. KONARK SUN TEMPLE (CHARIOT WHEEL) ---
+    const konarkGroup = new THREE.Group();
+    konarkGroup.position.set(-20, 4.5, -62);
+
+    const rimTorus = new THREE.Mesh(new THREE.TorusGeometry(6.2, 0.45, 16, 40), stoneMaterial);
+    konarkGroup.add(rimTorus);
+
+    const hubMesh = new THREE.Mesh(new THREE.CylinderGeometry(1.4, 1.4, 1.1, 16), goldOrnamentMat);
+    hubMesh.rotation.x = Math.PI / 2;
+    konarkGroup.add(hubMesh);
+
+    for (let s = 0; s < 8; s++) {
+      const sp = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 5.8, 8), stoneMaterial);
+      sp.rotation.z = (s / 8) * Math.PI * 2;
+      konarkGroup.add(sp);
+    }
+    scene.add(konarkGroup);
+
+    // --- C. MARINE DRIVE LIGHTHOUSE ---
+    const marineDriveGroup = new THREE.Group();
+    marineDriveGroup.position.set(-26, 0, -58);
+
+    const lighthouseTower = new THREE.Mesh(
+      new THREE.CylinderGeometry(1.2, 2.0, 14, 16),
+      new THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.6 })
+    );
+    lighthouseTower.position.y = 7;
+    marineDriveGroup.add(lighthouseTower);
+
+    // Red stripes
+    const redStripe = new THREE.Mesh(
+      new THREE.CylinderGeometry(1.45, 1.65, 3.2, 16),
+      new THREE.MeshStandardMaterial({ color: 0xdc2626, roughness: 0.6 })
+    );
+    redStripe.position.y = 7.5;
+    marineDriveGroup.add(redStripe);
+
+    const lanternRoom = new THREE.Mesh(
+      new THREE.CylinderGeometry(1.3, 1.3, 2.0, 16),
+      new THREE.MeshStandardMaterial({ color: 0xfef08a, emissive: 0xfef08a, emissiveIntensity: 1.5 })
+    );
+    lanternRoom.position.y = 14.8;
+    marineDriveGroup.add(lanternRoom);
+    scene.add(marineDriveGroup);
+
+    // --- D. CHILIKA DOLPHIN LAGOON (BOATS & JUMPING DOLPHINS) ---
+    const chilikaGroup = new THREE.Group();
+    chilikaGroup.position.set(-24, 0, -50);
+
+    // Traditional Wooden Boat
+    const boatBody = new THREE.Mesh(
+      new THREE.BoxGeometry(1.4, 0.6, 4.5),
+      new THREE.MeshStandardMaterial({ color: 0x3d2719, roughness: 0.85 })
+    );
+    boatBody.position.set(0, 0.1, 0);
+    chilikaGroup.add(boatBody);
+
+    const boatSail = new THREE.Mesh(
+      new THREE.ConeGeometry(1.5, 3.5, 4),
+      new THREE.MeshStandardMaterial({ color: 0xf8fafc, side: THREE.DoubleSide })
+    );
+    boatSail.position.set(0, 2.0, 0.4);
+    chilikaGroup.add(boatSail);
+
+    // Jumping Dolphin Silhouette
+    const dolphinCurve = new THREE.CubicBezierCurve3(
+      new THREE.Vector3(0, 0, -1.8),
+      new THREE.Vector3(0, 1.4, -0.6),
+      new THREE.Vector3(0, 1.2, 0.8),
+      new THREE.Vector3(0, 0, 1.8)
+    );
+    const dolphinGeo = new THREE.TubeGeometry(dolphinCurve, 16, 0.28, 8, false);
+    const dolphinMesh = new THREE.Mesh(
+      dolphinGeo,
+      new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.3, metalness: 0.5 })
+    );
+    dolphinMesh.position.set(6, 0, 6);
+    chilikaGroup.add(dolphinMesh);
+    scene.add(chilikaGroup);
+
+    // --- E. BBI AIRPORT HIGHWAY GANTRY ---
+    const airportGroup = new THREE.Group();
+    airportGroup.position.set(0, 0, -38);
+
+    const gantryBridge = new THREE.Mesh(
+      new THREE.BoxGeometry(ROAD_WIDTH + 2.5, 0.45, 0.6),
+      new THREE.MeshStandardMaterial({ color: 0x475569, metalness: 0.9 })
+    );
+    gantryBridge.position.y = 4.8;
+    airportGroup.add(gantryBridge);
+
+    const gantryPostL = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.12, 0.12, 5.0, 8),
+      new THREE.MeshStandardMaterial({ color: 0x475569, metalness: 0.9 })
+    );
+    gantryPostL.position.set(-ROAD_WIDTH / 2 - 0.8, 2.4, 0);
+    airportGroup.add(gantryPostL);
+
+    const gantryPostR = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.12, 0.12, 5.0, 8),
+      new THREE.MeshStandardMaterial({ color: 0x475569, metalness: 0.9 })
+    );
+    gantryPostR.position.set(ROAD_WIDTH / 2 + 0.8, 2.4, 0);
+    airportGroup.add(gantryPostR);
+
+    // Airport Guidance Sign
+    const signCanvas = document.createElement("canvas");
+    signCanvas.width = 256;
+    signCanvas.height = 64;
+    const gantryCtx = signCanvas.getContext("2d");
+    if (gantryCtx) {
+      gantryCtx.fillStyle = "#047857";
+      gantryCtx.fillRect(0, 0, 256, 64);
+      gantryCtx.strokeStyle = "#ffffff";
+      gantryCtx.lineWidth = 4;
+      gantryCtx.strokeRect(4, 4, 248, 56);
+      gantryCtx.fillStyle = "#ffffff";
+      gantryCtx.font = "bold 22px sans-serif";
+      gantryCtx.textAlign = "center";
+      gantryCtx.fillText("BBI AIRPORT EXPRESSWAY", 128, 40);
+    }
+    const signTex = new THREE.CanvasTexture(signCanvas);
+    const signMesh = new THREE.Mesh(
+      new THREE.PlaneGeometry(3.6, 0.9),
+      new THREE.MeshBasicMaterial({ map: signTex })
+    );
+    signMesh.position.set(0, 4.8, 0.32);
+    airportGroup.add(signMesh);
+    scene.add(airportGroup);
 
     // =========================================================================
-    // 12. FLYING SEAGULL FLOCK IN FORMATION
+    // 10. FLYING SEAGULL FLOCK
     // =========================================================================
     const seagullGroup = new THREE.Group();
     seagullGroup.position.set(-15, 14, -35);
@@ -797,42 +850,38 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
       bird.add(rightWing);
 
       seagullGroup.add(bird);
-      seagulls.push({
-        group: bird,
-        leftWing,
-        rightWing,
-        phase: b * 0.7,
-      });
+      seagulls.push({ group: bird, leftWing, rightWing, phase: b * 0.7 });
     }
     scene.add(seagullGroup);
 
     // =========================================================================
-    // 13. HIGH-FIDELITY EXECUTIVE 3D COMMERCIAL SEDAN
+    // 11. HIGH-FIDELITY EXECUTIVE 3D COMMERCIAL SEDAN (FRONT 3/4 BEAUTY POSE)
+    // Positioned smoothly on the right cruising lane with front visible!
     // =========================================================================
     const carChassis = new THREE.Group();
-    carChassis.position.set(0.9, 0, 1.6); // Positioned in the right cruising lane
+    carChassis.position.set(1.2, 0, 0.4);
+    carChassis.rotation.y = -0.08; // Subtle angle towards the viewer
 
-    // Materials
     const carBodyPaint = new THREE.MeshPhysicalMaterial({
       color: 0x073b3a, // Deep emerald metallic
-      metalness: 0.9,
-      roughness: 0.16,
+      metalness: 0.92,
+      roughness: 0.15,
       clearcoat: 1.0,
-      clearcoatRoughness: 0.05,
-      reflectivity: 0.95,
+      clearcoatRoughness: 0.04,
+      reflectivity: 0.96,
     });
 
     const carGlassMat = new THREE.MeshPhysicalMaterial({
       color: 0x0f172a,
       metalness: 0.95,
       roughness: 0.05,
-      transmission: 0.3,
+      transmission: 0.35,
       transparent: true,
-      opacity: 0.9,
+      opacity: 0.92,
     });
 
     const chromeMat = new THREE.MeshStandardMaterial({
-      color: 0xf1f5f9,
+      color: 0xf8fafc,
       metalness: 0.98,
       roughness: 0.08,
     });
@@ -862,12 +911,17 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     lowerBody.receiveShadow = true;
     carChassis.add(lowerBody);
 
-    // Aerodynamic Hood
+    // Aerodynamic Sloped Hood
     const hood = new THREE.Mesh(new THREE.BoxGeometry(1.62, 0.32, 1.4), carBodyPaint);
     hood.position.set(0, 0.48, -1.35);
     hood.rotation.x = 0.08;
     hood.castShadow = true;
     carChassis.add(hood);
+
+    // Chrome Front Grille
+    const frontGrille = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.22, 0.08), chromeMat);
+    frontGrille.position.set(0, 0.42, -2.06);
+    carChassis.add(frontGrille);
 
     // Rear Trunk
     const trunk = new THREE.Mesh(new THREE.BoxGeometry(1.62, 0.34, 1.1), carBodyPaint);
@@ -876,32 +930,33 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     trunk.castShadow = true;
     carChassis.add(trunk);
 
-    // Executive Greenhouse Cabin (Tinted Glass)
+    // Cabin Glass
     const cabin = new THREE.Mesh(new THREE.BoxGeometry(1.48, 0.58, 2.1), carGlassMat);
     cabin.position.set(0, 0.86, 0.05);
     cabin.castShadow = true;
     carChassis.add(cabin);
 
-    // Roof Panel
+    // Roof
     const roof = new THREE.Mesh(new THREE.BoxGeometry(1.44, 0.06, 1.95), carBodyPaint);
     roof.position.set(0, 1.16, 0.05);
     roof.castShadow = true;
     carChassis.add(roof);
 
-    // Polished Chrome Window Trim Beltline
+    // Chrome Window Beltline
     const trim = new THREE.Mesh(new THREE.BoxGeometry(1.52, 0.03, 2.14), chromeMat);
     trim.position.set(0, 0.62, 0.05);
     carChassis.add(trim);
 
-    // Chrome Door Handles
-    const handleL1 = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.03, 0.16), chromeMat);
-    handleL1.position.set(-0.85, 0.52, 0.3);
-    carChassis.add(handleL1);
-    const handleL2 = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.03, 0.16), chromeMat);
-    handleL2.position.set(-0.85, 0.52, -0.4);
-    carChassis.add(handleL2);
+    // Side Mirrors
+    const mirrorL = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.12, 0.12), chromeMat);
+    mirrorL.position.set(-0.88, 0.72, -0.7);
+    carChassis.add(mirrorL);
 
-    // CabJatra Golden Door Crest (Right / Passenger Door & Left Door)
+    const mirrorR = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.12, 0.12), chromeMat);
+    mirrorR.position.set(0.88, 0.72, -0.7);
+    carChassis.add(mirrorR);
+
+    // Door Crest
     const crestCanvas = document.createElement("canvas");
     crestCanvas.width = 256;
     crestCanvas.height = 128;
@@ -933,7 +988,7 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     crestLeft.position.set(-0.85, 0.44, 0.0);
     carChassis.add(crestLeft);
 
-    // Authentic Odisha Yellow Commercial Number Plate ("OD 02 CJ 2026")
+    // Odisha Yellow Commercial Number Plate ("OD 02 CJ")
     const plateCanvas = document.createElement("canvas");
     plateCanvas.width = 128;
     plateCanvas.height = 48;
@@ -952,22 +1007,20 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     const plateTex = new THREE.CanvasTexture(plateCanvas);
     const plateMat = new THREE.MeshBasicMaterial({ map: plateTex });
 
-    // Rear Plate
+    const frontPlate = new THREE.Mesh(new THREE.PlaneGeometry(0.48, 0.18), plateMat);
+    frontPlate.rotation.y = Math.PI;
+    frontPlate.position.set(0, 0.34, -2.07);
+    carChassis.add(frontPlate);
+
     const rearPlate = new THREE.Mesh(new THREE.PlaneGeometry(0.48, 0.18), plateMat);
     rearPlate.position.set(0, 0.38, 2.11);
     carChassis.add(rearPlate);
 
-    // Front Plate
-    const frontPlate = new THREE.Mesh(new THREE.PlaneGeometry(0.48, 0.18), plateMat);
-    frontPlate.rotation.y = Math.PI;
-    frontPlate.position.set(0, 0.34, -2.06);
-    carChassis.add(frontPlate);
-
-    // Glowing LED Projector Headlights
+    // Glowing Dual Projector LED Headlights
     const headlightMat = new THREE.MeshStandardMaterial({
       color: 0xffffff,
       emissive: 0xfef08a,
-      emissiveIntensity: 2.2,
+      emissiveIntensity: 2.4,
       roughness: 0.1,
     });
     const headlightL = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.12, 0.08), headlightMat);
@@ -978,7 +1031,7 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     headlightR.position.set(0.62, 0.46, -2.05);
     carChassis.add(headlightR);
 
-    // Volumetric Headlight Beams Casting Light on Asphalt Ahead
+    // Volumetric Headlight Beams Casting Light on Asphalt
     const spotL = new THREE.SpotLight(0xfef08a, THEME_CONFIG.headlightIntensity, 45, Math.PI / 7, 0.45);
     spotL.position.set(-0.62, 0.46, -2.1);
     spotL.target.position.set(-0.62, 0, -22);
@@ -991,11 +1044,11 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     carChassis.add(spotR);
     carChassis.add(spotR.target);
 
-    // Glowing Red LED Taillights
+    // Red LED Taillights
     const taillightMat = new THREE.MeshStandardMaterial({
       color: 0xef4444,
       emissive: 0xef4444,
-      emissiveIntensity: 2.4,
+      emissiveIntensity: 2.2,
       roughness: 0.1,
     });
     const taillightL = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.12, 0.06), taillightMat);
@@ -1008,19 +1061,19 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
 
     // Real Asphalt Contact Shadow
     const shadowGeo = new THREE.PlaneGeometry(2.4, 4.6);
-    const sCanvas = document.createElement("canvas");
-    sCanvas.width = 128;
-    sCanvas.height = 128;
-    const sCtx = sCanvas.getContext("2d");
-    if (sCtx) {
-      const grad = sCtx.createRadialGradient(64, 64, 10, 64, 64, 60);
+    const contactShadowCanvas = document.createElement("canvas");
+    contactShadowCanvas.width = 128;
+    contactShadowCanvas.height = 128;
+    const contactShadowCtx = contactShadowCanvas.getContext("2d");
+    if (contactShadowCtx) {
+      const grad = contactShadowCtx.createRadialGradient(64, 64, 10, 64, 64, 60);
       grad.addColorStop(0, "rgba(0,0,0,0.85)");
       grad.addColorStop(0.5, "rgba(0,0,0,0.45)");
       grad.addColorStop(1, "rgba(0,0,0,0)");
-      sCtx.fillStyle = grad;
-      sCtx.fillRect(0, 0, 128, 128);
+      contactShadowCtx.fillStyle = grad;
+      contactShadowCtx.fillRect(0, 0, 128, 128);
     }
-    const shadowTex = new THREE.CanvasTexture(sCanvas);
+    const shadowTex = new THREE.CanvasTexture(contactShadowCanvas);
     const contactShadow = new THREE.Mesh(
       shadowGeo,
       new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, opacity: 0.9 })
@@ -1029,24 +1082,21 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     contactShadow.position.y = 0.01;
     carChassis.add(contactShadow);
 
-    // 4 Precision 3D Wheels that Spin Continuously
+    // 4 Precision 3D Wheels
     const spinningWheels: THREE.Group[] = [];
     const buildWheel = (x: number, z: number) => {
       const wGroup = new THREE.Group();
       wGroup.position.set(x, 0.32, z);
 
-      // Rubber Tire
       const tire = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.32, 0.22, 24), tireMat);
       tire.rotation.z = Math.PI / 2;
       tire.castShadow = true;
       wGroup.add(tire);
 
-      // Alloy Rim Face
       const rim = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.23, 16), alloyRimMat);
       rim.rotation.z = Math.PI / 2;
       wGroup.add(rim);
 
-      // Gold Center Nut
       const nut = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.24, 8), goldBadgeMat);
       nut.rotation.z = Math.PI / 2;
       wGroup.add(nut);
@@ -1055,21 +1105,21 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
       spinningWheels.push(wGroup);
     };
 
-    buildWheel(-0.82, -1.25); // Front-Left
-    buildWheel(0.82, -1.25);  // Front-Right
-    buildWheel(-0.82, 1.25);  // Rear-Left
-    buildWheel(0.82, 1.25);   // Rear-Right
+    buildWheel(-0.82, -1.25);
+    buildWheel(0.82, -1.25);
+    buildWheel(-0.82, 1.25);
+    buildWheel(0.82, 1.25);
 
     scene.add(carChassis);
 
     // =========================================================================
-    // 14. ANIMATION LOOP (60 FPS BUTTERY SMOOTH WITH DELTA TIME)
+    // 12. ANIMATION LOOP (60 FPS BUTTERY SMOOTH WITH DELTA TIME)
     // =========================================================================
     let animationFrameId: number;
     let clock = new THREE.Clock();
-    const SPEED = 22.0; // Cruise speed units/sec
+    const SPEED = 22.0;
 
-    // Interactive mouse parallax variables
+    // Interactive mouse parallax
     let mouseX = 0;
     let mouseY = 0;
     const handleMouseMove = (e: MouseEvent) => {
@@ -1085,12 +1135,12 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
       const delta = clock.getDelta();
       const elapsed = clock.getElapsedTime();
 
-      // Camera subtle interactive parallax interpolation (buttery smooth lerp)
+      // Camera subtle parallax
       const targetCamX = cameraBasePos.x + mouseX * 0.45;
       const targetCamY = cameraBasePos.y - mouseY * 0.25;
       camera.position.x += (targetCamX - camera.position.x) * 0.05;
       camera.position.y += (targetCamY - camera.position.y) * 0.05;
-      camera.lookAt(cameraTarget.x + mouseX * 0.2, cameraTarget.y, cameraTarget.z);
+      camera.lookAt(cameraTarget.x + mouseX * 0.15, cameraTarget.y, cameraTarget.z);
 
       // 1. Center Lane Dashed Stripes Flowing
       centerDashes.forEach((dash) => {
@@ -1107,16 +1157,13 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
           rig.group.position.z -= 9 * 18;
         }
 
-        // Tree Leaf / Foliage Flutter (Wind physics - trunk stays 100% grounded)
         if (rig.type === "palm") {
           rig.leaves.forEach((frond, idx) => {
-            const wind = Math.sin(elapsed * 3.5 + idx * 0.8) * 0.08;
-            frond.rotation.z = wind;
+            frond.rotation.z = Math.sin(elapsed * 3.5 + idx * 0.8) * 0.08;
           });
         } else if (rig.type === "casuarina") {
           rig.leaves.forEach((tier, idx) => {
-            const wind = Math.sin(elapsed * 2.8 + idx * 0.9) * 0.04;
-            tier.rotation.z = wind;
+            tier.rotation.z = Math.sin(elapsed * 2.8 + idx * 0.9) * 0.04;
           });
         }
       });
@@ -1125,22 +1172,22 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
       milestones.forEach((m) => {
         m.mesh.position.z += SPEED * delta;
         if (m.mesh.position.z > 12) {
-          m.mesh.position.z -= 4 * 36;
+          m.mesh.position.z -= 5 * 32;
         }
       });
 
-      // 4. Wheels Spinning Synchronized with Ground Velocity
+      // 4. Wheels Spinning
       const wheelAngularSpeed = (SPEED / 0.32) * delta;
       spinningWheels.forEach((w) => {
         w.rotation.x -= wheelAngularSpeed;
       });
 
       // 5. Dynamic Vehicle Suspension Micro-Bounce & Roll
-      carChassis.position.y = Math.sin(elapsed * 12) * 0.012;
-      carChassis.rotation.z = Math.sin(elapsed * 3.5) * 0.008; // Subtle highway roll
-      carChassis.rotation.x = Math.sin(elapsed * 6) * 0.004;
+      carChassis.position.y = Math.sin(elapsed * 12) * 0.01;
+      carChassis.rotation.z = -0.01 + Math.sin(elapsed * 3.5) * 0.006;
+      carChassis.rotation.x = Math.sin(elapsed * 6) * 0.003;
 
-      // 6. Flying Seagulls Wing Flap & Gliding
+      // 6. Flying Seagulls
       seagulls.forEach((bird) => {
         const flap = Math.sin(elapsed * 6.0 + bird.phase) * 0.45;
         bird.leftWing.rotation.z = flap;
@@ -1170,15 +1217,40 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
       waterGeo.computeVertexNormals();
       waterGeo.attributes.position.needsUpdate = true;
 
-      // Render the scene
+      // 10. Smooth Morphing / Visibility of Odisha Locations
+      const activeLoc = locationRef.current;
+
+      const targetScalePuri = activeLoc === "puri-dham" ? 1.0 : 0.001;
+      puriGroup.scale.lerp(new THREE.Vector3(targetScalePuri, targetScalePuri, targetScalePuri), 0.08);
+
+      const targetScaleKonark = activeLoc === "konark" ? 1.0 : 0.001;
+      konarkGroup.scale.lerp(new THREE.Vector3(targetScaleKonark, targetScaleKonark, targetScaleKonark), 0.08);
+
+      const targetScaleMarine = activeLoc === "marine-drive" ? 1.0 : 0.001;
+      marineDriveGroup.scale.lerp(new THREE.Vector3(targetScaleMarine, targetScaleMarine, targetScaleMarine), 0.08);
+
+      const targetScaleChilika = activeLoc === "chilika" ? 1.0 : 0.001;
+      chilikaGroup.scale.lerp(new THREE.Vector3(targetScaleChilika, targetScaleChilika, targetScaleChilika), 0.08);
+
+      const targetScaleAirport = activeLoc === "airport" ? 1.0 : 0.001;
+      airportGroup.scale.lerp(new THREE.Vector3(targetScaleAirport, targetScaleAirport, targetScaleAirport), 0.08);
+
+      // Lighthouse beacon sweep
+      if (activeLoc === "marine-drive") {
+        marineDriveGroup.rotation.y += delta * 0.8;
+      }
+
+      // Dolphin arch jump animation
+      if (activeLoc === "chilika") {
+        dolphinMesh.position.y = Math.max(0, Math.sin(elapsed * 2.4) * 2.0);
+        dolphinMesh.rotation.z = Math.cos(elapsed * 2.4) * 0.6;
+      }
+
       renderer.render(scene, camera);
     };
 
     animate();
 
-    // =========================================================================
-    // 15. RESPONSIVE RESIZE LISTENER
-    // =========================================================================
     const handleResize = () => {
       if (!container) return;
       width = container.clientWidth || window.innerWidth;
@@ -1190,9 +1262,6 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
 
     window.addEventListener("resize", handleResize);
 
-    // =========================================================================
-    // 16. CLEANUP ON UNMOUNT
-    // =========================================================================
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", handleResize);
@@ -1212,4 +1281,3 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({ timeOfDay 
     />
   );
 };
-
