@@ -18,10 +18,10 @@ export function GlassCelebrationOrb({ className = "", size = "md" }: GlassCelebr
   return (
     <div className={`flex flex-col items-center justify-center relative select-none pt-1.5 pb-1 ${className}`}>
       {/* Outer ambient glow / aura */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full bg-gradient-to-r from-emerald-400/25 via-[#D9A52B]/20 to-teal-400/25 blur-xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full bg-gradient-to-r from-emerald-400/25 via-[#FEC401]/20 to-teal-400/25 blur-xl pointer-events-none" />
 
       {/* Radial Sparkle accents */}
-      <div className="absolute top-2 -right-3 w-3.5 h-3.5 text-[#D9A52B] animate-spin pointer-events-none" style={{ animationDuration: "12s" }}>
+      <div className="absolute top-2 -right-3 w-3.5 h-3.5 text-[#FEC401] animate-spin pointer-events-none" style={{ animationDuration: "12s" }}>
         ✦
       </div>
       <div className="absolute bottom-2 -left-3 w-3 h-3 text-emerald-400 animate-pulse pointer-events-none">

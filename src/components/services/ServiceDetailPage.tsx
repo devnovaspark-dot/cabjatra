@@ -56,9 +56,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
   serviceFaq,
 }) => {
   return (
-    <div className="bg-[#FAF9F5] min-h-screen text-[#182A2B]">
+    <div className="bg-[#FAF9F5] min-h-screen text-[#0F172A]">
       {/* Cinematic Architectural Hero */}
-      <section className="relative bg-gradient-to-b from-[#041F20] via-[#062F31] to-[#041F20] text-white pt-28 sm:pt-36 pb-16 lg:pt-40 lg:pb-24 overflow-hidden border-b border-black/20">
+      <section className="relative bg-gradient-to-b from-[#000B3B] via-[#001162] to-[#000B3B] text-white pt-28 sm:pt-36 pb-16 lg:pt-40 lg:pb-24 overflow-hidden border-b border-black/20">
         <div className="absolute inset-0 z-0 opacity-25 mix-blend-luminosity pointer-events-none">
           <Image
             src={heroImage}
@@ -67,12 +67,12 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             priority
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#041F20] via-[#041F20]/80 to-[#041F20]/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B] via-[#000B3B]/80 to-[#000B3B]/90" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[10px] font-semibold text-[#D9A52B] shadow-soft">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[10px] font-semibold text-[#FEC401] shadow-soft">
               <Sparkles className="w-3.5 h-3.5" />
               <span>{badge}</span>
             </div>
@@ -81,11 +81,11 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               {title}
             </h1>
 
-            <p className="text-base sm:text-xl text-[#D9A52B] font-display italic">
+            <p className="text-base sm:text-xl text-[#FEC401] font-display italic">
               {subtitle}
             </p>
 
-            <p className="text-xs sm:text-sm text-[#E0ECEA]/85 leading-relaxed pt-1 max-w-2xl font-normal">
+            <p className="text-xs sm:text-sm text-[#F1F5F9]/85 leading-relaxed pt-1 max-w-2xl font-normal">
               {overview}
             </p>
 
@@ -93,11 +93,11 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             <div className="flex flex-wrap items-center gap-4 pt-4">
               <Link
                 href={`/book-cab?service=${bookingCategoryKey}`}
-                className="px-6 py-3.5 rounded-full bg-gradient-to-b from-[#E6B543] to-[#C99320] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 text-[#062F31] font-bold text-xs inline-flex items-center gap-2 active:translate-y-0.5 transition-all"
+                className="px-6 py-3.5 rounded-full bg-gradient-to-b from-[#FEC401] to-[#E5AD00] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 text-[#001162] font-bold text-xs inline-flex items-center gap-2 active:translate-y-0.5 transition-all"
               >
-                <Car className="w-4 h-4 text-[#062F31]" />
+                <Car className="w-4 h-4 text-[#001162]" />
                 <span>Reserve This Cab Service</span>
-                <ArrowRight className="w-4 h-4 text-[#062F31]" />
+                <ArrowRight className="w-4 h-4 text-[#001162]" />
               </Link>
 
               <a
@@ -106,23 +106,23 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 rel="noopener noreferrer"
                 className="px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/15 backdrop-blur-md text-white font-semibold text-xs inline-flex items-center gap-2 border border-white/20 transition shadow-soft"
               >
-                <MessageSquare className="w-4 h-4 text-[#D9A52B]" />
+                <MessageSquare className="w-4 h-4 text-[#FEC401]" />
                 <span>Enquire via WhatsApp Desk</span>
               </a>
             </div>
 
             {/* Trust Assurances */}
-            <div className="pt-4 flex flex-wrap items-center gap-4 text-[11px] text-[#E0ECEA]/80 border-t border-white/10">
+            <div className="pt-4 flex flex-wrap items-center gap-4 text-[11px] text-[#F1F5F9]/80 border-t border-white/10">
               <span className="flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
+                <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
                 100% Commercial Yellow-Board Fleet
               </span>
               <span className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-[#D9A52B]" />
+                <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
                 Guaranteed On-Time Dispatch
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#D9A52B]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#FEC401]" />
                 10% Advance Deposit Model
               </span>
             </div>
@@ -134,11 +134,11 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
       <section className="py-16 bg-white border-b border-[#E5EAE5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#073B3A] mb-2 bg-[#E0ECEA]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
-              <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-[#F1F5F9]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
+              <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Service Value Proposition</span>
             </div>
-            <h2 className="text-3xl font-bold font-display text-[#182A2B]">
+            <h2 className="text-3xl font-bold font-display text-[#0F172A]">
               Why Choose Our {title}
             </h2>
             <p className="text-xs sm:text-sm text-[#667575] mt-1.5">
@@ -152,10 +152,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 key={i}
                 className="p-6 rounded-3xl bg-[#FAF9F5] border border-[#D5DDD5] shadow-skeuo space-y-3 group hover:shadow-card hover:-translate-y-0.5 transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-b from-[#084846] to-[#041F20] text-[#D9A52B] flex items-center justify-center font-bold text-xs shadow-skeuo-button border-t border-white/20">
+                <div className="w-10 h-10 rounded-2xl bg-gradient-to-b from-[#084846] to-[#000B3B] text-[#FEC401] flex items-center justify-center font-bold text-xs shadow-skeuo-button border-t border-white/20">
                   {i + 1}
                 </div>
-                <h3 className="text-base font-bold text-[#182A2B] font-display">
+                <h3 className="text-base font-bold text-[#0F172A] font-display">
                   {pt.title}
                 </h3>
                 <p className="text-xs text-[#667575] leading-relaxed">
@@ -173,18 +173,18 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
               <div>
-                <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#073B3A] mb-2 bg-[#E0ECEA]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
-                  <Compass className="w-3.5 h-3.5 text-[#D9A52B]" />
+                <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-[#F1F5F9]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
+                  <Compass className="w-3.5 h-3.5 text-[#FEC401]" />
                   <span>Popular Corridors</span>
                 </div>
-                <h2 className="text-3xl font-bold font-display text-[#182A2B]">
+                <h2 className="text-3xl font-bold font-display text-[#0F172A]">
                   Corridor Profiles &amp; Fleet Availability
                 </h2>
                 <p className="text-xs sm:text-sm text-[#667575] mt-1">
                   Transparent transit benchmarks for key routes. Reserve your vehicle with a 10% advance deposit.
                 </p>
               </div>
-              <div className="text-[11px] text-[#073B3A] font-semibold bg-white px-3.5 py-1.5 rounded-full border border-[#D5DDD5] shadow-xs inline-flex items-center gap-1.5 self-start sm:self-auto">
+              <div className="text-[11px] text-[#02146B] font-semibold bg-white px-3.5 py-1.5 rounded-full border border-[#D5DDD5] shadow-xs inline-flex items-center gap-1.5 self-start sm:self-auto">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
                 <span>Zero Hidden Toll Surcharges</span>
               </div>
@@ -198,26 +198,26 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 >
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#D9A52B] bg-[#062F31] px-2.5 py-0.5 rounded-full">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#FEC401] bg-[#001162] px-2.5 py-0.5 rounded-full">
                         Curated Route {idx + 1}
                       </span>
                       <div className="flex items-center gap-1 text-xs text-[#667575] font-semibold">
-                        <Clock className="w-3.5 h-3.5 text-[#073B3A]" />
+                        <Clock className="w-3.5 h-3.5 text-[#02146B]" />
                         <span>{rf.approxDuration}</span>
                       </div>
                     </div>
-                    <h3 className="text-lg font-bold font-display text-[#182A2B] group-hover:text-[#073B3A] transition-colors">
+                    <h3 className="text-lg font-bold font-display text-[#0F172A] group-hover:text-[#02146B] transition-colors">
                       {rf.route}
                     </h3>
                     <p className="text-xs text-[#667575]">
-                      Distance: <span className="font-semibold text-[#182A2B]">{rf.distance}</span> • Dedicated AC vehicle with verified driver
+                      Distance: <span className="font-semibold text-[#0F172A]">{rf.distance}</span> • Dedicated AC vehicle with verified driver
                     </p>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3 pt-3 border-t border-[#F2F5F2] text-xs">
                     <div className="p-3 rounded-2xl bg-[#FAF9F5] border border-[#E5EAE5]">
                       <span className="text-[10px] font-bold text-[#667575] block uppercase">Prime Sedan</span>
-                      <span className="font-semibold text-[#073B3A] text-xs mt-0.5 block">Dzire / Etios Class</span>
+                      <span className="font-semibold text-[#02146B] text-xs mt-0.5 block">Dzire / Etios Class</span>
                       <span className="text-[10px] text-[#10B981] font-semibold flex items-center gap-1 mt-1">
                         <CheckCircle2 className="w-3 h-3" /> Available
                       </span>
@@ -225,7 +225,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 
                     <div className="p-3 rounded-2xl bg-[#FAF9F5] border border-[#E5EAE5]">
                       <span className="text-[10px] font-bold text-[#667575] block uppercase">Luxury SUV</span>
-                      <span className="font-semibold text-[#073B3A] text-xs mt-0.5 block">Innova Crysta</span>
+                      <span className="font-semibold text-[#02146B] text-xs mt-0.5 block">Innova Crysta</span>
                       <span className="text-[10px] text-[#10B981] font-semibold flex items-center gap-1 mt-1">
                         <CheckCircle2 className="w-3 h-3" /> Available
                       </span>
@@ -238,10 +238,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                     </span>
                     <Link
                       href={`/book-cab?service=${bookingCategoryKey}&to=${encodeURIComponent(rf.route)}`}
-                      className="px-4 py-2 rounded-xl bg-gradient-to-b from-[#084846] to-[#041F20] text-white text-xs font-semibold hover:brightness-110 shadow-skeuo-button border-t border-white/20 inline-flex items-center gap-1.5 transition active:translate-y-0.5"
+                      className="px-4 py-2 rounded-xl bg-gradient-to-b from-[#084846] to-[#000B3B] text-white text-xs font-semibold hover:brightness-110 shadow-skeuo-button border-t border-white/20 inline-flex items-center gap-1.5 transition active:translate-y-0.5"
                     >
                       <span>Reserve Route</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#D9A52B]" />
+                      <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
                     </Link>
                   </div>
                 </div>
@@ -255,7 +255,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
       <section className="py-16 bg-white border-b border-[#E5EAE5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="text-3xl font-bold font-display text-[#182A2B]">
+            <h2 className="text-3xl font-bold font-display text-[#0F172A]">
               Charter Clarity &amp; Transparency
             </h2>
             <p className="text-xs sm:text-sm text-[#667575] mt-1.5">
@@ -266,14 +266,14 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Inclusions */}
             <div className="p-7 sm:p-8 rounded-3xl bg-[#FAF9F5] border border-[#D5DDD5] shadow-skeuo space-y-4">
-              <h3 className="text-base font-bold text-[#073B3A] font-display flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-[#073B3A]" />
+              <h3 className="text-base font-bold text-[#02146B] font-display flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-[#02146B]" />
                 <span>What Is Fully Included</span>
               </h3>
               <ul className="space-y-3 text-xs text-[#455353]">
                 {inclusions.map((inc, i) => (
                   <li key={i} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#073B3A] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#02146B] shrink-0 mt-0.5" />
                     <span>{inc}</span>
                   </li>
                 ))}
@@ -282,7 +282,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 
             {/* Exclusions */}
             <div className="p-7 sm:p-8 rounded-3xl bg-[#F2F5F2] border border-[#D5DDD5] shadow-skeuo space-y-4">
-              <h3 className="text-base font-bold text-[#182A2B] font-display flex items-center gap-2">
+              <h3 className="text-base font-bold text-[#0F172A] font-display flex items-center gap-2">
                 <XCircle className="w-5 h-5 text-[#667575]" />
                 <span>What Is Excluded (Honest Clarity)</span>
               </h3>
@@ -303,7 +303,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
       {serviceFaq.length > 0 && (
         <section className="py-16 bg-[#FAF9F5] border-b border-[#E5EAE5]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold font-display text-[#182A2B] mb-8 text-center">
+            <h2 className="text-3xl font-bold font-display text-[#0F172A] mb-8 text-center">
               Questions Regarding {title}
             </h2>
 
@@ -313,7 +313,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                   key={idx}
                   className="bg-white p-6 rounded-3xl border border-[#D5DDD5] shadow-skeuo space-y-2"
                 >
-                  <h4 className="font-bold text-[#182A2B] text-sm sm:text-base font-display">
+                  <h4 className="font-bold text-[#0F172A] text-sm sm:text-base font-display">
                     {faq.q}
                   </h4>
                   <p className="text-xs sm:text-sm text-[#667575] leading-relaxed">
@@ -327,9 +327,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
       )}
 
       {/* Luxury Bottom Pavilion */}
-      <section className="py-16 bg-gradient-to-br from-[#062F31] via-[#041F20] to-[#073B3A] text-white">
+      <section className="py-16 bg-gradient-to-br from-[#001162] via-[#000B3B] to-[#02146B] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[10px] font-semibold text-[#D9A52B]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[10px] font-semibold text-[#FEC401]">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Dedicated Dispatch Desk Active</span>
           </div>
@@ -338,25 +338,25 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             Ready to Confirm Your {title}?
           </h2>
 
-          <p className="text-xs sm:text-sm text-[#E0ECEA]/80 max-w-xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#F1F5F9]/80 max-w-xl mx-auto leading-relaxed">
             Submit your itinerary details today. Our operations team verifies vehicle readiness and confirms your dedicated driver with a 10% advance deposit.
           </p>
 
           <div className="pt-3 flex flex-wrap justify-center gap-4">
             <Link
               href={`/book-cab?service=${bookingCategoryKey}`}
-              className="px-7 py-3.5 rounded-full bg-gradient-to-b from-[#E6B543] to-[#C99320] text-[#062F31] font-bold text-xs inline-flex items-center gap-2 border-t border-white/40 shadow-skeuo-gold hover:brightness-105 active:translate-y-0.5 transition-all"
+              className="px-7 py-3.5 rounded-full bg-gradient-to-b from-[#FEC401] to-[#E5AD00] text-[#001162] font-bold text-xs inline-flex items-center gap-2 border-t border-white/40 shadow-skeuo-gold hover:brightness-105 active:translate-y-0.5 transition-all"
             >
-              <Car className="w-4 h-4 text-[#062F31]" />
+              <Car className="w-4 h-4 text-[#001162]" />
               <span>Initiate Booking Request</span>
-              <ArrowRight className="w-4 h-4 text-[#062F31]" />
+              <ArrowRight className="w-4 h-4 text-[#001162]" />
             </Link>
 
             <a
               href={`tel:${COMPANY_CONFIG.contact.phoneRaw}`}
               className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-semibold text-xs inline-flex items-center gap-2 border border-white/20 transition shadow-soft"
             >
-              <Phone className="w-4 h-4 text-[#D9A52B]" />
+              <Phone className="w-4 h-4 text-[#FEC401]" />
               <span>Call Helpline ({COMPANY_CONFIG.contact.phoneDisplay})</span>
             </a>
           </div>

@@ -26,7 +26,7 @@ export default function OdishaToursServicePage() {
   return (
     <div className="bg-sand-50/50 min-h-screen">
       {/* Hero */}
-      <section className="relative bg-gradient-to-b from-[#021617] via-[#062F31] to-[#041F20] text-white pt-28 sm:pt-36 pb-16 lg:pt-40 lg:pb-24 overflow-hidden border-b border-white/10">
+      <section className="relative bg-gradient-to-b from-[#021617] via-[#001162] to-[#000B3B] text-white pt-28 sm:pt-36 pb-16 lg:pt-40 lg:pb-24 overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 z-0 opacity-25 mix-blend-luminosity pointer-events-none">
           <Image
             src="https://images.unsplash.com/photo-1626014303757-6467368e7b16?q=80&w=1400&auto=format&fit=crop"
@@ -171,7 +171,7 @@ export default function OdishaToursServicePage() {
                 <div className="p-6 pt-0">
                   <Link
                     href={`/book-tour?tour=${tour.slug}`}
-                    className="w-full py-3 px-4 rounded-xl btn-skeuo-dark text-white text-xs font-bold transition flex items-center justify-center gap-2 group-hover:btn-skeuo-gold group-hover:text-[#062F31]"
+                    className="w-full py-3 px-4 rounded-xl btn-skeuo-dark text-white text-xs font-bold transition flex items-center justify-center gap-2 group-hover:btn-skeuo-gold group-hover:text-[#001162]"
                   >
                     <span>Customize This Itinerary</span>
                     <ArrowRight className="w-3.5 h-3.5" />

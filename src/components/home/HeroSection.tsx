@@ -119,7 +119,7 @@ export const HeroSection: React.FC = () => {
   const currentMilestone = PASSING_MILESTONES[milestoneIndex];
 
   return (
-    <section className="relative text-white overflow-hidden h-[100dvh] max-h-[100dvh] flex flex-col justify-between pt-28 sm:pt-32 pb-1 border-b border-[#D9A52B]/35 select-none transition-colors duration-1000 bg-[#073B3A]">
+    <section className="relative text-white overflow-hidden h-[100dvh] max-h-[100dvh] flex flex-col justify-between pt-28 sm:pt-32 pb-1 border-b border-[#FEC401]/35 select-none transition-colors duration-1000 bg-[#000B3B]">
       
       {/* =========================================================================
           LAYER 1: FULL REALISTIC ODISHA SKY & ATMOSPHERE (SPANS ENTIRE BACKGROUND)
@@ -131,12 +131,12 @@ export const HeroSection: React.FC = () => {
         <div
           className={`absolute inset-0 transition-all duration-1000 ${
             timeOfDay === "morning"
-              ? "bg-gradient-to-b from-[#0a2328] via-[#0f464c] via-35% via-[#166367] to-[#125052]"
+              ? "bg-gradient-to-b from-[#0A228C] via-[#1331BE] via-35% via-[#2552E8] to-[#001162]"
               : timeOfDay === "afternoon"
-              ? "bg-gradient-to-b from-[#032328] via-[#06424a] via-35% via-[#0a585f] to-[#0a484a]"
+              ? "bg-gradient-to-b from-[#001162] via-[#02146B] via-35% via-[#0A228C] to-[#000B3B]"
               : timeOfDay === "evening"
-              ? "bg-gradient-to-b from-[#1e1333] via-[#7c2818] via-30% via-[#9e4408] to-[#153e3b]"
-              : "bg-gradient-to-b from-[#01090d] via-[#02151b] via-40% to-[#042429]"
+              ? "bg-gradient-to-b from-[#0F172A] via-[#7C2D12] via-30% via-[#9A3412] to-[#001162]"
+              : "bg-gradient-to-b from-[#00061A] via-[#000B3B] via-40% to-[#001162]"
           }`}
         />
 
@@ -326,7 +326,7 @@ export const HeroSection: React.FC = () => {
         {/* Short, Direct, High-Converting Headline */}
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-display tracking-tight text-white leading-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
           Book Reliable Cabs <br />
-          <span className="italic font-display font-normal text-[#D9A52B]">
+          <span className="italic font-display font-normal text-[#FEC401]">
             Across Odisha.
           </span>
         </h1>
@@ -340,18 +340,18 @@ export const HeroSection: React.FC = () => {
         <div className="pt-0.5 flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto">
           <Link
             href="/book-cab"
-            className="w-full sm:w-auto px-7 sm:px-8 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#D9A52B] via-[#E5B543] to-[#C99320] text-[#062F31] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(217,165,43,0.45),inset_0_1px_0_rgba(255,255,255,0.6)] hover:brightness-105 active:scale-[0.98] transition-all group cursor-pointer border border-[#F2C868]/60"
+            className="w-full sm:w-auto px-7 sm:px-8 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#FEC401] via-[#FFD700] to-[#E5AD00] text-[#001162] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(254,196,1,0.45),inset_0_1px_0_rgba(255,255,255,0.6)] hover:brightness-105 active:scale-[0.98] transition-all group cursor-pointer border border-[#FEC401]/60"
           >
-            <Car className="w-4 h-4 text-[#062F31]" />
+            <Car className="w-4 h-4 text-[#001162]" />
             <span>Book Your Cab Now</span>
-            <ArrowRight className="w-4 h-4 text-[#062F31] group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 text-[#001162] group-hover:translate-x-1 transition-transform" />
           </Link>
 
           <Link
             href="/book-tour"
-            className="w-full sm:w-auto px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/30 hover:border-[#D9A52B]/70 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-[0.98] cursor-pointer"
+            className="w-full sm:w-auto px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/30 hover:border-[#FEC401]/70 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-[0.98] cursor-pointer"
           >
-            <Compass className="w-4 h-4 text-[#D9A52B]" />
+            <Compass className="w-4 h-4 text-[#FEC401]" />
             <span>Explore Curated Tours</span>
           </Link>
         </div>
@@ -366,15 +366,15 @@ export const HeroSection: React.FC = () => {
       <div className="relative z-10 w-full mt-auto">
         
         {/* ================= SCENIC ODISHA PANORAMA (DOCKED DIRECTLY BEHIND THE ROAD) ================= */}
-        <div className="absolute bottom-16 sm:bottom-18 inset-x-0 h-48 sm:h-56 lg:h-64 pointer-events-none overflow-hidden z-10">
+        <div className="absolute bottom-20 sm:bottom-22 inset-x-0 h-48 sm:h-56 lg:h-64 pointer-events-none overflow-hidden z-10">
           
           {/* 1. Natural Terrain Layer (Undulating Hills, Ocean Water & Golden Dunes) */}
           <svg viewBox="0 0 1440 220" className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
             <defs>
               {/* Eastern Ghats Mountain Mist */}
               <linearGradient id="hillsMistGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#08383C" stopOpacity="0.45" />
-                <stop offset="100%" stopColor="#042629" stopOpacity="0.85" />
+                <stop offset="0%" stopColor="#0A1C5A" stopOpacity="0.45" />
+                <stop offset="100%" stopColor="#02146B" stopOpacity="0.85" />
               </linearGradient>
 
               {/* Bay of Bengal Glistening Ocean */}
@@ -382,7 +382,7 @@ export const HeroSection: React.FC = () => {
                 <stop offset="0%" stopColor="#0284C7" />
                 <stop offset="40%" stopColor="#0369A1" />
                 <stop offset="80%" stopColor="#075985" />
-                <stop offset="100%" stopColor="#042F2E" />
+                <stop offset="100%" stopColor="#001162" />
               </linearGradient>
 
               {/* Chandrabhaga Beach Coastal Sand Dunes - WARM LUMINOUS GOLDEN SAND */}
@@ -572,7 +572,7 @@ export const HeroSection: React.FC = () => {
 
               {/* Outer Wheel Rim - PERFECT CIRCLE */}
               <circle cx="80" cy="74" r="54" stroke="url(#ktwRimGrad)" strokeWidth="8" fill="#082A2E" />
-              <circle cx="80" cy="74" r="58" stroke="#D9A52B" strokeWidth="1.2" fill="none" opacity="0.65" />
+              <circle cx="80" cy="74" r="58" stroke="#FEC401" strokeWidth="1.2" fill="none" opacity="0.65" />
               <circle cx="80" cy="74" r="50" stroke="#78350F" strokeWidth="1.2" fill="none" />
 
               {/* 24 Carved Circular Medallions Along Rim (Pre-computed hydration-safe coordinates) */}
@@ -596,7 +596,7 @@ export const HeroSection: React.FC = () => {
                     y1="74"
                     x2={s.x2}
                     y2={s.y2}
-                    stroke="#D9A52B"
+                    stroke="#FEC401"
                     strokeWidth="3.2"
                     strokeLinecap="round"
                   />
@@ -630,7 +630,7 @@ export const HeroSection: React.FC = () => {
 
               {/* Central Axle Hub with Concentric Carved Rings */}
               <circle cx="80" cy="74" r="15" fill="url(#ktwHubGrad)" stroke="#451A03" strokeWidth="1.5" />
-              <circle cx="80" cy="74" r="10" fill="#D9A52B" stroke="#78350F" strokeWidth="1" />
+              <circle cx="80" cy="74" r="10" fill="#FEC401" stroke="#78350F" strokeWidth="1" />
               <circle cx="80" cy="74" r="4.5" fill="#FEF08A" stroke="#000000" strokeWidth="0.8" />
             </svg>
           </div>
@@ -709,7 +709,7 @@ export const HeroSection: React.FC = () => {
               <g className="animate-foliage-shimmer" style={{ transformOrigin: "30px 140px" }}>
                 <path d="M 30,12 C 48,28 52,50 30,50 C 8,50 12,28 30,12 Z" fill="#0F766E" />
                 <path d="M 30,32 C 52,52 56,76 30,76 C 4,76 8,52 30,32 Z" fill="#115E59" opacity="0.92" />
-                <path d="M 30,56 C 58,78 62,104 30,104 C -2,104 2,78 30,56 Z" fill="#042F2E" opacity="0.96" />
+                <path d="M 30,56 C 58,78 62,104 30,104 C -2,104 2,78 30,56 Z" fill="#001162" opacity="0.96" />
               </g>
             </svg>
           </div>
@@ -720,7 +720,7 @@ export const HeroSection: React.FC = () => {
               <g className="animate-foliage-shimmer-fast" style={{ transformOrigin: "30px 140px" }}>
                 <path d="M 30,12 C 48,28 52,50 30,50 C 8,50 12,28 30,12 Z" fill="#0F766E" />
                 <path d="M 30,32 C 52,52 56,76 30,76 C 4,76 8,52 30,32 Z" fill="#115E59" opacity="0.92" />
-                <path d="M 30,56 C 58,78 62,104 30,104 C -2,104 2,78 30,56 Z" fill="#042F2E" opacity="0.96" />
+                <path d="M 30,56 C 58,78 62,104 30,104 C -2,104 2,78 30,56 Z" fill="#001162" opacity="0.96" />
               </g>
             </svg>
           </div>
@@ -728,7 +728,7 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* ================= THE RUNNING CAR: WHEELS PLANTED DIRECTLY ON THE YELLOW LINE ================= */}
-        <div className="relative -mb-[34px] sm:-mb-[38px] z-30 left-6 sm:left-16 lg:left-24 flex items-end">
+        <div className="relative -mb-[38px] sm:-mb-[39px] z-30 left-6 sm:left-16 lg:left-24 flex items-end">
           
           {/* Suspension Micro-Bounce Chassis */}
           <div className="relative animate-car-chassis">
@@ -770,16 +770,16 @@ export const HeroSection: React.FC = () => {
                     offset="0%"
                     stopColor={
                       timeOfDay === "morning" || timeOfDay === "afternoon"
-                        ? "#16A34A"
+                        ? "#1D4ED8"
                         : timeOfDay === "evening"
-                        ? "#B45309"
-                        : "#147B72"
+                        ? "#C2410C"
+                        : "#0A228C"
                     }
                   />
-                  <stop offset="25%" stopColor="#0B4B48" />
-                  <stop offset="65%" stopColor="#073B3A" />
-                  <stop offset="90%" stopColor="#032425" />
-                  <stop offset="100%" stopColor="#011415" />
+                  <stop offset="25%" stopColor="#02146B" />
+                  <stop offset="65%" stopColor="#001162" />
+                  <stop offset="90%" stopColor="#000B3B" />
+                  <stop offset="100%" stopColor="#00061A" />
                 </linearGradient>
 
                 <linearGradient id="realCarGlass" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -817,7 +817,7 @@ export const HeroSection: React.FC = () => {
                    L 18,70 
                    Z"
                 fill="url(#realCarBody)"
-                stroke="#0E5853"
+                stroke="#0A228C"
                 strokeWidth="1.2"
               />
 
@@ -840,9 +840,9 @@ export const HeroSection: React.FC = () => {
               <polygon points="148,22 154,22 144,42 138,42" fill="#FFFFFF" fillOpacity="0.25" />
 
               {/* Door Separation Grooves */}
-              <line x1="132" y1="20" x2="132" y2="68" stroke="#041E20" strokeWidth="1" />
-              <line x1="78" y1="42" x2="78" y2="68" stroke="#041E20" strokeWidth="0.8" />
-              <line x1="184" y1="42" x2="184" y2="68" stroke="#041E20" strokeWidth="0.8" />
+              <line x1="132" y1="20" x2="132" y2="68" stroke="#000B3B" strokeWidth="1" />
+              <line x1="78" y1="42" x2="78" y2="68" stroke="#000B3B" strokeWidth="0.8" />
+              <line x1="184" y1="42" x2="184" y2="68" stroke="#000B3B" strokeWidth="0.8" />
 
               {/* Chrome Door Handles */}
               <rect x="115" y="47" width="8" height="1.8" rx="0.9" fill="#E2E8F0" />
@@ -850,11 +850,11 @@ export const HeroSection: React.FC = () => {
 
               {/* ================= CABJATRA BRANDED DOOR CREST ================= */}
               <g transform="translate(94, 51)">
-                <rect x="0" y="0" width="34" height="13" rx="2.5" fill="#032021" stroke="#D9A52B" strokeWidth="0.8" />
-                <text x="17" y="6.8" fill="#D9A52B" fontSize="4.4" fontWeight="900" fontFamily="sans-serif" textAnchor="middle" letterSpacing="0.4">
+                <rect x="0" y="0" width="34" height="13" rx="2.5" fill="#001162" stroke="#FEC401" strokeWidth="0.8" />
+                <text x="17" y="6.8" fill="#FEC401" fontSize="4.4" fontWeight="900" fontFamily="sans-serif" textAnchor="middle" letterSpacing="0.4">
                   CABJATRA
                 </text>
-                <text x="17" y="10.8" fill="#F2C052" fontSize="2.4" fontWeight="bold" fontFamily="sans-serif" textAnchor="middle" letterSpacing="0.2">
+                <text x="17" y="10.8" fill="#FDE047" fontSize="2.4" fontWeight="bold" fontFamily="sans-serif" textAnchor="middle" letterSpacing="0.2">
                   ODISHA CAB
                 </text>
               </g>
@@ -896,7 +896,7 @@ export const HeroSection: React.FC = () => {
                 <line x1="18" y1="18" x2="25" y2="28" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
                 <line x1="18" y1="18" x2="11" y2="28" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
                 <line x1="18" y1="18" x2="7" y2="14" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-                <circle cx="18" cy="18" r="3.5" fill="#D9A52B" stroke="#000000" strokeWidth="0.6" />
+                <circle cx="18" cy="18" r="3.5" fill="#FEC401" stroke="#000000" strokeWidth="0.6" />
               </svg>
             </div>
 
@@ -910,7 +910,7 @@ export const HeroSection: React.FC = () => {
                 <line x1="18" y1="18" x2="25" y2="28" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
                 <line x1="18" y1="18" x2="11" y2="28" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
                 <line x1="18" y1="18" x2="7" y2="14" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-                <circle cx="18" cy="18" r="3.5" fill="#D9A52B" stroke="#000000" strokeWidth="0.6" />
+                <circle cx="18" cy="18" r="3.5" fill="#FEC401" stroke="#000000" strokeWidth="0.6" />
               </svg>
             </div>
 
@@ -918,7 +918,7 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* ================= REALISTIC FULL-WIDTH ASPHALT ROAD ================= */}
-        <div className="w-full relative h-16 sm:h-18 bg-gradient-to-b from-[#1C2427] via-[#151D20] to-[#0E1315] border-t-2 border-[#3A4B4E] shadow-[inset_0_4px_16px_rgba(0,0,0,0.85)] flex items-center overflow-hidden">
+        <div className="w-full relative h-20 sm:h-22 bg-gradient-to-b from-[#1C2427] via-[#151D20] to-[#0E1315] border-t-2 border-[#1E3A8A] shadow-[inset_0_4px_16px_rgba(0,0,0,0.85)] flex items-center overflow-hidden">
           
           {/* Asphalt Fine Mineral Granular Texture */}
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FFF_1px,transparent_1px)] [background-size:6px_6px]" />
@@ -942,7 +942,7 @@ export const HeroSection: React.FC = () => {
               {Array.from({ length: 50 }).map((_, i) => (
                 <span
                   key={i}
-                  className="inline-block w-8 sm:w-12 h-1 bg-[#FACC15] mr-6 sm:mr-8 rounded-full shadow-[0_0_8px_rgba(250,204,21,0.7)] shrink-0"
+                  className="inline-block w-8 sm:w-12 h-1 bg-[#FEC401] mr-6 sm:mr-8 rounded-full shadow-[0_0_8px_rgba(254,196,1,0.7)] shrink-0"
                 />
               ))}
             </div>
@@ -952,21 +952,21 @@ export const HeroSection: React.FC = () => {
           <div className="absolute bottom-2.5 inset-x-0 h-0.5 bg-white/85 shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
 
           {/* ================= AUTHENTIC ROADSIDE MILESTONE (ON OPPOSITE LOWER SHOULDER) =================
-              Positioned on the opposite near-side roadside shoulder (bottom of the road).
-              Completely separate from the car on the yellow line — car wheels NEVER touch or go over the milestone!
+              Positioned strictly on the lower roadside shoulder, below the lower lane.
+              Completely separate from the car and yellow line above — zero overlap guaranteed!
               ============================================================================================= */}
-          <div className="absolute bottom-1 sm:bottom-1.5 z-20 animate-passing-milestone-1 pointer-events-none">
-            <div className="w-22 sm:w-26 h-9 sm:h-10 rounded-t-2xl overflow-hidden border border-black/40 shadow-xl flex flex-col items-center bg-white filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)]">
+          <div className="absolute bottom-1 sm:bottom-1.5 z-10 animate-passing-milestone-1 pointer-events-none">
+            <div className="w-14 sm:w-16 h-6 sm:h-6.5 rounded-t-xl overflow-hidden border border-black/40 shadow-lg flex flex-col items-center bg-white filter drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
               {/* Highway Yellow Upper Dome */}
-              <div className="w-full bg-[#FACC15] text-[#062F31] font-black text-[8px] sm:text-[8.5px] text-center py-0.5 border-b border-black/25 uppercase tracking-wider font-mono">
+              <div className="w-full h-2.5 sm:h-3 bg-[#FEC401] text-[#001162] font-black text-[7px] sm:text-[7.5px] text-center flex items-center justify-center border-b border-black/25 uppercase tracking-wider font-mono leading-none">
                 {currentMilestone.nh}
               </div>
               {/* White Concrete Stone Base */}
-              <div className="w-full bg-white text-[#062F31] flex flex-col items-center justify-center py-0.5 px-1 leading-tight">
-                <span className="text-[7px] sm:text-[7.5px] font-extrabold truncate w-full text-center">
+              <div className="flex-1 w-full bg-white text-[#001162] flex flex-col items-center justify-center px-0.5 leading-none">
+                <span className="text-[6.5px] sm:text-[7px] font-extrabold truncate w-full text-center">
                   {currentMilestone.name}
                 </span>
-                <span className="text-[7.5px] sm:text-[8px] font-black font-mono text-[#062F31]">
+                <span className="text-[6.5px] sm:text-[7px] font-black font-mono text-[#001162] mt-0.5">
                   {currentMilestone.km}
                 </span>
               </div>
@@ -982,17 +982,17 @@ export const HeroSection: React.FC = () => {
           ========================================================================= */}
       <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 w-full pt-1 pb-1 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-[11px] sm:text-xs text-white/90">
         <span className="inline-flex items-center gap-1.5 font-medium">
-          <ShieldCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
+          <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
           <span>100% Yellow-Board Commercial Fleet</span>
         </span>
         <span className="hidden sm:inline text-white/30">&bull;</span>
         <span className="inline-flex items-center gap-1.5 font-medium">
-          <CheckCircle2 className="w-3.5 h-3.5 text-[#D9A52B]" />
+          <CheckCircle2 className="w-3.5 h-3.5 text-[#FEC401]" />
           <span>10% Advance Deposit Model</span>
         </span>
         <span className="hidden sm:inline text-white/30">&bull;</span>
         <span className="inline-flex items-center gap-1.5 font-medium">
-          <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+          <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
           <span>Zero Surge Pricing Guarantee</span>
         </span>
       </div>

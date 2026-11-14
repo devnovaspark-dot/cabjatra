@@ -47,7 +47,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
               <div>
                 <h4 className="text-xs font-bold text-white flex items-center gap-1.5">
                   <span>CabJatra Concierge</span>
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
                 </h4>
                 <p className="text-[10px] text-white/80 flex items-center gap-1 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#25D366]" />
@@ -78,7 +78,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
                   href={`https://wa.me/917008000000?text=${encodeURIComponent(topic.text)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full p-2.5 rounded-2xl bg-white hover:bg-[#F2F5F2] border border-[#E5EAE5] text-xs font-semibold text-[#182A2B] flex items-center justify-between group transition shadow-xs hover:border-[#128C7E]/40"
+                  className="w-full p-2.5 rounded-2xl bg-white hover:bg-[#F2F5F2] border border-[#E5EAE5] text-xs font-semibold text-[#0F172A] flex items-center justify-between group transition shadow-xs hover:border-[#128C7E]/40"
                 >
                   <span className="truncate">{topic.label}</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#128C7E] group-hover:translate-x-1 transition-transform shrink-0" />
@@ -88,14 +88,14 @@ export const FloatingWhatsAppButton: React.FC = () => {
 
             <div className="pt-2.5 border-t border-[#E5EAE5] flex items-center justify-between text-[11px] text-[#667575]">
               <span className="flex items-center gap-1 text-[#075E54] font-medium">
-                <Sparkles className="w-3 h-3 text-[#D9A52B]" />
+                <Sparkles className="w-3 h-3 text-[#FEC401]" />
                 Typically replies in 2 mins
               </span>
               <a
                 href={`tel:${COMPANY_CONFIG.contact.phoneRaw}`}
-                className="text-[#073B3A] font-bold hover:underline flex items-center gap-1"
+                className="text-[#02146B] font-bold hover:underline flex items-center gap-1"
               >
-                <Phone className="w-3 h-3 text-[#D9A52B]" />
+                <Phone className="w-3 h-3 text-[#FEC401]" />
                 <span>Helpline</span>
               </a>
             </div>
@@ -106,7 +106,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
       {/* Floating 3D Real Icon Button with Subtle Pulse and Interactive Hover */}
       <div className="relative group">
         {/* Hover Tooltip Pill */}
-        <div className="absolute right-full mr-3.5 top-1/2 -translate-y-1/2 hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#062F31]/90 backdrop-blur-md text-white text-xs font-semibold shadow-xl border border-white/15 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+        <div className="absolute right-full mr-3.5 top-1/2 -translate-y-1/2 hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#001162]/90 backdrop-blur-md text-white text-xs font-semibold shadow-xl border border-white/15 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
           <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
           <span>Chat with Operations Desk</span>
         </div>

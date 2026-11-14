@@ -18,11 +18,11 @@ export const FaqSection: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Clean and Centered as Before */}
         <div className="text-center max-w-2xl mx-auto mb-5 sm:mb-7 space-y-2 sm:space-y-2.5">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0ECEA]/80 text-[10px] font-bold text-[#073B3A] uppercase tracking-wider border border-[#C1DAD7]">
-            <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F1F5F9]/80 text-[10px] font-bold text-[#02146B] uppercase tracking-wider border border-[#C1DAD7]">
+            <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
             <span>Frequently Asked Questions</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-bold text-[#182A2B] font-display">
+          <h2 className="text-2xl sm:text-4xl font-bold text-[#0F172A] font-display">
             Common Booking Inquiries
           </h2>
           <p className="text-xs sm:text-sm text-[#667575] leading-relaxed">
@@ -42,15 +42,15 @@ export const FaqSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => toggleFaq(index)}
-                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 font-display font-bold text-xs sm:text-base text-[#182A2B] hover:text-[#073B3A] transition-colors"
+                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 font-display font-bold text-xs sm:text-base text-[#0F172A] hover:text-[#02146B] transition-colors"
                   aria-expanded={isOpen}
                 >
                   <span className="flex-1">{faq.question}</span>
                   <div
                     className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 shadow-xs ${
                       isOpen
-                        ? "medallion-dark text-[#D9A52B] rotate-180"
-                        : "panel-recessed text-[#073B3A] border border-[#CBD7CB]"
+                        ? "medallion-dark text-[#FEC401] rotate-180"
+                        : "panel-recessed text-[#02146B] border border-[#CBD7CB]"
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -70,7 +70,7 @@ export const FaqSection: React.FC = () => {
         {/* Bottom Support Banner */}
         <div className="mt-8 sm:mt-10 p-5 sm:p-6 rounded-2xl card-skeuo flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div>
-            <h4 className="text-xs sm:text-sm font-bold text-[#182A2B] font-display">
+            <h4 className="text-xs sm:text-sm font-bold text-[#0F172A] font-display">
               Have a specific itinerary inquiry or urgent ride requirement?
             </h4>
             <p className="text-[10.5px] sm:text-[11px] text-[#556464] mt-0.5">
@@ -83,7 +83,7 @@ export const FaqSection: React.FC = () => {
             rel="noopener noreferrer"
             className="w-full sm:w-auto justify-center px-5 py-2.5 rounded-xl btn-skeuo-dark text-white text-xs font-bold inline-flex items-center gap-2 shrink-0"
           >
-            <MessageSquare className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <MessageSquare className="w-3.5 h-3.5 text-[#FEC401]" />
             <span>Chat on WhatsApp</span>
           </a>
         </div>

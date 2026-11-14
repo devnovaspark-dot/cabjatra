@@ -21,11 +21,11 @@ export const VehicleFleetSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 sm:mb-6 gap-3 sm:gap-4">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#073B3A] mb-2 bg-[#E0ECEA]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
-              <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-[#F1F5F9]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
+              <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Verified Commercial Fleet Showroom</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-bold text-[#182A2B] font-display">
+            <h2 className="text-2xl sm:text-4xl font-bold text-[#0F172A] font-display">
               Choose Your Vehicle Category
             </h2>
             <p className="text-xs sm:text-sm text-[#667575] mt-1 sm:mt-1.5 max-w-xl">
@@ -43,7 +43,7 @@ export const VehicleFleetSection: React.FC = () => {
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all shrink-0 select-none ${
                   activeCategory === cat
                     ? "btn-skeuo-dark text-white font-bold"
-                    : "text-[#556464] hover:text-[#182A2B] hover:bg-white/70"
+                    : "text-[#556464] hover:text-[#0F172A] hover:bg-white/70"
                 }`}
               >
                 {cat === "All" ? "All Fleet" : cat}
@@ -57,7 +57,7 @@ export const VehicleFleetSection: React.FC = () => {
           {filteredVehicles.map((vehicle) => (
             <div
               key={vehicle.id}
-              className="card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group bg-white border border-[#E2E8E2] hover:border-[#073B3A]/40 hover:shadow-lg transition-all"
+              className="card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group bg-white border border-[#E2E8E2] hover:border-[#02146B]/40 hover:shadow-lg transition-all"
             >
               <div>
                 {/* Real Commercial Vehicle Showcase */}
@@ -73,11 +73,11 @@ export const VehicleFleetSection: React.FC = () => {
                   {/* Subtle lower gradient vignette for depth */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
-                  <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#062F31]/95 backdrop-blur-md text-[#FAF9F5] text-[9.5px] sm:text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-white/20 shadow-md pointer-events-none z-10">
+                  <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#001162]/95 backdrop-blur-md text-[#FAF9F5] text-[9.5px] sm:text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-white/20 shadow-md pointer-events-none z-10">
                     {vehicle.category}
                   </div>
                   {vehicle.tag && (
-                    <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] sm:text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-xs pointer-events-none z-10">
+                    <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 bg-gradient-to-b from-[#FDE047] to-[#FEC401] text-[#001162] text-[8.5px] sm:text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-xs pointer-events-none z-10">
                       {vehicle.tag}
                     </div>
                   )}
@@ -86,7 +86,7 @@ export const VehicleFleetSection: React.FC = () => {
                 {/* Content: Name, Example Models, Specs */}
                 <div className="p-3.5 sm:p-4 space-y-2.5">
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold font-display text-[#182A2B] leading-tight">
+                    <h3 className="text-base sm:text-lg font-bold font-display text-[#0F172A] leading-tight">
                       {vehicle.name}
                     </h3>
                     <p className="text-[11px] text-[#556464] font-medium mt-0.5 line-clamp-1" title={vehicle.models}>
@@ -97,12 +97,12 @@ export const VehicleFleetSection: React.FC = () => {
                   {/* Compact Specs Strip */}
                   <div className="flex items-center justify-between py-1.5 px-2.5 bg-[#FAF9F5] rounded-xl border border-[#E5EAE5] text-[11px] text-[#455353] font-semibold">
                     <span className="flex items-center gap-1">
-                      <Users className="w-3.5 h-3.5 text-[#073B3A]" />
+                      <Users className="w-3.5 h-3.5 text-[#02146B]" />
                       {vehicle.passengers} Seats
                     </span>
                     <span className="text-[#C1DAD7]">•</span>
                     <span className="flex items-center gap-1">
-                      <Briefcase className="w-3.5 h-3.5 text-[#073B3A]" />
+                      <Briefcase className="w-3.5 h-3.5 text-[#02146B]" />
                       {vehicle.luggage} Bags
                     </span>
                     <span className="text-[#C1DAD7]">•</span>
@@ -117,7 +117,7 @@ export const VehicleFleetSection: React.FC = () => {
                   <span className="text-[9px] uppercase font-bold text-[#778686] block leading-none">
                     Starting
                   </span>
-                  <span className="text-sm font-extrabold text-[#062F31]">
+                  <span className="text-sm font-extrabold text-[#001162]">
                     ₹{vehicle.ratePerKm}/km
                   </span>
                 </div>
@@ -127,7 +127,7 @@ export const VehicleFleetSection: React.FC = () => {
                   className="py-2 px-3.5 rounded-xl btn-skeuo-dark text-white text-xs font-bold transition-all flex items-center gap-1.5 hover:brightness-110 active:scale-[0.98]"
                 >
                   <span>Select</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#D9A52B]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
                 </Link>
               </div>
             </div>

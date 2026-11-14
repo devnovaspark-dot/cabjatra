@@ -962,12 +962,12 @@ export const Hero3DEnvironment: React.FC<Hero3DEnvironmentProps> = ({
     crestCanvas.height = 128;
     const cCtx = crestCanvas.getContext("2d");
     if (cCtx) {
-      cCtx.fillStyle = "#032021";
+      cCtx.fillStyle = "#001162";
       cCtx.fillRect(0, 0, 256, 128);
-      cCtx.strokeStyle = "#D9A52B";
+      cCtx.strokeStyle = "#FEC401";
       cCtx.lineWidth = 6;
       cCtx.strokeRect(8, 8, 240, 112);
-      cCtx.fillStyle = "#D9A52B";
+      cCtx.fillStyle = "#FEC401";
       cCtx.font = "bold 34px sans-serif";
       cCtx.textAlign = "center";
       cCtx.fillText("CABJATRA", 128, 58);

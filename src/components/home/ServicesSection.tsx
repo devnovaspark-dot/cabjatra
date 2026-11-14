@@ -190,18 +190,18 @@ export const ServicesSection: React.FC = () => {
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-[#FAF9F5] border-b border-[#E5EAE5] relative overflow-hidden">
       {/* Subtle Ambient Decorative Gradients */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D9A52B]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-96 h-96 bg-[#073B3A]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#FEC401]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-96 h-96 bg-[#02146B]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header - Non-card, Editorial Typography */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-8 sm:mb-12 gap-4 pb-6 border-b border-[#E2E8E2]">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#073B3A] mb-2 bg-[#E0ECEA]/80 px-3 py-1 rounded-full border border-[#B6D6D2] shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-[#F1F5F9]/80 px-3 py-1 rounded-full border border-[#B6D6D2] shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Dedicated Mobility Verticals</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#182A2B] font-display tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0F172A] font-display tracking-tight">
               Odisha Cab Service Ecosystem
             </h2>
             <p className="text-xs sm:text-sm text-[#556464] mt-2 leading-relaxed">
@@ -211,17 +211,17 @@ export const ServicesSection: React.FC = () => {
 
           <div className="flex items-center gap-4 shrink-0">
             {/* Quick Status Pill */}
-            <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-[#D5DDD5] text-xs font-semibold text-[#073B3A] shadow-xs">
+            <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-[#D5DDD5] text-xs font-semibold text-[#02146B] shadow-xs">
               <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
               <span>Commercial Fleet Active</span>
             </div>
 
             <Link
               href="/services"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#073B3A] hover:text-[#062F31] group transition"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#02146B] hover:text-[#001162] group transition"
             >
               <span>Explore All Verticals</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform text-[#D9A52B]" />
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform text-[#FEC401]" />
             </Link>
           </div>
         </div>
@@ -241,11 +241,11 @@ export const ServicesSection: React.FC = () => {
                 }}
                 className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shrink-0 transition-all cursor-pointer ${
                   isSel
-                    ? "bg-[#073B3A] text-white shadow-md ring-2 ring-[#D9A52B]/40"
-                    : "bg-white text-[#556464] border border-[#D5DDD5] hover:text-[#182A2B]"
+                    ? "bg-[#02146B] text-white shadow-md ring-2 ring-[#FEC401]/40"
+                    : "bg-white text-[#556464] border border-[#D5DDD5] hover:text-[#0F172A]"
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isSel ? "text-[#D9A52B]" : "text-[#073B3A]"}`} />
+                <Icon className={`w-3.5 h-3.5 ${isSel ? "text-[#FEC401]" : "text-[#02146B]"}`} />
                 <span>{item.title}</span>
               </button>
             );
@@ -275,8 +275,8 @@ export const ServicesSection: React.FC = () => {
                   onMouseEnter={() => setActiveIdx(idx)}
                   className={`w-full text-left p-3.5 sm:p-4 rounded-2xl transition-all duration-300 flex items-center justify-between group cursor-pointer ${
                     isSelected
-                      ? "bg-gradient-to-r from-[#073B3A] to-[#041F20] text-white shadow-lg ring-1 ring-[#D9A52B]/40 translate-x-1"
-                      : "hover:bg-[#FAF9F5] text-[#182A2B]"
+                      ? "bg-gradient-to-r from-[#02146B] to-[#000B3B] text-white shadow-lg ring-1 ring-[#FEC401]/40 translate-x-1"
+                      : "hover:bg-[#FAF9F5] text-[#0F172A]"
                   }`}
                 >
                   <div className="flex items-center gap-3.5 sm:gap-4 min-w-0">
@@ -285,8 +285,8 @@ export const ServicesSection: React.FC = () => {
                       <div
                         className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center transition-all ${
                           isSelected
-                            ? "bg-[#D9A52B] text-[#062F31] shadow-md font-bold"
-                            : "bg-[#EEF2EE] text-[#073B3A] group-hover:bg-[#E0ECEA]"
+                            ? "bg-[#FEC401] text-[#001162] shadow-md font-bold"
+                            : "bg-[#EEF2EE] text-[#02146B] group-hover:bg-[#F1F5F9]"
                         }`}
                       >
                         <Icon className="w-5 h-5" />
@@ -298,14 +298,14 @@ export const ServicesSection: React.FC = () => {
                       <div className="flex items-center gap-2">
                         <span
                           className={`font-mono text-[10px] font-bold ${
-                            isSelected ? "text-[#D9A52B]" : "text-[#8A9797]"
+                            isSelected ? "text-[#FEC401]" : "text-[#8A9797]"
                           }`}
                         >
                           {item.num}
                         </span>
                         <span
                           className={`text-xs uppercase font-extrabold tracking-wider truncate ${
-                            isSelected ? "text-[#A7F3D0]" : "text-[#073B3A]"
+                            isSelected ? "text-[#A7F3D0]" : "text-[#02146B]"
                           }`}
                         >
                           {item.shortTag}
@@ -313,7 +313,7 @@ export const ServicesSection: React.FC = () => {
                       </div>
                       <h3
                         className={`text-sm sm:text-base font-bold font-display truncate mt-0.5 ${
-                          isSelected ? "text-white" : "text-[#182A2B] group-hover:text-[#073B3A]"
+                          isSelected ? "text-white" : "text-[#0F172A] group-hover:text-[#02146B]"
                         }`}
                       >
                         {item.title}
@@ -326,8 +326,8 @@ export const ServicesSection: React.FC = () => {
                     <ChevronRight
                       className={`w-4 h-4 transition-transform ${
                         isSelected
-                          ? "text-[#D9A52B] translate-x-0.5"
-                          : "text-[#B0BCB0] group-hover:text-[#073B3A] group-hover:translate-x-0.5"
+                          ? "text-[#FEC401] translate-x-0.5"
+                          : "text-[#B0BCB0] group-hover:text-[#02146B] group-hover:translate-x-0.5"
                       }`}
                     />
                   </div>
@@ -337,7 +337,7 @@ export const ServicesSection: React.FC = () => {
           </div>
 
           {/* RIGHT COLUMN: The Living Cinematic Panoramic Stage (60% width) */}
-          <div className="lg:col-span-7 relative rounded-3xl overflow-hidden min-h-[480px] sm:min-h-[540px] shadow-2xl border-2 border-[#073B3A]/20 flex flex-col justify-between">
+          <div className="lg:col-span-7 relative rounded-3xl overflow-hidden min-h-[480px] sm:min-h-[540px] shadow-2xl border-2 border-[#02146B]/20 flex flex-col justify-between">
             {/* Panoramic Photographic Backdrop with smooth transition */}
             <div className="absolute inset-0">
               <Image
@@ -355,7 +355,7 @@ export const ServicesSection: React.FC = () => {
 
             {/* TOP BAR: Floating Guarantee Badges */}
             <div className="relative z-10 p-4 sm:p-6 flex items-center justify-between gap-3">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-[#D9A52B] text-xs font-bold shadow-md">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-[#FEC401] text-xs font-bold shadow-md">
                 <ActiveIcon className="w-3.5 h-3.5" />
                 <span>{active.badge}</span>
               </div>
@@ -369,7 +369,7 @@ export const ServicesSection: React.FC = () => {
             {/* BOTTOM CONSOLE: Integrated Frosted Luxury Control Panel */}
             <div className="relative z-10 p-5 sm:p-7 bg-[#021819]/85 backdrop-blur-md border-t border-white/15 text-white space-y-4">
               <div>
-                <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest text-[#D9A52B] block">
+                <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest text-[#FEC401] block">
                   {active.tagline}
                 </span>
                 <h3 className="text-xl sm:text-3xl font-extrabold font-display text-white mt-1 tracking-tight">
@@ -403,7 +403,7 @@ export const ServicesSection: React.FC = () => {
                 <div className="flex items-center gap-3">
                   <Link
                     href={active.ctaLink}
-                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D9A52B] via-[#E6B543] to-[#C99320] text-[#062F31] font-bold text-xs inline-flex items-center gap-1.5 shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all cursor-pointer"
+                    className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#FEC401] via-[#FEC401] to-[#E5AD00] text-[#001162] font-bold text-xs inline-flex items-center gap-1.5 shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all cursor-pointer"
                   >
                     <span>{active.ctaText}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -418,7 +418,7 @@ export const ServicesSection: React.FC = () => {
                     className="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white border border-white/20 font-semibold text-xs inline-flex items-center gap-1.5 transition cursor-pointer"
                     title="Chat with dispatch desk"
                   >
-                    <MessageSquare className="w-3.5 h-3.5 text-[#D9A52B]" />
+                    <MessageSquare className="w-3.5 h-3.5 text-[#FEC401]" />
                     <span className="hidden sm:inline">WhatsApp Dispatch</span>
                   </a>
                 </div>
@@ -428,7 +428,7 @@ export const ServicesSection: React.FC = () => {
                   className="text-xs font-semibold text-white/70 hover:text-white transition flex items-center gap-1"
                 >
                   <span>Detailed Specifications</span>
-                  <ChevronRight className="w-3.5 h-3.5 text-[#D9A52B]" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#FEC401]" />
                 </Link>
               </div>
             </div>

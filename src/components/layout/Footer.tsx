@@ -44,26 +44,26 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#021718] text-[#E0ECEA] pt-8 sm:pt-10 pb-6 border-t-2 border-[#D9A52B]/30 font-sans relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-[#000B3B] via-[#000828] to-[#000414] text-[#F1F5F9] pt-8 sm:pt-10 pb-6 border-t-2 border-[#FEC401]/30 font-sans relative overflow-hidden">
       {/* Luxury Ambient Lighting Glows */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#073B3A]/30 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[450px] h-[450px] bg-[#D9A52B]/10 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#02146B]/35 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[450px] h-[450px] bg-[#FEC401]/10 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-full h-32 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ================= TIER 1: BESPOKE LUXURY CONCIERGE DISPATCH LOUNGE ================= */}
-        <div className="mb-7 sm:mb-9 p-4 sm:p-6 lg:p-7 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#063336] via-[#042426] to-[#021415] border border-[#D9A52B]/40 shadow-[0_20px_50px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-1px_0_rgba(0,0,0,0.5)] flex flex-col lg:flex-row items-center justify-between gap-6 backdrop-blur-2xl relative overflow-hidden group">
+        <div className="mb-7 sm:mb-9 p-4 sm:p-6 lg:p-7 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#02146B] via-[#001162] to-[#000B3B] border border-[#FEC401]/40 shadow-[0_20px_50px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-1px_0_rgba(0,0,0,0.5)] flex flex-col lg:flex-row items-center justify-between gap-6 backdrop-blur-2xl relative overflow-hidden group">
           {/* Top Gold Shimmer Edge Line */}
-          <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#D9A52B]/90 via-50% to-transparent pointer-events-none" />
+          <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#FEC401]/90 via-50% to-transparent pointer-events-none" />
 
           {/* Ambient Corner Lighting Sheens */}
-          <div className="absolute -top-16 -right-16 w-64 h-64 bg-[#D9A52B]/15 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-[#10B981]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -top-16 -right-16 w-64 h-64 bg-[#FEC401]/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-[#02146B]/25 rounded-full blur-3xl pointer-events-none" />
 
           {/* Content & Typography */}
           <div className="space-y-2.5 text-center lg:text-left relative z-10 max-w-2xl">
             {/* Live Operations Beacon */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-[#D9A52B]/50 text-[10.5px] font-bold text-[#D9A52B] shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_8px_rgba(0,0,0,0.4)] backdrop-blur-md">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-[#FEC401]/50 text-[10.5px] font-bold text-[#FEC401] shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_8px_rgba(0,0,0,0.4)] backdrop-blur-md">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" />
@@ -73,10 +73,10 @@ export const Footer: React.FC = () => {
 
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold font-display text-white tracking-tight">
               Need Instant Cab Dispatch or a{" "}
-              <span className="text-[#D9A52B] italic font-normal">Custom Tour Plan?</span>
+              <span className="text-[#FEC401] italic font-normal">Custom Tour Plan?</span>
             </h3>
 
-            <p className="text-xs sm:text-sm text-[#E0ECEA]/85 leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm text-[#F1F5F9]/85 leading-relaxed font-normal">
               Book verified yellow-board commercial fleet with background-checked drivers. Simple 10% advance deposit after fleet confirmation.
             </p>
           </div>
@@ -102,13 +102,13 @@ export const Footer: React.FC = () => {
             {/* Helpline Tactile Luxury Button */}
             <a
               href={`tel:${COMPANY_CONFIG.contact.phoneRaw}`}
-              className="w-full sm:w-auto justify-center px-5 sm:px-6 py-3 rounded-2xl bg-gradient-to-b from-[#093D3F] to-[#042022] hover:from-[#0C4A4C] hover:to-[#06282B] text-white border border-[#D9A52B]/45 hover:border-[#D9A52B]/75 font-bold text-xs inline-flex items-center gap-2.5 backdrop-blur-md transition-all hover:scale-[1.02] active:scale-98 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_8px_20px_rgba(0,0,0,0.4)] select-none"
+              className="w-full sm:w-auto justify-center px-5 sm:px-6 py-3 rounded-2xl bg-gradient-to-b from-[#02146B] to-[#000F48] hover:from-[#0A228C] hover:to-[#001162] text-white border border-[#FEC401]/45 hover:border-[#FEC401]/75 font-bold text-xs inline-flex items-center gap-2.5 backdrop-blur-md transition-all hover:scale-[1.02] active:scale-98 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_8px_20px_rgba(0,0,0,0.4)] select-none"
             >
-              <div className="w-8 h-8 rounded-xl bg-[#D9A52B]/15 flex items-center justify-center shrink-0 border border-[#D9A52B]/40">
-                <Phone className="w-4 h-4 text-[#D9A52B]" />
+              <div className="w-8 h-8 rounded-xl bg-[#FEC401]/15 flex items-center justify-center shrink-0 border border-[#FEC401]/40">
+                <Phone className="w-4 h-4 text-[#FEC401]" />
               </div>
               <div className="text-left leading-tight">
-                <span className="block text-[#D9A52B] text-[9.5px] font-bold uppercase tracking-wider">Customer Helpline</span>
+                <span className="block text-[#FEC401] text-[9.5px] font-bold uppercase tracking-wider">Customer Helpline</span>
                 <span className="block text-white font-bold text-xs">{COMPANY_CONFIG.contact.phoneDisplay}</span>
               </div>
             </a>
@@ -123,13 +123,13 @@ export const Footer: React.FC = () => {
               <BrandLogo size="lg" variant="light" />
             </Link>
 
-            <p className="text-xs text-[#E0ECEA]/80 leading-relaxed max-w-sm">
+            <p className="text-xs text-[#F1F5F9]/80 leading-relaxed max-w-sm">
               Odisha&apos;s dedicated pre-booked mobility platform connecting pilgrims, families, and corporate executives with certified commercial drivers, guaranteed on-time dispatch, and pristine AC fleet.
             </p>
 
             {/* Branded Social Channels (Facebook, Instagram, X/Twitter, LinkedIn) - FBM Requirement */}
             <div className="flex items-center gap-2 pt-0.5">
-              <span className="text-[10px] text-[#D9A52B] font-bold uppercase tracking-wider mr-1">
+              <span className="text-[10px] text-[#FEC401] font-bold uppercase tracking-wider mr-1">
                 Follow Us:
               </span>
               {/* Facebook */}
@@ -137,7 +137,7 @@ export const Footer: React.FC = () => {
                 href={COMPANY_CONFIG.socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-xl bg-white/5 hover:bg-[#1877F2] hover:text-white border border-white/10 flex items-center justify-center transition-all text-[#E0ECEA]/80 shadow-xs active:scale-95"
+                className="w-8 h-8 rounded-xl bg-white/5 hover:bg-[#1877F2] hover:text-white border border-white/10 flex items-center justify-center transition-all text-[#F1F5F9]/80 shadow-xs active:scale-95"
                 aria-label="Facebook"
               >
                 <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
@@ -150,7 +150,7 @@ export const Footer: React.FC = () => {
                 href={COMPANY_CONFIG.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-xl bg-white/5 hover:bg-[#E4405F] hover:text-white border border-white/10 flex items-center justify-center transition-all text-[#E0ECEA]/80 shadow-xs active:scale-95"
+                className="w-8 h-8 rounded-xl bg-white/5 hover:bg-[#E4405F] hover:text-white border border-white/10 flex items-center justify-center transition-all text-[#F1F5F9]/80 shadow-xs active:scale-95"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
@@ -163,7 +163,7 @@ export const Footer: React.FC = () => {
                 href={COMPANY_CONFIG.socials.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-xl bg-white/5 hover:bg-black hover:text-white border border-white/10 flex items-center justify-center transition-all text-[#E0ECEA]/80 shadow-xs active:scale-95"
+                className="w-8 h-8 rounded-xl bg-white/5 hover:bg-black hover:text-white border border-white/10 flex items-center justify-center transition-all text-[#F1F5F9]/80 shadow-xs active:scale-95"
                 aria-label="Twitter / X"
               >
                 <svg className="w-3.5 h-3.5 fill-currentColor" viewBox="0 0 24 24">
@@ -176,7 +176,7 @@ export const Footer: React.FC = () => {
                 href={COMPANY_CONFIG.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-xl bg-white/5 hover:bg-[#0A66C2] hover:text-white border border-white/10 flex items-center justify-center transition-all text-[#E0ECEA]/80 shadow-xs active:scale-95"
+                className="w-8 h-8 rounded-xl bg-white/5 hover:bg-[#0A66C2] hover:text-white border border-white/10 flex items-center justify-center transition-all text-[#F1F5F9]/80 shadow-xs active:scale-95"
                 aria-label="LinkedIn"
               >
                 <svg className="w-3.5 h-3.5 fill-currentColor" viewBox="0 0 24 24">
@@ -186,12 +186,12 @@ export const Footer: React.FC = () => {
             </div>
 
             {/* Official Operating Credentials Box */}
-            <div className="p-3.5 rounded-2xl bg-black/40 border border-white/15 space-y-2 text-[11px] text-[#E0ECEA]/90 shadow-skeuo-inset">
+            <div className="p-3.5 rounded-2xl bg-black/40 border border-white/15 space-y-2 text-[11px] text-[#F1F5F9]/90 shadow-skeuo-inset">
               <div className="flex items-start gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#D9A52B] shrink-0 mt-0.5" />
+                <ShieldCheck className="w-4 h-4 text-[#FEC401] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-white block">100% Yellow-Board Commercial Fleet</span>
-                  <span className="text-[10px] text-[#E0ECEA]/70">Zero private white-plate cars • Comprehensive passenger insurance</span>
+                  <span className="text-[10px] text-[#F1F5F9]/70">Zero private white-plate cars • Comprehensive passenger insurance</span>
                 </div>
               </div>
 
@@ -199,15 +199,15 @@ export const Footer: React.FC = () => {
                 <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-white block">10% Advance Deposit Model</span>
-                  <span className="text-[10px] text-[#E0ECEA]/70">Locked reservation • Remaining 90% settled after trip</span>
+                  <span className="text-[10px] text-[#F1F5F9]/70">Locked reservation • Remaining 90% settled after trip</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-2 pt-1 border-t border-white/10">
-                <MapPin className="w-4 h-4 text-[#D9A52B] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#FEC401] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-white block">Registered Physical Address</span>
-                  <span className="text-[10px] text-[#E0ECEA]/70">{COMPANY_CONFIG.contact.registeredAddress}</span>
+                  <span className="text-[10px] text-[#F1F5F9]/70">{COMPANY_CONFIG.contact.registeredAddress}</span>
                 </div>
               </div>
             </div>
@@ -215,8 +215,8 @@ export const Footer: React.FC = () => {
 
           {/* Column 2: Quick Links (3 Cols) — Matches FBM Requirement 3 & 4 */}
           <div className="lg:col-span-3 space-y-3.5">
-            <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#D9A52B] flex items-center gap-1.5 pb-1 border-b border-white/10">
-              <Compass className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#FEC401] flex items-center gap-1.5 pb-1 border-b border-white/10">
+              <Compass className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Quick Links</span>
             </h4>
             
@@ -224,7 +224,7 @@ export const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/"
-                  className="hover:text-[#D9A52B] text-[#E0ECEA]/80 transition-colors flex items-center gap-2 py-0.5 group"
+                  className="hover:text-[#FEC401] text-[#F1F5F9]/80 transition-colors flex items-center gap-2 py-0.5 group"
                 >
                   <span>Home</span>
                 </Link>
@@ -233,12 +233,12 @@ export const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/how-it-works"
-                  className="hover:text-[#D9A52B] text-white font-semibold transition-colors flex items-center justify-between group py-0.5"
+                  className="hover:text-[#FEC401] text-white font-semibold transition-colors flex items-center justify-between group py-0.5"
                 >
                   <span className="flex items-center gap-1.5">
                     <span>How It Works</span>
                   </span>
-                  <span className="text-[9.5px] text-[#A7F3D0] font-bold bg-[#10B981]/10 px-2 py-0.5 rounded-full border border-[#10B981]/30">
+                  <span className="text-[9.5px] text-[#FEC401] font-bold bg-[#FEC401]/10 px-2 py-0.5 rounded-full border border-[#FEC401]/30">
                     Protocol
                   </span>
                 </Link>
@@ -247,12 +247,12 @@ export const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/about"
-                  className="hover:text-[#D9A52B] text-white font-semibold transition-colors flex items-center justify-between group py-0.5"
+                  className="hover:text-[#FEC401] text-white font-semibold transition-colors flex items-center justify-between group py-0.5"
                 >
                   <span className="flex items-center gap-1.5">
                     <span>About Us</span>
                   </span>
-                  <span className="text-[9.5px] text-[#D9A52B] font-bold bg-[#D9A52B]/10 px-2 py-0.5 rounded-full border border-[#D9A52B]/30">
+                  <span className="text-[9.5px] text-[#FEC401] font-bold bg-[#FEC401]/10 px-2 py-0.5 rounded-full border border-[#FEC401]/30">
                     Company Info
                   </span>
                 </Link>
@@ -261,12 +261,12 @@ export const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/contact"
-                  className="hover:text-[#D9A52B] text-white font-semibold transition-colors flex items-center justify-between group py-0.5"
+                  className="hover:text-[#FEC401] text-white font-semibold transition-colors flex items-center justify-between group py-0.5"
                 >
                   <span className="flex items-center gap-1.5">
                     <span>Contact Us</span>
                   </span>
-                  <span className="text-[9.5px] text-[#10B981] font-bold bg-[#10B981]/10 px-2 py-0.5 rounded-full border border-[#10B981]/30">
+                  <span className="text-[9.5px] text-[#FEC401] font-bold bg-[#FEC401]/10 px-2 py-0.5 rounded-full border border-[#FEC401]/30">
                     24/7 Desk
                   </span>
                 </Link>
@@ -275,13 +275,13 @@ export const Footer: React.FC = () => {
               <li className="pt-1">
                 <Link
                   href="/book-cab"
-                  className="hover:text-[#D9A52B] transition-all text-white font-semibold flex items-center justify-between group p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10"
+                  className="hover:text-[#FEC401] transition-all text-white font-semibold flex items-center justify-between group p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10"
                 >
                   <span className="flex items-center gap-2">
-                    <Car className="w-3.5 h-3.5 text-[#D9A52B]" />
+                    <Car className="w-3.5 h-3.5 text-[#FEC401]" />
                     <span>Book a Cab</span>
                   </span>
-                  <span className="text-[9px] bg-gradient-to-b from-[#E6B543] to-[#C99320] text-[#062F31] font-extrabold px-2 py-0.5 rounded-full shadow-xs uppercase">
+                  <span className="text-[9px] bg-gradient-to-b from-[#FEC401] to-[#E5AD00] text-[#001162] font-extrabold px-2 py-0.5 rounded-full shadow-xs uppercase">
                     Instant
                   </span>
                 </Link>
@@ -290,13 +290,13 @@ export const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/book-tour"
-                  className="hover:text-[#D9A52B] transition-all text-white font-semibold flex items-center justify-between group p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10"
+                  className="hover:text-[#FEC401] transition-all text-white font-semibold flex items-center justify-between group p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10"
                 >
                   <span className="flex items-center gap-2">
-                    <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+                    <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
                     <span>Book a Tour</span>
                   </span>
-                  <span className="text-[9px] bg-[#073B3A] text-white border border-[#D9A52B]/40 font-bold px-2 py-0.5 rounded-full uppercase">
+                  <span className="text-[9px] bg-[#02146B] text-white border border-[#FEC401]/40 font-bold px-2 py-0.5 rounded-full uppercase">
                     Circuits
                   </span>
                 </Link>
@@ -305,9 +305,9 @@ export const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/services/airport-transfers"
-                  className="hover:text-[#D9A52B] text-[#E0ECEA]/80 transition-colors flex items-center gap-2 py-0.5 group"
+                  className="hover:text-[#FEC401] text-[#F1F5F9]/80 transition-colors flex items-center gap-2 py-0.5 group"
                 >
-                  <Plane className="w-3.5 h-3.5 text-[#D9A52B] group-hover:translate-x-0.5 transition-transform" />
+                  <Plane className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-0.5 transition-transform" />
                   <span>BBI Airport Transfers</span>
                 </Link>
               </li>
@@ -315,9 +315,9 @@ export const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/services/outstation-cabs"
-                  className="hover:text-[#D9A52B] text-[#E0ECEA]/80 transition-colors flex items-center gap-2 py-0.5 group"
+                  className="hover:text-[#FEC401] text-[#F1F5F9]/80 transition-colors flex items-center gap-2 py-0.5 group"
                 >
-                  <Compass className="w-3.5 h-3.5 text-[#D9A52B] group-hover:translate-x-0.5 transition-transform" />
+                  <Compass className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-0.5 transition-transform" />
                   <span>Outstation Highway Cabs</span>
                 </Link>
               </li>
@@ -326,25 +326,25 @@ export const Footer: React.FC = () => {
 
           {/* Column 3: Popular Highway Corridors (3 Cols) */}
           <div className="lg:col-span-3 space-y-3.5">
-            <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#D9A52B] flex items-center gap-1.5 pb-1 border-b border-white/10">
-              <Navigation className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#FEC401] flex items-center gap-1.5 pb-1 border-b border-white/10">
+              <Navigation className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Popular Routes</span>
             </h4>
 
-            <ul className="space-y-2 text-xs text-[#E0ECEA]/85">
+            <ul className="space-y-2 text-xs text-[#F1F5F9]/85">
               <li>
                 <Link
                   href="/book-cab?service=outstation&to=Puri%20Golden%20Beach"
                   className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 block group transition-all"
                 >
-                  <div className="flex items-center justify-between text-white group-hover:text-[#D9A52B] transition-colors font-semibold">
+                  <div className="flex items-center justify-between text-white group-hover:text-[#FEC401] transition-colors font-semibold">
                     <span>Bhubaneswar ⇄ Puri Beach</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#D9A52B] group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
                   </div>
-                  <div className="text-[10px] text-[#E0ECEA]/70 mt-0.5 flex items-center gap-2">
+                  <div className="text-[10px] text-[#F1F5F9]/70 mt-0.5 flex items-center gap-2">
                     <span>60 km • 1 hr 20 min</span>
                     <span>•</span>
-                    <span className="text-[#10B981]">NH-316</span>
+                    <span className="text-[#FEC401]">NH-316</span>
                   </div>
                 </Link>
               </li>
@@ -354,14 +354,14 @@ export const Footer: React.FC = () => {
                   href="/services/airport-transfers"
                   className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 block group transition-all"
                 >
-                  <div className="flex items-center justify-between text-white group-hover:text-[#D9A52B] transition-colors font-semibold">
+                  <div className="flex items-center justify-between text-white group-hover:text-[#FEC401] transition-colors font-semibold">
                     <span>BBI Airport Radar Transfers</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#D9A52B] group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
                   </div>
-                  <div className="text-[10px] text-[#E0ECEA]/70 mt-0.5 flex items-center gap-2">
+                  <div className="text-[10px] text-[#F1F5F9]/70 mt-0.5 flex items-center gap-2">
                     <span>Citywide 24/7</span>
                     <span>•</span>
-                    <span className="text-[#D9A52B]">Zero Waiting Fees</span>
+                    <span className="text-[#FEC401]">Zero Waiting Fees</span>
                   </div>
                 </Link>
               </li>
@@ -371,11 +371,11 @@ export const Footer: React.FC = () => {
                   href="/book-tour?destination=konark"
                   className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 block group transition-all"
                 >
-                  <div className="flex items-center justify-between text-white group-hover:text-[#D9A52B] transition-colors font-semibold">
+                  <div className="flex items-center justify-between text-white group-hover:text-[#FEC401] transition-colors font-semibold">
                     <span>Konark Sun Temple &amp; Marine Drive</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#D9A52B] group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
                   </div>
-                  <div className="text-[10px] text-[#E0ECEA]/70 mt-0.5">
+                  <div className="text-[10px] text-[#F1F5F9]/70 mt-0.5">
                     <span>65 km • Coastal Scenic Corridor</span>
                   </div>
                 </Link>
@@ -386,11 +386,11 @@ export const Footer: React.FC = () => {
                   href="/book-tour?destination=chilika"
                   className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 block group transition-all"
                 >
-                  <div className="flex items-center justify-between text-white group-hover:text-[#D9A52B] transition-colors font-semibold">
+                  <div className="flex items-center justify-between text-white group-hover:text-[#FEC401] transition-colors font-semibold">
                     <span>Chilika Lake &amp; Dolphin Safari</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#D9A52B] group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
                   </div>
-                  <div className="text-[10px] text-[#E0ECEA]/70 mt-0.5">
+                  <div className="text-[10px] text-[#F1F5F9]/70 mt-0.5">
                     <span>Satapada Lagoon • OTDC Boat Point</span>
                   </div>
                 </Link>
@@ -400,34 +400,34 @@ export const Footer: React.FC = () => {
 
           {/* Column 4: Legal & Contact (2 Cols) — Matches FBM Requirement 2 & 4 */}
           <div className="lg:col-span-2 space-y-3.5">
-            <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#D9A52B] flex items-center gap-1.5 pb-1 border-b border-white/10">
-              <FileCheck2 className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#FEC401] flex items-center gap-1.5 pb-1 border-b border-white/10">
+              <FileCheck2 className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Legal &amp; Policy</span>
             </h4>
 
-            <ul className="space-y-2 text-xs text-[#E0ECEA]/80">
+            <ul className="space-y-2 text-xs text-[#F1F5F9]/80">
               <li>
-                <Link href="/privacy-policy" className="hover:text-[#D9A52B] text-white font-semibold transition-colors block py-0.5">
+                <Link href="/privacy-policy" className="hover:text-[#FEC401] text-white font-semibold transition-colors block py-0.5">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms-conditions" className="hover:text-[#D9A52B] text-white font-semibold transition-colors block py-0.5">
+                <Link href="/terms-conditions" className="hover:text-[#FEC401] text-white font-semibold transition-colors block py-0.5">
                   Terms &amp; Conditions
                 </Link>
               </li>
               <li>
-                <Link href="/cancellation-policy" className="hover:text-[#D9A52B] transition-colors block py-0.5">
+                <Link href="/cancellation-policy" className="hover:text-[#FEC401] transition-colors block py-0.5">
                   Refund &amp; Cancellation
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-[#D9A52B] transition-colors block py-0.5">
+                <Link href="/about" className="hover:text-[#FEC401] transition-colors block py-0.5">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#D9A52B] transition-colors block py-0.5">
+                <Link href="/contact" className="hover:text-[#FEC401] transition-colors block py-0.5">
                   Contact Us
                 </Link>
               </li>
@@ -442,7 +442,7 @@ export const Footer: React.FC = () => {
                 title="Click to copy phone number"
               >
                 <div className="min-w-0 pr-1">
-                  <span className="text-[9px] uppercase tracking-wider text-[#D9A52B] font-bold block">
+                  <span className="text-[9px] uppercase tracking-wider text-[#FEC401] font-bold block">
                     Customer Helpline
                   </span>
                   <span className="text-white font-bold text-xs truncate block">
@@ -463,7 +463,7 @@ export const Footer: React.FC = () => {
                 title="Click to copy support email"
               >
                 <div className="min-w-0 pr-1">
-                  <span className="text-[9px] uppercase tracking-wider text-[#D9A52B] font-bold block">
+                  <span className="text-[9px] uppercase tracking-wider text-[#FEC401] font-bold block">
                     Official Support Desk
                   </span>
                   <span className="text-white font-bold text-xs truncate block">
@@ -481,73 +481,73 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* ================= TIER 3: ACTIVE DISPATCH HUBS ================= */}
-        <div className="py-3 sm:py-4 border-b border-white/10 text-xs text-[#E0ECEA]/75 flex flex-wrap items-center justify-center sm:justify-start gap-2">
+        <div className="py-3 sm:py-4 border-b border-white/10 text-xs text-[#F1F5F9]/75 flex flex-wrap items-center justify-center sm:justify-start gap-2">
           <span className="font-bold text-white flex items-center gap-1.5 mr-1">
-            <Radio className="w-3.5 h-3.5 text-[#10B981] animate-pulse" />
+            <Radio className="w-3.5 h-3.5 text-[#FEC401] animate-pulse" />
             <span>Active Dispatch Hubs:</span>
           </span>
           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
             Bhubaneswar (BBI Airport &amp; Infocity)
           </span>
           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
             Puri Jagannath Dham
           </span>
           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
             Cuttack CDA &amp; Badambadi
           </span>
           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
             Konark Marine Drive
           </span>
           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
             Chilika Satapada
           </span>
         </div>
 
         {/* ================= TIER 4: CORPORATE LEGAL BAR (FBM REQUIREMENT 5) ================= */}
-        <div className="pt-5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#E0ECEA]/75">
+        <div className="pt-5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#F1F5F9]/75">
           {/* Quick Legal Text Links */}
           <div className="space-y-1.5 text-center md:text-left">
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-3 sm:gap-x-4 gap-y-1 text-xs">
-              <Link href="/privacy-policy" className="text-white font-semibold hover:text-[#D9A52B] transition-colors underline-offset-4 hover:underline">
+              <Link href="/privacy-policy" className="text-white font-semibold hover:text-[#FEC401] transition-colors underline-offset-4 hover:underline">
                 Privacy Policy
               </Link>
               <span className="text-white/30">•</span>
-              <Link href="/terms-conditions" className="text-white font-semibold hover:text-[#D9A52B] transition-colors underline-offset-4 hover:underline">
+              <Link href="/terms-conditions" className="text-white font-semibold hover:text-[#FEC401] transition-colors underline-offset-4 hover:underline">
                 Terms &amp; Conditions
               </Link>
               <span className="text-white/30">•</span>
-              <Link href="/cancellation-policy" className="text-white font-semibold hover:text-[#D9A52B] transition-colors underline-offset-4 hover:underline">
+              <Link href="/cancellation-policy" className="text-white font-semibold hover:text-[#FEC401] transition-colors underline-offset-4 hover:underline">
                 Refund Policy
               </Link>
               <span className="text-white/30">•</span>
-              <Link href="/about" className="text-white font-semibold hover:text-[#D9A52B] transition-colors underline-offset-4 hover:underline">
+              <Link href="/about" className="text-white font-semibold hover:text-[#FEC401] transition-colors underline-offset-4 hover:underline">
                 About Us
               </Link>
               <span className="text-white/30">•</span>
-              <Link href="/contact" className="text-white font-semibold hover:text-[#D9A52B] transition-colors underline-offset-4 hover:underline">
+              <Link href="/contact" className="text-white font-semibold hover:text-[#FEC401] transition-colors underline-offset-4 hover:underline">
                 Contact Us
               </Link>
             </div>
-            <p className="text-[10px] text-[#E0ECEA]/60 max-w-xl">
+            <p className="text-[10px] text-[#F1F5F9]/60 max-w-xl">
               CabJatra is an official pre-booked mobility brand operated by <strong>{COMPANY_CONFIG.legalBusinessName}</strong>. State Transport Authority (STA) Odisha Guidelines Compliant.
             </p>
           </div>
 
           {/* FBM Requirement 5: Dedicated Highlighted Legal Entity Box */}
-          <div className="p-3 sm:p-3.5 rounded-2xl bg-black/60 border-2 border-[#D9A52B]/60 shadow-[0_4px_20px_rgba(0,0,0,0.5)] text-center md:text-right shrink-0">
+          <div className="p-3 sm:p-3.5 rounded-2xl bg-black/60 border-2 border-[#FEC401]/60 shadow-[0_4px_20px_rgba(0,0,0,0.5)] text-center md:text-right shrink-0">
             <div className="text-white font-bold text-xs sm:text-sm font-display tracking-tight flex items-center justify-center md:justify-end gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-[#D9A52B]" />
+              <ShieldCheck className="w-4 h-4 text-[#FEC401]" />
               <span>{COMPANY_CONFIG.legalBusinessName}</span>
             </div>
-            <div className="text-[11px] text-[#A7F3D0] font-bold mt-0.5">
+            <div className="text-[11px] text-[#FEC401] font-bold mt-0.5">
               &copy; 2026 All rights reserved.
             </div>
-            <div className="text-[9.5px] text-[#E0ECEA]/70 mt-0.5">
+            <div className="text-[9.5px] text-[#F1F5F9]/70 mt-0.5">
               Official Legal Business Name &bull; CIN: {COMPANY_CONFIG.cinOrRegistration}
             </div>
           </div>

@@ -16,9 +16,9 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #0C4E4B 0%, #052C2D 50%, #011617 100%)",
+          background: "linear-gradient(135deg, #0A2B8C 0%, #001162 50%, #000B3B 100%)",
           borderRadius: "12px",
-          border: "2px solid #D9A52B",
+          border: "2px solid #FEC401",
         }}
       >
         <svg
@@ -30,7 +30,7 @@ export default function Icon() {
         >
           {/* Konark Wheel Rim */}
           <circle cx="32" cy="32" r="22" stroke="#F9D468" strokeWidth="3" />
-          <circle cx="32" cy="32" r="16" stroke="#D9A52B" strokeWidth="1.5" />
+          <circle cx="32" cy="32" r="16" stroke="#FEC401" strokeWidth="1.5" />
           
           {/* 8 Cardinal Spokes */}
           <line x1="32" y1="10" x2="32" y2="54" stroke="#FFF9E6" strokeWidth="2.5" />
@@ -39,8 +39,8 @@ export default function Icon() {
           <line x1="16.4" y1="47.6" x2="47.6" y2="16.4" stroke="#F9D468" strokeWidth="2" />
           
           {/* Inner Golden Center Hub */}
-          <circle cx="32" cy="32" r="8" fill="#031C1D" stroke="#FFF9E6" strokeWidth="2" />
-          <circle cx="32" cy="32" r="3" fill="#D9A52B" />
+          <circle cx="32" cy="32" r="8" fill="#000B3B" stroke="#FFF9E6" strokeWidth="2" />
+          <circle cx="32" cy="32" r="3" fill="#FEC401" />
         </svg>
       </div>
     ),

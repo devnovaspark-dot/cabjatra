@@ -15,11 +15,11 @@ export default function TermsConditionsPage() {
     <div className="bg-[#FAF9F5] min-h-screen pt-28 sm:pt-36 pb-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0ECEA]/70 text-[10px] font-bold text-[#073B3A] uppercase tracking-wider mb-2">
-            <FileText className="w-3.5 h-3.5 text-[#D9A52B]" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F1F5F9]/70 text-[10px] font-bold text-[#02146B] uppercase tracking-wider mb-2">
+            <FileText className="w-3.5 h-3.5 text-[#FEC401]" />
             <span>Service Agreement</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold font-display text-[#182A2B] tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
             Terms &amp; Conditions
           </h1>
           <p className="text-xs text-[#667575] mt-1.5">
@@ -29,8 +29,8 @@ export default function TermsConditionsPage() {
 
         {/* Legal Placeholder Banner */}
         <div className="mb-6 p-4 rounded-2xl bg-white border border-[#E5EAE5] text-xs text-[#455353] space-y-1 shadow-2xs">
-          <div className="font-bold flex items-center gap-2 text-[#182A2B]">
-            <AlertCircle className="w-4 h-4 text-[#D9A52B]" />
+          <div className="font-bold flex items-center gap-2 text-[#0F172A]">
+            <AlertCircle className="w-4 h-4 text-[#FEC401]" />
             <span>Service Provider Legal Entity</span>
           </div>
           <p>
@@ -44,7 +44,7 @@ export default function TermsConditionsPage() {
         <div className="bg-white rounded-2xl p-6 sm:p-8 border border-[#E5EAE5] shadow-soft space-y-6 text-xs sm:text-sm text-[#455353] leading-relaxed">
           {/* Term 1 */}
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#182A2B]">
+            <h2 className="text-base font-bold text-[#0F172A]">
               1. Nature of Service &amp; Availability Verification
             </h2>
             <p>
@@ -54,7 +54,7 @@ export default function TermsConditionsPage() {
 
           {/* Term 2 */}
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#182A2B]">
+            <h2 className="text-base font-bold text-[#0F172A]">
               2. Advance Deposit &amp; Payment Settlement
             </h2>
             <ul className="list-disc pl-5 space-y-1 text-[#667575]">
@@ -66,7 +66,7 @@ export default function TermsConditionsPage() {
 
           {/* Term 3 */}
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#182A2B]">
+            <h2 className="text-base font-bold text-[#0F172A]">
               3. Fares, Tolls, and Parking Charges
             </h2>
             <p>
@@ -81,7 +81,7 @@ export default function TermsConditionsPage() {
 
           {/* Term 4 */}
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#182A2B]">
+            <h2 className="text-base font-bold text-[#0F172A]">
               4. Luggage Policy &amp; Vehicle Capacity
             </h2>
             <p>
@@ -91,7 +91,7 @@ export default function TermsConditionsPage() {
 
           {/* Term 5 */}
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#182A2B]">
+            <h2 className="text-base font-bold text-[#0F172A]">
               5. Passenger Conduct &amp; Safety
             </h2>
             <p>
@@ -101,7 +101,7 @@ export default function TermsConditionsPage() {
 
           {/* Term 6 */}
           <section className="space-y-2 pt-3 border-t border-[#F2F5F2]">
-            <h2 className="text-base font-bold text-[#182A2B]">
+            <h2 className="text-base font-bold text-[#0F172A]">
               6. Limitation of Liability
             </h2>
             <p>
@@ -113,7 +113,7 @@ export default function TermsConditionsPage() {
         <div className="mt-6 text-center">
           <Link
             href="/"
-            className="text-xs font-bold text-[#073B3A] hover:underline inline-flex items-center gap-1"
+            className="text-xs font-bold text-[#02146B] hover:underline inline-flex items-center gap-1"
           >
             ← Return to CabJatra Homepage
           </Link>

@@ -207,7 +207,7 @@ function CabBookingContent() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-[#FAF9F5] text-[#182A2B] overflow-hidden pb-16 sm:pb-20">
+    <div className="relative min-h-screen bg-[#FAF9F5] text-[#0F172A] overflow-hidden pb-16 sm:pb-20">
       {/* Luminous Scenic Highway Travel Backdrop - High Clarity Without Murky Shadows */}
       <div className="absolute top-0 inset-x-0 h-[640px] sm:h-[720px] z-0 overflow-hidden pointer-events-none">
         <Image
@@ -232,8 +232,8 @@ function CabBookingContent() {
         {/* Clean, Non-Text-Heavy Hero Header - Never overlaps with Floating Navbar */}
         {currentStep < 5 && (
           <div className="text-center max-w-2xl mx-auto mb-5 text-white">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/45 backdrop-blur-md border border-[#D9A52B]/40 text-xs font-semibold text-[#D9A52B] mb-2 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/45 backdrop-blur-md border border-[#FEC401]/40 text-xs font-semibold text-[#FEC401] mb-2 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>10% Advance Deposit Model • 100% Commercial Fleet</span>
             </div>
             <h1 className="text-xl sm:text-3xl font-extrabold font-display tracking-tight text-white drop-shadow-md">
@@ -260,16 +260,16 @@ function CabBookingContent() {
                     disabled={!isPassed && !isCurrent}
                     className={`p-2.5 sm:p-3 rounded-2xl border text-left transition-all duration-200 flex items-center gap-2.5 select-none ${
                       isCurrent
-                        ? "bg-gradient-to-r from-[#0C4E4B] to-[#041F20] text-white border-2 border-[#D9A52B] shadow-md ring-2 ring-[#D9A52B]/30"
+                        ? "bg-gradient-to-r from-[#0A2B8C] to-[#000B3B] text-white border-2 border-[#FEC401] shadow-md ring-2 ring-[#FEC401]/30"
                         : isPassed
-                        ? "bg-[#073B3A]/90 text-white border border-[#10B981] shadow-xs cursor-pointer hover:brightness-110"
-                        : "bg-[#062F31]/60 backdrop-blur-md border border-white/15 text-white/70 shadow-xs"
+                        ? "bg-[#02146B]/90 text-white border border-[#10B981] shadow-xs cursor-pointer hover:brightness-110"
+                        : "bg-[#001162]/60 backdrop-blur-md border border-white/15 text-white/70 shadow-xs"
                     }`}
                   >
                     <div
                       className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center font-bold text-xs shrink-0 transition-all ${
                         isCurrent
-                          ? "bg-[#D9A52B] text-[#062F31] font-black shadow-xs"
+                          ? "bg-[#FEC401] text-[#001162] font-black shadow-xs"
                           : isPassed
                           ? "bg-[#10B981] text-white"
                           : "bg-white/15 text-white/90 border border-white/20 font-bold"
@@ -293,7 +293,7 @@ function CabBookingContent() {
                       </div>
                       <p
                         className={`text-[10px] sm:text-xs truncate leading-tight mt-0.5 ${
-                          isCurrent ? "text-[#D9A52B] font-semibold" : isPassed ? "text-[#A7F3D0]" : "text-white/50"
+                          isCurrent ? "text-[#FEC401] font-semibold" : isPassed ? "text-[#A7F3D0]" : "text-white/50"
                         }`}
                       >
                         {s.subtitle}
@@ -317,14 +317,14 @@ function CabBookingContent() {
               {/* Header */}
               <div className="border-b border-[#E5ECE5] pb-3 flex items-center justify-between gap-3">
                 <div>
-                  <h2 className="text-base sm:text-lg font-bold font-display text-[#182A2B]">
+                  <h2 className="text-base sm:text-lg font-bold font-display text-[#0F172A]">
                     Select Service &amp; Schedule
                   </h2>
                   <p className="text-xs text-[#667575]">
                     Choose your travel format and enter your journey coordinates.
                   </p>
                 </div>
-                <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#073B3A] font-semibold bg-[#E0ECEA] px-3 py-1 rounded-full border border-[#C1DAD7]">
+                <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#02146B] font-semibold bg-[#F1F5F9] px-3 py-1 rounded-full border border-[#C1DAD7]">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
                   <span>Free Cancellation (6hr notice)</span>
                 </span>
@@ -347,11 +347,11 @@ function CabBookingContent() {
                       onClick={() => setServiceType(srv.id as any)}
                       className={`h-10 px-2 sm:px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 sm:gap-2 transition-all cursor-pointer select-none ${
                         isSelected
-                          ? "bg-[#073B3A] text-white shadow-md ring-1 ring-[#D9A52B]/40"
-                          : "text-[#556464] hover:text-[#182A2B] hover:bg-white/60"
+                          ? "bg-[#02146B] text-white shadow-md ring-1 ring-[#FEC401]/40"
+                          : "text-[#556464] hover:text-[#0F172A] hover:bg-white/60"
                       }`}
                     >
-                      <Icon className={`w-3.5 h-3.5 shrink-0 ${isSelected ? "text-[#D9A52B]" : "text-[#073B3A]"}`} />
+                      <Icon className={`w-3.5 h-3.5 shrink-0 ${isSelected ? "text-[#FEC401]" : "text-[#02146B]"}`} />
                       <span className="truncate">{srv.label}</span>
                     </button>
                   );
@@ -366,7 +366,7 @@ function CabBookingContent() {
                       type="button"
                       onClick={() => setTripWay("oneway")}
                       className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                        tripWay === "oneway" ? "bg-[#073B3A] text-white shadow-xs" : "text-[#667575] hover:text-[#182A2B]"
+                        tripWay === "oneway" ? "bg-[#02146B] text-white shadow-xs" : "text-[#667575] hover:text-[#0F172A]"
                       }`}
                     >
                       One-Way Drop
@@ -375,25 +375,25 @@ function CabBookingContent() {
                       type="button"
                       onClick={() => setTripWay("round")}
                       className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                        tripWay === "round" ? "bg-[#073B3A] text-white shadow-xs" : "text-[#667575] hover:text-[#182A2B]"
+                        tripWay === "round" ? "bg-[#02146B] text-white shadow-xs" : "text-[#667575] hover:text-[#0F172A]"
                       }`}
                     >
                       Round Trip Return
                     </button>
                   </div>
                 ) : serviceType === "airport" ? (
-                  <span className="text-xs font-bold text-[#073B3A] inline-flex items-center gap-1.5 bg-[#E0ECEA]/80 px-3 py-1 rounded-full border border-[#B6D6D2]">
-                    <Plane className="w-3.5 h-3.5 text-[#D9A52B]" />
+                  <span className="text-xs font-bold text-[#02146B] inline-flex items-center gap-1.5 bg-[#F1F5F9]/80 px-3 py-1 rounded-full border border-[#B6D6D2]">
+                    <Plane className="w-3.5 h-3.5 text-[#FEC401]" />
                     <span>BBI Airport Flight-Radar Synchronized</span>
                   </span>
                 ) : serviceType === "hourly" ? (
-                  <span className="text-xs font-bold text-[#073B3A] inline-flex items-center gap-1.5 bg-[#E0ECEA]/80 px-3 py-1 rounded-full border border-[#B6D6D2]">
-                    <Clock className="w-3.5 h-3.5 text-[#D9A52B]" />
+                  <span className="text-xs font-bold text-[#02146B] inline-flex items-center gap-1.5 bg-[#F1F5F9]/80 px-3 py-1 rounded-full border border-[#B6D6D2]">
+                    <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
                     <span>Standby Driver • Multi-Stop Errand Freedom</span>
                   </span>
                 ) : (
-                  <span className="text-xs font-bold text-[#073B3A] inline-flex items-center gap-1.5 bg-[#E0ECEA]/80 px-3 py-1 rounded-full border border-[#B6D6D2]">
-                    <Car className="w-3.5 h-3.5 text-[#D9A52B]" />
+                  <span className="text-xs font-bold text-[#02146B] inline-flex items-center gap-1.5 bg-[#F1F5F9]/80 px-3 py-1 rounded-full border border-[#B6D6D2]">
+                    <Car className="w-3.5 h-3.5 text-[#FEC401]" />
                     <span>Guaranteed Driver Allocation • Zero Cancellations</span>
                   </span>
                 )}
@@ -407,14 +407,14 @@ function CabBookingContent() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                 {/* Field 1: Pickup Hub / Origin City (Slot 1) */}
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#073B3A]" />
+                  <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#02146B]" />
                     <span>Pickup Hub / Origin City *</span>
                   </label>
                   <select
                     value={pickupCity}
                     onChange={(e) => setPickupCity(e.target.value)}
-                    className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
+                    className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition cursor-pointer shadow-xs"
                   >
                     {COMPANY_CONFIG.operatingCities.map((c) => (
                       <option key={c.code} value={c.name}>
@@ -429,11 +429,11 @@ function CabBookingContent() {
 
                 {/* Field 2: Destination / Hourly Package / Flight (Slot 2) */}
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
+                  <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
                     {serviceType === "hourly" ? (
-                      <Clock className="w-3.5 h-3.5 text-[#073B3A]" />
+                      <Clock className="w-3.5 h-3.5 text-[#02146B]" />
                     ) : (
-                      <MapPin className="w-3.5 h-3.5 text-[#D9A52B]" />
+                      <MapPin className="w-3.5 h-3.5 text-[#FEC401]" />
                     )}
                     <span>{serviceType === "hourly" ? "Hourly Standby Package *" : "Drop Destination / Area *"}</span>
                   </label>
@@ -441,7 +441,7 @@ function CabBookingContent() {
                     <select
                       value={hourlyPackage}
                       onChange={(e) => setHourlyPackage(e.target.value)}
-                      className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
+                      className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition cursor-pointer shadow-xs"
                     >
                       <option value="4 Hours / 40 Km">4 Hours / 40 Km</option>
                       <option value="8 Hours / 80 Km">8 Hours / 80 Km (Recommended)</option>
@@ -453,7 +453,7 @@ function CabBookingContent() {
                       value={dropLocation}
                       onChange={(e) => setDropLocation(e.target.value)}
                       placeholder={serviceType === "airport" ? "e.g. BBI Terminal 1 / Hotel Mayfair" : "e.g. Puri Jagannath Temple / Konark"}
-                      className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
+                      className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
                       required
                     />
                   )}
@@ -464,8 +464,8 @@ function CabBookingContent() {
 
                 {/* Field 3: Pickup Date & Time (Slot 3) */}
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-[#073B3A]" />
+                  <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                    <Calendar className="w-3.5 h-3.5 text-[#02146B]" />
                     <span>Pickup Date &amp; Time *</span>
                   </label>
                   <div className="grid grid-cols-2 gap-2">
@@ -473,14 +473,14 @@ function CabBookingContent() {
                       type="date"
                       value={pickupDate}
                       onChange={(e) => setPickupDate(e.target.value)}
-                      className="w-full h-11 px-3 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
+                      className="w-full h-11 px-3 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition cursor-pointer shadow-xs"
                       required
                     />
                     <input
                       type="time"
                       value={pickupTime}
                       onChange={(e) => setPickupTime(e.target.value)}
-                      className="w-full h-11 px-3 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
+                      className="w-full h-11 px-3 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition cursor-pointer shadow-xs"
                       required
                     />
                   </div>
@@ -490,22 +490,22 @@ function CabBookingContent() {
                 <div className="space-y-1">
                   {serviceType === "outstation" && tripWay === "round" ? (
                     <>
-                      <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5 text-[#D9A52B]" />
+                      <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                        <Calendar className="w-3.5 h-3.5 text-[#FEC401]" />
                         <span>Return Journey Date *</span>
                       </label>
                       <input
                         type="date"
                         value={returnDate}
                         onChange={(e) => setReturnDate(e.target.value)}
-                        className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
+                        className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition cursor-pointer shadow-xs"
                         required
                       />
                     </>
                   ) : serviceType === "airport" ? (
                     <>
-                      <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                        <Plane className="w-3.5 h-3.5 text-[#073B3A]" />
+                      <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                        <Plane className="w-3.5 h-3.5 text-[#02146B]" />
                         <span>Flight Number (Optional Radar Tracking)</span>
                       </label>
                       <input
@@ -513,12 +513,12 @@ function CabBookingContent() {
                         value={flightNumber}
                         onChange={(e) => setFlightNumber(e.target.value.toUpperCase())}
                         placeholder="e.g. 6E 2145 / AI 778"
-                        className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
+                        className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
                       />
                     </>
                   ) : (
                     <>
-                      <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
+                      <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
                         <Navigation className="w-3.5 h-3.5 text-[#667575]" />
                         <span>Pickup Landmark / Doorstep Address</span>
                       </label>
@@ -527,7 +527,7 @@ function CabBookingContent() {
                         value={pickupAddress}
                         onChange={(e) => setPickupAddress(e.target.value)}
                         placeholder="e.g. Mayfair Lagoon / Patia / KIIT Square"
-                        className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
+                        className="w-full h-11 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-xs font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
                       />
                     </>
                   )}
@@ -535,9 +535,9 @@ function CabBookingContent() {
               </div>
 
               {/* Subtle Route Preview Strip */}
-              <div className="p-3 rounded-xl bg-gradient-to-r from-[#062F31] to-[#041F20] text-white border border-[#D9A52B]/30 flex flex-wrap items-center justify-between text-xs gap-2">
+              <div className="p-3 rounded-xl bg-gradient-to-r from-[#001162] to-[#000B3B] text-white border border-[#FEC401]/30 flex flex-wrap items-center justify-between text-xs gap-2">
                 <div className="flex items-center gap-2">
-                  <Compass className="w-4 h-4 text-[#D9A52B] shrink-0" />
+                  <Compass className="w-4 h-4 text-[#FEC401] shrink-0" />
                   <span className="font-bold text-white text-xs sm:text-sm">
                     {pickupCity} ➔ {serviceType === "hourly" ? hourlyPackage : dropLocation}
                   </span>
@@ -546,7 +546,7 @@ function CabBookingContent() {
                   </span>
                 </div>
                 <div className="flex items-center gap-2 text-[11px]">
-                  <span className="text-[#D9A52B] font-bold">10% Advance Deposit</span>
+                  <span className="text-[#FEC401] font-bold">10% Advance Deposit</span>
                   <span className="text-white/40">•</span>
                   <span className="text-[#A7F3D0]">100% Commercial Fleet</span>
                 </div>
@@ -555,15 +555,15 @@ function CabBookingContent() {
               {/* Step 1 Actions */}
               <div className="pt-3 border-t border-[#EEF2EE] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <span className="text-xs text-[#667575] flex items-center gap-1.5 font-medium">
-                  <ShieldCheck className="w-4 h-4 text-[#D9A52B]" />
+                  <ShieldCheck className="w-4 h-4 text-[#FEC401]" />
                   <span>No payment charged until driver allocation is confirmed.</span>
                 </span>
                 <button
                   type="submit"
-                  className="px-7 py-3 rounded-xl bg-gradient-to-r from-[#D9A52B] via-[#E6B543] to-[#C99320] text-[#062F31] font-bold text-xs sm:text-sm inline-flex items-center justify-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
+                  className="px-7 py-3 rounded-xl bg-gradient-to-r from-[#FEC401] via-[#FEC401] to-[#E5AD00] text-[#001162] font-bold text-xs sm:text-sm inline-flex items-center justify-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
                 >
                   <span>Continue to Select Vehicle</span>
-                  <ArrowRight className="w-4 h-4 text-[#062F31]" />
+                  <ArrowRight className="w-4 h-4 text-[#001162]" />
                 </button>
               </div>
             </form>
@@ -576,7 +576,7 @@ function CabBookingContent() {
                 {/* Clean Header - 3D Focused */}
                 <div className="border-b border-[#E5ECE5] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <h2 className="text-lg sm:text-xl font-bold font-display text-[#182A2B]">
+                    <h2 className="text-lg sm:text-xl font-bold font-display text-[#0F172A]">
                       Choose Your Vehicle Class
                     </h2>
                     <p className="text-xs text-[#667575] mt-0.5">
@@ -584,8 +584,8 @@ function CabBookingContent() {
                     </p>
                   </div>
 
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#E0ECEA]/70 border border-[#C1DAD7] text-xs font-semibold text-[#073B3A] self-start sm:self-auto">
-                    <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#F1F5F9]/70 border border-[#C1DAD7] text-xs font-semibold text-[#02146B] self-start sm:self-auto">
+                    <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
                     <span>Verified Commercial Fleet</span>
                   </div>
                 </div>
@@ -601,8 +601,8 @@ function CabBookingContent() {
                         onClick={() => setSelectedVehicleId(v.id)}
                         className={`rounded-2xl border transition-all duration-200 cursor-pointer overflow-hidden flex flex-col justify-between group select-none bg-white ${
                           isSelected
-                            ? "border-2 border-[#D9A52B] ring-2 ring-[#073B3A]/20 shadow-lg scale-[1.01]"
-                            : "border-[#E2E8E2] hover:border-[#073B3A]/40 hover:shadow-md"
+                            ? "border-2 border-[#FEC401] ring-2 ring-[#02146B]/20 shadow-lg scale-[1.01]"
+                            : "border-[#E2E8E2] hover:border-[#02146B]/40 hover:shadow-md"
                         }`}
                       >
                         <div>
@@ -618,11 +618,11 @@ function CabBookingContent() {
                             {/* Subtle lower vignette for depth */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
-                            <div className="absolute top-2 left-2 bg-[#062F31]/95 backdrop-blur-md text-white text-[9.5px] font-bold px-2 py-0.5 rounded-md border border-white/15 pointer-events-none z-10">
+                            <div className="absolute top-2 left-2 bg-[#001162]/95 backdrop-blur-md text-white text-[9.5px] font-bold px-2 py-0.5 rounded-md border border-white/15 pointer-events-none z-10">
                               {v.category}
                             </div>
                             {v.tag && (
-                              <div className="absolute top-2 right-2 bg-gradient-to-b from-[#F2C052] to-[#D9A52B] text-[#062F31] text-[8.5px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs pointer-events-none z-10">
+                              <div className="absolute top-2 right-2 bg-gradient-to-b from-[#FDE047] to-[#FEC401] text-[#001162] text-[8.5px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs pointer-events-none z-10">
                                 {v.tag}
                               </div>
                             )}
@@ -631,7 +631,7 @@ function CabBookingContent() {
                           {/* Vehicle Info: Name, Models & Compact Specs */}
                           <div className="p-3.5 space-y-2.5">
                             <div>
-                              <h3 className="text-base font-bold font-display text-[#182A2B] leading-tight">
+                              <h3 className="text-base font-bold font-display text-[#0F172A] leading-tight">
                                 {v.name}
                               </h3>
                               <p className="text-[11px] text-[#556464] font-medium mt-0.5 line-clamp-1" title={v.models}>
@@ -642,12 +642,12 @@ function CabBookingContent() {
                             {/* Minimal Specs Strip */}
                             <div className="flex items-center justify-between py-1.5 px-2.5 bg-[#FAF9F5] rounded-xl border border-[#E5EAE5] text-[11px] text-[#455353] font-semibold">
                               <span className="flex items-center gap-1">
-                                <Users className="w-3.5 h-3.5 text-[#073B3A]" />
+                                <Users className="w-3.5 h-3.5 text-[#02146B]" />
                                 {v.passengers} Seats
                               </span>
                               <span className="text-[#C1DAD7]">•</span>
                               <span className="flex items-center gap-1">
-                                <Briefcase className="w-3.5 h-3.5 text-[#073B3A]" />
+                                <Briefcase className="w-3.5 h-3.5 text-[#02146B]" />
                                 {v.luggage} Bags
                               </span>
                               <span className="text-[#C1DAD7]">•</span>
@@ -662,10 +662,10 @@ function CabBookingContent() {
                             <span className="text-[9px] uppercase font-bold text-[#667575] block leading-none">
                               Est. Tariff
                             </span>
-                            <span className="text-sm font-extrabold text-[#062F31]">
+                            <span className="text-sm font-extrabold text-[#001162]">
                               ₹{vFare.total.toLocaleString("en-IN")}
                             </span>
-                            <span className="text-[9px] font-semibold text-[#D9A52B] block leading-none mt-0.5">
+                            <span className="text-[9px] font-semibold text-[#FEC401] block leading-none mt-0.5">
                               10% Adv: ₹{vFare.advance.toLocaleString("en-IN")}
                             </span>
                           </div>
@@ -673,8 +673,8 @@ function CabBookingContent() {
                           <div
                             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
                               isSelected
-                                ? "bg-[#073B3A] text-[#D9A52B] shadow-xs"
-                                : "border border-[#D5DDD5] text-[#667575] group-hover:border-[#073B3A]"
+                                ? "bg-[#02146B] text-[#FEC401] shadow-xs"
+                                : "border border-[#D5DDD5] text-[#667575] group-hover:border-[#02146B]"
                             }`}
                           >
                             {isSelected ? "Selected ✓" : "Select"}
@@ -691,7 +691,7 @@ function CabBookingContent() {
                 <button
                   type="button"
                   onClick={() => setCurrentStep(1)}
-                  className="px-5 py-2.5 rounded-xl border border-[#D5DDD5] text-[#182A2B] font-bold text-xs inline-flex items-center gap-1.5 hover:bg-[#FAF9F5] transition cursor-pointer"
+                  className="px-5 py-2.5 rounded-xl border border-[#D5DDD5] text-[#0F172A] font-bold text-xs inline-flex items-center gap-1.5 hover:bg-[#FAF9F5] transition cursor-pointer"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Back</span>
@@ -700,10 +700,10 @@ function CabBookingContent() {
                 <button
                   type="button"
                   onClick={handleNextFromStep2}
-                  className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#D9A52B] via-[#E6B543] to-[#C99320] text-[#062F31] font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
+                  className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#FEC401] via-[#FEC401] to-[#E5AD00] text-[#001162] font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
                 >
                   <span>Continue to Passenger Details</span>
-                  <ArrowRight className="w-4 h-4 text-[#062F31]" />
+                  <ArrowRight className="w-4 h-4 text-[#001162]" />
                 </button>
               </div>
             </div>
@@ -719,14 +719,14 @@ function CabBookingContent() {
                 {/* Header */}
                 <div className="border-b border-[#E5ECE5] pb-4 flex items-center justify-between gap-3">
                   <div>
-                    <h2 className="text-lg sm:text-xl font-bold font-display text-[#182A2B]">
+                    <h2 className="text-lg sm:text-xl font-bold font-display text-[#0F172A]">
                       Lead Passenger &amp; Contact
                     </h2>
                     <p className="text-xs text-[#667575] mt-0.5">
                       Your driver details and official dispatch voucher will be sent here.
                     </p>
                   </div>
-                  <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#073B3A] font-semibold bg-[#E0ECEA] px-3 py-1 rounded-full border border-[#C1DAD7]">
+                  <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#02146B] font-semibold bg-[#F1F5F9] px-3 py-1 rounded-full border border-[#C1DAD7]">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
                     <span>WhatsApp Dispatch Confirmed</span>
                   </span>
@@ -734,7 +734,7 @@ function CabBookingContent() {
 
                 {/* Travel Purpose Pills */}
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-[#182A2B] uppercase tracking-wider block">
+                  <label className="text-xs font-bold text-[#0F172A] uppercase tracking-wider block">
                     Travel Purpose:
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -750,8 +750,8 @@ function CabBookingContent() {
                         onClick={() => setTravelPurpose(purpose)}
                         className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                           travelPurpose === purpose
-                            ? "bg-[#073B3A] text-[#D9A52B] font-bold shadow-xs border border-[#073B3A]"
-                            : "bg-[#FAF9F5] text-[#667575] border border-[#D5DDD5] hover:text-[#182A2B]"
+                            ? "bg-[#02146B] text-[#FEC401] font-bold shadow-xs border border-[#02146B]"
+                            : "bg-[#FAF9F5] text-[#667575] border border-[#D5DDD5] hover:text-[#0F172A]"
                         }`}
                       >
                         {purpose}
@@ -764,8 +764,8 @@ function CabBookingContent() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                   {/* Full Name */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                      <User className="w-3.5 h-3.5 text-[#073B3A]" />
+                    <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                      <User className="w-3.5 h-3.5 text-[#02146B]" />
                       <span>Lead Passenger Full Name *</span>
                     </label>
                     <input
@@ -773,7 +773,7 @@ function CabBookingContent() {
                       value={passengerName}
                       onChange={(e) => setPassengerName(e.target.value)}
                       placeholder="e.g. Ramesh Chandra Mohanty"
-                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
+                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
                       required
                     />
                     {formErrors.name && (
@@ -783,12 +783,12 @@ function CabBookingContent() {
 
                   {/* Mobile Phone Number */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                      <Phone className="w-3.5 h-3.5 text-[#073B3A]" />
+                    <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                      <Phone className="w-3.5 h-3.5 text-[#02146B]" />
                       <span>Mobile (Active WhatsApp) *</span>
                     </label>
                     <div className="flex gap-2">
-                      <span className="h-12 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#EEF2EE] text-sm font-bold text-[#073B3A] flex items-center shrink-0">
+                      <span className="h-12 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#EEF2EE] text-sm font-bold text-[#02146B] flex items-center shrink-0">
                         +91
                       </span>
                       <input
@@ -797,7 +797,7 @@ function CabBookingContent() {
                         onChange={(e) => setPassengerPhone(e.target.value)}
                         placeholder="9876543210"
                         maxLength={10}
-                        className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
+                        className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
                         required
                       />
                     </div>
@@ -808,8 +808,8 @@ function CabBookingContent() {
 
                   {/* Email Address */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                      <Mail className="w-3.5 h-3.5 text-[#073B3A]" />
+                    <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                      <Mail className="w-3.5 h-3.5 text-[#02146B]" />
                       <span>Email (For Tax Invoice &amp; Voucher) *</span>
                     </label>
                     <input
@@ -817,7 +817,7 @@ function CabBookingContent() {
                       value={passengerEmail}
                       onChange={(e) => setPassengerEmail(e.target.value)}
                       placeholder="ramesh@example.com"
-                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
+                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
                       required
                     />
                     {formErrors.email && (
@@ -828,14 +828,14 @@ function CabBookingContent() {
                   {/* Passengers & Luggage Counts */}
                   <div className="grid grid-cols-2 gap-3">
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                        <Users className="w-3.5 h-3.5 text-[#073B3A]" />
+                      <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                        <Users className="w-3.5 h-3.5 text-[#02146B]" />
                         <span>Passengers</span>
                       </label>
                       <select
                         value={passengerCount}
                         onChange={(e) => setPassengerCount(Number(e.target.value))}
-                        className="w-full h-12 px-3 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
+                        className="w-full h-12 px-3 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition cursor-pointer shadow-xs"
                       >
                         {[1, 2, 3, 4, 5, 6, 7, 8, 10, 15].map((num) => (
                           <option key={num} value={num}>
@@ -846,14 +846,14 @@ function CabBookingContent() {
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                        <Briefcase className="w-3.5 h-3.5 text-[#073B3A]" />
+                      <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                        <Briefcase className="w-3.5 h-3.5 text-[#02146B]" />
                         <span>Luggage Bags</span>
                       </label>
                       <select
                         value={luggageCount}
                         onChange={(e) => setLuggageCount(Number(e.target.value))}
-                        className="w-full h-12 px-3 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
+                        className="w-full h-12 px-3 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition cursor-pointer shadow-xs"
                       >
                         {[1, 2, 3, 4, 5, 6, 8, 10].map((num) => (
                           <option key={num} value={num}>
@@ -866,7 +866,7 @@ function CabBookingContent() {
 
                   {/* Special Requests */}
                   <div className="md:col-span-2 space-y-1.5">
-                    <label className="text-xs font-bold text-[#182A2B]">
+                    <label className="text-xs font-bold text-[#0F172A]">
                       Special Instructions / Requests (Optional)
                     </label>
                     <input
@@ -874,7 +874,7 @@ function CabBookingContent() {
                       value={specialRequests}
                       onChange={(e) => setSpecialRequests(e.target.value)}
                       placeholder="e.g. Stop at Pipili applique craft village, elderly traveler passenger assistance"
-                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
+                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
                     />
                   </div>
                 </div>
@@ -897,7 +897,7 @@ function CabBookingContent() {
                 <button
                   type="button"
                   onClick={() => setCurrentStep(2)}
-                  className="px-5 py-2.5 rounded-xl border border-[#D5DDD5] text-[#182A2B] font-bold text-xs inline-flex items-center gap-1.5 hover:bg-[#FAF9F5] transition cursor-pointer"
+                  className="px-5 py-2.5 rounded-xl border border-[#D5DDD5] text-[#0F172A] font-bold text-xs inline-flex items-center gap-1.5 hover:bg-[#FAF9F5] transition cursor-pointer"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Back</span>
@@ -905,10 +905,10 @@ function CabBookingContent() {
 
                 <button
                   type="submit"
-                  className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#D9A52B] via-[#E6B543] to-[#C99320] text-[#062F31] font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
+                  className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#FEC401] via-[#FEC401] to-[#E5AD00] text-[#001162] font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
                 >
                   <span>Review &amp; Confirm</span>
-                  <ArrowRight className="w-4 h-4 text-[#062F31]" />
+                  <ArrowRight className="w-4 h-4 text-[#001162]" />
                 </button>
               </div>
             </form>
@@ -921,15 +921,15 @@ function CabBookingContent() {
                 {/* Header */}
                 <div className="border-b border-[#E5ECE5] pb-4 flex items-center justify-between gap-3">
                   <div>
-                    <h2 className="text-lg sm:text-xl font-bold font-display text-[#182A2B]">
+                    <h2 className="text-lg sm:text-xl font-bold font-display text-[#0F172A]">
                       Review &amp; Confirm Cab Dispatch
                     </h2>
                     <p className="text-xs text-[#667575] mt-0.5">
                       Verify your trip parameters and the 10% advance deposit breakdown.
                     </p>
                   </div>
-                  <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#073B3A] font-semibold bg-[#E0ECEA] px-3 py-1 rounded-full border border-[#C1DAD7]">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
+                  <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#02146B] font-semibold bg-[#F1F5F9] px-3 py-1 rounded-full border border-[#C1DAD7]">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
                     <span>10% Advance Deposit Model</span>
                   </span>
                 </div>
@@ -938,41 +938,41 @@ function CabBookingContent() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
                   {/* Left: Journey Boarding Pass */}
                   <div className="p-5 rounded-2xl bg-[#FAF9F5] border border-[#D5DDD5] space-y-3 text-xs shadow-skeuo">
-                    <div className="font-bold text-[#073B3A] uppercase tracking-wider text-[11px] pb-2 border-b border-[#E5EAE5] flex items-center justify-between">
+                    <div className="font-bold text-[#02146B] uppercase tracking-wider text-[11px] pb-2 border-b border-[#E5EAE5] flex items-center justify-between">
                       <span>Journey Parameters</span>
                       <span className="text-[#10B981] font-semibold">100% Commercial Fleet</span>
                     </div>
                     <div>
                       <span className="text-[#667575] text-[11px] block">Travel Category:</span>
-                      <strong className="text-[#182A2B] capitalize text-sm">{serviceType} Mobility ({travelPurpose})</strong>
+                      <strong className="text-[#0F172A] capitalize text-sm">{serviceType} Mobility ({travelPurpose})</strong>
                     </div>
                     <div className="grid grid-cols-2 gap-3 text-xs">
                       <div>
                         <span className="text-[#667575] text-[11px] block">Pickup Hub:</span>
-                        <strong className="text-[#182A2B]">{pickupCity}</strong>
+                        <strong className="text-[#0F172A]">{pickupCity}</strong>
                       </div>
                       <div>
                         <span className="text-[#667575] text-[11px] block">Destination:</span>
-                        <strong className="text-[#182A2B]">
+                        <strong className="text-[#0F172A]">
                           {serviceType === "hourly" ? hourlyPackage : dropLocation}
                         </strong>
                       </div>
                     </div>
                     <div className="text-xs">
                       <span className="text-[#667575] text-[11px] block">Scheduled Pickup:</span>
-                      <strong className="text-[#182A2B]">{pickupDate} at {pickupTime}</strong>
+                      <strong className="text-[#0F172A]">{pickupDate} at {pickupTime}</strong>
                     </div>
                     {flightNumber && (
                       <div className="text-xs">
                         <span className="text-[#667575] text-[11px] block">Flight Sync:</span>
-                        <strong className="text-[#182A2B]">{flightNumber} (BBI Radar)</strong>
+                        <strong className="text-[#0F172A]">{flightNumber} (BBI Radar)</strong>
                       </div>
                     )}
                     <div className="text-xs pt-1 border-t border-[#EEF2EE]">
                       <span className="text-[#667575] text-[11px] block">Allocated Fleet:</span>
-                      <strong className="text-[#073B3A] font-bold text-sm">{selectedVehicle.name} ({selectedVehicle.category})</strong>
+                      <strong className="text-[#02146B] font-bold text-sm">{selectedVehicle.name} ({selectedVehicle.category})</strong>
                       <span className="text-[11px] text-[#556464] block mt-0.5">Example: {selectedVehicle.models}</span>
-                      <span className="text-[10.5px] text-[#073B3A] font-semibold block">Capacity: {selectedVehicle.passengers} Seats • {selectedVehicle.luggage} Bags • 100% Commercial AC</span>
+                      <span className="text-[10.5px] text-[#02146B] font-semibold block">Capacity: {selectedVehicle.passengers} Seats • {selectedVehicle.luggage} Bags • 100% Commercial AC</span>
                       {/* Real Vehicle Photo Preview */}
                       <div className="relative h-32 w-full rounded-xl overflow-hidden bg-gradient-to-b from-white to-[#EBF2EB] border border-[#D5DDD5] mt-2 shadow-inner">
                         <Image
@@ -985,7 +985,7 @@ function CabBookingContent() {
                     </div>
                     <div className="text-xs">
                       <span className="text-[#667575] text-[11px] block">Lead Passenger:</span>
-                      <strong className="text-[#182A2B]">{passengerName} (+91 {passengerPhone})</strong>
+                      <strong className="text-[#0F172A]">{passengerName} (+91 {passengerPhone})</strong>
                     </div>
                   </div>
 
@@ -993,10 +993,10 @@ function CabBookingContent() {
                   <div className="p-5 rounded-2xl bg-white border border-[#D5DDD5] shadow-card space-y-4 flex flex-col justify-between">
                     <div>
                       <div className="flex items-center justify-between pb-2 border-b border-[#EEF2EE]">
-                        <span className="font-bold text-[#182A2B] uppercase tracking-wider text-xs">
+                        <span className="font-bold text-[#0F172A] uppercase tracking-wider text-xs">
                           Fare &amp; Advance Structure
                         </span>
-                        <span className="text-[11px] font-bold text-[#073B3A] bg-[#E0ECEA] px-2.5 py-0.5 rounded-full">
+                        <span className="text-[11px] font-bold text-[#02146B] bg-[#F1F5F9] px-2.5 py-0.5 rounded-full">
                           Transparent Tariff
                         </span>
                       </div>
@@ -1004,22 +1004,22 @@ function CabBookingContent() {
                       <div className="space-y-3 pt-3 text-xs">
                         <div className="flex items-center justify-between text-[#667575]">
                           <span>Estimated Total Cab Fare:</span>
-                          <strong className="text-[#182A2B] font-bold text-lg">
+                          <strong className="text-[#0F172A] font-bold text-lg">
                             ₹{fares.total.toLocaleString("en-IN")}
                           </strong>
                         </div>
-                        <div className="flex items-center justify-between text-[#073B3A] bg-[#E0ECEA]/70 p-3 rounded-xl font-semibold border border-[#C1DAD7]">
+                        <div className="flex items-center justify-between text-[#02146B] bg-[#F1F5F9]/70 p-3 rounded-xl font-semibold border border-[#C1DAD7]">
                           <div>
                             <span className="block font-bold text-xs">10% Advance Deposit:</span>
                             <span className="text-[10px] text-[#455353]">Required upon driver allocation</span>
                           </div>
-                          <strong className="text-[#073B3A] font-black text-base">
+                          <strong className="text-[#02146B] font-black text-base">
                             ₹{fares.advance.toLocaleString("en-IN")}
                           </strong>
                         </div>
                         <div className="flex items-center justify-between text-[#667575] text-xs">
                           <span>Remaining 90% (Payable on arrival):</span>
-                          <strong className="text-[#182A2B] font-semibold">
+                          <strong className="text-[#0F172A] font-semibold">
                             ₹{fares.balance.toLocaleString("en-IN")}
                           </strong>
                         </div>
@@ -1028,8 +1028,8 @@ function CabBookingContent() {
 
                     {/* Zero Financial Lock-in Assurance */}
                     <div className="p-3 rounded-xl bg-[#FAF9F5] border border-[#D5DDD5] text-xs text-[#556464] space-y-1">
-                      <div className="font-bold text-[#073B3A] flex items-center gap-1.5">
-                        <ShieldCheck className="w-4 h-4 text-[#D9A52B] shrink-0" />
+                      <div className="font-bold text-[#02146B] flex items-center gap-1.5">
+                        <ShieldCheck className="w-4 h-4 text-[#FEC401] shrink-0" />
                         <span>Zero Financial Lock-In</span>
                       </div>
                       <p className="leading-relaxed text-[11px]">
@@ -1045,7 +1045,7 @@ function CabBookingContent() {
                 <button
                   type="button"
                   onClick={() => setCurrentStep(3)}
-                  className="px-5 py-2.5 rounded-xl border border-[#D5DDD5] text-[#182A2B] font-bold text-xs inline-flex items-center gap-1.5 hover:bg-[#FAF9F5] transition cursor-pointer"
+                  className="px-5 py-2.5 rounded-xl border border-[#D5DDD5] text-[#0F172A] font-bold text-xs inline-flex items-center gap-1.5 hover:bg-[#FAF9F5] transition cursor-pointer"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Back</span>
@@ -1054,10 +1054,10 @@ function CabBookingContent() {
                 <button
                   type="button"
                   onClick={handleSubmitBooking}
-                  className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#D9A52B] via-[#E6B543] to-[#C99320] text-[#062F31] font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
+                  className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#FEC401] via-[#FEC401] to-[#E5AD00] text-[#001162] font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
                 >
                   <span>Confirm Cab Reservation</span>
-                  <ArrowRight className="w-4 h-4 text-[#062F31]" />
+                  <ArrowRight className="w-4 h-4 text-[#001162]" />
                 </button>
               </div>
             </div>
@@ -1071,7 +1071,7 @@ function CabBookingContent() {
 
               {/* Clean Compact Title */}
               <div className="space-y-0.5">
-                <h2 className="text-xl sm:text-2xl font-bold font-display text-[#182A2B] tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold font-display text-[#0F172A] tracking-tight">
                   Thank You, {passengerName || "Esteemed Traveler"}!
                 </h2>
                 <p className="text-xs text-[#556464]">
@@ -1082,10 +1082,10 @@ function CabBookingContent() {
               {/* Compact Digital Cab Boarding Pass */}
               <div className="rounded-2xl border border-[#D5DDD5] bg-[#FAF9F5] shadow-xs overflow-hidden text-left text-xs">
                 {/* Pass Header */}
-                <div className="bg-[#073B3A] text-white px-3.5 py-2 flex items-center justify-between border-b border-[#D9A52B]/30">
+                <div className="bg-[#02146B] text-white px-3.5 py-2 flex items-center justify-between border-b border-[#FEC401]/30">
                   <div className="flex items-center gap-2">
                     <BrandLogo size="sm" variant="light" showTagline={false} />
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#D9A52B]">
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#FEC401]">
                       Cab Voucher
                     </span>
                   </div>
@@ -1097,7 +1097,7 @@ function CabBookingContent() {
                     <button
                       type="button"
                       onClick={handleCopyRef}
-                      className="p-1 rounded text-[#D9A52B] hover:text-white transition cursor-pointer"
+                      className="p-1 rounded text-[#FEC401] hover:text-white transition cursor-pointer"
                       title="Copy Reference"
                     >
                       {copiedRef ? <Check className="w-3.5 h-3.5 text-[#10B981]" /> : <Copy className="w-3.5 h-3.5" />}
@@ -1110,19 +1110,19 @@ function CabBookingContent() {
                   <div className="space-y-1">
                     <div>
                       <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Route:</span>
-                      <strong className="text-xs font-bold text-[#182A2B] block truncate">
+                      <strong className="text-xs font-bold text-[#0F172A] block truncate">
                         {pickupCity} ➔ {serviceType === "hourly" ? hourlyPackage : dropLocation}
                       </strong>
                     </div>
                     <div>
                       <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Scheduled:</span>
-                      <span className="text-xs font-semibold text-[#073B3A] block truncate">
+                      <span className="text-xs font-semibold text-[#02146B] block truncate">
                         {pickupDate} at {pickupTime}
                       </span>
                     </div>
                     <div>
                       <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Vehicle Class:</span>
-                      <span className="text-xs font-semibold text-[#182A2B] block truncate">
+                      <span className="text-xs font-semibold text-[#0F172A] block truncate">
                         {selectedVehicle.name}
                       </span>
                     </div>
@@ -1131,13 +1131,13 @@ function CabBookingContent() {
                   <div className="pl-3 space-y-1">
                     <div>
                       <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Estimated Tariff:</span>
-                      <strong className="text-xs font-bold text-[#182A2B] block">
+                      <strong className="text-xs font-bold text-[#0F172A] block">
                         ₹{fares.total.toLocaleString("en-IN")}
                       </strong>
                     </div>
-                    <div className="bg-[#E0ECEA]/70 p-1.5 rounded-lg border border-[#C1DAD7]">
-                      <span className="text-[9px] font-bold text-[#073B3A] block uppercase">10% Advance Deposit:</span>
-                      <strong className="text-xs font-extrabold text-[#073B3A] block">
+                    <div className="bg-[#F1F5F9]/70 p-1.5 rounded-lg border border-[#C1DAD7]">
+                      <span className="text-[9px] font-bold text-[#02146B] block uppercase">10% Advance Deposit:</span>
+                      <strong className="text-xs font-extrabold text-[#02146B] block">
                         ₹{fares.advance.toLocaleString("en-IN")}
                       </strong>
                     </div>
@@ -1152,7 +1152,7 @@ function CabBookingContent() {
               <div className="pt-1 flex items-center justify-center gap-2">
                 <Link
                   href="/"
-                  className="px-4 py-2 rounded-xl bg-[#FAF9F5] hover:bg-[#EEF2EE] border border-[#D5DDD5] text-[#182A2B] font-bold text-xs transition cursor-pointer"
+                  className="px-4 py-2 rounded-xl bg-[#FAF9F5] hover:bg-[#EEF2EE] border border-[#D5DDD5] text-[#0F172A] font-bold text-xs transition cursor-pointer"
                 >
                   Home
                 </Link>
@@ -1160,7 +1160,7 @@ function CabBookingContent() {
                 <button
                   type="button"
                   onClick={() => typeof window !== "undefined" && window.print()}
-                  className="px-3 py-2 rounded-xl bg-white hover:bg-[#FAF9F5] border border-[#D5DDD5] text-[#073B3A] font-bold text-xs inline-flex items-center gap-1 transition cursor-pointer shadow-xs"
+                  className="px-3 py-2 rounded-xl bg-white hover:bg-[#FAF9F5] border border-[#D5DDD5] text-[#02146B] font-bold text-xs inline-flex items-center gap-1 transition cursor-pointer shadow-xs"
                   title="Print Voucher"
                 >
                   <Printer className="w-3.5 h-3.5" />
@@ -1175,9 +1175,9 @@ function CabBookingContent() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 sm:px-5 py-2 rounded-xl bg-[#073B3A] hover:bg-[#062F31] text-white font-bold text-xs inline-flex items-center gap-2 transition shadow-skeuo-button cursor-pointer"
+                  className="px-4 sm:px-5 py-2 rounded-xl bg-[#02146B] hover:bg-[#001162] text-white font-bold text-xs inline-flex items-center gap-2 transition shadow-skeuo-button cursor-pointer"
                 >
-                  <MessageSquare className="w-4 h-4 text-[#D9A52B]" />
+                  <MessageSquare className="w-4 h-4 text-[#FEC401]" />
                   <span>WhatsApp Dispatch</span>
                 </a>
               </div>
@@ -1195,8 +1195,8 @@ export default function BookCabPage() {
       fallback={
         <div className="min-h-screen flex items-center justify-center bg-[#FAF9F5]">
           <div className="text-center space-y-3">
-            <div className="w-9 h-9 border-4 border-[#073B3A] border-t-transparent rounded-full animate-spin mx-auto" />
-            <p className="text-xs font-bold text-[#073B3A]">Loading Cab Booking Experience...</p>
+            <div className="w-9 h-9 border-4 border-[#02146B] border-t-transparent rounded-full animate-spin mx-auto" />
+            <p className="text-xs font-bold text-[#02146B]">Loading Cab Booking Experience...</p>
           </div>
         </div>
       }

@@ -26,33 +26,33 @@ export default function ServicesPage() {
   const getIcon = (name: string) => {
     switch (name) {
       case "Plane":
-        return <Plane className="w-5 h-5 text-[#073B3A]" />;
+        return <Plane className="w-5 h-5 text-[#02146B]" />;
       case "Compass":
-        return <Compass className="w-5 h-5 text-[#073B3A]" />;
+        return <Compass className="w-5 h-5 text-[#02146B]" />;
       case "Clock":
-        return <Clock className="w-5 h-5 text-[#073B3A]" />;
+        return <Clock className="w-5 h-5 text-[#02146B]" />;
       case "Palmtree":
-        return <Palmtree className="w-5 h-5 text-[#073B3A]" />;
+        return <Palmtree className="w-5 h-5 text-[#02146B]" />;
       case "Briefcase":
-        return <Briefcase className="w-5 h-5 text-[#073B3A]" />;
+        return <Briefcase className="w-5 h-5 text-[#02146B]" />;
       default:
-        return <Car className="w-5 h-5 text-[#073B3A]" />;
+        return <Car className="w-5 h-5 text-[#02146B]" />;
     }
   };
 
   return (
     <div className="bg-[#FAF9F5] min-h-screen">
       {/* Services Hero */}
-      <section className="bg-gradient-to-b from-[#041F20] via-[#062F31] to-[#041F20] text-white pt-28 sm:pt-36 pb-16 lg:pt-40 lg:pb-20 border-b border-[#073B3A]">
+      <section className="bg-gradient-to-b from-[#000B3B] via-[#001162] to-[#000B3B] text-white pt-28 sm:pt-36 pb-16 lg:pt-40 lg:pb-20 border-b border-[#02146B]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#073B3A] text-[10px] font-semibold text-[#D9A52B] mb-3 border border-white/10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#02146B] text-[10px] font-semibold text-[#FEC401] mb-3 border border-white/10">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Cab Service Standards</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display tracking-tight text-[#FAF9F5]">
             Our Services
           </h1>
-          <p className="text-xs sm:text-sm text-[#E0ECEA]/80 mt-3 leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#F1F5F9]/80 mt-3 leading-relaxed">
             Discover dependable, comfortable, and transparent pre-booked mobility across Bhubaneswar, Puri, Cuttack, Konark, and beyond.
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function ServicesPage() {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#182A2B]/70 via-transparent to-transparent lg:hidden" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/70 via-transparent to-transparent lg:hidden" />
                   
                   <div className="absolute top-4 left-4 w-10 h-10 rounded-xl bg-white shadow-xs flex items-center justify-center">
                     {getIcon(srv.iconName)}
@@ -91,11 +91,11 @@ export default function ServicesPage() {
                 {/* Content Column */}
                 <div className="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-5">
                   <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#D9A52B] bg-[#FAF9F5] border border-[#E5EAE5] px-2.5 py-0.5 rounded-md inline-block">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#FEC401] bg-[#FAF9F5] border border-[#E5EAE5] px-2.5 py-0.5 rounded-md inline-block">
                       {srv.idealFor}
                     </span>
 
-                    <h2 className="text-xl sm:text-2xl font-bold font-display text-[#182A2B] mt-2">
+                    <h2 className="text-xl sm:text-2xl font-bold font-display text-[#0F172A] mt-2">
                       {srv.title}
                     </h2>
 
@@ -107,7 +107,7 @@ export default function ServicesPage() {
                     <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-3 border-t border-[#F2F5F2]">
                       {srv.features.map((feat, i) => (
                         <div key={i} className="flex items-start gap-1.5 text-xs text-[#455353]">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#073B3A] shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#02146B] shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </div>
                       ))}
@@ -133,14 +133,14 @@ export default function ServicesPage() {
 
                   {/* Actions Footer */}
                   <div className="pt-3 border-t border-[#F2F5F2] flex flex-wrap items-center justify-between gap-3">
-                    <div className="text-xs font-bold text-[#073B3A]">
+                    <div className="text-xs font-bold text-[#02146B]">
                       {srv.startingFareNote}
                     </div>
 
                     <div className="flex items-center gap-2.5">
                       <Link
                         href={`/services/${srv.slug}`}
-                        className="px-3.5 py-2 rounded-xl border border-[#E5EAE5] text-[#182A2B] text-xs font-semibold hover:bg-[#FAF9F5] transition"
+                        className="px-3.5 py-2 rounded-xl border border-[#E5EAE5] text-[#0F172A] text-xs font-semibold hover:bg-[#FAF9F5] transition"
                       >
                         Service Guide
                       </Link>
@@ -151,10 +151,10 @@ export default function ServicesPage() {
                             ? "/book-tour"
                             : `/book-cab?service=${srv.slug}`
                         }
-                        className="px-4 py-2 rounded-xl bg-[#073B3A] hover:bg-[#062F31] text-white text-xs font-semibold transition inline-flex items-center gap-1.5 shadow-xs"
+                        className="px-4 py-2 rounded-xl bg-[#02146B] hover:bg-[#001162] text-white text-xs font-semibold transition inline-flex items-center gap-1.5 shadow-xs"
                       >
                         <span>Book Service</span>
-                        <ArrowRight className="w-3.5 h-3.5 text-[#D9A52B]" />
+                        <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
                       </Link>
                     </div>
                   </div>
@@ -168,16 +168,16 @@ export default function ServicesPage() {
       {/* Corporate Travel Banner Anchor */}
       <section id="corporate" className="py-12 bg-white border-t border-[#E5EAE5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#062F31] text-white rounded-2xl p-6 sm:p-10 border border-[#073B3A] flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div className="bg-[#001162] text-white rounded-2xl p-6 sm:p-10 border border-[#02146B] flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="space-y-2 max-w-2xl">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#073B3A] text-[10px] font-bold text-[#D9A52B]">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#02146B] text-[10px] font-bold text-[#FEC401]">
                 <Briefcase className="w-3 h-3" />
                 <span>Enterprise &amp; Institutional Accounts</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-display text-[#FAF9F5]">
                 Corporate Fleet Management &amp; Event Mobility
               </h3>
-              <p className="text-xs text-[#E0ECEA]/80 leading-relaxed">
+              <p className="text-xs text-[#F1F5F9]/80 leading-relaxed">
                 We cater to IT firms in Infocity Patia, academic conclaves, government delegations, and wedding logistics with consolidated billing estimates and dedicated fleet coordinators.
               </p>
             </div>
@@ -185,7 +185,7 @@ export default function ServicesPage() {
             <div className="flex flex-col sm:flex-row items-center gap-2.5 shrink-0">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#D9A52B] hover:bg-[#c89423] text-[#062F31] font-bold text-xs text-center transition"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#FEC401] hover:bg-[#c89423] text-[#001162] font-bold text-xs text-center transition"
               >
                 Request Corporate Quote
               </Link>
@@ -193,9 +193,9 @@ export default function ServicesPage() {
                 href={COMPANY_CONFIG.contact.whatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#073B3A] hover:bg-[#073B3A]/80 border border-white/10 text-white font-semibold text-xs text-center transition flex items-center justify-center gap-1.5"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#02146B] hover:bg-[#02146B]/80 border border-white/10 text-white font-semibold text-xs text-center transition flex items-center justify-center gap-1.5"
               >
-                <MessageSquare className="w-3.5 h-3.5 text-[#D9A52B]" />
+                <MessageSquare className="w-3.5 h-3.5 text-[#FEC401]" />
                 <span>Chat with Operations</span>
               </a>
             </div>

@@ -18,11 +18,11 @@ export const OdishaDestinationsSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 sm:mb-7 gap-3 sm:gap-4">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#073B3A] mb-2 bg-[#E0ECEA]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
-              <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-[#F1F5F9]/70 px-3 py-1 rounded-full border border-[#C1DAD7]">
+              <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Editorial Travelogue Showcase</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-bold text-[#182A2B] font-display">
+            <h2 className="text-2xl sm:text-4xl font-bold text-[#0F172A] font-display">
               Explore Timeless Odisha
             </h2>
             <p className="text-xs sm:text-sm text-[#667575] mt-1 sm:mt-1.5 max-w-xl">
@@ -32,7 +32,7 @@ export const OdishaDestinationsSection: React.FC = () => {
 
           <Link
             href="/book-tour"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#073B3A] hover:underline group"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#02146B] hover:underline group"
           >
             <span>View All Curated Itineraries</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -50,14 +50,14 @@ export const OdishaDestinationsSection: React.FC = () => {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#021718]/90 via-[#021718]/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B]/90 via-[#000B3B]/30 to-transparent" />
               
-              <div className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-[#062F31]/95 backdrop-blur-md text-[#D9A52B] text-[9.5px] sm:text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 shadow-md">
+              <div className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-[#001162]/95 backdrop-blur-md text-[#FEC401] text-[9.5px] sm:text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 shadow-md">
                 Heritage &amp; Blue Flag Coast • Char Dham
               </div>
 
               <div className="absolute bottom-3 sm:bottom-4 left-4 sm:left-6 right-4 sm:right-6 text-white">
-                <span className="text-[9.5px] sm:text-[10px] uppercase font-bold tracking-widest text-[#D9A52B] block drop-shadow-sm">
+                <span className="text-[9.5px] sm:text-[10px] uppercase font-bold tracking-widest text-[#FEC401] block drop-shadow-sm">
                   {puri.odishaTitle}
                 </span>
                 <h3 className="text-xl sm:text-3xl font-bold font-display mt-0.5 drop-shadow-md">
@@ -72,7 +72,7 @@ export const OdishaDestinationsSection: React.FC = () => {
               </p>
 
               <div className="space-y-2 pt-2 border-t border-[#E5ECE5]">
-                <span className="text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-[#073B3A] block">
+                <span className="text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-[#02146B] block">
                   Key Attractions in Circuit:
                 </span>
                 <div className="flex flex-wrap gap-2 text-[10.5px] sm:text-[11px] text-[#455353]">
@@ -85,15 +85,15 @@ export const OdishaDestinationsSection: React.FC = () => {
               </div>
 
               <div className="pt-3.5 sm:pt-4 border-t border-[#E5ECE5] flex items-center justify-between">
-                <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-[#073B3A] font-bold bg-[#FAF9F5] px-3 py-1 rounded-lg border border-[#D6E0D6] shadow-xs">
-                  <Clock className="w-3.5 h-3.5 text-[#D9A52B]" />
+                <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-[#02146B] font-bold bg-[#FAF9F5] px-3 py-1 rounded-lg border border-[#D6E0D6] shadow-xs">
+                  <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
                   <span>{puri.driveTime}</span>
                 </div>
                 <Link
                   href="/book-tour?destination=puri"
                   className="px-5 py-2.5 rounded-xl btn-skeuo-dark text-white text-xs font-bold inline-flex items-center gap-2"
                 >
-                  <Compass className="w-3.5 h-3.5 text-[#D9A52B]" />
+                  <Compass className="w-3.5 h-3.5 text-[#FEC401]" />
                   <span>Plan Puri Circuit</span>
                 </Link>
               </div>
@@ -111,16 +111,16 @@ export const OdishaDestinationsSection: React.FC = () => {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#021718]/90 via-[#021718]/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B]/90 via-[#000B3B]/30 to-transparent" />
                 
-                <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#062F31]/95 backdrop-blur-md text-[#D9A52B] text-[8.5px] sm:text-[9px] font-bold px-2.5 py-1 rounded-full border border-white/20 shadow-md">
+                <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#001162]/95 backdrop-blur-md text-[#FEC401] text-[8.5px] sm:text-[9px] font-bold px-2.5 py-1 rounded-full border border-white/20 shadow-md">
                   {konark.tag}
                 </div>
 
                 <div className="absolute bottom-2.5 sm:bottom-3 left-3 sm:left-4 right-3 sm:right-4 text-white">
                   <h4 className="text-base sm:text-lg font-bold font-display drop-shadow-sm">{konark.name}</h4>
-                  <div className="text-[10px] text-[#E0ECEA]/90 flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-[#D9A52B]" />
+                  <div className="text-[10px] text-[#F1F5F9]/90 flex items-center gap-1">
+                    <Clock className="w-3 h-3 text-[#FEC401]" />
                     <span>{konark.driveTime}</span>
                   </div>
                 </div>
@@ -131,13 +131,13 @@ export const OdishaDestinationsSection: React.FC = () => {
                   {konark.overview}
                 </p>
                 <div className="pt-2.5 border-t border-[#E5ECE5] flex items-center justify-between">
-                  <span className="text-[10px] sm:text-[11px] font-bold text-[#073B3A]">Marine Drive Route</span>
+                  <span className="text-[10px] sm:text-[11px] font-bold text-[#02146B]">Marine Drive Route</span>
                   <Link
                     href="/book-tour?destination=konark"
-                    className="px-3 py-1.5 rounded-xl bg-gradient-to-b from-white to-[#EEF3EE] hover:bg-[#073B3A] text-[#073B3A] hover:text-white border border-[#CBD7CB] hover:border-transparent text-xs font-bold inline-flex items-center gap-1 transition shadow-xs"
+                    className="px-3 py-1.5 rounded-xl bg-gradient-to-b from-white to-[#EEF3EE] hover:bg-[#02146B] text-[#02146B] hover:text-white border border-[#CBD7CB] hover:border-transparent text-xs font-bold inline-flex items-center gap-1 transition shadow-xs"
                   >
                     <span>Circuit Details</span>
-                    <ArrowRight className="w-3 h-3 text-[#D9A52B]" />
+                    <ArrowRight className="w-3 h-3 text-[#FEC401]" />
                   </Link>
                 </div>
               </div>
@@ -152,16 +152,16 @@ export const OdishaDestinationsSection: React.FC = () => {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#021718]/90 via-[#021718]/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B]/90 via-[#000B3B]/30 to-transparent" />
                 
-                <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#062F31]/95 backdrop-blur-md text-[#D9A52B] text-[8.5px] sm:text-[9px] font-bold px-2.5 py-1 rounded-full border border-white/20 shadow-md">
+                <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#001162]/95 backdrop-blur-md text-[#FEC401] text-[8.5px] sm:text-[9px] font-bold px-2.5 py-1 rounded-full border border-white/20 shadow-md">
                   {chilika.tag}
                 </div>
 
                 <div className="absolute bottom-2.5 sm:bottom-3 left-3 sm:left-4 right-3 sm:right-4 text-white">
                   <h4 className="text-base sm:text-lg font-bold font-display drop-shadow-sm">{chilika.name}</h4>
-                  <div className="text-[10px] text-[#E0ECEA]/90 flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-[#D9A52B]" />
+                  <div className="text-[10px] text-[#F1F5F9]/90 flex items-center gap-1">
+                    <Clock className="w-3 h-3 text-[#FEC401]" />
                     <span>{chilika.driveTime}</span>
                   </div>
                 </div>
@@ -172,13 +172,13 @@ export const OdishaDestinationsSection: React.FC = () => {
                   {chilika.overview}
                 </p>
                 <div className="pt-2.5 border-t border-[#E5ECE5] flex items-center justify-between">
-                  <span className="text-[10px] sm:text-[11px] font-bold text-[#073B3A]">Dolphin Safaris &amp; Kalijai</span>
+                  <span className="text-[10px] sm:text-[11px] font-bold text-[#02146B]">Dolphin Safaris &amp; Kalijai</span>
                   <Link
                     href="/book-tour?destination=chilika"
-                    className="px-3 py-1.5 rounded-xl bg-gradient-to-b from-white to-[#EEF3EE] hover:bg-[#073B3A] text-[#073B3A] hover:text-white border border-[#CBD7CB] hover:border-transparent text-xs font-bold inline-flex items-center gap-1 transition shadow-xs"
+                    className="px-3 py-1.5 rounded-xl bg-gradient-to-b from-white to-[#EEF3EE] hover:bg-[#02146B] text-[#02146B] hover:text-white border border-[#CBD7CB] hover:border-transparent text-xs font-bold inline-flex items-center gap-1 transition shadow-xs"
                   >
                     <span>Circuit Details</span>
-                    <ArrowRight className="w-3 h-3 text-[#D9A52B]" />
+                    <ArrowRight className="w-3 h-3 text-[#FEC401]" />
                   </Link>
                 </div>
               </div>
@@ -202,22 +202,22 @@ export const OdishaDestinationsSection: React.FC = () => {
                 />
               </div>
               <div className="flex-1 min-w-0">
-                <span className="text-[8.5px] sm:text-[9px] font-extrabold uppercase tracking-wider text-[#D9A52B] block">
+                <span className="text-[8.5px] sm:text-[9px] font-extrabold uppercase tracking-wider text-[#FEC401] block">
                   {dest.tag}
                 </span>
-                <h4 className="text-xs sm:text-sm font-bold text-[#182A2B] truncate group-hover:text-[#073B3A] transition-colors font-display">
+                <h4 className="text-xs sm:text-sm font-bold text-[#0F172A] truncate group-hover:text-[#02146B] transition-colors font-display">
                   {dest.name}
                 </h4>
                 <div className="text-[10px] text-[#556464] flex items-center gap-1 mt-0.5">
-                  <Clock className="w-3 h-3 text-[#073B3A]" />
+                  <Clock className="w-3 h-3 text-[#02146B]" />
                   <span>{dest.driveTime}</span>
                 </div>
                 <Link
                   href={`/book-tour?destination=${dest.id}`}
-                  className="text-[10.5px] sm:text-[11px] font-bold text-[#073B3A] hover:underline inline-flex items-center gap-0.5 mt-1"
+                  className="text-[10.5px] sm:text-[11px] font-bold text-[#02146B] hover:underline inline-flex items-center gap-0.5 mt-1"
                 >
                   <span>Explore Itinerary</span>
-                  <ArrowRight className="w-2.5 h-2.5 text-[#D9A52B]" />
+                  <ArrowRight className="w-2.5 h-2.5 text-[#FEC401]" />
                 </Link>
               </div>
             </div>

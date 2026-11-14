@@ -142,7 +142,7 @@ function TourBookingContent() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-[#FAF9F5] text-[#182A2B] overflow-hidden pb-16 sm:pb-20">
+    <div className="relative min-h-screen bg-[#FAF9F5] text-[#0F172A] overflow-hidden pb-16 sm:pb-20">
       {/* Luminous Scenic Heritage Travel Backdrop - High Clarity Without Murky Shadows */}
       <div className="absolute top-0 inset-x-0 h-[640px] sm:h-[720px] z-0 overflow-hidden pointer-events-none">
         <Image
@@ -167,8 +167,8 @@ function TourBookingContent() {
         {/* Clean, Non-Text-Heavy Hero Header - Zero Navbar Overlap */}
         {currentStep < 4 && (
           <div className="text-center max-w-2xl mx-auto mb-5 text-white">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/45 backdrop-blur-md border border-[#D9A52B]/40 text-xs font-semibold text-[#D9A52B] mb-2 shadow-sm">
-              <Palmtree className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/45 backdrop-blur-md border border-[#FEC401]/40 text-xs font-semibold text-[#FEC401] mb-2 shadow-sm">
+              <Palmtree className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Curated Circuits • Dedicated Commercial Driver</span>
             </div>
             <h1 className="text-xl sm:text-3xl font-extrabold font-display tracking-tight text-white drop-shadow-md">
@@ -195,16 +195,16 @@ function TourBookingContent() {
                     disabled={!isPassed && !isCurrent}
                     className={`p-2.5 sm:p-3 rounded-2xl border text-left transition-all duration-200 flex items-center gap-2.5 select-none ${
                       isCurrent
-                        ? "bg-gradient-to-r from-[#0C4E4B] to-[#041F20] text-white border-2 border-[#D9A52B] shadow-md ring-2 ring-[#D9A52B]/30"
+                        ? "bg-gradient-to-r from-[#0A2B8C] to-[#000B3B] text-white border-2 border-[#FEC401] shadow-md ring-2 ring-[#FEC401]/30"
                         : isPassed
-                        ? "bg-[#073B3A]/90 text-white border border-[#10B981] shadow-xs cursor-pointer hover:brightness-110"
-                        : "bg-[#062F31]/60 backdrop-blur-md border border-white/15 text-white/70 shadow-xs"
+                        ? "bg-[#02146B]/90 text-white border border-[#10B981] shadow-xs cursor-pointer hover:brightness-110"
+                        : "bg-[#001162]/60 backdrop-blur-md border border-white/15 text-white/70 shadow-xs"
                     }`}
                   >
                     <div
                       className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center font-bold text-xs shrink-0 transition-all ${
                         isCurrent
-                          ? "bg-[#D9A52B] text-[#062F31] font-black shadow-xs"
+                          ? "bg-[#FEC401] text-[#001162] font-black shadow-xs"
                           : isPassed
                           ? "bg-[#10B981] text-white"
                           : "bg-white/15 text-white/90 border border-white/20 font-bold"
@@ -228,7 +228,7 @@ function TourBookingContent() {
                       </div>
                       <p
                         className={`text-[10px] sm:text-xs truncate leading-tight mt-0.5 ${
-                          isCurrent ? "text-[#D9A52B] font-semibold" : isPassed ? "text-[#A7F3D0]" : "text-white/50"
+                          isCurrent ? "text-[#FEC401] font-semibold" : isPassed ? "text-[#A7F3D0]" : "text-white/50"
                         }`}
                       >
                         {s.subtitle}
@@ -250,15 +250,15 @@ function TourBookingContent() {
                 {/* Header */}
                 <div className="border-b border-[#E5ECE5] pb-4 flex items-center justify-between gap-3">
                   <div>
-                    <h2 className="text-lg sm:text-xl font-bold font-display text-[#182A2B]">
+                    <h2 className="text-lg sm:text-xl font-bold font-display text-[#0F172A]">
                       Select Preferred Circuit
                     </h2>
                     <p className="text-xs text-[#667575] mt-0.5">
                       Handcrafted cultural, coastal, and wildlife journeys with dedicated standby drivers.
                     </p>
                   </div>
-                  <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#073B3A] font-semibold bg-[#E0ECEA] px-3 py-1 rounded-full border border-[#C1DAD7]">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
+                  <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#02146B] font-semibold bg-[#F1F5F9] px-3 py-1 rounded-full border border-[#C1DAD7]">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
                     <span>Dedicated Standby Driver</span>
                   </span>
                 </div>
@@ -273,8 +273,8 @@ function TourBookingContent() {
                         onClick={() => setSelectedTourSlug(t.slug)}
                         className={`rounded-2xl overflow-hidden cursor-pointer transition-all duration-200 flex flex-col justify-between group select-none ${
                           isSelected
-                            ? "card-skeuo border-2 border-[#D9A52B] ring-2 ring-[#073B3A]/30 shadow-lg scale-[1.01]"
-                            : "card-skeuo hover:border-[#073B3A]/40"
+                            ? "card-skeuo border-2 border-[#FEC401] ring-2 ring-[#02146B]/30 shadow-lg scale-[1.01]"
+                            : "card-skeuo hover:border-[#02146B]/40"
                         }`}
                       >
                         <div>
@@ -288,13 +288,13 @@ function TourBookingContent() {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent pointer-events-none" />
 
-                            <div className="absolute top-2.5 left-2.5 bg-[#062F31]/90 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-0.5 rounded-md border border-white/15">
+                            <div className="absolute top-2.5 left-2.5 bg-[#001162]/90 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-0.5 rounded-md border border-white/15">
                               {t.duration}
                             </div>
 
                             <div className="absolute bottom-2 left-3 right-3 text-white">
                               <h3 className="text-sm font-bold font-display leading-tight">{t.title}</h3>
-                              <p className="text-[11px] text-[#D9A52B] font-semibold truncate">{t.destinations.join(" • ")}</p>
+                              <p className="text-[11px] text-[#FEC401] font-semibold truncate">{t.destinations.join(" • ")}</p>
                             </div>
                           </div>
 
@@ -317,14 +317,14 @@ function TourBookingContent() {
 
                         {/* Card Footer */}
                         <div className="p-3.5 pt-0 border-t border-[#EEF2EE] flex items-center justify-between mt-2">
-                          <span className="text-xs font-bold text-[#073B3A]">
+                          <span className="text-xs font-bold text-[#02146B]">
                             AC Cab Included
                           </span>
                           <div
                             className={`px-3 py-1 rounded-xl text-xs font-bold transition-all ${
                               isSelected
-                                ? "bg-[#073B3A] text-[#D9A52B] shadow-xs"
-                                : "border border-[#D5DDD5] text-[#667575] group-hover:border-[#073B3A]"
+                                ? "bg-[#02146B] text-[#FEC401] shadow-xs"
+                                : "border border-[#D5DDD5] text-[#667575] group-hover:border-[#02146B]"
                             }`}
                           >
                             {isSelected ? "Selected ✓" : "Select"}
@@ -336,18 +336,18 @@ function TourBookingContent() {
                 </div>
 
                 {/* Interactive Circuit Timeline Strip */}
-                <div className="p-4 rounded-2xl bg-gradient-to-br from-[#062F31] to-[#041F20] text-white border border-[#D9A52B]/30 shadow-sm space-y-3">
+                <div className="p-4 rounded-2xl bg-gradient-to-br from-[#001162] to-[#000B3B] text-white border border-[#FEC401]/30 shadow-sm space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-white/15">
                     <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#D9A52B]">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#FEC401]">
                         Active Circuit:
                       </span>
                       <strong className="text-sm font-bold font-display text-white ml-2">
                         {currentTour.title} ({currentTour.duration})
                       </strong>
                     </div>
-                    <div className="text-xs text-[#E0ECEA]/90 font-medium">
-                      Starting Hub: <strong className="text-[#D9A52B]">{currentTour.startingCity}</strong>
+                    <div className="text-xs text-[#F1F5F9]/90 font-medium">
+                      Starting Hub: <strong className="text-[#FEC401]">{currentTour.startingCity}</strong>
                     </div>
                   </div>
 
@@ -360,7 +360,7 @@ function TourBookingContent() {
                         onClick={() => setActiveDayIndex(idx)}
                         className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer ${
                           activeDayIndex === idx
-                            ? "bg-[#D9A52B] text-[#062F31] font-black scale-102"
+                            ? "bg-[#FEC401] text-[#001162] font-black scale-102"
                             : "bg-white/10 hover:bg-white/15 text-white border border-white/15"
                         }`}
                       >
@@ -371,7 +371,7 @@ function TourBookingContent() {
 
                   {currentTour.itinerary[activeDayIndex] && (
                     <div className="p-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 text-xs text-white/90">
-                      <span className="text-[#D9A52B] font-bold mr-2">
+                      <span className="text-[#FEC401] font-bold mr-2">
                         {currentTour.itinerary[activeDayIndex].day}: {currentTour.itinerary[activeDayIndex].title}
                       </span>
                       <span className="text-white/80">
@@ -385,16 +385,16 @@ function TourBookingContent() {
               {/* Step 1 Actions */}
               <div className="pt-4 border-t border-[#EEF2EE] flex items-center justify-between">
                 <span className="text-xs text-[#667575] flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-[#D9A52B]" />
+                  <ShieldCheck className="w-4 h-4 text-[#FEC401]" />
                   <span>Customizable itinerary halts upon request.</span>
                 </span>
                 <button
                   type="button"
                   onClick={handleStep1Next}
-                  className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#D9A52B] via-[#E6B543] to-[#C99320] text-[#062F31] font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
+                  className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#FEC401] via-[#FEC401] to-[#E5AD00] text-[#001162] font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
                 >
                   <span>Continue to Dates &amp; Vehicle</span>
-                  <ArrowRight className="w-4 h-4 text-[#062F31]" />
+                  <ArrowRight className="w-4 h-4 text-[#001162]" />
                 </button>
               </div>
             </div>
@@ -410,15 +410,15 @@ function TourBookingContent() {
                 {/* Header */}
                 <div className="border-b border-[#E5ECE5] pb-4 flex items-center justify-between gap-3">
                   <div>
-                    <h2 className="text-lg sm:text-xl font-bold font-display text-[#182A2B]">
+                    <h2 className="text-lg sm:text-xl font-bold font-display text-[#0F172A]">
                       Configure Your Tour Journey
                     </h2>
                     <p className="text-xs text-[#667575] mt-0.5">
                       Set your starting date, group size, and preferred vehicle class.
                     </p>
                   </div>
-                  <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#073B3A] font-semibold bg-[#E0ECEA] px-3 py-1 rounded-full border border-[#C1DAD7]">
-                    <Clock className="w-3.5 h-3.5 text-[#D9A52B]" />
+                  <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#02146B] font-semibold bg-[#F1F5F9] px-3 py-1 rounded-full border border-[#C1DAD7]">
+                    <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
                     <span>Selected: {currentTour.title}</span>
                   </span>
                 </div>
@@ -426,28 +426,28 @@ function TourBookingContent() {
                 {/* Travel Date & Group Size - 3-Column Ergonomic Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-[#073B3A]" />
+                    <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5 text-[#02146B]" />
                       <span>Start Date *</span>
                     </label>
                     <input
                       type="date"
                       value={travelDate}
                       onChange={(e) => setTravelDate(e.target.value)}
-                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
+                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition cursor-pointer shadow-xs"
                       required
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                      <Users className="w-3.5 h-3.5 text-[#073B3A]" />
+                    <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                      <Users className="w-3.5 h-3.5 text-[#02146B]" />
                       <span>Travelers *</span>
                     </label>
                     <select
                       value={travelersCount}
                       onChange={(e) => setTravelersCount(Number(e.target.value))}
-                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
+                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition cursor-pointer shadow-xs"
                     >
                       {[1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 16].map((num) => (
                         <option key={num} value={num}>
@@ -458,14 +458,14 @@ function TourBookingContent() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-[#073B3A]" />
+                    <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-[#02146B]" />
                       <span>Pickup Hub in Odisha *</span>
                     </label>
                     <select
                       value={pickupCity}
                       onChange={(e) => setPickupCity(e.target.value)}
-                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition cursor-pointer shadow-xs"
+                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition cursor-pointer shadow-xs"
                     >
                       <option value="Bhubaneswar Airport (BBI)">Bhubaneswar Airport (BBI)</option>
                       <option value="Bhubaneswar Railway Station">Bhubaneswar Railway Station</option>
@@ -477,7 +477,7 @@ function TourBookingContent() {
 
                 {/* Vehicle Selection Cards */}
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-[#182A2B] uppercase tracking-wider block">
+                  <label className="text-xs font-bold text-[#0F172A] uppercase tracking-wider block">
                     Select Vehicle Class:
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -522,36 +522,36 @@ function TourBookingContent() {
                           onClick={() => setSelectedVehicleType(veh.id as any)}
                           className={`p-4 rounded-2xl border cursor-pointer transition-all flex flex-col justify-between group select-none min-h-[160px] ${
                             isSelected
-                              ? "border-2 border-[#D9A52B] bg-[#073B3A] text-white shadow-md scale-[1.01]"
-                              : "border-[#D5DDD5] bg-[#FAF9F5] hover:bg-white text-[#182A2B]"
+                              ? "border-2 border-[#FEC401] bg-[#02146B] text-white shadow-md scale-[1.01]"
+                              : "border-[#D5DDD5] bg-[#FAF9F5] hover:bg-white text-[#0F172A]"
                           }`}
                         >
                           <div>
                             <div
                               className={`w-8 h-8 rounded-xl flex items-center justify-center mb-2 ${
-                                isSelected ? "bg-white/15 text-[#D9A52B]" : "bg-white text-[#073B3A] shadow-xs"
+                                isSelected ? "bg-white/15 text-[#FEC401]" : "bg-white text-[#02146B] shadow-xs"
                               }`}
                             >
                               <Car className="w-4 h-4" />
                             </div>
                             <h4 className="text-sm font-bold font-display">{veh.name}</h4>
-                            <p className={`text-xs mt-0.5 ${isSelected ? "text-[#E0ECEA]/80" : "text-[#667575]"}`}>
+                            <p className={`text-xs mt-0.5 ${isSelected ? "text-[#F1F5F9]/80" : "text-[#667575]"}`}>
                               {veh.models}
                             </p>
                             <div className={`mt-3 pt-2 border-t text-xs space-y-1 ${isSelected ? "border-white/15 text-white/90" : "border-[#E5EAE5] text-[#455353]"}`}>
                               <div className="flex items-center gap-1.5">
-                                <Users className="w-3.5 h-3.5 text-[#D9A52B]" />
+                                <Users className="w-3.5 h-3.5 text-[#FEC401]" />
                                 <span>{veh.capacity}</span>
                               </div>
                               <div className="flex items-center gap-1.5">
-                                <Briefcase className="w-3.5 h-3.5 text-[#D9A52B]" />
+                                <Briefcase className="w-3.5 h-3.5 text-[#FEC401]" />
                                 <span>{veh.luggage}</span>
                               </div>
                             </div>
                           </div>
 
                           <div className="mt-3 pt-2 border-t border-black/5 flex items-center justify-end">
-                            <span className={`text-[10px] font-bold uppercase ${isSelected ? "text-[#D9A52B]" : "text-transparent"}`}>
+                            <span className={`text-[10px] font-bold uppercase ${isSelected ? "text-[#FEC401]" : "text-transparent"}`}>
                               Selected ✓
                             </span>
                           </div>
@@ -567,7 +567,7 @@ function TourBookingContent() {
                 <button
                   type="button"
                   onClick={() => setCurrentStep(1)}
-                  className="px-5 py-2.5 rounded-xl border border-[#D5DDD5] text-[#182A2B] font-bold text-xs inline-flex items-center gap-1.5 hover:bg-[#FAF9F5] transition cursor-pointer"
+                  className="px-5 py-2.5 rounded-xl border border-[#D5DDD5] text-[#0F172A] font-bold text-xs inline-flex items-center gap-1.5 hover:bg-[#FAF9F5] transition cursor-pointer"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Back</span>
@@ -575,10 +575,10 @@ function TourBookingContent() {
 
                 <button
                   type="submit"
-                  className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#D9A52B] via-[#E6B543] to-[#C99320] text-[#062F31] font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
+                  className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#FEC401] via-[#FEC401] to-[#E5AD00] text-[#001162] font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
                 >
                   <span>Continue to Passenger Details</span>
-                  <ArrowRight className="w-4 h-4 text-[#062F31]" />
+                  <ArrowRight className="w-4 h-4 text-[#001162]" />
                 </button>
               </div>
             </form>
@@ -594,14 +594,14 @@ function TourBookingContent() {
                 {/* Header */}
                 <div className="border-b border-[#E5ECE5] pb-4 flex items-center justify-between gap-3">
                   <div>
-                    <h2 className="text-lg sm:text-xl font-bold font-display text-[#182A2B]">
+                    <h2 className="text-lg sm:text-xl font-bold font-display text-[#0F172A]">
                       Lead Traveler Details
                     </h2>
                     <p className="text-xs text-[#667575] mt-0.5">
                       Your personalized itinerary quote and dedicated driver details will be sent here.
                     </p>
                   </div>
-                  <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#073B3A] font-semibold bg-[#E0ECEA] px-3 py-1 rounded-full border border-[#C1DAD7]">
+                  <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-[#02146B] font-semibold bg-[#F1F5F9] px-3 py-1 rounded-full border border-[#C1DAD7]">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
                     <span>Quote Dispatched on WhatsApp</span>
                   </span>
@@ -609,8 +609,8 @@ function TourBookingContent() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                      <User className="w-3.5 h-3.5 text-[#073B3A]" />
+                    <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                      <User className="w-3.5 h-3.5 text-[#02146B]" />
                       <span>Lead Traveler Full Name *</span>
                     </label>
                     <input
@@ -618,7 +618,7 @@ function TourBookingContent() {
                       value={primaryName}
                       onChange={(e) => setPrimaryName(e.target.value)}
                       placeholder="e.g. Sanjeev Kumar Patnaik"
-                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
+                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
                       required
                     />
                     {formErrors.name && (
@@ -627,12 +627,12 @@ function TourBookingContent() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                      <Phone className="w-3.5 h-3.5 text-[#073B3A]" />
+                    <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                      <Phone className="w-3.5 h-3.5 text-[#02146B]" />
                       <span>WhatsApp Phone *</span>
                     </label>
                     <div className="flex gap-2">
-                      <span className="h-12 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#EEF2EE] text-sm font-bold text-[#073B3A] flex items-center shrink-0">
+                      <span className="h-12 px-3.5 rounded-xl border border-[#D5DDD5] bg-[#EEF2EE] text-sm font-bold text-[#02146B] flex items-center shrink-0">
                         +91
                       </span>
                       <input
@@ -641,7 +641,7 @@ function TourBookingContent() {
                         onChange={(e) => setPrimaryPhone(e.target.value)}
                         placeholder="9876543210"
                         maxLength={10}
-                        className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
+                        className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
                         required
                       />
                     </div>
@@ -651,8 +651,8 @@ function TourBookingContent() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                      <Mail className="w-3.5 h-3.5 text-[#073B3A]" />
+                    <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                      <Mail className="w-3.5 h-3.5 text-[#02146B]" />
                       <span>Email Address *</span>
                     </label>
                     <input
@@ -660,7 +660,7 @@ function TourBookingContent() {
                       value={primaryEmail}
                       onChange={(e) => setPrimaryEmail(e.target.value)}
                       placeholder="sanjeev@example.com"
-                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
+                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
                       required
                     />
                     {formErrors.email && (
@@ -669,8 +669,8 @@ function TourBookingContent() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-[#182A2B] flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-[#073B3A]" />
+                    <label className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-[#02146B]" />
                       <span>Specific Pickup Address / Hotel (Optional)</span>
                     </label>
                     <input
@@ -678,12 +678,12 @@ function TourBookingContent() {
                       value={pickupLocation}
                       onChange={(e) => setPickupLocation(e.target.value)}
                       placeholder="e.g. Mayfair Lagoon, BBI Terminal 1"
-                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
+                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
                     />
                   </div>
 
                   <div className="md:col-span-2 space-y-1.5">
-                    <label className="text-xs font-bold text-[#182A2B]">
+                    <label className="text-xs font-bold text-[#0F172A]">
                       Special Requests / Senior Citizen Assistance (Optional)
                     </label>
                     <input
@@ -691,7 +691,7 @@ function TourBookingContent() {
                       value={customRequests}
                       onChange={(e) => setCustomRequests(e.target.value)}
                       placeholder="e.g. Traveling with elderly parents, wheelchair assistance, Pipili craft bazaar halt"
-                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#182A2B] focus:ring-2 focus:ring-[#D9A52B]/60 focus:border-[#073B3A] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
+                      className="w-full h-12 px-4 rounded-xl border border-[#D5DDD5] bg-[#FAF9F5] text-sm font-semibold text-[#0F172A] focus:ring-2 focus:ring-[#FEC401]/60 focus:border-[#02146B] focus:outline-none transition shadow-xs placeholder:text-[#9EA8A8]"
                     />
                   </div>
                 </div>
@@ -714,7 +714,7 @@ function TourBookingContent() {
                 <button
                   type="button"
                   onClick={() => setCurrentStep(2)}
-                  className="px-5 py-2.5 rounded-xl border border-[#D5DDD5] text-[#182A2B] font-bold text-xs inline-flex items-center gap-1.5 hover:bg-[#FAF9F5] transition cursor-pointer"
+                  className="px-5 py-2.5 rounded-xl border border-[#D5DDD5] text-[#0F172A] font-bold text-xs inline-flex items-center gap-1.5 hover:bg-[#FAF9F5] transition cursor-pointer"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Back</span>
@@ -722,10 +722,10 @@ function TourBookingContent() {
 
                 <button
                   type="submit"
-                  className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#D9A52B] via-[#E6B543] to-[#C99320] text-[#062F31] font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
+                  className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#FEC401] via-[#FEC401] to-[#E5AD00] text-[#001162] font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
                 >
                   <span>Request Custom Tour Quote</span>
-                  <ArrowRight className="w-4 h-4 text-[#062F31]" />
+                  <ArrowRight className="w-4 h-4 text-[#001162]" />
                 </button>
               </div>
             </form>
@@ -739,7 +739,7 @@ function TourBookingContent() {
 
               {/* Clean Compact Title */}
               <div className="space-y-0.5">
-                <h2 className="text-xl sm:text-2xl font-bold font-display text-[#182A2B] tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold font-display text-[#0F172A] tracking-tight">
                   Thank You, {primaryName || "Esteemed Traveler"}!
                 </h2>
                 <p className="text-xs text-[#556464]">
@@ -750,10 +750,10 @@ function TourBookingContent() {
               {/* Compact Digital Tour Boarding Pass */}
               <div className="rounded-2xl border border-[#D5DDD5] bg-[#FAF9F5] shadow-xs overflow-hidden text-left text-xs">
                 {/* Pass Header */}
-                <div className="bg-[#073B3A] text-white px-3.5 py-2 flex items-center justify-between border-b border-[#D9A52B]/30">
+                <div className="bg-[#02146B] text-white px-3.5 py-2 flex items-center justify-between border-b border-[#FEC401]/30">
                   <div className="flex items-center gap-2">
                     <BrandLogo size="sm" variant="light" showTagline={false} />
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#D9A52B]">
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#FEC401]">
                       Tour Voucher
                     </span>
                   </div>
@@ -765,7 +765,7 @@ function TourBookingContent() {
                     <button
                       type="button"
                       onClick={handleCopyRef}
-                      className="p-1 rounded text-[#D9A52B] hover:text-white transition cursor-pointer"
+                      className="p-1 rounded text-[#FEC401] hover:text-white transition cursor-pointer"
                       title="Copy Reference"
                     >
                       {copiedRef ? <Check className="w-3.5 h-3.5 text-[#10B981]" /> : <Copy className="w-3.5 h-3.5" />}
@@ -778,19 +778,19 @@ function TourBookingContent() {
                   <div className="space-y-1">
                     <div>
                       <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Circuit:</span>
-                      <strong className="text-xs font-bold text-[#182A2B] block truncate">
+                      <strong className="text-xs font-bold text-[#0F172A] block truncate">
                         {currentTour.title}
                       </strong>
                     </div>
                     <div>
                       <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Duration & Hub:</span>
-                      <span className="text-xs font-semibold text-[#073B3A] block truncate">
+                      <span className="text-xs font-semibold text-[#02146B] block truncate">
                         {currentTour.duration} • from {pickupCity}
                       </span>
                     </div>
                     <div>
                       <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Start Date:</span>
-                      <span className="text-xs font-semibold text-[#182A2B] block truncate">
+                      <span className="text-xs font-semibold text-[#0F172A] block truncate">
                         {travelDate} ({travelersCount} Guests)
                       </span>
                     </div>
@@ -799,7 +799,7 @@ function TourBookingContent() {
                   <div className="pl-3 space-y-1">
                     <div>
                       <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Vehicle Class:</span>
-                      <strong className="text-xs font-bold text-[#182A2B] block truncate capitalize">
+                      <strong className="text-xs font-bold text-[#0F172A] block truncate capitalize">
                         {selectedVehicleType === "sedan"
                           ? "Sedan (Dzire / Etios / Amaze)"
                           : selectedVehicleType === "suv"
@@ -809,9 +809,9 @@ function TourBookingContent() {
                           : "Mini bus (Force Urbania)"}
                       </strong>
                     </div>
-                    <div className="bg-[#E0ECEA]/70 p-1.5 rounded-lg border border-[#C1DAD7]">
-                      <span className="text-[9px] font-bold text-[#073B3A] uppercase block">Standby Driver:</span>
-                      <strong className="text-xs font-extrabold text-[#073B3A] block">
+                    <div className="bg-[#F1F5F9]/70 p-1.5 rounded-lg border border-[#C1DAD7]">
+                      <span className="text-[9px] font-bold text-[#02146B] uppercase block">Standby Driver:</span>
+                      <strong className="text-xs font-extrabold text-[#02146B] block">
                         Commercial Permit Included
                       </strong>
                     </div>
@@ -826,7 +826,7 @@ function TourBookingContent() {
               <div className="pt-1 flex items-center justify-center gap-2">
                 <Link
                   href="/"
-                  className="px-4 py-2 rounded-xl bg-[#FAF9F5] hover:bg-[#EEF2EE] border border-[#D5DDD5] text-[#182A2B] font-bold text-xs transition cursor-pointer"
+                  className="px-4 py-2 rounded-xl bg-[#FAF9F5] hover:bg-[#EEF2EE] border border-[#D5DDD5] text-[#0F172A] font-bold text-xs transition cursor-pointer"
                 >
                   Home
                 </Link>
@@ -834,7 +834,7 @@ function TourBookingContent() {
                 <button
                   type="button"
                   onClick={() => typeof window !== "undefined" && window.print()}
-                  className="px-3 py-2 rounded-xl bg-white hover:bg-[#FAF9F5] border border-[#D5DDD5] text-[#073B3A] font-bold text-xs inline-flex items-center gap-1 transition cursor-pointer shadow-xs"
+                  className="px-3 py-2 rounded-xl bg-white hover:bg-[#FAF9F5] border border-[#D5DDD5] text-[#02146B] font-bold text-xs inline-flex items-center gap-1 transition cursor-pointer shadow-xs"
                   title="Print Voucher"
                 >
                   <Printer className="w-3.5 h-3.5" />
@@ -847,9 +847,9 @@ function TourBookingContent() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 sm:px-5 py-2 rounded-xl bg-[#073B3A] hover:bg-[#062F31] text-white font-bold text-xs inline-flex items-center gap-2 transition shadow-skeuo-button cursor-pointer"
+                  className="px-4 sm:px-5 py-2 rounded-xl bg-[#02146B] hover:bg-[#001162] text-white font-bold text-xs inline-flex items-center gap-2 transition shadow-skeuo-button cursor-pointer"
                 >
-                  <MessageSquare className="w-4 h-4 text-[#D9A52B]" />
+                  <MessageSquare className="w-4 h-4 text-[#FEC401]" />
                   <span>WhatsApp Tour Desk</span>
                 </a>
               </div>
@@ -867,8 +867,8 @@ export default function BookTourPage() {
       fallback={
         <div className="min-h-screen flex items-center justify-center bg-[#FAF9F5]">
           <div className="text-center space-y-3">
-            <div className="w-9 h-9 border-4 border-[#073B3A] border-t-transparent rounded-full animate-spin mx-auto" />
-            <p className="text-xs font-bold text-[#073B3A]">Loading Tour Experience...</p>
+            <div className="w-9 h-9 border-4 border-[#02146B] border-t-transparent rounded-full animate-spin mx-auto" />
+            <p className="text-xs font-bold text-[#02146B]">Loading Tour Experience...</p>
           </div>
         </div>
       }

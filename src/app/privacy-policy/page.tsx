@@ -16,11 +16,11 @@ export default function PrivacyPolicyPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8 text-center">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0ECEA]/70 text-[10px] font-bold text-[#073B3A] uppercase tracking-wider mb-2">
-            <Lock className="w-3.5 h-3.5 text-[#D9A52B]" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F1F5F9]/70 text-[10px] font-bold text-[#02146B] uppercase tracking-wider mb-2">
+            <Lock className="w-3.5 h-3.5 text-[#FEC401]" />
             <span>Data Protection &amp; Governance</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold font-display text-[#182A2B] tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
             Privacy Policy
           </h1>
           <p className="text-xs text-[#667575] mt-1.5">
@@ -30,8 +30,8 @@ export default function PrivacyPolicyPage() {
 
         {/* Legal Entity Notice */}
         <div className="mb-6 p-4 rounded-2xl bg-white border border-[#E5EAE5] text-xs text-[#455353] space-y-1.5 shadow-2xs">
-          <div className="flex items-center gap-2 font-bold text-[#182A2B]">
-            <AlertCircle className="w-4 h-4 text-[#D9A52B]" />
+          <div className="flex items-center gap-2 font-bold text-[#0F172A]">
+            <AlertCircle className="w-4 h-4 text-[#FEC401]" />
             <span>Compliance &amp; Legal Entity Disclosure</span>
           </div>
           <p className="leading-relaxed">
@@ -46,8 +46,8 @@ export default function PrivacyPolicyPage() {
         <div className="bg-white rounded-2xl p-6 sm:p-8 border border-[#E5EAE5] shadow-soft space-y-6 text-xs sm:text-sm text-[#455353] leading-relaxed">
           {/* Section 1 */}
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#182A2B] flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-[#FAF9F5] border border-[#E5EAE5] text-[#073B3A] text-xs flex items-center justify-center font-bold">1</span>
+            <h2 className="text-base font-bold text-[#0F172A] flex items-center gap-2">
+              <span className="w-5 h-5 rounded-full bg-[#FAF9F5] border border-[#E5EAE5] text-[#02146B] text-xs flex items-center justify-center font-bold">1</span>
               <span>Information We Collect</span>
             </h2>
             <p>
@@ -63,8 +63,8 @@ export default function PrivacyPolicyPage() {
 
           {/* Section 2 */}
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#182A2B] flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-[#FAF9F5] border border-[#E5EAE5] text-[#073B3A] text-xs flex items-center justify-center font-bold">2</span>
+            <h2 className="text-base font-bold text-[#0F172A] flex items-center gap-2">
+              <span className="w-5 h-5 rounded-full bg-[#FAF9F5] border border-[#E5EAE5] text-[#02146B] text-xs flex items-center justify-center font-bold">2</span>
               <span>Why We Collect This Information</span>
             </h2>
             <p>
@@ -80,8 +80,8 @@ export default function PrivacyPolicyPage() {
 
           {/* Section 3 */}
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#182A2B] flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-[#FAF9F5] border border-[#E5EAE5] text-[#073B3A] text-xs flex items-center justify-center font-bold">3</span>
+            <h2 className="text-base font-bold text-[#0F172A] flex items-center gap-2">
+              <span className="w-5 h-5 rounded-full bg-[#FAF9F5] border border-[#E5EAE5] text-[#02146B] text-xs flex items-center justify-center font-bold">3</span>
               <span>WhatsApp &amp; Communication Practices</span>
             </h2>
             <p>
@@ -97,8 +97,8 @@ export default function PrivacyPolicyPage() {
 
           {/* Section 4 */}
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#182A2B] flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-[#FAF9F5] border border-[#E5EAE5] text-[#073B3A] text-xs flex items-center justify-center font-bold">4</span>
+            <h2 className="text-base font-bold text-[#0F172A] flex items-center gap-2">
+              <span className="w-5 h-5 rounded-full bg-[#FAF9F5] border border-[#E5EAE5] text-[#02146B] text-xs flex items-center justify-center font-bold">4</span>
               <span>Information Sharing With Service Partners</span>
             </h2>
             <p>
@@ -108,8 +108,8 @@ export default function PrivacyPolicyPage() {
 
           {/* Section 5 */}
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#182A2B] flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-[#FAF9F5] border border-[#E5EAE5] text-[#073B3A] text-xs flex items-center justify-center font-bold">5</span>
+            <h2 className="text-base font-bold text-[#0F172A] flex items-center gap-2">
+              <span className="w-5 h-5 rounded-full bg-[#FAF9F5] border border-[#E5EAE5] text-[#02146B] text-xs flex items-center justify-center font-bold">5</span>
               <span>Data Protection &amp; Retention</span>
             </h2>
             <p>
@@ -119,8 +119,8 @@ export default function PrivacyPolicyPage() {
 
           {/* Section 6 */}
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#182A2B] flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-[#FAF9F5] border border-[#E5EAE5] text-[#073B3A] text-xs flex items-center justify-center font-bold">6</span>
+            <h2 className="text-base font-bold text-[#0F172A] flex items-center gap-2">
+              <span className="w-5 h-5 rounded-full bg-[#FAF9F5] border border-[#E5EAE5] text-[#02146B] text-xs flex items-center justify-center font-bold">6</span>
               <span>Your Privacy Rights</span>
             </h2>
             <p>
@@ -130,15 +130,15 @@ export default function PrivacyPolicyPage() {
 
           {/* Section 7 */}
           <section className="space-y-2 pt-3 border-t border-[#F2F5F2]">
-            <h2 className="text-base font-bold text-[#182A2B] flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-[#FAF9F5] border border-[#E5EAE5] text-[#073B3A] text-xs flex items-center justify-center font-bold">7</span>
+            <h2 className="text-base font-bold text-[#0F172A] flex items-center gap-2">
+              <span className="w-5 h-5 rounded-full bg-[#FAF9F5] border border-[#E5EAE5] text-[#02146B] text-xs flex items-center justify-center font-bold">7</span>
               <span>Contact Us Regarding Privacy</span>
             </h2>
             <p>
               For any questions, requests, or grievances regarding this Privacy Policy or your personal information, please contact our Data Governance desk:
             </p>
-            <div className="p-3.5 rounded-xl bg-[#FAF9F5] border border-[#E5EAE5] space-y-0.5 text-xs text-[#182A2B]">
-              <div><strong>Email:</strong> <a href={`mailto:${COMPANY_CONFIG.contact.legalEmail}`} className="text-[#073B3A] hover:underline">{COMPANY_CONFIG.contact.legalEmail}</a></div>
+            <div className="p-3.5 rounded-xl bg-[#FAF9F5] border border-[#E5EAE5] space-y-0.5 text-xs text-[#0F172A]">
+              <div><strong>Email:</strong> <a href={`mailto:${COMPANY_CONFIG.contact.legalEmail}`} className="text-[#02146B] hover:underline">{COMPANY_CONFIG.contact.legalEmail}</a></div>
               <div><strong>Helpline:</strong> {COMPANY_CONFIG.contact.phoneDisplay}</div>
               <div><strong>Postal Address:</strong> {COMPANY_CONFIG.contact.registeredAddress}</div>
             </div>
@@ -149,7 +149,7 @@ export default function PrivacyPolicyPage() {
         <div className="mt-6 text-center">
           <Link
             href="/"
-            className="text-xs font-bold text-[#073B3A] hover:underline inline-flex items-center gap-1"
+            className="text-xs font-bold text-[#02146B] hover:underline inline-flex items-center gap-1"
           >
             ← Return to CabJatra Homepage
           </Link>

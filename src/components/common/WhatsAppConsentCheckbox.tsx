@@ -28,16 +28,16 @@ export const WhatsAppConsentCheckbox: React.FC<WhatsAppConsentProps> = ({
   error,
 }) => {
   return (
-    <div className="rounded-2xl border border-[#E5EAE5] bg-[#FAF9F5] p-4 sm:p-5 space-y-3 text-[#182A2B]">
+    <div className="rounded-2xl border border-[#E5EAE5] bg-[#FAF9F5] p-4 sm:p-5 space-y-3 text-[#0F172A]">
       <div className="flex items-start gap-3">
-        <div className="w-8 h-8 rounded-lg bg-[#073B3A] text-[#D9A52B] flex items-center justify-center shrink-0 mt-0.5">
+        <div className="w-8 h-8 rounded-lg bg-[#02146B] text-[#FEC401] flex items-center justify-center shrink-0 mt-0.5">
           <MessageSquare className="w-4 h-4" />
         </div>
         <div>
-          <div className="flex items-center gap-1.5 font-bold text-[#182A2B] text-xs">
+          <div className="flex items-center gap-1.5 font-bold text-[#0F172A] text-xs">
             <span>WhatsApp Trip Updates &amp; Confirmation</span>
-            <span className="inline-flex items-center text-[10px] font-semibold text-[#073B3A] bg-[#E0ECEA]/70 px-2 py-0.5 rounded-full">
-              <ShieldCheck className="w-3 h-3 mr-0.5 inline text-[#D9A52B]" /> Verified Partner
+            <span className="inline-flex items-center text-[10px] font-semibold text-[#02146B] bg-[#F1F5F9]/70 px-2 py-0.5 rounded-full">
+              <ShieldCheck className="w-3 h-3 mr-0.5 inline text-[#FEC401]" /> Verified Partner
             </span>
           </div>
           <p className="text-[11px] text-[#667575] mt-0.5 leading-relaxed">
@@ -53,10 +53,10 @@ export const WhatsAppConsentCheckbox: React.FC<WhatsAppConsentProps> = ({
             type="checkbox"
             checked={bookingConsent}
             onChange={(e) => onBookingConsentChange(e.target.checked)}
-            className="mt-0.5 w-4 h-4 rounded border-[#E5EAE5] text-[#073B3A] focus:ring-[#073B3A] cursor-pointer accent-[#073B3A]"
+            className="mt-0.5 w-4 h-4 rounded border-[#E5EAE5] text-[#02146B] focus:ring-[#02146B] cursor-pointer accent-[#02146B]"
           />
-          <span className="text-xs text-[#182A2B] leading-normal">
-            <strong className="font-semibold text-[#182A2B]">I consent to receive essential booking updates</strong>, driver assignment, and reservation alerts via WhatsApp from CabJatra.{" "}
+          <span className="text-xs text-[#0F172A] leading-normal">
+            <strong className="font-semibold text-[#0F172A]">I consent to receive essential booking updates</strong>, driver assignment, and reservation alerts via WhatsApp from CabJatra.{" "}
             <span className="text-[#667575]">(Not preselected; required for instant voucher delivery)</span>
           </span>
         </label>
@@ -74,10 +74,10 @@ export const WhatsAppConsentCheckbox: React.FC<WhatsAppConsentProps> = ({
               type="checkbox"
               checked={marketingConsent}
               onChange={(e) => onMarketingConsentChange(e.target.checked)}
-              className="mt-0.5 w-4 h-4 rounded border-[#E5EAE5] text-[#073B3A] focus:ring-[#073B3A] cursor-pointer accent-[#073B3A]"
+              className="mt-0.5 w-4 h-4 rounded border-[#E5EAE5] text-[#02146B] focus:ring-[#02146B] cursor-pointer accent-[#02146B]"
             />
             <span className="text-xs text-[#667575] leading-normal">
-              <span className="font-medium text-[#182A2B]">Optional:</span> I would also like to receive seasonal Odisha tour discount offers and festive holiday packages (maximum 2 messages per month; opt-out anytime).
+              <span className="font-medium text-[#0F172A]">Optional:</span> I would also like to receive seasonal Odisha tour discount offers and festive holiday packages (maximum 2 messages per month; opt-out anytime).
             </span>
           </label>
         )}
@@ -85,7 +85,7 @@ export const WhatsAppConsentCheckbox: React.FC<WhatsAppConsentProps> = ({
 
       <div className="text-[10px] text-[#667575] flex items-center justify-between border-t border-[#E5EAE5] pt-2">
         <span>We respect customer privacy and never send unsolicited spam.</span>
-        <span className="text-[#073B3A] font-semibold">Zero Spam Pledge</span>
+        <span className="text-[#02146B] font-semibold">Zero Spam Pledge</span>
       </div>
     </div>
   );

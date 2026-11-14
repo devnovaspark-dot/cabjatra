@@ -684,7 +684,7 @@ export const CarModel3D: React.FC<CarModel3DProps> = ({
 
       {/* Sleek Minimal 360 Indicator (Bottom Right - Floor Corner) */}
       <div className="absolute bottom-2 right-2 flex items-center gap-1 px-2 py-0.5 rounded-full bg-black/35 backdrop-blur-md border border-white/10 text-white/80 text-[8.5px] font-bold pointer-events-none shadow-xs">
-        <RotateCw className="w-2.5 h-2.5 text-[#D9A52B]" />
+        <RotateCw className="w-2.5 h-2.5 text-[#FEC401]" />
         <span>360°</span>
       </div>
     </div>

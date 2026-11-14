@@ -15,11 +15,11 @@ export default function CancellationPolicyPage() {
     <div className="bg-[#FAF9F5] min-h-screen pt-28 sm:pt-36 pb-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0ECEA]/70 text-[10px] font-bold text-[#073B3A] uppercase tracking-wider mb-2">
-            <RotateCcw className="w-3.5 h-3.5 text-[#D9A52B]" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F1F5F9]/70 text-[10px] font-bold text-[#02146B] uppercase tracking-wider mb-2">
+            <RotateCcw className="w-3.5 h-3.5 text-[#FEC401]" />
             <span>Cancellation &amp; Refund Terms</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold font-display text-[#182A2B] tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
             Cancellation Policy
           </h1>
           <p className="text-xs text-[#667575] mt-1.5">
@@ -29,8 +29,8 @@ export default function CancellationPolicyPage() {
 
         {/* Operational Status */}
         <div className="mb-6 p-4 rounded-2xl bg-white border border-[#E5EAE5] text-xs text-[#455353] space-y-1 shadow-2xs">
-          <div className="font-bold flex items-center gap-2 text-[#182A2B]">
-            <AlertCircle className="w-4 h-4 text-[#D9A52B]" />
+          <div className="font-bold flex items-center gap-2 text-[#0F172A]">
+            <AlertCircle className="w-4 h-4 text-[#FEC401]" />
             <span>Operational Policy Status</span>
           </div>
           <p>
@@ -44,7 +44,7 @@ export default function CancellationPolicyPage() {
         <div className="bg-white rounded-2xl p-6 sm:p-8 border border-[#E5EAE5] shadow-soft space-y-6 text-xs sm:text-sm text-[#455353] leading-relaxed">
           {/* Section 1 */}
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#182A2B]">
+            <h2 className="text-base font-bold text-[#0F172A]">
               1. Customer Cancellation &amp; Advance Refund Matrix
             </h2>
             <p>
@@ -54,7 +54,7 @@ export default function CancellationPolicyPage() {
             <div className="overflow-x-auto pt-2">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
-                  <tr className="bg-[#062F31] text-white font-bold">
+                  <tr className="bg-[#001162] text-white font-bold">
                     <th className="p-3">Service Category</th>
                     <th className="p-3">Notice Window</th>
                     <th className="p-3">10% Advance Refund</th>
@@ -63,31 +63,31 @@ export default function CancellationPolicyPage() {
                 </thead>
                 <tbody className="divide-y divide-[#F2F5F2] bg-[#FAF9F5]">
                   <tr>
-                    <td className="p-3 font-semibold text-[#182A2B]">Outstation &amp; Odisha Tours</td>
+                    <td className="p-3 font-semibold text-[#0F172A]">Outstation &amp; Odisha Tours</td>
                     <td className="p-3">More than 12 hours prior to pickup</td>
-                    <td className="p-3 font-bold text-[#073B3A]">100% Full Refund</td>
+                    <td className="p-3 font-bold text-[#02146B]">100% Full Refund</td>
                     <td className="p-3">Nil</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-semibold text-[#182A2B]">Outstation &amp; Odisha Tours</td>
+                    <td className="p-3 font-semibold text-[#0F172A]">Outstation &amp; Odisha Tours</td>
                     <td className="p-3">Between 4 and 12 hours prior</td>
-                    <td className="p-3 font-bold text-[#D9A52B]">50% Advance Refund</td>
+                    <td className="p-3 font-bold text-[#FEC401]">50% Advance Refund</td>
                     <td className="p-3">50% of 10% Advance</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-semibold text-[#182A2B]">Outstation &amp; Odisha Tours</td>
+                    <td className="p-3 font-semibold text-[#0F172A]">Outstation &amp; Odisha Tours</td>
                     <td className="p-3">Less than 4 hours / Driver Dispatched</td>
                     <td className="p-3 font-bold text-rose-700">No Advance Refund</td>
                     <td className="p-3">Full Advance Retained</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-semibold text-[#182A2B]">Airport &amp; Local City Rides</td>
+                    <td className="p-3 font-semibold text-[#0F172A]">Airport &amp; Local City Rides</td>
                     <td className="p-3">More than 6 hours prior to pickup</td>
-                    <td className="p-3 font-bold text-[#073B3A]">100% Full Refund</td>
+                    <td className="p-3 font-bold text-[#02146B]">100% Full Refund</td>
                     <td className="p-3">Nil</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-semibold text-[#182A2B]">Airport &amp; Local City Rides</td>
+                    <td className="p-3 font-semibold text-[#0F172A]">Airport &amp; Local City Rides</td>
                     <td className="p-3">Less than 2 hours / Driver on Route</td>
                     <td className="p-3 font-bold text-rose-700">No Advance Refund</td>
                     <td className="p-3">Full Advance Retained</td>
@@ -99,7 +99,7 @@ export default function CancellationPolicyPage() {
 
           {/* Section 2 */}
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#182A2B]">
+            <h2 className="text-base font-bold text-[#0F172A]">
               2. Flight Rescheduling &amp; Airport Delay Protection
             </h2>
             <p>
@@ -109,7 +109,7 @@ export default function CancellationPolicyPage() {
 
           {/* Section 3 */}
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#182A2B]">
+            <h2 className="text-base font-bold text-[#0F172A]">
               3. Cancellation by CabJatra (Zero-Default Guarantee)
             </h2>
             <p>
@@ -123,7 +123,7 @@ export default function CancellationPolicyPage() {
 
           {/* Section 4 */}
           <section className="space-y-2">
-            <h2 className="text-base font-bold text-[#182A2B]">
+            <h2 className="text-base font-bold text-[#0F172A]">
               4. Trip Modification Guidelines
             </h2>
             <p>
@@ -133,11 +133,11 @@ export default function CancellationPolicyPage() {
 
           {/* Section 5 */}
           <section className="space-y-2 pt-3 border-t border-[#F2F5F2]">
-            <h2 className="text-base font-bold text-[#182A2B]">
+            <h2 className="text-base font-bold text-[#0F172A]">
               5. Refund Processing Timeline
             </h2>
             <p>
-              Eligible refunds are processed back to the original source bank account or UPI ID within <strong>3 to 5 business days</strong>. For cancellation assistance, contact our dispatch desk at <a href={`mailto:${COMPANY_CONFIG.contact.supportEmail}`} className="text-[#073B3A] font-semibold hover:underline">{COMPANY_CONFIG.contact.supportEmail}</a> or via WhatsApp.
+              Eligible refunds are processed back to the original source bank account or UPI ID within <strong>3 to 5 business days</strong>. For cancellation assistance, contact our dispatch desk at <a href={`mailto:${COMPANY_CONFIG.contact.supportEmail}`} className="text-[#02146B] font-semibold hover:underline">{COMPANY_CONFIG.contact.supportEmail}</a> or via WhatsApp.
             </p>
           </section>
         </div>
@@ -145,7 +145,7 @@ export default function CancellationPolicyPage() {
         <div className="mt-6 text-center">
           <Link
             href="/"
-            className="text-xs font-bold text-[#073B3A] hover:underline inline-flex items-center gap-1"
+            className="text-xs font-bold text-[#02146B] hover:underline inline-flex items-center gap-1"
           >
             ← Return to CabJatra Homepage
           </Link>

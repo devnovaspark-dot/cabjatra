@@ -97,9 +97,9 @@ function RealisticCommercialCar({
       >
         <defs>
           <linearGradient id="hwBodyPaint" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#0E5853" />
-            <stop offset="20%" stopColor="#073B3A" />
-            <stop offset="50%" stopColor="#0B4B48" />
+            <stop offset="0%" stopColor="#0A2B8C" />
+            <stop offset="20%" stopColor="#02146B" />
+            <stop offset="50%" stopColor="#001162" />
             <stop offset="80%" stopColor="#052D2E" />
             <stop offset="100%" stopColor="#021B1C" />
           </linearGradient>
@@ -156,14 +156,14 @@ function RealisticCommercialCar({
         />
 
         {/* Side Mirrors */}
-        <path d="M 5 28 C 1 27, 1 34, 5 33 Z" fill="#042F2E" stroke="#0F766E" strokeWidth="0.5" />
-        <path d="M 49 28 C 53 27, 53 34, 49 33 Z" fill="#042F2E" stroke="#0F766E" strokeWidth="0.5" />
+        <path d="M 5 28 C 1 27, 1 34, 5 33 Z" fill="#001162" stroke="#0F766E" strokeWidth="0.5" />
+        <path d="M 49 28 C 53 27, 53 34, 49 33 Z" fill="#001162" stroke="#0F766E" strokeWidth="0.5" />
 
         {/* Front Windshield Glass */}
         <path
           d="M 14 26 C 18 24, 36 24, 40 26 L 43 40 C 37 42, 17 42, 11 40 Z"
           fill="url(#hwFrontGlass)"
-          stroke="#021718"
+          stroke="#000B3B"
           strokeWidth="0.6"
         />
 
@@ -171,7 +171,7 @@ function RealisticCommercialCar({
         <path
           d="M 13 74 C 18 76, 36 76, 41 74 L 39 85 C 33 87, 21 87, 15 85 Z"
           fill="#020617"
-          stroke="#021718"
+          stroke="#000B3B"
           strokeWidth="0.6"
         />
 
@@ -232,7 +232,7 @@ export default function HowItWorksPage() {
       milestone: "Bhubaneswar Departure Hub",
       title: "Select Journey & Vehicle Class",
       desc: "Pick your travel format—Airport pickup at BBI, Outstation highway trip, or Curated Tour Circuit. Inspect our interactive 3D fleet models to pick the ideal Hatchback, Sedan, SUV, Large Car, or Mini Bus with zero upfront lock-in.",
-      icon: <CalendarSearch className="w-5 h-5 text-[#D9A52B]" />,
+      icon: <CalendarSearch className="w-5 h-5 text-[#FEC401]" />,
       badge: "Instant Route Selection",
       feature: "Transparent per-km rate & radar tracking option",
       corridor: "NH-316 Coastal Hub • Live Standby",
@@ -243,7 +243,7 @@ export default function HowItWorksPage() {
       milestone: "Fleet Safety Inspection",
       title: "Operations Verification & Tariff Quote",
       desc: "Our central Odisha operations desk verifies vehicle readiness, mechanical fitness, yellow-board compliance, and matches an experienced, police-verified local driver.",
-      icon: <ShieldCheck className="w-5 h-5 text-[#D9A52B]" />,
+      icon: <ShieldCheck className="w-5 h-5 text-[#FEC401]" />,
       badge: "STA Commercial Check",
       feature: "Background verified & highway-certified driver",
       corridor: "State Transport Authority (STA) Compliant",
@@ -254,7 +254,7 @@ export default function HowItWorksPage() {
       milestone: "Reservation Lock-in",
       title: "10% Advance Deposit Model",
       desc: "Once your cab and driver are verified, lock your ride with a transparent 10% advance deposit. Zero surge pricing guaranteed. Settle the remaining 90% at your destination.",
-      icon: <CheckCircle2 className="w-5 h-5 text-[#D9A52B]" />,
+      icon: <CheckCircle2 className="w-5 h-5 text-[#FEC401]" />,
       badge: "10% Security Model",
       feature: "Zero surge traps • 100% refundable on 6hr notice",
       corridor: "Bank-Grade Razorpay / UPI Security",
@@ -265,7 +265,7 @@ export default function HowItWorksPage() {
       milestone: "Punctual Destination Arrival",
       title: "Guaranteed Punctual Driver Arrival",
       desc: "Your professional driver coordinates via phone & WhatsApp, arrives with AC pre-cooled 15 mins prior, handles your luggage, and drives you safely with zero cancellations.",
-      icon: <UserCheck className="w-5 h-5 text-[#D9A52B]" />,
+      icon: <UserCheck className="w-5 h-5 text-[#FEC401]" />,
       badge: "Zero Cancellations",
       feature: "Punctual airport & doorstep greeting with luggage assist",
       corridor: "Puri Jagannath Dham • Arrival Terminal",
@@ -499,7 +499,7 @@ export default function HowItWorksPage() {
   const carY = scrollProgress * carMaxTravel;
 
   return (
-    <div className="bg-[#FAF9F5] min-h-screen text-[#182A2B]">
+    <div className="bg-[#FAF9F5] min-h-screen text-[#0F172A]">
       {/* ================= HERO: EDITORIAL WORKFLOW BANNER ================= */}
       {/* pt-36 sm:pt-44 provides ample breathing room below the floating navbar */}
       <section className="relative text-white overflow-hidden pt-36 sm:pt-44 pb-16 sm:pb-20 border-b border-black/20">
@@ -519,15 +519,15 @@ export default function HowItWorksPage() {
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 sm:space-y-5">
           {/* Eyebrow Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/45 backdrop-blur-md border border-[#D9A52B]/40 text-xs font-semibold text-[#D9A52B] shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/45 backdrop-blur-md border border-[#FEC401]/40 text-xs font-semibold text-[#FEC401] shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
             <span>The Pre-Booked Guarantee • How It Works</span>
           </div>
 
           {/* Regal Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-display tracking-tight text-white leading-tight">
             How CabJatra Works: <br />
-            <span className="italic font-display font-normal text-[#D9A52B]">
+            <span className="italic font-display font-normal text-[#FEC401]">
               Punctual, Principled Cab Travel.
             </span>
           </h1>
@@ -540,7 +540,7 @@ export default function HowItWorksPage() {
           {/* 3 Quick Pillar Badges */}
           <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 pt-3 text-xs text-white/90">
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/45 backdrop-blur-md border border-white/15">
-              <Lock className="w-3.5 h-3.5 text-[#D9A52B]" />
+              <Lock className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>10% Advance Deposit Model</span>
             </span>
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/45 backdrop-blur-md border border-white/15">
@@ -548,7 +548,7 @@ export default function HowItWorksPage() {
               <span>100% Commercial Yellow-Board Fleet</span>
             </span>
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/45 backdrop-blur-md border border-white/15">
-              <Zap className="w-3.5 h-3.5 text-[#D9A52B]" />
+              <Zap className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Zero Surge Pricing Guarantee</span>
             </span>
           </div>
@@ -561,11 +561,11 @@ export default function HowItWorksPage() {
           
           {/* Eyebrow & Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E0ECEA] text-xs font-bold text-[#073B3A] uppercase tracking-wider mb-2.5 border border-[#C1DAD7] shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#F1F5F9] text-xs font-bold text-[#02146B] uppercase tracking-wider mb-2.5 border border-[#C1DAD7] shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>The Pre-Booked Guarantee • Step-by-Step Experience</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#182A2B] font-display tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0F172A] font-display tracking-tight">
               How to Book &amp; Travel with CabJatra
             </h2>
             <p className="text-xs sm:text-sm text-[#556464] mt-2 leading-relaxed">
@@ -573,8 +573,8 @@ export default function HowItWorksPage() {
             </p>
 
             {/* Interactive Scroll Hint Badge */}
-            <div className="mt-3.5 inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-[#D5DDD5] text-xs font-semibold text-[#073B3A] shadow-xs">
-              <Compass className="w-3.5 h-3.5 text-[#D9A52B] animate-spin" style={{ animationDuration: "10s" }} />
+            <div className="mt-3.5 inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-[#D5DDD5] text-xs font-semibold text-[#02146B] shadow-xs">
+              <Compass className="w-3.5 h-3.5 text-[#FEC401] animate-spin" style={{ animationDuration: "10s" }} />
               <span>Scroll down to drive along the Odisha Highway</span>
             </div>
           </div>
@@ -601,7 +601,7 @@ export default function HowItWorksPage() {
 
               {/* Illuminated Laser Trail Behind the Car */}
               <div
-                className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 bg-gradient-to-b from-[#10B981] via-[#D9A52B] to-[#FEF08A] shadow-[0_0_12px_#D9A52B] transition-all duration-75"
+                className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 bg-gradient-to-b from-[#10B981] via-[#FEC401] to-[#FEF08A] shadow-[0_0_12px_#FEC401] transition-all duration-75"
                 style={{ height: `${carY + 56}px` }}
               />
 
@@ -620,10 +620,10 @@ export default function HowItWorksPage() {
                 />
 
                 {/* Digital Cockpit HUD Tag */}
-                <div className="absolute left-1/2 -translate-x-1/2 -bottom-8 hidden md:flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#062F31]/95 backdrop-blur-md border border-[#D9A52B]/50 text-white text-[9.5px] font-bold shadow-xl pointer-events-none whitespace-nowrap z-30">
+                <div className="absolute left-1/2 -translate-x-1/2 -bottom-8 hidden md:flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#001162]/95 backdrop-blur-md border border-[#FEC401]/50 text-white text-[9.5px] font-bold shadow-xl pointer-events-none whitespace-nowrap z-30">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-ping" />
-                  <Gauge className="w-3 h-3 text-[#D9A52B]" />
-                  <span className="font-mono text-[#D9A52B]">{carSpeed} km/h</span>
+                  <Gauge className="w-3 h-3 text-[#FEC401]" />
+                  <span className="font-mono text-[#FEC401]">{carSpeed} km/h</span>
                   <span className="text-white/40">•</span>
                   <span className="text-[#FAF9F5]">NH-316 Highway</span>
                 </div>
@@ -646,10 +646,10 @@ export default function HowItWorksPage() {
                     <div
                       className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-300 ${
                         isCurrent
-                          ? "bg-[#D9A52B] text-[#062F31] ring-4 ring-[#D9A52B]/40 shadow-[0_0_18px_#D9A52B] scale-110 font-black"
+                          ? "bg-[#FEC401] text-[#001162] ring-4 ring-[#FEC401]/40 shadow-[0_0_18px_#FEC401] scale-110 font-black"
                           : isPassed
                           ? "bg-[#10B981] text-white ring-2 ring-[#10B981]/50 shadow-sm"
-                          : "bg-[#062F31] text-[#D9A52B] border border-white/20"
+                          : "bg-[#001162] text-[#FEC401] border border-white/20"
                       }`}
                     >
                       {isPassed && !isCurrent ? <Check className="w-4 h-4 stroke-[2.5]" /> : st.step}
@@ -686,13 +686,13 @@ export default function HowItWorksPage() {
                       <div
                         className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden transition-all duration-300 ${
                           isCurrent
-                            ? "bg-white border-2 border-[#D9A52B] ring-4 ring-[#D9A52B]/20 shadow-[0_20px_50px_rgba(217,165,43,0.18)]"
-                            : "card-skeuo hover:border-[#073B3A]/40 shadow-card"
+                            ? "bg-white border-2 border-[#FEC401] ring-4 ring-[#FEC401]/20 shadow-[0_20px_50px_rgba(217,165,43,0.18)]"
+                            : "card-skeuo hover:border-[#02146B]/40 shadow-card"
                         }`}
                       >
                         {/* Gold Top Accent Bar */}
                         <div
-                          className={`absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-transparent via-[#D9A52B] to-transparent transition-opacity duration-300 ${
+                          className={`absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-transparent via-[#FEC401] to-transparent transition-opacity duration-300 ${
                             isCurrent ? "opacity-100" : "opacity-0"
                           }`}
                         />
@@ -701,11 +701,11 @@ export default function HowItWorksPage() {
                           {/* Header: Medallion Icon, Step Numeral & Milestone */}
                           <div className="flex items-center justify-between mb-4">
                             <div className="flex items-center gap-3">
-                              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#073B3A] to-[#041F20] flex items-center justify-center text-[#D9A52B] shadow-sm">
+                              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#02146B] to-[#000B3B] flex items-center justify-center text-[#FEC401] shadow-sm">
                                 {st.icon}
                               </div>
                               <div>
-                                <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E0ECEA] text-[#073B3A] border border-[#C1DAD7]">
+                                <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#F1F5F9] text-[#02146B] border border-[#C1DAD7]">
                                   {st.badge}
                                 </span>
                                 <span className="text-[11px] font-mono text-[#667575] block mt-1">
@@ -715,17 +715,17 @@ export default function HowItWorksPage() {
                             </div>
 
                             <div className="text-right">
-                              <span className="font-display font-black text-3xl sm:text-4xl text-[#D9A52B] drop-shadow-sm block leading-none">
+                              <span className="font-display font-black text-3xl sm:text-4xl text-[#FEC401] drop-shadow-sm block leading-none">
                                 {st.step}
                               </span>
-                              <span className="text-[10px] font-mono font-bold text-[#073B3A] bg-[#EEF2EE] px-2 py-0.5 rounded-md mt-1 inline-block">
+                              <span className="text-[10px] font-mono font-bold text-[#02146B] bg-[#EEF2EE] px-2 py-0.5 rounded-md mt-1 inline-block">
                                 {st.km}
                               </span>
                             </div>
                           </div>
 
                           {/* Title & Description */}
-                          <h3 className="text-lg sm:text-xl font-bold font-display text-[#182A2B] mb-2 leading-tight">
+                          <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] mb-2 leading-tight">
                             {st.title}
                           </h3>
 
@@ -736,7 +736,7 @@ export default function HowItWorksPage() {
                           {/* Specific Advantage Box */}
                           <div className="mt-4 p-3 rounded-2xl bg-[#FAF9F5] border border-[#E5EAE5] flex items-start gap-2.5">
                             <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
-                            <span className="text-xs font-semibold text-[#182A2B] leading-tight">
+                            <span className="text-xs font-semibold text-[#0F172A] leading-tight">
                               {st.feature}
                             </span>
                           </div>
@@ -744,14 +744,14 @@ export default function HowItWorksPage() {
 
                         {/* Card Footer: Corridor & Direct Booking Link */}
                         <div className="mt-5 pt-3.5 border-t border-[#EEF2EE] flex items-center justify-between text-xs font-semibold text-[#667575]">
-                          <span className="flex items-center gap-1.5 text-[11px] text-[#073B3A] font-bold">
-                            <Navigation className="w-3.5 h-3.5 text-[#D9A52B]" />
+                          <span className="flex items-center gap-1.5 text-[11px] text-[#02146B] font-bold">
+                            <Navigation className="w-3.5 h-3.5 text-[#FEC401]" />
                             <span>{st.corridor}</span>
                           </span>
 
                           <Link
                             href="/book-cab"
-                            className="inline-flex items-center gap-1 text-[#073B3A] hover:text-[#D9A52B] font-bold transition-colors group/link text-xs"
+                            className="inline-flex items-center gap-1 text-[#02146B] hover:text-[#FEC401] font-bold transition-colors group/link text-xs"
                           >
                             <span>Book Route</span>
                             <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
@@ -770,17 +770,17 @@ export default function HowItWorksPage() {
       {/* ================= SECTION 2: THE PRE-BOOKED GUARANTEE (PASSENGER CHARTER) ================= */}
       <section className="py-14 sm:py-20 bg-[#FAF9F5] border-b border-[#E5EAE5] relative overflow-hidden">
         {/* Subtle decorative background watermarks */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#D9A52B]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#073B3A]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#FEC401]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#02146B]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E0ECEA]/90 text-[10px] font-extrabold text-[#073B3A] uppercase tracking-wider border border-[#C1DAD7] shadow-xs">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#F1F5F9]/90 text-[10px] font-extrabold text-[#02146B] uppercase tracking-wider border border-[#C1DAD7] shadow-xs">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Binding Passenger Charter • Enforceable Mobility SLA</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold font-display text-[#182A2B] tracking-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold font-display text-[#0F172A] tracking-tight">
               The Pre-Booked Guarantee
             </h2>
             <p className="text-xs sm:text-sm text-[#556464] leading-relaxed max-w-2xl mx-auto">
@@ -800,11 +800,11 @@ export default function HowItWorksPage() {
                 key={idx}
                 className="bg-white rounded-2xl p-4 sm:p-5 border border-[#DCE4DC] shadow-xs text-center flex flex-col items-center justify-center hover:shadow-md transition-shadow"
               >
-                <div className="text-xl sm:text-2xl font-black font-display text-[#073B3A] flex items-center gap-1">
+                <div className="text-xl sm:text-2xl font-black font-display text-[#02146B] flex items-center gap-1">
                   <span>{item.stat}</span>
-                  <Sparkles className="w-3 h-3 text-[#D9A52B]" />
+                  <Sparkles className="w-3 h-3 text-[#FEC401]" />
                 </div>
-                <div className="text-xs font-bold text-[#182A2B] mt-0.5">{item.label}</div>
+                <div className="text-xs font-bold text-[#0F172A] mt-0.5">{item.label}</div>
                 <div className="text-[10px] text-[#718080] font-medium mt-0.5">{item.sub}</div>
               </div>
             ))}
@@ -817,19 +817,19 @@ export default function HowItWorksPage() {
               return (
                 <div
                   key={idx}
-                  className="card-skeuo rounded-3xl p-6 sm:p-8 bg-white border border-[#D5DDD5] hover:border-[#073B3A]/40 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                  className="card-skeuo rounded-3xl p-6 sm:p-8 bg-white border border-[#D5DDD5] hover:border-[#02146B]/40 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
                 >
                   {/* Subtle Top-Right Ambient Halo */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#D9A52B]/10 to-transparent rounded-bl-full pointer-events-none group-hover:from-[#D9A52B]/20 transition-colors" />
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#FEC401]/10 to-transparent rounded-bl-full pointer-events-none group-hover:from-[#FEC401]/20 transition-colors" />
 
                   <div className="space-y-4 relative z-10">
                     {/* Top Clause & Seal Badge */}
                     <div className="flex items-center justify-between border-b border-[#EEF2EE] pb-3">
                       <div className="flex items-center gap-2">
-                        <span className="text-[10.5px] font-mono font-bold tracking-wider text-[#D9A52B] bg-[#073B3A] px-2.5 py-0.5 rounded-md shadow-xs">
+                        <span className="text-[10.5px] font-mono font-bold tracking-wider text-[#FEC401] bg-[#02146B] px-2.5 py-0.5 rounded-md shadow-xs">
                           {g.clause}
                         </span>
-                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#073B3A] bg-[#E0ECEA]/80 px-2.5 py-0.5 rounded-full border border-[#C1DAD7]">
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#02146B] bg-[#F1F5F9]/80 px-2.5 py-0.5 rounded-full border border-[#C1DAD7]">
                           {g.seal}
                         </span>
                       </div>
@@ -840,11 +840,11 @@ export default function HowItWorksPage() {
 
                     {/* Title & Icon Header */}
                     <div className="flex items-start gap-4 pt-1">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#073B3A] via-[#0B4B48] to-[#021F20] text-[#D9A52B] flex items-center justify-center shadow-lg border border-white/20 shrink-0 group-hover:scale-105 transition-transform">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#02146B] via-[#001162] to-[#021F20] text-[#FEC401] flex items-center justify-center shadow-lg border border-white/20 shrink-0 group-hover:scale-105 transition-transform">
                         <Icon className="w-6 h-6 sm:w-7 sm:h-7 drop-shadow-sm" />
                       </div>
                       <div>
-                        <h3 className="text-lg sm:text-xl font-bold font-display text-[#182A2B] group-hover:text-[#073B3A] transition-colors leading-tight">
+                        <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#02146B] transition-colors leading-tight">
                           {g.title}
                         </h3>
                         <p className="text-xs sm:text-[13px] text-[#556464] leading-relaxed mt-1.5">
@@ -868,11 +868,11 @@ export default function HowItWorksPage() {
                   <div className="pt-4 mt-4 border-t border-[#EEF2EE] flex items-center justify-between relative z-10">
                     <div className="flex items-center gap-2">
                       <Icon3DCheck size="sm" interactive={true} />
-                      <span className="text-xs font-bold text-[#073B3A] tracking-tight">
+                      <span className="text-xs font-bold text-[#02146B] tracking-tight">
                         {g.highlight}
                       </span>
                     </div>
-                    <span className="text-[10px] font-bold text-[#D9A52B] uppercase tracking-wider bg-[#073B3A]/5 px-2.5 py-1 rounded-md">
+                    <span className="text-[10px] font-bold text-[#FEC401] uppercase tracking-wider bg-[#02146B]/5 px-2.5 py-1 rounded-md">
                       Charter Verified
                     </span>
                   </div>
@@ -888,11 +888,11 @@ export default function HowItWorksPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Compact Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E0ECEA]/90 text-[10px] font-extrabold text-[#073B3A] uppercase tracking-wider border border-[#C1DAD7] shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#F1F5F9]/90 text-[10px] font-extrabold text-[#02146B] uppercase tracking-wider border border-[#C1DAD7] shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Comparative Standard • The Mobility Divide</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-[#182A2B] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
               Why Pre-Booking Beats Street Hailing
             </h2>
             <p className="text-xs sm:text-sm text-[#667575] leading-relaxed max-w-xl mx-auto">
@@ -912,7 +912,7 @@ export default function HowItWorksPage() {
                     <span className="text-[9.5px] font-extrabold uppercase tracking-wider text-rose-700 bg-rose-100 px-2 py-0.5 rounded-full border border-rose-200">
                       Street Hailing / Apps
                     </span>
-                    <h3 className="text-xs sm:text-sm font-bold font-display text-[#182A2B] mt-0.5">
+                    <h3 className="text-xs sm:text-sm font-bold font-display text-[#0F172A] mt-0.5">
                       The Street Lottery
                     </h3>
                   </div>
@@ -930,7 +930,7 @@ export default function HowItWorksPage() {
                     <span className="text-[9.5px] font-extrabold uppercase tracking-wider text-[#064E3B] bg-[#D1FAE5] px-2 py-0.5 rounded-full border border-[#A7F3D0]">
                       CabJatra Standard
                     </span>
-                    <h3 className="text-xs sm:text-sm font-bold font-display text-[#073B3A] mt-0.5">
+                    <h3 className="text-xs sm:text-sm font-bold font-display text-[#02146B] mt-0.5">
                       Pre-Booked Certainty
                     </h3>
                   </div>
@@ -948,10 +948,10 @@ export default function HowItWorksPage() {
                   {/* Category Ribbon */}
                   <div className="px-3.5 py-1 sm:px-4 bg-[#FAF9F5] border-b border-[#F0F4F0] flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <span className="w-4 h-4 rounded bg-[#073B3A] text-[#D9A52B] text-[9.5px] font-bold font-mono flex items-center justify-center shrink-0">
+                      <span className="w-4 h-4 rounded bg-[#02146B] text-[#FEC401] text-[9.5px] font-bold font-mono flex items-center justify-center shrink-0">
                         {idx + 1}
                       </span>
-                      <span className="text-[11px] sm:text-xs font-bold text-[#182A2B] tracking-tight">
+                      <span className="text-[11px] sm:text-xs font-bold text-[#0F172A] tracking-tight">
                         {item.category}
                       </span>
                     </div>
@@ -998,16 +998,16 @@ export default function HowItWorksPage() {
             </div>
 
             {/* Compact Bottom Trust & Action Strip */}
-            <div className="px-4 py-3 sm:px-6 sm:py-3.5 bg-gradient-to-r from-[#073B3A] via-[#094847] to-[#041F20] text-white flex flex-col sm:flex-row items-center justify-between gap-3 text-xs border-t border-[#D9A52B]/30 shadow-inner">
+            <div className="px-4 py-3 sm:px-6 sm:py-3.5 bg-gradient-to-r from-[#02146B] via-[#094847] to-[#000B3B] text-white flex flex-col sm:flex-row items-center justify-between gap-3 text-xs border-t border-[#FEC401]/30 shadow-inner">
               <div className="flex items-center gap-2.5 text-center sm:text-left">
-                <ShieldCheck className="w-4 h-4 text-[#D9A52B] shrink-0" />
-                <span className="text-[11px] sm:text-xs text-[#E0ECEA]">
+                <ShieldCheck className="w-4 h-4 text-[#FEC401] shrink-0" />
+                <span className="text-[11px] sm:text-xs text-[#F1F5F9]">
                   <strong className="text-white font-semibold">The 10% Advance Model:</strong> Locks commercial driver &amp; vehicle dispatch &bull; 100% refundable on 6hr notice.
                 </span>
               </div>
               <Link
                 href="/book-cab"
-                className="px-4 py-1.5 rounded-full bg-[#D9A52B] hover:bg-[#E5B543] text-[#062F31] font-bold text-xs inline-flex items-center gap-1.5 transition-all shadow-sm shrink-0 active:scale-95"
+                className="px-4 py-1.5 rounded-full bg-[#FEC401] hover:bg-[#FEC401] text-[#001162] font-bold text-xs inline-flex items-center gap-1.5 transition-all shadow-sm shrink-0 active:scale-95"
               >
                 <span>Reserve Your Cab</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -1021,11 +1021,11 @@ export default function HowItWorksPage() {
       <section className="py-12 sm:py-16 bg-white border-b border-[#E5EAE5]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-8 space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0ECEA]/80 text-[10px] font-bold text-[#073B3A] uppercase tracking-wider border border-[#C1DAD7]">
-              <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F1F5F9]/80 text-[10px] font-bold text-[#02146B] uppercase tracking-wider border border-[#C1DAD7]">
+              <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Workflow Clarity</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#182A2B]">
+            <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#0F172A]">
               Frequently Asked Questions
             </h2>
             <p className="text-xs sm:text-sm text-[#667575]">
@@ -1044,11 +1044,11 @@ export default function HowItWorksPage() {
                   <button
                     type="button"
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 font-display font-bold text-xs sm:text-sm text-[#182A2B] hover:text-[#073B3A] transition cursor-pointer"
+                    className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 font-display font-bold text-xs sm:text-sm text-[#0F172A] hover:text-[#02146B] transition cursor-pointer"
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
-                      className={`w-4 h-4 text-[#D9A52B] shrink-0 transition-transform duration-200 ${
+                      className={`w-4 h-4 text-[#FEC401] shrink-0 transition-transform duration-200 ${
                         isOpen ? "rotate-180" : ""
                       }`}
                     />
@@ -1068,18 +1068,18 @@ export default function HowItWorksPage() {
       {/* ================= SECTION 5: SLENDER LUXURY CLOSING CTA ================= */}
       <section className="py-12 sm:py-16 bg-[#FAF9F5]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#062F31] via-[#042426] to-[#021718] text-white p-8 sm:p-12 text-center flex flex-col items-center justify-center border border-white/15 shadow-2xl">
-            <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D9A52B]/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#001162] via-[#001254] to-[#000B3B] text-white p-8 sm:p-12 text-center flex flex-col items-center justify-center border border-white/15 shadow-2xl">
+            <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#FEC401]/15 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative z-10 max-w-2xl mx-auto space-y-4 flex flex-col items-center justify-center">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/40 backdrop-blur-md border border-[#D9A52B]/40 text-xs font-bold text-[#D9A52B]">
-                <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/40 backdrop-blur-md border border-[#FEC401]/40 text-xs font-bold text-[#FEC401]">
+                <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
                 <span>Ready to Travel with Certainty?</span>
               </div>
 
               <h2 className="text-2xl sm:text-4xl font-bold font-display tracking-tight text-white leading-tight">
                 Reserve Your Cab with <br />
-                <span className="italic font-display font-normal text-[#D9A52B]">
+                <span className="italic font-display font-normal text-[#FEC401]">
                   The Pre-Booked Guarantee.
                 </span>
               </h2>
@@ -1091,10 +1091,10 @@ export default function HowItWorksPage() {
               <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
                 <Link
                   href="/book-cab"
-                  className="px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#D9A52B] via-[#E5B543] to-[#C99320] text-[#062F31] font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-[0_4px_16px_rgba(217,165,43,0.35)] hover:brightness-105 active:scale-[0.98] transition-all cursor-pointer border border-[#F2C868]/60"
+                  className="px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#FEC401] via-[#FEC401] to-[#E5AD00] text-[#001162] font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-[0_4px_16px_rgba(217,165,43,0.35)] hover:brightness-105 active:scale-[0.98] transition-all cursor-pointer border border-[#FDE047]/60"
                 >
                   <span>Book Your Cab Now</span>
-                  <ArrowRight className="w-4 h-4 text-[#062F31]" />
+                  <ArrowRight className="w-4 h-4 text-[#001162]" />
                 </Link>
 
                 <a
@@ -1109,9 +1109,9 @@ export default function HowItWorksPage() {
 
                 <Link
                   href="/book-tour"
-                  className="px-6 py-2.5 sm:py-3 rounded-full bg-black/40 hover:bg-black/60 text-white font-semibold text-xs sm:text-sm inline-flex items-center gap-2 border border-white/20 backdrop-blur-md hover:border-[#D9A52B]/70 transition-all cursor-pointer"
+                  className="px-6 py-2.5 sm:py-3 rounded-full bg-black/40 hover:bg-black/60 text-white font-semibold text-xs sm:text-sm inline-flex items-center gap-2 border border-white/20 backdrop-blur-md hover:border-[#FEC401]/70 transition-all cursor-pointer"
                 >
-                  <Compass className="w-4 h-4 text-[#D9A52B]" />
+                  <Compass className="w-4 h-4 text-[#FEC401]" />
                   <span>Explore Odisha Tours</span>
                 </Link>
               </div>

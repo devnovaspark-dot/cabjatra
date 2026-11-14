@@ -68,7 +68,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="bg-[#FAF9F5] min-h-screen text-[#182A2B]">
+    <div className="bg-[#FAF9F5] min-h-screen text-[#0F172A]">
       {/* ================= EDITORIAL OPERATIONS HERO BANNER ================= */}
       {/* pt-36 sm:pt-44 ensures floating navbar never overlaps any text */}
       <section className="relative text-white overflow-hidden pt-36 sm:pt-44 pb-20 sm:pb-24 border-b border-black/20">
@@ -88,7 +88,7 @@ export default function ContactPage() {
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           {/* Live Status Pill with Radar Beacon */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-[#D9A52B]/40 text-xs font-semibold text-[#D9A52B] shadow-lg">
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-[#FEC401]/40 text-xs font-semibold text-[#FEC401] shadow-lg">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10B981]"></span>
@@ -99,7 +99,7 @@ export default function ContactPage() {
           {/* Clean Headline with Gold Accent */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-display tracking-tight text-white leading-tight">
             Connect with Our{" "}
-            <span className="italic font-display font-normal text-[#D9A52B]">
+            <span className="italic font-display font-normal text-[#FEC401]">
               Dispatch Desk
             </span>
           </h1>
@@ -193,7 +193,7 @@ export default function ContactPage() {
               </div>
 
               {/* Short Description */}
-              <p className="text-xs sm:text-sm text-[#E0ECEA]/85 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#F1F5F9]/85 leading-relaxed">
                 Instant fare estimates, vehicle interior photos, custom temple itineraries, and verified digital vouchers directly on your WhatsApp.
               </p>
 
@@ -215,7 +215,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#25D366]/25 border border-white/10 hover:border-[#25D366]/50 text-xs text-white/90 hover:text-white transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
                 >
-                  <Compass className="w-3.5 h-3.5 text-[#D9A52B]" />
+                  <Compass className="w-3.5 h-3.5 text-[#FEC401]" />
                   <span>Puri Dham Tour</span>
                 </a>
 
@@ -235,7 +235,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#25D366]/25 border border-white/10 hover:border-[#25D366]/50 text-xs text-white/90 hover:text-white transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+                  <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
                   <span>Konark Marine Drive</span>
                 </a>
               </div>
@@ -257,35 +257,35 @@ export default function ContactPage() {
           </div>
 
           {/* ================= CARD 2: 24/7 VOICE HELPLINE ================= */}
-          <div className="relative rounded-3xl p-6 sm:p-8 bg-gradient-to-b from-[#083538]/95 via-[#042426]/95 to-[#011416]/95 backdrop-blur-xl text-white border-2 border-[#D9A52B]/40 hover:border-[#D9A52B]/80 shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_30px_rgba(217,165,43,0.15)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.6),0_0_45px_rgba(217,165,43,0.25)] overflow-hidden flex flex-col justify-between group transition-all duration-500">
+          <div className="relative rounded-3xl p-6 sm:p-8 bg-gradient-to-b from-[#083538]/95 via-[#001254]/95 to-[#011416]/95 backdrop-blur-xl text-white border-2 border-[#FEC401]/40 hover:border-[#FEC401]/80 shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_30px_rgba(217,165,43,0.15)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.6),0_0_45px_rgba(217,165,43,0.25)] overflow-hidden flex flex-col justify-between group transition-all duration-500">
             {/* Top glowing ambient hairline */}
-            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#D9A52B] to-transparent opacity-80" />
+            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#FEC401] to-transparent opacity-80" />
 
             {/* Graphic Background Radial Mesh with pulse */}
-            <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#D9A52B]/15 rounded-full blur-3xl pointer-events-none group-hover:bg-[#D9A52B]/25 transition-all duration-700" />
+            <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#FEC401]/15 rounded-full blur-3xl pointer-events-none group-hover:bg-[#FEC401]/25 transition-all duration-700" />
             
             {/* Subtle Graphic Grid Lines */}
-            <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#D9A52B_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+            <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#FEC401_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
             <div className="relative z-10 space-y-5">
               {/* Top Tag & Interactive Live Voice Equalizer */}
               <div className="flex items-center justify-between gap-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D9A52B]/15 border border-[#D9A52B]/40 text-[#D9A52B] text-xs font-bold uppercase tracking-wider">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FEC401]/15 border border-[#FEC401]/40 text-[#FEC401] text-xs font-bold uppercase tracking-wider">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D9A52B] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D9A52B]"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FEC401] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FEC401]"></span>
                   </span>
                   <span>24/7 Phone Helpline</span>
                 </div>
 
                 {/* Animated Soundwave Equalizer Pill */}
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/50 border border-white/10 text-white text-[11px] font-semibold backdrop-blur-md">
-                  <span className="text-[#F2C052]">Live Human</span>
+                  <span className="text-[#FDE047]">Live Human</span>
                   <div className="flex items-end gap-1 h-3.5 px-0.5">
-                    <span className="w-1 bg-[#D9A52B] rounded-full animate-eq-1" />
-                    <span className="w-1 bg-[#D9A52B] rounded-full animate-eq-2" />
-                    <span className="w-1 bg-[#D9A52B] rounded-full animate-eq-3" />
-                    <span className="w-1 bg-[#D9A52B] rounded-full animate-eq-4" />
+                    <span className="w-1 bg-[#FEC401] rounded-full animate-eq-1" />
+                    <span className="w-1 bg-[#FEC401] rounded-full animate-eq-2" />
+                    <span className="w-1 bg-[#FEC401] rounded-full animate-eq-3" />
+                    <span className="w-1 bg-[#FEC401] rounded-full animate-eq-4" />
                   </div>
                   <span className="text-[10px] text-white/70">Zero IVR</span>
                 </div>
@@ -294,31 +294,31 @@ export default function ContactPage() {
               {/* Graphic Icon & Number */}
               <div className="flex items-center gap-4 pt-1">
                 {/* 3D Gold Metallic Phone Icon Badge with subtle floating animation */}
-                <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-gradient-to-br from-[#F5CB68] via-[#D9A52B] to-[#996D12] p-0.5 shadow-[0_10px_25px_rgba(217,165,43,0.4),inset_0_1px_1px_rgba(255,255,255,0.8)] shrink-0 flex items-center justify-center animate-float-subtle group-hover:scale-105 transition-transform duration-300">
+                <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-gradient-to-br from-[#F5CB68] via-[#FEC401] to-[#996D12] p-0.5 shadow-[0_10px_25px_rgba(217,165,43,0.4),inset_0_1px_1px_rgba(255,255,255,0.8)] shrink-0 flex items-center justify-center animate-float-subtle group-hover:scale-105 transition-transform duration-300">
                   <div className="w-full h-full rounded-[14px] bg-gradient-to-b from-white/25 to-transparent flex items-center justify-center">
-                    <Phone className="w-8 h-8 sm:w-9 sm:h-9 text-[#062F31] fill-[#062F31] drop-shadow-md" />
+                    <Phone className="w-8 h-8 sm:w-9 sm:h-9 text-[#001162] fill-[#001162] drop-shadow-md" />
                   </div>
                 </div>
 
                 <div className="min-w-0">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#D9A52B] block">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#FEC401] block">
                       Direct Operations Line
                     </span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#D9A52B]" />
-                    <span className="text-[10px] font-bold text-[#F2C052]/80 uppercase">Bhubaneswar HQ</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
+                    <span className="text-[10px] font-bold text-[#FDE047]/80 uppercase">Bhubaneswar HQ</span>
                   </div>
                   <div className="flex items-center gap-2 mt-0.5">
                     <a
                       href={`tel:${COMPANY_CONFIG.contact.phoneRaw}`}
-                      className="text-xl sm:text-2xl font-extrabold font-display text-white tracking-tight hover:text-[#D9A52B] transition-colors"
+                      className="text-xl sm:text-2xl font-extrabold font-display text-white tracking-tight hover:text-[#FEC401] transition-colors"
                     >
                       {COMPANY_CONFIG.contact.phoneDisplay}
                     </a>
                     <button
                       type="button"
                       onClick={() => handleCopy(COMPANY_CONFIG.contact.phoneDisplay, "phone")}
-                      className="p-1 px-2.5 rounded-lg bg-white/10 hover:bg-[#D9A52B]/20 border border-white/10 hover:border-[#D9A52B]/40 text-[#D9A52B] hover:text-white text-[11px] font-bold transition flex items-center gap-1 cursor-pointer active:scale-95"
+                      className="p-1 px-2.5 rounded-lg bg-white/10 hover:bg-[#FEC401]/20 border border-white/10 hover:border-[#FEC401]/40 text-[#FEC401] hover:text-white text-[11px] font-bold transition flex items-center gap-1 cursor-pointer active:scale-95"
                       title="Copy Number"
                     >
                       {copiedPhone ? (
@@ -338,22 +338,22 @@ export default function ContactPage() {
               </div>
 
               {/* Short Description */}
-              <p className="text-xs sm:text-sm text-[#E0ECEA]/85 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#F1F5F9]/85 leading-relaxed">
                 Connect directly with our Bhubaneswar control room. Speak with a human operations supervisor with zero automated menus.
               </p>
 
               {/* Graphical Priority Highlights */}
               <div className="flex flex-wrap gap-2 pt-1 text-xs">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#D9A52B]/20 border border-white/10 hover:border-[#D9A52B]/40 text-white/90 hover:text-white transition-all duration-200 hover:scale-105">
-                  <Clock className="w-3.5 h-3.5 text-[#D9A52B]" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#FEC401]/20 border border-white/10 hover:border-[#FEC401]/40 text-white/90 hover:text-white transition-all duration-200 hover:scale-105">
+                  <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
                   <span>Midnight BBI Pickups</span>
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#D9A52B]/20 border border-white/10 hover:border-[#D9A52B]/40 text-white/90 hover:text-white transition-all duration-200 hover:scale-105">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#FEC401]/20 border border-white/10 hover:border-[#FEC401]/40 text-white/90 hover:text-white transition-all duration-200 hover:scale-105">
                   <Zap className="w-3.5 h-3.5 text-[#10B981]" />
                   <span>Immediate Dispatch</span>
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#D9A52B]/20 border border-white/10 hover:border-[#D9A52B]/40 text-white/90 hover:text-white transition-all duration-200 hover:scale-105">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-black/40 hover:bg-[#FEC401]/20 border border-white/10 hover:border-[#FEC401]/40 text-white/90 hover:text-white transition-all duration-200 hover:scale-105">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
                   <span>Highway Emergency</span>
                 </span>
               </div>
@@ -363,11 +363,11 @@ export default function ContactPage() {
             <div className="pt-6 relative z-10">
               <a
                 href={`tel:${COMPANY_CONFIG.contact.phoneRaw}`}
-                className="shimmer-btn w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-[#D9A52B] via-[#E5B543] to-[#C99320] text-[#062F31] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_6px_20px_rgba(217,165,43,0.4),inset_0_1px_0_rgba(255,255,255,0.6)] hover:brightness-105 active:scale-[0.98] transition-all group/call cursor-pointer border border-[#F2C868]/60"
+                className="shimmer-btn w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-[#FEC401] via-[#FEC401] to-[#E5AD00] text-[#001162] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_6px_20px_rgba(217,165,43,0.4),inset_0_1px_0_rgba(255,255,255,0.6)] hover:brightness-105 active:scale-[0.98] transition-all group/call cursor-pointer border border-[#FDE047]/60"
               >
-                <Phone className="w-4 h-4 fill-[#062F31]" />
+                <Phone className="w-4 h-4 fill-[#001162]" />
                 <span>Call Operations Desk Now</span>
-                <ArrowRight className="w-4 h-4 text-[#062F31] group-hover/call:translate-x-1.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-[#001162] group-hover/call:translate-x-1.5 transition-transform" />
               </a>
             </div>
           </div>
@@ -376,23 +376,23 @@ export default function ContactPage() {
 
         {/* Live Operational Metrics Ribbon (Seamless visual transition into body) */}
         <div className="mt-5 p-3.5 sm:p-4 rounded-2xl bg-white border border-[#D5DDD5] shadow-lg flex flex-wrap items-center justify-around gap-3 text-xs">
-          <div className="flex items-center gap-2 text-[#073B3A] font-bold">
+          <div className="flex items-center gap-2 text-[#02146B] font-bold">
             <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
             <span>Avg Response: &lt; 60 Seconds</span>
           </div>
           <div className="hidden sm:block w-px h-4 bg-[#E0E7E0]" />
-          <div className="flex items-center gap-2 text-[#073B3A] font-bold">
-            <Headphones className="w-4 h-4 text-[#D9A52B]" />
+          <div className="flex items-center gap-2 text-[#02146B] font-bold">
+            <Headphones className="w-4 h-4 text-[#FEC401]" />
             <span>Zero IVR • Direct Human Line</span>
           </div>
           <div className="hidden sm:block w-px h-4 bg-[#E0E7E0]" />
-          <div className="flex items-center gap-2 text-[#073B3A] font-bold">
+          <div className="flex items-center gap-2 text-[#02146B] font-bold">
             <Navigation className="w-4 h-4 text-[#10B981]" />
             <span>Bhubaneswar 24/7 Radar Desk</span>
           </div>
           <div className="hidden sm:block w-px h-4 bg-[#E0E7E0]" />
-          <div className="flex items-center gap-2 text-[#073B3A] font-bold">
-            <ShieldCheck className="w-4 h-4 text-[#D9A52B]" />
+          <div className="flex items-center gap-2 text-[#02146B] font-bold">
+            <ShieldCheck className="w-4 h-4 text-[#FEC401]" />
             <span>100% Commercial STA Permits</span>
           </div>
         </div>
@@ -406,10 +406,10 @@ export default function ContactPage() {
             {/* Card 1: Official Email Desk */}
             <div className="card-skeuo p-6 rounded-2xl sm:rounded-3xl space-y-3.5 flex flex-col justify-between bg-white border border-[#E0E7E0] hover:shadow-md transition-all">
               <div className="space-y-2.5">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center shadow-xs">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#02146B] to-[#000B3B] text-[#FEC401] flex items-center justify-center shadow-xs">
                   <Mail className="w-4 h-4" />
                 </div>
-                <h3 className="text-base font-bold font-display text-[#182A2B]">
+                <h3 className="text-base font-bold font-display text-[#0F172A]">
                   Official Email Desk
                 </h3>
                 <p className="text-xs text-[#556464] leading-relaxed">
@@ -420,14 +420,14 @@ export default function ContactPage() {
                   <div className="flex items-center justify-between">
                     <a
                       href={`mailto:${COMPANY_CONFIG.contact.bookingEmail}`}
-                      className="font-bold text-[#073B3A] hover:underline"
+                      className="font-bold text-[#02146B] hover:underline"
                     >
                       {COMPANY_CONFIG.contact.bookingEmail}
                     </a>
                     <button
                       type="button"
                       onClick={() => handleCopy(COMPANY_CONFIG.contact.bookingEmail, "email")}
-                      className="text-[10px] font-bold text-[#667575] hover:text-[#073B3A] cursor-pointer"
+                      className="text-[10px] font-bold text-[#667575] hover:text-[#02146B] cursor-pointer"
                     >
                       {copiedEmail ? "Copied" : "Copy"}
                     </button>
@@ -441,7 +441,7 @@ export default function ContactPage() {
               <div className="pt-2">
                 <a
                   href={`mailto:${COMPANY_CONFIG.contact.bookingEmail}`}
-                  className="w-full py-2 px-4 rounded-xl bg-[#FAF9F5] hover:bg-[#073B3A] hover:text-white text-[#073B3A] border border-[#D5DDD5] text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full py-2 px-4 rounded-xl bg-[#FAF9F5] hover:bg-[#02146B] hover:text-white text-[#02146B] border border-[#D5DDD5] text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <Mail className="w-3.5 h-3.5" />
                   <span>Send Email</span>
@@ -452,10 +452,10 @@ export default function ContactPage() {
             {/* Card 2: Registered Central Headquarters */}
             <div className="card-skeuo p-6 rounded-2xl sm:rounded-3xl space-y-3.5 flex flex-col justify-between bg-white border border-[#E0E7E0] hover:shadow-md transition-all">
               <div className="space-y-2.5">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center shadow-xs">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#02146B] to-[#000B3B] text-[#FEC401] flex items-center justify-center shadow-xs">
                   <MapPin className="w-4 h-4" />
                 </div>
-                <h3 className="text-base font-bold font-display text-[#182A2B]">
+                <h3 className="text-base font-bold font-display text-[#0F172A]">
                   Bhubaneswar Headquarters
                 </h3>
                 <p className="text-xs text-[#556464] leading-relaxed">
@@ -463,7 +463,7 @@ export default function ContactPage() {
                 </p>
 
                 <div className="pt-2 border-t border-[#EEF2EE] text-xs space-y-0.5">
-                  <span className="font-semibold text-[#182A2B] block">
+                  <span className="font-semibold text-[#0F172A] block">
                     {COMPANY_CONFIG.legalBusinessName}
                   </span>
                   <span className="text-[10.5px] text-[#10B981] font-bold flex items-center gap-1">
@@ -478,7 +478,7 @@ export default function ContactPage() {
                   href={`https://maps.google.com/?q=${encodeURIComponent(COMPANY_CONFIG.contact.registeredAddress)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-2 px-4 rounded-xl bg-[#FAF9F5] hover:bg-[#073B3A] hover:text-white text-[#073B3A] border border-[#D5DDD5] text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full py-2 px-4 rounded-xl bg-[#FAF9F5] hover:bg-[#02146B] hover:text-white text-[#02146B] border border-[#D5DDD5] text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <Navigation className="w-3.5 h-3.5" />
                   <span>View on Map</span>
@@ -490,10 +490,10 @@ export default function ContactPage() {
             {/* Card 3: Instant Online Booking */}
             <div className="card-skeuo p-6 rounded-2xl sm:rounded-3xl space-y-3.5 flex flex-col justify-between bg-white border border-[#E0E7E0] hover:shadow-md transition-all">
               <div className="space-y-2.5">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#073B3A] to-[#041F20] text-[#D9A52B] flex items-center justify-center shadow-xs">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#02146B] to-[#000B3B] text-[#FEC401] flex items-center justify-center shadow-xs">
                   <Car className="w-4 h-4" />
                 </div>
-                <h3 className="text-base font-bold font-display text-[#182A2B]">
+                <h3 className="text-base font-bold font-display text-[#0F172A]">
                   Direct Online Booking
                 </h3>
                 <p className="text-xs text-[#556464] leading-relaxed">
@@ -503,17 +503,17 @@ export default function ContactPage() {
                 <div className="pt-2 border-t border-[#EEF2EE] space-y-1.5">
                   <Link
                     href="/book-cab"
-                    className="p-2 rounded-xl bg-[#FAF9F5] hover:bg-[#E0ECEA]/60 border border-[#D5DDD5] flex items-center justify-between group transition text-xs font-bold text-[#182A2B] cursor-pointer"
+                    className="p-2 rounded-xl bg-[#FAF9F5] hover:bg-[#F1F5F9]/60 border border-[#D5DDD5] flex items-center justify-between group transition text-xs font-bold text-[#0F172A] cursor-pointer"
                   >
                     <span>Reserve a Cab Now</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#D9A52B] group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
                   </Link>
                   <Link
                     href="/book-tour"
-                    className="p-2 rounded-xl bg-[#FAF9F5] hover:bg-[#E0ECEA]/60 border border-[#D5DDD5] flex items-center justify-between group transition text-xs font-bold text-[#182A2B] cursor-pointer"
+                    className="p-2 rounded-xl bg-[#FAF9F5] hover:bg-[#F1F5F9]/60 border border-[#D5DDD5] flex items-center justify-between group transition text-xs font-bold text-[#0F172A] cursor-pointer"
                   >
                     <span>Explore Curated Tours</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#D9A52B] group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
@@ -534,11 +534,11 @@ export default function ContactPage() {
       <section className="py-12 sm:py-16 bg-[#F2F5F2] border-b border-[#E5EAE5]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10 space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0ECEA]/80 text-[10px] font-bold text-[#073B3A] uppercase tracking-wider border border-[#C1DAD7]">
-              <Navigation className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F1F5F9]/80 text-[10px] font-bold text-[#02146B] uppercase tracking-wider border border-[#C1DAD7]">
+              <Navigation className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Odisha Station Hubs</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#182A2B]">
+            <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#0F172A]">
               Our Regional Fleet Presence
             </h2>
           </div>
@@ -554,12 +554,12 @@ export default function ContactPage() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#021718]/90 via-[#021718]/40 to-transparent" />
-                <div className="absolute top-2.5 left-2.5 bg-gradient-to-br from-[#F2C052] to-[#D9A52B] text-[#062F31] w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs shadow-sm">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B]/90 via-[#000B3B]/40 to-transparent" />
+                <div className="absolute top-2.5 left-2.5 bg-gradient-to-br from-[#FDE047] to-[#FEC401] text-[#001162] w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs shadow-sm">
                   01
                 </div>
                 <div className="absolute bottom-2.5 left-3 right-3 text-white">
-                  <span className="text-[10px] text-[#D9A52B] uppercase font-bold block">Airport &amp; Capital</span>
+                  <span className="text-[10px] text-[#FEC401] uppercase font-bold block">Airport &amp; Capital</span>
                   <h3 className="text-base font-bold font-display text-white">Bhubaneswar Hub</h3>
                 </div>
               </div>
@@ -567,12 +567,12 @@ export default function ContactPage() {
                 <p className="text-xs text-[#556464] leading-relaxed">
                   BBI Airport standby, Master Canteen Railway Junction, and Patia IT Corridor.
                 </p>
-                <div className="pt-2 border-t border-[#EEF2EE] flex items-center justify-between text-xs font-bold text-[#073B3A]">
+                <div className="pt-2 border-t border-[#EEF2EE] flex items-center justify-between text-xs font-bold text-[#02146B]">
                   <span className="flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-[#D9A52B]" />
+                    <Clock className="w-3 h-3 text-[#FEC401]" />
                     <span>&lt; 15 Min Standby</span>
                   </span>
-                  <Link href="/book-cab?service=airport" className="hover:text-[#D9A52B] transition-colors flex items-center gap-0.5">
+                  <Link href="/book-cab?service=airport" className="hover:text-[#FEC401] transition-colors flex items-center gap-0.5">
                     <span>Airport Cab</span>
                     <ArrowRight className="w-3 h-3" />
                   </Link>
@@ -590,12 +590,12 @@ export default function ContactPage() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#021718]/90 via-[#021718]/40 to-transparent" />
-                <div className="absolute top-2.5 left-2.5 bg-gradient-to-br from-[#F2C052] to-[#D9A52B] text-[#062F31] w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs shadow-sm">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B]/90 via-[#000B3B]/40 to-transparent" />
+                <div className="absolute top-2.5 left-2.5 bg-gradient-to-br from-[#FDE047] to-[#FEC401] text-[#001162] w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs shadow-sm">
                   02
                 </div>
                 <div className="absolute bottom-2.5 left-3 right-3 text-white">
-                  <span className="text-[10px] text-[#D9A52B] uppercase font-bold block">Temple &amp; Marine Drive</span>
+                  <span className="text-[10px] text-[#FEC401] uppercase font-bold block">Temple &amp; Marine Drive</span>
                   <h3 className="text-base font-bold font-display text-white">Puri Dham Cell</h3>
                 </div>
               </div>
@@ -603,12 +603,12 @@ export default function ContactPage() {
                 <p className="text-xs text-[#556464] leading-relaxed">
                   VIP Road and Marine Drive coastal corridor. Temple darshan and Konark transfers.
                 </p>
-                <div className="pt-2 border-t border-[#EEF2EE] flex items-center justify-between text-xs font-bold text-[#073B3A]">
+                <div className="pt-2 border-t border-[#EEF2EE] flex items-center justify-between text-xs font-bold text-[#02146B]">
                   <span className="flex items-center gap-1">
-                    <ShieldCheck className="w-3 h-3 text-[#D9A52B]" />
+                    <ShieldCheck className="w-3 h-3 text-[#FEC401]" />
                     <span>Temple Pass Standby</span>
                   </span>
-                  <Link href="/book-tour?destination=puri" className="hover:text-[#D9A52B] transition-colors flex items-center gap-0.5">
+                  <Link href="/book-tour?destination=puri" className="hover:text-[#FEC401] transition-colors flex items-center gap-0.5">
                     <span>Puri Circuit</span>
                     <ArrowRight className="w-3 h-3" />
                   </Link>
@@ -626,12 +626,12 @@ export default function ContactPage() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#021718]/90 via-[#021718]/40 to-transparent" />
-                <div className="absolute top-2.5 left-2.5 bg-gradient-to-br from-[#F2C052] to-[#D9A52B] text-[#062F31] w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs shadow-sm">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B]/90 via-[#000B3B]/40 to-transparent" />
+                <div className="absolute top-2.5 left-2.5 bg-gradient-to-br from-[#FDE047] to-[#FEC401] text-[#001162] w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs shadow-sm">
                   03
                 </div>
                 <div className="absolute bottom-2.5 left-3 right-3 text-white">
-                  <span className="text-[10px] text-[#D9A52B] uppercase font-bold block">Institutional Mobility</span>
+                  <span className="text-[10px] text-[#FEC401] uppercase font-bold block">Institutional Mobility</span>
                   <h3 className="text-base font-bold font-display text-white">Corporate Fleet</h3>
                 </div>
               </div>
@@ -639,12 +639,12 @@ export default function ContactPage() {
                 <p className="text-xs text-[#556464] leading-relaxed">
                   Executive corporate mobility, institutional conferences, and multi-vehicle delegations.
                 </p>
-                <div className="pt-2 border-t border-[#EEF2EE] flex items-center justify-between text-xs font-bold text-[#073B3A]">
+                <div className="pt-2 border-t border-[#EEF2EE] flex items-center justify-between text-xs font-bold text-[#02146B]">
                   <span className="flex items-center gap-1">
                     <CheckCircle2 className="w-3 h-3 text-[#10B981]" />
                     <span>GST Invoiced</span>
                   </span>
-                  <Link href="/services/hourly-rentals" className="hover:text-[#D9A52B] transition-colors flex items-center gap-0.5">
+                  <Link href="/services/hourly-rentals" className="hover:text-[#FEC401] transition-colors flex items-center gap-0.5">
                     <span>Hourly Hire</span>
                     <ArrowRight className="w-3 h-3" />
                   </Link>
@@ -659,11 +659,11 @@ export default function ContactPage() {
       <section className="py-12 sm:py-16 bg-white border-b border-[#E5EAE5]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-8 space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E0ECEA]/80 text-[10px] font-bold text-[#073B3A] uppercase tracking-wider border border-[#C1DAD7]">
-              <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F1F5F9]/80 text-[10px] font-bold text-[#02146B] uppercase tracking-wider border border-[#C1DAD7]">
+              <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Contact Clarifications</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#182A2B]">
+            <h2 className="text-2xl sm:text-3xl font-bold font-display text-[#0F172A]">
               Frequently Asked Inquiries
             </h2>
           </div>
@@ -679,11 +679,11 @@ export default function ContactPage() {
                   <button
                     type="button"
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 font-display font-bold text-xs sm:text-sm text-[#182A2B] hover:text-[#073B3A] transition cursor-pointer"
+                    className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 font-display font-bold text-xs sm:text-sm text-[#0F172A] hover:text-[#02146B] transition cursor-pointer"
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
-                      className={`w-4 h-4 text-[#D9A52B] shrink-0 transition-transform duration-200 ${
+                      className={`w-4 h-4 text-[#FEC401] shrink-0 transition-transform duration-200 ${
                         isOpen ? "rotate-180" : ""
                       }`}
                     />

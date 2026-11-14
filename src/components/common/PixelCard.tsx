@@ -39,15 +39,15 @@ const VARIANTS = {
   gold: {
     gap: 5,
     speed: 25,
-    colors: { dark: ["#FFF8E7", "#FDE047", "#D9A52B", "#CA8A04"], light: ["#9B6F18", "#D9A52B", "#F5BD38"] },
-    glow: { dark: "#D9A52B", light: "#CA8A04" },
+    colors: { dark: ["#FFF8E7", "#FDE047", "#FEC401", "#CA8A04"], light: ["#9B6F18", "#FEC401", "#F5BD38"] },
+    glow: { dark: "#FEC401", light: "#CA8A04" },
     noFocus: false,
   },
   emerald: {
     gap: 6,
     speed: 30,
-    colors: { dark: ["#A7F3D0", "#34D399", "#10B981", "#073B3A"], light: ["#073B3A", "#0D9488", "#10B981"] },
-    glow: { dark: "#10B981", light: "#073B3A" },
+    colors: { dark: ["#A7F3D0", "#34D399", "#10B981", "#02146B"], light: ["#02146B", "#0D9488", "#10B981"] },
+    glow: { dark: "#10B981", light: "#02146B" },
     noFocus: false,
   },
   blue: {
