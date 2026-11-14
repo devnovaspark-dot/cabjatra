@@ -72,11 +72,11 @@ export const HeroSection: React.FC = () => {
   const currentMilestone = PASSING_MILESTONES[milestoneIndex];
 
   return (
-    <section className="relative text-white overflow-hidden min-h-[96vh] sm:min-h-[100vh] flex flex-col justify-between pt-36 sm:pt-42 pb-4 sm:pb-6 border-b border-[#D9A52B]/35 select-none transition-colors duration-1000 bg-[#073B3A]">
+    <section className="relative text-white overflow-hidden min-h-[96vh] sm:min-h-[100vh] flex flex-col justify-between pt-28 sm:pt-34 pb-3 sm:pb-4 border-b border-[#D9A52B]/35 select-none transition-colors duration-1000 bg-[#073B3A]">
       
       {/* =========================================================================
           LAYER 1: FULL ATMOSPHERIC ODISHA SKY & ENVIRONMENT
-          Spans the ENTIRE background behind the floating navbar down to the road.
+          Spans the entire background from behind the navbar down to the road.
           ========================================================================= */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         
@@ -110,28 +110,28 @@ export const HeroSection: React.FC = () => {
 
         {/* ================= CELESTIAL ORBS: REALISTIC SUN / MOON ================= */}
         {timeOfDay === "sunrise" && (
-          <div className="absolute top-14 sm:top-18 right-12 sm:right-28 pointer-events-none transition-all duration-1000">
+          <div className="absolute top-12 sm:top-16 right-12 sm:right-28 pointer-events-none transition-all duration-1000">
             <div className="absolute -inset-10 rounded-full bg-gradient-to-br from-amber-400/25 via-orange-500/15 to-transparent blur-2xl animate-celestial-pulse" />
             <div className="relative w-16 h-16 sm:w-22 sm:h-22 rounded-full bg-gradient-to-tr from-[#EA580C] via-[#F97316] to-[#FDE047] shadow-[0_0_60px_rgba(249,115,22,0.85)] border border-yellow-200/40" />
           </div>
         )}
 
         {timeOfDay === "day" && (
-          <div className="absolute top-12 sm:top-16 right-12 sm:right-28 pointer-events-none transition-all duration-1000">
+          <div className="absolute top-10 sm:top-14 right-10 sm:right-24 pointer-events-none transition-all duration-1000">
             <div className="absolute -inset-14 rounded-full bg-gradient-to-br from-yellow-200/25 via-yellow-400/15 to-transparent blur-2xl animate-celestial-pulse" />
             <div className="relative w-18 h-18 sm:w-24 sm:h-24 rounded-full bg-gradient-to-tr from-[#FACC15] via-[#FEF08A] to-[#FFFFFF] shadow-[0_0_80px_rgba(250,204,21,0.95)] border border-white/60" />
           </div>
         )}
 
         {timeOfDay === "sunset" && (
-          <div className="absolute top-14 sm:top-18 right-12 sm:right-28 pointer-events-none transition-all duration-1000">
+          <div className="absolute top-12 sm:top-16 right-12 sm:right-28 pointer-events-none transition-all duration-1000">
             <div className="absolute -inset-12 rounded-full bg-gradient-to-br from-red-500/30 via-orange-500/20 to-transparent blur-2xl animate-celestial-pulse" />
             <div className="relative w-18 h-18 sm:w-24 sm:h-24 rounded-full bg-gradient-to-tr from-[#991B1B] via-[#EA580C] to-[#FBBF24] shadow-[0_0_70px_rgba(234,88,12,0.9)] border border-orange-200/40" />
           </div>
         )}
 
         {timeOfDay === "night" && (
-          <div className="absolute top-12 sm:top-16 right-12 sm:right-28 pointer-events-none transition-all duration-1000">
+          <div className="absolute top-10 sm:top-14 right-10 sm:right-24 pointer-events-none transition-all duration-1000">
             <div className="absolute -inset-8 rounded-full bg-cyan-200/10 blur-xl animate-celestial-pulse" />
             <svg viewBox="0 0 80 80" className="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-[0_0_35px_rgba(186,230,253,0.7)]">
               <defs>
@@ -158,7 +158,7 @@ export const HeroSection: React.FC = () => {
         )}
 
         {/* Volumetric Drifting Clouds */}
-        <div className="absolute top-10 sm:top-14 inset-x-0 h-32 opacity-35 animate-clouds-slow flex w-[200%] pointer-events-none">
+        <div className="absolute top-8 sm:top-12 inset-x-0 h-32 opacity-35 animate-clouds-slow flex w-[200%] pointer-events-none">
           <svg viewBox="0 0 1400 110" className="w-1/2 h-full fill-current" preserveAspectRatio="none">
             <defs>
               <linearGradient id="cloudGradReal" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -177,7 +177,7 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* High-Altitude Coastal Seagulls */}
-        <div className="absolute top-16 left-0 w-60 h-14 pointer-events-none animate-bird-flight-1">
+        <div className="absolute top-14 left-0 w-60 h-14 pointer-events-none animate-bird-flight-1">
           <div className="flex items-center gap-6 opacity-75">
             <svg viewBox="0 0 50 24" className="w-6 h-3.5 text-white/85">
               <ellipse cx="25" cy="13" rx="7" ry="2" fill="currentColor" />
@@ -196,109 +196,18 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* =========================================================================
-            LAYER 1B: SCENIC ODISHA HORIZON & HERITAGE LANDMARKS
-            Spans across the horizon behind the road and car.
-            ========================================================================= */}
-        <div className="absolute inset-x-0 bottom-20 sm:bottom-24 h-64 sm:h-84 pointer-events-none overflow-hidden opacity-95">
-          <svg viewBox="0 0 1440 280" className="w-full h-full" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="distantMistyRidge" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#08383D" stopOpacity="0.45" />
-                <stop offset="100%" stopColor="#031F21" stopOpacity="0.9" />
-              </linearGradient>
-
-              <linearGradient id="duneHorizonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#6C4916" stopOpacity="0.5" />
-                <stop offset="100%" stopColor="#052628" stopOpacity="0.95" />
-              </linearGradient>
-
-              <linearGradient id="templeDignifiedStone" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#0D4B4E" />
-                <stop offset="50%" stopColor="#08373A" />
-                <stop offset="100%" stopColor="#031F21" />
-              </linearGradient>
-            </defs>
-
-            {/* Distant Eastern Ghats Misty Hill Ridge */}
-            <path d="M 0,280 Q 240,160 520,185 T 1050,170 T 1440,280 Z" fill="url(#distantMistyRidge)" />
-
-            {/* Puri Chandrabhaga Golden Sand Dunes */}
-            <path d="M 0,280 Q 320,200 640,225 T 1250,210 T 1440,280 Z" fill="url(#duneHorizonGrad)" />
-
-            {/* Bay of Bengal Ocean Foam Surf Line */}
-            <path
-              d="M 0,250 Q 150,238 300,250 T 600,250 T 900,250 T 1200,250 T 1440,250"
-              stroke="#A7F3D0"
-              strokeWidth="1.5"
-              strokeOpacity="0.45"
-              fill="none"
-              className="animate-ocean-wave-roll"
-            />
-
-            {/* Sacred Puri Jagannath Temple Grand Shikhara */}
-            <g transform="translate(380, 110)">
-              <path
-                d="M 44,170 L 56,105 L 66,55 L 73,30 L 77,22 L 81,30 L 88,55 L 98,105 L 110,170 Z"
-                fill="url(#templeDignifiedStone)"
-                stroke="#14B8A6"
-                strokeWidth="1.2"
-                strokeOpacity="0.35"
-              />
-              <line x1="58" y1="105" x2="96" y2="105" stroke="#2DD4BF" strokeWidth="0.8" opacity="0.4" />
-              <line x1="62" y1="80" x2="92" y2="80" stroke="#2DD4BF" strokeWidth="0.8" opacity="0.4" />
-              <line x1="68" y1="60" x2="86" y2="60" stroke="#2DD4BF" strokeWidth="0.8" opacity="0.4" />
-
-              <circle cx="77" cy="20" r="5" stroke="#D9A52B" strokeWidth="1.5" fill="#042F31" />
-              <circle cx="77" cy="20" r="1.8" fill="#FACC15" />
-
-              {/* The Sacred Fluttering Patitapabana Flag */}
-              <g className="animate-flag-flutter" transform="translate(77, 16)">
-                <polygon points="0,0 22,-5 0,-10" fill="#EA580C" />
-                <polygon points="0,0 16,-4 0,-8" fill="#F97316" />
-              </g>
-
-              <polygon
-                points="98,170 122,118 144,170"
-                fill="url(#templeDignifiedStone)"
-                stroke="#14B8A6"
-                strokeWidth="0.8"
-                strokeOpacity="0.25"
-              />
-            </g>
-
-            {/* 13th-Century Konark Sun Temple Chariot Wheel */}
-            <g transform="translate(740, 140)">
-              <polygon points="0,140 38,70 76,140" fill="url(#templeDignifiedStone)" opacity="0.85" />
-              <circle cx="130" cy="100" r="36" stroke="#D9A52B" strokeWidth="3" fill="#032628" />
-              <circle cx="130" cy="100" r="30" stroke="#2DD4BF" strokeWidth="1.2" fill="none" opacity="0.5" />
-              <circle cx="130" cy="100" r="9" fill="#D9A52B" stroke="#000000" strokeWidth="1" />
-              <line x1="130" y1="64" x2="130" y2="136" stroke="#FDE047" strokeWidth="2" />
-              <line x1="94" y1="100" x2="166" y2="100" stroke="#FDE047" strokeWidth="2" />
-              <line x1="105" y1="75" x2="155" y2="125" stroke="#D9A52B" strokeWidth="1.6" />
-              <line x1="105" y1="125" x2="155" y2="75" stroke="#D9A52B" strokeWidth="1.6" />
-            </g>
-
-            {/* Chilika Lagoon Sailboat */}
-            <g transform="translate(1060, 190)">
-              <path d="M 35,52 Q 55,62 75,52 L 70,48 L 40,48 Z" fill="#2E1D13" stroke="#D9A52B" strokeWidth="0.8" />
-              <polygon points="55,48 55,14 75,42" fill="#F8FAFC" opacity="0.85" />
-              <path d="M 85,68 Q 135,28 185,68" stroke="#083E3B" strokeWidth="2" fill="none" opacity="0.6" />
-            </g>
-          </svg>
-        </div>
-
       </div>
 
       {/* =========================================================================
           LAYER 2: HERO BRANDING, HIGH-CONVERTING HEADLINE & CTAS (ZERO CARDS)
-          Generous top clearance so the floating navbar NEVER touches the headline!
+          Explicit top spacing (pt-28 sm:pt-34) guarantees the eyebrow and headline
+          are 100% visible and NEVER obscured by the floating navbar!
           ========================================================================= */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 w-full text-center space-y-3.5 sm:space-y-4 my-auto">
+      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 w-full text-center space-y-3 sm:space-y-3.5">
         
         {/* Status Trust Pill with Live Beacon */}
         <div className="flex items-center justify-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#D9A52B]/50 text-xs font-semibold text-[#D9A52B] shadow-xl">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-[#D9A52B]/60 text-xs font-semibold text-[#D9A52B] shadow-2xl">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
@@ -308,7 +217,7 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* Short, Direct, High-Converting Headline */}
-        <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold font-display tracking-tight text-white leading-tight sm:leading-[1.08] drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+        <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold font-display tracking-tight text-white leading-tight sm:leading-[1.08] drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
           Book Reliable Cabs <br />
           <span className="italic font-display font-normal text-[#D9A52B]">
             Across Odisha.
@@ -316,15 +225,15 @@ export const HeroSection: React.FC = () => {
         </h1>
 
         {/* Clear Concise Subtitle */}
-        <p className="text-xs sm:text-base lg:text-lg text-white/95 max-w-2xl mx-auto font-normal leading-relaxed drop-shadow-md">
+        <p className="text-xs sm:text-base lg:text-lg text-white/95 max-w-2xl mx-auto font-normal leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
           Punctual BBI airport pickups, outstation highway transfers &amp; sacred temple circuits. 100% yellow-board commercial fleet, zero surge pricing &amp; guaranteed on-time dispatch.
         </p>
 
         {/* Action CTAs */}
-        <div className="pt-2 flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto">
+        <div className="pt-1.5 flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto">
           <Link
             href="/book-cab"
-            className="w-full sm:w-auto px-7 sm:px-8 py-3.5 rounded-full bg-gradient-to-r from-[#D9A52B] via-[#E5B543] to-[#C99320] text-[#062F31] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(217,165,43,0.45),inset_0_1px_0_rgba(255,255,255,0.6)] hover:brightness-105 active:scale-[0.98] transition-all group cursor-pointer border border-[#F2C868]/60"
+            className="w-full sm:w-auto px-7 sm:px-8 py-3 rounded-full bg-gradient-to-r from-[#D9A52B] via-[#E5B543] to-[#C99320] text-[#062F31] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(217,165,43,0.45),inset_0_1px_0_rgba(255,255,255,0.6)] hover:brightness-105 active:scale-[0.98] transition-all group cursor-pointer border border-[#F2C868]/60"
           >
             <Car className="w-4 h-4 text-[#062F31]" />
             <span>Book Your Cab Now</span>
@@ -333,7 +242,7 @@ export const HeroSection: React.FC = () => {
 
           <Link
             href="/book-tour"
-            className="w-full sm:w-auto px-6 sm:px-7 py-3.5 rounded-full bg-black/55 hover:bg-black/75 backdrop-blur-md border border-white/25 hover:border-[#D9A52B]/70 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-[0.98] cursor-pointer"
+            className="w-full sm:w-auto px-6 sm:px-7 py-3 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/30 hover:border-[#D9A52B]/70 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-[0.98] cursor-pointer"
           >
             <Compass className="w-4 h-4 text-[#D9A52B]" />
             <span>Explore Curated Tours</span>
@@ -341,8 +250,8 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* Sleek, Cardless Milestone Corridor Ribbon (NO CARDS) */}
-        <div className="pt-1.5 flex items-center justify-center">
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#D9A52B]/40 text-[11px] sm:text-xs text-white/90 shadow-xl transition-all duration-700">
+        <div className="pt-1 flex items-center justify-center">
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-[#D9A52B]/50 text-[11px] sm:text-xs text-white/95 shadow-xl transition-all duration-700">
             <span className="flex items-center gap-1.5 font-bold text-[#FACC15]">
               <MapPin className="w-3.5 h-3.5 text-[#D9A52B]" />
               <span>{currentMilestone.nh}</span>
@@ -359,14 +268,14 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* =========================================================================
-          LAYER 3: THE HIGHWAY DIRECTLY BENEATH THE CAR WHEELS
-          AND ROADSIDE TREES & MILESTONES STANDING SIDE BY SIDE!
+          LAYER 3: THE HIGHWAY ROAD PLACED DIRECTLY BENEATH THE TYRES
+          AND ROADSIDE TREES & MILESTONES PLACED SIDE BY SIDE WITH THE CAR!
           ========================================================================= */}
       <div className="relative z-10 w-full mt-auto">
         
-        {/* ================= ROADSIDE VERGE WITH TREES (SIDE-BY-SIDE WITH CAR) ================= */}
-        <div className="relative w-full h-24 sm:h-28 -mb-1 pointer-events-none overflow-hidden">
-          <svg viewBox="0 0 1440 100" className="w-full h-full" preserveAspectRatio="none">
+        {/* ================= SCENIC ODISHA HORIZON & ROADSIDE VERGE ================= */}
+        <div className="relative w-full h-32 sm:h-40 -mb-2 pointer-events-none overflow-hidden">
+          <svg viewBox="0 0 1440 160" className="w-full h-full" preserveAspectRatio="none">
             <defs>
               <linearGradient id="treeBarkGradRoad" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#3E2718" />
@@ -378,11 +287,65 @@ export const HeroSection: React.FC = () => {
                 <stop offset="60%" stopColor="#0B4E47" />
                 <stop offset="100%" stopColor="#042628" />
               </linearGradient>
+
+              <linearGradient id="templeStoneShade" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#0D4B4E" />
+                <stop offset="50%" stopColor="#08373A" />
+                <stop offset="100%" stopColor="#031F21" />
+              </linearGradient>
+
+              <linearGradient id="distantDunes" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#6C4916" stopOpacity="0.45" />
+                <stop offset="100%" stopColor="#052628" stopOpacity="0.95" />
+              </linearGradient>
             </defs>
 
-            {/* Left Casuarina Conifer (Rooted on road shoulder verge) */}
-            <g transform="translate(60, 0)">
-              <rect x="18" y="42" width="6" height="58" fill="url(#treeBarkGradRoad)" rx="1.5" />
+            {/* Puri Chandrabhaga Sand Dunes */}
+            <path d="M 0,160 Q 320,105 640,125 T 1250,115 T 1440,160 Z" fill="url(#distantDunes)" />
+
+            {/* Bay of Bengal Ocean Foam Surf Line */}
+            <path
+              d="M 0,140 Q 150,130 300,140 T 600,140 T 900,140 T 1200,140 T 1440,140"
+              stroke="#A7F3D0"
+              strokeWidth="1.5"
+              strokeOpacity="0.45"
+              fill="none"
+              className="animate-ocean-wave-roll"
+            />
+
+            {/* Sacred Puri Jagannath Temple Shikhara */}
+            <g transform="translate(420, 30)">
+              <path
+                d="M 44,130 L 56,75 L 66,35 L 73,16 L 77,10 L 81,16 L 88,35 L 98,75 L 110,130 Z"
+                fill="url(#templeStoneShade)"
+                stroke="#14B8A6"
+                strokeWidth="1.2"
+                strokeOpacity="0.35"
+              />
+              <circle cx="77" cy="10" r="4.5" stroke="#D9A52B" strokeWidth="1.4" fill="#042F31" />
+              <circle cx="77" cy="10" r="1.6" fill="#FACC15" />
+
+              {/* Patitapabana Flag */}
+              <g className="animate-flag-flutter" transform="translate(77, 6)">
+                <polygon points="0,0 20,-4 0,-9" fill="#EA580C" />
+                <polygon points="0,0 14,-3 0,-7" fill="#F97316" />
+              </g>
+            </g>
+
+            {/* 13th-Century Konark Sun Temple Chariot Wheel */}
+            <g transform="translate(760, 50)">
+              <circle cx="100" cy="70" r="32" stroke="#D9A52B" strokeWidth="2.8" fill="#032628" />
+              <circle cx="100" cy="70" r="26" stroke="#2DD4BF" strokeWidth="1" fill="none" opacity="0.5" />
+              <circle cx="100" cy="70" r="8" fill="#D9A52B" stroke="#000000" strokeWidth="1" />
+              <line x1="100" y1="38" x2="100" y2="102" stroke="#FDE047" strokeWidth="1.8" />
+              <line x1="68" y1="70" x2="132" y2="70" stroke="#FDE047" strokeWidth="1.8" />
+              <line x1="77" y1="47" x2="123" y2="93" stroke="#D9A52B" strokeWidth="1.4" />
+              <line x1="77" y1="93" x2="123" y2="47" stroke="#D9A52B" strokeWidth="1.4" />
+            </g>
+
+            {/* Left Roadside Casuarina Conifer */}
+            <g transform="translate(50, 40)">
+              <rect x="18" y="42" width="6" height="78" fill="url(#treeBarkGradRoad)" rx="1.5" />
               <g className="animate-foliage-shimmer">
                 <path d="M 21,8 C 34,22 38,42 21,42 C 4,42 8,22 21,8 Z" fill="url(#foliageRoadside)" />
                 <path d="M 21,26 C 38,44 42,66 21,66 C 0,66 4,44 21,26 Z" fill="url(#foliageRoadside)" opacity="0.92" />
@@ -390,34 +353,34 @@ export const HeroSection: React.FC = () => {
               </g>
             </g>
 
-            {/* Roadside Coconut Palm (Gracefully Arched Trunk, Wind-Fluttering Fronds) */}
-            <g transform="translate(170, -10)">
+            {/* Roadside Coconut Palm */}
+            <g transform="translate(160, 20)">
               <path
-                d="M 20,110 Q 15,65 28,30 Q 32,20 38,12"
+                d="M 20,140 Q 15,85 28,45 Q 32,32 38,20"
                 stroke="url(#treeBarkGradRoad)"
                 strokeWidth="4.5"
                 fill="none"
                 strokeLinecap="round"
               />
-              <circle cx="36" cy="14" r="3" fill="#58310C" />
-              <circle cx="41" cy="15" r="2.6" fill="#713F12" />
+              <circle cx="36" cy="22" r="3" fill="#58310C" />
+              <circle cx="41" cy="23" r="2.6" fill="#713F12" />
 
               <g className="animate-leaf-flutter-left">
-                <path d="M 38,12 Q 10,2 -22,14 Q -4,2 38,12" fill="url(#foliageRoadside)" />
-                <path d="M 38,12 Q 8,-12 -12,-4 Q 4,-4 38,12" fill="url(#foliageRoadside)" opacity="0.9" />
+                <path d="M 38,20 Q 10,10 -22,22 Q -4,10 38,20" fill="url(#foliageRoadside)" />
+                <path d="M 38,20 Q 8,-4 -12,4 Q 4,4 38,20" fill="url(#foliageRoadside)" opacity="0.9" />
               </g>
               <g className="animate-leaf-flutter-top">
-                <path d="M 38,12 Q 34,-14 38,-24 Q 44,-10 38,12" fill="url(#foliageRoadside)" />
+                <path d="M 38,20 Q 34,-6 38,-16 Q 44,-2 38,20" fill="url(#foliageRoadside)" />
               </g>
               <g className="animate-leaf-flutter-right">
-                <path d="M 38,12 Q 68,-12 88,-4 Q 68,-2 38,12" fill="url(#foliageRoadside)" opacity="0.9" />
-                <path d="M 38,12 Q 76,4 98,18 Q 74,8 38,12" fill="url(#foliageRoadside)" />
+                <path d="M 38,20 Q 68,-4 88,4 Q 68,6 38,20" fill="url(#foliageRoadside)" opacity="0.9" />
+                <path d="M 38,20 Q 76,12 98,26 Q 74,16 38,20" fill="url(#foliageRoadside)" />
               </g>
             </g>
 
             {/* Right Roadside Casuarina Conifer */}
-            <g transform="translate(1320, 0)">
-              <rect x="18" y="42" width="6" height="58" fill="url(#treeBarkGradRoad)" rx="1.5" />
+            <g transform="translate(1330, 40)">
+              <rect x="18" y="42" width="6" height="78" fill="url(#treeBarkGradRoad)" rx="1.5" />
               <g className="animate-foliage-shimmer-fast">
                 <path d="M 21,8 C 34,22 38,42 21,42 C 4,42 8,22 21,8 Z" fill="url(#foliageRoadside)" />
                 <path d="M 21,26 C 38,44 42,66 21,66 C 0,66 4,44 21,26 Z" fill="url(#foliageRoadside)" opacity="0.92" />
@@ -427,13 +390,13 @@ export const HeroSection: React.FC = () => {
           </svg>
         </div>
 
-        {/* ================= THE RUNNING CAR (RESTING DIRECTLY ON TOP OF THE ROAD SURFACE) ================= */}
-        <div className="relative -mb-[12px] z-30 left-6 sm:left-16 lg:left-24 flex items-end">
+        {/* ================= THE RUNNING CAR: RESTING EXACTLY ON TOP OF THE ROAD ================= */}
+        <div className="relative -mb-[10px] z-30 left-6 sm:left-16 lg:left-24 flex items-end">
           
           {/* Suspension Micro-Bounce Chassis */}
           <div className="relative animate-car-chassis">
             
-            {/* Volumetric Projector Headlight Beam Casting Forward onto Asphalt */}
+            {/* Volumetric Projector Headlight Beam Shining Forward Across Asphalt */}
             <div className="absolute top-[28px] left-[225px] w-64 sm:w-96 h-28 pointer-events-none z-10 animate-headlight-beam">
               <svg viewBox="0 0 350 100" className="w-full h-full overflow-visible">
                 <defs>
@@ -465,7 +428,7 @@ export const HeroSection: React.FC = () => {
               viewBox="0 0 250 85"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="relative z-20 filter drop-shadow-[0_12px_22px_rgba(0,0,0,0.9)]"
+              className="relative z-20 filter drop-shadow-[0_12px_22px_rgba(0,0,0,0.95)]"
             >
               <defs>
                 <linearGradient id="realCarBody" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -495,7 +458,7 @@ export const HeroSection: React.FC = () => {
               {/* Direct Asphalt Contact Rubber Tire Shadows */}
               <ellipse cx="58" cy="72" rx="20" ry="4" fill="#000000" fillOpacity="0.9" />
               <ellipse cx="182" cy="72" rx="20" ry="4" fill="#000000" fillOpacity="0.9" />
-              <ellipse cx="125" cy="74" rx="110" ry="5.5" fill="#000000" fillOpacity="0.7" />
+              <ellipse cx="125" cy="74" rx="110" ry="5.5" fill="#000000" fillOpacity="0.75" />
 
               {/* Aerodynamic Sedan Body Profile */}
               <path
