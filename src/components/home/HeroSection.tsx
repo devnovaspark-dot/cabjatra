@@ -69,10 +69,10 @@ export const HeroSection: React.FC = () => {
   const currentMilestone = PASSING_MILESTONES[milestoneIndex];
 
   return (
-    <section className="relative text-white overflow-hidden h-[100dvh] max-h-[100dvh] flex flex-col justify-between pt-24 sm:pt-28 pb-2 border-b border-[#D9A52B]/35 select-none transition-colors duration-1000 bg-[#073B3A]">
+    <section className="relative text-white overflow-hidden h-[100dvh] max-h-[100dvh] flex flex-col justify-between pt-24 sm:pt-28 pb-1 border-b border-[#D9A52B]/35 select-none transition-colors duration-1000 bg-[#073B3A]">
       
       {/* =========================================================================
-          LAYER 1: FULL REALISTIC ODISHA ENVIRONMENT (SPANS ENTIRE BACKGROUND)
+          LAYER 1: FULL REALISTIC ODISHA SKY & ATMOSPHERE (SPANS ENTIRE BACKGROUND)
           Smoothly transitions between Morning, Afternoon, Evening, and Night.
           ========================================================================= */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -81,34 +81,34 @@ export const HeroSection: React.FC = () => {
         <div
           className={`absolute inset-0 transition-all duration-1000 ${
             timeOfDay === "morning"
-              ? "bg-gradient-to-b from-[#0e2c34] via-[#0d4f55] via-35% via-[#136868] to-[#073937]"
+              ? "bg-gradient-to-b from-[#0a2328] via-[#0f464c] via-35% via-[#166367] to-[#125052]"
               : timeOfDay === "afternoon"
-              ? "bg-gradient-to-b from-[#032328] via-[#06424a] via-35% via-[#0b5c63] to-[#084847]"
+              ? "bg-gradient-to-b from-[#032328] via-[#06424a] via-35% via-[#0a585f] to-[#0a484a]"
               : timeOfDay === "evening"
-              ? "bg-gradient-to-b from-[#1c1232] via-[#7a2418] via-30% via-[#a34000] to-[#083533]"
-              : "bg-gradient-to-b from-[#01090c] via-[#021518] via-40% to-[#042426]"
+              ? "bg-gradient-to-b from-[#1e1333] via-[#7c2818] via-30% via-[#9e4408] to-[#153e3b]"
+              : "bg-gradient-to-b from-[#01090d] via-[#02151b] via-40% to-[#042429]"
           }`}
         />
 
         {/* Ambient Atmospheric Skylight Depth Overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/10 via-transparent to-black/40 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/10 via-transparent to-black/45 pointer-events-none" />
 
         {/* ================= STARFIELD (NIGHT ONLY) ================= */}
         {timeOfDay === "night" && (
-          <div className="absolute inset-0 transition-opacity duration-1000 opacity-75">
-            <div className="absolute inset-0 bg-[radial-gradient(#FFFFFF_1px,transparent_1px)] [background-size:22px_22px] opacity-45" />
-            <div className="absolute inset-0 bg-[radial-gradient(#FDE047_1.5px,transparent_1.5px)] [background-size:56px_56px] opacity-55" />
+          <div className="absolute inset-0 transition-opacity duration-1000 opacity-80">
+            <div className="absolute inset-0 bg-[radial-gradient(#FFFFFF_1px,transparent_1px)] [background-size:24px_24px] opacity-45" />
+            <div className="absolute inset-0 bg-[radial-gradient(#FDE047_1.5px,transparent_1.5px)] [background-size:60px_60px] opacity-55" />
             <span className="absolute top-10 left-[18%] w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#FFF] animate-pulse" />
             <span className="absolute top-24 left-[44%] w-1 h-1 rounded-full bg-[#FEF08A] shadow-[0_0_6px_#FEF08A] animate-ping" />
             <span className="absolute top-8 left-[68%] w-1.5 h-1.5 rounded-full bg-[#93C5FD] shadow-[0_0_8px_#93C5FD] animate-pulse" />
-            <span className="absolute top-32 left-[84%] w-1 h-1 rounded-full bg-white shadow-[0_0_6px_#FFF] animate-pulse" />
+            <span className="absolute top-28 left-[84%] w-1 h-1 rounded-full bg-white shadow-[0_0_6px_#FFF] animate-pulse" />
           </div>
         )}
 
         {/* ================= CELESTIAL ORBS: MORNING / AFTERNOON / EVENING / NIGHT ================= */}
         {/* 1. MORNING SUN (Soft Warm Golden Rise) */}
         {timeOfDay === "morning" && (
-          <div className="absolute top-12 sm:top-16 right-10 sm:right-24 pointer-events-none transition-all duration-1000">
+          <div className="absolute top-10 sm:top-14 right-10 sm:right-24 pointer-events-none transition-all duration-1000">
             <div className="absolute -inset-10 rounded-full bg-gradient-to-br from-amber-300/25 via-yellow-500/15 to-transparent blur-2xl animate-celestial-pulse" />
             <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-[#EA580C] via-[#FACC15] to-[#FEF08A] shadow-[0_0_60px_rgba(250,204,21,0.85)] border border-yellow-100/50" />
           </div>
@@ -124,16 +124,16 @@ export const HeroSection: React.FC = () => {
 
         {/* 3. EVENING SUN (Dramatic Crimson & Burnt Orange Sunset) */}
         {timeOfDay === "evening" && (
-          <div className="absolute top-14 sm:top-18 right-10 sm:right-24 pointer-events-none transition-all duration-1000">
+          <div className="absolute top-12 sm:top-16 right-10 sm:right-24 pointer-events-none transition-all duration-1000">
             <div className="absolute -inset-12 rounded-full bg-gradient-to-br from-red-500/30 via-orange-500/20 to-transparent blur-2xl animate-celestial-pulse" />
             <div className="relative w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-gradient-to-tr from-[#991B1B] via-[#EA580C] to-[#FBBF24] shadow-[0_0_70px_rgba(234,88,12,0.9)] border border-orange-200/40" />
           </div>
         )}
 
-        {/* 4. NIGHT MOON (Luminous Moon with Crater Textures) */}
+        {/* 4. NIGHT MOON (Luminous Moon with Realistic Crater Textures) */}
         {timeOfDay === "night" && (
           <div className="absolute top-10 sm:top-14 right-10 sm:right-24 pointer-events-none transition-all duration-1000">
-            <div className="absolute -inset-8 rounded-full bg-cyan-200/10 blur-xl animate-celestial-pulse" />
+            <div className="absolute -inset-8 rounded-full bg-cyan-200/15 blur-xl animate-celestial-pulse" />
             <svg viewBox="0 0 80 80" className="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-[0_0_35px_rgba(186,230,253,0.7)]">
               <defs>
                 <radialGradient id="moonGradRealistic" cx="38%" cy="38%" r="65%">
@@ -153,87 +153,89 @@ export const HeroSection: React.FC = () => {
 
         {/* Dynamic Sunbeam Rays Streaming Across Coastal Sky (Day, Morning, Evening) */}
         {timeOfDay !== "night" && (
-          <div className="absolute top-0 right-6 w-[600px] h-[480px] pointer-events-none animate-sunbeams overflow-hidden">
+          <div className="absolute top-0 right-6 w-[550px] h-[450px] pointer-events-none animate-sunbeams overflow-hidden">
             <div className="w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-yellow-200/20 via-yellow-400/5 to-transparent blur-md" />
           </div>
         )}
 
-        {/* Volumetric Drifting Clouds */}
-        <div className="absolute top-8 sm:top-10 inset-x-0 h-28 opacity-30 animate-clouds-slow flex w-[200%] pointer-events-none">
-          <svg viewBox="0 0 1400 110" className="w-1/2 h-full fill-current" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="cloudGradReal" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor={timeOfDay === "night" ? "#CBD5E1" : "#FFFFFF"} stopOpacity="0.85" />
-                <stop offset="60%" stopColor={timeOfDay === "evening" ? "#FED7AA" : "#E2E8F0"} stopOpacity="0.35" />
-                <stop offset="100%" stopColor="#0B4E54" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-            <path d="M 60,65 Q 110,20 180,42 Q 240,12 310,38 Q 380,22 430,62 Q 250,78 60,65 Z" fill="url(#cloudGradReal)" />
-            <path d="M 600,60 Q 660,18 730,40 Q 810,12 880,44 Q 950,26 1000,60 Q 800,75 600,60 Z" fill="url(#cloudGradReal)" />
-          </svg>
-          <svg viewBox="0 0 1400 110" className="w-1/2 h-full fill-current" preserveAspectRatio="none">
-            <path d="M 60,65 Q 110,20 180,42 Q 240,12 310,38 Q 380,22 430,62 Q 250,78 60,65 Z" fill="url(#cloudGradReal)" />
-            <path d="M 600,60 Q 660,18 730,40 Q 810,12 880,44 Q 950,26 1000,60 Q 800,75 600,60 Z" fill="url(#cloudGradReal)" />
-          </svg>
+        {/* Natural Soft Atmospheric Drifting Cloud Layers (NO sharp wing-like shapes) */}
+        <div className="absolute top-8 sm:top-12 inset-x-0 h-24 opacity-25 animate-clouds-slow flex w-[200%] pointer-events-none">
+          <div className="w-1/2 flex items-center justify-around">
+            <div className="w-72 h-10 rounded-full bg-gradient-to-r from-transparent via-white/40 to-transparent blur-md" />
+            <div className="w-96 h-12 rounded-full bg-gradient-to-r from-transparent via-white/30 to-transparent blur-lg" />
+            <div className="w-64 h-8 rounded-full bg-gradient-to-r from-transparent via-white/35 to-transparent blur-md" />
+          </div>
+          <div className="w-1/2 flex items-center justify-around">
+            <div className="w-72 h-10 rounded-full bg-gradient-to-r from-transparent via-white/40 to-transparent blur-md" />
+            <div className="w-96 h-12 rounded-full bg-gradient-to-r from-transparent via-white/30 to-transparent blur-lg" />
+            <div className="w-64 h-8 rounded-full bg-gradient-to-r from-transparent via-white/35 to-transparent blur-md" />
+          </div>
         </div>
 
-        {/* ================= MORE REALISTIC BIRDS IN STAGGERED FLIGHT FORMATION ================= */}
-        {/* Flock Leader & High V-Formation */}
-        <div className="absolute top-12 left-0 w-80 h-16 pointer-events-none animate-bird-flight-1">
-          <div className="flex items-center gap-5 opacity-85">
-            {/* Bird 1 (Leader) */}
-            <svg viewBox="0 0 50 24" className="w-6 h-3 text-white/90">
-              <ellipse cx="25" cy="13" rx="7" ry="2" fill="currentColor" />
-              <g className="animate-bird-wing">
-                <path d="M 23,12 Q 17,2 9,1 Q 14,8 21,13 Z" fill="currentColor" />
-                <path d="M 27,12 Q 33,2 41,1 Q 36,8 29,13 Z" fill="currentColor" />
-              </g>
+        {/* ================= SMALL, DISTANT, REALISTIC SEAGULLS IN HIGH SKY ================= */}
+        {/* Tiny flock high in the distance (14px - 16px wide, delicate silhouettes) */}
+        <div className="absolute top-8 left-0 pointer-events-none animate-bird-flight-1 z-10">
+          <div className="flex items-center gap-4 opacity-75">
+            {/* Seagull 1 (Leader) */}
+            <svg
+              viewBox="0 0 32 14"
+              className="text-white/85 shrink-0 animate-bird-wing"
+              style={{ width: "16px", height: "7px" }}
+            >
+              <path
+                d="M 1,9 Q 7,1 15,6 Q 23,1 31,9 Q 23,4 16,8 Q 9,4 1,9 Z"
+                fill="currentColor"
+              />
             </svg>
-            {/* Bird 2 */}
-            <svg viewBox="0 0 50 24" className="w-5 h-2.5 -mt-3 text-white/80">
-              <ellipse cx="25" cy="13" rx="5.5" ry="1.6" fill="currentColor" />
-              <g className="animate-bird-wing-fast">
-                <path d="M 23,12 Q 18,3 10,2 Q 15,8 21,13 Z" fill="currentColor" />
-                <path d="M 27,12 Q 32,3 40,2 Q 35,8 29,13 Z" fill="currentColor" />
-              </g>
+            {/* Seagull 2 (Staggered trailing) */}
+            <svg
+              viewBox="0 0 32 14"
+              className="text-white/75 shrink-0 -mt-2 animate-bird-wing-fast"
+              style={{ width: "13px", height: "6px" }}
+            >
+              <path
+                d="M 1,9 Q 7,1 15,6 Q 23,1 31,9 Q 23,4 16,8 Q 9,4 1,9 Z"
+                fill="currentColor"
+              />
             </svg>
-            {/* Bird 3 */}
-            <svg viewBox="0 0 50 24" className="w-4 h-2 text-white/70">
-              <ellipse cx="25" cy="13" rx="4.5" ry="1.4" fill="currentColor" />
-              <g className="animate-bird-wing">
-                <path d="M 23,12 Q 17,2 9,1 Q 14,8 21,13 Z" fill="currentColor" />
-                <path d="M 27,12 Q 33,2 41,1 Q 36,8 29,13 Z" fill="currentColor" />
-              </g>
-            </svg>
-            {/* Bird 4 */}
-            <svg viewBox="0 0 50 24" className="w-4.5 h-2.2 -mt-4 text-white/75">
-              <ellipse cx="25" cy="13" rx="5" ry="1.5" fill="currentColor" />
-              <g className="animate-bird-wing-fast">
-                <path d="M 23,12 Q 18,3 10,2 Q 15,8 21,13 Z" fill="currentColor" />
-                <path d="M 27,12 Q 32,3 40,2 Q 35,8 29,13 Z" fill="currentColor" />
-              </g>
+            {/* Seagull 3 */}
+            <svg
+              viewBox="0 0 32 14"
+              className="text-white/65 shrink-0 -mt-4 animate-bird-wing"
+              style={{ width: "11px", height: "5px" }}
+            >
+              <path
+                d="M 1,9 Q 7,1 15,6 Q 23,1 31,9 Q 23,4 16,8 Q 9,4 1,9 Z"
+                fill="currentColor"
+              />
             </svg>
           </div>
         </div>
 
-        {/* Second Bird Pair (Gliding in lower altitude) */}
-        <div className="absolute top-24 left-0 w-60 h-12 pointer-events-none animate-bird-flight-2">
-          <div className="flex items-center gap-7 opacity-70">
-            {/* Bird 5 */}
-            <svg viewBox="0 0 50 24" className="w-5 h-2.5 text-white/80">
-              <ellipse cx="25" cy="13" rx="6" ry="1.8" fill="currentColor" />
-              <g className="animate-bird-wing">
-                <path d="M 23,12 Q 17,2 9,1 Q 14,8 21,13 Z" fill="currentColor" />
-                <path d="M 27,12 Q 33,2 41,1 Q 36,8 29,13 Z" fill="currentColor" />
-              </g>
+        {/* Second Small Seagull Pair (Distant glide) */}
+        <div className="absolute top-16 left-0 pointer-events-none animate-bird-flight-2 z-10">
+          <div className="flex items-center gap-5 opacity-65">
+            {/* Seagull 4 */}
+            <svg
+              viewBox="0 0 32 14"
+              className="text-white/70 shrink-0 animate-bird-wing"
+              style={{ width: "14px", height: "6px" }}
+            >
+              <path
+                d="M 1,9 Q 7,1 15,6 Q 23,1 31,9 Q 23,4 16,8 Q 9,4 1,9 Z"
+                fill="currentColor"
+              />
             </svg>
-            {/* Bird 6 */}
-            <svg viewBox="0 0 50 24" className="w-3.5 h-1.8 -mt-2 text-white/60">
-              <ellipse cx="25" cy="13" rx="4" ry="1.2" fill="currentColor" />
-              <g className="animate-bird-wing-fast">
-                <path d="M 23,12 Q 18,3 10,2 Q 15,8 21,13 Z" fill="currentColor" />
-                <path d="M 27,12 Q 32,3 40,2 Q 35,8 29,13 Z" fill="currentColor" />
-              </g>
+            {/* Seagull 5 */}
+            <svg
+              viewBox="0 0 32 14"
+              className="text-white/60 shrink-0 -mt-2 animate-bird-wing-fast"
+              style={{ width: "10px", height: "5px" }}
+            >
+              <path
+                d="M 1,9 Q 7,1 15,6 Q 23,1 31,9 Q 23,4 16,8 Q 9,4 1,9 Z"
+                fill="currentColor"
+              />
             </svg>
           </div>
         </div>
@@ -242,13 +244,12 @@ export const HeroSection: React.FC = () => {
 
       {/* =========================================================================
           LAYER 2: HERO BRANDING, HIGH-CONVERTING HEADLINE & CTAS (ZERO CARDS)
-          Eyebrow text and milestone text below buttons REMOVED as requested.
           Comfortable top clearance ensures headline is 100% visible below navbar.
           ========================================================================= */}
       <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 w-full text-center space-y-2.5 sm:space-y-3.5">
         
         {/* Short, Direct, High-Converting Headline */}
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-display tracking-tight text-white leading-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-display tracking-tight text-white leading-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
           Book Reliable Cabs <br />
           <span className="italic font-display font-normal text-[#D9A52B]">
             Across Odisha.
@@ -256,7 +257,7 @@ export const HeroSection: React.FC = () => {
         </h1>
 
         {/* Clear Concise Subtitle */}
-        <p className="text-xs sm:text-sm lg:text-base text-white/95 max-w-xl mx-auto font-normal leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+        <p className="text-xs sm:text-sm lg:text-base text-white/95 max-w-xl mx-auto font-normal leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
           Punctual BBI airport pickups, outstation highway transfers &amp; sacred temple circuits. 100% yellow-board commercial fleet, zero surge pricing &amp; guaranteed on-time dispatch.
         </p>
 
@@ -283,119 +284,389 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* =========================================================================
-          LAYER 3: THE HIGHWAY ROAD PLACED DIRECTLY BENEATH THE TYRES
-          AND ROADSIDE TREES & MILESTONES PLACED SIDE BY SIDE WITH THE CAR!
+          LAYER 3: RICH REALISTIC ODISHA ENVIRONMENT & HIGHWAY
+          Full architectural fidelity for Puri Jagannath Rekha Deula temple,
+          13th-century Konark Sun Temple chariot wheel, coastal sand dunes,
+          Bay of Bengal surf, coconut palms & casuarina pines.
           ========================================================================= */}
       <div className="relative z-10 w-full mt-auto">
         
-        {/* ================= SCENIC ODISHA HORIZON & ROADSIDE VERGE ================= */}
-        <div className="relative w-full h-24 sm:h-30 -mb-2 pointer-events-none overflow-hidden">
-          <svg viewBox="0 0 1440 140" className="w-full h-full" preserveAspectRatio="none">
+        {/* ================= HIGH-FIDELITY SCENIC ODISHA PANORAMA (MIDGROUND) ================= */}
+        <div className="relative w-full h-32 sm:h-40 -mb-2 pointer-events-none overflow-hidden">
+          <svg viewBox="0 0 1440 200" className="w-full h-full" preserveAspectRatio="none">
             <defs>
-              <linearGradient id="treeBarkGradRoad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#3E2718" />
-                <stop offset="100%" stopColor="#1E130B" />
+              {/* Distant Eastern Ghats Mist Gradient */}
+              <linearGradient id="distantHillsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#08373B" stopOpacity="0.4" />
+                <stop offset="100%" stopColor="#042629" stopOpacity="0.85" />
               </linearGradient>
 
-              <linearGradient id="foliageRoadside" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#10685E" />
-                <stop offset="60%" stopColor="#0B4E47" />
-                <stop offset="100%" stopColor="#042628" />
+              {/* Bay of Bengal Ocean Gradient */}
+              <linearGradient id="oceanWaterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#05454C" />
+                <stop offset="60%" stopColor="#085B64" />
+                <stop offset="100%" stopColor="#0A3C40" />
               </linearGradient>
 
-              <linearGradient id="templeStoneShade" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#0D4B4E" />
-                <stop offset="50%" stopColor="#08373A" />
-                <stop offset="100%" stopColor="#031F21" />
+              {/* Golden Chandrabhaga Beach Sand Dunes */}
+              <linearGradient id="sandDunesGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#B45309" stopOpacity="0.65" />
+                <stop offset="40%" stopColor="#78350F" stopOpacity="0.85" />
+                <stop offset="100%" stopColor="#042629" stopOpacity="0.98" />
               </linearGradient>
 
-              <linearGradient id="distantDunes" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#6C4916" stopOpacity="0.45" />
-                <stop offset="100%" stopColor="#052628" stopOpacity="0.95" />
+              {/* Puri Jagannath Temple Sandstone Gradients */}
+              <linearGradient id="jagannathSunlit" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#D97706" />
+                <stop offset="50%" stopColor="#F59E0B" />
+                <stop offset="100%" stopColor="#B45309" />
+              </linearGradient>
+              <linearGradient id="jagannathShadow" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#92400E" />
+                <stop offset="70%" stopColor="#78350F" />
+                <stop offset="100%" stopColor="#451A03" />
+              </linearGradient>
+              <linearGradient id="jagannathPlinth" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#92400E" />
+                <stop offset="100%" stopColor="#451A03" />
+              </linearGradient>
+              <linearGradient id="amalakaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#F59E0B" />
+                <stop offset="100%" stopColor="#78350F" />
+              </linearGradient>
+              <linearGradient id="holyFlagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#DC2626" />
+                <stop offset="50%" stopColor="#EA580C" />
+                <stop offset="100%" stopColor="#FBBF24" />
+              </linearGradient>
+
+              {/* Konark 13th-Century Wheel Sandstone Gradients */}
+              <linearGradient id="konarkRimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#D97706" />
+                <stop offset="40%" stopColor="#B45309" />
+                <stop offset="80%" stopColor="#78350F" />
+                <stop offset="100%" stopColor="#451A03" />
+              </linearGradient>
+              <linearGradient id="konarkHubGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#F59E0B" />
+                <stop offset="60%" stopColor="#B45309" />
+                <stop offset="100%" stopColor="#451A03" />
+              </linearGradient>
+              <linearGradient id="konarkPlinthGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#92400E" />
+                <stop offset="100%" stopColor="#451A03" />
+              </linearGradient>
+
+              {/* Botanical Gradients (Palm Bark & Lush Foliage) */}
+              <linearGradient id="palmBarkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#451A03" />
+                <stop offset="50%" stopColor="#78350F" />
+                <stop offset="100%" stopColor="#291102" />
+              </linearGradient>
+              <linearGradient id="palmFrondGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#15803D" />
+                <stop offset="40%" stopColor="#166534" />
+                <stop offset="80%" stopColor="#0B4E47" />
+                <stop offset="100%" stopColor="#032628" />
+              </linearGradient>
+              <linearGradient id="casuarinaFoliage" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#0F766E" />
+                <stop offset="50%" stopColor="#115E59" />
+                <stop offset="100%" stopColor="#042F2E" />
               </linearGradient>
             </defs>
 
-            {/* Puri Chandrabhaga Sand Dunes */}
-            <path d="M 0,140 Q 320,85 640,105 T 1250,95 T 1440,140 Z" fill="url(#distantDunes)" />
-
-            {/* Bay of Bengal Ocean Foam Surf Line */}
+            {/* 1. Distant Eastern Ghats Soft Mountain Ridges */}
             <path
-              d="M 0,120 Q 150,110 300,120 T 600,120 T 900,120 T 1200,120 T 1440,120"
+              d="M 0,165 Q 240,115 500,135 T 1000,125 T 1440,150 L 1440,200 L 0,200 Z"
+              fill="url(#distantHillsGrad)"
+            />
+
+            {/* 2. Bay of Bengal Glistening Ocean Layer */}
+            <path
+              d="M 0,172 Q 350,145 720,158 T 1440,165 L 1440,200 L 0,200 Z"
+              fill="url(#oceanWaterGrad)"
+            />
+
+            {/* 3. Rolling Ocean Surf Foam Lines */}
+            <path
+              d="M 0,168 Q 180,160 360,168 T 720,168 T 1080,168 T 1440,168"
               stroke="#A7F3D0"
-              strokeWidth="1.5"
+              strokeWidth="1.6"
               strokeOpacity="0.45"
               fill="none"
               className="animate-ocean-wave-roll"
             />
+            <path
+              d="M 0,173 Q 200,167 400,173 T 800,173 T 1200,173 T 1440,173"
+              stroke="#E0F2FE"
+              strokeWidth="1"
+              strokeOpacity="0.35"
+              fill="none"
+              className="animate-ocean-wave-roll"
+            />
 
-            {/* Sacred Puri Jagannath Temple Shikhara */}
-            <g transform="translate(420, 15)">
+            {/* 4. Chandrabhaga Coastal Sand Dunes with Natural Curves */}
+            <path
+              d="M 0,200 Q 280,140 600,165 T 1150,152 T 1440,185 L 1440,200 Z"
+              fill="url(#sandDunesGrad)"
+            />
+
+            {/* Dune Grass / Sea Oats Tufts */}
+            <g stroke="#CA8A04" strokeWidth="1.2" strokeLinecap="round" opacity="0.6">
+              <path d="M 280,165 L 276,155 M 280,165 L 282,154 M 280,165 L 286,157" />
+              <path d="M 640,170 L 636,160 M 640,170 L 642,158 M 640,170 L 647,162" />
+              <path d="M 1120,160 L 1116,150 M 1120,160 L 1123,148 M 1120,160 L 1127,152" />
+            </g>
+
+            {/* ================= 5. SACRED PURI JAGANNATH TEMPLE (REKHA DEULA) ================= */}
+            <g transform="translate(420, 15)" className="filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.6)]">
+              {/* Stepped Temple Base (Bada) */}
+              <rect x="25" y="165" width="90" height="20" rx="1" fill="url(#jagannathPlinth)" />
+              <rect x="32" y="152" width="76" height="13" fill="#78350F" />
+              <rect x="38" y="138" width="64" height="14" fill="#92400E" />
+              {/* Central Sanctum Niche */}
+              <rect x="63" y="155" width="14" height="18" rx="2" fill="#1C110A" />
+
+              {/* Gandi (Curvilinear Soaring Tower) - Left Sunlit, Right Shadow */}
               <path
-                d="M 44,125 L 56,70 L 66,32 L 73,15 L 77,10 L 81,15 L 88,32 L 98,70 L 110,125 Z"
-                fill="url(#templeStoneShade)"
-                stroke="#14B8A6"
-                strokeWidth="1.2"
-                strokeOpacity="0.35"
+                d="M 38,138 C 42,92 52,50 64,28 L 70,28 L 70,138 Z"
+                fill="url(#jagannathSunlit)"
               />
-              <circle cx="77" cy="10" r="4.5" stroke="#D9A52B" strokeWidth="1.4" fill="#042F31" />
-              <circle cx="77" cy="10" r="1.6" fill="#FACC15" />
-            </g>
+              <path
+                d="M 70,28 L 76,28 C 88,50 98,92 102,138 L 70,138 Z"
+                fill="url(#jagannathShadow)"
+              />
 
-            {/* 13th-Century Konark Sun Temple Chariot Wheel */}
-            <g transform="translate(760, 35)">
-              <circle cx="100" cy="70" r="32" stroke="#D9A52B" strokeWidth="2.8" fill="#032628" />
-              <circle cx="100" cy="70" r="26" stroke="#2DD4BF" strokeWidth="1" fill="none" opacity="0.5" />
-              <circle cx="100" cy="70" r="8" fill="#D9A52B" stroke="#000000" strokeWidth="1" />
-              <line x1="100" y1="38" x2="100" y2="102" stroke="#FDE047" strokeWidth="1.8" />
-              <line x1="68" y1="70" x2="132" y2="70" stroke="#FDE047" strokeWidth="1.8" />
-              <line x1="77" y1="47" x2="123" y2="93" stroke="#D9A52B" strokeWidth="1.4" />
-              <line x1="77" y1="93" x2="123" y2="47" stroke="#D9A52B" strokeWidth="1.4" />
-            </g>
+              {/* Horizontal Kalinga Stone Tiers (Bhumi Moldings) */}
+              <line x1="42" y1="124" x2="98" y2="124" stroke="#451A03" strokeWidth="1.2" opacity="0.65" />
+              <line x1="46" y1="110" x2="94" y2="110" stroke="#451A03" strokeWidth="1.2" opacity="0.65" />
+              <line x1="50" y1="96" x2="90" y2="96" stroke="#451A03" strokeWidth="1.2" opacity="0.65" />
+              <line x1="54" y1="82" x2="86" y2="82" stroke="#451A03" strokeWidth="1.2" opacity="0.65" />
+              <line x1="58" y1="68" x2="82" y2="68" stroke="#451A03" strokeWidth="1.2" opacity="0.65" />
+              <line x1="62" y1="54" x2="78" y2="54" stroke="#451A03" strokeWidth="1.2" opacity="0.65" />
+              <line x1="65" y1="40" x2="75" y2="40" stroke="#451A03" strokeWidth="1.2" opacity="0.65" />
 
-            {/* Left Roadside Casuarina Conifer */}
-            <g transform="translate(50, 30)">
-              <rect x="18" y="42" width="6" height="78" fill="url(#treeBarkGradRoad)" rx="1.5" />
-              <g className="animate-foliage-shimmer">
-                <path d="M 21,8 C 34,22 38,42 21,42 C 4,42 8,22 21,8 Z" fill="url(#foliageRoadside)" />
-                <path d="M 21,26 C 38,44 42,66 21,66 C 0,66 4,44 21,26 Z" fill="url(#foliageRoadside)" opacity="0.92" />
-                <path d="M 21,48 C 44,68 48,90 21,90 C -6,90 -2,68 21,48 Z" fill="url(#foliageRoadside)" opacity="0.96" />
+              {/* Vertical Pagas Fluting Highlight */}
+              <path d="M 64,138 C 66,95 68,52 70,28" stroke="#FDE68A" strokeWidth="0.8" opacity="0.45" fill="none" />
+              <path d="M 76,138 C 74,95 72,52 70,28" stroke="#451A03" strokeWidth="0.8" opacity="0.45" fill="none" />
+
+              {/* Beki (Cylindrical Neck) */}
+              <rect x="66" y="24" width="8" height="4" fill="#78350F" />
+
+              {/* Amalaka (Ribbed Stone Disc Crown) */}
+              <ellipse cx="70" cy="22" rx="9" ry="3.5" fill="url(#amalakaGrad)" stroke="#B45309" strokeWidth="0.8" />
+              <line x1="64" y1="19.5" x2="64" y2="24.5" stroke="#451A03" strokeWidth="0.8" />
+              <line x1="67" y1="19" x2="67" y2="25" stroke="#451A03" strokeWidth="0.8" />
+              <line x1="70" y1="18.5" x2="70" y2="25.5" stroke="#451A03" strokeWidth="0.8" />
+              <line x1="73" y1="19" x2="73" y2="25" stroke="#451A03" strokeWidth="0.8" />
+              <line x1="76" y1="19.5" x2="76" y2="24.5" stroke="#451A03" strokeWidth="0.8" />
+
+              {/* Khapuri & Golden Kalasha */}
+              <ellipse cx="70" cy="18" rx="5" ry="2" fill="#D97706" />
+              <path d="M 68,18 L 70,13 L 72,18 Z" fill="#FACC15" />
+              <circle cx="70" cy="12.5" r="1.8" fill="#FEF08A" />
+
+              {/* Sacred Neelachakra (Eight-spoked wheel atop spire) */}
+              <circle cx="70" cy="8" r="4.2" stroke="#38BDF8" strokeWidth="1" fill="#03262C" />
+              <circle cx="70" cy="8" r="1.2" fill="#38BDF8" />
+              <line x1="70" y1="4" x2="70" y2="12" stroke="#38BDF8" strokeWidth="0.6" />
+              <line x1="66" y1="8" x2="74" y2="8" stroke="#38BDF8" strokeWidth="0.6" />
+              <line x1="67.2" y1="5.2" x2="72.8" y2="10.8" stroke="#38BDF8" strokeWidth="0.6" />
+              <line x1="67.2" y1="10.8" x2="72.8" y2="5.2" stroke="#38BDF8" strokeWidth="0.6" />
+
+              {/* Holy Patitapabana Flag Fluttering */}
+              <g className="animate-flag-flutter" style={{ transformOrigin: "70px 4px" }}>
+                <path d="M 70,4 L 84,2 L 77,7 L 87,11 L 70,8 Z" fill="url(#holyFlagGrad)" />
               </g>
             </g>
 
-            {/* Roadside Coconut Palm */}
-            <g transform="translate(160, 15)">
+            {/* ================= 6. 13TH-CENTURY KONARK SUN TEMPLE CHARIOT WHEEL ================= */}
+            <g transform="translate(800, 30)" className="filter drop-shadow-[0_8px_20px_rgba(0,0,0,0.65)]">
+              {/* Carved Stone Basement Plinth */}
+              <rect x="25" y="142" width="130" height="14" rx="1" fill="url(#konarkPlinthGrad)" />
+              <rect x="35" y="136" width="110" height="7" fill="#78350F" />
+              {/* Bas-relief carved blocks along plinth */}
+              {Array.from({ length: 9 }).map((_, i) => (
+                <rect
+                  key={i}
+                  x={38 + i * 12}
+                  y="144"
+                  width="8"
+                  height="7"
+                  rx="1"
+                  fill="#451A03"
+                  opacity="0.6"
+                />
+              ))}
+
+              {/* Outer Wheel Rim with Carved Stone Depth */}
+              <circle cx="90" cy="82" r="54" stroke="url(#konarkRimGrad)" strokeWidth="8" fill="#082A2E" />
+              <circle cx="90" cy="82" r="58" stroke="#D9A52B" strokeWidth="1" fill="none" opacity="0.6" />
+              <circle cx="90" cy="82" r="50" stroke="#78350F" strokeWidth="1.2" fill="none" />
+
+              {/* 24 Carved Circular Medallions Along Rim */}
+              {Array.from({ length: 24 }).map((_, i) => {
+                const angle = (i * 360) / 24;
+                const rad = (angle * Math.PI) / 180;
+                const mx = 90 + 54 * Math.cos(rad);
+                const my = 82 + 54 * Math.sin(rad);
+                return (
+                  <circle
+                    key={i}
+                    cx={mx}
+                    cy={my}
+                    r="2.2"
+                    fill="#FACC15"
+                    stroke="#78350F"
+                    strokeWidth="0.6"
+                  />
+                );
+              })}
+
+              {/* 8 Primary Carved Spokes (Thick Sundial Spokes with Carved Medallions) */}
+              {Array.from({ length: 8 }).map((_, i) => {
+                const angle = (i * 360) / 8;
+                const rad = (angle * Math.PI) / 180;
+                const x2 = 90 + 49 * Math.cos(rad);
+                const y2 = 82 + 49 * Math.sin(rad);
+                const mx = 90 + 27 * Math.cos(rad);
+                const my = 82 + 27 * Math.sin(rad);
+                return (
+                  <g key={i}>
+                    <line
+                      x1="90"
+                      y1="82"
+                      x2={x2}
+                      y2={y2}
+                      stroke="#D9A52B"
+                      strokeWidth="3.2"
+                      strokeLinecap="round"
+                    />
+                    <line
+                      x1="90"
+                      y1="82"
+                      x2={x2}
+                      y2={y2}
+                      stroke="#FEF08A"
+                      strokeWidth="1.2"
+                      strokeLinecap="round"
+                    />
+                    <circle cx={mx} cy={my} r="3.4" fill="#F59E0B" stroke="#451A03" strokeWidth="0.8" />
+                    <circle cx={mx} cy={my} r="1.4" fill="#FEF08A" />
+                  </g>
+                );
+              })}
+
+              {/* 8 Secondary Slender Carved Spokes */}
+              {Array.from({ length: 8 }).map((_, i) => {
+                const angle = (i * 360) / 8 + 22.5;
+                const rad = (angle * Math.PI) / 180;
+                const x2 = 90 + 49 * Math.cos(rad);
+                const y2 = 82 + 49 * Math.sin(rad);
+                return (
+                  <line
+                    key={i}
+                    x1="90"
+                    y1="82"
+                    x2={x2}
+                    y2={y2}
+                    stroke="#B45309"
+                    strokeWidth="1.6"
+                    strokeDasharray="3,1.5"
+                  />
+                );
+              })}
+
+              {/* Central Axle Hub with Concentric Carved Rings */}
+              <circle cx="90" cy="82" r="15" fill="url(#konarkHubGrad)" stroke="#451A03" strokeWidth="1.5" />
+              <circle cx="90" cy="82" r="10" fill="#D9A52B" stroke="#78350F" strokeWidth="1" />
+              <circle cx="90" cy="82" r="4.5" fill="#FEF08A" stroke="#000000" strokeWidth="0.8" />
+            </g>
+
+            {/* ================= 7. COASTAL COCONUT PALMS & CASUARINA CONIFERS ================= */}
+            {/* Left Coconut Palm (Curving naturally towards coastal highway) */}
+            <g transform="translate(140, 20)">
+              {/* Natural Curved Segmented Bark Trunk */}
               <path
-                d="M 20,135 Q 15,80 28,40 Q 32,28 38,18"
-                stroke="url(#treeBarkGradRoad)"
+                d="M 28,175 Q 22,105 38,55 Q 42,40 48,28"
+                stroke="url(#palmBarkGrad)"
+                strokeWidth="5"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M 28,175 Q 22,105 38,55 Q 42,40 48,28"
+                stroke="#B45309"
+                strokeWidth="4"
+                strokeDasharray="2,3"
+                fill="none"
+                opacity="0.4"
+              />
+              {/* Coconuts at crown */}
+              <circle cx="45" cy="30" r="3" fill="#58310C" />
+              <circle cx="50" cy="31" r="2.8" fill="#713F12" />
+              <circle cx="47" cy="34" r="2.5" fill="#451A03" />
+
+              {/* Cascading Lush Palm Fronds (Swaying naturally in ocean breeze) */}
+              <g className="animate-leaf-flutter-left" style={{ transformOrigin: "48px 28px" }}>
+                <path d="M 48,28 Q 18,16 -16,32 Q 4,14 48,28" fill="url(#palmFrondGrad)" />
+                <path d="M 48,28 Q 12,-2 -10,10 Q 14,3 48,28" fill="url(#palmFrondGrad)" opacity="0.9" />
+              </g>
+              <g className="animate-leaf-flutter-top" style={{ transformOrigin: "48px 28px" }}>
+                <path d="M 48,28 Q 42,-8 48,-20 Q 56,-2 48,28" fill="url(#palmFrondGrad)" />
+              </g>
+              <g className="animate-leaf-flutter-right" style={{ transformOrigin: "48px 28px" }}>
+                <path d="M 48,28 Q 80,-2 105,8 Q 80,6 48,28" fill="url(#palmFrondGrad)" opacity="0.9" />
+                <path d="M 48,28 Q 88,18 115,36 Q 86,22 48,28" fill="url(#palmFrondGrad)" />
+              </g>
+            </g>
+
+            {/* Left Roadside Casuarina Conifer (Jhāu Tree) */}
+            <g transform="translate(45, 35)">
+              <rect x="20" y="55" width="6" height="120" fill="url(#palmBarkGrad)" rx="1.5" />
+              <g className="animate-foliage-shimmer" style={{ transformOrigin: "23px 175px" }}>
+                <path d="M 23,12 C 38,28 42,50 23,50 C 4,50 8,28 23,12 Z" fill="url(#casuarinaFoliage)" />
+                <path d="M 23,32 C 42,52 46,76 23,76 C 0,76 4,52 23,32 Z" fill="url(#casuarinaFoliage)" opacity="0.92" />
+                <path d="M 23,56 C 48,78 52,104 23,104 C -6,104 -2,78 23,56 Z" fill="url(#casuarinaFoliage)" opacity="0.96" />
+              </g>
+            </g>
+
+            {/* Right Roadside Casuarina Conifer (Jhāu Tree) */}
+            <g transform="translate(1330, 35)">
+              <rect x="20" y="55" width="6" height="120" fill="url(#palmBarkGrad)" rx="1.5" />
+              <g className="animate-foliage-shimmer-fast" style={{ transformOrigin: "23px 175px" }}>
+                <path d="M 23,12 C 38,28 42,50 23,50 C 4,50 8,28 23,12 Z" fill="url(#casuarinaFoliage)" />
+                <path d="M 23,32 C 42,52 46,76 23,76 C 0,76 4,52 23,32 Z" fill="url(#casuarinaFoliage)" opacity="0.92" />
+                <path d="M 23,56 C 48,78 52,104 23,104 C -6,104 -2,78 23,56 Z" fill="url(#casuarinaFoliage)" opacity="0.96" />
+              </g>
+            </g>
+
+            {/* Right Second Coconut Palm (Curving left) */}
+            <g transform="translate(1220, 30)">
+              <path
+                d="M 38,165 Q 44,105 32,58 Q 28,42 22,30"
+                stroke="url(#palmBarkGrad)"
                 strokeWidth="4.5"
                 fill="none"
                 strokeLinecap="round"
               />
-              <circle cx="36" cy="20" r="3" fill="#58310C" />
-              <circle cx="41" cy="21" r="2.6" fill="#713F12" />
+              <circle cx="20" cy="32" r="2.8" fill="#58310C" />
+              <circle cx="25" cy="33" r="2.5" fill="#713F12" />
 
-              <g className="animate-leaf-flutter-left">
-                <path d="M 38,18 Q 10,8 -22,20 Q -4,8 38,18" fill="url(#foliageRoadside)" />
-                <path d="M 38,18 Q 8,-6 -12,2 Q 4,2 38,18" fill="url(#foliageRoadside)" opacity="0.9" />
+              <g className="animate-leaf-flutter-left" style={{ transformOrigin: "22px 30px" }}>
+                <path d="M 22,30 Q -4,18 -32,34 Q -12,16 22,30" fill="url(#palmFrondGrad)" />
+                <path d="M 22,30 Q -10,0 -26,12 Q -2,4 22,30" fill="url(#palmFrondGrad)" opacity="0.9" />
               </g>
-              <g className="animate-leaf-flutter-top">
-                <path d="M 38,18 Q 34,-8 38,-18 Q 44,-4 38,18" fill="url(#foliageRoadside)" />
+              <g className="animate-leaf-flutter-top" style={{ transformOrigin: "22px 30px" }}>
+                <path d="M 22,30 Q 18,-6 22,-16 Q 30,-2 22,30" fill="url(#palmFrondGrad)" />
               </g>
-              <g className="animate-leaf-flutter-right">
-                <path d="M 38,18 Q 68,-6 88,2 Q 68,4 38,18" fill="url(#foliageRoadside)" opacity="0.9" />
-                <path d="M 38,18 Q 76,10 98,24 Q 74,14 38,18" fill="url(#foliageRoadside)" />
+              <g className="animate-leaf-flutter-right" style={{ transformOrigin: "22px 30px" }}>
+                <path d="M 22,30 Q 52,2 74,12 Q 52,8 22,30" fill="url(#palmFrondGrad)" opacity="0.9" />
+                <path d="M 22,30 Q 60,20 84,38 Q 58,24 22,30" fill="url(#palmFrondGrad)" />
               </g>
             </g>
 
-            {/* Right Roadside Casuarina Conifer */}
-            <g transform="translate(1330, 30)">
-              <rect x="18" y="42" width="6" height="78" fill="url(#treeBarkGradRoad)" rx="1.5" />
-              <g className="animate-foliage-shimmer-fast">
-                <path d="M 21,8 C 34,22 38,42 21,42 C 4,42 8,22 21,8 Z" fill="url(#foliageRoadside)" />
-                <path d="M 21,26 C 38,44 42,66 21,66 C 0,66 4,44 21,26 Z" fill="url(#foliageRoadside)" opacity="0.92" />
-                <path d="M 21,48 C 44,68 48,90 21,90 C -6,90 -2,68 21,48 Z" fill="url(#foliageRoadside)" opacity="0.96" />
-              </g>
-            </g>
           </svg>
         </div>
 

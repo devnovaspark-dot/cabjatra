@@ -456,15 +456,17 @@
     transform: scaleY(1);
   }
   50% {
-    transform: scaleY(-0.75);
+    transform: scaleY(0.45);
   }
 }
 .animate-bird-wing {
-  animation: birdWingFlapUpAndDown 0.65s ease-in-out infinite;
+  animation: birdWingFlapUpAndDown 0.85s ease-in-out infinite;
+  transform-box: fill-box;
   transform-origin: center;
 }
 .animate-bird-wing-fast {
-  animation: birdWingFlapUpAndDown 0.48s ease-in-out infinite;
+  animation: birdWingFlapUpAndDown 0.65s ease-in-out infinite;
+  transform-box: fill-box;
   transform-origin: center;
 }
 
