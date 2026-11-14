@@ -119,12 +119,11 @@ export const HeroSection: React.FC = () => {
   const currentMilestone = PASSING_MILESTONES[milestoneIndex];
 
   return (
-    <section className="relative text-white overflow-hidden h-[100dvh] max-h-[100dvh] flex flex-col justify-between pt-24 sm:pt-28 pb-1 border-b border-[#D9A52B]/35 select-none transition-colors duration-1000 bg-[#073B3A]">
+    <section className="relative text-white overflow-hidden h-[100dvh] max-h-[100dvh] flex flex-col justify-between pt-28 sm:pt-32 pb-1 border-b border-[#D9A52B]/35 select-none transition-colors duration-1000 bg-[#073B3A]">
       
       {/* =========================================================================
           LAYER 1: FULL REALISTIC ODISHA SKY & ATMOSPHERE (SPANS ENTIRE BACKGROUND)
-          Crisp, clear tropical sky (NO CLOUDS as requested).
-          Dynamic celestial bodies positioned clearly below navbar in the open sky.
+          Crisp sky gradient, soft natural cumulus clouds, and dynamic celestial bodies.
           ========================================================================= */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         
@@ -209,6 +208,46 @@ export const HeroSection: React.FC = () => {
           </div>
         )}
 
+        {/* ================= REALISTIC COASTAL CUMULUS CLOUDS (PARALLAX DRIFT) ================= */}
+        <div className="absolute top-12 sm:top-14 inset-x-0 h-28 opacity-45 animate-clouds-slow flex w-[200%] pointer-events-none">
+          <div className="w-1/2 h-full flex justify-around items-center">
+            <svg viewBox="0 0 500 120" className="w-[420px] h-24" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="cloudGradReal1" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor={timeOfDay === "night" ? "#E2E8F0" : "#FFFFFF"} stopOpacity="0.85" />
+                  <stop offset="40%" stopColor={timeOfDay === "evening" ? "#FED7AA" : "#F1F5F9"} stopOpacity="0.55" />
+                  <stop offset="85%" stopColor="#94A3B8" stopOpacity="0.15" />
+                  <stop offset="100%" stopColor="#475569" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M 50,110 Q 75,68 125,70 Q 155,38 215,44 Q 265,18 325,38 Q 375,28 415,62 Q 455,72 465,110 Z"
+                fill="url(#cloudGradReal1)"
+              />
+            </svg>
+            <svg viewBox="0 0 450 110" className="w-[360px] h-20 -mt-3" preserveAspectRatio="none">
+              <path
+                d="M 40,105 Q 65,62 115,66 Q 145,32 200,40 Q 245,15 295,36 Q 345,30 380,62 Q 415,72 425,105 Z"
+                fill="url(#cloudGradReal1)"
+              />
+            </svg>
+          </div>
+          <div className="w-1/2 h-full flex justify-around items-center">
+            <svg viewBox="0 0 500 120" className="w-[420px] h-24" preserveAspectRatio="none">
+              <path
+                d="M 50,110 Q 75,68 125,70 Q 155,38 215,44 Q 265,18 325,38 Q 375,28 415,62 Q 455,72 465,110 Z"
+                fill="url(#cloudGradReal1)"
+              />
+            </svg>
+            <svg viewBox="0 0 450 110" className="w-[360px] h-20 -mt-3" preserveAspectRatio="none">
+              <path
+                d="M 40,105 Q 65,62 115,66 Q 145,32 200,40 Q 245,15 295,36 Q 345,30 380,62 Q 415,72 425,105 Z"
+                fill="url(#cloudGradReal1)"
+              />
+            </svg>
+          </div>
+        </div>
+
         {/* ================= SMALL, DISTANT, REALISTIC SEAGULLS IN HIGH SKY ================= */}
         {/* Tiny flock high in the distance (12px - 16px wide, delicate silhouettes) */}
         <div className="absolute top-10 left-0 pointer-events-none animate-bird-flight-1 z-10">
@@ -281,9 +320,9 @@ export const HeroSection: React.FC = () => {
 
       {/* =========================================================================
           LAYER 2: HERO BRANDING, HIGH-CONVERTING HEADLINE & CTAS (ZERO CARDS)
-          Comfortable top clearance ensures headline is 100% visible below navbar.
+          Generous top clearance (pt-28 sm:pt-32) ensures headline is 100% visible below navbar.
           ========================================================================= */}
-      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 w-full text-center space-y-2.5 sm:space-y-3.5">
+      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 w-full text-center space-y-2 sm:space-y-3">
         
         {/* Short, Direct, High-Converting Headline */}
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-display tracking-tight text-white leading-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
@@ -299,10 +338,10 @@ export const HeroSection: React.FC = () => {
         </p>
 
         {/* Action CTAs */}
-        <div className="pt-1 flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto">
+        <div className="pt-0.5 flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto">
           <Link
             href="/book-cab"
-            className="w-full sm:w-auto px-7 sm:px-8 py-3 rounded-full bg-gradient-to-r from-[#D9A52B] via-[#E5B543] to-[#C99320] text-[#062F31] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(217,165,43,0.45),inset_0_1px_0_rgba(255,255,255,0.6)] hover:brightness-105 active:scale-[0.98] transition-all group cursor-pointer border border-[#F2C868]/60"
+            className="w-full sm:w-auto px-7 sm:px-8 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#D9A52B] via-[#E5B543] to-[#C99320] text-[#062F31] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(217,165,43,0.45),inset_0_1px_0_rgba(255,255,255,0.6)] hover:brightness-105 active:scale-[0.98] transition-all group cursor-pointer border border-[#F2C868]/60"
           >
             <Car className="w-4 h-4 text-[#062F31]" />
             <span>Book Your Cab Now</span>
@@ -311,7 +350,7 @@ export const HeroSection: React.FC = () => {
 
           <Link
             href="/book-tour"
-            className="w-full sm:w-auto px-6 sm:px-7 py-3 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/30 hover:border-[#D9A52B]/70 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-[0.98] cursor-pointer"
+            className="w-full sm:w-auto px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/30 hover:border-[#D9A52B]/70 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-[0.98] cursor-pointer"
           >
             <Compass className="w-4 h-4 text-[#D9A52B]" />
             <span>Explore Curated Tours</span>
@@ -322,16 +361,13 @@ export const HeroSection: React.FC = () => {
 
       {/* =========================================================================
           LAYER 3: HIGH-FIDELITY REALISTIC ODISHA ENVIRONMENT & HIGHWAY
-          Full architectural integrity:
-          - Aspect-ratio constrained SVGs prevent squashing circles into ovals!
-          - Puri Jagannath Temple maintains soaring Rekha Deula height & proportions.
-          - Konark Sun Temple Chariot Wheel is a mathematical circle with 24 carved medallions.
-          - Natural coastal dunes, Bay of Bengal surf, and organic coconut palms & casuarinas.
+          Positioned as an absolute background layer directly docked to the road horizon!
+          Never adds in-flow height; road is 100% fully visible and NEVER cropped!
           ========================================================================= */}
       <div className="relative z-10 w-full mt-auto">
         
-        {/* ================= SCENIC ODISHA PANORAMA (MIDGROUND LANDSCAPE) ================= */}
-        <div className="relative w-full h-44 sm:h-52 lg:h-60 -mb-2 pointer-events-none overflow-hidden">
+        {/* ================= SCENIC ODISHA PANORAMA (DOCKED DIRECTLY BEHIND THE ROAD) ================= */}
+        <div className="absolute bottom-14 sm:bottom-16 inset-x-0 h-44 sm:h-52 lg:h-60 pointer-events-none overflow-hidden z-10">
           
           {/* 1. Natural Terrain Layer (Undulating Hills, Ocean Water & Golden Dunes) */}
           <svg viewBox="0 0 1440 220" className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
@@ -955,7 +991,7 @@ export const HeroSection: React.FC = () => {
       {/* =========================================================================
           LAYER 4: BOTTOM FOUNDATIONAL SERVICE GUARANTEES
           ========================================================================= */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 w-full pt-1 pb-1 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-[11px] sm:text-xs text-white/90">
+      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 w-full pt-1 pb-1 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-[11px] sm:text-xs text-white/90">
         <span className="inline-flex items-center gap-1.5 font-medium">
           <ShieldCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
           <span>100% Yellow-Board Commercial Fleet</span>
