@@ -27,6 +27,56 @@ const PASSING_MILESTONES: MilestoneDestination[] = [
   { nh: "BBI-AIR", name: "Bhubaneswar Airport (BBI)", km: "00 KM" },
 ];
 
+// Pre-computed, hydration-safe static geometry coordinates for Konark Sun Temple Chariot Wheel (zero floating point drift)
+const KONARK_RIM_MEDALLIONS = [
+  { cx: 134, cy: 74 },
+  { cx: 132.16, cy: 87.98 },
+  { cx: 126.77, cy: 101 },
+  { cx: 118.18, cy: 112.18 },
+  { cx: 107, cy: 120.77 },
+  { cx: 93.98, cy: 126.16 },
+  { cx: 80, cy: 128 },
+  { cx: 66.02, cy: 126.16 },
+  { cx: 53, cy: 120.77 },
+  { cx: 41.82, cy: 112.18 },
+  { cx: 33.23, cy: 101 },
+  { cx: 27.84, cy: 87.98 },
+  { cx: 26, cy: 74 },
+  { cx: 27.84, cy: 60.02 },
+  { cx: 33.23, cy: 47 },
+  { cx: 41.82, cy: 35.82 },
+  { cx: 53, cy: 27.23 },
+  { cx: 66.02, cy: 21.84 },
+  { cx: 80, cy: 20 },
+  { cx: 93.98, cy: 21.84 },
+  { cx: 107, cy: 27.23 },
+  { cx: 118.18, cy: 35.82 },
+  { cx: 126.77, cy: 47 },
+  { cx: 132.16, cy: 60.02 },
+];
+
+const KONARK_PRIMARY_SPOKES = [
+  { x2: 129, y2: 74, mx: 108, my: 74 },
+  { x2: 114.65, y2: 108.65, mx: 99.8, my: 93.8 },
+  { x2: 80, y2: 123, mx: 80, my: 102 },
+  { x2: 45.35, y2: 108.65, mx: 60.2, my: 93.8 },
+  { x2: 31, y2: 74, mx: 52, my: 74 },
+  { x2: 45.35, y2: 39.35, mx: 60.2, my: 54.2 },
+  { x2: 80, y2: 25, mx: 80, my: 46 },
+  { x2: 114.65, y2: 39.35, mx: 99.8, my: 54.2 },
+];
+
+const KONARK_SECONDARY_SPOKES = [
+  { x2: 125.27, y2: 92.75 },
+  { x2: 98.75, y2: 119.27 },
+  { x2: 61.25, y2: 119.27 },
+  { x2: 34.73, y2: 92.75 },
+  { x2: 34.73, y2: 55.25 },
+  { x2: 61.25, y2: 28.73 },
+  { x2: 98.75, y2: 28.73 },
+  { x2: 125.27, y2: 55.25 },
+];
+
 // Pure automatic real-time daily astronomical cycle calculation:
 // Morning:   05:00 - 11:30 (Soft morning sun, fresh dawn-to-midday golden coastal glow)
 // Afternoon: 11:30 - 16:30 (Broad tropical daylight, high overhead sun, crystal clear sky)
@@ -503,78 +553,58 @@ export const HeroSection: React.FC = () => {
               <circle cx="80" cy="74" r="58" stroke="#D9A52B" strokeWidth="1.2" fill="none" opacity="0.65" />
               <circle cx="80" cy="74" r="50" stroke="#78350F" strokeWidth="1.2" fill="none" />
 
-              {/* 24 Carved Circular Medallions Along Rim */}
-              {Array.from({ length: 24 }).map((_, i) => {
-                const angle = (i * 360) / 24;
-                const rad = (angle * Math.PI) / 180;
-                const mx = 80 + 54 * Math.cos(rad);
-                const my = 74 + 54 * Math.sin(rad);
-                return (
-                  <circle
-                    key={i}
-                    cx={mx}
-                    cy={my}
-                    r="2.2"
-                    fill="#FACC15"
-                    stroke="#78350F"
-                    strokeWidth="0.6"
-                  />
-                );
-              })}
+              {/* 24 Carved Circular Medallions Along Rim (Pre-computed hydration-safe coordinates) */}
+              {KONARK_RIM_MEDALLIONS.map((m, i) => (
+                <circle
+                  key={i}
+                  cx={m.cx}
+                  cy={m.cy}
+                  r="2.2"
+                  fill="#FACC15"
+                  stroke="#78350F"
+                  strokeWidth="0.6"
+                />
+              ))}
 
               {/* 8 Primary Carved Spokes (Thick Sundial Spokes with Relief Medallions) */}
-              {Array.from({ length: 8 }).map((_, i) => {
-                const angle = (i * 360) / 8;
-                const rad = (angle * Math.PI) / 180;
-                const x2 = 80 + 49 * Math.cos(rad);
-                const y2 = 74 + 49 * Math.sin(rad);
-                const mx = 80 + 28 * Math.cos(rad);
-                const my = 74 + 28 * Math.sin(rad);
-                return (
-                  <g key={i}>
-                    <line
-                      x1="80"
-                      y1="74"
-                      x2={x2}
-                      y2={y2}
-                      stroke="#D9A52B"
-                      strokeWidth="3.2"
-                      strokeLinecap="round"
-                    />
-                    <line
-                      x1="80"
-                      y1="74"
-                      x2={x2}
-                      y2={y2}
-                      stroke="#FEF08A"
-                      strokeWidth="1.2"
-                      strokeLinecap="round"
-                    />
-                    <circle cx={mx} cy={my} r="3.5" fill="#F59E0B" stroke="#451A03" strokeWidth="0.8" />
-                    <circle cx={mx} cy={my} r="1.5" fill="#FEF08A" />
-                  </g>
-                );
-              })}
-
-              {/* 8 Secondary Slender Carved Spokes */}
-              {Array.from({ length: 8 }).map((_, i) => {
-                const angle = (i * 360) / 8 + 22.5;
-                const rad = (angle * Math.PI) / 180;
-                const x2 = 80 + 49 * Math.cos(rad);
-                const y2 = 74 + 49 * Math.sin(rad);
-                return (
+              {KONARK_PRIMARY_SPOKES.map((s, i) => (
+                <g key={i}>
                   <line
-                    key={i}
                     x1="80"
                     y1="74"
-                    x2={x2}
-                    y2={y2}
-                    stroke="#B45309"
-                    strokeWidth="1.6"
-                    strokeDasharray="3,1.5"
+                    x2={s.x2}
+                    y2={s.y2}
+                    stroke="#D9A52B"
+                    strokeWidth="3.2"
+                    strokeLinecap="round"
                   />
-                );
-              })}
+                  <line
+                    x1="80"
+                    y1="74"
+                    x2={s.x2}
+                    y2={s.y2}
+                    stroke="#FEF08A"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                  />
+                  <circle cx={s.mx} cy={s.my} r="3.5" fill="#F59E0B" stroke="#451A03" strokeWidth="0.8" />
+                  <circle cx={s.mx} cy={s.my} r="1.5" fill="#FEF08A" />
+                </g>
+              ))}
+
+              {/* 8 Secondary Slender Carved Spokes */}
+              {KONARK_SECONDARY_SPOKES.map((s, i) => (
+                <line
+                  key={i}
+                  x1="80"
+                  y1="74"
+                  x2={s.x2}
+                  y2={s.y2}
+                  stroke="#B45309"
+                  strokeWidth="1.6"
+                  strokeDasharray="3,1.5"
+                />
+              ))}
 
               {/* Central Axle Hub with Concentric Carved Rings */}
               <circle cx="80" cy="74" r="15" fill="url(#ktwHubGrad)" stroke="#451A03" strokeWidth="1.5" />
