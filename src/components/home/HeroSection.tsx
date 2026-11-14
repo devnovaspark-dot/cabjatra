@@ -727,8 +727,8 @@ export const HeroSection: React.FC = () => {
 
         </div>
 
-        {/* ================= THE RUNNING CAR: WHEELS PLANTED DIRECTLY ON UPPER HIGHWAY LANE ================= */}
-        <div className="relative -mb-[26px] sm:-mb-[28px] z-30 left-6 sm:left-16 lg:left-24 flex items-end">
+        {/* ================= THE RUNNING CAR: WHEELS PLANTED DIRECTLY ON THE YELLOW LINE ================= */}
+        <div className="relative -mb-[38px] sm:-mb-[39px] z-30 left-6 sm:left-16 lg:left-24 flex items-end">
           
           {/* Suspension Micro-Bounce Chassis */}
           <div className="relative animate-car-chassis">
@@ -918,7 +918,7 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* ================= REALISTIC FULL-WIDTH ASPHALT ROAD ================= */}
-        <div className="w-full relative h-28 sm:h-32 bg-gradient-to-b from-[#1C2427] via-[#151D20] to-[#0E1315] border-t-2 border-[#1E3A8A] shadow-[inset_0_4px_16px_rgba(0,0,0,0.85)] flex items-center overflow-hidden">
+        <div className="w-full relative h-20 sm:h-22 bg-gradient-to-b from-[#1C2427] via-[#151D20] to-[#0E1315] border-t-2 border-[#1E3A8A] shadow-[inset_0_4px_16px_rgba(0,0,0,0.85)] flex items-center overflow-hidden">
           
           {/* Asphalt Fine Mineral Granular Texture */}
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FFF_1px,transparent_1px)] [background-size:6px_6px]" />
@@ -937,7 +937,7 @@ export const HeroSection: React.FC = () => {
           <div className="absolute top-2.5 inset-x-0 h-0.5 bg-white/85 shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
 
           {/* Moving Dashed Center Yellow Lane Divider Stripes (In Middle of Road) */}
-          <div className="absolute top-[54px] sm:top-[60px] -translate-y-1/2 inset-x-0 h-1 flex overflow-hidden pointer-events-none">
+          <div className="absolute top-1/2 -translate-y-1/2 inset-x-0 h-1 flex overflow-hidden pointer-events-none">
             <div className="flex shrink-0 w-[200%] animate-road-flow">
               {Array.from({ length: 50 }).map((_, i) => (
                 <span
@@ -949,16 +949,16 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Lower Highway Shoulder Solid Continuous White Line */}
-          <div className="absolute bottom-7 sm:bottom-8 inset-x-0 h-0.5 bg-white/85 shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
+          <div className="absolute bottom-2.5 inset-x-0 h-0.5 bg-white/85 shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
 
-          {/* ================= AUTHENTIC ROADSIDE MILESTONE (STRICTLY ON LOWER ROADSIDE SHOULDER) =================
-              Positioned strictly on the lower roadside shoulder, below the lower white line.
-              With the car on the upper lane and road at h-28/h-32, there is 70px+ of vertical clearance — ZERO overlap!
-              ======================================================================================================= */}
+          {/* ================= AUTHENTIC ROADSIDE MILESTONE (ON OPPOSITE LOWER SHOULDER) =================
+              Positioned strictly on the lower roadside shoulder, below the lower lane.
+              Completely separate from the car and yellow line above — zero overlap guaranteed!
+              ============================================================================================= */}
           <div className="absolute bottom-1 sm:bottom-1.5 z-10 animate-passing-milestone-1 pointer-events-none">
-            <div className="w-14 sm:w-16 h-5.5 sm:h-6 rounded-t-xl overflow-hidden border border-black/40 shadow-lg flex flex-col items-center bg-white filter drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
+            <div className="w-14 sm:w-16 h-6 sm:h-6.5 rounded-t-xl overflow-hidden border border-black/40 shadow-lg flex flex-col items-center bg-white filter drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
               {/* Highway Yellow Upper Dome */}
-              <div className="w-full h-2.5 bg-[#FEC401] text-[#001162] font-black text-[7px] sm:text-[7.5px] text-center flex items-center justify-center border-b border-black/25 uppercase tracking-wider font-mono leading-none">
+              <div className="w-full h-2.5 sm:h-3 bg-[#FEC401] text-[#001162] font-black text-[7px] sm:text-[7.5px] text-center flex items-center justify-center border-b border-black/25 uppercase tracking-wider font-mono leading-none">
                 {currentMilestone.nh}
               </div>
               {/* White Concrete Stone Base */}
