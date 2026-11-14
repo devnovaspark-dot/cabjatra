@@ -9,55 +9,52 @@ import {
   Compass,
   Sparkles,
   Car,
-  MapPin,
 } from "lucide-react";
 
-type TimeOfDay = "sunrise" | "day" | "sunset" | "night";
+export type TimeOfDay = "morning" | "afternoon" | "evening" | "night";
 
 interface MilestoneDestination {
   nh: string;
   name: string;
   km: string;
-  circuit: string;
 }
 
 const PASSING_MILESTONES: MilestoneDestination[] = [
-  { nh: "NH 316", name: "Puri Jagannath Dham", km: "60 KM", circuit: "Sacred Coastal Corridor" },
-  { nh: "NH 316A", name: "Konark Sun Temple", km: "65 KM", circuit: "UNESCO Heritage Highway" },
-  { nh: "OD-SH", name: "Puri – Konark Marine Drive", km: "35 KM", circuit: "Scenic Ocean Highway" },
-  { nh: "NH 16", name: "Chilika Dolphin Lagoon", km: "105 KM", circuit: "Asia's Largest Lagoon" },
-  { nh: "BBI-AIR", name: "Bhubaneswar Airport (BBI)", km: "00 KM", circuit: "Capital Transit Hub" },
+  { nh: "NH 316", name: "Puri Jagannath Dham", km: "60 KM" },
+  { nh: "NH 316A", name: "Konark Sun Temple", km: "65 KM" },
+  { nh: "OD-SH", name: "Puri – Konark Marine Drive", km: "35 KM" },
+  { nh: "NH 16", name: "Chilika Dolphin Lagoon", km: "105 KM" },
+  { nh: "BBI-AIR", name: "Bhubaneswar Airport (BBI)", km: "00 KM" },
 ];
 
-// Pure automatic real-time daily astronomical cycle calculation
-const getRealtimeTimeOfDay = (): TimeOfDay => {
-  if (typeof window === "undefined") return "day";
+// Pure automatic real-time daily astronomical cycle calculation:
+// Morning:   05:00 - 11:30 (Soft morning sun, fresh dawn-to-midday golden coastal glow)
+// Afternoon: 11:30 - 16:30 (Broad tropical daylight, high overhead sun, crystal clear sky)
+// Evening:   16:30 - 19:00 (Golden hour, crimson/burnt-orange sunset, dramatic dusk rays)
+// Night:     19:00 - 05:00 (Starlit deep midnight indigo, luminous moon, projector headlights)
+export const getRealtimeTimeOfDay = (): TimeOfDay => {
+  if (typeof window === "undefined") return "afternoon";
   const now = new Date();
   const hour = now.getHours();
   const minute = now.getMinutes();
   const time = hour + minute / 60;
 
-  // Real-time daily cycle based on Indian Standard Time:
-  // 05:00 - 06:45: Sunrise (Dawn)
-  // 06:45 - 16:45: Daytime
-  // 16:45 - 18:30: Sunset (Golden Hour / Dusk)
-  // 18:30 - 05:00: Night (Starlit Sky & Moon)
-  if (time >= 5.0 && time < 6.75) return "sunrise";
-  if (time >= 6.75 && time < 16.75) return "day";
-  if (time >= 16.75 && time < 18.5) return "sunset";
+  if (time >= 5.0 && time < 11.5) return "morning";
+  if (time >= 11.5 && time < 16.5) return "afternoon";
+  if (time >= 16.5 && time < 19.0) return "evening";
   return "night";
 };
 
 export const HeroSection: React.FC = () => {
-  const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>("day");
+  const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>("afternoon");
   const [milestoneIndex, setMilestoneIndex] = useState(0);
 
-  // Automatically update the environment based on real-time daily cycle
+  // Automatically update the environment based on real-time daily cycle (Morning, Afternoon, Evening, Night)
   useEffect(() => {
     setTimeOfDay(getRealtimeTimeOfDay());
     const interval = setInterval(() => {
       setTimeOfDay(getRealtimeTimeOfDay());
-    }, 30000);
+    }, 20000);
     return () => clearInterval(interval);
   }, []);
 
@@ -72,64 +69,68 @@ export const HeroSection: React.FC = () => {
   const currentMilestone = PASSING_MILESTONES[milestoneIndex];
 
   return (
-    <section className="relative text-white overflow-hidden min-h-[96vh] sm:min-h-[100vh] flex flex-col justify-between pt-28 sm:pt-34 pb-3 sm:pb-4 border-b border-[#D9A52B]/35 select-none transition-colors duration-1000 bg-[#073B3A]">
+    <section className="relative text-white overflow-hidden h-[100dvh] max-h-[100dvh] flex flex-col justify-between pt-24 sm:pt-28 pb-2 border-b border-[#D9A52B]/35 select-none transition-colors duration-1000 bg-[#073B3A]">
       
       {/* =========================================================================
-          LAYER 1: FULL ATMOSPHERIC ODISHA SKY & ENVIRONMENT
-          Spans the entire background from behind the navbar down to the road.
+          LAYER 1: FULL REALISTIC ODISHA ENVIRONMENT (SPANS ENTIRE BACKGROUND)
+          Smoothly transitions between Morning, Afternoon, Evening, and Night.
           ========================================================================= */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         
-        {/* Dynamic Sky Gradient according to Realtime Day / Sunset / Night / Sunrise */}
+        {/* Dynamic Sky Gradient according to Realtime Morning / Afternoon / Evening / Night */}
         <div
           className={`absolute inset-0 transition-all duration-1000 ${
-            timeOfDay === "sunrise"
-              ? "bg-gradient-to-b from-[#181335] via-[#6f1c35] via-35% via-[#ab4a08] to-[#073735]"
-              : timeOfDay === "day"
+            timeOfDay === "morning"
+              ? "bg-gradient-to-b from-[#0e2c34] via-[#0d4f55] via-35% via-[#136868] to-[#073937]"
+              : timeOfDay === "afternoon"
               ? "bg-gradient-to-b from-[#032328] via-[#06424a] via-35% via-[#0b5c63] to-[#084847]"
-              : timeOfDay === "sunset"
-              ? "bg-gradient-to-b from-[#18102b] via-[#752117] via-30% via-[#9c3a00] to-[#073230]"
+              : timeOfDay === "evening"
+              ? "bg-gradient-to-b from-[#1c1232] via-[#7a2418] via-30% via-[#a34000] to-[#083533]"
               : "bg-gradient-to-b from-[#01090c] via-[#021518] via-40% to-[#042426]"
           }`}
         />
 
         {/* Ambient Atmospheric Skylight Depth Overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/12 via-transparent to-black/45 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/10 via-transparent to-black/40 pointer-events-none" />
 
         {/* ================= STARFIELD (NIGHT ONLY) ================= */}
         {timeOfDay === "night" && (
-          <div className="absolute inset-0 transition-opacity duration-1000 opacity-70">
+          <div className="absolute inset-0 transition-opacity duration-1000 opacity-75">
             <div className="absolute inset-0 bg-[radial-gradient(#FFFFFF_1px,transparent_1px)] [background-size:22px_22px] opacity-45" />
-            <div className="absolute inset-0 bg-[radial-gradient(#FDE047_1.5px,transparent_1.5px)] [background-size:60px_60px] opacity-55" />
-            <span className="absolute top-12 left-[18%] w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#FFF] animate-pulse" />
-            <span className="absolute top-26 left-[44%] w-1 h-1 rounded-full bg-[#FEF08A] shadow-[0_0_6px_#FEF08A] animate-ping" />
-            <span className="absolute top-10 left-[68%] w-1.5 h-1.5 rounded-full bg-[#93C5FD] shadow-[0_0_8px_#93C5FD] animate-pulse" />
-            <span className="absolute top-36 left-[84%] w-1 h-1 rounded-full bg-white shadow-[0_0_6px_#FFF] animate-pulse" />
+            <div className="absolute inset-0 bg-[radial-gradient(#FDE047_1.5px,transparent_1.5px)] [background-size:56px_56px] opacity-55" />
+            <span className="absolute top-10 left-[18%] w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#FFF] animate-pulse" />
+            <span className="absolute top-24 left-[44%] w-1 h-1 rounded-full bg-[#FEF08A] shadow-[0_0_6px_#FEF08A] animate-ping" />
+            <span className="absolute top-8 left-[68%] w-1.5 h-1.5 rounded-full bg-[#93C5FD] shadow-[0_0_8px_#93C5FD] animate-pulse" />
+            <span className="absolute top-32 left-[84%] w-1 h-1 rounded-full bg-white shadow-[0_0_6px_#FFF] animate-pulse" />
           </div>
         )}
 
-        {/* ================= CELESTIAL ORBS: REALISTIC SUN / MOON ================= */}
-        {timeOfDay === "sunrise" && (
-          <div className="absolute top-12 sm:top-16 right-12 sm:right-28 pointer-events-none transition-all duration-1000">
-            <div className="absolute -inset-10 rounded-full bg-gradient-to-br from-amber-400/25 via-orange-500/15 to-transparent blur-2xl animate-celestial-pulse" />
-            <div className="relative w-16 h-16 sm:w-22 sm:h-22 rounded-full bg-gradient-to-tr from-[#EA580C] via-[#F97316] to-[#FDE047] shadow-[0_0_60px_rgba(249,115,22,0.85)] border border-yellow-200/40" />
+        {/* ================= CELESTIAL ORBS: MORNING / AFTERNOON / EVENING / NIGHT ================= */}
+        {/* 1. MORNING SUN (Soft Warm Golden Rise) */}
+        {timeOfDay === "morning" && (
+          <div className="absolute top-12 sm:top-16 right-10 sm:right-24 pointer-events-none transition-all duration-1000">
+            <div className="absolute -inset-10 rounded-full bg-gradient-to-br from-amber-300/25 via-yellow-500/15 to-transparent blur-2xl animate-celestial-pulse" />
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-[#EA580C] via-[#FACC15] to-[#FEF08A] shadow-[0_0_60px_rgba(250,204,21,0.85)] border border-yellow-100/50" />
           </div>
         )}
 
-        {timeOfDay === "day" && (
-          <div className="absolute top-10 sm:top-14 right-10 sm:right-24 pointer-events-none transition-all duration-1000">
-            <div className="absolute -inset-14 rounded-full bg-gradient-to-br from-yellow-200/25 via-yellow-400/15 to-transparent blur-2xl animate-celestial-pulse" />
-            <div className="relative w-18 h-18 sm:w-24 sm:h-24 rounded-full bg-gradient-to-tr from-[#FACC15] via-[#FEF08A] to-[#FFFFFF] shadow-[0_0_80px_rgba(250,204,21,0.95)] border border-white/60" />
+        {/* 2. AFTERNOON SUN (Brilliant Daylight Overhead Corona) */}
+        {timeOfDay === "afternoon" && (
+          <div className="absolute top-8 sm:top-12 right-12 sm:right-28 pointer-events-none transition-all duration-1000">
+            <div className="absolute -inset-14 rounded-full bg-gradient-to-br from-yellow-100/30 via-yellow-300/15 to-transparent blur-2xl animate-celestial-pulse" />
+            <div className="relative w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-gradient-to-tr from-[#FACC15] via-[#FEF08A] to-[#FFFFFF] shadow-[0_0_80px_rgba(250,204,21,0.95)] border border-white/70" />
           </div>
         )}
 
-        {timeOfDay === "sunset" && (
-          <div className="absolute top-12 sm:top-16 right-12 sm:right-28 pointer-events-none transition-all duration-1000">
+        {/* 3. EVENING SUN (Dramatic Crimson & Burnt Orange Sunset) */}
+        {timeOfDay === "evening" && (
+          <div className="absolute top-14 sm:top-18 right-10 sm:right-24 pointer-events-none transition-all duration-1000">
             <div className="absolute -inset-12 rounded-full bg-gradient-to-br from-red-500/30 via-orange-500/20 to-transparent blur-2xl animate-celestial-pulse" />
-            <div className="relative w-18 h-18 sm:w-24 sm:h-24 rounded-full bg-gradient-to-tr from-[#991B1B] via-[#EA580C] to-[#FBBF24] shadow-[0_0_70px_rgba(234,88,12,0.9)] border border-orange-200/40" />
+            <div className="relative w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-gradient-to-tr from-[#991B1B] via-[#EA580C] to-[#FBBF24] shadow-[0_0_70px_rgba(234,88,12,0.9)] border border-orange-200/40" />
           </div>
         )}
 
+        {/* 4. NIGHT MOON (Luminous Moon with Crater Textures) */}
         {timeOfDay === "night" && (
           <div className="absolute top-10 sm:top-14 right-10 sm:right-24 pointer-events-none transition-all duration-1000">
             <div className="absolute -inset-8 rounded-full bg-cyan-200/10 blur-xl animate-celestial-pulse" />
@@ -150,20 +151,20 @@ export const HeroSection: React.FC = () => {
           </div>
         )}
 
-        {/* Dynamic Sunbeam Rays Streaming Across Coastal Sky */}
-        {(timeOfDay === "day" || timeOfDay === "sunrise" || timeOfDay === "sunset") && (
-          <div className="absolute top-0 right-6 w-[650px] h-[520px] pointer-events-none animate-sunbeams overflow-hidden">
+        {/* Dynamic Sunbeam Rays Streaming Across Coastal Sky (Day, Morning, Evening) */}
+        {timeOfDay !== "night" && (
+          <div className="absolute top-0 right-6 w-[600px] h-[480px] pointer-events-none animate-sunbeams overflow-hidden">
             <div className="w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-yellow-200/20 via-yellow-400/5 to-transparent blur-md" />
           </div>
         )}
 
         {/* Volumetric Drifting Clouds */}
-        <div className="absolute top-8 sm:top-12 inset-x-0 h-32 opacity-35 animate-clouds-slow flex w-[200%] pointer-events-none">
+        <div className="absolute top-8 sm:top-10 inset-x-0 h-28 opacity-30 animate-clouds-slow flex w-[200%] pointer-events-none">
           <svg viewBox="0 0 1400 110" className="w-1/2 h-full fill-current" preserveAspectRatio="none">
             <defs>
               <linearGradient id="cloudGradReal" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stopColor={timeOfDay === "night" ? "#CBD5E1" : "#FFFFFF"} stopOpacity="0.85" />
-                <stop offset="60%" stopColor={timeOfDay === "sunset" ? "#FED7AA" : "#E2E8F0"} stopOpacity="0.35" />
+                <stop offset="60%" stopColor={timeOfDay === "evening" ? "#FED7AA" : "#E2E8F0"} stopOpacity="0.35" />
                 <stop offset="100%" stopColor="#0B4E54" stopOpacity="0" />
               </linearGradient>
             </defs>
@@ -176,18 +177,59 @@ export const HeroSection: React.FC = () => {
           </svg>
         </div>
 
-        {/* High-Altitude Coastal Seagulls */}
-        <div className="absolute top-14 left-0 w-60 h-14 pointer-events-none animate-bird-flight-1">
-          <div className="flex items-center gap-6 opacity-75">
-            <svg viewBox="0 0 50 24" className="w-6 h-3.5 text-white/85">
+        {/* ================= MORE REALISTIC BIRDS IN STAGGERED FLIGHT FORMATION ================= */}
+        {/* Flock Leader & High V-Formation */}
+        <div className="absolute top-12 left-0 w-80 h-16 pointer-events-none animate-bird-flight-1">
+          <div className="flex items-center gap-5 opacity-85">
+            {/* Bird 1 (Leader) */}
+            <svg viewBox="0 0 50 24" className="w-6 h-3 text-white/90">
               <ellipse cx="25" cy="13" rx="7" ry="2" fill="currentColor" />
               <g className="animate-bird-wing">
                 <path d="M 23,12 Q 17,2 9,1 Q 14,8 21,13 Z" fill="currentColor" />
                 <path d="M 27,12 Q 33,2 41,1 Q 36,8 29,13 Z" fill="currentColor" />
               </g>
             </svg>
-            <svg viewBox="0 0 50 24" className="w-4.5 h-2.5 -mt-2 text-white/70">
+            {/* Bird 2 */}
+            <svg viewBox="0 0 50 24" className="w-5 h-2.5 -mt-3 text-white/80">
+              <ellipse cx="25" cy="13" rx="5.5" ry="1.6" fill="currentColor" />
+              <g className="animate-bird-wing-fast">
+                <path d="M 23,12 Q 18,3 10,2 Q 15,8 21,13 Z" fill="currentColor" />
+                <path d="M 27,12 Q 32,3 40,2 Q 35,8 29,13 Z" fill="currentColor" />
+              </g>
+            </svg>
+            {/* Bird 3 */}
+            <svg viewBox="0 0 50 24" className="w-4 h-2 text-white/70">
+              <ellipse cx="25" cy="13" rx="4.5" ry="1.4" fill="currentColor" />
+              <g className="animate-bird-wing">
+                <path d="M 23,12 Q 17,2 9,1 Q 14,8 21,13 Z" fill="currentColor" />
+                <path d="M 27,12 Q 33,2 41,1 Q 36,8 29,13 Z" fill="currentColor" />
+              </g>
+            </svg>
+            {/* Bird 4 */}
+            <svg viewBox="0 0 50 24" className="w-4.5 h-2.2 -mt-4 text-white/75">
               <ellipse cx="25" cy="13" rx="5" ry="1.5" fill="currentColor" />
+              <g className="animate-bird-wing-fast">
+                <path d="M 23,12 Q 18,3 10,2 Q 15,8 21,13 Z" fill="currentColor" />
+                <path d="M 27,12 Q 32,3 40,2 Q 35,8 29,13 Z" fill="currentColor" />
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        {/* Second Bird Pair (Gliding in lower altitude) */}
+        <div className="absolute top-24 left-0 w-60 h-12 pointer-events-none animate-bird-flight-2">
+          <div className="flex items-center gap-7 opacity-70">
+            {/* Bird 5 */}
+            <svg viewBox="0 0 50 24" className="w-5 h-2.5 text-white/80">
+              <ellipse cx="25" cy="13" rx="6" ry="1.8" fill="currentColor" />
+              <g className="animate-bird-wing">
+                <path d="M 23,12 Q 17,2 9,1 Q 14,8 21,13 Z" fill="currentColor" />
+                <path d="M 27,12 Q 33,2 41,1 Q 36,8 29,13 Z" fill="currentColor" />
+              </g>
+            </svg>
+            {/* Bird 6 */}
+            <svg viewBox="0 0 50 24" className="w-3.5 h-1.8 -mt-2 text-white/60">
+              <ellipse cx="25" cy="13" rx="4" ry="1.2" fill="currentColor" />
               <g className="animate-bird-wing-fast">
                 <path d="M 23,12 Q 18,3 10,2 Q 15,8 21,13 Z" fill="currentColor" />
                 <path d="M 27,12 Q 32,3 40,2 Q 35,8 29,13 Z" fill="currentColor" />
@@ -200,24 +242,13 @@ export const HeroSection: React.FC = () => {
 
       {/* =========================================================================
           LAYER 2: HERO BRANDING, HIGH-CONVERTING HEADLINE & CTAS (ZERO CARDS)
-          Explicit top spacing (pt-28 sm:pt-34) guarantees the eyebrow and headline
-          are 100% visible and NEVER obscured by the floating navbar!
+          Eyebrow text and milestone text below buttons REMOVED as requested.
+          Comfortable top clearance ensures headline is 100% visible below navbar.
           ========================================================================= */}
-      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 w-full text-center space-y-3 sm:space-y-3.5">
+      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 w-full text-center space-y-2.5 sm:space-y-3.5">
         
-        {/* Status Trust Pill with Live Beacon */}
-        <div className="flex items-center justify-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-[#D9A52B]/60 text-xs font-semibold text-[#D9A52B] shadow-2xl">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
-            </span>
-            <span>Verified Odisha Highway Network • Direct Dispatch Across 30 Districts</span>
-          </div>
-        </div>
-
         {/* Short, Direct, High-Converting Headline */}
-        <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold font-display tracking-tight text-white leading-tight sm:leading-[1.08] drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-display tracking-tight text-white leading-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
           Book Reliable Cabs <br />
           <span className="italic font-display font-normal text-[#D9A52B]">
             Across Odisha.
@@ -225,12 +256,12 @@ export const HeroSection: React.FC = () => {
         </h1>
 
         {/* Clear Concise Subtitle */}
-        <p className="text-xs sm:text-base lg:text-lg text-white/95 max-w-2xl mx-auto font-normal leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+        <p className="text-xs sm:text-sm lg:text-base text-white/95 max-w-xl mx-auto font-normal leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
           Punctual BBI airport pickups, outstation highway transfers &amp; sacred temple circuits. 100% yellow-board commercial fleet, zero surge pricing &amp; guaranteed on-time dispatch.
         </p>
 
         {/* Action CTAs */}
-        <div className="pt-1.5 flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto">
+        <div className="pt-1 flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto">
           <Link
             href="/book-cab"
             className="w-full sm:w-auto px-7 sm:px-8 py-3 rounded-full bg-gradient-to-r from-[#D9A52B] via-[#E5B543] to-[#C99320] text-[#062F31] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(217,165,43,0.45),inset_0_1px_0_rgba(255,255,255,0.6)] hover:brightness-105 active:scale-[0.98] transition-all group cursor-pointer border border-[#F2C868]/60"
@@ -249,22 +280,6 @@ export const HeroSection: React.FC = () => {
           </Link>
         </div>
 
-        {/* Sleek, Cardless Milestone Corridor Ribbon (NO CARDS) */}
-        <div className="pt-1 flex items-center justify-center">
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-[#D9A52B]/50 text-[11px] sm:text-xs text-white/95 shadow-xl transition-all duration-700">
-            <span className="flex items-center gap-1.5 font-bold text-[#FACC15]">
-              <MapPin className="w-3.5 h-3.5 text-[#D9A52B]" />
-              <span>{currentMilestone.nh}</span>
-            </span>
-            <span className="text-white/40">•</span>
-            <span className="font-semibold text-white">Passing {currentMilestone.name}</span>
-            <span className="text-white/40">•</span>
-            <span className="text-[#34D399] font-mono font-bold">{currentMilestone.km}</span>
-            <span className="hidden sm:inline text-white/40">•</span>
-            <span className="hidden sm:inline text-white/70">{currentMilestone.circuit}</span>
-          </div>
-        </div>
-
       </div>
 
       {/* =========================================================================
@@ -274,8 +289,8 @@ export const HeroSection: React.FC = () => {
       <div className="relative z-10 w-full mt-auto">
         
         {/* ================= SCENIC ODISHA HORIZON & ROADSIDE VERGE ================= */}
-        <div className="relative w-full h-32 sm:h-40 -mb-2 pointer-events-none overflow-hidden">
-          <svg viewBox="0 0 1440 160" className="w-full h-full" preserveAspectRatio="none">
+        <div className="relative w-full h-24 sm:h-30 -mb-2 pointer-events-none overflow-hidden">
+          <svg viewBox="0 0 1440 140" className="w-full h-full" preserveAspectRatio="none">
             <defs>
               <linearGradient id="treeBarkGradRoad" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#3E2718" />
@@ -301,11 +316,11 @@ export const HeroSection: React.FC = () => {
             </defs>
 
             {/* Puri Chandrabhaga Sand Dunes */}
-            <path d="M 0,160 Q 320,105 640,125 T 1250,115 T 1440,160 Z" fill="url(#distantDunes)" />
+            <path d="M 0,140 Q 320,85 640,105 T 1250,95 T 1440,140 Z" fill="url(#distantDunes)" />
 
             {/* Bay of Bengal Ocean Foam Surf Line */}
             <path
-              d="M 0,140 Q 150,130 300,140 T 600,140 T 900,140 T 1200,140 T 1440,140"
+              d="M 0,120 Q 150,110 300,120 T 600,120 T 900,120 T 1200,120 T 1440,120"
               stroke="#A7F3D0"
               strokeWidth="1.5"
               strokeOpacity="0.45"
@@ -314,9 +329,9 @@ export const HeroSection: React.FC = () => {
             />
 
             {/* Sacred Puri Jagannath Temple Shikhara */}
-            <g transform="translate(420, 30)">
+            <g transform="translate(420, 15)">
               <path
-                d="M 44,130 L 56,75 L 66,35 L 73,16 L 77,10 L 81,16 L 88,35 L 98,75 L 110,130 Z"
+                d="M 44,125 L 56,70 L 66,32 L 73,15 L 77,10 L 81,15 L 88,32 L 98,70 L 110,125 Z"
                 fill="url(#templeStoneShade)"
                 stroke="#14B8A6"
                 strokeWidth="1.2"
@@ -324,16 +339,10 @@ export const HeroSection: React.FC = () => {
               />
               <circle cx="77" cy="10" r="4.5" stroke="#D9A52B" strokeWidth="1.4" fill="#042F31" />
               <circle cx="77" cy="10" r="1.6" fill="#FACC15" />
-
-              {/* Patitapabana Flag */}
-              <g className="animate-flag-flutter" transform="translate(77, 6)">
-                <polygon points="0,0 20,-4 0,-9" fill="#EA580C" />
-                <polygon points="0,0 14,-3 0,-7" fill="#F97316" />
-              </g>
             </g>
 
             {/* 13th-Century Konark Sun Temple Chariot Wheel */}
-            <g transform="translate(760, 50)">
+            <g transform="translate(760, 35)">
               <circle cx="100" cy="70" r="32" stroke="#D9A52B" strokeWidth="2.8" fill="#032628" />
               <circle cx="100" cy="70" r="26" stroke="#2DD4BF" strokeWidth="1" fill="none" opacity="0.5" />
               <circle cx="100" cy="70" r="8" fill="#D9A52B" stroke="#000000" strokeWidth="1" />
@@ -344,7 +353,7 @@ export const HeroSection: React.FC = () => {
             </g>
 
             {/* Left Roadside Casuarina Conifer */}
-            <g transform="translate(50, 40)">
+            <g transform="translate(50, 30)">
               <rect x="18" y="42" width="6" height="78" fill="url(#treeBarkGradRoad)" rx="1.5" />
               <g className="animate-foliage-shimmer">
                 <path d="M 21,8 C 34,22 38,42 21,42 C 4,42 8,22 21,8 Z" fill="url(#foliageRoadside)" />
@@ -354,32 +363,32 @@ export const HeroSection: React.FC = () => {
             </g>
 
             {/* Roadside Coconut Palm */}
-            <g transform="translate(160, 20)">
+            <g transform="translate(160, 15)">
               <path
-                d="M 20,140 Q 15,85 28,45 Q 32,32 38,20"
+                d="M 20,135 Q 15,80 28,40 Q 32,28 38,18"
                 stroke="url(#treeBarkGradRoad)"
                 strokeWidth="4.5"
                 fill="none"
                 strokeLinecap="round"
               />
-              <circle cx="36" cy="22" r="3" fill="#58310C" />
-              <circle cx="41" cy="23" r="2.6" fill="#713F12" />
+              <circle cx="36" cy="20" r="3" fill="#58310C" />
+              <circle cx="41" cy="21" r="2.6" fill="#713F12" />
 
               <g className="animate-leaf-flutter-left">
-                <path d="M 38,20 Q 10,10 -22,22 Q -4,10 38,20" fill="url(#foliageRoadside)" />
-                <path d="M 38,20 Q 8,-4 -12,4 Q 4,4 38,20" fill="url(#foliageRoadside)" opacity="0.9" />
+                <path d="M 38,18 Q 10,8 -22,20 Q -4,8 38,18" fill="url(#foliageRoadside)" />
+                <path d="M 38,18 Q 8,-6 -12,2 Q 4,2 38,18" fill="url(#foliageRoadside)" opacity="0.9" />
               </g>
               <g className="animate-leaf-flutter-top">
-                <path d="M 38,20 Q 34,-6 38,-16 Q 44,-2 38,20" fill="url(#foliageRoadside)" />
+                <path d="M 38,18 Q 34,-8 38,-18 Q 44,-4 38,18" fill="url(#foliageRoadside)" />
               </g>
               <g className="animate-leaf-flutter-right">
-                <path d="M 38,20 Q 68,-4 88,4 Q 68,6 38,20" fill="url(#foliageRoadside)" opacity="0.9" />
-                <path d="M 38,20 Q 76,12 98,26 Q 74,16 38,20" fill="url(#foliageRoadside)" />
+                <path d="M 38,18 Q 68,-6 88,2 Q 68,4 38,18" fill="url(#foliageRoadside)" opacity="0.9" />
+                <path d="M 38,18 Q 76,10 98,24 Q 74,14 38,18" fill="url(#foliageRoadside)" />
               </g>
             </g>
 
             {/* Right Roadside Casuarina Conifer */}
-            <g transform="translate(1330, 40)">
+            <g transform="translate(1330, 30)">
               <rect x="18" y="42" width="6" height="78" fill="url(#treeBarkGradRoad)" rx="1.5" />
               <g className="animate-foliage-shimmer-fast">
                 <path d="M 21,8 C 34,22 38,42 21,42 C 4,42 8,22 21,8 Z" fill="url(#foliageRoadside)" />
@@ -418,9 +427,6 @@ export const HeroSection: React.FC = () => {
               </svg>
             </div>
 
-            {/* Red LED Tail Lamp Streak */}
-            <div className="absolute top-[34px] -left-10 w-16 h-3 bg-gradient-to-l from-[#EF4444] to-transparent rounded-full blur-[2px] opacity-80 pointer-events-none" />
-
             {/* High-Fidelity Executive Commercial Sedan SVG */}
             <svg
               width="240"
@@ -435,9 +441,9 @@ export const HeroSection: React.FC = () => {
                   <stop
                     offset="0%"
                     stopColor={
-                      timeOfDay === "day"
+                      timeOfDay === "morning" || timeOfDay === "afternoon"
                         ? "#16A34A"
-                        : timeOfDay === "sunset" || timeOfDay === "sunrise"
+                        : timeOfDay === "evening"
                         ? "#B45309"
                         : "#147B72"
                     }
@@ -542,11 +548,11 @@ export const HeroSection: React.FC = () => {
               />
               <circle cx="242" cy="53" r="2.2" fill="#FFFFFF" />
 
-              {/* Red LED Tail Lamp */}
+              {/* Sleek Taillight Housing */}
               <path
                 d="M 20,48 L 28,48 L 26,55 L 18,54 Z"
-                fill="#EF4444"
-                stroke="#DC2626"
+                fill="#B91C1C"
+                stroke="#991B1B"
                 strokeWidth="0.8"
               />
               <rect x="20" y="49" width="4" height="3" rx="0.5" fill="#FFFFFF" fillOpacity="0.8" />
@@ -557,7 +563,6 @@ export const HeroSection: React.FC = () => {
               <svg viewBox="0 0 36 36" className="w-full h-full">
                 <circle cx="18" cy="18" r="17" fill="#18181B" stroke="#27272A" strokeWidth="2" />
                 <circle cx="18" cy="18" r="12" fill="#71717A" stroke="#E4E4E7" strokeWidth="1" />
-                <rect x="22" y="10" width="4" height="8" rx="1.5" fill="#EF4444" />
                 <line x1="18" y1="18" x2="18" y2="6" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
                 <line x1="18" y1="18" x2="29" y2="14" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
                 <line x1="18" y1="18" x2="25" y2="28" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
@@ -572,7 +577,6 @@ export const HeroSection: React.FC = () => {
               <svg viewBox="0 0 36 36" className="w-full h-full">
                 <circle cx="18" cy="18" r="17" fill="#18181B" stroke="#27272A" strokeWidth="2" />
                 <circle cx="18" cy="18" r="12" fill="#71717A" stroke="#E4E4E7" strokeWidth="1" />
-                <rect x="22" y="10" width="4" height="8" rx="1.5" fill="#EF4444" />
                 <line x1="18" y1="18" x2="18" y2="6" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
                 <line x1="18" y1="18" x2="29" y2="14" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
                 <line x1="18" y1="18" x2="25" y2="28" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
@@ -586,7 +590,7 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* ================= REALISTIC FULL-WIDTH ASPHALT ROAD (DIRECTLY BENEATH TYRES) ================= */}
-        <div className="w-full relative h-16 sm:h-20 bg-gradient-to-b from-[#141B1D] via-[#1A2225] to-[#0E1416] border-t-2 border-[#3A4B4E] shadow-[inset_0_4px_16px_rgba(0,0,0,0.85)] flex items-center overflow-hidden">
+        <div className="w-full relative h-14 sm:h-16 bg-gradient-to-b from-[#141B1D] via-[#1A2225] to-[#0E1416] border-t-2 border-[#3A4B4E] shadow-[inset_0_4px_16px_rgba(0,0,0,0.85)] flex items-center overflow-hidden">
           
           {/* Asphalt Fine Mineral Granular Texture */}
           <div className="absolute inset-0 opacity-22 bg-[radial-gradient(#FFF_1px,transparent_1px)] [background-size:4px_4px]" />
@@ -614,7 +618,7 @@ export const HeroSection: React.FC = () => {
                 <span className="text-[7.5px] font-extrabold truncate w-full text-center">
                   {currentMilestone.name}
                 </span>
-                <span className="text-[8px] font-black font-mono text-[#B91C1C]">
+                <span className="text-[8px] font-black font-mono text-[#062F31]">
                   {currentMilestone.km}
                 </span>
               </div>
@@ -649,7 +653,7 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Lower Highway Shoulder Solid Continuous White Line */}
-          <div className="absolute bottom-2 inset-x-0 h-0.5 bg-white/80 shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
+          <div className="absolute bottom-1.5 inset-x-0 h-0.5 bg-white/80 shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
 
         </div>
 
@@ -658,19 +662,19 @@ export const HeroSection: React.FC = () => {
       {/* =========================================================================
           LAYER 4: BOTTOM FOUNDATIONAL SERVICE GUARANTEES
           ========================================================================= */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 w-full pt-2 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-white/90">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 w-full pt-1 pb-1 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-[11px] sm:text-xs text-white/90">
         <span className="inline-flex items-center gap-1.5 font-medium">
-          <ShieldCheck className="w-4 h-4 text-[#D9A52B]" />
+          <ShieldCheck className="w-3.5 h-3.5 text-[#D9A52B]" />
           <span>100% Yellow-Board Commercial Fleet</span>
         </span>
         <span className="hidden sm:inline text-white/30">&bull;</span>
         <span className="inline-flex items-center gap-1.5 font-medium">
-          <CheckCircle2 className="w-4 h-4 text-[#D9A52B]" />
+          <CheckCircle2 className="w-3.5 h-3.5 text-[#D9A52B]" />
           <span>10% Advance Deposit Model</span>
         </span>
         <span className="hidden sm:inline text-white/30">&bull;</span>
         <span className="inline-flex items-center gap-1.5 font-medium">
-          <Sparkles className="w-4 h-4 text-[#D9A52B]" />
+          <Sparkles className="w-3.5 h-3.5 text-[#D9A52B]" />
           <span>Zero Surge Pricing Guarantee</span>
         </span>
       </div>
