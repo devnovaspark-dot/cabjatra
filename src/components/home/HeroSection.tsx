@@ -366,7 +366,7 @@ export const HeroSection: React.FC = () => {
       <div className="relative z-10 w-full mt-auto">
         
         {/* ================= SCENIC ODISHA PANORAMA (DOCKED DIRECTLY BEHIND THE ROAD) ================= */}
-        <div className="absolute bottom-16 sm:bottom-18 inset-x-0 h-48 sm:h-56 lg:h-64 pointer-events-none overflow-hidden z-10">
+        <div className="absolute bottom-20 sm:bottom-22 inset-x-0 h-48 sm:h-56 lg:h-64 pointer-events-none overflow-hidden z-10">
           
           {/* 1. Natural Terrain Layer (Undulating Hills, Ocean Water & Golden Dunes) */}
           <svg viewBox="0 0 1440 220" className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
@@ -727,8 +727,8 @@ export const HeroSection: React.FC = () => {
 
         </div>
 
-        {/* ================= THE RUNNING CAR: RESTING EXACTLY ON TOP OF THE ROAD ================= */}
-        <div className="relative -mb-[10px] z-30 left-6 sm:left-16 lg:left-24 flex items-end">
+        {/* ================= THE RUNNING CAR: DRIVING IN UPPER LANE (ABOVE YELLOW LINES) ================= */}
+        <div className="relative -mb-[24px] sm:-mb-[26px] z-30 left-6 sm:left-16 lg:left-24 flex items-end">
           
           {/* Suspension Micro-Bounce Chassis */}
           <div className="relative animate-car-chassis">
@@ -918,7 +918,7 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* ================= REALISTIC FULL-WIDTH ASPHALT ROAD ================= */}
-        <div className="w-full relative h-16 sm:h-18 bg-gradient-to-b from-[#1C2427] via-[#151D20] to-[#0E1315] border-t-2 border-[#3A4B4E] shadow-[inset_0_4px_16px_rgba(0,0,0,0.85)] flex items-center overflow-hidden">
+        <div className="w-full relative h-20 sm:h-22 bg-gradient-to-b from-[#1C2427] via-[#151D20] to-[#0E1315] border-t-2 border-[#3A4B4E] shadow-[inset_0_4px_16px_rgba(0,0,0,0.85)] flex items-center overflow-hidden">
           
           {/* Asphalt Fine Mineral Granular Texture */}
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FFF_1px,transparent_1px)] [background-size:6px_6px]" />
@@ -951,11 +951,11 @@ export const HeroSection: React.FC = () => {
           {/* Lower Highway Shoulder Solid Continuous White Line */}
           <div className="absolute bottom-2.5 inset-x-0 h-0.5 bg-white/85 shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
 
-          {/* ================= AUTHENTIC ROADSIDE MILESTONE (ON LOWER ROADSIDE SHOULDER) =================
-              Positioned on the near-side roadside shoulder (bottom of the road).
+          {/* ================= AUTHENTIC ROADSIDE MILESTONE (ON LOWER OPPOSITE SHOULDER) =================
+              Positioned on the near-side roadside shoulder (bottom of the road, opposite traffic direction).
               Completely separate from the car lane above — car wheels NEVER go over the milestone!
               ============================================================================================= */}
-          <div className="absolute bottom-1 sm:bottom-1.5 z-20 animate-passing-milestone-1 pointer-events-none">
+          <div className="absolute bottom-1.5 sm:bottom-2 z-20 animate-passing-milestone-1 pointer-events-none">
             <div className="w-22 sm:w-26 h-9 sm:h-10 rounded-t-2xl overflow-hidden border border-black/40 shadow-xl flex flex-col items-center bg-white filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)]">
               {/* Highway Yellow Upper Dome */}
               <div className="w-full bg-[#FACC15] text-[#062F31] font-black text-[8px] sm:text-[8.5px] text-center py-0.5 border-b border-black/25 uppercase tracking-wider font-mono">
