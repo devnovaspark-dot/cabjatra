@@ -618,12 +618,14 @@ function CabBookingContent() {
                             {/* Subtle lower vignette for depth */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
-                            <div className="absolute top-2 left-2 bg-[#001162]/95 backdrop-blur-md text-white text-[9.5px] font-bold px-2 py-0.5 rounded-md border border-white/15 pointer-events-none z-10">
-                              {v.category}
-                            </div>
-                            {v.tag && (
-                              <div className="absolute top-2 right-2 bg-gradient-to-b from-[#FDE047] to-[#FEC401] text-[#001162] text-[8.5px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-xs pointer-events-none z-10">
+                            {/* Single High-Priority Badge (Prevents badge collision & text spillover) */}
+                            {v.tag ? (
+                              <div className="absolute top-2.5 right-2.5 bg-gradient-to-b from-[#FDE047] to-[#FEC401] text-[#001162] text-[8.5px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-md border border-black/10 pointer-events-none z-10">
                                 {v.tag}
+                              </div>
+                            ) : (
+                              <div className="absolute top-2.5 right-2.5 bg-[#001162]/95 backdrop-blur-md text-white text-[9px] font-bold px-2 py-0.5 rounded-md border border-white/15 pointer-events-none z-10">
+                                {v.category}
                               </div>
                             )}
                           </div>
@@ -657,21 +659,21 @@ function CabBookingContent() {
                         </div>
 
                         {/* Bottom Tariff & Action Button */}
-                        <div className="p-3.5 pt-0 border-t border-[#EEF2EE] flex items-center justify-between mt-1">
-                          <div>
+                        <div className="p-3.5 pt-2 border-t border-[#EEF2EE] flex items-center justify-between gap-2 mt-1">
+                          <div className="min-w-0">
                             <span className="text-[9px] uppercase font-bold text-[#667575] block leading-none">
                               Est. Tariff
                             </span>
-                            <span className="text-sm font-extrabold text-[#001162]">
+                            <span className="text-sm font-extrabold text-[#001162] block leading-tight">
                               ₹{vFare.total.toLocaleString("en-IN")}
                             </span>
-                            <span className="text-[9px] font-semibold text-[#FEC401] block leading-none mt-0.5">
+                            <span className="text-[9.5px] font-bold text-[#B45309] block leading-tight mt-0.5 whitespace-nowrap">
                               10% Adv: ₹{vFare.advance.toLocaleString("en-IN")}
                             </span>
                           </div>
 
                           <div
-                            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 text-center ${
                               isSelected
                                 ? "bg-[#02146B] text-[#FEC401] shadow-xs"
                                 : "border border-[#D5DDD5] text-[#667575] group-hover:border-[#02146B]"
