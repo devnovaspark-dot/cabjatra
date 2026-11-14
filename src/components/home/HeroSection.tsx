@@ -145,7 +145,7 @@ export const HeroSection: React.FC = () => {
 
         {/* ================= STARFIELD (NIGHT ONLY) ================= */}
         {timeOfDay === "night" && (
-          <div className="absolute inset-0 transition-opacity duration-1000 opacity-80">
+          <div className="absolute inset-0 transition-opacity duration-1000 opacity-80 z-10">
             <div className="absolute inset-0 bg-[radial-gradient(#FFFFFF_1px,transparent_1px)] [background-size:24px_24px] opacity-45" />
             <div className="absolute inset-0 bg-[radial-gradient(#FDE047_1.5px,transparent_1.5px)] [background-size:60px_60px] opacity-55" />
             <span className="absolute top-28 left-[18%] w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#FFF] animate-pulse" />
@@ -155,61 +155,8 @@ export const HeroSection: React.FC = () => {
           </div>
         )}
 
-        {/* ================= CELESTIAL ORBS: POSITIONED IN OPEN SKY BELOW NAVBAR ================= */}
-        {/* 1. MORNING SUN (Soft Warm Golden Rise) */}
-        {timeOfDay === "morning" && (
-          <div className="absolute top-24 sm:top-28 right-8 sm:right-20 lg:right-28 pointer-events-none transition-all duration-1000 z-10">
-            <div className="absolute -inset-10 rounded-full bg-gradient-to-br from-amber-300/25 via-yellow-500/15 to-transparent blur-2xl animate-celestial-pulse" />
-            <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-[#EA580C] via-[#FACC15] to-[#FEF08A] shadow-[0_0_60px_rgba(250,204,21,0.85)] border border-yellow-100/50" />
-          </div>
-        )}
-
-        {/* 2. AFTERNOON SUN (Brilliant Tropical Daylight Corona) */}
-        {timeOfDay === "afternoon" && (
-          <div className="absolute top-24 sm:top-28 right-8 sm:right-20 lg:right-28 pointer-events-none transition-all duration-1000 z-10">
-            <div className="absolute -inset-14 rounded-full bg-gradient-to-br from-yellow-100/30 via-yellow-300/15 to-transparent blur-2xl animate-celestial-pulse" />
-            <div className="relative w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-gradient-to-tr from-[#FACC15] via-[#FEF08A] to-[#FFFFFF] shadow-[0_0_80px_rgba(250,204,21,0.95)] border border-white/70" />
-          </div>
-        )}
-
-        {/* 3. EVENING SUN (Dramatic Crimson & Burnt Orange Sunset) */}
-        {timeOfDay === "evening" && (
-          <div className="absolute top-24 sm:top-28 right-8 sm:right-20 lg:right-28 pointer-events-none transition-all duration-1000 z-10">
-            <div className="absolute -inset-12 rounded-full bg-gradient-to-br from-red-500/30 via-orange-500/20 to-transparent blur-2xl animate-celestial-pulse" />
-            <div className="relative w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-gradient-to-tr from-[#991B1B] via-[#EA580C] to-[#FBBF24] shadow-[0_0_70px_rgba(234,88,12,0.9)] border border-orange-200/40" />
-          </div>
-        )}
-
-        {/* 4. NIGHT MOON (Luminous Moon with Realistic Crater Textures) */}
-        {timeOfDay === "night" && (
-          <div className="absolute top-24 sm:top-28 right-8 sm:right-20 lg:right-28 pointer-events-none transition-all duration-1000 z-10">
-            <div className="absolute -inset-8 rounded-full bg-cyan-200/15 blur-xl animate-celestial-pulse" />
-            <svg viewBox="0 0 80 80" className="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-[0_0_35px_rgba(186,230,253,0.7)]">
-              <defs>
-                <radialGradient id="moonGradRealistic" cx="38%" cy="38%" r="65%">
-                  <stop offset="0%" stopColor="#FFFFFF" />
-                  <stop offset="45%" stopColor="#F1F5F9" />
-                  <stop offset="75%" stopColor="#CBD5E1" />
-                  <stop offset="100%" stopColor="#94A3B8" />
-                </radialGradient>
-              </defs>
-              <circle cx="40" cy="40" r="32" fill="url(#moonGradRealistic)" />
-              <ellipse cx="32" cy="30" rx="6" ry="4.5" fill="#94A3B8" fillOpacity="0.32" />
-              <ellipse cx="46" cy="44" rx="7" ry="5" fill="#94A3B8" fillOpacity="0.28" />
-              <circle cx="48" cy="28" r="3.5" fill="#94A3B8" fillOpacity="0.25" />
-            </svg>
-          </div>
-        )}
-
-        {/* Dynamic Sunbeam Rays Streaming Across Coastal Sky (Day, Morning, Evening) */}
-        {timeOfDay !== "night" && (
-          <div className="absolute top-16 right-4 w-[600px] h-[480px] pointer-events-none animate-sunbeams overflow-hidden">
-            <div className="w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-yellow-200/25 via-yellow-400/10 to-transparent blur-md" />
-          </div>
-        )}
-
         {/* ================= REALISTIC COASTAL CUMULUS CLOUDS (PARALLAX DRIFT) ================= */}
-        <div className="absolute top-12 sm:top-14 inset-x-0 h-28 opacity-45 animate-clouds-slow flex w-[200%] pointer-events-none">
+        <div className="absolute top-10 sm:top-14 inset-x-0 h-28 opacity-45 animate-clouds-slow flex w-[200%] pointer-events-none z-10">
           <div className="w-1/2 h-full flex justify-around items-center">
             <svg viewBox="0 0 500 120" className="w-[420px] h-24" preserveAspectRatio="none">
               <defs>
@@ -248,9 +195,61 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
 
+        {/* ================= CELESTIAL ORBS: VIBRANT & PROMINENT IN OPEN SKY ================= */}
+        {/* 1. MORNING SUN (Soft Warm Golden Rise) */}
+        {timeOfDay === "morning" && (
+          <div className="absolute top-20 sm:top-24 right-8 sm:right-20 lg:right-32 pointer-events-none transition-all duration-1000 z-30">
+            <div className="absolute -inset-10 rounded-full bg-gradient-to-br from-amber-300/30 via-yellow-500/20 to-transparent blur-2xl animate-celestial-pulse" />
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-[#EA580C] via-[#FACC15] to-[#FEF08A] shadow-[0_0_70px_rgba(250,204,21,0.95)] border-2 border-yellow-100/70" />
+          </div>
+        )}
+
+        {/* 2. AFTERNOON SUN (Brilliant Tropical Daylight Corona) */}
+        {timeOfDay === "afternoon" && (
+          <div className="absolute top-20 sm:top-24 right-8 sm:right-20 lg:right-32 pointer-events-none transition-all duration-1000 z-30">
+            <div className="absolute -inset-14 rounded-full bg-gradient-to-br from-yellow-100/40 via-yellow-300/20 to-transparent blur-2xl animate-celestial-pulse" />
+            <div className="relative w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-gradient-to-tr from-[#FACC15] via-[#FEF08A] to-[#FFFFFF] shadow-[0_0_90px_rgba(250,204,21,1)] border-2 border-white/90" />
+          </div>
+        )}
+
+        {/* 3. EVENING SUN (Dramatic Crimson & Burnt Orange Sunset) */}
+        {timeOfDay === "evening" && (
+          <div className="absolute top-20 sm:top-24 right-8 sm:right-20 lg:right-32 pointer-events-none transition-all duration-1000 z-30">
+            <div className="absolute -inset-12 rounded-full bg-gradient-to-br from-red-500/40 via-orange-500/25 to-transparent blur-2xl animate-celestial-pulse" />
+            <div className="relative w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-gradient-to-tr from-[#991B1B] via-[#EA580C] to-[#FBBF24] shadow-[0_0_80px_rgba(234,88,12,0.95)] border-2 border-orange-200/60" />
+          </div>
+        )}
+
+        {/* 4. NIGHT MOON (Luminous Moon with Realistic Crater Textures) */}
+        {timeOfDay === "night" && (
+          <div className="absolute top-20 sm:top-24 right-8 sm:right-20 lg:right-32 pointer-events-none transition-all duration-1000 z-30">
+            <div className="absolute -inset-8 rounded-full bg-cyan-200/20 blur-xl animate-celestial-pulse" />
+            <svg viewBox="0 0 80 80" className="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-[0_0_40px_rgba(186,230,253,0.85)]">
+              <defs>
+                <radialGradient id="moonGradRealistic" cx="38%" cy="38%" r="65%">
+                  <stop offset="0%" stopColor="#FFFFFF" />
+                  <stop offset="45%" stopColor="#F1F5F9" />
+                  <stop offset="75%" stopColor="#CBD5E1" />
+                  <stop offset="100%" stopColor="#94A3B8" />
+                </radialGradient>
+              </defs>
+              <circle cx="40" cy="40" r="32" fill="url(#moonGradRealistic)" />
+              <ellipse cx="32" cy="30" rx="6" ry="4.5" fill="#94A3B8" fillOpacity="0.32" />
+              <ellipse cx="46" cy="44" rx="7" ry="5" fill="#94A3B8" fillOpacity="0.28" />
+              <circle cx="48" cy="28" r="3.5" fill="#94A3B8" fillOpacity="0.25" />
+            </svg>
+          </div>
+        )}
+
+        {/* Dynamic Sunbeam Rays Streaming Across Coastal Sky (Day, Morning, Evening) */}
+        {timeOfDay !== "night" && (
+          <div className="absolute top-14 right-2 w-[650px] h-[500px] pointer-events-none animate-sunbeams overflow-hidden z-20">
+            <div className="w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-yellow-200/30 via-yellow-400/12 to-transparent blur-md" />
+          </div>
+        )}
+
         {/* ================= SMALL, DISTANT, REALISTIC SEAGULLS IN HIGH SKY ================= */}
-        {/* Tiny flock high in the distance (12px - 16px wide, delicate silhouettes) */}
-        <div className="absolute top-10 left-0 pointer-events-none animate-bird-flight-1 z-10">
+        <div className="absolute top-8 left-0 pointer-events-none animate-bird-flight-1 z-30">
           <div className="flex items-center gap-4 opacity-75">
             {/* Seagull 1 (Leader) */}
             <svg
@@ -289,7 +288,7 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* Second Small Seagull Pair (Distant glide) */}
-        <div className="absolute top-16 left-0 pointer-events-none animate-bird-flight-2 z-10">
+        <div className="absolute top-14 left-0 pointer-events-none animate-bird-flight-2 z-30">
           <div className="flex items-center gap-5 opacity-65">
             {/* Seagull 4 */}
             <svg
@@ -367,7 +366,7 @@ export const HeroSection: React.FC = () => {
       <div className="relative z-10 w-full mt-auto">
         
         {/* ================= SCENIC ODISHA PANORAMA (DOCKED DIRECTLY BEHIND THE ROAD) ================= */}
-        <div className="absolute bottom-14 sm:bottom-16 inset-x-0 h-44 sm:h-52 lg:h-60 pointer-events-none overflow-hidden z-10">
+        <div className="absolute bottom-16 sm:bottom-18 inset-x-0 h-48 sm:h-56 lg:h-64 pointer-events-none overflow-hidden z-10">
           
           {/* 1. Natural Terrain Layer (Undulating Hills, Ocean Water & Golden Dunes) */}
           <svg viewBox="0 0 1440 220" className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
@@ -380,72 +379,83 @@ export const HeroSection: React.FC = () => {
 
               {/* Bay of Bengal Glistening Ocean */}
               <linearGradient id="bengalOceanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#05454C" />
-                <stop offset="50%" stopColor="#085B64" />
-                <stop offset="100%" stopColor="#0A3C40" />
+                <stop offset="0%" stopColor="#0284C7" />
+                <stop offset="40%" stopColor="#0369A1" />
+                <stop offset="80%" stopColor="#075985" />
+                <stop offset="100%" stopColor="#042F2E" />
               </linearGradient>
 
-              {/* Chandrabhaga Beach Coastal Sand Dunes */}
+              {/* Chandrabhaga Beach Coastal Sand Dunes - WARM LUMINOUS GOLDEN SAND */}
               <linearGradient id="chandrabhagaDunes" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#B45309" stopOpacity="0.75" />
-                <stop offset="35%" stopColor="#78350F" stopOpacity="0.88" />
-                <stop offset="100%" stopColor="#031F21" stopOpacity="0.98" />
+                <stop offset="0%" stopColor="#F59E0B" stopOpacity="0.95" />
+                <stop offset="25%" stopColor="#D97706" stopOpacity="0.95" />
+                <stop offset="60%" stopColor="#B45309" stopOpacity="0.95" />
+                <stop offset="100%" stopColor="#78350F" stopOpacity="0.98" />
               </linearGradient>
 
-              {/* Secondary Lower Sand Slope */}
+              {/* Secondary Foreground Coastal Ridge */}
               <linearGradient id="lowerDuneSlope" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#92400E" stopOpacity="0.85" />
-                <stop offset="100%" stopColor="#042628" />
+                <stop offset="0%" stopColor="#D97706" stopOpacity="0.9" />
+                <stop offset="50%" stopColor="#B45309" stopOpacity="0.95" />
+                <stop offset="100%" stopColor="#451A03" />
               </linearGradient>
             </defs>
 
             {/* Distant Eastern Ghats Mountain Contours */}
             <path
-              d="M 0,170 Q 220,120 480,145 T 960,135 T 1440,155 L 1440,220 L 0,220 Z"
+              d="M 0,165 Q 220,115 480,140 T 960,130 T 1440,150 L 1440,220 L 0,220 Z"
               fill="url(#hillsMistGrad)"
             />
 
-            {/* Bay of Bengal Ocean Expanse */}
+            {/* Bay of Bengal Ocean Expanse with Turquoise Glisten */}
             <path
-              d="M 0,178 Q 320,152 700,165 T 1440,172 L 1440,220 L 0,220 Z"
+              d="M 0,172 Q 320,146 700,160 T 1440,166 L 1440,220 L 0,220 Z"
               fill="url(#bengalOceanGrad)"
             />
 
             {/* Animated Ocean Wave Foam Lines */}
             <path
-              d="M 0,175 Q 160,168 320,175 T 640,175 T 960,175 T 1280,175 T 1440,175"
-              stroke="#A7F3D0"
-              strokeWidth="1.6"
-              strokeOpacity="0.5"
+              d="M 0,170 Q 160,163 320,170 T 640,170 T 960,170 T 1280,170 T 1440,170"
+              stroke="#FFFFFF"
+              strokeWidth="1.8"
+              strokeOpacity="0.65"
               fill="none"
               className="animate-ocean-wave-roll"
             />
             <path
-              d="M 0,180 Q 180,174 360,180 T 720,180 T 1080,180 T 1440,180"
-              stroke="#E0F2FE"
-              strokeWidth="1.2"
-              strokeOpacity="0.4"
+              d="M 0,175 Q 180,169 360,175 T 720,175 T 1080,175 T 1440,175"
+              stroke="#99F6E4"
+              strokeWidth="1.4"
+              strokeOpacity="0.5"
               fill="none"
               className="animate-ocean-wave-roll"
             />
 
             {/* Main Undulating Golden Sand Dunes (Chandrabhaga / Marine Drive) */}
             <path
-              d="M 0,220 Q 260,150 560,178 T 1100,165 T 1440,195 L 1440,220 Z"
+              d="M 0,220 Q 260,145 560,172 T 1100,160 T 1440,190 L 1440,220 Z"
               fill="url(#chandrabhagaDunes)"
             />
-
-            {/* Secondary Foreground Coastal Ridge */}
+            {/* Sunlit Dune Crest Highlight Line */}
             <path
-              d="M 0,220 Q 380,182 780,195 T 1440,205 L 1440,220 Z"
+              d="M 0,220 Q 260,145 560,172 T 1100,160 T 1440,190"
+              stroke="#FDE68A"
+              strokeWidth="2"
+              strokeOpacity="0.75"
+              fill="none"
+            />
+
+            {/* Secondary Foreground Coastal Ridge with Warm Terracotta Shadow */}
+            <path
+              d="M 0,220 Q 380,178 780,190 T 1440,202 L 1440,220 Z"
               fill="url(#lowerDuneSlope)"
             />
 
             {/* Coastal Dune Grass Tufts along Ridge */}
-            <g stroke="#EAB308" strokeWidth="1.2" strokeLinecap="round" opacity="0.65">
-              <path d="M 260,175 L 256,165 M 260,175 L 262,163 M 260,175 L 266,167" />
-              <path d="M 580,180 L 576,170 M 580,180 L 582,168 M 580,180 L 587,172" />
-              <path d="M 1080,172 L 1076,162 M 1080,172 L 1083,160 M 1080,172 L 1087,164" />
+            <g stroke="#FDE047" strokeWidth="1.4" strokeLinecap="round" opacity="0.8">
+              <path d="M 260,172 L 255,160 M 260,172 L 263,158 M 260,172 L 268,164" />
+              <path d="M 580,176 L 575,164 M 580,176 L 583,162 M 580,176 L 588,168" />
+              <path d="M 1080,168 L 1075,156 M 1080,168 L 1083,154 M 1080,168 L 1088,160" />
             </g>
           </svg>
 
@@ -931,13 +941,13 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* ================= REALISTIC FULL-WIDTH ASPHALT ROAD (DIRECTLY BENEATH TYRES) ================= */}
-        <div className="w-full relative h-14 sm:h-16 bg-gradient-to-b from-[#141B1D] via-[#1A2225] to-[#0E1416] border-t-2 border-[#3A4B4E] shadow-[inset_0_4px_16px_rgba(0,0,0,0.85)] flex items-center overflow-hidden">
+        {/* ================= REALISTIC FULL-WIDTH ASPHALT ROAD ================= */}
+        <div className="w-full relative h-16 sm:h-18 bg-gradient-to-b from-[#1C2427] via-[#151D20] to-[#0E1315] border-t-2 border-[#3A4B4E] shadow-[inset_0_4px_16px_rgba(0,0,0,0.85)] flex items-center overflow-hidden">
           
           {/* Asphalt Fine Mineral Granular Texture */}
-          <div className="absolute inset-0 opacity-22 bg-[radial-gradient(#FFF_1px,transparent_1px)] [background-size:4px_4px]" />
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FFF_1px,transparent_1px)] [background-size:6px_6px]" />
 
-          {/* Roadside Retro-Reflective Amber Cat-Eye Studs Directly along Shoulder */}
+          {/* Roadside Retro-Reflective Amber Cat-Eye Studs Directly along Upper Shoulder */}
           <div className="absolute top-1.5 inset-x-0 flex justify-around pointer-events-none opacity-85">
             {Array.from({ length: 24 }).map((_, i) => (
               <span
@@ -948,28 +958,9 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Upper Highway Shoulder Solid Continuous White Line */}
-          <div className="absolute top-2 inset-x-0 h-0.5 bg-white/80 shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
+          <div className="absolute top-2.5 inset-x-0 h-0.5 bg-white/85 shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
 
-          {/* ================= ONLY AUTHENTIC INDIAN HIGHWAY MILESTONE BOARD (NO CARDS) ================= */}
-          <div className="absolute top-1 z-20 animate-passing-milestone-1 pointer-events-none">
-            <div className="w-24 sm:w-28 h-11 sm:h-12 rounded-t-3xl overflow-hidden border border-black/40 shadow-2xl flex flex-col items-center bg-white">
-              {/* Highway Yellow Upper Dome */}
-              <div className="w-full bg-[#FACC15] text-[#062F31] font-black text-[9px] sm:text-[9.5px] text-center py-0.5 border-b border-black/25 uppercase tracking-wider font-mono">
-                {currentMilestone.nh}
-              </div>
-              {/* White Stone Base */}
-              <div className="w-full bg-white text-[#062F31] flex flex-col items-center justify-center py-0.5 px-1.5 leading-tight">
-                <span className="text-[8px] sm:text-[8.5px] font-extrabold truncate w-full text-center">
-                  {currentMilestone.name}
-                </span>
-                <span className="text-[8.5px] sm:text-[9px] font-black font-mono text-[#062F31]">
-                  {currentMilestone.km}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Moving Dashed Center Yellow Lane Divider Stripes */}
+          {/* Moving Dashed Center Yellow Lane Divider Stripes (In Middle of Road) */}
           <div className="absolute top-1/2 -translate-y-1/2 inset-x-0 h-1 flex overflow-hidden pointer-events-none">
             <div className="flex shrink-0 w-[200%] animate-road-flow">
               {Array.from({ length: 50 }).map((_, i) => (
@@ -982,7 +973,29 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Lower Highway Shoulder Solid Continuous White Line */}
-          <div className="absolute bottom-1.5 inset-x-0 h-0.5 bg-white/80 shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
+          <div className="absolute bottom-2.5 inset-x-0 h-0.5 bg-white/85 shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
+
+          {/* ================= AUTHENTIC ROADSIDE MILESTONE (ON LOWER ROADSIDE SHOULDER) =================
+              Positioned on the near-side roadside shoulder (bottom of the road).
+              Completely separate from the car lane above — car wheels NEVER go over the milestone!
+              ============================================================================================= */}
+          <div className="absolute bottom-1 sm:bottom-1.5 z-20 animate-passing-milestone-1 pointer-events-none">
+            <div className="w-22 sm:w-26 h-9 sm:h-10 rounded-t-2xl overflow-hidden border border-black/40 shadow-xl flex flex-col items-center bg-white filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)]">
+              {/* Highway Yellow Upper Dome */}
+              <div className="w-full bg-[#FACC15] text-[#062F31] font-black text-[8px] sm:text-[8.5px] text-center py-0.5 border-b border-black/25 uppercase tracking-wider font-mono">
+                {currentMilestone.nh}
+              </div>
+              {/* White Concrete Stone Base */}
+              <div className="w-full bg-white text-[#062F31] flex flex-col items-center justify-center py-0.5 px-1 leading-tight">
+                <span className="text-[7px] sm:text-[7.5px] font-extrabold truncate w-full text-center">
+                  {currentMilestone.name}
+                </span>
+                <span className="text-[7.5px] sm:text-[8px] font-black font-mono text-[#062F31]">
+                  {currentMilestone.km}
+                </span>
+              </div>
+            </div>
+          </div>
 
         </div>
 
