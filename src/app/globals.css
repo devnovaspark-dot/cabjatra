@@ -496,6 +496,25 @@
   animation: celestialAuraPulse 4s ease-in-out infinite;
 }
 
+/* Sunbeam Light Rays Shimmer */
+@keyframes sunbeamShimmer {
+  0%, 100% { opacity: 0.18; transform: rotate(-18deg) scaleY(1); }
+  50% { opacity: 0.35; transform: rotate(-16deg) scaleY(1.06); }
+}
+.animate-sunbeams {
+  animation: sunbeamShimmer 7s ease-in-out infinite;
+  transform-origin: top right;
+}
+
+/* Coastal Mist Drift */
+@keyframes mistDriftKeyframes {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+.animate-coastal-mist {
+  animation: mistDriftKeyframes 50s linear infinite;
+}
+
 /* Multi-layer Cloud Parallax Drift */
 @keyframes cloudDriftSlow {
   0% { transform: translate3d(0, 0, 0); }
