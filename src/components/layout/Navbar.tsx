@@ -328,7 +328,7 @@ export const Navbar: React.FC = () => {
                 href={COMPANY_CONFIG.contact.whatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-2xl bg-gradient-to-b from-[#084846] to-[#001162] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-skeuo-button"
+                className="w-full py-3 px-4 rounded-2xl bg-gradient-to-b from-[#02146B] to-[#000B3B] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-skeuo-button"
               >
                 <MessageSquare className="w-4 h-4 text-[#FEC401]" />
                 <span>Chat on WhatsApp Concierge Desk</span>

@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-[#000B3B] via-[#000828] to-[#000414] text-[#F1F5F9] pt-8 sm:pt-10 pb-6 border-t-2 border-[#FEC401]/30 font-sans relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-[#000B3B] via-[#00082E] to-[#000620] text-[#F1F5F9] pt-8 sm:pt-10 pb-6 border-t-2 border-[#FEC401]/30 font-sans relative overflow-hidden">
       {/* Luxury Ambient Lighting Glows */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#02146B]/35 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[450px] h-[450px] bg-[#FEC401]/10 rounded-full blur-[130px] pointer-events-none" />
@@ -65,8 +65,8 @@ export const Footer: React.FC = () => {
             {/* Live Operations Beacon */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-[#FEC401]/50 text-[10.5px] font-bold text-[#FEC401] shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_8px_rgba(0,0,0,0.4)] backdrop-blur-md">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FEC401] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FEC401]" />
               </span>
               <span>Bhubaneswar Central Dispatch &bull; Live 24/7 Operations Desk</span>
             </div>
@@ -196,7 +196,7 @@ export const Footer: React.FC = () => {
               </div>
 
               <div className="flex items-start gap-2 pt-1 border-t border-white/10">
-                <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-[#FEC401] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-white block">10% Advance Deposit Model</span>
                   <span className="text-[10px] text-[#F1F5F9]/70">Locked reservation • Remaining 90% settled after trip</span>
@@ -450,7 +450,7 @@ export const Footer: React.FC = () => {
                   </span>
                 </div>
                 {copiedPhone ? (
-                  <Check className="w-4 h-4 text-[#10B981] shrink-0" />
+                  <Check className="w-4 h-4 text-[#FEC401] shrink-0" />
                 ) : (
                   <Copy className="w-3.5 h-3.5 text-white/50 group-hover:text-white shrink-0 transition-colors" />
                 )}
@@ -471,7 +471,7 @@ export const Footer: React.FC = () => {
                   </span>
                 </div>
                 {copiedEmail ? (
-                  <Check className="w-4 h-4 text-[#10B981] shrink-0" />
+                  <Check className="w-4 h-4 text-[#FEC401] shrink-0" />
                 ) : (
                   <Copy className="w-3.5 h-3.5 text-white/50 group-hover:text-white shrink-0 transition-colors" />
                 )}
