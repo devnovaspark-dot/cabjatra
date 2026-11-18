@@ -119,7 +119,7 @@ export const HeroSection: React.FC = () => {
   const currentMilestone = PASSING_MILESTONES[milestoneIndex];
 
   return (
-    <section className="relative text-white overflow-hidden h-[100dvh] max-h-[100dvh] flex flex-col justify-between pt-28 sm:pt-32 pb-1 border-b border-[#FEC401]/35 select-none transition-colors duration-1000 bg-[#000B3B]">
+    <section className="relative text-white overflow-hidden h-[100dvh] max-h-[100dvh] flex flex-col justify-between pt-36 sm:pt-32 pb-1 border-b border-[#FEC401]/35 select-none transition-colors duration-1000 bg-[#000B3B]">
       
       {/* =========================================================================
           LAYER 1: FULL REALISTIC ODISHA SKY & ATMOSPHERE (SPANS ENTIRE BACKGROUND)
@@ -321,7 +321,7 @@ export const HeroSection: React.FC = () => {
           LAYER 2: HERO BRANDING, HIGH-CONVERTING HEADLINE & CTAS (ZERO CARDS)
           Generous top clearance (pt-28 sm:pt-32) ensures headline is 100% visible below navbar.
           ========================================================================= */}
-      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 w-full text-center space-y-2 sm:space-y-3">
+      <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 w-full text-center space-y-2.5 sm:space-y-3 mt-1 sm:mt-0">
         
         {/* Short, Direct, High-Converting Headline */}
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-display tracking-tight text-white leading-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
