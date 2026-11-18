@@ -235,6 +235,7 @@ function RealisticCommercialCar({
 export const HowItWorksSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const roadTrackRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   // Scroll simulation physics state
   const [scrollProgress, setScrollProgress] = useState(0); // 0 to 1
@@ -243,6 +244,7 @@ export const HowItWorksSection: React.FC = () => {
   const [steeringAngle, setSteeringAngle] = useState(0);
   const [activeStep, setActiveStep] = useState(0); // 0, 1, 2, 3
   const [roadHeight, setRoadHeight] = useState(850);
+  const [milestoneTops, setMilestoneTops] = useState<number[]>([]);
 
   // 4 Focused, Non-Text-Heavy Guarantee Steps
   const guaranteeSteps = [
@@ -292,16 +294,43 @@ export const HowItWorksSection: React.FC = () => {
     },
   ];
 
-  // Measure road height on mount and resize
+  // Measure road height and compute card vertical centers for milestone placement
   useEffect(() => {
-    const updateRoadHeight = () => {
+    const updateRoadMetrics = () => {
       if (roadTrackRef.current) {
-        setRoadHeight(roadTrackRef.current.offsetHeight);
+        const trackRect = roadTrackRef.current.getBoundingClientRect();
+        setRoadHeight(trackRect.height);
+
+        const tops = cardRefs.current.map((card, idx) => {
+          if (card) {
+            const cardRect = card.getBoundingClientRect();
+            // Center of the step card relative to the road track container
+            return Math.round(cardRect.top - trackRect.top + cardRect.height / 2);
+          }
+          // Default fallback inset so milestones are never at 0% or 100%
+          const defaultInset = 85;
+          const usableDist = Math.max(0, trackRect.height - defaultInset * 2);
+          return Math.round(defaultInset + (idx / 3) * usableDist);
+        });
+        setMilestoneTops(tops);
       }
     };
-    updateRoadHeight();
-    window.addEventListener("resize", updateRoadHeight);
-    return () => window.removeEventListener("resize", updateRoadHeight);
+
+    updateRoadMetrics();
+    window.addEventListener("resize", updateRoadMetrics);
+
+    let ro: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== "undefined" && roadTrackRef.current) {
+      ro = new ResizeObserver(() => {
+        updateRoadMetrics();
+      });
+      ro.observe(roadTrackRef.current);
+    }
+
+    return () => {
+      window.removeEventListener("resize", updateRoadMetrics);
+      if (ro) ro.disconnect();
+    };
   }, []);
 
   // Butter-Smooth Scroll Physics Loop using requestAnimationFrame & Lerp
@@ -368,14 +397,18 @@ export const HowItWorksSection: React.FC = () => {
     };
   }, []);
 
-  // Interactive step jump on click
+  // Interactive step jump on click — smoothly centers target card
   const handleMilestoneClick = (idx: number) => {
-    if (!roadTrackRef.current) return;
-    const rect = roadTrackRef.current.getBoundingClientRect();
-    const scrollTop = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const targetY = scrollTop + rect.top + (idx / 3) * (rect.height * 0.75) - windowHeight * 0.25;
-    window.scrollTo({ top: targetY, behavior: "smooth" });
+    const targetCard = cardRefs.current[idx];
+    if (targetCard) {
+      targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
+    } else if (roadTrackRef.current) {
+      const rect = roadTrackRef.current.getBoundingClientRect();
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const targetY = scrollTop + rect.top + (idx / 3) * (rect.height * 0.75) - windowHeight * 0.25;
+      window.scrollTo({ top: targetY, behavior: "smooth" });
+    }
   };
 
   // Car travel bounds
@@ -409,7 +442,7 @@ export const HowItWorksSection: React.FC = () => {
         <div ref={roadTrackRef} className="relative mb-12 sm:mb-16">
           {/* ================= PHOTOREALISTIC ASPHALT HIGHWAY ================= */}
           {/* Desktop: Centered Highway Spine. Mobile: Left-Aligned Road within screen bounds. */}
-          <div className="absolute top-0 bottom-0 left-4 sm:left-8 lg:left-1/2 -translate-x-1/2 w-16 sm:w-24 lg:w-26 bg-[#172021] rounded-2xl border-x-2 border-[#334446] shadow-[inset_0_0_20px_rgba(0,0,0,0.9),0_12px_30px_rgba(0,0,0,0.2)] overflow-hidden z-10 pointer-events-none">
+          <div className="absolute -top-3 -bottom-3 sm:-top-4 sm:-bottom-4 left-4 sm:left-8 lg:left-1/2 -translate-x-1/2 w-16 sm:w-24 lg:w-26 bg-[#172021] rounded-2xl border-x-2 border-[#334446] shadow-[inset_0_0_20px_rgba(0,0,0,0.9),0_12px_30px_rgba(0,0,0,0.2)] overflow-hidden z-10 pointer-events-none">
             {/* Asphalt Fine Gravel Noise Texture */}
             <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#FFF_1px,transparent_1px)] [background-size:5px_5px]" />
 
@@ -456,8 +489,16 @@ export const HowItWorksSection: React.FC = () => {
 
             {/* 4 Checkpoint Nodes Stationed on the Road */}
             {guaranteeSteps.map((st, i) => {
-              const nodeTop = `${(i / 3) * 100}%`;
-              const isPassed = scrollProgress >= i / 3 - 0.05;
+              // Exact center alignment with corresponding step card; fallback ensures 01 and 04 are never clipped
+              const fallbackTops = ["12%", "37%", "63%", "88%"];
+              const nodeTop =
+                milestoneTops[i] !== undefined
+                  ? `${milestoneTops[i]}px`
+                  : fallbackTops[i];
+
+              const targetPos =
+                milestoneTops[i] ?? ((i * 2 + 1) * roadHeight) / 8;
+              const isPassed = carY + 56 >= targetPos;
               const isCurrent = activeStep === i;
 
               return (
@@ -469,15 +510,22 @@ export const HowItWorksSection: React.FC = () => {
                   title={`Click to navigate to ${st.milestone}`}
                 >
                   <div
-                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-300 ${
+                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-[11px] sm:text-xs transition-all duration-300 relative select-none ${
                       isCurrent
-                        ? "bg-[#FEC401] text-[#001162] ring-4 ring-[#FEC401]/40 shadow-[0_0_18px_#FEC401] scale-110 font-black"
+                        ? "bg-[#FEC401] text-[#001162] ring-3 ring-[#FEC401]/40 shadow-[0_0_18px_#FEC401] scale-110 font-black"
                         : isPassed
-                        ? "bg-[#10B981] text-white ring-2 ring-[#10B981]/50 shadow-sm"
-                        : "bg-[#001162] text-[#FEC401] border border-white/20"
+                        ? "bg-[#10B981] text-white ring-2 ring-[#10B981]/50 shadow-sm font-extrabold"
+                        : "bg-[#001162] text-[#FEC401] border border-white/20 font-bold"
                     }`}
                   >
-                    {isPassed && !isCurrent ? <Check className="w-4 h-4 stroke-[2.5]" /> : st.step}
+                    <span>{st.step}</span>
+
+                    {/* Passed Checkmark Badge on Corner */}
+                    {isPassed && !isCurrent && (
+                      <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-white text-[#10B981] flex items-center justify-center shadow-xs border border-[#10B981]/30">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </span>
+                    )}
                   </div>
 
                   {/* Kilometer Marker Pill on Asphalt */}
@@ -499,6 +547,9 @@ export const HowItWorksSection: React.FC = () => {
               return (
                 <div
                   key={idx}
+                  ref={(el) => {
+                    cardRefs.current[idx] = el;
+                  }}
                   onClick={() => handleMilestoneClick(idx)}
                   className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-32 items-center cursor-pointer"
                 >
