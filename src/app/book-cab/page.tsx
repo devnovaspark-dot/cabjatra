@@ -96,6 +96,13 @@ function CabBookingContent() {
     }
   }, [searchParams]);
 
+  // Auto-scroll to top smoothly when step changes to prevent navbar collision
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+  }, [currentStep]);
+
   const selectedVehicle =
     VEHICLE_FLEET.find((v) => v.id === selectedVehicleId) || VEHICLE_FLEET[1];
 
@@ -225,18 +232,18 @@ function CabBookingContent() {
       <div
         className={`relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 ${
           currentStep === 5
-            ? "pt-36 sm:pt-44 pb-20"
-            : "pt-28 sm:pt-32 pb-12"
+            ? "pt-32 sm:pt-40 pb-20"
+            : "pt-24 sm:pt-28 pb-12"
         }`}
       >
         {/* Clean, Non-Text-Heavy Hero Header - Never overlaps with Floating Navbar */}
         {currentStep < 5 && (
-          <div className="text-center max-w-2xl mx-auto mb-5 text-white">
+          <div className="text-center max-w-2xl mx-auto mb-4 text-white">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/45 backdrop-blur-md border border-[#FEC401]/40 text-xs font-semibold text-[#FEC401] mb-2 shadow-sm">
               <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>10% Advance Deposit Model • 100% Commercial Fleet</span>
             </div>
-            <h1 className="text-xl sm:text-3xl font-extrabold font-display tracking-tight text-white drop-shadow-md">
+            <h1 className="text-xl sm:text-2xl font-extrabold font-display tracking-tight text-white drop-shadow-md">
               Reserve Your Odisha Cab
             </h1>
           </div>
@@ -244,8 +251,8 @@ function CabBookingContent() {
 
         {/* Elegant 4-Step Progress Stepper */}
         {currentStep < 5 && (
-          <div className="mb-6 max-w-4xl mx-auto">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
+          <div className="mb-5 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5">
               {stepsConfig.map((s) => {
                 const isCurrent = currentStep === s.num;
                 const isPassed = currentStep > s.num;
@@ -258,7 +265,7 @@ function CabBookingContent() {
                       if (isPassed) setCurrentStep(s.num);
                     }}
                     disabled={!isPassed && !isCurrent}
-                    className={`p-2.5 sm:p-3 rounded-2xl border text-left transition-all duration-200 flex items-center gap-2.5 select-none ${
+                    className={`p-2 sm:p-2.5 rounded-xl border text-left transition-all duration-200 flex items-center gap-2 select-none ${
                       isCurrent
                         ? "bg-gradient-to-r from-[#0A2B8C] to-[#000B3B] text-white border-2 border-[#FEC401] shadow-md ring-2 ring-[#FEC401]/30"
                         : isPassed
@@ -267,7 +274,7 @@ function CabBookingContent() {
                     }`}
                   >
                     <div
-                      className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center font-bold text-xs shrink-0 transition-all ${
+                      className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 transition-all ${
                         isCurrent
                           ? "bg-[#FEC401] text-[#001162] font-black shadow-xs"
                           : isPassed
@@ -275,24 +282,24 @@ function CabBookingContent() {
                           : "bg-white/15 text-white/90 border border-white/20 font-bold"
                       }`}
                     >
-                      {isPassed ? <Check className="w-4 h-4 text-white stroke-[2.5]" /> : `0${s.num}`}
+                      {isPassed ? <Check className="w-3.5 h-3.5 text-white stroke-[2.5]" /> : `0${s.num}`}
                     </div>
 
                     <div className="min-w-0 flex-1 truncate">
                       <div className="flex items-center gap-1.5">
                         <span
-                          className={`text-xs sm:text-sm font-bold font-display truncate ${
+                          className={`text-xs sm:text-xs font-bold font-display truncate ${
                             isCurrent ? "text-white" : isPassed ? "text-white" : "text-white/80"
                           }`}
                         >
                           {s.title}
                         </span>
                         {isCurrent && (
-                          <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shrink-0" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse shrink-0" />
                         )}
                       </div>
                       <p
-                        className={`text-[10px] sm:text-xs truncate leading-tight mt-0.5 ${
+                        className={`text-[9.5px] sm:text-[10px] truncate leading-tight mt-0.5 ${
                           isCurrent ? "text-[#FEC401] font-semibold" : isPassed ? "text-[#A7F3D0]" : "text-white/50"
                         }`}
                       >
@@ -607,7 +614,7 @@ function CabBookingContent() {
                       >
                         <div>
                           {/* Real Commercial Vehicle Showcase */}
-                          <div className="relative h-44 w-full bg-gradient-to-b from-[#FAF9F5] to-[#E9EFE9] border-b border-[#D6E0D6] overflow-hidden">
+                          <div className="relative h-36 sm:h-40 w-full bg-gradient-to-b from-[#FAF9F5] to-[#E9EFE9] border-b border-[#D6E0D6] overflow-hidden">
                             <Image
                               src={v.image}
                               alt={`${v.name} - ${v.models}`}
@@ -620,23 +627,23 @@ function CabBookingContent() {
 
                             {/* Centered High-Priority Badge (Prevents badge collision & text spillover) */}
                             {v.tag ? (
-                              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gradient-to-b from-[#FDE047] to-[#FEC401] text-[#001162] text-[8.5px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-md border border-black/10 pointer-events-none z-10">
+                              <div className="absolute top-2 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gradient-to-b from-[#FDE047] to-[#FEC401] text-[#001162] text-[8px] sm:text-[8.5px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-md border border-black/10 pointer-events-none z-10">
                                 {v.tag}
                               </div>
                             ) : (
-                              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#001162]/95 backdrop-blur-md text-white text-[9px] font-bold px-2 py-0.5 rounded-md border border-white/15 pointer-events-none z-10">
+                              <div className="absolute top-2 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#001162]/95 backdrop-blur-md text-white text-[8.5px] sm:text-[9px] font-bold px-2 py-0.5 rounded-md border border-white/15 pointer-events-none z-10">
                                 {v.category}
                               </div>
                             )}
                           </div>
 
                           {/* Vehicle Info: Name, Models & Compact Specs */}
-                          <div className="p-3.5 space-y-2.5">
+                          <div className="p-3 sm:p-3.5 space-y-2">
                             <div>
-                              <h3 className="text-base font-bold font-display text-[#0F172A] leading-tight">
+                              <h3 className="text-sm sm:text-base font-bold font-display text-[#0F172A] leading-tight">
                                 {v.name}
                               </h3>
-                              <p className="text-[11px] text-[#556464] font-medium mt-0.5 line-clamp-1" title={v.models}>
+                              <p className="text-[11px] text-[#556464] font-medium mt-0.5 truncate" title={v.models}>
                                 {v.models}
                               </p>
                             </div>

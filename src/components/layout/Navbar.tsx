@@ -21,8 +21,18 @@ export const Navbar: React.FC = () => {
   const pathname = usePathname();
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 15);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -55,11 +65,21 @@ export const Navbar: React.FC = () => {
   }, [pathname]);
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 pt-2 sm:pt-3.5 px-3 sm:px-6 lg:px-8 pointer-events-none">
+    <header
+      className={`fixed top-0 inset-x-0 z-50 pointer-events-none transition-all duration-200 ${
+        isScrolled
+          ? "bg-[#000B3B]/95 backdrop-blur-xl border-b border-white/10 shadow-lg py-2 sm:py-2.5 px-3 sm:px-6 lg:px-8"
+          : "pt-2 sm:pt-3.5 px-3 sm:px-6 lg:px-8"
+      }`}
+    >
       <div className="max-w-7xl mx-auto pointer-events-auto">
-        {/* Floating Luxury Navigation Island (Dark Glass in Hero) */}
+        {/* Navigation Bar: Floating Luxury Island at Top, Seamless Docked Bar on Scroll */}
         <nav
-          className="w-full bg-[#001162]/85 backdrop-blur-xl rounded-2xl sm:rounded-full border border-white/15 shadow-[0_15px_35px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.15)] px-4 sm:px-7 py-2.5 sm:py-3 flex items-center justify-between transition-all duration-200"
+          className={`w-full flex items-center justify-between transition-all duration-200 ${
+            isScrolled
+              ? "px-1 sm:px-2 py-0.5"
+              : "bg-[#001162]/85 backdrop-blur-xl rounded-2xl sm:rounded-full border border-white/15 shadow-[0_15px_35px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.15)] px-4 sm:px-7 py-2.5 sm:py-3"
+          }`}
           aria-label="Main Navigation"
         >
           {/* Bespoke Luxury Brand Logo */}
