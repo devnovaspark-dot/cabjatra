@@ -160,27 +160,26 @@ function TourBookingContent() {
       <div
         className={`relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 print:p-0 print:max-w-none print:m-0 print:pt-0 ${
           currentStep === 4
-            ? "pt-36 sm:pt-44 pb-20"
-            : "pt-28 sm:pt-32 pb-12"
+            ? "pt-24 sm:pt-28 pb-16"
+            : "pt-20 sm:pt-24 pb-12"
         }`}
       >
-        {/* Clean, Non-Text-Heavy Hero Header - Zero Navbar Overlap */}
+        {/* Clean, Non-Text-Heavy Hero Header - Perfectly Clear of Docked Navbar */}
         {currentStep < 4 && (
-          <div className="text-center max-w-2xl mx-auto mb-5 text-white">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/45 backdrop-blur-md border border-[#FEC401]/40 text-xs font-semibold text-[#FEC401] mb-2 shadow-sm">
-              <Palmtree className="w-3.5 h-3.5 text-[#FEC401]" />
-              <span>Curated Circuits • Dedicated Commercial Driver</span>
-            </div>
-            <h1 className="text-xl sm:text-3xl font-extrabold font-display tracking-tight text-white drop-shadow-md">
+          <div className="text-center max-w-xl mx-auto mb-3.5 text-white">
+            <h1 className="text-lg sm:text-xl font-extrabold font-display tracking-tight text-white drop-shadow-md">
               Book an Odisha Private Tour
             </h1>
+            <p className="text-[11px] text-[#FEC401] font-medium mt-0.5">
+              Curated Circuits • Dedicated Commercial Driver
+            </p>
           </div>
         )}
 
         {/* Elegant 3-Step Progress Stepper */}
         {currentStep < 4 && (
-          <div className="mb-6 max-w-3xl mx-auto">
-            <div className="grid grid-cols-3 gap-2 sm:gap-3">
+          <div className="mb-4 max-w-3xl mx-auto">
+            <div className="grid grid-cols-3 gap-2">
               {stepsConfig.map((s) => {
                 const isCurrent = currentStep === s.num;
                 const isPassed = currentStep > s.num;
@@ -193,16 +192,16 @@ function TourBookingContent() {
                       if (isPassed) setCurrentStep(s.num);
                     }}
                     disabled={!isPassed && !isCurrent}
-                    className={`p-2.5 sm:p-3 rounded-2xl border text-left transition-all duration-200 flex items-center gap-2.5 select-none ${
+                    className={`p-2 rounded-xl border text-left transition-all duration-200 flex items-center gap-2 select-none ${
                       isCurrent
                         ? "bg-gradient-to-r from-[#0A2B8C] to-[#000B3B] text-white border-2 border-[#FEC401] shadow-md ring-2 ring-[#FEC401]/30"
                         : isPassed
                         ? "bg-[#02146B]/90 text-white border border-[#10B981] shadow-xs cursor-pointer hover:brightness-110"
-                        : "bg-[#001162]/60 backdrop-blur-md border border-white/15 text-white/70 shadow-xs"
+                        : "bg-[#001162]/75 backdrop-blur-md border border-white/15 text-white/70 shadow-xs"
                     }`}
                   >
                     <div
-                      className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center font-bold text-xs shrink-0 transition-all ${
+                      className={`w-6 h-6 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 transition-all ${
                         isCurrent
                           ? "bg-[#FEC401] text-[#001162] font-black shadow-xs"
                           : isPassed
@@ -210,24 +209,24 @@ function TourBookingContent() {
                           : "bg-white/15 text-white/90 border border-white/20 font-bold"
                       }`}
                     >
-                      {isPassed ? <Check className="w-4 h-4 text-white stroke-[2.5]" /> : `0${s.num}`}
+                      {isPassed ? <Check className="w-3.5 h-3.5 text-white stroke-[2.5]" /> : `0${s.num}`}
                     </div>
 
                     <div className="min-w-0 flex-1 truncate">
                       <div className="flex items-center gap-1.5">
                         <span
-                          className={`text-xs sm:text-sm font-bold font-display truncate ${
+                          className={`text-xs font-bold font-display truncate ${
                             isCurrent ? "text-white" : isPassed ? "text-white" : "text-white/80"
                           }`}
                         >
                           {s.label}
                         </span>
                         {isCurrent && (
-                          <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shrink-0" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse shrink-0" />
                         )}
                       </div>
                       <p
-                        className={`text-[10px] sm:text-xs truncate leading-tight mt-0.5 ${
+                        className={`text-[9.5px] truncate leading-tight mt-0.5 ${
                           isCurrent ? "text-[#FEC401] font-semibold" : isPassed ? "text-[#A7F3D0]" : "text-white/50"
                         }`}
                       >

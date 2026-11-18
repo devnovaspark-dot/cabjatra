@@ -232,27 +232,26 @@ function CabBookingContent() {
       <div
         className={`relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 print:p-0 print:max-w-none print:m-0 print:pt-0 ${
           currentStep === 5
-            ? "pt-32 sm:pt-40 pb-20"
-            : "pt-24 sm:pt-28 pb-12"
+            ? "pt-24 sm:pt-28 pb-16"
+            : "pt-20 sm:pt-24 pb-12"
         }`}
       >
-        {/* Clean, Non-Text-Heavy Hero Header - Never overlaps with Floating Navbar */}
+        {/* Clean, Non-Text-Heavy Hero Header - Perfectly Clear of Docked Navbar */}
         {currentStep < 5 && (
-          <div className="text-center max-w-2xl mx-auto mb-4 text-white">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/45 backdrop-blur-md border border-[#FEC401]/40 text-xs font-semibold text-[#FEC401] mb-2 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
-              <span>10% Advance Deposit Model • 100% Commercial Fleet</span>
-            </div>
-            <h1 className="text-xl sm:text-2xl font-extrabold font-display tracking-tight text-white drop-shadow-md">
+          <div className="text-center max-w-xl mx-auto mb-3.5 text-white">
+            <h1 className="text-lg sm:text-xl font-extrabold font-display tracking-tight text-white drop-shadow-md">
               Reserve Your Odisha Cab
             </h1>
+            <p className="text-[11px] text-[#FEC401] font-medium mt-0.5">
+              10% Advance Deposit Model • 100% Commercial Fleet
+            </p>
           </div>
         )}
 
         {/* Elegant 4-Step Progress Stepper */}
         {currentStep < 5 && (
-          <div className="mb-5 max-w-4xl mx-auto">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5">
+          <div className="mb-4 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
               {stepsConfig.map((s) => {
                 const isCurrent = currentStep === s.num;
                 const isPassed = currentStep > s.num;
@@ -265,16 +264,16 @@ function CabBookingContent() {
                       if (isPassed) setCurrentStep(s.num);
                     }}
                     disabled={!isPassed && !isCurrent}
-                    className={`p-2 sm:p-2.5 rounded-xl border text-left transition-all duration-200 flex items-center gap-2 select-none ${
+                    className={`p-2 rounded-xl border text-left transition-all duration-200 flex items-center gap-2 select-none ${
                       isCurrent
                         ? "bg-gradient-to-r from-[#0A2B8C] to-[#000B3B] text-white border-2 border-[#FEC401] shadow-md ring-2 ring-[#FEC401]/30"
                         : isPassed
                         ? "bg-[#02146B]/90 text-white border border-[#10B981] shadow-xs cursor-pointer hover:brightness-110"
-                        : "bg-[#001162]/60 backdrop-blur-md border border-white/15 text-white/70 shadow-xs"
+                        : "bg-[#001162]/75 backdrop-blur-md border border-white/15 text-white/70 shadow-xs"
                     }`}
                   >
                     <div
-                      className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 transition-all ${
+                      className={`w-6 h-6 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 transition-all ${
                         isCurrent
                           ? "bg-[#FEC401] text-[#001162] font-black shadow-xs"
                           : isPassed
@@ -288,7 +287,7 @@ function CabBookingContent() {
                     <div className="min-w-0 flex-1 truncate">
                       <div className="flex items-center gap-1.5">
                         <span
-                          className={`text-xs sm:text-xs font-bold font-display truncate ${
+                          className={`text-xs font-bold font-display truncate ${
                             isCurrent ? "text-white" : isPassed ? "text-white" : "text-white/80"
                           }`}
                         >
@@ -299,7 +298,7 @@ function CabBookingContent() {
                         )}
                       </div>
                       <p
-                        className={`text-[9.5px] sm:text-[10px] truncate leading-tight mt-0.5 ${
+                        className={`text-[9.5px] truncate leading-tight mt-0.5 ${
                           isCurrent ? "text-[#FEC401] font-semibold" : isPassed ? "text-[#A7F3D0]" : "text-white/50"
                         }`}
                       >
@@ -578,12 +577,12 @@ function CabBookingContent() {
 
           {/* ================= STEP 2: SELECT VEHICLE SHOWROOM ================= */}
           {currentStep === 2 && (
-            <div className="card-skeuo rounded-3xl p-6 sm:p-8 lg:p-10 space-y-6 min-h-[580px] flex flex-col justify-between animate-in fade-in-50 duration-200">
-              <div className="space-y-6">
+            <div className="card-skeuo rounded-3xl p-5 sm:p-6 lg:p-7 space-y-4 animate-in fade-in-50 duration-200">
+              <div className="space-y-4">
                 {/* Clean Header - 3D Focused */}
-                <div className="border-b border-[#E5ECE5] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="border-b border-[#E5ECE5] pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div>
-                    <h2 className="text-lg sm:text-xl font-bold font-display text-[#0F172A]">
+                    <h2 className="text-base sm:text-lg font-bold font-display text-[#0F172A]">
                       Choose Your Vehicle Class
                     </h2>
                     <p className="text-xs text-[#667575] mt-0.5">
@@ -591,17 +590,28 @@ function CabBookingContent() {
                     </p>
                   </div>
 
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#F1F5F9]/70 border border-[#C1DAD7] text-xs font-semibold text-[#02146B] self-start sm:self-auto">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#F1F5F9]/70 border border-[#C1DAD7] text-xs font-semibold text-[#02146B] self-start sm:self-auto">
                     <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
                     <span>Verified Commercial Fleet</span>
                   </div>
                 </div>
 
                 {/* 5 Clean 3D Vehicle Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3.5 sm:gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
                   {VEHICLE_FLEET.map((v) => {
                     const isSelected = selectedVehicleId === v.id;
                     const vFare = calculateEstimatedFare(v.category);
+                    const compactModels =
+                      v.id === "hatchback"
+                        ? "Alto • Swift • WagonR"
+                        : v.id === "sedan"
+                        ? "Dzire • Etios • Amaze"
+                        : v.id === "suv"
+                        ? "Bolero • Scorpio • Ertiga"
+                        : v.id === "large-car"
+                        ? "Innova Crysta • Hycross"
+                        : "Traveller • Urbania";
+
                     return (
                       <div
                         key={v.id}
@@ -614,7 +624,7 @@ function CabBookingContent() {
                       >
                         <div>
                           {/* Real Commercial Vehicle Showcase */}
-                          <div className="relative h-36 sm:h-40 w-full bg-gradient-to-b from-[#FAF9F5] to-[#E9EFE9] border-b border-[#D6E0D6] overflow-hidden">
+                          <div className="relative h-32 sm:h-36 w-full bg-gradient-to-b from-[#FAF9F5] to-[#E9EFE9] border-b border-[#D6E0D6] overflow-hidden">
                             <Image
                               src={v.image}
                               alt={`${v.name} - ${v.models}`}
@@ -638,25 +648,25 @@ function CabBookingContent() {
                           </div>
 
                           {/* Vehicle Info: Name, Models & Compact Specs */}
-                          <div className="p-3 sm:p-3.5 space-y-2">
+                          <div className="p-2.5 sm:p-3 space-y-1.5">
                             <div>
-                              <h3 className="text-sm sm:text-base font-bold font-display text-[#0F172A] leading-tight">
+                              <h3 className="text-sm font-bold font-display text-[#0F172A] leading-tight">
                                 {v.name}
                               </h3>
-                              <p className="text-[11px] text-[#556464] font-medium mt-0.5 truncate" title={v.models}>
-                                {v.models}
+                              <p className="text-[10.5px] text-[#556464] font-medium mt-0.5 truncate">
+                                {compactModels}
                               </p>
                             </div>
 
                             {/* Minimal Specs Strip */}
-                            <div className="flex items-center justify-between py-1.5 px-2.5 bg-[#FAF9F5] rounded-xl border border-[#E5EAE5] text-[11px] text-[#455353] font-semibold">
+                            <div className="flex items-center justify-between py-1 px-2 bg-[#FAF9F5] rounded-xl border border-[#E5EAE5] text-[10px] text-[#455353] font-semibold">
                               <span className="flex items-center gap-1">
-                                <Users className="w-3.5 h-3.5 text-[#02146B]" />
+                                <Users className="w-3 h-3 text-[#02146B]" />
                                 {v.passengers} Seats
                               </span>
                               <span className="text-[#C1DAD7]">•</span>
                               <span className="flex items-center gap-1">
-                                <Briefcase className="w-3.5 h-3.5 text-[#02146B]" />
+                                <Briefcase className="w-3 h-3 text-[#02146B]" />
                                 {v.luggage} Bags
                               </span>
                               <span className="text-[#C1DAD7]">•</span>
@@ -666,18 +676,18 @@ function CabBookingContent() {
                         </div>
 
                         {/* Bottom Tariff & Full-Width Action Button (Eliminates horizontal text collision) */}
-                        <div className="p-3 pt-2.5 border-t border-[#EEF2EE] space-y-2 mt-auto bg-gradient-to-b from-transparent to-[#FAF9F5]/40">
+                        <div className="p-2.5 pt-2 border-t border-[#EEF2EE] space-y-1.5 mt-auto bg-gradient-to-b from-transparent to-[#FAF9F5]/40">
                           {/* 2-Line Fare Breakdown: Total Fare & 10% Deposit */}
-                          <div className="space-y-1">
+                          <div className="space-y-0.5">
                             <div className="flex items-baseline justify-between gap-1">
-                              <span className="text-[10px] uppercase font-bold text-[#667575] tracking-wide">
+                              <span className="text-[9.5px] uppercase font-bold text-[#667575] tracking-wide">
                                 Est. Fare
                               </span>
-                              <span className="text-base font-extrabold text-[#001162] tracking-tight">
+                              <span className="text-sm sm:text-base font-extrabold text-[#001162] tracking-tight">
                                 ₹{vFare.total.toLocaleString("en-IN")}
                               </span>
                             </div>
-                            <div className="flex items-center justify-between text-[11px] text-[#B45309] font-medium pt-0.5 border-t border-dashed border-[#E5ECE5]">
+                            <div className="flex items-center justify-between text-[10.5px] text-[#B45309] font-medium pt-0.5 border-t border-dashed border-[#E5ECE5]">
                               <span>10% Advance</span>
                               <span className="font-bold">₹{vFare.advance.toLocaleString("en-IN")}</span>
                             </div>
@@ -708,11 +718,11 @@ function CabBookingContent() {
               </div>
 
               {/* Step 2 Actions */}
-              <div className="pt-4 border-t border-[#EEF2EE] flex items-center justify-between">
+              <div className="pt-3 border-t border-[#EEF2EE] flex items-center justify-between">
                 <button
                   type="button"
                   onClick={() => setCurrentStep(1)}
-                  className="px-5 py-2.5 rounded-xl border border-[#D5DDD5] text-[#0F172A] font-bold text-xs inline-flex items-center gap-1.5 hover:bg-[#FAF9F5] transition cursor-pointer"
+                  className="px-5 py-2 rounded-xl border border-[#D5DDD5] text-[#0F172A] font-bold text-xs inline-flex items-center gap-1.5 hover:bg-[#FAF9F5] transition cursor-pointer"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Back</span>
@@ -721,7 +731,7 @@ function CabBookingContent() {
                 <button
                   type="button"
                   onClick={handleNextFromStep2}
-                  className="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[#FEC401] via-[#FEC401] to-[#E5AD00] text-[#001162] font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
+                  className="px-7 py-3 rounded-2xl bg-gradient-to-r from-[#FEC401] via-[#FEC401] to-[#E5AD00] text-[#001162] font-bold text-xs sm:text-sm inline-flex items-center justify-center gap-2 cursor-pointer shadow-skeuo-gold hover:brightness-105 active:scale-[0.99] transition-all"
                 >
                   <span>Continue to Passenger Details</span>
                   <ArrowRight className="w-4 h-4 text-[#001162]" />
