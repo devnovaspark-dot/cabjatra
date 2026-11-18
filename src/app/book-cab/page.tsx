@@ -618,13 +618,13 @@ function CabBookingContent() {
                             {/* Subtle lower vignette for depth */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
-                            {/* Single High-Priority Badge (Prevents badge collision & text spillover) */}
+                            {/* Centered High-Priority Badge (Prevents badge collision & text spillover) */}
                             {v.tag ? (
-                              <div className="absolute top-2.5 right-2.5 bg-gradient-to-b from-[#FDE047] to-[#FEC401] text-[#001162] text-[8.5px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-md border border-black/10 pointer-events-none z-10">
+                              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gradient-to-b from-[#FDE047] to-[#FEC401] text-[#001162] text-[8.5px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-md border border-black/10 pointer-events-none z-10">
                                 {v.tag}
                               </div>
                             ) : (
-                              <div className="absolute top-2.5 right-2.5 bg-[#001162]/95 backdrop-blur-md text-white text-[9px] font-bold px-2 py-0.5 rounded-md border border-white/15 pointer-events-none z-10">
+                              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#001162]/95 backdrop-blur-md text-white text-[9px] font-bold px-2 py-0.5 rounded-md border border-white/15 pointer-events-none z-10">
                                 {v.category}
                               </div>
                             )}
@@ -658,28 +658,40 @@ function CabBookingContent() {
                           </div>
                         </div>
 
-                        {/* Bottom Tariff & Action Button */}
-                        <div className="p-3.5 pt-2 border-t border-[#EEF2EE] flex items-center justify-between gap-2 mt-1">
-                          <div className="min-w-0">
-                            <span className="text-[9px] uppercase font-bold text-[#667575] block leading-none">
-                              Est. Tariff
-                            </span>
-                            <span className="text-sm font-extrabold text-[#001162] block leading-tight">
-                              ₹{vFare.total.toLocaleString("en-IN")}
-                            </span>
-                            <span className="text-[9.5px] font-bold text-[#B45309] block leading-tight mt-0.5 whitespace-nowrap">
-                              10% Adv: ₹{vFare.advance.toLocaleString("en-IN")}
-                            </span>
+                        {/* Bottom Tariff & Full-Width Action Button (Eliminates horizontal text collision) */}
+                        <div className="p-3 pt-2.5 border-t border-[#EEF2EE] space-y-2 mt-auto bg-gradient-to-b from-transparent to-[#FAF9F5]/40">
+                          {/* 2-Line Fare Breakdown: Total Fare & 10% Deposit */}
+                          <div className="space-y-1">
+                            <div className="flex items-baseline justify-between gap-1">
+                              <span className="text-[10px] uppercase font-bold text-[#667575] tracking-wide">
+                                Est. Fare
+                              </span>
+                              <span className="text-base font-extrabold text-[#001162] tracking-tight">
+                                ₹{vFare.total.toLocaleString("en-IN")}
+                              </span>
+                            </div>
+                            <div className="flex items-center justify-between text-[11px] text-[#B45309] font-medium pt-0.5 border-t border-dashed border-[#E5ECE5]">
+                              <span>10% Advance</span>
+                              <span className="font-bold">₹{vFare.advance.toLocaleString("en-IN")}</span>
+                            </div>
                           </div>
 
+                          {/* Full-Width Action Button */}
                           <div
-                            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 text-center ${
+                            className={`w-full py-1.5 px-2 rounded-xl text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5 select-none ${
                               isSelected
-                                ? "bg-[#02146B] text-[#FEC401] shadow-xs"
-                                : "border border-[#D5DDD5] text-[#667575] group-hover:border-[#02146B]"
+                                ? "bg-[#02146B] text-[#FEC401] shadow-xs ring-1 ring-[#02146B]"
+                                : "bg-[#FAF9F5] border border-[#D5DDD5] text-[#556464] group-hover:border-[#02146B] group-hover:text-[#02146B] group-hover:bg-white"
                             }`}
                           >
-                            {isSelected ? "Selected ✓" : "Select"}
+                            {isSelected ? (
+                              <>
+                                <span>Selected</span>
+                                <Check className="w-3.5 h-3.5 text-[#FEC401]" />
+                              </>
+                            ) : (
+                              <span>Select Vehicle</span>
+                            )}
                           </div>
                         </div>
                       </div>
