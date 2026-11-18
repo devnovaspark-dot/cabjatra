@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-[#000B3B] via-[#00082E] to-[#000620] text-[#F1F5F9] pt-8 sm:pt-10 pb-6 border-t-2 border-[#FEC401]/30 font-sans relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-[#000B3B] via-[#00082E] to-[#000620] text-[#F1F5F9] pt-8 sm:pt-10 pb-6 border-t-2 border-[#FEC401]/30 font-sans relative overflow-hidden print:hidden">
       {/* Luxury Ambient Lighting Glows */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#02146B]/35 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[450px] h-[450px] bg-[#FEC401]/10 rounded-full blur-[130px] pointer-events-none" />

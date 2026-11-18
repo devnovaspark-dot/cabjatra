@@ -214,9 +214,9 @@ function CabBookingContent() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-[#FAF9F5] text-[#0F172A] overflow-hidden pb-16 sm:pb-20">
+    <div className="relative min-h-screen bg-[#FAF9F5] text-[#0F172A] overflow-hidden pb-16 sm:pb-20 print:min-h-0 print:pb-0 print:bg-white print:overflow-visible">
       {/* Luminous Scenic Highway Travel Backdrop - High Clarity Without Murky Shadows */}
-      <div className="absolute top-0 inset-x-0 h-[640px] sm:h-[720px] z-0 overflow-hidden pointer-events-none">
+      <div className="absolute top-0 inset-x-0 h-[640px] sm:h-[720px] z-0 overflow-hidden pointer-events-none print:hidden">
         <Image
           src="https://images.unsplash.com/photo-1775050416787-fe3179f0679e?q=85&w=2400&auto=format&fit=crop"
           alt="Scenic coastal highway journey along Puri-Konark Marine Drive, Odisha"
@@ -230,7 +230,7 @@ function CabBookingContent() {
       </div>
 
       <div
-        className={`relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 ${
+        className={`relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 print:p-0 print:max-w-none print:m-0 print:pt-0 ${
           currentStep === 5
             ? "pt-32 sm:pt-40 pb-20"
             : "pt-24 sm:pt-28 pb-12"
@@ -1086,123 +1086,305 @@ function CabBookingContent() {
 
           {/* ================= STEP 5: COMPACT CONFIRMATION & OFFICIAL VOUCHER ================= */}
           {currentStep === 5 && (
-            <div className="w-full max-w-lg mx-auto card-skeuo rounded-3xl p-4 sm:p-5 border border-[#D5DDD5] shadow-2xl space-y-2.5 text-center animate-in zoom-in-95 duration-300">
-              {/* 3D Glass Celebration Orb - Continuously Bouncing Ball */}
-              <GlassCelebrationOrb size="md" />
+            <>
+              {/* Web Interactive View (Hidden on Print) */}
+              <div className="print:hidden w-full max-w-lg mx-auto card-skeuo rounded-3xl p-4 sm:p-5 border border-[#D5DDD5] shadow-2xl space-y-2.5 text-center animate-in zoom-in-95 duration-300">
+                {/* 3D Glass Celebration Orb - Continuously Bouncing Ball */}
+                <GlassCelebrationOrb size="md" />
 
-              {/* Clean Compact Title */}
-              <div className="space-y-0.5">
-                <h2 className="text-xl sm:text-2xl font-bold font-display text-[#0F172A] tracking-tight">
-                  Thank You, {passengerName || "Esteemed Traveler"}!
-                </h2>
-                <p className="text-xs text-[#556464]">
-                  Your cab reservation is logged. Live allocation details sent to your WhatsApp.
-                </p>
-              </div>
+                {/* Clean Compact Title */}
+                <div className="space-y-0.5">
+                  <h2 className="text-xl sm:text-2xl font-bold font-display text-[#0F172A] tracking-tight">
+                    Thank You, {passengerName || "Esteemed Traveler"}!
+                  </h2>
+                  <p className="text-xs text-[#556464]">
+                    Your cab reservation is logged. Live allocation details sent to your WhatsApp.
+                  </p>
+                </div>
 
-              {/* Compact Digital Cab Boarding Pass */}
-              <div className="rounded-2xl border border-[#D5DDD5] bg-[#FAF9F5] shadow-xs overflow-hidden text-left text-xs">
-                {/* Pass Header */}
-                <div className="bg-[#02146B] text-white px-3.5 py-2 flex items-center justify-between border-b border-[#FEC401]/30">
-                  <div className="flex items-center gap-2">
-                    <BrandLogo size="sm" variant="light" showTagline={false} />
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#FEC401]">
-                      Cab Voucher
-                    </span>
+                {/* Compact Digital Cab Boarding Pass */}
+                <div className="rounded-2xl border border-[#D5DDD5] bg-[#FAF9F5] shadow-xs overflow-hidden text-left text-xs">
+                  {/* Pass Header */}
+                  <div className="bg-[#02146B] text-white px-3.5 py-2 flex items-center justify-between border-b border-[#FEC401]/30">
+                    <div className="flex items-center gap-2">
+                      <BrandLogo size="sm" variant="light" showTagline={false} />
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-[#FEC401]">
+                        Cab Voucher
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1.5 bg-black/30 px-2 py-0.5 rounded-lg border border-white/15">
+                      <span className="text-[9px] text-[#A7F3D0] uppercase">Ref:</span>
+                      <strong className="font-mono text-xs text-[#FAF9F5] font-black">
+                        {bookingReference}
+                      </strong>
+                      <button
+                        type="button"
+                        onClick={handleCopyRef}
+                        className="p-1 rounded text-[#FEC401] hover:text-white transition cursor-pointer"
+                        title="Copy Reference"
+                      >
+                        {copiedRef ? <Check className="w-3.5 h-3.5 text-[#10B981]" /> : <Copy className="w-3.5 h-3.5" />}
+                      </button>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1.5 bg-black/30 px-2 py-0.5 rounded-lg border border-white/15">
-                    <span className="text-[9px] text-[#A7F3D0] uppercase">Ref:</span>
-                    <strong className="font-mono text-xs text-[#FAF9F5] font-black">
-                      {bookingReference}
-                    </strong>
-                    <button
-                      type="button"
-                      onClick={handleCopyRef}
-                      className="p-1 rounded text-[#FEC401] hover:text-white transition cursor-pointer"
-                      title="Copy Reference"
-                    >
-                      {copiedRef ? <Check className="w-3.5 h-3.5 text-[#10B981]" /> : <Copy className="w-3.5 h-3.5" />}
-                    </button>
+
+                  {/* Pass Details (2 Columns) */}
+                  <div className="p-3 sm:p-3.5 grid grid-cols-2 gap-3 divide-x divide-[#E5ECE5]">
+                    <div className="space-y-1">
+                      <div>
+                        <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Route:</span>
+                        <strong className="text-xs font-bold text-[#0F172A] block truncate">
+                          {pickupCity} ➔ {serviceType === "hourly" ? hourlyPackage : dropLocation}
+                        </strong>
+                      </div>
+                      <div>
+                        <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Scheduled:</span>
+                        <span className="text-xs font-semibold text-[#02146B] block truncate">
+                          {pickupDate} at {pickupTime}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Vehicle Class:</span>
+                        <span className="text-xs font-semibold text-[#0F172A] block truncate">
+                          {selectedVehicle.name}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="pl-3 space-y-1">
+                      <div>
+                        <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Estimated Tariff:</span>
+                        <strong className="text-xs font-bold text-[#0F172A] block">
+                          ₹{fares.total.toLocaleString("en-IN")}
+                        </strong>
+                      </div>
+                      <div className="bg-[#F1F5F9]/70 p-1.5 rounded-lg border border-[#C1DAD7]">
+                        <span className="text-[9px] font-bold text-[#02146B] block uppercase">10% Advance Deposit:</span>
+                        <strong className="text-xs font-extrabold text-[#02146B] block">
+                          ₹{fares.advance.toLocaleString("en-IN")}
+                        </strong>
+                      </div>
+                      <div className="text-[10px] text-[#667575] leading-tight">
+                        Remaining 90% payable at trip drop.
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Pass Details (2 Columns) */}
-                <div className="p-3 sm:p-3.5 grid grid-cols-2 gap-3 divide-x divide-[#E5ECE5]">
-                  <div className="space-y-1">
-                    <div>
-                      <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Route:</span>
-                      <strong className="text-xs font-bold text-[#0F172A] block truncate">
-                        {pickupCity} ➔ {serviceType === "hourly" ? hourlyPackage : dropLocation}
+                {/* Compact Action Buttons */}
+                <div className="pt-1 flex items-center justify-center gap-2">
+                  <Link
+                    href="/"
+                    className="px-4 py-2 rounded-xl bg-[#FAF9F5] hover:bg-[#EEF2EE] border border-[#D5DDD5] text-[#0F172A] font-bold text-xs transition cursor-pointer"
+                  >
+                    Home
+                  </Link>
+
+                  <button
+                    type="button"
+                    onClick={() => typeof window !== "undefined" && window.print()}
+                    className="px-3 py-2 rounded-xl bg-white hover:bg-[#FAF9F5] border border-[#D5DDD5] text-[#02146B] font-bold text-xs inline-flex items-center gap-1 transition cursor-pointer shadow-xs"
+                    title="Print Voucher"
+                  >
+                    <Printer className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">Print</span>
+                  </button>
+
+                  <a
+                    href={`${COMPANY_CONFIG.contact.whatsAppLink}?text=${encodeURIComponent(
+                      `Hi Cabjatra Dispatch, I just booked reference ${bookingReference} (${pickupCity} to ${
+                        serviceType === "hourly" ? hourlyPackage : dropLocation
+                      }) on ${pickupDate}. Please confirm my driver allocation status.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 sm:px-5 py-2 rounded-xl bg-[#02146B] hover:bg-[#001162] text-white font-bold text-xs inline-flex items-center gap-2 transition shadow-skeuo-button cursor-pointer"
+                  >
+                    <MessageSquare className="w-4 h-4 text-[#FEC401]" />
+                    <span>WhatsApp Dispatch</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Dedicated 1-Page Official Print Voucher (Active ONLY in Print Mode) */}
+              <div className="hidden print:block print-page-voucher w-full text-[#0F172A] font-sans border-2 border-[#02146B] rounded-2xl p-6 bg-white shadow-none">
+                {/* Header with Logo & Booking Ref */}
+                <div className="flex items-start justify-between border-b-2 border-[#02146B] pb-4 mb-4">
+                  <div>
+                    <BrandLogo size="md" variant="dark" showTagline={false} />
+                    <p className="text-xs font-bold text-[#02146B] mt-1.5 tracking-wide">
+                      Odisha&apos;s Verified Commercial Cab Fleet
+                    </p>
+                    <p className="text-[10px] text-[#64748B] mt-0.5">
+                      Operated by NovaSpark Digital Marketing Pvt. Ltd. • Mallick Complex, Unit 3, Kharvela Nagar, Bhubaneswar 751001
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <span className="inline-block bg-[#02146B] text-white text-[10px] font-black uppercase px-2.5 py-1 rounded">
+                      Official Booking Voucher
+                    </span>
+                    <div className="mt-1.5">
+                      <span className="text-[10px] text-[#64748B] block font-bold">Booking Reference:</span>
+                      <strong className="font-mono text-base font-black text-[#02146B]">
+                        {bookingReference}
                       </strong>
                     </div>
-                    <div>
-                      <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Scheduled:</span>
-                      <span className="text-xs font-semibold text-[#02146B] block truncate">
-                        {pickupDate} at {pickupTime}
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Vehicle Class:</span>
-                      <span className="text-xs font-semibold text-[#0F172A] block truncate">
-                        {selectedVehicle.name}
-                      </span>
-                    </div>
+                    <p className="text-[9.5px] text-[#64748B] mt-0.5">
+                      Dispatch Helpline: {COMPANY_CONFIG.contact.phoneDisplay} • {COMPANY_CONFIG.contact.supportEmail}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Status Strip */}
+                <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-lg p-2.5 mb-4 flex items-center justify-between text-xs">
+                  <div>
+                    <span className="text-[#64748B] text-[10px] uppercase font-bold block">Voucher Status</span>
+                    <strong className="text-[#059669] font-black">CONFIRMED — DISPATCH IN PROGRESS</strong>
+                  </div>
+                  <div>
+                    <span className="text-[#64748B] text-[10px] uppercase font-bold block">Vehicle Standard</span>
+                    <strong className="text-[#02146B] font-bold">100% Yellow-Board Commercial Taxi</strong>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-[#64748B] text-[10px] uppercase font-bold block">Advance Model</span>
+                    <strong className="text-[#D97706] font-bold">10% Deposit • 90% at Drop</strong>
+                  </div>
+                </div>
+
+                {/* 2-Column Info Grid */}
+                <div className="grid grid-cols-2 gap-4 mb-4">
+                  {/* Passenger Information */}
+                  <div className="border border-[#CBD5E1] rounded-lg p-3 bg-white">
+                    <h4 className="text-xs font-black uppercase tracking-wider text-[#02146B] border-b border-[#E2E8F0] pb-1.5 mb-2">
+                      Passenger Information
+                    </h4>
+                    <table className="w-full text-xs">
+                      <tbody>
+                        <tr className="border-b border-[#F1F5F9]">
+                          <td className="py-1 text-[#64748B] font-bold text-[11px] w-1/3">Lead Passenger:</td>
+                          <td className="py-1 font-bold text-[#0F172A]">{passengerName || "Esteemed Traveler"}</td>
+                        </tr>
+                        <tr className="border-b border-[#F1F5F9]">
+                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Contact Mobile:</td>
+                          <td className="py-1 font-bold text-[#02146B]">{passengerPhone || "—"}</td>
+                        </tr>
+                        <tr className="border-b border-[#F1F5F9]">
+                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Email Address:</td>
+                          <td className="py-1 text-[#0F172A]">{passengerEmail || "—"}</td>
+                        </tr>
+                        <tr>
+                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Party Capacity:</td>
+                          <td className="py-1 font-medium text-[#0F172A]">
+                            {passengerCount} Passenger(s) • {luggageCount} Luggage Bag(s)
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
 
-                  <div className="pl-3 space-y-1">
+                  {/* Journey Parameters */}
+                  <div className="border border-[#CBD5E1] rounded-lg p-3 bg-white">
+                    <h4 className="text-xs font-black uppercase tracking-wider text-[#02146B] border-b border-[#E2E8F0] pb-1.5 mb-2">
+                      Journey Parameters
+                    </h4>
+                    <table className="w-full text-xs">
+                      <tbody>
+                        <tr className="border-b border-[#F1F5F9]">
+                          <td className="py-1 text-[#64748B] font-bold text-[11px] w-1/3">Service Format:</td>
+                          <td className="py-1 font-bold text-[#02146B] uppercase">
+                            {serviceType === "airport"
+                              ? "BBI Airport Transfer"
+                              : serviceType === "outstation"
+                              ? `Outstation Transfer (${tripWay === "round" ? "Round Trip" : "One-Way"})`
+                              : serviceType === "hourly"
+                              ? `Hourly City Rental (${hourlyPackage})`
+                              : "Local City Transfer"}
+                          </td>
+                        </tr>
+                        <tr className="border-b border-[#F1F5F9]">
+                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Pickup Point:</td>
+                          <td className="py-1 font-bold text-[#0F172A]">{pickupCity}</td>
+                        </tr>
+                        <tr className="border-b border-[#F1F5F9]">
+                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Destination:</td>
+                          <td className="py-1 font-bold text-[#0F172A]">
+                            {serviceType === "hourly" ? hourlyPackage : dropLocation}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Scheduled Date:</td>
+                          <td className="py-1 font-black text-[#02146B]">
+                            {pickupDate} at {pickupTime}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* Vehicle Class & Financial Breakdown */}
+                <div className="border border-[#CBD5E1] rounded-lg overflow-hidden mb-4">
+                  <div className="bg-[#02146B] text-white px-3.5 py-2 flex items-center justify-between text-xs font-bold">
+                    <span>Vehicle Class: {selectedVehicle.name} ({selectedVehicle.category}) • Dual-Zone AC</span>
+                    <span>All-Inclusive Commercial Tariff</span>
+                  </div>
+                  <div className="p-3 bg-[#F8FAFC] grid grid-cols-3 gap-3 text-center divide-x divide-[#CBD5E1]">
                     <div>
-                      <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Estimated Tariff:</span>
-                      <strong className="text-xs font-bold text-[#0F172A] block">
+                      <span className="text-[10px] text-[#64748B] uppercase font-bold block">Total Tariff</span>
+                      <strong className="text-base font-black text-[#0F172A]">
                         ₹{fares.total.toLocaleString("en-IN")}
                       </strong>
+                      <span className="text-[9px] text-[#64748B] block mt-0.5">Includes fuel, tolls &amp; driver allowance</span>
                     </div>
-                    <div className="bg-[#F1F5F9]/70 p-1.5 rounded-lg border border-[#C1DAD7]">
-                      <span className="text-[9px] font-bold text-[#02146B] block uppercase">10% Advance Deposit:</span>
-                      <strong className="text-xs font-extrabold text-[#02146B] block">
+                    <div>
+                      <span className="text-[10px] text-[#02146B] uppercase font-bold block">10% Advance Deposit</span>
+                      <strong className="text-base font-black text-[#02146B]">
                         ₹{fares.advance.toLocaleString("en-IN")}
                       </strong>
+                      <span className="text-[9px] text-[#059669] font-bold block mt-0.5">Dispatched via WhatsApp link</span>
                     </div>
-                    <div className="text-[10px] text-[#667575] leading-tight">
-                      Remaining 90% payable at trip drop.
+                    <div>
+                      <span className="text-[10px] text-[#64748B] uppercase font-bold block">Balance at Drop (90%)</span>
+                      <strong className="text-base font-black text-[#D97706]">
+                        ₹{fares.balance.toLocaleString("en-IN")}
+                      </strong>
+                      <span className="text-[9px] text-[#64748B] block mt-0.5">Payable to driver upon completion</span>
                     </div>
                   </div>
                 </div>
+
+                {/* Dispatch & Boarding Instructions */}
+                <div className="border border-[#CBD5E1] rounded-lg p-3 bg-white mb-4 text-[10.5px] space-y-1.5 text-[#334155]">
+                  <h4 className="text-xs font-black uppercase tracking-wider text-[#02146B] border-b border-[#E2E8F0] pb-1 mb-1.5">
+                    Official Passenger Instructions
+                  </h4>
+                  <p>
+                    <strong>1. Driver &amp; Vehicle Allocation:</strong> Your verified commercial driver&apos;s name, direct phone number, and taxi registration number are dispatched to your WhatsApp <strong>2 hours prior to scheduled departure</strong>.
+                  </p>
+                  <p>
+                    <strong>2. Guaranteed Fixed Pricing:</strong> The tariff on this voucher is 100% fixed with zero surge pricing, midnight penalties, or extra driver allowances.
+                  </p>
+                  <p>
+                    <strong>3. Free Cancellation:</strong> 100% deposit refund guaranteed if cancellation is initiated at least 6 hours before scheduled departure.
+                  </p>
+                  <p>
+                    <strong>4. 24x7 Priority Support:</strong> For flight schedule changes or urgent assistance, call our Bhubaneswar Dispatch Control Room at <strong>{COMPANY_CONFIG.contact.phoneDisplay}</strong>.
+                  </p>
+                </div>
+
+                {/* Official Voucher Footer & Security Stamp */}
+                <div className="border-t-2 border-[#02146B] pt-2.5 flex items-center justify-between text-[9px] text-[#64748B]">
+                  <div>
+                    <strong className="text-[#02146B] block font-bold text-[10px]">CABJATRA FLEET MANAGEMENT SYSTEM</strong>
+                    <span>Computer-generated booking receipt valid across all highway toll corridors in Odisha.</span>
+                  </div>
+                  <div className="text-right">
+                    <span className="font-mono font-bold block text-[#02146B] text-[10px]">VERIFIED DISPATCH: {bookingReference}-OK</span>
+                    <span>www.cabjatra.com • info@cabjatra.com</span>
+                  </div>
+                </div>
               </div>
-
-              {/* Compact Action Buttons */}
-              <div className="pt-1 flex items-center justify-center gap-2">
-                <Link
-                  href="/"
-                  className="px-4 py-2 rounded-xl bg-[#FAF9F5] hover:bg-[#EEF2EE] border border-[#D5DDD5] text-[#0F172A] font-bold text-xs transition cursor-pointer"
-                >
-                  Home
-                </Link>
-
-                <button
-                  type="button"
-                  onClick={() => typeof window !== "undefined" && window.print()}
-                  className="px-3 py-2 rounded-xl bg-white hover:bg-[#FAF9F5] border border-[#D5DDD5] text-[#02146B] font-bold text-xs inline-flex items-center gap-1 transition cursor-pointer shadow-xs"
-                  title="Print Voucher"
-                >
-                  <Printer className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">Print</span>
-                </button>
-
-                <a
-                  href={`${COMPANY_CONFIG.contact.whatsAppLink}?text=${encodeURIComponent(
-                    `Hi Cabjatra Dispatch, I just booked reference ${bookingReference} (${pickupCity} to ${
-                      serviceType === "hourly" ? hourlyPackage : dropLocation
-                    }) on ${pickupDate}. Please confirm my driver allocation status.`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 sm:px-5 py-2 rounded-xl bg-[#02146B] hover:bg-[#001162] text-white font-bold text-xs inline-flex items-center gap-2 transition shadow-skeuo-button cursor-pointer"
-                >
-                  <MessageSquare className="w-4 h-4 text-[#FEC401]" />
-                  <span>WhatsApp Dispatch</span>
-                </a>
-              </div>
-            </div>
+            </>
           )}
         </div>
       </div>

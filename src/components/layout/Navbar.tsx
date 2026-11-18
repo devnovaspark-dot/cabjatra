@@ -66,7 +66,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 pointer-events-none transition-all duration-200 ${
+      className={`fixed top-0 inset-x-0 z-50 print:hidden pointer-events-none transition-all duration-200 ${
         isScrolled
           ? "bg-[#000B3B]/95 backdrop-blur-xl border-b border-white/10 shadow-lg py-2 sm:py-2.5 px-3 sm:px-6 lg:px-8"
           : "pt-2 sm:pt-3.5 px-3 sm:px-6 lg:px-8"

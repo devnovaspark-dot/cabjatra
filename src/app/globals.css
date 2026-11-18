@@ -634,3 +634,64 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* =========================================================================
+   OFFICIAL 1-PAGE A4 PRINT STYLES (Cab & Tour Booking Vouchers)
+   ========================================================================= */
+@media print {
+  /* Hide all website chrome, navbars, footers, decorative widgets, and floating elements */
+  header,
+  footer,
+  nav,
+  .print\:hidden,
+  [data-print-hide],
+  .no-print {
+    display: none !important;
+  }
+
+  /* Reset document for crisp single-page print without background tints */
+  html,
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    font-size: 10pt !important;
+    line-height: 1.35 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    display: block !important;
+    min-height: 0 !important;
+  }
+
+  /* Remove all web shadows to keep document sharp and ink-friendly */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm;
+  }
+
+  /* Ensure voucher avoids page breaks and stays within 1 sheet */
+  .print-page-voucher {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+}

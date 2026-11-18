@@ -142,9 +142,9 @@ function TourBookingContent() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-[#FAF9F5] text-[#0F172A] overflow-hidden pb-16 sm:pb-20">
+    <div className="relative min-h-screen bg-[#FAF9F5] text-[#0F172A] overflow-hidden pb-16 sm:pb-20 print:min-h-0 print:pb-0 print:bg-white print:overflow-visible">
       {/* Luminous Scenic Heritage Travel Backdrop - High Clarity Without Murky Shadows */}
-      <div className="absolute top-0 inset-x-0 h-[640px] sm:h-[720px] z-0 overflow-hidden pointer-events-none">
+      <div className="absolute top-0 inset-x-0 h-[640px] sm:h-[720px] z-0 overflow-hidden pointer-events-none print:hidden">
         <Image
           src="https://images.unsplash.com/photo-1576235282476-debff2a4d0b9?q=85&w=2400&auto=format&fit=crop"
           alt="Scenic Odisha temple heritage tour backdrop"
@@ -158,7 +158,7 @@ function TourBookingContent() {
       </div>
 
       <div
-        className={`relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 ${
+        className={`relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 print:p-0 print:max-w-none print:m-0 print:pt-0 ${
           currentStep === 4
             ? "pt-36 sm:pt-44 pb-20"
             : "pt-28 sm:pt-32 pb-12"
@@ -733,127 +733,287 @@ function TourBookingContent() {
 
           {/* ================= STEP 4: COMPACT CONFIRMATION & OFFICIAL TOUR VOUCHER ================= */}
           {currentStep === 4 && (
-            <div className="w-full max-w-lg mx-auto card-skeuo rounded-3xl p-4 sm:p-5 border border-[#D5DDD5] shadow-2xl space-y-2.5 text-center animate-in zoom-in-95 duration-300">
-              {/* 3D Glass Celebration Orb - Continuously Bouncing Ball */}
-              <GlassCelebrationOrb size="md" />
+            <>
+              {/* Web Interactive View (Hidden on Print) */}
+              <div className="print:hidden w-full max-w-lg mx-auto card-skeuo rounded-3xl p-4 sm:p-5 border border-[#D5DDD5] shadow-2xl space-y-2.5 text-center animate-in zoom-in-95 duration-300">
+                {/* 3D Glass Celebration Orb - Continuously Bouncing Ball */}
+                <GlassCelebrationOrb size="md" />
 
-              {/* Clean Compact Title */}
-              <div className="space-y-0.5">
-                <h2 className="text-xl sm:text-2xl font-bold font-display text-[#0F172A] tracking-tight">
-                  Thank You, {primaryName || "Esteemed Traveler"}!
-                </h2>
-                <p className="text-xs text-[#556464]">
-                  Your tour enquiry is logged. Custom itinerary details sent to your WhatsApp.
-                </p>
+                {/* Clean Compact Title */}
+                <div className="space-y-0.5">
+                  <h2 className="text-xl sm:text-2xl font-bold font-display text-[#0F172A] tracking-tight">
+                    Thank You, {primaryName || "Esteemed Traveler"}!
+                  </h2>
+                  <p className="text-xs text-[#556464]">
+                    Your tour enquiry is logged. Custom itinerary details sent to your WhatsApp.
+                  </p>
+                </div>
+
+                {/* Compact Digital Tour Boarding Pass */}
+                <div className="rounded-2xl border border-[#D5DDD5] bg-[#FAF9F5] shadow-xs overflow-hidden text-left text-xs">
+                  {/* Pass Header */}
+                  <div className="bg-[#02146B] text-white px-3.5 py-2 flex items-center justify-between border-b border-[#FEC401]/30">
+                    <div className="flex items-center gap-2">
+                      <BrandLogo size="sm" variant="light" showTagline={false} />
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-[#FEC401]">
+                        Tour Voucher
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1.5 bg-black/30 px-2 py-0.5 rounded-lg border border-white/15">
+                      <span className="text-[9px] text-[#A7F3D0] uppercase">Ref:</span>
+                      <strong className="font-mono text-xs text-[#FAF9F5] font-black">
+                        {enquiryRefId}
+                      </strong>
+                      <button
+                        type="button"
+                        onClick={handleCopyRef}
+                        className="p-1 rounded text-[#FEC401] hover:text-white transition cursor-pointer"
+                        title="Copy Reference"
+                      >
+                        {copiedRef ? <Check className="w-3.5 h-3.5 text-[#10B981]" /> : <Copy className="w-3.5 h-3.5" />}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Pass Details (2 Columns) */}
+                  <div className="p-3 sm:p-3.5 grid grid-cols-2 gap-3 divide-x divide-[#E5ECE5]">
+                    <div className="space-y-1">
+                      <div>
+                        <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Circuit:</span>
+                        <strong className="text-xs font-bold text-[#0F172A] block truncate">
+                          {currentTour.title}
+                        </strong>
+                      </div>
+                      <div>
+                        <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Duration & Hub:</span>
+                        <span className="text-xs font-semibold text-[#02146B] block truncate">
+                          {currentTour.duration} • from {pickupCity}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Start Date:</span>
+                        <span className="text-xs font-semibold text-[#0F172A] block truncate">
+                          {travelDate} ({travelersCount} Guests)
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="pl-3 space-y-1">
+                      <div>
+                        <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Vehicle Class:</span>
+                        <strong className="text-xs font-bold text-[#0F172A] block truncate capitalize">
+                          {selectedVehicleType === "sedan"
+                            ? "Sedan (Dzire / Etios / Amaze)"
+                            : selectedVehicleType === "suv"
+                            ? "SUV (Bolero / Scorpio / Brezza)"
+                            : selectedVehicleType === "large-car"
+                            ? "Large car (Innova Crysta / Carens)"
+                            : "Mini bus (Force Urbania)"}
+                        </strong>
+                      </div>
+                      <div className="bg-[#F1F5F9]/70 p-1.5 rounded-lg border border-[#C1DAD7]">
+                        <span className="text-[9px] font-bold text-[#02146B] uppercase block">Standby Driver:</span>
+                        <strong className="text-xs font-extrabold text-[#02146B] block">
+                          Commercial Permit Included
+                        </strong>
+                      </div>
+                      <div className="text-[10px] text-[#667575] leading-tight">
+                        Zero cancellation fee on 6hr notice.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Compact Action Buttons */}
+                <div className="pt-1 flex items-center justify-center gap-2">
+                  <Link
+                    href="/"
+                    className="px-4 py-2 rounded-xl bg-[#FAF9F5] hover:bg-[#EEF2EE] border border-[#D5DDD5] text-[#0F172A] font-bold text-xs transition cursor-pointer"
+                  >
+                    Home
+                  </Link>
+
+                  <button
+                    type="button"
+                    onClick={() => typeof window !== "undefined" && window.print()}
+                    className="px-3 py-2 rounded-xl bg-white hover:bg-[#FAF9F5] border border-[#D5DDD5] text-[#02146B] font-bold text-xs inline-flex items-center gap-1 transition cursor-pointer shadow-xs"
+                    title="Print Voucher"
+                  >
+                    <Printer className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">Print</span>
+                  </button>
+
+                  <a
+                    href={`${COMPANY_CONFIG.contact.whatsAppLink}?text=${encodeURIComponent(
+                      `Hi Cabjatra Tour Desk, I just requested custom quote ${enquiryRefId} for ${currentTour.title} (${currentTour.duration}) starting on ${travelDate} with ${travelersCount} travelers. Please share the detailed itinerary and tariff.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 sm:px-5 py-2 rounded-xl bg-[#02146B] hover:bg-[#001162] text-white font-bold text-xs inline-flex items-center gap-2 transition shadow-skeuo-button cursor-pointer"
+                  >
+                    <MessageSquare className="w-4 h-4 text-[#FEC401]" />
+                    <span>WhatsApp Tour Desk</span>
+                  </a>
+                </div>
               </div>
 
-              {/* Compact Digital Tour Boarding Pass */}
-              <div className="rounded-2xl border border-[#D5DDD5] bg-[#FAF9F5] shadow-xs overflow-hidden text-left text-xs">
-                {/* Pass Header */}
-                <div className="bg-[#02146B] text-white px-3.5 py-2 flex items-center justify-between border-b border-[#FEC401]/30">
-                  <div className="flex items-center gap-2">
-                    <BrandLogo size="sm" variant="light" showTagline={false} />
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#FEC401]">
-                      Tour Voucher
+              {/* Dedicated 1-Page Official Print Tour Voucher (Active ONLY in Print Mode) */}
+              <div className="hidden print:block print-page-voucher w-full text-[#0F172A] font-sans border-2 border-[#02146B] rounded-2xl p-6 bg-white shadow-none">
+                {/* Header with Logo & Booking Ref */}
+                <div className="flex items-start justify-between border-b-2 border-[#02146B] pb-4 mb-4">
+                  <div>
+                    <BrandLogo size="md" variant="dark" showTagline={false} />
+                    <p className="text-xs font-bold text-[#02146B] mt-1.5 tracking-wide">
+                      Curated Odisha Heritage, Coastal &amp; Wildlife Tours
+                    </p>
+                    <p className="text-[10px] text-[#64748B] mt-0.5">
+                      Operated by NovaSpark Digital Marketing Pvt. Ltd. • Mallick Complex, Unit 3, Kharvela Nagar, Bhubaneswar 751001
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <span className="inline-block bg-[#02146B] text-white text-[10px] font-black uppercase px-2.5 py-1 rounded">
+                      Official Tour Voucher
                     </span>
-                  </div>
-                  <div className="flex items-center gap-1.5 bg-black/30 px-2 py-0.5 rounded-lg border border-white/15">
-                    <span className="text-[9px] text-[#A7F3D0] uppercase">Ref:</span>
-                    <strong className="font-mono text-xs text-[#FAF9F5] font-black">
-                      {enquiryRefId}
-                    </strong>
-                    <button
-                      type="button"
-                      onClick={handleCopyRef}
-                      className="p-1 rounded text-[#FEC401] hover:text-white transition cursor-pointer"
-                      title="Copy Reference"
-                    >
-                      {copiedRef ? <Check className="w-3.5 h-3.5 text-[#10B981]" /> : <Copy className="w-3.5 h-3.5" />}
-                    </button>
+                    <div className="mt-1.5">
+                      <span className="text-[10px] text-[#64748B] block font-bold">Enquiry Ref:</span>
+                      <strong className="font-mono text-base font-black text-[#02146B]">
+                        {enquiryRefId}
+                      </strong>
+                    </div>
+                    <p className="text-[9.5px] text-[#64748B] mt-0.5">
+                      Tour Helpdesk: {COMPANY_CONFIG.contact.phoneDisplay} • {COMPANY_CONFIG.contact.supportEmail}
+                    </p>
                   </div>
                 </div>
 
-                {/* Pass Details (2 Columns) */}
-                <div className="p-3 sm:p-3.5 grid grid-cols-2 gap-3 divide-x divide-[#E5ECE5]">
-                  <div className="space-y-1">
-                    <div>
-                      <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Circuit:</span>
-                      <strong className="text-xs font-bold text-[#0F172A] block truncate">
-                        {currentTour.title}
-                      </strong>
-                    </div>
-                    <div>
-                      <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Duration & Hub:</span>
-                      <span className="text-xs font-semibold text-[#02146B] block truncate">
-                        {currentTour.duration} • from {pickupCity}
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Start Date:</span>
-                      <span className="text-xs font-semibold text-[#0F172A] block truncate">
-                        {travelDate} ({travelersCount} Guests)
-                      </span>
-                    </div>
+                {/* Status Strip */}
+                <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-lg p-2.5 mb-4 flex items-center justify-between text-xs">
+                  <div>
+                    <span className="text-[#64748B] text-[10px] uppercase font-bold block">Tour Status</span>
+                    <strong className="text-[#059669] font-black">LOGGED — CUSTOM ITINERARY IN PREPARATION</strong>
+                  </div>
+                  <div>
+                    <span className="text-[#64748B] text-[10px] uppercase font-bold block">Vehicle Standby</span>
+                    <strong className="text-[#02146B] font-bold">Dedicated Commercial Cab with Standby Driver</strong>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-[#64748B] text-[10px] uppercase font-bold block">Advance Model</span>
+                    <strong className="text-[#D97706] font-bold">10% Deposit After Finalizing Itinerary</strong>
+                  </div>
+                </div>
+
+                {/* 2-Column Info Grid */}
+                <div className="grid grid-cols-2 gap-4 mb-4">
+                  {/* Traveler Information */}
+                  <div className="border border-[#CBD5E1] rounded-lg p-3 bg-white">
+                    <h4 className="text-xs font-black uppercase tracking-wider text-[#02146B] border-b border-[#E2E8F0] pb-1.5 mb-2">
+                      Lead Traveler Information
+                    </h4>
+                    <table className="w-full text-xs">
+                      <tbody>
+                        <tr className="border-b border-[#F1F5F9]">
+                          <td className="py-1 text-[#64748B] font-bold text-[11px] w-1/3">Primary Contact:</td>
+                          <td className="py-1 font-bold text-[#0F172A]">{primaryName || "Esteemed Traveler"}</td>
+                        </tr>
+                        <tr className="border-b border-[#F1F5F9]">
+                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Mobile Phone:</td>
+                          <td className="py-1 font-bold text-[#02146B]">{primaryPhone || "—"}</td>
+                        </tr>
+                        <tr className="border-b border-[#F1F5F9]">
+                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Email Address:</td>
+                          <td className="py-1 text-[#0F172A]">{primaryEmail || "—"}</td>
+                        </tr>
+                        <tr>
+                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Total Group:</td>
+                          <td className="py-1 font-medium text-[#0F172A]">
+                            {travelersCount} Traveler(s)
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
 
-                  <div className="pl-3 space-y-1">
-                    <div>
-                      <span className="text-[9px] text-[#8A9797] block uppercase font-bold">Vehicle Class:</span>
-                      <strong className="text-xs font-bold text-[#0F172A] block truncate capitalize">
-                        {selectedVehicleType === "sedan"
-                          ? "Sedan (Dzire / Etios / Amaze)"
-                          : selectedVehicleType === "suv"
-                          ? "SUV (Bolero / Scorpio / Brezza)"
-                          : selectedVehicleType === "large-car"
-                          ? "Large car (Innova Crysta / Carens)"
-                          : "Mini bus (Force Urbania)"}
-                      </strong>
-                    </div>
-                    <div className="bg-[#F1F5F9]/70 p-1.5 rounded-lg border border-[#C1DAD7]">
-                      <span className="text-[9px] font-bold text-[#02146B] uppercase block">Standby Driver:</span>
-                      <strong className="text-xs font-extrabold text-[#02146B] block">
-                        Commercial Permit Included
-                      </strong>
-                    </div>
-                    <div className="text-[10px] text-[#667575] leading-tight">
-                      Zero cancellation fee on 6hr notice.
-                    </div>
+                  {/* Circuit & Schedule */}
+                  <div className="border border-[#CBD5E1] rounded-lg p-3 bg-white">
+                    <h4 className="text-xs font-black uppercase tracking-wider text-[#02146B] border-b border-[#E2E8F0] pb-1.5 mb-2">
+                      Tour Circuit Parameters
+                    </h4>
+                    <table className="w-full text-xs">
+                      <tbody>
+                        <tr className="border-b border-[#F1F5F9]">
+                          <td className="py-1 text-[#64748B] font-bold text-[11px] w-1/3">Circuit Name:</td>
+                          <td className="py-1 font-bold text-[#02146B]">{currentTour.title}</td>
+                        </tr>
+                        <tr className="border-b border-[#F1F5F9]">
+                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Duration:</td>
+                          <td className="py-1 font-bold text-[#0F172A]">{currentTour.duration}</td>
+                        </tr>
+                        <tr className="border-b border-[#F1F5F9]">
+                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Departure Hub:</td>
+                          <td className="py-1 font-bold text-[#0F172A]">{pickupCity}</td>
+                        </tr>
+                        <tr>
+                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Tour Date:</td>
+                          <td className="py-1 font-black text-[#02146B]">{travelDate}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* Vehicle & Inclusions */}
+                <div className="border border-[#CBD5E1] rounded-lg overflow-hidden mb-4">
+                  <div className="bg-[#02146B] text-white px-3.5 py-2 flex items-center justify-between text-xs font-bold">
+                    <span>
+                      Vehicle: {selectedVehicleType === "sedan"
+                        ? "Sedan (Dzire / Etios / Amaze)"
+                        : selectedVehicleType === "suv"
+                        ? "SUV (Bolero / Scorpio / Brezza)"
+                        : selectedVehicleType === "large-car"
+                        ? "Large car (Innova Crysta / Carens)"
+                        : "Mini bus (Force Urbania)"} • Dual-Zone AC
+                    </span>
+                    <span>Curated Odisha Private Tour</span>
+                  </div>
+                  <div className="p-3 bg-[#F8FAFC] text-xs space-y-1 text-[#334155]">
+                    <p>
+                      <strong>Destinations Covered:</strong> {currentTour.destinations.join(" ➔ ")}
+                    </p>
+                    <p>
+                      <strong>Indicative Tariff:</strong> Starting from {currentTour.indicativePrice.sedan} (All-inclusive vehicle fuel, toll taxes, parking, and standby driver allowance).
+                    </p>
+                  </div>
+                </div>
+
+                {/* Important Tour Guidelines */}
+                <div className="border border-[#CBD5E1] rounded-lg p-3 bg-white mb-4 text-[10.5px] space-y-1.5 text-[#334155]">
+                  <h4 className="text-xs font-black uppercase tracking-wider text-[#02146B] border-b border-[#E2E8F0] pb-1 mb-1.5">
+                    Tour Guidelines &amp; Dispatch Protocol
+                  </h4>
+                  <p>
+                    <strong>1. Dedicated Standby Driver:</strong> Your commercial vehicle and driver remain exclusively with your family throughout the tour circuit with flexible stopovers.
+                  </p>
+                  <p>
+                    <strong>2. Custom Sightseeing Flexibility:</strong> You may customize stoppage times at temples, museums, and seaside viewpoints according to your group&apos;s comfort.
+                  </p>
+                  <p>
+                    <strong>3. 24x7 Priority Support:</strong> For itinerary adjustments or hotel pickup coordination, connect with our dedicated Odisha Tour Desk at <strong>{COMPANY_CONFIG.contact.phoneDisplay}</strong>.
+                  </p>
+                </div>
+
+                {/* Official Voucher Footer & Security Stamp */}
+                <div className="border-t-2 border-[#02146B] pt-2.5 flex items-center justify-between text-[9px] text-[#64748B]">
+                  <div>
+                    <strong className="text-[#02146B] block font-bold text-[10px]">CABJATRA TOUR MANAGEMENT SYSTEM</strong>
+                    <span>Computer-generated tour itinerary quote valid across Odisha circuits.</span>
+                  </div>
+                  <div className="text-right">
+                    <span className="font-mono font-bold block text-[#02146B] text-[10px]">TOUR TOKEN: {enquiryRefId}-OK</span>
+                    <span>www.cabjatra.com • info@cabjatra.com</span>
                   </div>
                 </div>
               </div>
-
-              {/* Compact Action Buttons */}
-              <div className="pt-1 flex items-center justify-center gap-2">
-                <Link
-                  href="/"
-                  className="px-4 py-2 rounded-xl bg-[#FAF9F5] hover:bg-[#EEF2EE] border border-[#D5DDD5] text-[#0F172A] font-bold text-xs transition cursor-pointer"
-                >
-                  Home
-                </Link>
-
-                <button
-                  type="button"
-                  onClick={() => typeof window !== "undefined" && window.print()}
-                  className="px-3 py-2 rounded-xl bg-white hover:bg-[#FAF9F5] border border-[#D5DDD5] text-[#02146B] font-bold text-xs inline-flex items-center gap-1 transition cursor-pointer shadow-xs"
-                  title="Print Voucher"
-                >
-                  <Printer className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">Print</span>
-                </button>
-
-                <a
-                  href={`${COMPANY_CONFIG.contact.whatsAppLink}?text=${encodeURIComponent(
-                    `Hi Cabjatra Tour Desk, I just requested custom quote ${enquiryRefId} for ${currentTour.title} (${currentTour.duration}) starting on ${travelDate} with ${travelersCount} travelers. Please share the detailed itinerary and tariff.`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 sm:px-5 py-2 rounded-xl bg-[#02146B] hover:bg-[#001162] text-white font-bold text-xs inline-flex items-center gap-2 transition shadow-skeuo-button cursor-pointer"
-                >
-                  <MessageSquare className="w-4 h-4 text-[#FEC401]" />
-                  <span>WhatsApp Tour Desk</span>
-                </a>
-              </div>
-            </div>
+            </>
           )}
         </div>
       </div>
