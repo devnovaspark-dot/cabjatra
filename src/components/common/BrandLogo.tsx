@@ -25,29 +25,29 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   className = "",
   iconOnly = false,
 }) => {
-  // Height and width scaling matching 3:1 aspect ratio of /images/cab_jatra_1 (1).png (2172x724)
+  // Height and width scaling matching 3.19:1 aspect ratio of /images/Asset 2@2x.webp (2299x721)
   const sizeMap = {
     sm: {
       height: 36,
-      width: 108,
+      width: 115,
       iconSize: 36,
       containerClass: "h-8 sm:h-9",
     },
     md: {
       height: 44,
-      width: 132,
+      width: 140,
       iconSize: 44,
       containerClass: "h-10 sm:h-11",
     },
     lg: {
       height: 56,
-      width: 168,
+      width: 178,
       iconSize: 56,
       containerClass: "h-12 sm:h-14",
     },
     xl: {
       height: 76,
-      width: 228,
+      width: 242,
       iconSize: 76,
       containerClass: "h-16 sm:h-20",
     },
@@ -73,7 +73,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       {/* Official CABJATRA Master Logo Banner */}
       <div className={`relative ${sizeMap.containerClass} w-auto flex items-center`}>
         <Image
-          src="/images/cab_jatra_1 (1).png"
+          src="/images/Asset 2@2x.webp"
           alt="CABJATRA — Odisha Cab Service"
           width={sizeMap.width}
           height={sizeMap.height}
