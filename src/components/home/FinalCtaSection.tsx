@@ -19,7 +19,7 @@ export const FinalCtaSection: React.FC = () => {
     <section className="py-8 sm:py-10 lg:py-12 bg-[#FAF9F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Luxury Architectural Pavilion Card with Centered Content */}
-        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden card-skeuo-dark text-white p-6 sm:p-8 lg:p-12 text-center flex flex-col items-center justify-center group w-full border border-white/15 shadow-2xl">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden card-skeuo-dark text-white p-5 sm:p-8 lg:p-12 text-center flex flex-col items-center justify-center group w-full border border-white/15 shadow-2xl">
           {/* Subtle Ambient Background Photography */}
           <div className="absolute inset-0 z-0 opacity-30 mix-blend-luminosity pointer-events-none">
             <Image

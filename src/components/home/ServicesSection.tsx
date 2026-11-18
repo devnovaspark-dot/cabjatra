@@ -226,8 +226,8 @@ export const ServicesSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Horizontal Quick-Switch Strip */}
-        <div className="lg:hidden mb-6 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+        {/* Mobile Quick-Switch Grid (Zero Horizontal Scroll) */}
+        <div className="lg:hidden mb-5 grid grid-cols-2 gap-2">
           {VERTICALS.map((item, idx) => {
             const isSel = idx === activeIdx;
             const Icon = item.icon;
@@ -239,14 +239,14 @@ export const ServicesSection: React.FC = () => {
                   setActiveIdx(idx);
                   setIsPaused(true);
                 }}
-                className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shrink-0 transition-all cursor-pointer ${
+                className={`p-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
                   isSel
                     ? "bg-[#02146B] text-white shadow-md ring-2 ring-[#FEC401]/40"
                     : "bg-white text-[#556464] border border-[#D5DDD5] hover:text-[#0F172A]"
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isSel ? "text-[#FEC401]" : "text-[#02146B]"}`} />
-                <span>{item.title}</span>
+                <Icon className={`w-3.5 h-3.5 shrink-0 ${isSel ? "text-[#FEC401]" : "text-[#02146B]"}`} />
+                <span className="truncate">{item.title}</span>
               </button>
             );
           })}
@@ -337,7 +337,7 @@ export const ServicesSection: React.FC = () => {
           </div>
 
           {/* RIGHT COLUMN: The Living Cinematic Panoramic Stage (60% width) */}
-          <div className="lg:col-span-7 relative rounded-3xl overflow-hidden min-h-[480px] sm:min-h-[540px] shadow-2xl border-2 border-[#02146B]/20 flex flex-col justify-between">
+          <div className="lg:col-span-7 relative rounded-3xl overflow-hidden min-h-[380px] sm:min-h-[540px] shadow-2xl border-2 border-[#02146B]/20 flex flex-col justify-between">
             {/* Panoramic Photographic Backdrop with smooth transition */}
             <div className="absolute inset-0">
               <Image
@@ -354,7 +354,7 @@ export const ServicesSection: React.FC = () => {
             </div>
 
             {/* TOP BAR: Floating Guarantee Badges */}
-            <div className="relative z-10 p-4 sm:p-6 flex items-center justify-between gap-3">
+            <div className="relative z-10 p-3.5 sm:p-6 flex items-center justify-between gap-3">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-[#FEC401] text-xs font-bold shadow-md">
                 <ActiveIcon className="w-3.5 h-3.5" />
                 <span>{active.badge}</span>
@@ -367,7 +367,7 @@ export const ServicesSection: React.FC = () => {
             </div>
 
             {/* BOTTOM CONSOLE: Integrated Frosted Luxury Control Panel */}
-            <div className="relative z-10 p-5 sm:p-7 bg-[#021819]/85 backdrop-blur-md border-t border-white/15 text-white space-y-4">
+            <div className="relative z-10 p-4 sm:p-7 bg-[#021819]/85 backdrop-blur-md border-t border-white/15 text-white space-y-3 sm:space-y-4">
               <div>
                 <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest text-[#FEC401] block">
                   {active.tagline}

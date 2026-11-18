@@ -408,8 +408,8 @@ export const HowItWorksSection: React.FC = () => {
         {/* ================= VERTICAL HIGHWAY SIMULATION TIMELINE ================= */}
         <div ref={roadTrackRef} className="relative mb-12 sm:mb-16">
           {/* ================= PHOTOREALISTIC ASPHALT HIGHWAY ================= */}
-          {/* Desktop: Centered Highway Spine. Mobile: Left-Aligned Road. */}
-          <div className="absolute top-0 bottom-0 left-6 sm:left-10 lg:left-1/2 -translate-x-1/2 w-20 sm:w-26 bg-[#172021] rounded-2xl border-x-2 border-[#334446] shadow-[inset_0_0_20px_rgba(0,0,0,0.9),0_12px_30px_rgba(0,0,0,0.2)] overflow-visible z-10 pointer-events-none">
+          {/* Desktop: Centered Highway Spine. Mobile: Left-Aligned Road within screen bounds. */}
+          <div className="absolute top-0 bottom-0 left-4 sm:left-8 lg:left-1/2 -translate-x-1/2 w-16 sm:w-24 lg:w-26 bg-[#172021] rounded-2xl border-x-2 border-[#334446] shadow-[inset_0_0_20px_rgba(0,0,0,0.9),0_12px_30px_rgba(0,0,0,0.2)] overflow-hidden z-10 pointer-events-none">
             {/* Asphalt Fine Gravel Noise Texture */}
             <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#FFF_1px,transparent_1px)] [background-size:5px_5px]" />
 
@@ -490,8 +490,8 @@ export const HowItWorksSection: React.FC = () => {
           </div>
 
           {/* ================= 4 CLEAN, ALTERNATING LUXURY STEP CARDS ================= */}
-          {/* Desktop: Alternating Left & Right for perfect breathing room. Mobile: Stacked beside road. */}
-          <div className="space-y-10 sm:space-y-14 lg:space-y-20 pl-16 sm:pl-28 lg:pl-0">
+          {/* Desktop: Alternating Left & Right. Mobile: Compact, zero horizontal overflow. */}
+          <div className="space-y-5 sm:space-y-12 lg:space-y-20 pl-11 sm:pl-20 lg:pl-0">
             {guaranteeSteps.map((st, idx) => {
               const isEven = idx % 2 === 0;
               const isCurrent = activeStep === idx;
@@ -500,18 +500,18 @@ export const HowItWorksSection: React.FC = () => {
                 <div
                   key={idx}
                   onClick={() => handleMilestoneClick(idx)}
-                  className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-32 items-center cursor-pointer"
+                  className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-32 items-center cursor-pointer"
                 >
                   {/* Alternating Step Placement: Even on Left, Odd on Right */}
                   <div
                     className={`transition-all duration-300 ${
                       isEven ? "lg:col-start-1" : "lg:col-start-2"
-                    } ${isCurrent ? "scale-[1.02]" : "opacity-90 hover:opacity-100"}`}
+                    } ${isCurrent ? "scale-[1.01]" : "opacity-90 hover:opacity-100"}`}
                   >
                     <div
-                      className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden transition-all duration-300 ${
+                      className={`rounded-2xl sm:rounded-3xl p-4 sm:p-7 lg:p-8 flex flex-col justify-between relative overflow-hidden transition-all duration-300 ${
                         isCurrent
-                          ? "bg-white border-2 border-[#FEC401] ring-4 ring-[#FEC401]/20 shadow-[0_20px_50px_rgba(217,165,43,0.18)]"
+                          ? "bg-white border-2 border-[#FEC401] ring-3 ring-[#FEC401]/20 shadow-[0_12px_36px_rgba(217,165,43,0.18)]"
                           : "card-skeuo hover:border-[#02146B]/40 shadow-card"
                       }`}
                     >
@@ -524,49 +524,49 @@ export const HowItWorksSection: React.FC = () => {
 
                       <div>
                         {/* Header: Medallion Icon, Step Numeral & Milestone */}
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="flex items-center gap-3">
-                            <div className="w-12 h-12 rounded-2xl medallion-dark flex items-center justify-center text-[#FEC401] shadow-sm">
+                        <div className="flex items-center justify-between mb-3 sm:mb-4">
+                          <div className="flex items-center gap-2.5 sm:gap-3">
+                            <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl medallion-dark flex items-center justify-center text-[#FEC401] shadow-sm shrink-0">
                               {st.icon}
                             </div>
-                            <div>
-                              <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#F1F5F9] text-[#02146B] border border-[#C1DAD7]">
+                            <div className="min-w-0">
+                              <span className="text-[9.5px] sm:text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#F1F5F9] text-[#02146B] border border-[#C1DAD7] inline-block">
                                 {st.badge}
                               </span>
-                              <span className="text-[11px] font-mono text-[#667575] block mt-1">
+                              <span className="text-[10px] sm:text-[11px] font-mono text-[#667575] block mt-0.5 truncate">
                                 {st.milestone}
                               </span>
                             </div>
                           </div>
 
-                          <div className="text-right">
-                            <span className="font-display font-black text-3xl sm:text-4xl text-[#FEC401] drop-shadow-sm block leading-none">
+                          <div className="text-right shrink-0">
+                            <span className="font-display font-black text-2xl sm:text-4xl text-[#FEC401] drop-shadow-sm block leading-none">
                               {st.step}
                             </span>
-                            <span className="text-[10px] font-mono font-bold text-[#02146B] bg-[#EEF2EE] px-2 py-0.5 rounded-md mt-1 inline-block">
+                            <span className="text-[9px] sm:text-[10px] font-mono font-bold text-[#02146B] bg-[#EEF2EE] px-1.5 py-0.5 rounded mt-0.5 inline-block">
                               {st.km}
                             </span>
                           </div>
                         </div>
 
                         {/* Step Title */}
-                        <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] font-display">
+                        <h3 className="text-base sm:text-xl font-bold text-[#0F172A] font-display">
                           {st.title}
                         </h3>
 
                         {/* Concise, Crisp Description */}
-                        <p className="text-xs sm:text-sm text-[#556464] leading-relaxed mt-2 font-medium">
+                        <p className="text-[11.5px] sm:text-sm text-[#556464] leading-relaxed mt-1.5 sm:mt-2 font-medium">
                           {st.desc}
                         </p>
                       </div>
 
                       {/* Card Footer Feature Strip */}
-                      <div className="mt-5 pt-3.5 border-t border-[#EEF2EE] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-[#02146B] font-semibold">
-                        <span className="flex items-center gap-1.5 text-emerald-700">
-                          <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0" />
+                      <div className="mt-3.5 sm:mt-5 pt-2.5 sm:pt-3.5 border-t border-[#EEF2EE] flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2 text-xs text-[#02146B] font-semibold">
+                        <span className="flex items-center gap-1.5 text-emerald-700 text-[11px] sm:text-xs">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
                           <span>{st.feature}</span>
                         </span>
-                        <span className="text-[10.5px] text-[#8A9797] font-medium hidden sm:inline">
+                        <span className="text-[10px] sm:text-[10.5px] text-[#8A9797] font-medium hidden sm:inline">
                           {st.corridor}
                         </span>
                       </div>

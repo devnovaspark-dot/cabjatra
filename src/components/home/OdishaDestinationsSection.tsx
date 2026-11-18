@@ -43,7 +43,7 @@ export const OdishaDestinationsSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 mb-4 sm:mb-6">
           {/* FEATURED STORY CARD: PURI (7 COLUMNS) */}
           <div className="lg:col-span-7 card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group">
-            <div className="relative h-48 sm:h-80 w-full overflow-hidden border-b border-[#D6E0D6]">
+            <div className="relative h-40 sm:h-80 w-full overflow-hidden border-b border-[#D6E0D6]">
               <Image
                 src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop"
                 alt="Puri Golden Beach and Bay of Bengal Coast"
@@ -66,32 +66,32 @@ export const OdishaDestinationsSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-5 sm:p-8 space-y-3.5 sm:space-y-4">
-              <p className="text-xs sm:text-sm text-[#556464] leading-relaxed line-clamp-3 sm:line-clamp-none">
+            <div className="p-4 sm:p-8 space-y-3 sm:space-y-4">
+              <p className="text-xs sm:text-sm text-[#556464] leading-relaxed line-clamp-2 sm:line-clamp-none">
                 {puri.overview}
               </p>
 
-              <div className="space-y-2 pt-2 border-t border-[#E5ECE5]">
-                <span className="text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-[#02146B] block">
+              <div className="space-y-1.5 sm:space-y-2 pt-2 border-t border-[#E5ECE5]">
+                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#02146B] block">
                   Key Attractions in Circuit:
                 </span>
-                <div className="flex flex-wrap gap-2 text-[10.5px] sm:text-[11px] text-[#455353]">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] text-[#455353]">
                   {puri.keyAttractions.map((attr, idx) => (
-                    <span key={idx} className="px-3 py-1 rounded-lg bg-[#FAF9F5] border border-[#D6E0D6] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.04)] font-medium">
+                    <span key={idx} className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-lg bg-[#FAF9F5] border border-[#D6E0D6] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.04)] font-medium">
                       {attr}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-3.5 sm:pt-4 border-t border-[#E5ECE5] flex items-center justify-between">
-                <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-[#02146B] font-bold bg-[#FAF9F5] px-3 py-1 rounded-lg border border-[#D6E0D6] shadow-xs">
+              <div className="pt-3 sm:pt-4 border-t border-[#E5ECE5] flex items-center justify-between gap-2">
+                <div className="flex items-center gap-1.5 text-[10.5px] sm:text-xs text-[#02146B] font-bold bg-[#FAF9F5] px-2.5 py-1 sm:px-3 rounded-lg border border-[#D6E0D6] shadow-xs shrink-0">
                   <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
                   <span>{puri.driveTime}</span>
                 </div>
                 <Link
                   href="/book-tour?destination=puri"
-                  className="px-5 py-2.5 rounded-xl btn-skeuo-dark text-white text-xs font-bold inline-flex items-center gap-2"
+                  className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl btn-skeuo-dark text-white text-[11px] sm:text-xs font-bold inline-flex items-center gap-1.5 sm:gap-2 shrink-0"
                 >
                   <Compass className="w-3.5 h-3.5 text-[#FEC401]" />
                   <span>Plan Puri Circuit</span>
@@ -104,7 +104,7 @@ export const OdishaDestinationsSection: React.FC = () => {
           <div className="lg:col-span-5 flex flex-col gap-5 sm:gap-6">
             {/* Konark Card */}
             <div className="card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden group flex flex-col justify-between h-full">
-              <div className="relative h-40 sm:h-48 w-full overflow-hidden border-b border-[#D6E0D6]">
+              <div className="relative h-32 sm:h-48 w-full overflow-hidden border-b border-[#D6E0D6]">
                 <Image
                   src={konark.heroImage}
                   alt={konark.name}
@@ -118,23 +118,23 @@ export const OdishaDestinationsSection: React.FC = () => {
                 </div>
 
                 <div className="absolute bottom-2.5 sm:bottom-3 left-3 sm:left-4 right-3 sm:right-4 text-white">
-                  <h4 className="text-base sm:text-lg font-bold font-display drop-shadow-sm">{konark.name}</h4>
-                  <div className="text-[10px] text-[#F1F5F9]/90 flex items-center gap-1">
+                  <h4 className="text-sm sm:text-lg font-bold font-display drop-shadow-sm">{konark.name}</h4>
+                  <div className="text-[9.5px] sm:text-[10px] text-[#F1F5F9]/90 flex items-center gap-1">
                     <Clock className="w-3 h-3 text-[#FEC401]" />
                     <span>{konark.driveTime}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="p-4 sm:p-5 flex flex-col justify-between space-y-3">
+              <div className="p-3.5 sm:p-5 flex flex-col justify-between space-y-2 sm:space-y-3">
                 <p className="text-[11px] sm:text-xs text-[#556464] leading-relaxed line-clamp-2">
                   {konark.overview}
                 </p>
-                <div className="pt-2.5 border-t border-[#E5ECE5] flex items-center justify-between">
-                  <span className="text-[10px] sm:text-[11px] font-bold text-[#02146B]">Marine Drive Route</span>
+                <div className="pt-2 border-t border-[#E5ECE5] flex items-center justify-between">
+                  <span className="text-[9.5px] sm:text-[11px] font-bold text-[#02146B]">Marine Drive Route</span>
                   <Link
                     href="/book-tour?destination=konark"
-                    className="px-3 py-1.5 rounded-xl bg-gradient-to-b from-white to-[#EEF3EE] hover:bg-[#02146B] text-[#02146B] hover:text-white border border-[#CBD7CB] hover:border-transparent text-xs font-bold inline-flex items-center gap-1 transition shadow-xs"
+                    className="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl bg-gradient-to-b from-white to-[#EEF3EE] hover:bg-[#02146B] text-[#02146B] hover:text-white border border-[#CBD7CB] hover:border-transparent text-[11px] sm:text-xs font-bold inline-flex items-center gap-1 transition shadow-xs"
                   >
                     <span>Circuit Details</span>
                     <ArrowRight className="w-3 h-3 text-[#FEC401]" />
@@ -145,7 +145,7 @@ export const OdishaDestinationsSection: React.FC = () => {
 
             {/* Chilika Card */}
             <div className="card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden group flex flex-col justify-between h-full">
-              <div className="relative h-40 sm:h-48 w-full overflow-hidden border-b border-[#D6E0D6]">
+              <div className="relative h-32 sm:h-48 w-full overflow-hidden border-b border-[#D6E0D6]">
                 <Image
                   src={chilika.heroImage}
                   alt={chilika.name}
@@ -159,23 +159,23 @@ export const OdishaDestinationsSection: React.FC = () => {
                 </div>
 
                 <div className="absolute bottom-2.5 sm:bottom-3 left-3 sm:left-4 right-3 sm:right-4 text-white">
-                  <h4 className="text-base sm:text-lg font-bold font-display drop-shadow-sm">{chilika.name}</h4>
-                  <div className="text-[10px] text-[#F1F5F9]/90 flex items-center gap-1">
+                  <h4 className="text-sm sm:text-lg font-bold font-display drop-shadow-sm">{chilika.name}</h4>
+                  <div className="text-[9.5px] sm:text-[10px] text-[#F1F5F9]/90 flex items-center gap-1">
                     <Clock className="w-3 h-3 text-[#FEC401]" />
                     <span>{chilika.driveTime}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="p-4 sm:p-5 flex flex-col justify-between space-y-3">
+              <div className="p-3.5 sm:p-5 flex flex-col justify-between space-y-2 sm:space-y-3">
                 <p className="text-[11px] sm:text-xs text-[#556464] leading-relaxed line-clamp-2">
                   {chilika.overview}
                 </p>
-                <div className="pt-2.5 border-t border-[#E5ECE5] flex items-center justify-between">
-                  <span className="text-[10px] sm:text-[11px] font-bold text-[#02146B]">Dolphin Safaris &amp; Kalijai</span>
+                <div className="pt-2 border-t border-[#E5ECE5] flex items-center justify-between">
+                  <span className="text-[9.5px] sm:text-[11px] font-bold text-[#02146B]">Dolphin Safaris &amp; Kalijai</span>
                   <Link
                     href="/book-tour?destination=chilika"
-                    className="px-3 py-1.5 rounded-xl bg-gradient-to-b from-white to-[#EEF3EE] hover:bg-[#02146B] text-[#02146B] hover:text-white border border-[#CBD7CB] hover:border-transparent text-xs font-bold inline-flex items-center gap-1 transition shadow-xs"
+                    className="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl bg-gradient-to-b from-white to-[#EEF3EE] hover:bg-[#02146B] text-[#02146B] hover:text-white border border-[#CBD7CB] hover:border-transparent text-[11px] sm:text-xs font-bold inline-flex items-center gap-1 transition shadow-xs"
                   >
                     <span>Circuit Details</span>
                     <ArrowRight className="w-3 h-3 text-[#FEC401]" />
@@ -187,13 +187,13 @@ export const OdishaDestinationsSection: React.FC = () => {
         </div>
 
         {/* BOTTOM RIBBON: 3 SUPPORTING DESTINATIONS (BHUBANESWAR, DHAULI, GOPALPUR) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-5">
           {otherDestinations.map((dest) => (
             <div
               key={dest.id}
-              className="card-skeuo rounded-xl sm:rounded-2xl p-3.5 sm:p-4 flex items-center gap-3.5 sm:gap-4 group"
+              className="card-skeuo rounded-xl sm:rounded-2xl p-3 sm:p-4 flex items-center gap-3 sm:gap-4 group"
             >
-              <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 border border-[#D6E0D6] shadow-xs">
+              <div className="relative w-14 h-14 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 border border-[#D6E0D6] shadow-xs">
                 <Image
                   src={dest.heroImage}
                   alt={dest.name}
@@ -214,7 +214,7 @@ export const OdishaDestinationsSection: React.FC = () => {
                 </div>
                 <Link
                   href={`/book-tour?destination=${dest.id}`}
-                  className="text-[10.5px] sm:text-[11px] font-bold text-[#02146B] hover:underline inline-flex items-center gap-0.5 mt-1"
+                  className="text-[10px] sm:text-[11px] font-bold text-[#02146B] hover:underline inline-flex items-center gap-0.5 mt-0.5"
                 >
                   <span>Explore Itinerary</span>
                   <ArrowRight className="w-2.5 h-2.5 text-[#FEC401]" />

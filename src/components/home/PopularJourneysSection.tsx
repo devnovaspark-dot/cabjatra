@@ -34,7 +34,7 @@ export const PopularJourneysSection: React.FC = () => {
         {/* Asymmetric Bento Showcase Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
           {/* BENTO 1: THE ICONIC CORRIDOR (BHUBANESWAR TO PURI) — 7 Columns, Large Feature */}
-          <div className="lg:col-span-7 card-skeuo-dark rounded-2xl sm:rounded-3xl overflow-hidden relative group flex flex-col justify-between min-h-[340px] sm:min-h-[420px] border border-white/10 shadow-2xl">
+          <div className="lg:col-span-7 card-skeuo-dark rounded-2xl sm:rounded-3xl overflow-hidden relative group flex flex-col justify-between min-h-[300px] sm:min-h-[420px] border border-white/10 shadow-2xl">
             {/* Top Amber Ambient Sheen */}
             <div className="absolute top-0 right-0 w-80 h-80 bg-[#FEC401]/15 rounded-full blur-3xl pointer-events-none z-10" />
 
@@ -51,52 +51,52 @@ export const PopularJourneysSection: React.FC = () => {
             </div>
 
             {/* Top Badges */}
-            <div className="relative z-10 p-5 sm:p-8 flex flex-wrap items-center justify-between gap-2.5">
-              <div className="flex items-center gap-2">
-                <span className="bg-gradient-to-b from-[#FDE047] to-[#FEC401] text-[#001162] text-[9.5px] sm:text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_2px_6px_rgba(0,0,0,0.3)]">
+            <div className="relative z-10 p-4 sm:p-8 flex flex-wrap items-center justify-between gap-2">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="bg-gradient-to-b from-[#FDE047] to-[#FEC401] text-[#001162] text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider px-2.5 sm:px-3 py-1 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_2px_6px_rgba(0,0,0,0.3)]">
                   ★ Most Booked Corridor
                 </span>
-                <span className="bg-black/50 backdrop-blur-md text-white text-[9.5px] sm:text-[10px] font-semibold px-3 py-1 rounded-full border border-white/20 shadow-xs">
+                <span className="bg-black/50 backdrop-blur-md text-white text-[9px] sm:text-[10px] font-semibold px-2.5 sm:px-3 py-1 rounded-full border border-white/20 shadow-xs">
                   NH-316 Highway
                 </span>
               </div>
-              <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-[#FAF9F5] font-semibold bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/15 shadow-xs">
+              <div className="flex items-center gap-1.5 text-[10.5px] sm:text-xs text-[#FAF9F5] font-semibold bg-black/60 backdrop-blur-md px-2.5 sm:px-3 py-1 rounded-full border border-white/15 shadow-xs">
                 <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
                 <span>1 hr 20 min (60 km)</span>
               </div>
             </div>
 
             {/* Content & Action */}
-            <div className="relative z-10 p-5 sm:p-8 space-y-3.5 sm:space-y-4">
+            <div className="relative z-10 p-4 sm:p-8 space-y-3 sm:space-y-4">
               <div>
-                <h3 className="text-xl sm:text-3xl font-bold font-display text-white drop-shadow-md">
+                <h3 className="text-lg sm:text-3xl font-bold font-display text-white drop-shadow-md">
                   Bhubaneswar ⇄ Puri Golden Beach
                 </h3>
-                <p className="text-xs sm:text-sm text-[#F1F5F9]/90 max-w-xl mt-1.5 leading-relaxed line-clamp-3 sm:line-clamp-none">
+                <p className="text-xs sm:text-sm text-[#F1F5F9]/90 max-w-xl mt-1 leading-relaxed line-clamp-2 sm:line-clamp-none">
                   Direct highway transit via NH-316 to Lord Jagannath Temple &amp; the Blue Flag Golden Beach. Drivers hold designated temple parking passes and know the Marine Drive bypass.
                 </p>
               </div>
 
               {/* Highway Perks Strip */}
-              <div className="flex flex-wrap gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] text-[#FAF9F5] pt-1">
-                <span className="px-3 py-1 rounded-lg bg-black/50 backdrop-blur-sm border border-white/15 flex items-center gap-1.5 shadow-xs">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] text-[#FAF9F5] pt-0.5">
+                <span className="px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-sm border border-white/15 flex items-center gap-1.5 shadow-xs">
                   <ShieldCheck className="w-3 h-3 text-[#FEC401]" />
                   <span>All Toll &amp; FASTag Included</span>
                 </span>
-                <span className="px-3 py-1 rounded-lg bg-black/50 backdrop-blur-sm border border-white/15 flex items-center gap-1.5 shadow-xs">
+                <span className="px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-sm border border-white/15 flex items-center gap-1.5 shadow-xs">
                   <Navigation className="w-3 h-3 text-[#FEC401]" />
-                  <span>Doorstep Pickup &amp; Luggage Support</span>
+                  <span>Doorstep Pickup</span>
                 </span>
-                <span className="px-3 py-1 rounded-lg bg-black/50 backdrop-blur-sm border border-white/15 hidden sm:flex items-center gap-1.5 shadow-xs">
+                <span className="px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-sm border border-white/15 hidden sm:flex items-center gap-1.5 shadow-xs">
                   <Sparkles className="w-3 h-3 text-[#FEC401]" />
                   <span>Dedicated Temple Standby</span>
                 </span>
               </div>
 
-              <div className="pt-3 border-t border-white/15 flex items-center justify-between gap-3">
-                <div className="text-[10.5px] sm:text-[11px] text-[#FEC401] font-semibold flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse shadow-[0_0_8px_#10B981]" />
-                  <span>14 Cabs Active in Corridor Today</span>
+              <div className="pt-2.5 sm:pt-3 border-t border-white/15 flex items-center justify-between gap-3">
+                <div className="text-[10px] sm:text-[11px] text-[#FEC401] font-semibold flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shadow-[0_0_8px_#10B981]" />
+                  <span>14 Cabs Active Today</span>
                 </div>
                 <Link
                   href="/book-cab?service=outstation&to=Puri%20Golden%20Beach"
@@ -111,7 +111,7 @@ export const PopularJourneysSection: React.FC = () => {
 
           {/* BENTO 2: BBI AIRPORT TRANSFERS — 5 Columns */}
           <div className="lg:col-span-5 card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group border border-[#D5DDD5] shadow-card bg-white">
-            <div className="relative h-44 sm:h-52 w-full overflow-hidden border-b border-[#D6E0D6]">
+            <div className="relative h-36 sm:h-52 w-full overflow-hidden border-b border-[#D6E0D6]">
               <Image
                 src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=85&w=900&auto=format&fit=crop"
                 alt="Bhubaneswar BBI Airport Transfers"
@@ -120,35 +120,35 @@ export const PopularJourneysSection: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B]/90 via-[#000B3B]/30 to-transparent" />
               
-              <div className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-[#001162]/95 backdrop-blur-md text-[#FEC401] text-[9.5px] sm:text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 flex items-center gap-1.5 shadow-md">
+              <div className="absolute top-2.5 sm:top-4 left-2.5 sm:left-4 bg-[#001162]/95 backdrop-blur-md text-[#FEC401] text-[9px] sm:text-[10px] font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/20 flex items-center gap-1.5 shadow-md">
                 <Plane className="w-3 h-3" />
                 <span>BBI Airport Radar Sync</span>
               </div>
 
-              <div className="absolute bottom-3 left-4 right-4 text-white">
-                <div className="text-base sm:text-lg font-bold font-display drop-shadow-sm">Bhubaneswar Airport Transfers</div>
-                <div className="text-[10.5px] sm:text-[11px] text-[#F1F5F9]/90 flex items-center gap-1 mt-0.5">
+              <div className="absolute bottom-2.5 sm:bottom-3 left-3 sm:left-4 right-3 sm:right-4 text-white">
+                <div className="text-sm sm:text-lg font-bold font-display drop-shadow-sm">Bhubaneswar Airport Transfers</div>
+                <div className="text-[10px] sm:text-[11px] text-[#F1F5F9]/90 flex items-center gap-1 mt-0.5">
                   <Clock className="w-3 h-3 text-[#FEC401]" />
-                  <span>Citywide 20–40 Mins • Zero Delay Waiting Fees</span>
+                  <span>Citywide 20–40 Mins • Zero Delay Fees</span>
                 </div>
               </div>
             </div>
 
-            <div className="p-5 sm:p-6 space-y-3">
-              <p className="text-xs text-[#556464] leading-relaxed line-clamp-3 sm:line-clamp-none font-medium">
-                Pre-book your arrival or departure at Biju Patnaik International Airport. We track incoming flights live—if your flight is delayed, your driver automatically adjusts arrival with zero extra charge.
+            <div className="p-4 sm:p-6 space-y-2.5 sm:space-y-3">
+              <p className="text-xs text-[#556464] leading-relaxed line-clamp-2 sm:line-clamp-none font-medium">
+                Pre-book arrival or departure at Biju Patnaik International Airport. We track incoming flights live—if delayed, your driver adjusts arrival with zero extra charge.
               </p>
 
-              <div className="pt-3 border-t border-[#E5ECE5] flex items-center justify-between">
-                <span className="text-xs font-bold text-[#02146B] flex items-center gap-1.5 bg-[#FAF9F5] px-3 py-1 rounded-lg border border-[#D6E0D6] shadow-xs">
+              <div className="pt-2.5 sm:pt-3 border-t border-[#E5ECE5] flex items-center justify-between gap-2">
+                <span className="text-[11px] sm:text-xs font-bold text-[#02146B] flex items-center gap-1.5 bg-[#FAF9F5] px-2.5 py-1 sm:px-3 rounded-lg border border-[#D6E0D6] shadow-xs shrink-0">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
-                  <span>Terminal Gate Meet</span>
+                  <span>Terminal Meet</span>
                 </span>
                 <Link
                   href="/book-cab?service=airport&to=Biju%20Patnaik%20Airport%20(BBI)"
-                  className="px-4 py-2 rounded-xl btn-skeuo-dark text-white text-xs font-semibold inline-flex items-center gap-1.5 shadow-sm hover:brightness-110 transition-all"
+                  className="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl btn-skeuo-dark text-white text-[11px] sm:text-xs font-semibold inline-flex items-center gap-1.5 shadow-sm hover:brightness-110 transition-all shrink-0"
                 >
-                  <span>Book Airport Cab</span>
+                  <span>Book Cab</span>
                   <ArrowRight className="w-3 h-3 text-[#FEC401]" />
                 </Link>
               </div>
@@ -157,7 +157,7 @@ export const PopularJourneysSection: React.FC = () => {
 
           {/* BENTO 3: THE SUN TEMPLE & MARINE DRIVE CIRCUIT (KONARK) — 6 Columns */}
           <div className="lg:col-span-6 card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group border border-[#D5DDD5] shadow-card bg-white">
-            <div className="relative h-44 sm:h-52 w-full overflow-hidden border-b border-[#D6E0D6]">
+            <div className="relative h-36 sm:h-52 w-full overflow-hidden border-b border-[#D6E0D6]">
               <Image
                 src="https://images.unsplash.com/photo-1576235282476-debff2a4d0b9?q=85&w=900&auto=format&fit=crop"
                 alt="Majestic Konark Sun Temple stone architecture and carvings"
@@ -166,32 +166,32 @@ export const PopularJourneysSection: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B]/90 via-[#000B3B]/30 to-transparent" />
               
-              <div className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-[#001162]/95 backdrop-blur-md text-white text-[9.5px] sm:text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 shadow-md">
+              <div className="absolute top-2.5 sm:top-4 left-2.5 sm:left-4 bg-[#001162]/95 backdrop-blur-md text-white text-[9px] sm:text-[10px] font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/20 shadow-md">
                 Heritage &amp; Coastal Marine Drive
               </div>
 
-              <div className="absolute bottom-3 left-4 right-4 text-white">
-                <div className="text-base sm:text-lg font-bold font-display drop-shadow-sm">Konark Sun Temple &amp; Chandrabhaga</div>
-                <div className="text-[10.5px] sm:text-[11px] text-[#F1F5F9]/90 flex items-center gap-1 mt-0.5">
+              <div className="absolute bottom-2.5 sm:bottom-3 left-3 sm:left-4 right-3 sm:right-4 text-white">
+                <div className="text-sm sm:text-lg font-bold font-display drop-shadow-sm">Konark Sun Temple &amp; Marine Drive</div>
+                <div className="text-[10px] sm:text-[11px] text-[#F1F5F9]/90 flex items-center gap-1 mt-0.5">
                   <Clock className="w-3 h-3 text-[#FEC401]" />
                   <span>65 km from BBI • Scenic Coastal Route</span>
                 </div>
               </div>
             </div>
 
-            <div className="p-5 sm:p-6 space-y-3">
-              <p className="text-xs text-[#556464] leading-relaxed line-clamp-3 sm:line-clamp-none font-medium">
-                Drive along one of India&apos;s most breathtaking ocean roads from Puri to Konark. Includes dedicated waiting buffer for Sun Temple exploration, Chandrabhaga beach halts, and artisan stalls.
+            <div className="p-4 sm:p-6 space-y-2.5 sm:space-y-3">
+              <p className="text-xs text-[#556464] leading-relaxed line-clamp-2 sm:line-clamp-none font-medium">
+                Drive along one of India&apos;s most breathtaking ocean roads from Puri to Konark. Includes dedicated waiting buffer for Sun Temple exploration and beach halts.
               </p>
 
-              <div className="pt-3 border-t border-[#E5ECE5] flex items-center justify-between">
-                <span className="text-xs font-bold text-[#02146B] flex items-center gap-1.5 bg-[#FAF9F5] px-3 py-1 rounded-lg border border-[#D6E0D6] shadow-xs">
+              <div className="pt-2.5 sm:pt-3 border-t border-[#E5ECE5] flex items-center justify-between gap-2">
+                <span className="text-[11px] sm:text-xs font-bold text-[#02146B] flex items-center gap-1.5 bg-[#FAF9F5] px-2.5 py-1 sm:px-3 rounded-lg border border-[#D6E0D6] shadow-xs shrink-0">
                   <Compass className="w-3.5 h-3.5 text-[#FEC401]" />
-                  <span>Standby Buffer Included</span>
+                  <span>Standby Included</span>
                 </span>
                 <Link
                   href="/book-tour?destination=konark"
-                  className="px-4 py-2 rounded-xl bg-gradient-to-b from-white to-[#EEF3EE] hover:bg-[#02146B] text-[#02146B] hover:text-white border border-[#CBD7CB] hover:border-transparent text-xs font-semibold inline-flex items-center gap-1.5 transition shadow-skeuo"
+                  className="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-gradient-to-b from-white to-[#EEF3EE] hover:bg-[#02146B] text-[#02146B] hover:text-white border border-[#CBD7CB] hover:border-transparent text-[11px] sm:text-xs font-semibold inline-flex items-center gap-1.5 transition shadow-skeuo shrink-0"
                 >
                   <span>Explore Circuit</span>
                   <ArrowRight className="w-3 h-3 text-[#FEC401]" />
@@ -202,7 +202,7 @@ export const PopularJourneysSection: React.FC = () => {
 
           {/* BENTO 4: TWIN CITY CORRIDOR (BHUBANESWAR TO CUTTACK) — 6 Columns */}
           <div className="lg:col-span-6 card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group border border-[#D5DDD5] shadow-card bg-white">
-            <div className="relative h-44 sm:h-52 w-full overflow-hidden border-b border-[#D6E0D6]">
+            <div className="relative h-36 sm:h-52 w-full overflow-hidden border-b border-[#D6E0D6]">
               <Image
                 src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=85&w=900&auto=format&fit=crop"
                 alt="Highway transit between Bhubaneswar and Cuttack"
@@ -211,35 +211,35 @@ export const PopularJourneysSection: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B]/90 via-[#000B3B]/30 to-transparent" />
               
-              <div className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-[#001162]/95 backdrop-blur-md text-white text-[9.5px] sm:text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 shadow-md">
+              <div className="absolute top-2.5 sm:top-4 left-2.5 sm:left-4 bg-[#001162]/95 backdrop-blur-md text-white text-[9px] sm:text-[10px] font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white/20 shadow-md">
                 Twin City Transit Corridor
               </div>
 
-              <div className="absolute bottom-3 left-4 right-4 text-white">
-                <div className="text-base sm:text-lg font-bold font-display drop-shadow-sm">Bhubaneswar ⇄ Cuttack Express</div>
-                <div className="text-[10.5px] sm:text-[11px] text-[#F1F5F9]/90 flex items-center gap-1 mt-0.5">
+              <div className="absolute bottom-2.5 sm:bottom-3 left-3 sm:left-4 right-3 sm:right-4 text-white">
+                <div className="text-sm sm:text-lg font-bold font-display drop-shadow-sm">Bhubaneswar ⇄ Cuttack Express</div>
+                <div className="text-[10px] sm:text-[11px] text-[#F1F5F9]/90 flex items-center gap-1 mt-0.5">
                   <Clock className="w-3 h-3 text-[#FEC401]" />
                   <span>28 km • 40 min Direct via NH-16</span>
                 </div>
               </div>
             </div>
 
-            <div className="p-5 sm:p-6 space-y-3">
-              <p className="text-xs text-[#556464] leading-relaxed line-clamp-3 sm:line-clamp-none font-medium">
-                Seamless mobility connecting Infocity, Patia, Master Canteen, and CDA Cuttack / Badambadi. Essential for High Court appointments, SCB Medical visits, and daily corporate mobility.
+            <div className="p-4 sm:p-6 space-y-2.5 sm:space-y-3">
+              <p className="text-xs text-[#556464] leading-relaxed line-clamp-2 sm:line-clamp-none font-medium">
+                Seamless mobility connecting Infocity, Patia, Master Canteen, and CDA Cuttack / Badambadi for High Court appointments, SCB Medical, and daily transit.
               </p>
 
-              <div className="pt-3 border-t border-[#E5ECE5] flex items-center justify-between">
-                <span className="text-xs font-bold text-[#02146B] flex items-center gap-1.5 bg-[#FAF9F5] px-3 py-1 rounded-lg border border-[#D6E0D6] shadow-xs">
+              <div className="pt-2.5 sm:pt-3 border-t border-[#E5ECE5] flex items-center justify-between gap-2">
+                <span className="text-[11px] sm:text-xs font-bold text-[#02146B] flex items-center gap-1.5 bg-[#FAF9F5] px-2.5 py-1 sm:px-3 rounded-lg border border-[#D6E0D6] shadow-xs shrink-0">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
-                  <span>Zero Cancellations</span>
+                  <span>Guaranteed Driver</span>
                 </span>
                 <Link
                   href="/book-cab?service=local&to=Cuttack%20Badambadi"
-                  className="px-4 py-2 rounded-xl bg-gradient-to-b from-white to-[#EEF3EE] hover:bg-[#02146B] text-[#02146B] hover:text-white border border-[#CBD7CB] hover:border-transparent text-xs font-semibold inline-flex items-center gap-1.5 transition shadow-skeuo"
+                  className="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-gradient-to-b from-white to-[#EEF3EE] hover:bg-[#02146B] text-[#02146B] hover:text-white border border-[#CBD7CB] hover:border-transparent text-[11px] sm:text-xs font-semibold inline-flex items-center gap-1.5 transition shadow-skeuo shrink-0"
                 >
-                  <span>Book Twin-City Ride</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
+                  <span>Book Ride</span>
+                  <ArrowRight className="w-3 h-3 text-[#FEC401]" />
                 </Link>
               </div>
             </div>

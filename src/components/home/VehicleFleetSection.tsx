@@ -33,14 +33,14 @@ export const VehicleFleetSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Interactive Category Filter Pills */}
-          <div className="flex items-center gap-1 sm:gap-1.5 p-1.5 panel-recessed rounded-2xl max-w-full overflow-x-auto scrollbar-none self-start md:self-auto">
+          {/* Interactive Category Filter Pills (Zero Horizontal Scroll - Wrap Naturally) */}
+          <div className="flex flex-wrap items-center gap-1 sm:gap-1.5 p-1.5 panel-recessed rounded-2xl max-w-full self-start md:self-auto">
             {categories.map((cat) => (
               <button
                 key={cat}
                 type="button"
                 onClick={() => setActiveCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all shrink-0 select-none ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all shrink-0 select-none ${
                   activeCategory === cat
                     ? "btn-skeuo-dark text-white font-bold"
                     : "text-[#556464] hover:text-[#0F172A] hover:bg-white/70"
@@ -52,86 +52,89 @@ export const VehicleFleetSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Fleet Grid - Clean, 3D Only, Minimal & Relevant */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5">
-          {filteredVehicles.map((vehicle) => (
-            <div
-              key={vehicle.id}
-              className="card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group bg-white border border-[#E2E8E2] hover:border-[#02146B]/40 hover:shadow-lg transition-all"
-            >
-              <div>
-                {/* Real Commercial Vehicle Showcase */}
-                <div className="relative h-44 sm:h-48 w-full bg-gradient-to-b from-[#FAF9F5] to-[#E8EFE8] overflow-hidden border-b border-[#D6E0D6]">
-                  <Image
-                    src={vehicle.image}
-                    alt={`${vehicle.name} - ${vehicle.models}`}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 20vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    priority={vehicle.id === "sedan" || vehicle.id === "hatchback"}
-                  />
-                  {/* Subtle lower gradient vignette for depth */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-
-                  <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#001162]/95 backdrop-blur-md text-[#FAF9F5] text-[9.5px] sm:text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-white/20 shadow-md pointer-events-none z-10">
-                    {vehicle.category}
-                  </div>
-                  {vehicle.tag && (
-                    <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 bg-gradient-to-b from-[#FDE047] to-[#FEC401] text-[#001162] text-[8.5px] sm:text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-xs pointer-events-none z-10">
-                      {vehicle.tag}
-                    </div>
-                  )}
-                </div>
-
-                {/* Content: Name, Example Models, Specs */}
-                <div className="p-3.5 sm:p-4 space-y-2.5">
-                  <div>
-                    <h3 className="text-base sm:text-lg font-bold font-display text-[#0F172A] leading-tight">
-                      {vehicle.name}
-                    </h3>
-                    <p className="text-[11px] text-[#556464] font-medium mt-0.5 line-clamp-1" title={vehicle.models}>
-                      {vehicle.models}
-                    </p>
-                  </div>
-
-                  {/* Compact Specs Strip */}
-                  <div className="flex items-center justify-between py-1.5 px-2.5 bg-[#FAF9F5] rounded-xl border border-[#E5EAE5] text-[11px] text-[#455353] font-semibold">
-                    <span className="flex items-center gap-1">
-                      <Users className="w-3.5 h-3.5 text-[#02146B]" />
-                      {vehicle.passengers} Seats
-                    </span>
-                    <span className="text-[#C1DAD7]">•</span>
-                    <span className="flex items-center gap-1">
-                      <Briefcase className="w-3.5 h-3.5 text-[#02146B]" />
-                      {vehicle.luggage} Bags
-                    </span>
-                    <span className="text-[#C1DAD7]">•</span>
-                    <span className="text-[#10B981] font-bold">AC</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Button & Base Rate */}
-              <div className="p-3.5 sm:p-4 pt-0 border-t border-[#EEF2EE] flex items-center justify-between mt-2">
+        {/* Fleet Grid - Clean, Compact 3D Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3.5 sm:gap-5">
+          {filteredVehicles.map((vehicle) => {
+            const compactModels = vehicle.models.replace(/, /g, " • ");
+            return (
+              <div
+                key={vehicle.id}
+                className="card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group bg-white border border-[#E2E8E2] hover:border-[#02146B]/40 hover:shadow-lg transition-all"
+              >
                 <div>
-                  <span className="text-[9px] uppercase font-bold text-[#778686] block leading-none">
-                    Starting
-                  </span>
-                  <span className="text-sm font-extrabold text-[#001162]">
-                    ₹{vehicle.ratePerKm}/km
-                  </span>
+                  {/* Real Commercial Vehicle Showcase (Compact on Mobile) */}
+                  <div className="relative h-36 sm:h-48 w-full bg-gradient-to-b from-[#FAF9F5] to-[#E8EFE8] overflow-hidden border-b border-[#D6E0D6]">
+                    <Image
+                      src={vehicle.image}
+                      alt={`${vehicle.name} - ${vehicle.models}`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 20vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      priority={vehicle.id === "sedan" || vehicle.id === "hatchback"}
+                    />
+                    {/* Subtle lower gradient vignette for depth */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+
+                    <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 bg-[#001162]/95 backdrop-blur-md text-[#FAF9F5] text-[9.5px] sm:text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-white/20 shadow-md pointer-events-none z-10">
+                      {vehicle.category}
+                    </div>
+                    {vehicle.tag && (
+                      <div className="absolute top-2.5 sm:top-3 right-2.5 sm:right-3 bg-gradient-to-b from-[#FDE047] to-[#FEC401] text-[#001162] text-[8.5px] sm:text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-xs pointer-events-none z-10">
+                        {vehicle.tag}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Content: Name, Example Models, Specs (Tighter Vertical Density) */}
+                  <div className="p-3 sm:p-4 space-y-2 sm:space-y-2.5">
+                    <div>
+                      <h3 className="text-base sm:text-lg font-bold font-display text-[#0F172A] leading-tight">
+                        {vehicle.name}
+                      </h3>
+                      <p className="text-[10.5px] sm:text-[11px] text-[#556464] font-medium mt-0.5 truncate">
+                        {compactModels}
+                      </p>
+                    </div>
+
+                    {/* Compact Specs Strip */}
+                    <div className="flex items-center justify-between py-1 px-2 sm:py-1.5 sm:px-2.5 bg-[#FAF9F5] rounded-xl border border-[#E5EAE5] text-[10.5px] sm:text-[11px] text-[#455353] font-semibold">
+                      <span className="flex items-center gap-1">
+                        <Users className="w-3.5 h-3.5 text-[#02146B]" />
+                        {vehicle.passengers} Seats
+                      </span>
+                      <span className="text-[#C1DAD7]">•</span>
+                      <span className="flex items-center gap-1">
+                        <Briefcase className="w-3.5 h-3.5 text-[#02146B]" />
+                        {vehicle.luggage} Bags
+                      </span>
+                      <span className="text-[#C1DAD7]">•</span>
+                      <span className="text-[#10B981] font-bold">AC</span>
+                    </div>
+                  </div>
                 </div>
 
-                <Link
-                  href={`/book-cab?vehicle=${vehicle.id}`}
-                  className="py-2 px-3.5 rounded-xl btn-skeuo-dark text-white text-xs font-bold transition-all flex items-center gap-1.5 hover:brightness-110 active:scale-[0.98]"
-                >
-                  <span>Select</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
-                </Link>
+                {/* Action Button & Base Rate */}
+                <div className="p-3 sm:p-4 pt-0 border-t border-[#EEF2EE] flex items-center justify-between mt-1.5">
+                  <div>
+                    <span className="text-[9px] uppercase font-bold text-[#778686] block leading-none">
+                      Starting
+                    </span>
+                    <span className="text-sm font-extrabold text-[#001162]">
+                      ₹{vehicle.ratePerKm}/km
+                    </span>
+                  </div>
+
+                  <Link
+                    href={`/book-cab?vehicle=${vehicle.id}`}
+                    className="py-1.5 px-3.5 sm:py-2 sm:px-3.5 rounded-xl btn-skeuo-dark text-white text-xs font-bold transition-all flex items-center gap-1.5 hover:brightness-110 active:scale-[0.98]"
+                  >
+                    <span>Select</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

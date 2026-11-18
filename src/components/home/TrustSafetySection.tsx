@@ -62,35 +62,35 @@ export const TrustSafetySection: React.FC = () => {
         </div>
 
         {/* 4 Trust & Safety Pillars with Distinct Skeuomorphic Depth */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6">
           {pillars.map((item, idx) => (
             <div
               key={idx}
-              className="card-skeuo rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex flex-col justify-between group"
+              className="card-skeuo rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col justify-between group"
             >
-              <div className="space-y-3">
+              <div className="space-y-2.5 sm:space-y-3">
                 <div className="flex items-center justify-between">
-                  <div className="w-11 h-11 rounded-2xl medallion-dark flex items-center justify-center transition-transform group-hover:scale-105">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl medallion-dark flex items-center justify-center transition-transform group-hover:scale-105">
                     {item.icon}
                   </div>
-                  <span className="text-[9.5px] font-bold text-[#02146B] bg-gradient-to-b from-[#F2F6F2] to-[#E3EDE3] px-2.5 py-1 rounded-full border border-[#BED2BE] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.04)]">
+                  <span className="text-[9px] sm:text-[9.5px] font-bold text-[#02146B] bg-gradient-to-b from-[#F2F6F2] to-[#E3EDE3] px-2.5 py-1 rounded-full border border-[#BED2BE] shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.04)]">
                     {item.badge}
                   </span>
                 </div>
 
-                <h3 className="text-base font-bold text-[#0F172A] group-hover:text-[#02146B] transition-colors leading-snug font-display">
+                <h3 className="text-sm sm:text-base font-bold text-[#0F172A] group-hover:text-[#02146B] transition-colors leading-snug font-display">
                   {item.title}
                 </h3>
 
-                <p className="text-[11.5px] sm:text-xs text-[#556464] leading-relaxed">
+                <p className="text-[11px] sm:text-xs text-[#556464] leading-relaxed">
                   {item.desc}
                 </p>
               </div>
 
-              <div className="mt-4 sm:mt-6 pt-3.5 border-t border-[#E5ECE5]">
+              <div className="mt-3 sm:mt-6 pt-3 border-t border-[#E5ECE5]">
                 <Link
                   href={item.actionLink}
-                  className="text-xs font-bold text-[#02146B] hover:underline inline-flex items-center gap-1 group-hover:text-[#001162]"
+                  className="text-[11.5px] sm:text-xs font-bold text-[#02146B] hover:underline inline-flex items-center gap-1 group-hover:text-[#001162]"
                 >
                   <span>{item.actionText}</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />

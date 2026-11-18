@@ -12,7 +12,7 @@ import { FinalCtaSection } from "@/components/home/FinalCtaSection";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col w-full bg-[#FAF9F5]">
+    <div className="flex flex-col w-full max-w-full overflow-x-hidden bg-[#FAF9F5]">
       {/* SECTION 1 — HERO & TACTILE CONCIERGE BOOKING PASS */}
       <HeroSection />
 

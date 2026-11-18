@@ -122,11 +122,11 @@ export const TestimonialsSection: React.FC = () => {
         </div>
 
         {/* Exactly 3 Flagship Luxury Testimonial Cards (Balanced 3-Column Grid) */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-7 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-7 items-stretch">
           {EXPERIENCES.map((exp) => (
             <div
               key={exp.id}
-              className="rounded-3xl p-6 sm:p-7 bg-gradient-to-b from-white via-[#FCFDFC] to-[#F5F8F5] border-2 border-[#D6E0D6] shadow-[0_8px_24px_rgba(7,59,58,0.06)] hover:shadow-[0_16px_40px_rgba(7,59,58,0.14)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative group overflow-hidden"
+              className="rounded-2xl sm:rounded-3xl p-4 sm:p-7 bg-gradient-to-b from-white via-[#FCFDFC] to-[#F5F8F5] border-2 border-[#D6E0D6] shadow-[0_8px_24px_rgba(7,59,58,0.06)] hover:shadow-[0_16px_40px_rgba(7,59,58,0.14)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative group overflow-hidden"
             >
               {/* Top Golden Micro-Accent Bar on Hover */}
               <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#FEC401] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -134,60 +134,60 @@ export const TestimonialsSection: React.FC = () => {
               {/* Watermark Quote Emblem */}
               <Quote className="absolute right-4 top-12 w-20 h-20 text-[#FEC401]/10 pointer-events-none select-none transition-transform group-hover:scale-110 duration-500" />
 
-              <div className="space-y-4 relative z-10">
+              <div className="space-y-3 sm:space-y-4 relative z-10">
                 {/* Card Top: Stars & Trip Verification Seal */}
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-1.5">
                     <div className="flex text-[#FEC401] drop-shadow-xs">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-[#FEC401]" />
+                        <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#FEC401]" />
                       ))}
                     </div>
-                    <span className="text-[10px] font-black text-[#02146B] bg-[#F1F5F9] px-2 py-0.5 rounded-md">
+                    <span className="text-[9.5px] sm:text-[10px] font-black text-[#02146B] bg-[#F1F5F9] px-2 py-0.5 rounded-md">
                       5.0 &bull; EXCELLENT
                     </span>
                   </div>
 
-                  <span className="inline-flex items-center gap-1 text-[9.5px] font-bold text-[#02146B] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 shadow-xs">
+                  <span className="inline-flex items-center gap-1 text-[9px] sm:text-[9.5px] font-bold text-[#02146B] bg-emerald-50 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border border-emerald-200 shadow-xs">
                     <CheckCircle2 className="w-3 h-3 text-[#10B981]" />
                     <span>Verified Trip</span>
                   </span>
                 </div>
 
                 {/* Traveler Category & Route Plaque */}
-                <div className="space-y-1.5">
-                  <span className="text-[10.5px] font-extrabold uppercase tracking-wider text-[#FEC401] block">
+                <div className="space-y-1 sm:space-y-1.5">
+                  <span className="text-[10px] sm:text-[10.5px] font-extrabold uppercase tracking-wider text-[#FEC401] block">
                     ✦ {exp.travelerType}
                   </span>
-                  <div className="text-xs font-bold text-[#0F172A] bg-white p-3 rounded-xl border border-[#D5DDD5] flex items-start gap-2 shadow-xs">
-                    <MapPin className="w-4 h-4 text-[#02146B] shrink-0 mt-0.5" />
+                  <div className="text-[11.5px] sm:text-xs font-bold text-[#0F172A] bg-white p-2.5 sm:p-3 rounded-xl border border-[#D5DDD5] flex items-start gap-2 shadow-xs">
+                    <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#02146B] shrink-0 mt-0.5" />
                     <span className="leading-snug">{exp.route}</span>
                   </div>
                 </div>
 
                 {/* Feedback Quote - Comfortable Reading Typography */}
-                <p className="text-[13px] sm:text-sm text-[#2C3E3E] leading-relaxed font-normal pt-1">
+                <p className="text-[12.5px] sm:text-sm text-[#2C3E3E] leading-relaxed font-normal pt-0.5">
                   &ldquo;{exp.feedback}&rdquo;
                 </p>
 
-                {/* Driver & Vehicle Credentials Strip - Generous, NO Truncation */}
-                <div className="pt-3 border-t border-[#E5ECE5] bg-[#FAF9F5] p-3 rounded-2xl border border-[#D8E2D8] space-y-2">
-                  <div className="flex items-center justify-between text-xs font-bold text-[#02146B]">
+                {/* Driver & Vehicle Credentials Strip */}
+                <div className="pt-2.5 sm:pt-3 border-t border-[#E5ECE5] bg-[#FAF9F5] p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border border-[#D8E2D8] space-y-1.5 sm:space-y-2">
+                  <div className="flex items-center justify-between text-[11.5px] sm:text-xs font-bold text-[#02146B]">
                     <div className="flex items-center gap-1.5">
-                      <UserCheck className="w-4 h-4 text-[#FEC401] shrink-0" />
+                      <UserCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FEC401] shrink-0" />
                       <span>{exp.driverMention}</span>
                     </div>
-                    <span className="text-[10px] text-[#667575] font-semibold bg-white px-2 py-0.5 rounded-md border border-[#D5DDD5]">
+                    <span className="text-[9.5px] sm:text-[10px] text-[#667575] font-semibold bg-white px-2 py-0.5 rounded-md border border-[#D5DDD5]">
                       {exp.driverExp}
                     </span>
                   </div>
 
-                  <div className="flex items-center justify-between text-xs text-[#0F172A] pt-1 border-t border-[#E5ECE5]/60">
+                  <div className="flex items-center justify-between text-[11.5px] sm:text-xs text-[#0F172A] pt-1 border-t border-[#E5ECE5]/60">
                     <div className="flex items-center gap-1.5 font-semibold">
                       <Car className="w-3.5 h-3.5 text-[#02146B] shrink-0" />
                       <span>{exp.vehicle}</span>
                     </div>
-                    <span className="text-[10px] text-[#10B981] font-bold">
+                    <span className="text-[9.5px] sm:text-[10px] text-[#10B981] font-bold">
                       {exp.fleetId}
                     </span>
                   </div>
@@ -195,9 +195,9 @@ export const TestimonialsSection: React.FC = () => {
               </div>
 
               {/* Author Profile Footer - Clean, NO Truncation */}
-              <div className="mt-5 pt-3.5 border-t border-[#E5ECE5] flex items-center justify-between relative z-10">
-                <div className="flex items-center gap-3">
-                  <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-[#FEC401] shadow-[0_2px_8px_rgba(217,165,43,0.35)] shrink-0">
+              <div className="mt-4 sm:mt-5 pt-3 sm:pt-3.5 border-t border-[#E5ECE5] flex items-center justify-between relative z-10">
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden border-2 border-[#FEC401] shadow-[0_2px_8px_rgba(217,165,43,0.35)] shrink-0">
                     <Image
                       src={exp.avatar}
                       alt={exp.author}
@@ -210,14 +210,14 @@ export const TestimonialsSection: React.FC = () => {
                       <span>{exp.author}</span>
                       <Check className="w-3.5 h-3.5 text-[#10B981] stroke-[3]" />
                     </h4>
-                    <span className="text-[11px] text-[#667575] block font-medium">
+                    <span className="text-[10.5px] sm:text-[11px] text-[#667575] block font-medium">
                       {exp.location}
                     </span>
                   </div>
                 </div>
 
                 <div className="text-right">
-                  <span className="text-[10px] text-[#556464] font-semibold bg-white px-2.5 py-1 rounded-full border border-[#D6E0D6] shadow-xs inline-block">
+                  <span className="text-[9.5px] sm:text-[10px] text-[#556464] font-semibold bg-white px-2.5 py-1 rounded-full border border-[#D6E0D6] shadow-xs inline-block">
                     {exp.date.replace("Travel Date: ", "")}
                   </span>
                 </div>
