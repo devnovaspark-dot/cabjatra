@@ -1206,181 +1206,189 @@ function CabBookingContent() {
                 </div>
               </div>
 
-              {/* Dedicated 1-Page Official Print Voucher (Active ONLY in Print Mode) */}
-              <div className="hidden print:block print-page-voucher w-full text-[#0F172A] font-sans border-2 border-[#02146B] rounded-2xl p-6 bg-white shadow-none">
-                {/* Header with Logo & Booking Ref */}
-                <div className="flex items-start justify-between border-b-2 border-[#02146B] pb-4 mb-4">
+              {/* Minimalist, Attractive Official 1-Page Printable Cab Voucher */}
+              <div className="hidden print:block print-page-voucher w-full text-[#0F172A] font-sans bg-white">
+                {/* 1. Header: Logo & Clean Reference */}
+                <div className="flex items-center justify-between pb-4 border-b border-[#E2E8F0]">
                   <div>
                     <BrandLogo size="md" variant="dark" showTagline={false} />
-                    <p className="text-xs font-bold text-[#02146B] mt-1.5 tracking-wide">
-                      Odisha&apos;s Verified Commercial Cab Fleet
-                    </p>
-                    <p className="text-[10px] text-[#64748B] mt-0.5">
-                      Operated by NovaSpark Digital Marketing Pvt. Ltd. • Mallick Complex, Unit 3, Kharvela Nagar, Bhubaneswar 751001
+                    <p className="text-[11px] font-medium text-[#64748B] mt-1 tracking-wide">
+                      Verified Commercial Fleet • Odisha
                     </p>
                   </div>
                   <div className="text-right">
-                    <span className="inline-block bg-[#02146B] text-white text-[10px] font-black uppercase px-2.5 py-1 rounded">
-                      Official Booking Voucher
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#94A3B8] block">
+                      Booking Reference
                     </span>
-                    <div className="mt-1.5">
-                      <span className="text-[10px] text-[#64748B] block font-bold">Booking Reference:</span>
-                      <strong className="font-mono text-base font-black text-[#02146B]">
-                        {bookingReference}
+                    <strong className="font-mono text-lg font-black text-[#02146B] tracking-tight">
+                      {bookingReference}
+                    </strong>
+                    <div className="inline-flex items-center gap-1.5 mt-0.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+                      <span className="text-[10px] font-bold text-[#059669] uppercase tracking-wider">
+                        Confirmed Booking
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2. Visual Route Hero: Bhubaneswar ➔ Destination */}
+                <div className="my-5 p-4 rounded-xl bg-[#F8FAFC] border border-[#F1F5F9]">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#94A3B8] block">Pickup City</span>
+                      <strong className="text-base font-bold text-[#0F172A]">{pickupCity}</strong>
+                    </div>
+
+                    <div className="flex-1 px-6 flex items-center justify-center">
+                      <div className="w-full flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-[#02146B] shrink-0" />
+                        <div className="flex-1 border-t-2 border-dashed border-[#CBD5E1]" />
+                        <ArrowRight className="w-4 h-4 text-[#02146B] shrink-0" />
+                      </div>
+                    </div>
+
+                    <div className="text-right">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#94A3B8] block">Destination</span>
+                      <strong className="text-base font-bold text-[#0F172A]">
+                        {serviceType === "hourly" ? hourlyPackage : dropLocation}
                       </strong>
                     </div>
-                    <p className="text-[9.5px] text-[#64748B] mt-0.5">
-                      Dispatch Helpline: {COMPANY_CONFIG.contact.phoneDisplay} • {COMPANY_CONFIG.contact.supportEmail}
-                    </p>
+                  </div>
+
+                  <div className="mt-3 pt-3 border-t border-[#E2E8F0]/60 flex items-center justify-between text-xs text-[#475569]">
+                    <span>
+                      <strong>Format:</strong>{" "}
+                      {serviceType === "airport"
+                        ? "BBI Airport Transfer"
+                        : serviceType === "outstation"
+                        ? `Outstation (${tripWay === "round" ? "Round Trip" : "One-Way"})`
+                        : serviceType === "hourly"
+                        ? `Hourly Rental (${hourlyPackage})`
+                        : "Local City Transfer"}
+                    </span>
+                    <span>
+                      <strong>Scheduled:</strong> {pickupDate} at {pickupTime}
+                    </span>
+                    <span>
+                      <strong>Vehicle:</strong> {selectedVehicle.name} ({selectedVehicle.category})
+                    </span>
                   </div>
                 </div>
 
-                {/* Status Strip */}
-                <div className="bg-[#F8FAFC] border border-[#CBD5E1] rounded-lg p-2.5 mb-4 flex items-center justify-between text-xs">
+                {/* 3. Clean 2-Column Information (Passenger & Fleet) */}
+                <div className="grid grid-cols-2 gap-6 my-5 text-xs">
                   <div>
-                    <span className="text-[#64748B] text-[10px] uppercase font-bold block">Voucher Status</span>
-                    <strong className="text-[#059669] font-black">CONFIRMED — DISPATCH IN PROGRESS</strong>
+                    <h4 className="text-[11px] font-black uppercase tracking-wider text-[#02146B] mb-2.5">
+                      Passenger Details
+                    </h4>
+                    <div className="space-y-1.5 text-[#334155]">
+                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
+                        <span className="text-[#64748B]">Lead Passenger:</span>
+                        <strong className="text-[#0F172A]">{passengerName || "Esteemed Traveler"}</strong>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
+                        <span className="text-[#64748B]">Mobile Number:</span>
+                        <strong className="text-[#02146B] font-bold">{passengerPhone || "—"}</strong>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
+                        <span className="text-[#64748B]">Email Address:</span>
+                        <span>{passengerEmail || "—"}</span>
+                      </div>
+                      <div className="flex justify-between py-1">
+                        <span className="text-[#64748B]">Group Size:</span>
+                        <span>{passengerCount} Passenger(s), {luggageCount} Luggage Bag(s)</span>
+                      </div>
+                    </div>
                   </div>
+
                   <div>
-                    <span className="text-[#64748B] text-[10px] uppercase font-bold block">Vehicle Standard</span>
-                    <strong className="text-[#02146B] font-bold">100% Yellow-Board Commercial Taxi</strong>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-[#64748B] text-[10px] uppercase font-bold block">Advance Model</span>
-                    <strong className="text-[#D97706] font-bold">10% Deposit • 90% at Drop</strong>
+                    <h4 className="text-[11px] font-black uppercase tracking-wider text-[#02146B] mb-2.5">
+                      Vehicle &amp; Standards
+                    </h4>
+                    <div className="space-y-1.5 text-[#334155]">
+                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
+                        <span className="text-[#64748B]">Vehicle Class:</span>
+                        <strong className="text-[#0F172A]">{selectedVehicle.name}</strong>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
+                        <span className="text-[#64748B]">Air Conditioning:</span>
+                        <strong className="text-[#10B981]">Dual-Zone AC Guaranteed</strong>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
+                        <span className="text-[#64748B]">Permit Standard:</span>
+                        <span>100% Yellow-Board Commercial</span>
+                      </div>
+                      <div className="flex justify-between py-1">
+                        <span className="text-[#64748B]">Driver:</span>
+                        <span>Commercial Badge &amp; Verified</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* 2-Column Info Grid */}
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  {/* Passenger Information */}
-                  <div className="border border-[#CBD5E1] rounded-lg p-3 bg-white">
-                    <h4 className="text-xs font-black uppercase tracking-wider text-[#02146B] border-b border-[#E2E8F0] pb-1.5 mb-2">
-                      Passenger Information
-                    </h4>
-                    <table className="w-full text-xs">
-                      <tbody>
-                        <tr className="border-b border-[#F1F5F9]">
-                          <td className="py-1 text-[#64748B] font-bold text-[11px] w-1/3">Lead Passenger:</td>
-                          <td className="py-1 font-bold text-[#0F172A]">{passengerName || "Esteemed Traveler"}</td>
-                        </tr>
-                        <tr className="border-b border-[#F1F5F9]">
-                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Contact Mobile:</td>
-                          <td className="py-1 font-bold text-[#02146B]">{passengerPhone || "—"}</td>
-                        </tr>
-                        <tr className="border-b border-[#F1F5F9]">
-                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Email Address:</td>
-                          <td className="py-1 text-[#0F172A]">{passengerEmail || "—"}</td>
-                        </tr>
-                        <tr>
-                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Party Capacity:</td>
-                          <td className="py-1 font-medium text-[#0F172A]">
-                            {passengerCount} Passenger(s) • {luggageCount} Luggage Bag(s)
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-
-                  {/* Journey Parameters */}
-                  <div className="border border-[#CBD5E1] rounded-lg p-3 bg-white">
-                    <h4 className="text-xs font-black uppercase tracking-wider text-[#02146B] border-b border-[#E2E8F0] pb-1.5 mb-2">
-                      Journey Parameters
-                    </h4>
-                    <table className="w-full text-xs">
-                      <tbody>
-                        <tr className="border-b border-[#F1F5F9]">
-                          <td className="py-1 text-[#64748B] font-bold text-[11px] w-1/3">Service Format:</td>
-                          <td className="py-1 font-bold text-[#02146B] uppercase">
-                            {serviceType === "airport"
-                              ? "BBI Airport Transfer"
-                              : serviceType === "outstation"
-                              ? `Outstation Transfer (${tripWay === "round" ? "Round Trip" : "One-Way"})`
-                              : serviceType === "hourly"
-                              ? `Hourly City Rental (${hourlyPackage})`
-                              : "Local City Transfer"}
-                          </td>
-                        </tr>
-                        <tr className="border-b border-[#F1F5F9]">
-                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Pickup Point:</td>
-                          <td className="py-1 font-bold text-[#0F172A]">{pickupCity}</td>
-                        </tr>
-                        <tr className="border-b border-[#F1F5F9]">
-                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Destination:</td>
-                          <td className="py-1 font-bold text-[#0F172A]">
-                            {serviceType === "hourly" ? hourlyPackage : dropLocation}
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="py-1 text-[#64748B] font-bold text-[11px]">Scheduled Date:</td>
-                          <td className="py-1 font-black text-[#02146B]">
-                            {pickupDate} at {pickupTime}
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                {/* Vehicle Class & Financial Breakdown */}
-                <div className="border border-[#CBD5E1] rounded-lg overflow-hidden mb-4">
-                  <div className="bg-[#02146B] text-white px-3.5 py-2 flex items-center justify-between text-xs font-bold">
-                    <span>Vehicle Class: {selectedVehicle.name} ({selectedVehicle.category}) • Dual-Zone AC</span>
-                    <span>All-Inclusive Commercial Tariff</span>
-                  </div>
-                  <div className="p-3 bg-[#F8FAFC] grid grid-cols-3 gap-3 text-center divide-x divide-[#CBD5E1]">
-                    <div>
-                      <span className="text-[10px] text-[#64748B] uppercase font-bold block">Total Tariff</span>
-                      <strong className="text-base font-black text-[#0F172A]">
+                {/* 4. Minimalist Tariff & Payment Summary */}
+                <div className="my-5 p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0]">
+                  <h4 className="text-[11px] font-black uppercase tracking-wider text-[#02146B] mb-3">
+                    Tariff &amp; Advance Breakdown
+                  </h4>
+                  <div className="grid grid-cols-3 gap-4 text-center">
+                    <div className="p-2.5 bg-white rounded-lg border border-[#E2E8F0]">
+                      <span className="text-[10px] font-bold text-[#64748B] uppercase block">Total Tariff</span>
+                      <strong className="text-base font-black text-[#0F172A] block mt-0.5">
                         ₹{fares.total.toLocaleString("en-IN")}
                       </strong>
-                      <span className="text-[9px] text-[#64748B] block mt-0.5">Includes fuel, tolls &amp; driver allowance</span>
+                      <span className="text-[9px] text-[#94A3B8] block mt-0.5">All-inclusive (fuel, tolls &amp; driver)</span>
                     </div>
-                    <div>
-                      <span className="text-[10px] text-[#02146B] uppercase font-bold block">10% Advance Deposit</span>
-                      <strong className="text-base font-black text-[#02146B]">
+
+                    <div className="p-2.5 bg-white rounded-lg border border-[#02146B]/20">
+                      <span className="text-[10px] font-bold text-[#02146B] uppercase block">10% Advance Deposit</span>
+                      <strong className="text-base font-black text-[#02146B] block mt-0.5">
                         ₹{fares.advance.toLocaleString("en-IN")}
                       </strong>
-                      <span className="text-[9px] text-[#059669] font-bold block mt-0.5">Dispatched via WhatsApp link</span>
+                      <span className="text-[9px] text-[#059669] font-medium block mt-0.5">Dispatched via WhatsApp link</span>
                     </div>
-                    <div>
-                      <span className="text-[10px] text-[#64748B] uppercase font-bold block">Balance at Drop (90%)</span>
-                      <strong className="text-base font-black text-[#D97706]">
+
+                    <div className="p-2.5 bg-white rounded-lg border border-[#E2E8F0]">
+                      <span className="text-[10px] font-bold text-[#64748B] uppercase block">Balance at Drop (90%)</span>
+                      <strong className="text-base font-black text-[#D97706] block mt-0.5">
                         ₹{fares.balance.toLocaleString("en-IN")}
                       </strong>
-                      <span className="text-[9px] text-[#64748B] block mt-0.5">Payable to driver upon completion</span>
+                      <span className="text-[9px] text-[#94A3B8] block mt-0.5">Payable to driver via Cash or UPI</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Dispatch & Boarding Instructions */}
-                <div className="border border-[#CBD5E1] rounded-lg p-3 bg-white mb-4 text-[10.5px] space-y-1.5 text-[#334155]">
-                  <h4 className="text-xs font-black uppercase tracking-wider text-[#02146B] border-b border-[#E2E8F0] pb-1 mb-1.5">
-                    Official Passenger Instructions
-                  </h4>
-                  <p>
-                    <strong>1. Driver &amp; Vehicle Allocation:</strong> Your verified commercial driver&apos;s name, direct phone number, and taxi registration number are dispatched to your WhatsApp <strong>2 hours prior to scheduled departure</strong>.
-                  </p>
-                  <p>
-                    <strong>2. Guaranteed Fixed Pricing:</strong> The tariff on this voucher is 100% fixed with zero surge pricing, midnight penalties, or extra driver allowances.
-                  </p>
-                  <p>
-                    <strong>3. Free Cancellation:</strong> 100% deposit refund guaranteed if cancellation is initiated at least 6 hours before scheduled departure.
-                  </p>
-                  <p>
-                    <strong>4. 24x7 Priority Support:</strong> For flight schedule changes or urgent assistance, call our Bhubaneswar Dispatch Control Room at <strong>{COMPANY_CONFIG.contact.phoneDisplay}</strong>.
-                  </p>
+                {/* 5. Minimalist Important Notes */}
+                <div className="my-5 space-y-2 text-[11px] text-[#475569] leading-relaxed">
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#02146B] font-bold mt-0.5">•</span>
+                    <p>
+                      <strong>Driver Details:</strong> Your driver&apos;s contact number and taxi registration will be dispatched to your WhatsApp <strong>2 hours before pickup</strong>.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#02146B] font-bold mt-0.5">•</span>
+                    <p>
+                      <strong>Zero Surge Guarantee:</strong> The tariff above is 100% fixed with zero surge pricing, midnight penalties, or extra driver allowances.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#02146B] font-bold mt-0.5">•</span>
+                    <p>
+                      <strong>Free Cancellation:</strong> Full deposit refund guaranteed if cancellation is initiated at least 6 hours before departure.
+                    </p>
+                  </div>
                 </div>
 
-                {/* Official Voucher Footer & Security Stamp */}
-                <div className="border-t-2 border-[#02146B] pt-2.5 flex items-center justify-between text-[9px] text-[#64748B]">
+                {/* 6. Minimalist Clean Footer */}
+                <div className="pt-4 mt-6 border-t border-[#E2E8F0] flex items-center justify-between text-[10px] text-[#94A3B8]">
                   <div>
-                    <strong className="text-[#02146B] block font-bold text-[10px]">CABJATRA FLEET MANAGEMENT SYSTEM</strong>
-                    <span>Computer-generated booking receipt valid across all highway toll corridors in Odisha.</span>
+                    <span className="font-semibold text-[#64748B]">CABJATRA</span> • Dedicated Dispatch Control Room:{" "}
+                    <strong className="text-[#02146B]">{COMPANY_CONFIG.contact.phoneDisplay}</strong>
                   </div>
-                  <div className="text-right">
-                    <span className="font-mono font-bold block text-[#02146B] text-[10px]">VERIFIED DISPATCH: {bookingReference}-OK</span>
-                    <span>www.cabjatra.com • info@cabjatra.com</span>
+                  <div>
+                    <span>support@cabjatra.com • www.cabjatra.com</span>
                   </div>
                 </div>
               </div>
