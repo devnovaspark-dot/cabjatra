@@ -25,7 +25,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   className = "",
   iconOnly = false,
 }) => {
-  // Height and width scaling matching 3.19:1 aspect ratio of /images/Asset 2@2x.webp (2299x721)
+  // Height and width scaling matching 3.18:1 aspect ratio of /images/Cabjatra@2x.webp (999x314)
   const sizeMap = {
     sm: {
       height: 36,
@@ -73,7 +73,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       {/* Official CABJATRA Master Logo Banner */}
       <div className={`relative ${sizeMap.containerClass} w-auto flex items-center`}>
         <Image
-          src="/images/Asset 2@2x.webp"
+          src="/images/Cabjatra@2x.webp"
           alt="CABJATRA — Odisha Cab Service"
           width={sizeMap.width}
           height={sizeMap.height}
