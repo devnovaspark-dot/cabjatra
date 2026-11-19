@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   Car,
@@ -19,6 +20,7 @@ import {
   MapPin,
   Sparkles,
   ChevronRight,
+  Compass,
 } from "lucide-react";
 import { COMPANY_CONFIG } from "@/data/company";
 import { BrandLogo } from "@/components/common/BrandLogo";
@@ -30,6 +32,7 @@ export const Navbar: React.FC = () => {
   const [servicesTab, setServicesTab] = useState<"cab" | "tour">("cab");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isMobileCabExpanded, setIsMobileCabExpanded] = useState(true);
+  const [isMobileTourExpanded, setIsMobileTourExpanded] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -162,7 +165,9 @@ export const Navbar: React.FC = () => {
                   pathname.startsWith("/book-tour") ||
                   pathname.startsWith("/cab-service-in-") ||
                   pathname.startsWith("/taxi-service-in-") ||
-                  pathname.startsWith("/book-online-taxi-in-")
+                  pathname.startsWith("/book-online-taxi-in-") ||
+                  pathname.includes("tour-package") ||
+                  pathname.includes("tour-packages")
                     ? "text-[#FEC401] bg-white/10 font-bold shadow-xs"
                     : "text-[#FAF9F5]/90 hover:text-[#FEC401] hover:bg-white/10"
                 }`}
@@ -392,30 +397,35 @@ export const Navbar: React.FC = () => {
                     </div>
                   )}
 
-                  {/* Tab 2: Book a Tour Sub-Links */}
+                  {/* Tab 2: Book a Tour Sub-Links with Real Thumbnail Images */}
                   {servicesTab === "tour" && (
-                    <div className="pt-2.5 space-y-1.5">
+                    <div className="pt-2.5 space-y-1.5 max-h-[60vh] overflow-y-auto pr-0.5">
                       {/* 1. Odisha Tour Package by Cab */}
                       <Link
                         href="/odisha-tour-package-by-cab"
                         onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
+                        className="group flex items-center justify-between p-2 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                       >
-                        <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-xl bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:scale-105">
-                            <Palmtree className="w-4 h-4" />
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="relative w-9 h-9 rounded-xl overflow-hidden shrink-0 border border-[#E2E8F0] shadow-xs group-hover:scale-105 transition-transform">
+                            <Image
+                              src="https://images.unsplash.com/photo-1775050416787-fe3179f0679e?q=80&w=200&auto=format&fit=crop"
+                              alt="Odisha Tour Package by Cab"
+                              fill
+                              className="object-cover"
+                            />
                           </div>
                           <div className="min-w-0">
                             <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
                               Odisha Tour Package by Cab
                             </span>
                             <span className="block text-[10px] text-[#64748B] group-hover:text-[#000B3B]/80 font-medium truncate">
-                              Bhubaneswar &bull; Puri &bull; Konark &bull; Chilika
+                              Golden Triangle &bull; Puri &bull; Konark &bull; Chilika
                             </span>
                           </div>
                         </div>
                         <div className="flex items-center gap-2 shrink-0 ml-2">
-                          <span className="text-[9.5px] text-[#02146B] font-bold bg-[#E0E7FF] px-2 py-0.5 rounded-full border border-[#C7D2FE]/60">
+                          <span className="text-[9px] text-[#02146B] font-bold bg-[#E0E7FF] px-2 py-0.5 rounded-full border border-[#C7D2FE]/60">
                             Complete Circuit
                           </span>
                           <div className="w-6 h-6 rounded-lg bg-[#F1F5F9] group-hover:bg-[#000B3B] text-[#94A3B8] group-hover:text-[#FEC401] flex items-center justify-center transition-all duration-150">
@@ -424,27 +434,33 @@ export const Navbar: React.FC = () => {
                         </div>
                       </Link>
 
+                      {/* 2. Odisha Sightseeing Tour Packages */}
                       <Link
-                        href="/book-tour?destination=konark"
+                        href="/odisha-sightseeing-tour-packages"
                         onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
+                        className="group flex items-center justify-between p-2 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                       >
-                        <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-xl bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:scale-105">
-                            <Sparkles className="w-4 h-4" />
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="relative w-9 h-9 rounded-xl overflow-hidden shrink-0 border border-[#E2E8F0] shadow-xs group-hover:scale-105 transition-transform">
+                            <Image
+                              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=200&auto=format&fit=crop"
+                              alt="Odisha Sightseeing Tour Packages"
+                              fill
+                              className="object-cover"
+                            />
                           </div>
                           <div className="min-w-0">
                             <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
-                              Konark Sun Temple &amp; Beach
+                              Odisha Sightseeing Tour Packages
                             </span>
                             <span className="block text-[10px] text-[#64748B] group-hover:text-[#000B3B]/80 font-medium truncate">
-                              UNESCO Sun Temple &bull; Marine Drive
+                              State-Wide Circuits &bull; Heritage &bull; Lagoons
                             </span>
                           </div>
                         </div>
                         <div className="flex items-center gap-2 shrink-0 ml-2">
-                          <span className="text-[9.5px] text-[#B45309] font-bold bg-[#FEF3C7] px-2 py-0.5 rounded-full border border-[#FDE68A]/60">
-                            Marine Drive
+                          <span className="text-[9px] text-[#0D9488] font-bold bg-[#CCFBF1] px-2 py-0.5 rounded-full border border-[#99F6E4]/60">
+                            All Odisha
                           </span>
                           <div className="w-6 h-6 rounded-lg bg-[#F1F5F9] group-hover:bg-[#000B3B] text-[#94A3B8] group-hover:text-[#FEC401] flex items-center justify-center transition-all duration-150">
                             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -452,27 +468,33 @@ export const Navbar: React.FC = () => {
                         </div>
                       </Link>
 
+                      {/* 3. Bhubaneswar Tour Packages */}
                       <Link
-                        href="/book-tour?destination=chilika"
+                        href="/bhubaneswar-tour-packages"
                         onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
+                        className="group flex items-center justify-between p-2 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                       >
-                        <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-xl bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:scale-105">
-                            <Palmtree className="w-4 h-4" />
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="relative w-9 h-9 rounded-xl overflow-hidden shrink-0 border border-[#E2E8F0] shadow-xs group-hover:scale-105 transition-transform">
+                            <Image
+                              src="https://images.unsplash.com/photo-1626014303757-6467368e7b16?q=80&w=200&auto=format&fit=crop"
+                              alt="Bhubaneswar Tour Packages"
+                              fill
+                              className="object-cover"
+                            />
                           </div>
                           <div className="min-w-0">
                             <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
-                              Chilika Lake &amp; Dolphin Safari
+                              Bhubaneswar Tour Packages
                             </span>
                             <span className="block text-[10px] text-[#64748B] group-hover:text-[#000B3B]/80 font-medium truncate">
-                              Satapada &bull; Irrawaddy Dolphins &bull; Lagoon Cruise
+                              Lingaraj &bull; Mukteswar &bull; Dhauli &bull; Caves
                             </span>
                           </div>
                         </div>
                         <div className="flex items-center gap-2 shrink-0 ml-2">
-                          <span className="text-[9.5px] text-[#0D9488] font-bold bg-[#CCFBF1] px-2 py-0.5 rounded-full border border-[#99F6E4]/60">
-                            Lagoon Safari
+                          <span className="text-[9px] text-[#9333EA] font-bold bg-[#F3E8FF] px-2 py-0.5 rounded-full border border-[#E9D5FF]/60">
+                            Temple City
                           </span>
                           <div className="w-6 h-6 rounded-lg bg-[#F1F5F9] group-hover:bg-[#000B3B] text-[#94A3B8] group-hover:text-[#FEC401] flex items-center justify-center transition-all duration-150">
                             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -480,27 +502,101 @@ export const Navbar: React.FC = () => {
                         </div>
                       </Link>
 
+                      {/* 4. Puri Tour Packages */}
                       <Link
-                        href="/book-tour?destination=temple"
+                        href="/puri-tour-packages"
                         onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
+                        className="group flex items-center justify-between p-2 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                       >
-                        <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-xl bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:scale-105">
-                            <Landmark className="w-4 h-4" />
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="relative w-9 h-9 rounded-xl overflow-hidden shrink-0 border border-[#E2E8F0] shadow-xs group-hover:scale-105 transition-transform">
+                            <Image
+                              src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=200&auto=format&fit=crop"
+                              alt="Puri Tour Packages"
+                              fill
+                              className="object-cover"
+                            />
                           </div>
                           <div className="min-w-0">
                             <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
-                              Bhubaneswar Temple Circuit
+                              Puri Tour Packages
                             </span>
                             <span className="block text-[10px] text-[#64748B] group-hover:text-[#000B3B]/80 font-medium truncate">
-                              Lingaraj &bull; Mukteswar &bull; Rajarani &bull; Dhauli
+                              Golden Beach &bull; Marine Drive &bull; Raghurajpur
                             </span>
                           </div>
                         </div>
                         <div className="flex items-center gap-2 shrink-0 ml-2">
-                          <span className="text-[9.5px] text-[#9333EA] font-bold bg-[#F3E8FF] px-2 py-0.5 rounded-full border border-[#E9D5FF]/60">
-                            Heritage Trail
+                          <span className="text-[9px] text-[#16A34A] font-bold bg-[#DCFCE7] px-2 py-0.5 rounded-full border border-[#86EFAC]/50">
+                            Coastal Dham
+                          </span>
+                          <div className="w-6 h-6 rounded-lg bg-[#F1F5F9] group-hover:bg-[#000B3B] text-[#94A3B8] group-hover:text-[#FEC401] flex items-center justify-center transition-all duration-150">
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                          </div>
+                        </div>
+                      </Link>
+
+                      {/* 5. Konark Tour Packages */}
+                      <Link
+                        href="/konark-tour-packages"
+                        onClick={() => setIsServicesOpen(false)}
+                        className="group flex items-center justify-between p-2 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
+                      >
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="relative w-9 h-9 rounded-xl overflow-hidden shrink-0 border border-[#E2E8F0] shadow-xs group-hover:scale-105 transition-transform">
+                            <Image
+                              src="https://images.unsplash.com/photo-1576235282476-debff2a4d0b9?q=80&w=200&auto=format&fit=crop"
+                              alt="Konark Tour Packages"
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                          <div className="min-w-0">
+                            <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
+                              Konark Tour Packages
+                            </span>
+                            <span className="block text-[10px] text-[#64748B] group-hover:text-[#000B3B]/80 font-medium truncate">
+                              UNESCO Sun Temple &bull; Chandrabhaga Beach
+                            </span>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 shrink-0 ml-2">
+                          <span className="text-[9px] text-[#B45309] font-bold bg-[#FEF3C7] px-2 py-0.5 rounded-full border border-[#FDE68A]/60">
+                            UNESCO Heritage
+                          </span>
+                          <div className="w-6 h-6 rounded-lg bg-[#F1F5F9] group-hover:bg-[#000B3B] text-[#94A3B8] group-hover:text-[#FEC401] flex items-center justify-center transition-all duration-150">
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                          </div>
+                        </div>
+                      </Link>
+
+                      {/* 6. Jagannath Puri Tour Package */}
+                      <Link
+                        href="/jagannath-puri-tour-package"
+                        onClick={() => setIsServicesOpen(false)}
+                        className="group flex items-center justify-between p-2 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
+                      >
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="relative w-9 h-9 rounded-xl overflow-hidden shrink-0 border border-[#E2E8F0] shadow-xs group-hover:scale-105 transition-transform">
+                            <Image
+                              src="https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?q=80&w=200&auto=format&fit=crop"
+                              alt="Jagannath Puri Tour Package"
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                          <div className="min-w-0">
+                            <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
+                              Jagannath Puri Tour Package
+                            </span>
+                            <span className="block text-[10px] text-[#64748B] group-hover:text-[#000B3B]/80 font-medium truncate">
+                              Sacred Darshan &bull; Mahaprasad &bull; Temple Trail
+                            </span>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 shrink-0 ml-2">
+                          <span className="text-[9px] text-[#DC2626] font-bold bg-[#FEE2E2] px-2 py-0.5 rounded-full border border-[#FECACA]">
+                            Holy Pilgrimage
                           </span>
                           <div className="w-6 h-6 rounded-lg bg-[#F1F5F9] group-hover:bg-[#000B3B] text-[#94A3B8] group-hover:text-[#FEC401] flex items-center justify-center transition-all duration-150">
                             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -511,7 +607,7 @@ export const Navbar: React.FC = () => {
                       {/* Clean Tour Action Button */}
                       <div className="pt-1">
                         <Link
-                          href="/odisha-tour-package-by-cab"
+                          href="/book-tour"
                           onClick={() => setIsServicesOpen(false)}
                           className="w-full py-2.5 px-3.5 rounded-2xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white flex items-center justify-between text-xs font-bold hover:brightness-105 transition-all shadow-md group border border-white/10"
                         >
@@ -519,10 +615,10 @@ export const Navbar: React.FC = () => {
                             <div className="w-5 h-5 rounded-full bg-[#FEC401]/20 flex items-center justify-center">
                               <Palmtree className="w-3 h-3 text-[#FEC401]" />
                             </div>
-                            <span>Explore All Odisha Tour Packages</span>
+                            <span>Customize Your Odisha Tour Itinerary</span>
                           </span>
                           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-[#FEC401] text-[#000B3B] text-[11px] font-black group-hover:scale-105 transition-all shadow-sm">
-                            <span>View All</span>
+                            <span>Plan Tour</span>
                             <ArrowRight className="w-3 h-3 text-[#000B3B] group-hover:translate-x-0.5 transition-transform" />
                           </span>
                         </Link>
@@ -738,21 +834,144 @@ export const Navbar: React.FC = () => {
                 )}
               </div>
 
-              {/* Book a Tour Card */}
-              <Link
-                href="/book-tour"
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-3 rounded-2xl bg-white border border-[#D5DDD5] text-[#02146B] flex items-center justify-between text-xs font-bold shadow-skeuo hover:bg-[#F8FAFC] transition-colors"
-              >
-                <div className="flex items-center gap-2">
-                  <Palmtree className="w-4 h-4 text-[#FEC401]" />
-                  <span>Book a Tour</span>
-                  <span className="text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-[#E2E8F0] text-[#02146B]">
-                    Circuits
-                  </span>
+              {/* Book a Tour Collapsible Mobile Card */}
+              <div className="rounded-2xl border border-[#D5DDD5] overflow-hidden shadow-skeuo">
+                <div className="p-3 bg-white text-[#000B3B] flex items-center justify-between">
+                  <Link
+                    href="/book-tour"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center gap-2 text-xs font-bold"
+                  >
+                    <Palmtree className="w-4 h-4 text-[#FEC401]" />
+                    <span>Book a Tour</span>
+                    <span className="text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-[#FEC401] text-[#000B3B]">
+                      Circuits
+                    </span>
+                  </Link>
+
+                  <button
+                    type="button"
+                    onClick={() => setIsMobileTourExpanded(!isMobileTourExpanded)}
+                    className="p-1 rounded-lg bg-[#000B3B]/5 hover:bg-[#000B3B]/10 text-[#000B3B] transition-colors"
+                    aria-label="Toggle Tour Submenu"
+                  >
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform duration-200 ${
+                        isMobileTourExpanded ? "rotate-180 text-[#FEC401]" : ""
+                      }`}
+                    />
+                  </button>
                 </div>
-                <ArrowRight className="w-3.5 h-3.5 text-[#02146B]" />
-              </Link>
+
+                {isMobileTourExpanded && (
+                  <div className="p-2.5 bg-[#FAF9F5] space-y-1.5 border-t border-[#E5EAE5]">
+                    <div className="text-[9.5px] font-bold uppercase tracking-wider text-[#02146B] px-1.5 py-0.5 flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
+                      <span>Curated Odisha Tour Packages:</span>
+                    </div>
+
+                    {/* 1. Odisha Tour Package by Cab */}
+                    <Link
+                      href="/odisha-tour-package-by-cab"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
+                    >
+                      <div className="flex items-center gap-2">
+                        <Palmtree className="w-3.5 h-3.5 text-[#02146B]" />
+                        <span className="font-semibold text-[11.5px]">Odisha Tour Package by Cab</span>
+                      </div>
+                      <span className="text-[9px] text-[#02146B] font-bold bg-[#02146B]/10 px-1.5 py-0.5 rounded">
+                        Golden Triangle
+                      </span>
+                    </Link>
+
+                    {/* 2. Odisha Sightseeing Tour Packages */}
+                    <Link
+                      href="/odisha-sightseeing-tour-packages"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
+                    >
+                      <div className="flex items-center gap-2">
+                        <Compass className="w-3.5 h-3.5 text-[#02146B]" />
+                        <span className="font-semibold text-[11.5px]">Odisha Sightseeing Packages</span>
+                      </div>
+                      <span className="text-[9px] text-[#0D9488] font-bold bg-[#CCFBF1] px-1.5 py-0.5 rounded">
+                        State-Wide
+                      </span>
+                    </Link>
+
+                    {/* 3. Bhubaneswar Tour Packages */}
+                    <Link
+                      href="/bhubaneswar-tour-packages"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
+                    >
+                      <div className="flex items-center gap-2">
+                        <Landmark className="w-3.5 h-3.5 text-[#02146B]" />
+                        <span className="font-semibold text-[11.5px]">Bhubaneswar Tour Packages</span>
+                      </div>
+                      <span className="text-[9px] text-[#9333EA] font-bold bg-[#F3E8FF] px-1.5 py-0.5 rounded">
+                        Temple City
+                      </span>
+                    </Link>
+
+                    {/* 4. Puri Tour Packages */}
+                    <Link
+                      href="/puri-tour-packages"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
+                    >
+                      <div className="flex items-center gap-2">
+                        <Palmtree className="w-3.5 h-3.5 text-[#02146B]" />
+                        <span className="font-semibold text-[11.5px]">Puri Tour Packages</span>
+                      </div>
+                      <span className="text-[9px] text-[#16A34A] font-bold bg-[#DCFCE7] px-1.5 py-0.5 rounded">
+                        Coast & Dham
+                      </span>
+                    </Link>
+
+                    {/* 5. Konark Tour Packages */}
+                    <Link
+                      href="/konark-tour-packages"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
+                    >
+                      <div className="flex items-center gap-2">
+                        <Sparkles className="w-3.5 h-3.5 text-[#02146B]" />
+                        <span className="font-semibold text-[11.5px]">Konark Tour Packages</span>
+                      </div>
+                      <span className="text-[9px] text-[#B45309] font-bold bg-[#FEF3C7] px-1.5 py-0.5 rounded">
+                        UNESCO
+                      </span>
+                    </Link>
+
+                    {/* 6. Jagannath Puri Tour Package */}
+                    <Link
+                      href="/jagannath-puri-tour-package"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
+                    >
+                      <div className="flex items-center gap-2">
+                        <Landmark className="w-3.5 h-3.5 text-[#02146B]" />
+                        <span className="font-semibold text-[11.5px]">Jagannath Puri Tour Package</span>
+                      </div>
+                      <span className="text-[9px] text-[#DC2626] font-bold bg-[#FEE2E2] px-1.5 py-0.5 rounded">
+                        Pilgrimage
+                      </span>
+                    </Link>
+
+                    {/* Full Custom Tour CTA */}
+                    <Link
+                      href="/book-tour"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-center gap-1.5 p-2 mt-1 rounded-xl bg-gradient-to-r from-[#02146B] to-[#000B3B] text-white text-[11px] font-bold"
+                    >
+                      <span>Custom Odisha Tour Planner</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
+                    </Link>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Standard Mobile Links */}

@@ -508,7 +508,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* ================= TIER 3: ACTIVE DISPATCH HUBS ================= */}
+        {/* ================= TIER 3: ACTIVE DISPATCH HUBS & TOUR CIRCUITS ================= */}
         <div className="py-3 sm:py-4 border-b border-white/10 text-xs text-[#F1F5F9]/75 flex flex-wrap items-center justify-center sm:justify-start gap-2">
           <span className="font-bold text-white flex items-center gap-1.5 mr-1">
             <Radio className="w-3.5 h-3.5 text-[#FEC401] animate-pulse" />
@@ -519,7 +519,7 @@ export const Footer: React.FC = () => {
             className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 hover:bg-black/70 hover:border-[#FEC401]/60 border border-white/10 text-[11px] text-white transition-all"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
-            <span>Bhubaneswar (BBI Airport &amp; Infocity)</span>
+            <span>Bhubaneswar (BBI Airport)</span>
           </Link>
           <Link
             href="/cab-service-in-puri"
@@ -540,21 +540,56 @@ export const Footer: React.FC = () => {
             className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 hover:bg-black/70 hover:border-[#FEC401]/60 border border-white/10 text-[11px] text-white transition-all"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
-            <span>Cuttack CDA &amp; Badambadi</span>
+            <span>Cuttack Twin-City</span>
           </Link>
+
+          <span className="text-white/30 hidden md:inline mx-1">|</span>
+
+          <span className="font-bold text-white flex items-center gap-1.5 mr-1">
+            <Compass className="w-3.5 h-3.5 text-[#FEC401]" />
+            <span>Tour Packages:</span>
+          </span>
           <Link
-            href="/book-tour?destination=konark"
+            href="/odisha-tour-package-by-cab"
             className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 hover:bg-black/70 hover:border-[#FEC401]/60 border border-white/10 text-[11px] text-white transition-all"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
-            <span>Konark Marine Drive</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E]" />
+            <span>Odisha Cab Tour</span>
           </Link>
           <Link
-            href="/book-tour?destination=chilika"
+            href="/odisha-sightseeing-tour-packages"
             className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 hover:bg-black/70 hover:border-[#FEC401]/60 border border-white/10 text-[11px] text-white transition-all"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
-            <span>Chilika Satapada</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E]" />
+            <span>Odisha Sightseeing</span>
+          </Link>
+          <Link
+            href="/bhubaneswar-tour-packages"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 hover:bg-black/70 hover:border-[#FEC401]/60 border border-white/10 text-[11px] text-white transition-all"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E]" />
+            <span>Bhubaneswar Tour</span>
+          </Link>
+          <Link
+            href="/puri-tour-packages"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 hover:bg-black/70 hover:border-[#FEC401]/60 border border-white/10 text-[11px] text-white transition-all"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E]" />
+            <span>Puri Tour</span>
+          </Link>
+          <Link
+            href="/konark-tour-packages"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 hover:bg-black/70 hover:border-[#FEC401]/60 border border-white/10 text-[11px] text-white transition-all"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E]" />
+            <span>Konark Sun Temple</span>
+          </Link>
+          <Link
+            href="/jagannath-puri-tour-package"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 hover:bg-black/70 hover:border-[#FEC401]/60 border border-white/10 text-[11px] text-white transition-all"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E]" />
+            <span>Jagannath Puri Pilgrimage</span>
           </Link>
         </div>
 
