@@ -14,7 +14,7 @@ export default function CabServiceInBhubaneswarPage() {
       subtitle="Punctual BBI Airport transfers, Infocity IT rides, and intercity temple highway cabs"
       tagline="Odisha's certified commercial cab service with guaranteed on-time dispatch"
       badge="Bhubaneswar City & Airport Hub"
-      heroImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=85&w=1600&auto=format&fit=crop"
+      heroImage="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=85&w=1600&auto=format&fit=crop"
       overview="Experience seamless, hassle-free cab booking across the Temple City. Whether landing at Biju Patnaik International Airport (BBI), commuting to Infocity and Patia tech parks, or heading out on an intercity pilgrimage to Puri, CABJATRA delivers 100% yellow-board commercial AC vehicles, background-cleared local drivers, and zero surge pricing."
       whyUsPoints={[
         {

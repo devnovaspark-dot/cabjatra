@@ -180,9 +180,12 @@ export const Navbar: React.FC = () => {
               {/* Luxury Booking Services Minimalist Mega-Dropdown */}
               {isServicesOpen && (
                 <div
-                  className="absolute left-1/2 -translate-x-1/2 top-full mt-2.5 w-[92vw] sm:w-[480px] max-w-[500px] rounded-3xl bg-white shadow-[0_20px_50px_rgba(0,11,59,0.18),0_0_0_1px_rgba(0,11,59,0.06)] p-3.5 sm:p-4 animate-in fade-in slide-in-from-top-1.5 duration-150 z-50 text-[#0F172A] before:absolute before:-top-3.5 before:inset-x-0 before:h-3.5 before:content-['']"
+                  className="absolute left-1/2 -translate-x-1/2 top-full mt-2.5 w-[92vw] sm:w-[480px] max-w-[500px] rounded-3xl bg-white shadow-[0_24px_50px_rgba(0,11,59,0.2),0_0_0_1px_rgba(0,11,59,0.08)] p-3.5 sm:p-4 animate-in fade-in slide-in-from-top-1.5 duration-150 z-50 text-[#0F172A] before:absolute before:-top-3.5 before:inset-x-0 before:h-3.5 before:content-['']"
                   role="menu"
                 >
+                  {/* Upward Pointer Caret Arrow */}
+                  <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-white border-t border-l border-[#E2E8F0] rotate-45 z-20 pointer-events-none shadow-[-2px_-2px_4px_rgba(0,11,59,0.04)]" />
+
                   {/* Clean Segmented Tab Switcher */}
                   <div className="flex items-center p-1 rounded-2xl bg-[#F1F5F9] border border-[#E2E8F0]">
                     <button
@@ -203,6 +206,15 @@ export const Navbar: React.FC = () => {
                         }`}
                       />
                       <span>Book a Cab</span>
+                      <span
+                        className={`text-[9px] font-black uppercase px-1.5 py-0.2 rounded-md ${
+                          servicesTab === "cab"
+                            ? "bg-[#FEC401] text-[#000B3B]"
+                            : "bg-[#E2E8F0] text-[#64748B]"
+                        }`}
+                      >
+                        Instant
+                      </span>
                     </button>
 
                     <button
@@ -223,6 +235,15 @@ export const Navbar: React.FC = () => {
                         }`}
                       />
                       <span>Book a Tour</span>
+                      <span
+                        className={`text-[9px] font-black uppercase px-1.5 py-0.2 rounded-md ${
+                          servicesTab === "tour"
+                            ? "bg-[#FEC401] text-[#000B3B]"
+                            : "bg-[#E2E8F0] text-[#64748B]"
+                        }`}
+                      >
+                        Circuits
+                      </span>
                     </button>
                   </div>
 
@@ -233,22 +254,29 @@ export const Navbar: React.FC = () => {
                       <Link
                         href="/cab-service-in-bhubaneswar"
                         onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-[#FAF9F5] border border-transparent hover:border-[#FEC401]/60 transition-all duration-150"
+                        className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                         role="menuitem"
                       >
                         <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-lg bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-colors">
+                          <div className="w-8 h-8 rounded-xl bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:scale-105">
                             <Building2 className="w-4 h-4" />
                           </div>
-                          <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
-                            Cab Service in Bhubaneswar
-                          </span>
+                          <div className="min-w-0">
+                            <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
+                              Cab Service in Bhubaneswar
+                            </span>
+                            <span className="block text-[10px] text-[#64748B] group-hover:text-[#000B3B]/80 font-medium truncate">
+                              BBI Airport Pickups &bull; Infocity IT &bull; Outstation
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-1.5 shrink-0 ml-2">
-                          <span className="text-[10px] text-[#64748B] group-hover:text-[#000B3B] font-medium bg-[#F1F5F9] group-hover:bg-[#FEC401]/20 px-2 py-0.5 rounded-md transition-colors">
-                            Airport &bull; City
+                        <div className="flex items-center gap-2 shrink-0 ml-2">
+                          <span className="text-[9.5px] text-[#16A34A] font-bold bg-[#DCFCE7] px-2 py-0.5 rounded-full border border-[#86EFAC]/50">
+                            Live 24/7
                           </span>
-                          <ChevronRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#000B3B] group-hover:translate-x-0.5 transition-transform" />
+                          <div className="w-6 h-6 rounded-lg bg-[#F1F5F9] group-hover:bg-[#000B3B] text-[#94A3B8] group-hover:text-[#FEC401] flex items-center justify-center transition-all duration-150">
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                          </div>
                         </div>
                       </Link>
 
@@ -256,22 +284,29 @@ export const Navbar: React.FC = () => {
                       <Link
                         href="/cab-service-in-puri"
                         onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-[#FAF9F5] border border-transparent hover:border-[#FEC401]/60 transition-all duration-150"
+                        className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                         role="menuitem"
                       >
                         <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-lg bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-colors">
+                          <div className="w-8 h-8 rounded-xl bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:scale-105">
                             <Landmark className="w-4 h-4" />
                           </div>
-                          <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
-                            Cab Service in Puri
-                          </span>
+                          <div className="min-w-0">
+                            <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
+                              Cab Service in Puri
+                            </span>
+                            <span className="block text-[10px] text-[#64748B] group-hover:text-[#000B3B]/80 font-medium truncate">
+                              Jagannath Temple Corridor &bull; Marine Drive
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-1.5 shrink-0 ml-2">
-                          <span className="text-[10px] text-[#64748B] group-hover:text-[#000B3B] font-medium bg-[#F1F5F9] group-hover:bg-[#FEC401]/20 px-2 py-0.5 rounded-md transition-colors">
-                            Temple &bull; Beach
+                        <div className="flex items-center gap-2 shrink-0 ml-2">
+                          <span className="text-[9.5px] text-[#02146B] font-bold bg-[#E0E7FF] px-2 py-0.5 rounded-full border border-[#C7D2FE]/60">
+                            Temple Hub
                           </span>
-                          <ChevronRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#000B3B] group-hover:translate-x-0.5 transition-transform" />
+                          <div className="w-6 h-6 rounded-lg bg-[#F1F5F9] group-hover:bg-[#000B3B] text-[#94A3B8] group-hover:text-[#FEC401] flex items-center justify-center transition-all duration-150">
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                          </div>
                         </div>
                       </Link>
 
@@ -279,22 +314,29 @@ export const Navbar: React.FC = () => {
                       <Link
                         href="/taxi-service-in-puri"
                         onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-[#FAF9F5] border border-transparent hover:border-[#FEC401]/60 transition-all duration-150"
+                        className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                         role="menuitem"
                       >
                         <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-lg bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-colors">
+                          <div className="w-8 h-8 rounded-xl bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:scale-105">
                             <Train className="w-4 h-4" />
                           </div>
-                          <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
-                            Taxi Service in Puri
-                          </span>
+                          <div className="min-w-0">
+                            <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
+                              Taxi Service in Puri
+                            </span>
+                            <span className="block text-[10px] text-[#64748B] group-hover:text-[#000B3B]/80 font-medium truncate">
+                              Puri Railway Station Pickups &bull; Sightseeing Taxis
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-1.5 shrink-0 ml-2">
-                          <span className="text-[10px] text-[#64748B] group-hover:text-[#000B3B] font-medium bg-[#F1F5F9] group-hover:bg-[#FEC401]/20 px-2 py-0.5 rounded-md transition-colors">
-                            Station Pickups
+                        <div className="flex items-center gap-2 shrink-0 ml-2">
+                          <span className="text-[9.5px] text-[#B45309] font-bold bg-[#FEF3C7] px-2 py-0.5 rounded-full border border-[#FDE68A]/60">
+                            Station Taxi
                           </span>
-                          <ChevronRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#000B3B] group-hover:translate-x-0.5 transition-transform" />
+                          <div className="w-6 h-6 rounded-lg bg-[#F1F5F9] group-hover:bg-[#000B3B] text-[#94A3B8] group-hover:text-[#FEC401] flex items-center justify-center transition-all duration-150">
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                          </div>
                         </div>
                       </Link>
 
@@ -302,39 +344,48 @@ export const Navbar: React.FC = () => {
                       <Link
                         href="/book-online-taxi-in-cuttack"
                         onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-[#FAF9F5] border border-transparent hover:border-[#FEC401]/60 transition-all duration-150"
+                        className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                         role="menuitem"
                       >
                         <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-lg bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-colors">
+                          <div className="w-8 h-8 rounded-xl bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:scale-105">
                             <MapPin className="w-4 h-4" />
                           </div>
-                          <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
-                            Book Online Taxi in Cuttack
-                          </span>
+                          <div className="min-w-0">
+                            <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
+                              Book Online Taxi in Cuttack
+                            </span>
+                            <span className="block text-[10px] text-[#64748B] group-hover:text-[#000B3B]/80 font-medium truncate">
+                              High Court &bull; SCB Medical &bull; NH-16 Express
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-1.5 shrink-0 ml-2">
-                          <span className="text-[10px] text-[#64748B] group-hover:text-[#000B3B] font-medium bg-[#F1F5F9] group-hover:bg-[#FEC401]/20 px-2 py-0.5 rounded-md transition-colors">
-                            Twin-City &bull; SCB
+                        <div className="flex items-center gap-2 shrink-0 ml-2">
+                          <span className="text-[9.5px] text-[#4338CA] font-bold bg-[#EEF2FF] px-2 py-0.5 rounded-full border border-[#E0E7FF]">
+                            Twin-City NH-16
                           </span>
-                          <ChevronRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#000B3B] group-hover:translate-x-0.5 transition-transform" />
+                          <div className="w-6 h-6 rounded-lg bg-[#F1F5F9] group-hover:bg-[#000B3B] text-[#94A3B8] group-hover:text-[#FEC401] flex items-center justify-center transition-all duration-150">
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                          </div>
                         </div>
                       </Link>
 
                       {/* Clean Outstation Fare Action Button */}
-                      <div className="pt-1.5">
+                      <div className="pt-1">
                         <Link
                           href="/book-cab"
                           onClick={() => setIsServicesOpen(false)}
-                          className="w-full py-2.5 px-3.5 rounded-xl bg-gradient-to-r from-[#000B3B] to-[#02146B] text-white flex items-center justify-between text-xs font-bold hover:brightness-110 transition-all shadow-sm group"
+                          className="w-full py-2.5 px-3.5 rounded-2xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white flex items-center justify-between text-xs font-bold hover:brightness-105 transition-all shadow-md group border border-white/10"
                         >
                           <span className="flex items-center gap-2">
-                            <Car className="w-3.5 h-3.5 text-[#FEC401]" />
-                            <span>Calculate Fare for Any Route</span>
+                            <div className="w-5 h-5 rounded-full bg-[#FEC401]/20 flex items-center justify-center">
+                              <Car className="w-3 h-3 text-[#FEC401]" />
+                            </div>
+                            <span>Need custom outstation or one-way drop?</span>
                           </span>
-                          <span className="inline-flex items-center gap-1 text-[#FEC401] text-[11px] group-hover:translate-x-0.5 transition-transform">
-                            <span>Instant Quote</span>
-                            <ArrowRight className="w-3 h-3 text-[#FEC401]" />
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-[#FEC401] text-[#000B3B] text-[11px] font-black group-hover:scale-105 transition-all shadow-sm">
+                            <span>Book Now</span>
+                            <ArrowRight className="w-3 h-3 text-[#000B3B] group-hover:translate-x-0.5 transition-transform" />
                           </span>
                         </Link>
                       </div>
@@ -348,101 +399,131 @@ export const Navbar: React.FC = () => {
                       <Link
                         href="/odisha-tour-package-by-cab"
                         onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-[#FAF9F5] border border-transparent hover:border-[#FEC401]/60 transition-all duration-150"
+                        className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                       >
                         <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-lg bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-colors">
+                          <div className="w-8 h-8 rounded-xl bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:scale-105">
                             <Palmtree className="w-4 h-4" />
                           </div>
-                          <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
-                            Odisha Tour Package by Cab
-                          </span>
+                          <div className="min-w-0">
+                            <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
+                              Odisha Tour Package by Cab
+                            </span>
+                            <span className="block text-[10px] text-[#64748B] group-hover:text-[#000B3B]/80 font-medium truncate">
+                              Bhubaneswar &bull; Puri &bull; Konark &bull; Chilika
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-1.5 shrink-0 ml-2">
-                          <span className="text-[10px] text-[#64748B] group-hover:text-[#000B3B] font-medium bg-[#F1F5F9] group-hover:bg-[#FEC401]/20 px-2 py-0.5 rounded-md transition-colors">
+                        <div className="flex items-center gap-2 shrink-0 ml-2">
+                          <span className="text-[9.5px] text-[#02146B] font-bold bg-[#E0E7FF] px-2 py-0.5 rounded-full border border-[#C7D2FE]/60">
                             Complete Circuit
                           </span>
-                          <ChevronRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#000B3B] group-hover:translate-x-0.5 transition-transform" />
+                          <div className="w-6 h-6 rounded-lg bg-[#F1F5F9] group-hover:bg-[#000B3B] text-[#94A3B8] group-hover:text-[#FEC401] flex items-center justify-center transition-all duration-150">
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                          </div>
                         </div>
                       </Link>
 
                       <Link
                         href="/book-tour?destination=konark"
                         onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-[#FAF9F5] border border-transparent hover:border-[#FEC401]/60 transition-all duration-150"
+                        className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                       >
                         <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-lg bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-colors">
+                          <div className="w-8 h-8 rounded-xl bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:scale-105">
                             <Sparkles className="w-4 h-4" />
                           </div>
-                          <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
-                            Konark Sun Temple &amp; Beach
-                          </span>
+                          <div className="min-w-0">
+                            <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
+                              Konark Sun Temple &amp; Beach
+                            </span>
+                            <span className="block text-[10px] text-[#64748B] group-hover:text-[#000B3B]/80 font-medium truncate">
+                              UNESCO Sun Temple &bull; Marine Drive
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-1.5 shrink-0 ml-2">
-                          <span className="text-[10px] text-[#64748B] group-hover:text-[#000B3B] font-medium bg-[#F1F5F9] group-hover:bg-[#FEC401]/20 px-2 py-0.5 rounded-md transition-colors">
+                        <div className="flex items-center gap-2 shrink-0 ml-2">
+                          <span className="text-[9.5px] text-[#B45309] font-bold bg-[#FEF3C7] px-2 py-0.5 rounded-full border border-[#FDE68A]/60">
                             Marine Drive
                           </span>
-                          <ChevronRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#000B3B] group-hover:translate-x-0.5 transition-transform" />
+                          <div className="w-6 h-6 rounded-lg bg-[#F1F5F9] group-hover:bg-[#000B3B] text-[#94A3B8] group-hover:text-[#FEC401] flex items-center justify-center transition-all duration-150">
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                          </div>
                         </div>
                       </Link>
 
                       <Link
                         href="/book-tour?destination=chilika"
                         onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-[#FAF9F5] border border-transparent hover:border-[#FEC401]/60 transition-all duration-150"
+                        className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                       >
                         <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-lg bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-colors">
+                          <div className="w-8 h-8 rounded-xl bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:scale-105">
                             <Palmtree className="w-4 h-4" />
                           </div>
-                          <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
-                            Chilika Lake &amp; Dolphin Safari
-                          </span>
+                          <div className="min-w-0">
+                            <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
+                              Chilika Lake &amp; Dolphin Safari
+                            </span>
+                            <span className="block text-[10px] text-[#64748B] group-hover:text-[#000B3B]/80 font-medium truncate">
+                              Satapada &bull; Irrawaddy Dolphins &bull; Lagoon Cruise
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-1.5 shrink-0 ml-2">
-                          <span className="text-[10px] text-[#64748B] group-hover:text-[#000B3B] font-medium bg-[#F1F5F9] group-hover:bg-[#FEC401]/20 px-2 py-0.5 rounded-md transition-colors">
-                            Lagoon Cruise
+                        <div className="flex items-center gap-2 shrink-0 ml-2">
+                          <span className="text-[9.5px] text-[#0D9488] font-bold bg-[#CCFBF1] px-2 py-0.5 rounded-full border border-[#99F6E4]/60">
+                            Lagoon Safari
                           </span>
-                          <ChevronRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#000B3B] group-hover:translate-x-0.5 transition-transform" />
+                          <div className="w-6 h-6 rounded-lg bg-[#F1F5F9] group-hover:bg-[#000B3B] text-[#94A3B8] group-hover:text-[#FEC401] flex items-center justify-center transition-all duration-150">
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                          </div>
                         </div>
                       </Link>
 
                       <Link
                         href="/book-tour?destination=temple"
                         onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-[#FAF9F5] border border-transparent hover:border-[#FEC401]/60 transition-all duration-150"
+                        className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                       >
                         <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-lg bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-colors">
+                          <div className="w-8 h-8 rounded-xl bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:scale-105">
                             <Landmark className="w-4 h-4" />
                           </div>
-                          <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
-                            Bhubaneswar Temple Circuit
-                          </span>
+                          <div className="min-w-0">
+                            <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
+                              Bhubaneswar Temple Circuit
+                            </span>
+                            <span className="block text-[10px] text-[#64748B] group-hover:text-[#000B3B]/80 font-medium truncate">
+                              Lingaraj &bull; Mukteswar &bull; Rajarani &bull; Dhauli
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-1.5 shrink-0 ml-2">
-                          <span className="text-[10px] text-[#64748B] group-hover:text-[#000B3B] font-medium bg-[#F1F5F9] group-hover:bg-[#FEC401]/20 px-2 py-0.5 rounded-md transition-colors">
+                        <div className="flex items-center gap-2 shrink-0 ml-2">
+                          <span className="text-[9.5px] text-[#9333EA] font-bold bg-[#F3E8FF] px-2 py-0.5 rounded-full border border-[#E9D5FF]/60">
                             Heritage Trail
                           </span>
-                          <ChevronRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#000B3B] group-hover:translate-x-0.5 transition-transform" />
+                          <div className="w-6 h-6 rounded-lg bg-[#F1F5F9] group-hover:bg-[#000B3B] text-[#94A3B8] group-hover:text-[#FEC401] flex items-center justify-center transition-all duration-150">
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                          </div>
                         </div>
                       </Link>
 
                       {/* Clean Tour Action Button */}
-                      <div className="pt-1.5">
+                      <div className="pt-1">
                         <Link
                           href="/odisha-tour-package-by-cab"
                           onClick={() => setIsServicesOpen(false)}
-                          className="w-full py-2.5 px-3.5 rounded-xl bg-gradient-to-r from-[#000B3B] to-[#02146B] text-white flex items-center justify-between text-xs font-bold hover:brightness-110 transition-all shadow-sm group"
+                          className="w-full py-2.5 px-3.5 rounded-2xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white flex items-center justify-between text-xs font-bold hover:brightness-105 transition-all shadow-md group border border-white/10"
                         >
                           <span className="flex items-center gap-2">
-                            <Palmtree className="w-3.5 h-3.5 text-[#FEC401]" />
+                            <div className="w-5 h-5 rounded-full bg-[#FEC401]/20 flex items-center justify-center">
+                              <Palmtree className="w-3 h-3 text-[#FEC401]" />
+                            </div>
                             <span>Explore All Odisha Tour Packages</span>
                           </span>
-                          <span className="inline-flex items-center gap-1 text-[#FEC401] text-[11px] group-hover:translate-x-0.5 transition-transform">
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-[#FEC401] text-[#000B3B] text-[11px] font-black group-hover:scale-105 transition-all shadow-sm">
                             <span>View All</span>
-                            <ArrowRight className="w-3 h-3 text-[#FEC401]" />
+                            <ArrowRight className="w-3 h-3 text-[#000B3B] group-hover:translate-x-0.5 transition-transform" />
                           </span>
                         </Link>
                       </div>
@@ -450,7 +531,7 @@ export const Navbar: React.FC = () => {
                   )}
 
                   {/* Dropdown Trust Footer */}
-                  <div className="mt-3 pt-2.5 border-t border-[#F1F5F9] flex items-center justify-between text-[11px] text-[#64748B] px-1">
+                  <div className="mt-3 pt-2.5 border-t border-[#F1F5F9] flex items-center justify-between text-[10.5px] text-[#64748B] px-1">
                     <span className="flex items-center gap-1.5">
                       <ShieldCheck className="w-3.5 h-3.5 text-[#16A34A]" />
                       <span>Commercial Fleet &bull; Verified Drivers</span>

@@ -14,7 +14,7 @@ export default function BookOnlineTaxiInCuttackPage() {
       subtitle="High Court legal appointments, SCB Medical transit, and Twin-City NH-16 express rides"
       tagline="Punctual corporate mobility, healthcare transfers, and legal transit connecting Cuttack & Bhubaneswar"
       badge="Cuttack Silver City & Twin-City NH-16"
-      heroImage="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=85&w=1600&auto=format&fit=crop"
+      heroImage="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=85&w=1600&auto=format&fit=crop"
       overview="Experience reliable online taxi booking across Cuttack Silver City. CABJATRA offers dedicated point-to-point and hourly cabs connecting CDA Sectors, Badambadi Bus Stand, Cuttack Railway Station, Orissa High Court, Ravenshaw University, and SCB Medical College. Avoid generic ride-hailing drivers who cancel at the last minute — our dispatch desk ensures your car arrives exactly when you need it."
       whyUsPoints={[
         {

@@ -14,7 +14,7 @@ export default function AirportTransfersPage() {
       subtitle="Punctual, stress-free airport connections with flight tracking & terminal meet"
       tagline="Never miss a flight or wait anxiously at arrivals"
       badge="BBI Airport Special"
-      heroImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200&auto=format&fit=crop"
+      heroImage="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=85&w=1600&auto=format&fit=crop"
       overview="Biju Patnaik International Airport (BBI) handles hundreds of daily travelers visiting Odisha's capital, IT hubs, and sacred coastal cities. CABJATRA provides seamless pre-booked airport transfers with flight arrival monitoring, complimentary waiting buffers for baggage claim, and zero midnight surge multipliers."
       whyUsPoints={[
         {

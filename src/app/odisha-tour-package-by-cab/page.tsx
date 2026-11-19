@@ -243,82 +243,119 @@ export default function OdishaTourPackageByCabPage() {
   return (
     <div className="bg-[#FAF9F5] min-h-screen text-[#0F172A] font-sans">
       {/* ================= HERO SECTION ================= */}
-      <section className="relative bg-gradient-to-b from-[#000B3B] via-[#001162] to-[#000B3B] text-white pt-28 sm:pt-36 pb-16 lg:pt-40 lg:pb-24 overflow-hidden border-b border-black/20">
-        <div className="absolute inset-0 z-0 opacity-20 mix-blend-luminosity pointer-events-none">
-          <Image
-            src="https://images.unsplash.com/photo-1626014303757-6467368e7b16?q=85&w=1600&auto=format&fit=crop"
-            alt="Odisha Tour Package by Cab"
-            fill
-            priority
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B] via-[#000B3B]/80 to-[#000B3B]/90" />
-        </div>
+      <section className="relative bg-gradient-to-b from-[#000B3B] via-[#001162] to-[#000B3B] text-white pt-28 sm:pt-36 pb-16 lg:pt-36 lg:pb-20 overflow-hidden border-b border-black/20">
+        {/* Ambient Lighting Sheens */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#FEC401]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#02146B]/30 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[10.5px] font-bold text-[#FEC401] shadow-soft">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Private Sightseeing &bull; 100% Commercial Yellow-Board Fleet</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left Column: Heading, Value Prop & Actions (7 Cols) */}
+            <div className="lg:col-span-7 space-y-4 sm:space-y-5 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[10.5px] font-bold text-[#FEC401] shadow-soft">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Private Sightseeing &bull; 100% Commercial Yellow-Board Fleet</span>
+              </div>
+
+              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-bold font-display tracking-tight text-[#FAF9F5] leading-tight">
+                Odisha Tour Package by Cab –{" "}
+                <span className="text-[#FEC401] italic font-normal">Explore Odisha Your Way</span>
+              </h1>
+
+              <p className="text-sm sm:text-base text-[#F1F5F9]/90 leading-relaxed font-normal pt-1 max-w-2xl mx-auto lg:mx-0">
+                Explore the beauty, culture, temples, beaches and heritage of Odisha with an Odisha Tour Package offered by Cab from Cabjatra. Travel at your pace with a private cab, experienced driver and flexible sightseeing options covering Bhubaneswar, Puri, Konark, Chilika and popular destinations.
+              </p>
+
+              <p className="text-xs sm:text-sm text-[#F1F5F9]/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                Whether you are planning a family vacation, a temple visit, a weekend getaway or a multi-day Odisha road trip, enjoy a hassle-free journey with travel itineraries designed around your preferences.
+              </p>
+
+              {/* CTAs */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2 sm:pt-4">
+                <Link
+                  href="/book-tour"
+                  className="px-6 py-3.5 rounded-full bg-gradient-to-b from-[#FEC401] to-[#E5AD00] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 text-[#001162] font-bold text-xs inline-flex items-center gap-2 active:translate-y-0.5 transition-all"
+                >
+                  <Palmtree className="w-4 h-4 text-[#001162]" />
+                  <span>Explore Odisha Tour Packages</span>
+                  <ArrowRight className="w-4 h-4 text-[#001162]" />
+                </Link>
+
+                <Link
+                  href="/book-cab"
+                  className="px-5 py-3.5 rounded-full bg-[#02146B] hover:bg-[#0A228C] text-white font-bold text-xs inline-flex items-center gap-2 border border-white/20 transition-all shadow-skeuo-button"
+                >
+                  <Car className="w-4 h-4 text-[#FEC401]" />
+                  <span>Book Your Cab Tour</span>
+                </Link>
+
+                <a
+                  href={COMPANY_CONFIG.contact.whatsAppLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/15 backdrop-blur-md text-white font-semibold text-xs inline-flex items-center gap-2 border border-white/20 transition shadow-soft"
+                >
+                  <MessageSquare className="w-4 h-4 text-[#FEC401]" />
+                  <span>Enquire via WhatsApp</span>
+                </a>
+              </div>
+
+              {/* Trust Assurances */}
+              <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-[11px] text-[#F1F5F9]/80 border-t border-white/10">
+                <span className="flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
+                  100% Yellow-Board Commercial Fleet
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#FEC401]" />
+                  10% Advance Deposit Model
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Users className="w-3.5 h-3.5 text-[#FEC401]" />
+                  Police-Verified Local Chauffeurs
+                </span>
+              </div>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-display tracking-tight text-[#FAF9F5] leading-tight">
-              Odisha Tour Package by Cab –{" "}
-              <span className="text-[#FEC401] italic font-normal">Explore Odisha Your Way</span>
-            </h1>
+            {/* Right Column: Prominent Visual Hero Image Card (5 Cols) */}
+            <div className="lg:col-span-5 relative mt-4 lg:mt-0">
+              <div className="relative rounded-3xl overflow-hidden border-2 border-white/25 shadow-[0_20px_50px_rgba(0,0,0,0.6)] group bg-gradient-to-br from-[#02146B] to-[#000B3B]">
+                <div className="relative h-64 sm:h-80 lg:h-96 w-full overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1775050416787-fe3179f0679e?q=85&w=1600&auto=format&fit=crop"
+                    alt="Odisha Tour Package by Cab - Puri Konark Marine Drive"
+                    fill
+                    priority
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B] via-transparent to-black/30 pointer-events-none" />
 
-            <p className="text-sm sm:text-base text-[#F1F5F9]/90 leading-relaxed font-normal pt-1">
-              Explore the beauty, culture, temples, beaches and heritage of Odisha with an Odisha Tour Package offered by Cab from Cabjatra. Travel at your pace with a private cab, experienced driver and flexible sightseeing options covering Bhubaneswar, Puri, Konark, Chilika and popular destinations.
-            </p>
+                  {/* Floating Glass Top Badge */}
+                  <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-[#FEC401]/50 text-[10.5px] font-bold text-[#FEC401] shadow-lg flex items-center gap-1.5">
+                    <Sparkles className="w-3 h-3 text-[#FEC401]" />
+                    <span>Golden Triangle &bull; 6 Destinations</span>
+                  </div>
 
-            <p className="text-xs sm:text-sm text-[#F1F5F9]/80 leading-relaxed">
-              Whether you are planning a family vacation, a temple visit, a weekend getaway or a multi-day Odisha road trip, enjoy a hassle-free journey with travel itineraries designed around your preferences.
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-4">
-              <Link
-                href="/book-tour"
-                className="px-6 py-3.5 rounded-full bg-gradient-to-b from-[#FEC401] to-[#E5AD00] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 text-[#001162] font-bold text-xs inline-flex items-center gap-2 active:translate-y-0.5 transition-all"
-              >
-                <Palmtree className="w-4 h-4 text-[#001162]" />
-                <span>Explore Odisha Tour Packages</span>
-                <ArrowRight className="w-4 h-4 text-[#001162]" />
-              </Link>
-
-              <Link
-                href="/book-tour"
-                className="px-6 py-3.5 rounded-full bg-[#02146B] hover:bg-[#0A228C] text-white font-bold text-xs inline-flex items-center gap-2 border border-white/20 transition-all shadow-skeuo-button"
-              >
-                <Car className="w-4 h-4 text-[#FEC401]" />
-                <span>Book Your Cab Tour</span>
-              </Link>
-
-              <a
-                href={COMPANY_CONFIG.contact.whatsAppLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/15 backdrop-blur-md text-white font-semibold text-xs inline-flex items-center gap-2 border border-white/20 transition"
-              >
-                <MessageSquare className="w-4 h-4 text-[#FEC401]" />
-                <span>Enquire via WhatsApp</span>
-              </a>
-            </div>
-
-            {/* Trust Assurances */}
-            <div className="pt-4 flex flex-wrap items-center gap-4 text-[11px] text-[#F1F5F9]/80 border-t border-white/10">
-              <span className="flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
-                100% Yellow-Board Commercial Fleet
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#FEC401]" />
-                10% Advance Deposit Model
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Users className="w-3.5 h-3.5 text-[#FEC401]" />
-                Police-Verified Local Chauffeurs
-              </span>
+                  {/* Floating Glass Bottom Info Bar */}
+                  <div className="absolute bottom-3.5 inset-x-3.5 p-3.5 rounded-2xl bg-[#000B3B]/85 backdrop-blur-xl border border-white/20 text-white flex items-center justify-between shadow-2xl">
+                    <div className="space-y-0.5">
+                      <span className="block text-[10px] font-bold text-[#FEC401] uppercase tracking-wider">
+                        Tailored Road Trips &bull; AC Fleet
+                      </span>
+                      <span className="block text-xs font-bold text-white">
+                        Sedan &bull; SUV &bull; Tempo Traveller
+                      </span>
+                    </div>
+                    <Link
+                      href="/book-tour"
+                      className="px-3 py-1.5 rounded-xl bg-gradient-to-b from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#001162] text-xs font-bold shrink-0 inline-flex items-center gap-1 transition-all shadow-sm"
+                    >
+                      <span>Plan Tour</span>
+                      <ArrowRight className="w-3 h-3 text-[#001162]" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

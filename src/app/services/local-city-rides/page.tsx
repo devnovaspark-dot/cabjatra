@@ -14,7 +14,7 @@ export default function LocalCityRidesPage() {
       subtitle="Dependable point-to-point urban transit without last-minute app cancellations"
       tagline="Guaranteed arrival when punctuality matters most"
       badge="Urban Mobility"
-      heroImage="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=1200&auto=format&fit=crop"
+      heroImage="https://images.unsplash.com/photo-1563720223185-11003d516935?q=85&w=1600&auto=format&fit=crop"
       overview="Tired of hailing app cabs that accept your ride only to cancel 10 minutes later? CABJATRA brings scheduled certainty back to urban travel. Pre-book your early morning railway connections, medical appointments at AIIMS or Apollo, or evening family visits with a verified driver arriving at your doorstep on time."
       whyUsPoints={[
         {
