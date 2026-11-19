@@ -324,74 +324,87 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Popular Highway Corridors (3 Cols) */}
+          {/* Column 3: Dedicated City Cab Services & Popular Routes (3 Cols) */}
           <div className="lg:col-span-3 space-y-3.5">
             <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#FEC401] flex items-center gap-1.5 pb-1 border-b border-white/10">
               <Navigation className="w-3.5 h-3.5 text-[#FEC401]" />
-              <span>Popular Routes</span>
+              <span>City Cab Services &amp; Routes</span>
             </h4>
 
-            <ul className="space-y-2 text-xs text-[#F1F5F9]/85">
+            <ul className="space-y-1.5 text-xs text-[#F1F5F9]/85">
+              <li>
+                <Link
+                  href="/cab-service-in-bhubaneswar"
+                  className="p-1.5 rounded-xl bg-white/5 hover:bg-white/10 hover:border-[#FEC401]/50 border border-white/10 block group transition-all"
+                >
+                  <div className="flex items-center justify-between text-white group-hover:text-[#FEC401] transition-colors font-semibold">
+                    <span>Cab Service in Bhubaneswar</span>
+                    <ArrowRight className="w-3 h-3 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <div className="text-[10px] text-[#F1F5F9]/70 mt-0.5">
+                    <span>BBI Airport, Infocity &amp; Outstation</span>
+                  </div>
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/cab-service-in-puri"
+                  className="p-1.5 rounded-xl bg-white/5 hover:bg-white/10 hover:border-[#FEC401]/50 border border-white/10 block group transition-all"
+                >
+                  <div className="flex items-center justify-between text-white group-hover:text-[#FEC401] transition-colors font-semibold">
+                    <span>Cab Service in Puri</span>
+                    <ArrowRight className="w-3 h-3 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <div className="text-[10px] text-[#F1F5F9]/70 mt-0.5">
+                    <span>Jagannath Temple &amp; Marine Drive</span>
+                  </div>
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/taxi-service-in-puri"
+                  className="p-1.5 rounded-xl bg-white/5 hover:bg-white/10 hover:border-[#FEC401]/50 border border-white/10 block group transition-all"
+                >
+                  <div className="flex items-center justify-between text-white group-hover:text-[#FEC401] transition-colors font-semibold">
+                    <span>Taxi Service in Puri</span>
+                    <ArrowRight className="w-3 h-3 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <div className="text-[10px] text-[#F1F5F9]/70 mt-0.5">
+                    <span>Railway Station &amp; Sightseeing</span>
+                  </div>
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/book-online-taxi-in-cuttack"
+                  className="p-1.5 rounded-xl bg-white/5 hover:bg-white/10 hover:border-[#FEC401]/50 border border-white/10 block group transition-all"
+                >
+                  <div className="flex items-center justify-between text-white group-hover:text-[#FEC401] transition-colors font-semibold">
+                    <span>Book Online Taxi in Cuttack</span>
+                    <ArrowRight className="w-3 h-3 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <div className="text-[10px] text-[#F1F5F9]/70 mt-0.5">
+                    <span>High Court, SCB Medical &amp; NH-16</span>
+                  </div>
+                </Link>
+              </li>
+
               <li>
                 <Link
                   href="/book-cab?service=outstation&to=Puri%20Golden%20Beach"
-                  className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 block group transition-all"
+                  className="p-1.5 rounded-xl bg-white/5 hover:bg-white/10 hover:border-[#FEC401]/50 border border-white/10 block group transition-all"
                 >
                   <div className="flex items-center justify-between text-white group-hover:text-[#FEC401] transition-colors font-semibold">
                     <span>Bhubaneswar ⇄ Puri Beach</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3 h-3 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
                   </div>
                   <div className="text-[10px] text-[#F1F5F9]/70 mt-0.5 flex items-center gap-2">
                     <span>60 km • 1 hr 20 min</span>
                     <span>•</span>
                     <span className="text-[#FEC401]">NH-316</span>
-                  </div>
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/services/airport-transfers"
-                  className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 block group transition-all"
-                >
-                  <div className="flex items-center justify-between text-white group-hover:text-[#FEC401] transition-colors font-semibold">
-                    <span>BBI Airport Radar Transfers</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
-                  </div>
-                  <div className="text-[10px] text-[#F1F5F9]/70 mt-0.5 flex items-center gap-2">
-                    <span>Citywide 24/7</span>
-                    <span>•</span>
-                    <span className="text-[#FEC401]">Zero Waiting Fees</span>
-                  </div>
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/book-tour?destination=konark"
-                  className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 block group transition-all"
-                >
-                  <div className="flex items-center justify-between text-white group-hover:text-[#FEC401] transition-colors font-semibold">
-                    <span>Konark Sun Temple &amp; Marine Drive</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
-                  </div>
-                  <div className="text-[10px] text-[#F1F5F9]/70 mt-0.5">
-                    <span>65 km • Coastal Scenic Corridor</span>
-                  </div>
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/book-tour?destination=chilika"
-                  className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 block group transition-all"
-                >
-                  <div className="flex items-center justify-between text-white group-hover:text-[#FEC401] transition-colors font-semibold">
-                    <span>Chilika Lake &amp; Dolphin Safari</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
-                  </div>
-                  <div className="text-[10px] text-[#F1F5F9]/70 mt-0.5">
-                    <span>Satapada Lagoon • OTDC Boat Point</span>
                   </div>
                 </Link>
               </li>
@@ -486,26 +499,48 @@ export const Footer: React.FC = () => {
             <Radio className="w-3.5 h-3.5 text-[#FEC401] animate-pulse" />
             <span>Active Dispatch Hubs:</span>
           </span>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
+          <Link
+            href="/cab-service-in-bhubaneswar"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 hover:bg-black/70 hover:border-[#FEC401]/60 border border-white/10 text-[11px] text-white transition-all"
+          >
             <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
-            Bhubaneswar (BBI Airport &amp; Infocity)
-          </span>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
+            <span>Bhubaneswar (BBI Airport &amp; Infocity)</span>
+          </Link>
+          <Link
+            href="/cab-service-in-puri"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 hover:bg-black/70 hover:border-[#FEC401]/60 border border-white/10 text-[11px] text-white transition-all"
+          >
             <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
-            Puri Jagannath Dham
-          </span>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
+            <span>Puri Jagannath Dham</span>
+          </Link>
+          <Link
+            href="/taxi-service-in-puri"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 hover:bg-black/70 hover:border-[#FEC401]/60 border border-white/10 text-[11px] text-white transition-all"
+          >
             <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
-            Cuttack CDA &amp; Badambadi
-          </span>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
+            <span>Puri Railway Station</span>
+          </Link>
+          <Link
+            href="/book-online-taxi-in-cuttack"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 hover:bg-black/70 hover:border-[#FEC401]/60 border border-white/10 text-[11px] text-white transition-all"
+          >
             <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
-            Konark Marine Drive
-          </span>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 text-[11px] text-white">
+            <span>Cuttack CDA &amp; Badambadi</span>
+          </Link>
+          <Link
+            href="/book-tour?destination=konark"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 hover:bg-black/70 hover:border-[#FEC401]/60 border border-white/10 text-[11px] text-white transition-all"
+          >
             <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
-            Chilika Satapada
-          </span>
+            <span>Konark Marine Drive</span>
+          </Link>
+          <Link
+            href="/book-tour?destination=chilika"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 hover:bg-black/70 hover:border-[#FEC401]/60 border border-white/10 text-[11px] text-white transition-all"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
+            <span>Chilika Satapada</span>
+          </Link>
         </div>
 
         {/* ================= TIER 4: CORPORATE LEGAL BAR (FBM REQUIREMENT 5) ================= */}
