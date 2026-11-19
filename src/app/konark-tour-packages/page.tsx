@@ -28,7 +28,7 @@ export default function KonarkTourPackagesPage() {
       title: "Puri-Konark Marine Drive Highway",
       desc: "One of India's most scenic coastal expressways. Smooth 35-km coastal road with whispering ocean breeze, casuarina canopy, and tender coconut stalls.",
       tag: "Scenic Ocean Expressway",
-      image: "https://images.unsplash.com/photo-1775050416787-fe3179f0679e?q=85&w=900&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=85&w=900&auto=format&fit=crop",
       keyAttractions: ["Casuarina Canopy Highway", "Ocean Vista Lookouts", "Coastal Dhaba Stops", "Sunset Photography"],
     },
     {

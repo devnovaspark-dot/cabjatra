@@ -7,7 +7,7 @@ export default function BhubaneswarTourPackagesPage() {
       title: "Lingaraj Temple & Bindusagar Sacred Lake",
       desc: "The monumental 11th-century shrine dedicated to Lord Harihara, showcasing quintessential Kalinga stone architecture, intricate carvings, and the sacred Bindusagar lake.",
       tag: "11th-Century Landmark",
-      image: "https://images.unsplash.com/photo-1626014303757-6467368e7b16?q=85&w=900&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?q=85&w=900&auto=format&fit=crop",
       keyAttractions: ["Lingaraj Main Temple", "Bindusagar Lake", "Ananta Vasudeva", "Old Town Heritage Lanes"],
     },
     {
@@ -195,7 +195,7 @@ export default function BhubaneswarTourPackagesPage() {
       subtitle="Explore the Temple City of India with private commercial AC cabs, experienced chauffeurs, and flexible temple sightseeing"
       tagline="Curated Temple City circuits covering Lingaraj, Mukteswar, Dhauli Peace Pagoda & Khandagiri Caves"
       badge="Ekamra Kshetra & Temple City Heritage Trail"
-      heroImage="https://images.unsplash.com/photo-1626014303757-6467368e7b16?q=85&w=1600&auto=format&fit=crop"
+      heroImage="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=85&w=1600&auto=format&fit=crop"
       overview="Discover Bhubaneswar, the ancient capital of Kalinga and the Temple City of India. Home to over 500 ancient sandstone shrines, Emperor Ashoka's rock edicts at Dhauli, and the rock-hewn Jain monastic caves of Udayagiri, Bhubaneswar offers an extraordinary journey into India's spiritual and architectural heritage. Travel effortlessly with CABJATRA's private commercial AC cabs, verified local chauffeurs, and flexible itineraries tailored to your family's pace."
       durationBadge="Half Day to Full Day • 100% Flexible"
       startingFromNote="From ₹1,199 • 10% Advance Deposit"

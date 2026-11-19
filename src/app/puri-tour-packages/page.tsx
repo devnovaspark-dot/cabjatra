@@ -35,14 +35,14 @@ export default function PuriTourPackagesPage() {
       title: "Puri – Konark Marine Drive Highway",
       desc: "A breathtaking 35 km coastal expressway bordered by the Bay of Bengal on one side and whispering casuarina pine forests on the other.",
       tag: "Scenic Coastal Highway",
-      image: "https://images.unsplash.com/photo-1775050416787-fe3179f0679e?q=85&w=900&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=85&w=900&auto=format&fit=crop",
       keyAttractions: ["Ramachandi River Confluence", "Casuarina Pine Groves", "Tender Coconut Shacks", "Chandrabhaga Beach"],
     },
     {
       title: "Lokanath Temple & Alarnath Shrine",
       desc: "Revered Shiva shrine at Lokanath where the Shivalinga remains submerged under natural spring water, and Brahmagiri Alarnath temple visited during Anavasara.",
       tag: "Ancient Spiritual Sites",
-      image: "https://images.unsplash.com/photo-1626014303757-6467368e7b16?q=85&w=900&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?q=85&w=900&auto=format&fit=crop",
       keyAttractions: ["Submerged Shivalinga", "Sacred Spring", "Brahmagiri Alarnath Temple", "Kheer Bhog Offering"],
     },
   ];

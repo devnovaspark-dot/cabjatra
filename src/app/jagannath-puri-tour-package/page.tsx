@@ -28,7 +28,7 @@ export default function JagannathPuriTourPackagePage() {
       title: "Gundicha Temple & Garden Palace",
       desc: "The sacred garden retreat where Lord Jagannath, Balabhadra, and Subhadra reside for nine days during the historic annual Ratha Yatra festival.",
       tag: "Ratha Yatra Garden Palace",
-      image: "https://images.unsplash.com/photo-1626014303757-6467368e7b16?q=85&w=900&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?q=85&w=900&auto=format&fit=crop",
       keyAttractions: ["Gundicha Temple Sanctum", "Lush Garden Mandapa", "Chariot Parking Point", "Serene Courtyard"],
     },
     {

@@ -409,7 +409,7 @@ export const Navbar: React.FC = () => {
                         <div className="flex items-center gap-2.5 min-w-0">
                           <div className="relative w-9 h-9 rounded-xl overflow-hidden shrink-0 border border-[#E2E8F0] shadow-xs group-hover:scale-105 transition-transform">
                             <Image
-                              src="https://images.unsplash.com/photo-1775050416787-fe3179f0679e?q=80&w=200&auto=format&fit=crop"
+                              src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=200&auto=format&fit=crop"
                               alt="Odisha Tour Package by Cab"
                               fill
                               className="object-cover"
@@ -477,7 +477,7 @@ export const Navbar: React.FC = () => {
                         <div className="flex items-center gap-2.5 min-w-0">
                           <div className="relative w-9 h-9 rounded-xl overflow-hidden shrink-0 border border-[#E2E8F0] shadow-xs group-hover:scale-105 transition-transform">
                             <Image
-                              src="https://images.unsplash.com/photo-1626014303757-6467368e7b16?q=80&w=200&auto=format&fit=crop"
+                              src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=200&auto=format&fit=crop"
                               alt="Bhubaneswar Tour Packages"
                               fill
                               className="object-cover"

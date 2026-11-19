@@ -92,47 +92,8 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
   faqs,
   bookingTourSlug,
 }) => {
-  // Hero vehicle selector tab state
-  const [selectedHeroVehicleId, setSelectedHeroVehicleId] = useState<string>("sedan");
-
   // FAQ accordion state
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-
-  const heroVehicles = [
-    {
-      id: "sedan",
-      name: "Prime Sedan",
-      models: "Swift Dzire, Toyota Etios, Honda Amaze",
-      passengers: 4,
-      luggage: 3,
-      tag: "Couples & Small Families",
-      image: "/images/fleet/sedan.webp",
-      desc: "Full AC comfort, extra legroom & trunk space for 3 large bags.",
-    },
-    {
-      id: "large-car",
-      name: "Innova Crysta / SUV",
-      models: "Toyota Innova Crysta, Maruti Ertiga",
-      passengers: 7,
-      luggage: 4,
-      tag: "Family & Senior Comfort",
-      image: "/images/fleet/large-car.webp",
-      desc: "Dual-zone roof AC, captain chairs & effortless ingress for senior parents.",
-    },
-    {
-      id: "mini-bus",
-      name: "Tempo Traveller / Urbania",
-      models: "Force Urbania, 12–17 Seater AC Luxury",
-      passengers: 17,
-      luggage: 10,
-      tag: "Group Pilgrimage",
-      image: "/images/fleet/mini-bus.webp",
-      desc: "High roof aisle, push-back reclining seats & panoramic highway windows.",
-    },
-  ];
-
-  const currentHeroVehicle =
-    heroVehicles.find((v) => v.id === selectedHeroVehicleId) || heroVehicles[0];
 
   return (
     <div className="bg-[#FAF9F5] min-h-screen text-[#0F172A] font-sans selection:bg-[#FEC401]/30">
@@ -145,7 +106,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#02146B]/40 rounded-full blur-3xl pointer-events-none" />
 
         {/* Scenic Backdrop Texture */}
-        <div className="absolute inset-0 z-0 opacity-20 mix-blend-luminosity pointer-events-none">
+        <div className="absolute inset-0 z-0 opacity-30 mix-blend-luminosity pointer-events-none">
           <Image
             src={heroImage}
             alt={title}
@@ -244,91 +205,84 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Interactive Tour & Fleet Stage Showcase Card (5 Cols) */}
+            {/* Right Column: High-Res Destination Visual Showcase Card (5 Cols) */}
             <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-              <div className="relative rounded-3xl overflow-hidden border-2 border-white/25 shadow-[0_24px_60px_rgba(0,0,0,0.7)] bg-gradient-to-br from-[#02146B] to-[#000B3B] p-4 sm:p-5">
-                {/* Vehicle Tab Switcher on Card Top */}
-                <div className="flex items-center p-1 rounded-2xl bg-black/40 border border-white/15 mb-3">
-                  {heroVehicles.map((v) => (
-                    <button
-                      key={v.id}
-                      type="button"
-                      onClick={() => setSelectedHeroVehicleId(v.id)}
-                      className={`flex-1 py-1.5 px-2 rounded-xl text-[10.5px] font-bold transition-all text-center cursor-pointer ${
-                        selectedHeroVehicleId === v.id
-                          ? "bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-[#000B3B] shadow-md"
-                          : "text-white/70 hover:text-white"
-                      }`}
-                    >
-                      {v.name.split(" ")[0]}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Car Showcase Visual Area */}
-                <div className="relative h-56 sm:h-64 rounded-2xl overflow-hidden bg-gradient-to-b from-[#000B3B] via-[#02146B]/60 to-[#000B3B] border border-white/10 flex items-center justify-center p-3">
-                  {/* Ambient Glow behind Car */}
-                  <div className="absolute inset-0 bg-radial-[at_center_center] from-[#FEC401]/15 to-transparent pointer-events-none" />
-
+              <div className="relative rounded-3xl overflow-hidden border-2 border-white/25 shadow-[0_24px_60px_rgba(0,0,0,0.7)] bg-[#000B3B] group">
+                {/* Visual Area with Destination Hero Image */}
+                <div className="relative h-72 sm:h-80 w-full overflow-hidden">
                   <Image
-                    src={currentHeroVehicle.image}
-                    alt={currentHeroVehicle.name}
+                    src={heroImage}
+                    alt={title}
                     fill
                     priority
-                    className="object-contain p-2 drop-shadow-[0_15px_25px_rgba(0,0,0,0.9)] transition-all duration-300 hover:scale-105"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
 
+                  {/* Gradient Overlays for High Legibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B] via-[#000B3B]/30 to-black/40" />
+
                   {/* Top Floating Badge */}
-                  <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-black/70 backdrop-blur-md border border-[#FEC401]/50 text-[10px] font-bold text-[#FEC401] shadow-md flex items-center gap-1">
-                    <Zap className="w-3 h-3 text-[#FEC401]" />
-                    <span>{currentHeroVehicle.tag}</span>
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-[#FEC401]/60 text-[10.5px] font-bold text-[#FEC401] shadow-lg flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
+                    <span>{badge.split("&bull;")[0].trim()}</span>
                   </div>
 
                   {/* Top Right Duration Pill */}
-                  <div className="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full bg-[#001162]/90 backdrop-blur-md border border-white/20 text-[10px] font-bold text-white shadow-md">
+                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-[#001162]/90 backdrop-blur-md border border-white/25 text-[10.5px] font-bold text-white shadow-lg flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
                     <span>{durationBadge}</span>
+                  </div>
+
+                  {/* Bottom Content Overlay on Image */}
+                  <div className="absolute bottom-3 inset-x-3 p-3.5 rounded-2xl bg-black/75 backdrop-blur-md border border-white/15 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-white font-display flex items-center gap-1.5">
+                        <MapPin className="w-3.5 h-3.5 text-[#FEC401]" />
+                        <span>Private Chauffeur-Driven Tour</span>
+                      </span>
+                      <span className="text-[10px] text-[#10B981] font-bold bg-[#10B981]/20 px-2 py-0.5 rounded-full border border-[#10B981]/40">
+                        ● All Sightseeing Stops
+                      </span>
+                    </div>
+
+                    {/* Fleet Availability Chips */}
+                    <div className="grid grid-cols-3 gap-1.5 text-[9.5px] text-white/90 font-medium">
+                      <div className="p-1 rounded-lg bg-white/10 border border-white/10 text-center">
+                        🚗 Sedan (4S)
+                      </div>
+                      <div className="p-1 rounded-lg bg-white/10 border border-white/10 text-center">
+                        🚙 Innova (7S)
+                      </div>
+                      <div className="p-1 rounded-lg bg-white/10 border border-white/10 text-center">
+                        🚐 Tempo (17S)
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Vehicle Specs & Action Bar */}
-                <div className="mt-3.5 space-y-2.5">
+                {/* Card Bottom Action Deck */}
+                <div className="p-4 sm:p-5 bg-gradient-to-br from-[#02146B] to-[#000B3B] space-y-3 border-t border-white/15">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-sm font-bold text-white font-display">
-                        {currentHeroVehicle.name}
-                      </h3>
-                      <p className="text-[10.5px] text-[#94A3B8] truncate">
-                        {currentHeroVehicle.models}
-                      </p>
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-[#94A3B8] block">
+                        Charter Tariff Guarantee
+                      </span>
+                      <span className="text-sm font-bold text-[#FEC401]">
+                        {startingFromNote}
+                      </span>
                     </div>
-                    <span className="text-[10px] text-[#10B981] font-bold bg-[#10B981]/15 px-2 py-0.5 rounded-full border border-[#10B981]/30">
-                      ● Chilled AC Included
+                    <span className="text-[10.5px] font-bold text-white/90 bg-white/10 px-2.5 py-1 rounded-full border border-white/15">
+                      100% Commercial Fleet
                     </span>
                   </div>
 
-                  {/* Capacity Pills */}
-                  <div className="grid grid-cols-3 gap-2 py-1 text-center text-[10px] text-white/80">
-                    <div className="p-1.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center gap-1">
-                      <Users className="w-3 h-3 text-[#FEC401]" />
-                      <span>{currentHeroVehicle.passengers} Seats</span>
-                    </div>
-                    <div className="p-1.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center gap-1">
-                      <Briefcase className="w-3 h-3 text-[#FEC401]" />
-                      <span>{currentHeroVehicle.luggage} Bags</span>
-                    </div>
-                    <div className="p-1.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center gap-1">
-                      <Sparkles className="w-3 h-3 text-[#FEC401]" />
-                      <span>Dual AC</span>
-                    </div>
-                  </div>
-
-                  {/* Bottom Instant Quote Action */}
                   <Link
-                    href={`/book-tour?destination=${bookingTourSlug}&vehicle=${currentHeroVehicle.id}`}
-                    className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-between shadow-md transition-all active:translate-y-0.5 group"
+                    href={`/book-tour?destination=${bookingTourSlug}`}
+                    className="w-full py-3 rounded-2xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-extrabold text-xs flex items-center justify-center gap-2 shadow-skeuo-gold hover:brightness-105 active:scale-98 transition-all"
                   >
-                    <span>Book Tour with {currentHeroVehicle.name.split(" ")[0]}</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#000B3B] group-hover:translate-x-0.5 transition-transform" />
+                    <Palmtree className="w-4 h-4 text-[#000B3B]" />
+                    <span>Book This Tour Package Now</span>
+                    <ArrowRight className="w-4 h-4 text-[#000B3B]" />
                   </Link>
                 </div>
               </div>

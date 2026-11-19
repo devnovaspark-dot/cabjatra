@@ -7,7 +7,7 @@ export default function OdishaTourPackageByCabPage() {
       title: "Bhubaneswar – The Temple City",
       desc: "Explore ancient Kalinga architectural landmarks including Lingaraj Temple, Mukteswar, Rajarani, and Dhauli Peace Pagoda. The premier starting gateway for all Odisha tours.",
       tag: "Capital & Temple City",
-      image: "https://images.unsplash.com/photo-1626014303757-6467368e7b16?q=85&w=900&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=85&w=900&auto=format&fit=crop",
       keyAttractions: ["Lingaraj Temple", "Mukteswar Temple", "Dhauli Shanti Stupa", "Khandagiri Caves"],
     },
     {
@@ -240,7 +240,7 @@ export default function OdishaTourPackageByCabPage() {
       subtitle="Explore the beauty, culture, temples, beaches and heritage of Odisha with flexible private cab travel"
       tagline="Travel at your pace with a private cab, experienced driver and flexible sightseeing options"
       badge="Golden Triangle &bull; 6 Destinations &bull; 100% Commercial Fleet"
-      heroImage="https://images.unsplash.com/photo-1775050416787-fe3179f0679e?q=85&w=1600&auto=format&fit=crop"
+      heroImage="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=1600&auto=format&fit=crop"
       overview="Explore the beauty, culture, temples, beaches and heritage of Odisha with an Odisha Tour Package offered by Cab from Cabjatra. Travel at your pace with a private cab, experienced driver and flexible sightseeing options covering Bhubaneswar, Puri, Konark, Chilika and popular destinations. Whether you are planning a family vacation, a temple visit, a weekend getaway or a multi-day Odisha road trip, enjoy a hassle-free journey with travel itineraries designed around your preferences."
       durationBadge="3 to 5 Days • 100% Flexible"
       startingFromNote="Transparent Tariff • 10% Advance"

@@ -21,7 +21,7 @@ export default function OdishaSightseeingTourPackagesPage() {
       title: "Ekamra Kshetra & Temple City",
       desc: "Over 500 ancient Kalinga temples in Bhubaneswar, including Lingaraj, Mukteswar, Rajarani, and the ancient Jain caves of Khandagiri.",
       tag: "Temple City Trail",
-      image: "https://images.unsplash.com/photo-1626014303757-6467368e7b16?q=85&w=900&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=85&w=900&auto=format&fit=crop",
       keyAttractions: ["Lingaraj Temple", "Mukteswar Temple", "Rajarani Temple", "Khandagiri Caves"],
     },
     {
