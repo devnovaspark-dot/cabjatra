@@ -344,6 +344,28 @@ export const Navbar: React.FC = () => {
                   {/* Tab 2: Book a Tour Sub-Links */}
                   {servicesTab === "tour" && (
                     <div className="pt-2.5 space-y-1.5">
+                      {/* 1. Odisha Tour Package by Cab */}
+                      <Link
+                        href="/odisha-tour-package-by-cab"
+                        onClick={() => setIsServicesOpen(false)}
+                        className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-[#FAF9F5] border border-transparent hover:border-[#FEC401]/60 transition-all duration-150"
+                      >
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div className="w-8 h-8 rounded-lg bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-colors">
+                            <Palmtree className="w-4 h-4" />
+                          </div>
+                          <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
+                            Odisha Tour Package by Cab
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1.5 shrink-0 ml-2">
+                          <span className="text-[10px] text-[#64748B] group-hover:text-[#000B3B] font-medium bg-[#F1F5F9] group-hover:bg-[#FEC401]/20 px-2 py-0.5 rounded-md transition-colors">
+                            Complete Circuit
+                          </span>
+                          <ChevronRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#000B3B] group-hover:translate-x-0.5 transition-transform" />
+                        </div>
+                      </Link>
+
                       <Link
                         href="/book-tour?destination=konark"
                         onClick={() => setIsServicesOpen(false)}
@@ -407,37 +429,16 @@ export const Navbar: React.FC = () => {
                         </div>
                       </Link>
 
-                      <Link
-                        href="/book-tour?destination=golden-triangle"
-                        onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-xl hover:bg-[#FAF9F5] border border-transparent hover:border-[#FEC401]/60 transition-all duration-150"
-                      >
-                        <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-lg bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-colors">
-                            <Building2 className="w-4 h-4" />
-                          </div>
-                          <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
-                            Odisha Golden Triangle
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-1.5 shrink-0 ml-2">
-                          <span className="text-[10px] text-[#64748B] group-hover:text-[#000B3B] font-medium bg-[#F1F5F9] group-hover:bg-[#FEC401]/20 px-2 py-0.5 rounded-md transition-colors">
-                            3-Day Circuit
-                          </span>
-                          <ChevronRight className="w-3.5 h-3.5 text-[#94A3B8] group-hover:text-[#000B3B] group-hover:translate-x-0.5 transition-transform" />
-                        </div>
-                      </Link>
-
                       {/* Clean Tour Action Button */}
                       <div className="pt-1.5">
                         <Link
-                          href="/book-tour"
+                          href="/odisha-tour-package-by-cab"
                           onClick={() => setIsServicesOpen(false)}
                           className="w-full py-2.5 px-3.5 rounded-xl bg-gradient-to-r from-[#000B3B] to-[#02146B] text-white flex items-center justify-between text-xs font-bold hover:brightness-110 transition-all shadow-sm group"
                         >
                           <span className="flex items-center gap-2">
                             <Palmtree className="w-3.5 h-3.5 text-[#FEC401]" />
-                            <span>Explore All Curated Tour Circuits</span>
+                            <span>Explore All Odisha Tour Packages</span>
                           </span>
                           <span className="inline-flex items-center gap-1 text-[#FEC401] text-[11px] group-hover:translate-x-0.5 transition-transform">
                             <span>View All</span>

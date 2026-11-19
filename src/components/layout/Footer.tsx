@@ -394,6 +394,21 @@ export const Footer: React.FC = () => {
 
               <li>
                 <Link
+                  href="/odisha-tour-package-by-cab"
+                  className="p-1.5 rounded-xl bg-white/5 hover:bg-white/10 hover:border-[#FEC401]/50 border border-white/10 block group transition-all"
+                >
+                  <div className="flex items-center justify-between text-white group-hover:text-[#FEC401] transition-colors font-semibold">
+                    <span>Odisha Tour Package by Cab</span>
+                    <ArrowRight className="w-3 h-3 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <div className="text-[10px] text-[#F1F5F9]/70 mt-0.5">
+                    <span>Golden Triangle, Chilika &amp; Coastal Circuits</span>
+                  </div>
+                </Link>
+              </li>
+
+              <li>
+                <Link
                   href="/book-cab?service=outstation&to=Puri%20Golden%20Beach"
                   className="p-1.5 rounded-xl bg-white/5 hover:bg-white/10 hover:border-[#FEC401]/50 border border-white/10 block group transition-all"
                 >
