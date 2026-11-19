@@ -43,6 +43,19 @@ export const metadata: Metadata = {
   authors: [{ name: "NovaSpark Digital Marketing Pvt. Ltd." }],
   creator: "NovaSpark Digital Marketing Pvt. Ltd.",
   publisher: "NovaSpark Digital Marketing Pvt. Ltd.",
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "none",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -82,6 +95,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sansFont.variable} ${displayFont.variable}`} suppressHydrationWarning>
       <head>
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="googlebot" content="noindex, nofollow" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
