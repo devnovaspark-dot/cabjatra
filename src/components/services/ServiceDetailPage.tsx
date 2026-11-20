@@ -40,6 +40,14 @@ interface RouteFare {
   suvEstimate: string;
 }
 
+interface WhyUsPoint {
+  title: string;
+  desc: string;
+  image?: string;
+  tag?: string;
+  badge?: string;
+}
+
 interface ServiceDetailProps {
   title: string;
   subtitle: string;
@@ -47,7 +55,7 @@ interface ServiceDetailProps {
   badge: string;
   heroImage: string;
   overview: string;
-  whyUsPoints: { title: string; desc: string }[];
+  whyUsPoints: WhyUsPoint[];
   routeFares: RouteFare[];
   inclusions: string[];
   exclusions: string[];
@@ -198,57 +206,48 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* Left Column: Heading, Value Prop, Social Proof & Actions (7 Cols) */}
+            {/* Left Column: Streamlined Heading, Value Prop & Fast Actions (7 Cols) */}
             <div className="lg:col-span-7 space-y-4 sm:space-y-5 text-center lg:text-left">
-              {/* Badge & Social Proof Row */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[10.5px] font-bold text-[#FEC401] shadow-soft">
+              {/* Refined Unified Badge & Social Proof Pill */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[11px] font-bold text-[#FEC401] shadow-soft">
                   <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
                   <span>{badge}</span>
-                </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#001162]/80 backdrop-blur-md border border-[#FEC401]/30 text-[10.5px] font-semibold text-white shadow-soft">
-                  <Star className="w-3.5 h-3.5 text-[#FEC401] fill-[#FEC401]" />
-                  <span>4.9/5 Rating &bull; 12,400+ Verified Rides</span>
+                  <span className="w-1 h-1 rounded-full bg-white/40" />
+                  <span className="text-white font-medium flex items-center gap-1">
+                    <Star className="w-3 h-3 text-[#FEC401] fill-[#FEC401]" /> 4.9/5 Rating &bull; 12.4k+ Rides
+                  </span>
                 </div>
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-bold font-display tracking-tight text-[#FAF9F5] leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-[#FAF9F5] leading-[1.15]">
                 {title}
               </h1>
 
-              {/* Subtitle */}
-              <p className="text-base sm:text-lg text-[#FEC401] font-display italic">
+              {/* Subtitle - Punchy & High-Impact */}
+              <p className="text-sm sm:text-base text-[#F1F5F9]/90 leading-relaxed font-normal max-w-xl mx-auto lg:mx-0">
                 {subtitle}
               </p>
 
-              {/* Overview Prose */}
-              <p className="text-xs sm:text-sm text-[#F1F5F9]/85 leading-relaxed pt-1 max-w-2xl font-normal mx-auto lg:mx-0">
-                {overview}
-              </p>
-
-              {/* Quick Route Corridor Chips */}
-              <div className="pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-1.5 text-[11px]">
-                <span className="text-[#94A3B8] font-medium mr-1">Frequent:</span>
-                <span className="px-2.5 py-1 rounded-lg bg-white/10 border border-white/10 text-white/90">
-                  ✈️ BBI Airport Drops
+              {/* Streamlined Quick Corridor Pills */}
+              <div className="pt-0.5 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px]">
+                <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
+                  ✈️ Airport Pickups
                 </span>
-                <span className="px-2.5 py-1 rounded-lg bg-white/10 border border-white/10 text-white/90">
-                  🏢 Patia Infocity Corridor
+                <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
+                  🏢 Tech Parks &amp; City Transit
                 </span>
-                <span className="px-2.5 py-1 rounded-lg bg-white/10 border border-white/10 text-white/90">
-                  🌊 Puri Coastal Highway
-                </span>
-                <span className="px-2.5 py-1 rounded-lg bg-white/10 border border-white/10 text-white/90">
-                  🚆 Station Pickups
+                <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
+                  🌊 Outstation Highway Drops
                 </span>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2 sm:pt-3">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-1.5 sm:pt-2">
                 <Link
                   href={`/book-cab?service=${bookingCategoryKey}`}
-                  className="px-6 py-3.5 rounded-full bg-gradient-to-b from-[#FEC401] to-[#E5AD00] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 text-[#001162] font-bold text-xs inline-flex items-center gap-2 active:translate-y-0.5 transition-all"
+                  className="px-6 py-3.5 rounded-full bg-gradient-to-b from-[#FEC401] to-[#E5AD00] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 text-[#001162] font-black text-xs inline-flex items-center gap-2 active:translate-y-0.5 transition-all"
                 >
                   <Car className="w-4 h-4 text-[#001162]" />
                   <span>Reserve This Cab (10% Advance)</span>
@@ -266,15 +265,15 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 </a>
               </div>
 
-              {/* Trust Assurances Pill Row */}
-              <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-[11px] text-[#F1F5F9]/80 border-t border-white/10">
+              {/* Trust Assurances Clean Single Strip */}
+              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-[11px] text-[#F1F5F9]/80 border-t border-white/10">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
-                  100% Commercial Yellow-Board Fleet
+                  100% Commercial Fleet
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
-                  Guaranteed On-Time Dispatch
+                  Guaranteed Dispatch
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#FEC401]" />
@@ -395,24 +394,95 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             </p>
           </div>
 
-          {/* 3 Value Proposition Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {whyUsPoints.map((pt, i) => (
-              <div
-                key={i}
-                className="p-6 sm:p-7 rounded-3xl bg-[#FAF9F5] border border-[#E2E8F0] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 space-y-3 group"
-              >
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#000B3B] to-[#02146B] text-[#FEC401] flex items-center justify-center font-black text-sm shadow-sm border border-white/15 group-hover:scale-105 transition-transform">
-                  0{i + 1}
+          {/* 3 High-Impact Service Value Proposition Cards with Real Photography */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16">
+            {whyUsPoints.slice(0, 3).map((pt, i) => {
+              // Real photography mapping for highest visual authenticity
+              const defaultImages = [
+                "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=85&w=800&auto=format&fit=crop", // Airport / Flight radar / Punctual
+                "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=85&w=800&auto=format&fit=crop", // Verified chauffeur / Zero cancellations
+                "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=800&auto=format&fit=crop", // Transparent KM / Highway transit
+              ];
+              const cardImage = pt.image || defaultImages[i % defaultImages.length];
+
+              const defaultTags = [
+                "Punctual Dispatch",
+                "Pre-Assigned Chauffeur",
+                "Zero Surge Tariffs",
+              ];
+              const cardTag = pt.tag || defaultTags[i % defaultTags.length];
+
+              const defaultPills = [
+                "✓ Real-Time Delay Buffer",
+                "✓ 0% App Cancellation",
+                "✓ 10% Advance Deposit",
+              ];
+              const cardPill = pt.badge || defaultPills[i % defaultPills.length];
+
+              return (
+                <div
+                  key={i}
+                  className="rounded-3xl bg-white border border-[#E2E8F0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col group relative"
+                >
+                  {/* Top Photographic Header Frame */}
+                  <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-[#000B3B]">
+                    <Image
+                      src={cardImage}
+                      alt={pt.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
+                    />
+
+                    {/* Gradient Overlay for Text & Tag Contrast */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
+
+                    {/* Top Floating Badge & Step Number */}
+                    <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between">
+                      <span className="px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[10px] font-bold text-[#FEC401] shadow-sm flex items-center gap-1.5">
+                        <Sparkles className="w-3 h-3 text-[#FEC401]" />
+                        <span>{cardTag}</span>
+                      </span>
+
+                      <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-black text-xs flex items-center justify-center shadow-md">
+                        0{i + 1}
+                      </span>
+                    </div>
+
+                    {/* Bottom Micro-Assurance Overlay on Image */}
+                    <div className="absolute bottom-3 left-3.5 right-3.5">
+                      <span className="inline-flex items-center gap-1.5 text-[10.5px] font-extrabold text-white tracking-wide drop-shadow-md">
+                        <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
+                        <span>Guaranteed Commercial Standard</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+                    <div className="space-y-2.5">
+                      <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
+                        {pt.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-normal">
+                        {pt.desc}
+                      </p>
+                    </div>
+
+                    {/* Bottom Highlight Assurance Pill */}
+                    <div className="pt-2 border-t border-[#F1F5F9] flex items-center justify-between">
+                      <span className="text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7]/80 px-2.5 py-1 rounded-lg border border-[#BBF7D0] inline-flex items-center gap-1">
+                        {cardPill}
+                      </span>
+                      <span className="text-[10.5px] text-[#000B3B] font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                        <span>Verified</span>
+                        <ArrowRight className="w-3 h-3 text-[#FEC401]" />
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-[#0F172A] font-display group-hover:text-[#000B3B] transition-colors">
-                  {pt.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-normal">
-                  {pt.desc}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Side-by-Side Comparison Matrix Card */}

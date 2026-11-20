@@ -20,14 +20,23 @@ export default function TaxiServiceInPuriPage() {
         {
           title: "Zero Station Haggling or Delays",
           desc: "Your taxi is locked and confirmed before your train pulls into Puri station. Your driver awaits you at the main terminal exit with a dedicated WhatsApp confirmation.",
+          image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=85&w=800&auto=format&fit=crop",
+          tag: "Puri Station Exit Sync",
+          badge: "✓ Zero Auto Haggling",
         },
         {
           title: "100% Yellow-Board Commercial Fleet",
           desc: "We strictly deploy registered commercial vehicles with comprehensive passenger insurance, commercial fitness certificates, and police-verified drivers.",
+          image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=85&w=800&auto=format&fit=crop",
+          tag: "100% Commercial Fleet",
+          badge: "✓ Verified Drivers",
         },
         {
           title: "Transparent Fixed Tariffs",
           desc: "Never worry about inflated tourist pricing during Rath Yatra, holidays, or festival seasons. What you see is what you pay, backed by our 10% advance deposit model.",
+          image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=800&auto=format&fit=crop",
+          tag: "Fixed Transparent Tariffs",
+          badge: "✓ 10% Advance Deposit",
         },
       ]}
       routeFares={[

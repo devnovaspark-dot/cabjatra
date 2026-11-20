@@ -20,14 +20,23 @@ export default function CabServiceInPuriPage() {
         {
           title: "Temple Corridor & Parking Mastery",
           desc: "Our drivers know approved police parking zones near Singhadwara and the Grand Road (Bada Danda), avoiding pilgrim gridlock so your family walks minimal distances.",
+          image: "https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?q=85&w=800&auto=format&fit=crop",
+          tag: "Temple Corridor Pass",
+          badge: "✓ Minimal Walking",
         },
         {
           title: "Senior Citizen & Pilgrim Friendly",
           desc: "Spacious vehicles with easy boarding, ample boot space for sacred Mahaprasad earthen pots and luggage, and patient drivers who wait calmly during extended temple rituals.",
+          image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=85&w=800&auto=format&fit=crop",
+          tag: "Senior Comfort Cabs",
+          badge: "✓ Mahaprasad Care",
         },
         {
           title: "Bespoke Marine Drive Coastal Halts",
           desc: "Enjoy leisurely ocean drives from Puri to Konark with unhurried halts at Ramachandi Beach, Chandrabhaga Beach, and tender coconut stalls with zero metered stress.",
+          image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=85&w=800&auto=format&fit=crop",
+          tag: "Marine Drive Highway",
+          badge: "✓ Flexible Halts",
         },
       ]}
       routeFares={[

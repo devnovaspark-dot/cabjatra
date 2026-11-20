@@ -20,14 +20,23 @@ export default function BookOnlineTaxiInCuttackPage() {
         {
           title: "Twin-City NH-16 Highway Express",
           desc: "Seamless 40-minute direct transit between Cuttack (CDA / Badambadi) and Bhubaneswar (Patia / Master Canteen / BBI Airport) via the smooth NH-16 corridor.",
+          image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=800&auto=format&fit=crop",
+          tag: "NH-16 Express Corridor",
+          badge: "✓ 40-Min Twin Transit",
         },
         {
           title: "High Court & Medical Priority Dispatch",
           desc: "Never miss crucial morning court call-overs or OPD appointments. We assign verified drivers who know Cuttack's ring roads and bypasses inside out.",
+          image: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=85&w=800&auto=format&fit=crop",
+          tag: "Legal & Healthcare Priority",
+          badge: "✓ On-Time Arrival",
         },
         {
           title: "Zero Cancellation Guarantee",
           desc: "Unlike app-based aggregators with frequent driver cancellations, every CABJATRA reservation is confirmed by our operations team and dispatched with absolute certainty.",
+          image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=85&w=800&auto=format&fit=crop",
+          tag: "Dispatch Assurance",
+          badge: "✓ 0% App Cancellation",
         },
       ]}
       routeFares={[

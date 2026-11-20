@@ -20,14 +20,23 @@ export default function CabServiceInBhubaneswarPage() {
         {
           title: "BBI Airport Live Flight Tracking",
           desc: "We track incoming flights in real-time. If your flight into Bhubaneswar is delayed, your driver automatically adjusts arrival time with zero extra waiting charges.",
+          image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=85&w=800&auto=format&fit=crop",
+          tag: "BBI Airport Radar Sync",
+          badge: "✓ Zero Delay Surcharges",
         },
         {
           title: "Zero Last-Minute Cancellations",
           desc: "Never get stranded. Unlike generic ride-hailing apps with rampant driver cancellations, every CABJATRA booking is manually assigned and backed by our dispatch guarantee.",
+          image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=85&w=800&auto=format&fit=crop",
+          tag: "Pre-Assigned Chauffeur",
+          badge: "✓ 0% App Cancellation",
         },
         {
           title: "Fixed Transparent Kilometre Pricing",
           desc: "No peak hour surge traps, no offline AC negotiation haggling. A simple 10% advance deposit locks your vehicle, with the remaining 90% settled at your destination drop.",
+          image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=800&auto=format&fit=crop",
+          tag: "Fixed Kilometer Tariffs",
+          badge: "✓ 10% Advance Deposit",
         },
       ]}
       routeFares={[
