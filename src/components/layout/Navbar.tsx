@@ -252,19 +252,24 @@ export const Navbar: React.FC = () => {
                     </button>
                   </div>
 
-                  {/* Tab 1: Book a Cab Sub-Links */}
+                  {/* Tab 1: Book a Cab Sub-Links with Real Thumbnail Images */}
                   {servicesTab === "cab" && (
                     <div className="pt-2.5 space-y-1.5">
                       {/* 1. Cab Service in Bhubaneswar */}
                       <Link
                         href="/cab-service-in-bhubaneswar"
                         onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
+                        className="group flex items-center justify-between p-2 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                         role="menuitem"
                       >
-                        <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-xl bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:scale-105">
-                            <Building2 className="w-4 h-4" />
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="relative w-9 h-9 rounded-xl overflow-hidden shrink-0 border border-[#E2E8F0] shadow-xs group-hover:scale-105 transition-transform">
+                            <Image
+                              src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=200&auto=format&fit=crop"
+                              alt="Cab Service in Bhubaneswar"
+                              fill
+                              className="object-cover"
+                            />
                           </div>
                           <div className="min-w-0">
                             <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
@@ -289,12 +294,17 @@ export const Navbar: React.FC = () => {
                       <Link
                         href="/cab-service-in-puri"
                         onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
+                        className="group flex items-center justify-between p-2 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                         role="menuitem"
                       >
-                        <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-xl bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:scale-105">
-                            <Landmark className="w-4 h-4" />
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="relative w-9 h-9 rounded-xl overflow-hidden shrink-0 border border-[#E2E8F0] shadow-xs group-hover:scale-105 transition-transform">
+                            <Image
+                              src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=200&auto=format&fit=crop"
+                              alt="Cab Service in Puri"
+                              fill
+                              className="object-cover"
+                            />
                           </div>
                           <div className="min-w-0">
                             <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
@@ -319,12 +329,17 @@ export const Navbar: React.FC = () => {
                       <Link
                         href="/taxi-service-in-puri"
                         onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
+                        className="group flex items-center justify-between p-2 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                         role="menuitem"
                       >
-                        <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-xl bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:scale-105">
-                            <Train className="w-4 h-4" />
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="relative w-9 h-9 rounded-xl overflow-hidden shrink-0 border border-[#E2E8F0] shadow-xs group-hover:scale-105 transition-transform">
+                            <Image
+                              src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=200&auto=format&fit=crop"
+                              alt="Taxi Service in Puri"
+                              fill
+                              className="object-cover"
+                            />
                           </div>
                           <div className="min-w-0">
                             <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
@@ -349,12 +364,17 @@ export const Navbar: React.FC = () => {
                       <Link
                         href="/book-online-taxi-in-kataka"
                         onClick={() => setIsServicesOpen(false)}
-                        className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
+                        className="group flex items-center justify-between p-2 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                         role="menuitem"
                       >
-                        <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-8 h-8 rounded-xl bg-[#000B3B]/5 group-hover:bg-[#000B3B] text-[#000B3B] group-hover:text-[#FEC401] flex items-center justify-center shrink-0 transition-all duration-150 group-hover:scale-105">
-                            <MapPin className="w-4 h-4" />
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="relative w-9 h-9 rounded-xl overflow-hidden shrink-0 border border-[#E2E8F0] shadow-xs group-hover:scale-105 transition-transform">
+                            <Image
+                              src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=200&auto=format&fit=crop"
+                              alt="Book Online Taxi in Kataka"
+                              fill
+                              className="object-cover"
+                            />
                           </div>
                           <div className="min-w-0">
                             <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">

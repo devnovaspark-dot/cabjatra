@@ -27,6 +27,7 @@ import {
   HelpCircle,
   Palmtree,
   CreditCard,
+  Check,
 } from "lucide-react";
 import { COMPANY_CONFIG } from "@/data/company";
 import { VEHICLE_FLEET } from "@/data/vehicles";
@@ -126,7 +127,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* Left Column: Streamlined Heading, Value Prop & Fast Tour Actions (7 Cols) */}
+            {/* Left Column: Authoritative Heading, Deep Overview, Benefit Grid & Fast Actions (7 Cols) */}
             <div className="lg:col-span-7 space-y-4 sm:space-y-5 text-center lg:text-left">
               {/* Refined Unified Badge & Social Proof Pill */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
@@ -135,7 +136,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   <span>{badge.split("&bull;")[0].trim()}</span>
                   <span className="w-1 h-1 rounded-full bg-white/40" />
                   <span className="text-white font-medium flex items-center gap-1">
-                    <Star className="w-3 h-3 text-[#FEC401] fill-[#FEC401]" /> 4.9/5 Rating &bull; {durationBadge}
+                    <Star className="w-3 h-3 text-[#FEC401] fill-[#FEC401]" /> 4.95/5 Rating &bull; {durationBadge}
                   </span>
                 </div>
               </div>
@@ -146,20 +147,73 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               </h1>
 
               {/* Subtitle - Punchy & Clear */}
-              <p className="text-sm sm:text-base text-[#F1F5F9]/90 leading-relaxed font-normal max-w-xl mx-auto lg:mx-0">
+              <p className="text-sm sm:text-base text-[#FEC401] font-semibold leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 {subtitle}
               </p>
 
-              {/* Streamlined Quick Feature Pills */}
+              {/* Comprehensive Tour Overview Narrative */}
+              {overview && (
+                <p className="text-xs sm:text-[13.5px] text-[#F1F5F9]/85 leading-relaxed font-normal max-w-2xl mx-auto lg:mx-0">
+                  {overview}
+                </p>
+              )}
+
+              {/* 4-Pillar Tour Highlights & Guarantees Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-1 text-left max-w-2xl mx-auto lg:mx-0">
+                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 flex items-start gap-2.5 shadow-soft">
+                  <div className="w-8 h-8 rounded-xl bg-[#FEC401]/20 flex items-center justify-center shrink-0 border border-[#FEC401]/40 mt-0.5">
+                    <Car className="w-4 h-4 text-[#FEC401]" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-white leading-tight">Private Dedicated AC Cab</h4>
+                    <p className="text-[10.5px] text-[#CBD5E1] leading-tight mt-0.5">Sedan, Innova Crysta or Tempo with driver</p>
+                  </div>
+                </div>
+
+                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 flex items-start gap-2.5 shadow-soft">
+                  <div className="w-8 h-8 rounded-xl bg-[#FEC401]/20 flex items-center justify-center shrink-0 border border-[#FEC401]/40 mt-0.5">
+                    <Clock className="w-4 h-4 text-[#FEC401]" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-white leading-tight">100% Flexible Sightseeing</h4>
+                    <p className="text-[10.5px] text-[#CBD5E1] leading-tight mt-0.5">Unhurried temple visits & patient driver waiting</p>
+                  </div>
+                </div>
+
+                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 flex items-start gap-2.5 shadow-soft">
+                  <div className="w-8 h-8 rounded-xl bg-[#FEC401]/20 flex items-center justify-center shrink-0 border border-[#FEC401]/40 mt-0.5">
+                    <MapPin className="w-4 h-4 text-[#FEC401]" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-white leading-tight">Doorstep Terminal Pickups</h4>
+                    <p className="text-[10.5px] text-[#CBD5E1] leading-tight mt-0.5">Complimentary BBI airport or hotel lobby meet</p>
+                  </div>
+                </div>
+
+                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 flex items-start gap-2.5 shadow-soft">
+                  <div className="w-8 h-8 rounded-xl bg-[#FEC401]/20 flex items-center justify-center shrink-0 border border-[#FEC401]/40 mt-0.5">
+                    <CreditCard className="w-4 h-4 text-[#FEC401]" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-white leading-tight">10% Advance Deposit</h4>
+                    <p className="text-[10.5px] text-[#CBD5E1] leading-tight mt-0.5">Lock entire tour with 10%, pay 90% at drop</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Circuit Feature Highlights Pills */}
               <div className="pt-0.5 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px]">
                 <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
-                  🚗 Private AC Yellow-Board Cab
+                  🛕 Temple Darshan Circuits
                 </span>
                 <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
-                  👨‍✈️ Verified Area Chauffeur
+                  🏖️ Golden Beach &amp; Marine Drive
                 </span>
                 <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
-                  ⏱️ Flexible Sightseeing Halts
+                  🐬 Chilika Dolphin Boat Safaris
+                </span>
+                <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
+                  🎨 Heritage Arts &amp; Raghurajpur
                 </span>
               </div>
 
@@ -202,11 +256,11 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Clean, Uncluttered Visual Destination Card (5 Cols) */}
+            {/* Right Column: Clean, Uncluttered Visual Destination Card with Rich Lower Deck (5 Cols) */}
             <div className="lg:col-span-5 relative mt-4 lg:mt-0">
               <div className="relative rounded-3xl overflow-hidden border-2 border-white/25 shadow-[0_24px_60px_rgba(0,0,0,0.7)] bg-[#000B3B] group">
                 {/* Visual Area with Destination Hero Image - Clean & Uncluttered */}
-                <div className="relative h-80 sm:h-96 w-full overflow-hidden">
+                <div className="relative h-72 sm:h-80 w-full overflow-hidden">
                   <Image
                     src={heroImage}
                     alt={title}
@@ -232,7 +286,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                 </div>
 
                 {/* Card Bottom Action Deck */}
-                <div className="p-5 sm:p-6 bg-gradient-to-br from-[#02146B] to-[#000B3B] space-y-4 border-t border-white/15">
+                <div className="p-5 sm:p-6 bg-gradient-to-br from-[#02146B] to-[#000B3B] space-y-3.5 border-t border-white/15">
                   <div className="flex items-center justify-between">
                     <div>
                       <span className="text-[10px] uppercase font-bold tracking-wider text-[#FEC401] block">
@@ -250,6 +304,32 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                         ✓ 10% Advance Deposit
                       </span>
                     </div>
+                  </div>
+
+                  {/* Vehicle Fleet Choices Micro-Pills */}
+                  <div className="grid grid-cols-3 gap-2 text-center text-[10.5px] text-white/85 py-0.5">
+                    <div className="p-1.5 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center gap-1">
+                      <Car className="w-3 h-3 text-[#FEC401]" />
+                      <span>Sedan (4S)</span>
+                    </div>
+                    <div className="p-1.5 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center gap-1">
+                      <Car className="w-3 h-3 text-[#FEC401]" />
+                      <span>Innova (7S)</span>
+                    </div>
+                    <div className="p-1.5 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center gap-1">
+                      <Users className="w-3 h-3 text-[#FEC401]" />
+                      <span>Tempo (17S)</span>
+                    </div>
+                  </div>
+
+                  {/* Inclusions Micro-Strip */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 text-[10.5px] text-[#CBD5E1] pt-1 border-t border-white/10">
+                    <span className="flex items-center gap-1">
+                      <Check className="w-3 h-3 text-[#10B981]" /> All Fuel &amp; Driver Allowance
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Check className="w-3 h-3 text-[#10B981]" /> Doorstep Hotel Pickup
+                    </span>
                   </div>
 
                   <Link

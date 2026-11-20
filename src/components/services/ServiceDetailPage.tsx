@@ -206,7 +206,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* Left Column: Streamlined Heading, Value Prop & Fast Actions (7 Cols) */}
+            {/* Left Column: Authoritative Heading, Deep Overview, Benefit Grid & Fast Actions (7 Cols) */}
             <div className="lg:col-span-7 space-y-4 sm:space-y-5 text-center lg:text-left">
               {/* Refined Unified Badge & Social Proof Pill */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
@@ -226,11 +226,61 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               </h1>
 
               {/* Subtitle - Punchy & High-Impact */}
-              <p className="text-sm sm:text-base text-[#F1F5F9]/90 leading-relaxed font-normal max-w-xl mx-auto lg:mx-0">
+              <p className="text-sm sm:text-base text-[#FEC401] font-semibold leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 {subtitle}
               </p>
 
-              {/* Streamlined Quick Corridor Pills */}
+              {/* Comprehensive Editorial Service Overview */}
+              {overview && (
+                <p className="text-xs sm:text-[13.5px] text-[#F1F5F9]/85 leading-relaxed font-normal max-w-2xl mx-auto lg:mx-0">
+                  {overview}
+                </p>
+              )}
+
+              {/* 4-Pillar High-Value Service Highlights Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-1 text-left max-w-2xl mx-auto lg:mx-0">
+                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 flex items-start gap-2.5 shadow-soft">
+                  <div className="w-8 h-8 rounded-xl bg-[#FEC401]/20 flex items-center justify-center shrink-0 border border-[#FEC401]/40 mt-0.5">
+                    <ShieldCheck className="w-4 h-4 text-[#FEC401]" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-white leading-tight">100% Commercial Fleet</h4>
+                    <p className="text-[10.5px] text-[#CBD5E1] leading-tight mt-0.5">Yellow-board RTO certified with verified drivers</p>
+                  </div>
+                </div>
+
+                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 flex items-start gap-2.5 shadow-soft">
+                  <div className="w-8 h-8 rounded-xl bg-[#FEC401]/20 flex items-center justify-center shrink-0 border border-[#FEC401]/40 mt-0.5">
+                    <Zap className="w-4 h-4 text-[#FEC401]" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-white leading-tight">Zero Surge Tariffs</h4>
+                    <p className="text-[10.5px] text-[#CBD5E1] leading-tight mt-0.5">Fixed transparent KM rates, no midnight spikes</p>
+                  </div>
+                </div>
+
+                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 flex items-start gap-2.5 shadow-soft">
+                  <div className="w-8 h-8 rounded-xl bg-[#FEC401]/20 flex items-center justify-center shrink-0 border border-[#FEC401]/40 mt-0.5">
+                    <Sparkles className="w-4 h-4 text-[#FEC401]" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-white leading-tight">Chilled Dual-Zone AC</h4>
+                    <p className="text-[10.5px] text-[#CBD5E1] leading-tight mt-0.5">100% working AC guaranteed on every ride</p>
+                  </div>
+                </div>
+
+                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 flex items-start gap-2.5 shadow-soft">
+                  <div className="w-8 h-8 rounded-xl bg-[#FEC401]/20 flex items-center justify-center shrink-0 border border-[#FEC401]/40 mt-0.5">
+                    <Clock className="w-4 h-4 text-[#FEC401]" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-white leading-tight">Flight Delay Buffer</h4>
+                    <p className="text-[10.5px] text-[#CBD5E1] leading-tight mt-0.5">Live BBI radar sync & 10% advance deposit</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Express Corridors & City Routing Tags */}
               <div className="pt-0.5 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px]">
                 <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
                   ✈️ Airport Pickups
@@ -240,6 +290,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 </span>
                 <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
                   🌊 Outstation Highway Drops
+                </span>
+                <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
+                  🕒 4h/8h Flexible Rentals
                 </span>
               </div>
 
@@ -278,6 +331,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#FEC401]" />
                   Zero Surge Pricing
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CreditCard className="w-3.5 h-3.5 text-[#FEC401]" />
+                  10% Advance Deposit Model
                 </span>
               </div>
             </div>
