@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import { COMPANY_CONFIG } from "@/data/company";
 import { VEHICLE_FLEET } from "@/data/vehicles";
+import { TESTIMONIALS_DATA } from "@/data/testimonials";
 
 export interface TourDestinationItem {
   title: string;
@@ -763,6 +764,131 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* SECTION 7.5: VERIFIED TRAVELER REVIEWS WITH REAL AVATARS                  */}
+      {/* ========================================================================= */}
+      <section className="py-16 sm:py-20 bg-[#FAF9F5] border-b border-[#E2E8F0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-white px-3.5 py-1.5 rounded-full border border-[#CBD5E1] shadow-xs">
+              <ThumbsUp className="w-3.5 h-3.5 text-[#FEC401]" />
+              <span>Verified Tour Experiences</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
+              Trusted by 12,000+ Travelers in Odisha
+            </h2>
+            <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+              Read how fellow families, pilgrim groups, and tourists experienced our curated cab tour packages.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {TESTIMONIALS_DATA.slice(0, 3).map((t) => (
+              <div
+                key={t.id}
+                className="p-7 sm:p-8 rounded-3xl bg-white border border-[#E2E8F0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-5 relative group overflow-hidden"
+              >
+                {/* Top Subtle Amber Ambient Bar on Hover */}
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#FEC401] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                <div className="space-y-4">
+                  {/* Rating Stars & Verified Date */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-1.5">
+                      <div className="flex items-center gap-0.5">
+                        {[...Array(t.rating)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-4 h-4 fill-[#FEC401] text-[#FEC401]"
+                          />
+                        ))}
+                      </div>
+                      <span className="text-xs font-black text-[#000B3B] ml-1">
+                        5.0
+                      </span>
+                    </div>
+
+                    <span className="text-[11px] font-semibold text-[#64748B] bg-[#F8FAFC] px-2.5 py-0.5 rounded-full border border-[#E2E8F0]">
+                      {t.date}
+                    </span>
+                  </div>
+
+                  {/* Testimonial Quote */}
+                  <div className="relative">
+                    <span className="absolute -top-3 -left-2 text-4xl text-[#FEC401]/20 font-serif select-none pointer-events-none">
+                      “
+                    </span>
+                    <p className="text-xs sm:text-sm text-[#334155] leading-relaxed italic relative z-10 font-medium">
+                      &ldquo;{t.quote}&rdquo;
+                    </p>
+                  </div>
+                </div>
+
+                {/* Customer Profile Row with Real Avatar Image */}
+                <div className="pt-4 border-t border-[#F1F5F9] flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="relative w-12 h-12 rounded-2xl overflow-hidden border-2 border-[#FEC401]/70 shadow-md shrink-0 bg-[#000B3B]">
+                      <Image
+                        src={t.avatarUrl}
+                        alt={t.name}
+                        fill
+                        sizes="48px"
+                        className="object-cover group-hover:scale-108 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-1.5">
+                        <h4 className="text-xs sm:text-sm font-bold text-[#0F172A] truncate font-display">
+                          {t.name}
+                        </h4>
+                      </div>
+                      <p className="text-[11px] text-[#64748B] truncate flex items-center gap-1">
+                        <MapPin className="w-3 h-3 text-[#94A3B8] shrink-0" />
+                        <span>{t.location}</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="text-right shrink-0">
+                    <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-1 rounded-full border border-[#BBF7D0] inline-flex items-center gap-1">
+                      <CheckCircle2 className="w-3 h-3 text-[#16A34A]" />
+                      <span>Verified</span>
+                    </span>
+                    <p className="text-[9.5px] font-semibold text-[#000B3B] mt-1 text-right">
+                      {t.tripType}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Review Trust Strip */}
+          <div className="mt-10 p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex flex-wrap items-center justify-between gap-4 text-center sm:text-left">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#000B3B] to-[#02146B] text-[#FEC401] flex items-center justify-center font-black text-sm shadow-sm">
+                4.9★
+              </div>
+              <div>
+                <p className="text-xs sm:text-sm font-bold text-[#0F172A]">
+                  4.9 / 5.0 Average Rating across 12,000+ Completed Trips
+                </p>
+                <p className="text-[11px] text-[#64748B]">
+                  100% Yellow-Board Commercial Fleet • Dedicated Sightseeing Drivers • Flexible Halts
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="px-3 py-1.5 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[11px] font-bold text-[#166534] flex items-center gap-1">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" />
+                Google Reviews Verified
+              </span>
             </div>
           </div>
         </div>

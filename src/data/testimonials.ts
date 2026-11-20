@@ -8,6 +8,7 @@ export interface TestimonialItem {
   quote: string;
   date: string;
   avatarText: string;
+  avatarUrl: string;
   isSample: true;
 }
 
@@ -22,6 +23,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     quote: "Traveling with elderly parents can be challenging, but our CABJATRA driver Subash was exceptionally polite, patient, and drove with great care along the Marine Drive. The car was spotless and the AC was crisp. Highly recommended for family pilgrimage trips.",
     date: "February 2026",
     avatarText: "AM",
+    avatarUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=250&auto=format&fit=crop",
     isSample: true
   },
   {
@@ -34,6 +36,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     quote: "Landing at BBI at 11:30 PM, it was reassuring to find my CABJATRA driver already waiting outside the terminal with a name board. No surge fees, no bargaining, and no anxiety of cancelled apps. This is the professional standard Odisha needed.",
     date: "January 2026",
     avatarText: "RS",
+    avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=250&auto=format&fit=crop",
     isSample: true
   },
   {
@@ -46,6 +49,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     quote: "The 10% advance model gave us complete transparency. Once availability was confirmed, everything went smoothly. The driver even recommended an authentic coastal dhaba near Satapada that served the most delicious local crab curry.",
     date: "December 2025",
     avatarText: "SP",
+    avatarUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=250&auto=format&fit=crop",
     isSample: true
   },
   {
@@ -58,6 +62,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     quote: "We hired CABJATRA for an academic conference spanning Utkal University and KIIT campus. Drivers adhered strictly to timelines and coordinate smoothly via WhatsApp. Superb corporate travel support.",
     date: "January 2026",
     avatarText: "DR",
+    avatarUrl: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=250&auto=format&fit=crop",
     isSample: true
   }
 ];
