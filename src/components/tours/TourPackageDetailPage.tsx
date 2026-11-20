@@ -202,11 +202,11 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               </div>
             </div>
 
-            {/* Right Column: High-Res Destination Visual Showcase Card (5 Cols) */}
+            {/* Right Column: Clean, Uncluttered Visual Destination Card (5 Cols) */}
             <div className="lg:col-span-5 relative mt-4 lg:mt-0">
               <div className="relative rounded-3xl overflow-hidden border-2 border-white/25 shadow-[0_24px_60px_rgba(0,0,0,0.7)] bg-[#000B3B] group">
-                {/* Visual Area with Destination Hero Image */}
-                <div className="relative h-72 sm:h-80 w-full overflow-hidden">
+                {/* Visual Area with Destination Hero Image - Clean & Uncluttered */}
+                <div className="relative h-80 sm:h-96 w-full overflow-hidden">
                   <Image
                     src={heroImage}
                     alt={title}
@@ -215,70 +215,49 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
 
-                  {/* Gradient Overlays for High Legibility */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B] via-[#000B3B]/30 to-black/40" />
+                  {/* Gentle Gradient at Top Edge for Badge Readability Only */}
+                  <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/70 via-black/30 to-transparent pointer-events-none" />
 
                   {/* Top Floating Badge */}
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-[#FEC401]/60 text-[10.5px] font-bold text-[#FEC401] shadow-lg flex items-center gap-1.5">
+                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-[#FEC401]/60 text-[11px] font-bold text-[#FEC401] shadow-lg flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
                     <span>{badge.split("&bull;")[0].trim()}</span>
                   </div>
 
                   {/* Top Right Duration Pill */}
-                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-[#001162]/90 backdrop-blur-md border border-white/25 text-[10.5px] font-bold text-white shadow-lg flex items-center gap-1.5">
+                  <div className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/25 text-[11px] font-bold text-white shadow-lg flex items-center gap-1.5">
                     <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
                     <span>{durationBadge}</span>
-                  </div>
-
-                  {/* Bottom Content Overlay on Image */}
-                  <div className="absolute bottom-3 inset-x-3 p-3.5 rounded-2xl bg-black/75 backdrop-blur-md border border-white/15 space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-white font-display flex items-center gap-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-[#FEC401]" />
-                        <span>Private Chauffeur-Driven Tour</span>
-                      </span>
-                      <span className="text-[10px] text-[#10B981] font-bold bg-[#10B981]/20 px-2 py-0.5 rounded-full border border-[#10B981]/40">
-                        ● All Sightseeing Stops
-                      </span>
-                    </div>
-
-                    {/* Fleet Availability Chips */}
-                    <div className="grid grid-cols-3 gap-1.5 text-[9.5px] text-white/90 font-medium">
-                      <div className="p-1 rounded-lg bg-white/10 border border-white/10 text-center">
-                        🚗 Sedan (4S)
-                      </div>
-                      <div className="p-1 rounded-lg bg-white/10 border border-white/10 text-center">
-                        🚙 Innova (7S)
-                      </div>
-                      <div className="p-1 rounded-lg bg-white/10 border border-white/10 text-center">
-                        🚐 Tempo (17S)
-                      </div>
-                    </div>
                   </div>
                 </div>
 
                 {/* Card Bottom Action Deck */}
-                <div className="p-4 sm:p-5 bg-gradient-to-br from-[#02146B] to-[#000B3B] space-y-3 border-t border-white/15">
+                <div className="p-5 sm:p-6 bg-gradient-to-br from-[#02146B] to-[#000B3B] space-y-4 border-t border-white/15">
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-[10px] uppercase font-bold tracking-wider text-[#94A3B8] block">
-                        Charter Tariff Guarantee
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-[#FEC401] block">
+                        Private Chauffeur Tour
                       </span>
-                      <span className="text-sm font-bold text-[#FEC401]">
-                        {startingFromNote}
+                      <span className="text-base sm:text-lg font-bold text-white font-display">
+                        All Sightseeing Stops Covered
                       </span>
                     </div>
-                    <span className="text-[10.5px] font-bold text-white/90 bg-white/10 px-2.5 py-1 rounded-full border border-white/15">
-                      100% Commercial Fleet
-                    </span>
+                    <div className="text-right">
+                      <span className="text-[10px] font-bold text-[#94A3B8] uppercase block">
+                        Tariff Guarantee
+                      </span>
+                      <span className="text-xs sm:text-sm font-extrabold text-[#10B981] bg-[#10B981]/15 px-2.5 py-1 rounded-full border border-[#10B981]/30 inline-block mt-0.5">
+                        ✓ 10% Advance Deposit
+                      </span>
+                    </div>
                   </div>
 
                   <Link
                     href={`/book-tour?destination=${bookingTourSlug}`}
-                    className="w-full py-3 rounded-2xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-extrabold text-xs flex items-center justify-center gap-2 shadow-skeuo-gold hover:brightness-105 active:scale-98 transition-all"
+                    className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-extrabold text-xs flex items-center justify-center gap-2 shadow-skeuo-gold hover:brightness-105 active:scale-98 transition-all"
                   >
                     <Palmtree className="w-4 h-4 text-[#000B3B]" />
-                    <span>Book This Tour Package Now</span>
+                    <span>Reserve This Tour Package (10% Advance)</span>
                     <ArrowRight className="w-4 h-4 text-[#000B3B]" />
                   </Link>
                 </div>
@@ -310,51 +289,70 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
             {destinations.map((dest, i) => (
               <div
                 key={i}
-                className="bg-[#FAF9F5] rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative"
               >
+                {/* Top Golden Ambient Line on Hover */}
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#FEC401] to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-20" />
+
                 {/* Image Frame */}
-                <div className="relative h-48 w-full overflow-hidden">
+                <div className="relative h-52 sm:h-56 w-full overflow-hidden bg-[#000B3B]">
                   <Image
                     src={dest.image}
                     alt={dest.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10px] font-bold text-[#FEC401]">
-                    {dest.tag}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/20" />
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-[#FEC401]/50 text-[10.5px] font-bold text-[#FEC401] shadow-sm flex items-center gap-1.5">
+                    <MapPin className="w-3 h-3 text-[#FEC401]" />
+                    <span>{dest.tag}</span>
+                  </div>
+                  <div className="absolute bottom-2.5 left-3.5 px-2.5 py-0.5 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[9.5px] text-[#10B981] font-bold">
+                    ● Included Sightseeing Circuit
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-5 sm:p-6 space-y-3 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-lg font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors mb-2">
+                <div className="p-6 sm:p-7 space-y-4 flex-1 flex flex-col justify-between">
+                  <div className="space-y-2.5">
+                    <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
                       {dest.title}
                     </h3>
-                    <p className="text-xs text-[#64748B] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-normal">
                       {dest.desc}
                     </p>
                   </div>
 
                   {/* Key Highlights Chips */}
                   {dest.keyAttractions && dest.keyAttractions.length > 0 && (
-                    <div className="pt-2 border-t border-[#E2E8F0] space-y-1.5">
+                    <div className="pt-3 border-t border-[#F1F5F9] space-y-2">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-[#94A3B8] block">
-                        Key Sights:
+                        Must-Visit Sights:
                       </span>
-                      <div className="flex flex-wrap gap-1">
+                      <div className="flex flex-wrap gap-1.5">
                         {dest.keyAttractions.map((att, idx) => (
                           <span
                             key={idx}
-                            className="text-[10px] font-medium bg-white text-[#475569] px-2 py-0.5 rounded-md border border-[#E2E8F0]"
+                            className="text-[10.5px] font-semibold bg-[#FAF9F5] text-[#334155] px-2.5 py-1 rounded-lg border border-[#E2E8F0]"
                           >
-                            {att}
+                            ✓ {att}
                           </span>
                         ))}
                       </div>
                     </div>
                   )}
+
+                  <div className="pt-2 border-t border-[#F1F5F9] flex items-center justify-between text-[11px] font-bold text-[#16A34A]">
+                    <span className="inline-flex items-center gap-1">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" />
+                      <span>Dedicated Chauffeur Waiting</span>
+                    </span>
+                    <span className="text-[#000B3B] group-hover:translate-x-1 transition-transform inline-flex items-center gap-0.5">
+                      <span>Explore</span>
+                      <ArrowRight className="w-3 h-3 text-[#FEC401]" />
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -391,52 +389,55 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               {packages.map((pkg, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-3xl border border-[#E2E8F0] p-6 sm:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-5 group"
+                  className="bg-white rounded-3xl border border-[#E2E8F0] p-7 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-6 group relative overflow-hidden"
                 >
-                  <div className="space-y-3">
+                  {/* Top Golden Accent Edge */}
+                  <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#FEC401] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                  <div className="space-y-3.5">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#000B3B] bg-[#FEC401] px-2.5 py-0.5 rounded-full">
+                      <span className="text-[10.5px] font-extrabold uppercase tracking-wider text-[#000B3B] bg-gradient-to-r from-[#FEC401] to-[#E5AD00] px-3 py-1 rounded-full shadow-xs">
                         {pkg.badge}
                       </span>
-                      <span className="text-xs text-[#64748B] font-bold flex items-center gap-1">
+                      <span className="text-xs text-[#64748B] font-bold flex items-center gap-1.5 bg-[#F8FAFC] px-2.5 py-1 rounded-full border border-[#E2E8F0]">
                         <Clock className="w-3.5 h-3.5 text-[#000B3B]" />
                         <span>{pkg.duration}</span>
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
                       {pkg.title}
                     </h3>
 
-                    <p className="text-xs text-[#64748B] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-normal">
                       {pkg.subtitle}
                     </p>
 
                     {/* Highlights List */}
-                    <ul className="space-y-2 pt-2 border-t border-[#F1F5F9] text-xs text-[#334155]">
+                    <ul className="space-y-2.5 pt-3 border-t border-[#F1F5F9] text-xs sm:text-sm text-[#334155]">
                       {pkg.highlights.map((h, hIdx) => (
-                        <li key={hIdx} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0 mt-0.5" />
-                          <span>{h}</span>
+                        <li key={hIdx} className="flex items-start gap-2.5">
+                          <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                          <span className="font-medium text-[#1E293B]">{h}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
                   {/* Tariff & Action */}
-                  <div className="pt-3 border-t border-[#F1F5F9] flex items-center justify-between">
+                  <div className="pt-4 border-t border-[#F1F5F9] flex items-center justify-between gap-3">
                     <div>
-                      <span className="text-[10px] font-bold text-[#94A3B8] block uppercase">
+                      <span className="text-[10px] font-bold text-[#94A3B8] block uppercase tracking-wider">
                         Indicative Estimate
                       </span>
-                      <span className="text-sm font-black text-[#000B3B]">
+                      <span className="text-base sm:text-lg font-black text-[#000B3B]">
                         {pkg.approxPrice}
                       </span>
                     </div>
 
                     <Link
                       href={`/book-tour?destination=${bookingTourSlug}`}
-                      className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#000B3B] to-[#02146B] text-white text-xs font-bold hover:brightness-110 shadow-sm inline-flex items-center gap-1.5 transition active:translate-y-0.5"
+                      className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#000B3B] to-[#02146B] text-white text-xs font-bold hover:brightness-110 shadow-sm inline-flex items-center gap-1.5 transition active:translate-y-0.5"
                     >
                       <span>Book Package</span>
                       <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
@@ -468,33 +469,34 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               </p>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-5">
               {itineraryDays.map((dayItem, idx) => (
                 <div
                   key={idx}
-                  className="p-6 sm:p-7 rounded-3xl bg-[#FAF9F5] border border-[#E2E8F0] shadow-sm space-y-3 hover:shadow-md transition-shadow relative overflow-hidden"
+                  className="p-6 sm:p-7 rounded-3xl bg-white border border-[#E2E8F0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-lg transition-all space-y-3.5 relative overflow-hidden group"
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <span className="text-xs font-black uppercase tracking-wider text-[#000B3B] bg-[#FEC401] px-3 py-1 rounded-full self-start">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                    <span className="text-xs font-black uppercase tracking-wider text-[#000B3B] bg-gradient-to-r from-[#FEC401] to-[#E5AD00] px-3.5 py-1 rounded-full shadow-xs self-start">
                       {dayItem.day}
                     </span>
-                    <h3 className="text-base sm:text-lg font-bold font-display text-[#0F172A]">
+                    <h3 className="text-base sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
                       {dayItem.title}
                     </h3>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed pt-1">
+                  <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed pt-1 font-normal">
                     {dayItem.desc}
                   </p>
 
                   {dayItem.highlights && dayItem.highlights.length > 0 && (
-                    <div className="pt-2 flex flex-wrap gap-1.5">
+                    <div className="pt-2 flex flex-wrap gap-2">
                       {dayItem.highlights.map((hl, hlIdx) => (
                         <span
                           key={hlIdx}
-                          className="text-[11px] font-semibold text-[#000B3B] bg-white px-2.5 py-1 rounded-lg border border-[#E2E8F0]"
+                          className="text-[11px] font-semibold text-[#000B3B] bg-[#FAF9F5] px-3 py-1 rounded-lg border border-[#E2E8F0] inline-flex items-center gap-1"
                         >
-                          ✓ {hl}
+                          <CheckCircle2 className="w-3 h-3 text-[#16A34A]" />
+                          <span>{hl}</span>
                         </span>
                       ))}
                     </div>
@@ -528,13 +530,18 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
             {VEHICLE_FLEET.slice(1, 4).map((vehicle) => (
               <div
                 key={vehicle.id}
-                className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group"
               >
-                <div className="relative h-48 sm:h-52 bg-gradient-to-br from-[#000B3B] to-[#02146B] p-4 flex items-center justify-center overflow-hidden">
-                  <div className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md border border-[#FEC401]/50 text-[10px] font-bold text-[#FEC401]">
+                {/* Visual Car Photo Frame with Luxury Ambient Lighting */}
+                <div className="relative h-52 sm:h-56 bg-gradient-to-br from-[#00082E] via-[#001162] to-[#02146B] p-4 flex items-center justify-center overflow-hidden border-b border-white/10">
+                  {/* Subtle Ambient Radial Glow */}
+                  <div className="absolute inset-0 bg-radial-[at_center_center] from-[#FEC401]/20 to-transparent pointer-events-none" />
+
+                  {/* Top Badges */}
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-[#FEC401]/50 text-[10px] font-bold text-[#FEC401] shadow-sm">
                     {vehicle.tag || "Tour Class"}
                   </div>
-                  <div className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-bold text-white">
+                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[10.5px] font-extrabold text-white shadow-sm">
                     Base ₹{vehicle.ratePerKm}/km
                   </div>
 
@@ -543,18 +550,24 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                     alt={vehicle.name}
                     width={320}
                     height={180}
-                    className="object-contain max-h-40 group-hover:scale-105 transition-transform duration-300 drop-shadow-xl"
+                    className="object-contain max-h-40 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)]"
                   />
+
+                  {/* Bottom Strip Badge */}
+                  <div className="absolute bottom-2.5 left-3 px-2.5 py-0.5 rounded-md bg-black/50 backdrop-blur-md border border-white/10 text-[9.5px] text-[#10B981] font-bold">
+                    ● Yellow-Board Commercial AC
+                  </div>
                 </div>
 
+                {/* Details Body */}
                 <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <h3 className="text-lg font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
+                    <div className="flex items-center justify-between mb-1.5">
+                      <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
                         {vehicle.name}
                       </h3>
-                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2 py-0.5 rounded-md">
-                        Dual AC
+                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
+                        Dual-Zone AC
                       </span>
                     </div>
 
@@ -567,6 +580,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                     </p>
                   </div>
 
+                  {/* Specs Pill Grid */}
                   <div className="grid grid-cols-2 gap-2 text-[11px] text-[#475569] pt-2 border-t border-[#F1F5F9]">
                     <div className="flex items-center gap-1.5 p-2 rounded-xl bg-[#F8FAFC]">
                       <Users className="w-3.5 h-3.5 text-[#000B3B]" />
@@ -581,10 +595,10 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   <div className="pt-2">
                     <Link
                       href={`/book-tour?destination=${bookingTourSlug}&vehicle=${vehicle.id}`}
-                      className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-b from-[#000B3B] to-[#02146B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-between shadow-sm transition-all group-hover:shadow"
+                      className="w-full py-3 px-4 rounded-xl bg-gradient-to-b from-[#000B3B] to-[#02146B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-between shadow-sm transition-all group-hover:shadow"
                     >
                       <span>Select {vehicle.name}</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-0.5 transition-transform" />
+                      <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </div>
@@ -720,50 +734,70 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-7 sm:p-8 rounded-3xl bg-white border border-[#E2E8F0] shadow-sm space-y-5">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center">
-                  <CheckCircle2 className="w-6 h-6 text-[#16A34A]" />
+            {/* Inclusions Card */}
+            <div className="p-7 sm:p-8 rounded-3xl bg-gradient-to-br from-[#F0FDF4]/50 via-white to-white border-2 border-[#BBF7D0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(22,163,74,0.1)] transition-all duration-300 space-y-5 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 px-3.5 py-1 rounded-bl-2xl bg-[#DCFCE7] text-[10px] font-black text-[#166534] uppercase tracking-wider border-b border-l border-[#BBF7D0]">
+                100% Covered
+              </div>
+
+              <div className="flex items-center gap-3.5">
+                <div className="w-12 h-12 rounded-2xl bg-[#16A34A] text-white flex items-center justify-center shadow-md">
+                  <CheckCircle2 className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#000B3B] font-display">
+                  <h3 className="text-xl font-bold text-[#0F172A] font-display">
                     What Is Fully Included
                   </h3>
                   <p className="text-xs text-[#64748B]">All essential road travel costs covered</p>
                 </div>
               </div>
 
-              <ul className="space-y-3.5 text-xs sm:text-sm text-[#334155]">
+              <ul className="space-y-3 text-xs sm:text-sm text-[#334155]">
                 {inclusions.map((inc, i) => (
-                  <li key={i} className="flex items-start gap-3">
+                  <li key={i} className="flex items-start gap-3 bg-white/90 p-3 rounded-xl border border-[#E2E8F0]/70 shadow-xs">
                     <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                    <span>{inc}</span>
+                    <span className="font-medium text-[#1E293B]">{inc}</span>
                   </li>
                 ))}
               </ul>
+
+              <div className="pt-3 border-t border-[#BBF7D0]/60 text-[11px] font-bold text-[#166534] flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-[#16A34A]" />
+                <span>Dedicated Chauffeur • Fuel &amp; Driver Day Allowance Included</span>
+              </div>
             </div>
 
-            <div className="p-7 sm:p-8 rounded-3xl bg-white border border-[#E2E8F0] shadow-sm space-y-5">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#FEE2E2] text-[#DC2626] flex items-center justify-center">
-                  <XCircle className="w-6 h-6 text-[#DC2626]" />
+            {/* Exclusions Card */}
+            <div className="p-7 sm:p-8 rounded-3xl bg-gradient-to-br from-[#FFFBEB]/50 via-white to-white border-2 border-[#FDE68A] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(217,119,6,0.1)] transition-all duration-300 space-y-5 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 px-3.5 py-1 rounded-bl-2xl bg-[#FEF3C7] text-[10px] font-black text-[#92400E] uppercase tracking-wider border-b border-l border-[#FDE68A]">
+                Direct Settlement
+              </div>
+
+              <div className="flex items-center gap-3.5">
+                <div className="w-12 h-12 rounded-2xl bg-[#D97706] text-white flex items-center justify-center shadow-md">
+                  <XCircle className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#0F172A] font-display">
+                  <h3 className="text-xl font-bold text-[#0F172A] font-display">
                     What Is Excluded (Direct Settlements)
                   </h3>
-                  <p className="text-xs text-[#64748B]">Settled directly at actuals with tickets</p>
+                  <p className="text-xs text-[#64748B]">Settled directly with physical entry tickets</p>
                 </div>
               </div>
 
-              <ul className="space-y-3.5 text-xs sm:text-sm text-[#64748B]">
+              <ul className="space-y-3 text-xs sm:text-sm text-[#64748B]">
                 {exclusions.map((exc, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#94A3B8] shrink-0 mt-2" />
-                    <span>{exc}</span>
+                  <li key={i} className="flex items-start gap-3 bg-white/90 p-3 rounded-xl border border-[#E2E8F0]/70 shadow-xs">
+                    <span className="w-2 h-2 rounded-full bg-[#D97706] shrink-0 mt-2" />
+                    <span className="text-[#475569] font-medium">{exc}</span>
                   </li>
                 ))}
               </ul>
+
+              <div className="pt-3 border-t border-[#FDE68A]/60 text-[11px] font-bold text-[#92400E] flex items-center gap-1.5">
+                <CreditCard className="w-4 h-4 text-[#D97706]" />
+                <span>Zero Driver Haggling • You Purchase Monument Tickets Directly</span>
+              </div>
             </div>
           </div>
         </div>
@@ -910,30 +944,49 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               </h2>
             </div>
 
-            <div className="space-y-3.5">
+            <div className="space-y-4">
               {faqs.map((faq, idx) => {
                 const isOpen = openFaqIndex === idx;
                 return (
                   <div
                     key={idx}
-                    className="rounded-2xl border border-[#E2E8F0] overflow-hidden bg-[#FAF9F5] transition-all"
+                    className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                      isOpen
+                        ? "border-[#FEC401] shadow-[0_8px_25px_rgba(254,196,1,0.15)] bg-[#FFFDF5]"
+                        : "border-[#E2E8F0] bg-white shadow-xs hover:border-[#CBD5E1]"
+                    }`}
                   >
                     <button
                       type="button"
                       onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                      className="w-full p-5 text-left font-bold text-[#0F172A] text-sm sm:text-base font-display flex items-center justify-between gap-4 cursor-pointer hover:bg-white transition-colors"
+                      className="w-full p-5 sm:p-6 text-left font-bold text-[#0F172A] text-sm sm:text-base font-display flex items-center justify-between gap-4 cursor-pointer"
                       aria-expanded={isOpen}
                     >
-                      <span>{faq.q}</span>
-                      <ChevronDown
-                        className={`w-4 h-4 text-[#000B3B] shrink-0 transition-transform duration-200 ${
-                          isOpen ? "rotate-180 text-[#FEC401]" : ""
+                      <div className="flex items-center gap-3">
+                        <span
+                          className={`w-2 h-2 rounded-full transition-colors ${
+                            isOpen ? "bg-[#FEC401]" : "bg-[#CBD5E1]"
+                          }`}
+                        />
+                        <span>{faq.q}</span>
+                      </div>
+                      <div
+                        className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${
+                          isOpen
+                            ? "bg-[#000B3B] text-[#FEC401]"
+                            : "bg-[#F1F5F9] text-[#64748B]"
                         }`}
-                      />
+                      >
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform duration-200 ${
+                            isOpen ? "rotate-180" : ""
+                          }`}
+                        />
+                      </div>
                     </button>
 
                     {isOpen && (
-                      <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#64748B] leading-relaxed border-t border-[#E2E8F0]/60 bg-white">
+                      <div className="px-6 pb-6 pt-1 text-xs sm:text-sm text-[#475569] leading-relaxed border-t border-[#E2E8F0]/60">
                         {faq.a}
                       </div>
                     )}
