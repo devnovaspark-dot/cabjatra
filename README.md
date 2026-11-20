@@ -67,7 +67,7 @@ npm start
 
 - **Bhubaneswar**: Biju Patnaik International Airport (BBI), Patia Infocity, Master Canteen
 - **Puri**: Sri Jagannath Temple Corridor, Swargadwar, Blue Flag Beach
-- **Cuttack**: CDA, Badambadi, High Court Sector
+- **Kataka**: CDA, Badambadi, High Court Sector
 - **Konark**: Marine Drive, Sun Temple Complex, Chandrabhaga Beach
 
 ---

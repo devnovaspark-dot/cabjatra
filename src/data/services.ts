@@ -18,18 +18,18 @@ export const SERVICES_DATA: ServiceItem[] = [
     slug: "airport-transfers",
     title: "Airport Transfers",
     shortDesc: "Punctual, stress-free pickups and drops to & from Biju Patnaik International Airport (BBI).",
-    fullDesc: "Dedicated airport cab service with flight tracking, zero wait anxiety, doorstep luggage assistance, and air-conditioned comfortable rides across Bhubaneswar, Cuttack, and Puri.",
+    fullDesc: "Dedicated airport cab service with flight tracking, zero wait anxiety, doorstep luggage assistance, and air-conditioned comfortable rides across Bhubaneswar, Kataka, and Puri.",
     iconName: "Plane",
     heroImage: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200&auto=format&fit=crop",
     features: [
       "Flight arrival monitoring & buffer time",
       "Meet & Greet at BBI Airport Terminal gates",
       "Zero surge pricing guarantee during late hours",
-      "Direct highway transfers to Puri & Cuttack"
+      "Direct highway transfers to Puri & Kataka"
     ],
     startingFareNote: "Guaranteed fixed tariff • Zero flight delay surcharge",
     idealFor: "Business delegates, inbound tourists, families arriving with heavy luggage",
-    popularRoutes: ["BBI Airport ⇄ Master Canteen", "BBI Airport ⇄ Patia Infocity", "BBI Airport ⇄ Puri Beach", "BBI Airport ⇄ Cuttack CDA"]
+    popularRoutes: ["BBI Airport ⇄ Master Canteen", "BBI Airport ⇄ Patia Infocity", "BBI Airport ⇄ Puri Beach", "BBI Airport ⇄ Kataka CDA"]
   },
   {
     id: "outstation-cabs",
@@ -65,7 +65,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     startingFareNote: "Flexible block packages • Driver on standby",
     idealFor: "Corporate executives, wedding guests, shoppers, day-long temple yatras",
-    popularRoutes: ["Bhubaneswar City Tour (8h/80km)", "Puri Temple & Beach Crawl (6h/60km)", "Cuttack Heritage Loop (8h/80km)"]
+    popularRoutes: ["Bhubaneswar City Tour (8h/80km)", "Puri Temple & Beach Crawl (6h/60km)", "Kataka Heritage Loop (8h/80km)"]
   },
   {
     id: "local-city-rides",
@@ -83,7 +83,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     startingFareNote: "Transparent distance tariffs • Zero surge multipliers",
     idealFor: "Early morning hospital visits, scheduled train connections, safe family commutes",
-    popularRoutes: ["Patia ⇄ Old Town Bhubaneswar", "Saheed Nagar ⇄ Khandagiri", "Badambadi ⇄ CDA Cuttack"]
+    popularRoutes: ["Patia ⇄ Old Town Bhubaneswar", "Saheed Nagar ⇄ Khandagiri", "Badambadi ⇄ CDA Kataka"]
   },
   {
     id: "odisha-tours",
@@ -108,7 +108,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     slug: "corporate-travel",
     title: "Corporate & Event Mobility",
     shortDesc: "Standardized travel logistics for company executives, conferences, and institutional events.",
-    fullDesc: "Professional fleet solutions for business hubs in Bhubaneswar & Cuttack, with consolidated billing estimates, executive sedans, and dedicated dispatch coordinators.",
+    fullDesc: "Professional fleet solutions for business hubs in Bhubaneswar & Kataka, with consolidated billing estimates, executive sedans, and dedicated dispatch coordinators.",
     iconName: "Briefcase",
     heroImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop",
     features: [

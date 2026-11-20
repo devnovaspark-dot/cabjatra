@@ -181,7 +181,7 @@ export default function BhubaneswarTourPackagesPage() {
     },
     {
       q: "Can the driver drop us at Puri or BBI Airport at the end of the tour?",
-      a: "Yes! You can choose an outstation extension to Puri, Konark, or Cuttack at the end of your Bhubaneswar tour for a nominal transparent kilometer fare.",
+      a: "Yes! You can choose an outstation extension to Puri, Konark, or Kataka at the end of your Bhubaneswar tour for a nominal transparent kilometer fare.",
     },
     {
       q: "How do I book a Bhubaneswar cab tour with Cabjatra?",

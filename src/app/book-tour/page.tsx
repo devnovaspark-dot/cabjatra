@@ -469,7 +469,7 @@ function TourBookingContent() {
                       <option value="Bhubaneswar Airport (BBI)">Bhubaneswar Airport (BBI)</option>
                       <option value="Bhubaneswar Railway Station">Bhubaneswar Railway Station</option>
                       <option value="Puri Railway Station / Hotel">Puri Railway Station / Hotel</option>
-                      <option value="Cuttack Hub">Cuttack Hub</option>
+                      <option value="Kataka Hub">Kataka Hub</option>
                     </select>
                   </div>
                 </div>

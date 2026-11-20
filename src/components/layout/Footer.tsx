@@ -379,11 +379,11 @@ export const Footer: React.FC = () => {
 
               <li>
                 <Link
-                  href="/book-online-taxi-in-cuttack"
+                  href="/book-online-taxi-in-kataka"
                   className="p-1.5 rounded-xl bg-white/5 hover:bg-white/10 hover:border-[#FEC401]/50 border border-white/10 block group transition-all"
                 >
                   <div className="flex items-center justify-between text-white group-hover:text-[#FEC401] transition-colors font-semibold">
-                    <span>Book Online Taxi in Cuttack</span>
+                    <span>Book Online Taxi in Kataka</span>
                     <ArrowRight className="w-3 h-3 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
                   </div>
                   <div className="text-[10px] text-[#F1F5F9]/70 mt-0.5">
@@ -536,11 +536,11 @@ export const Footer: React.FC = () => {
             <span>Puri Railway Station</span>
           </Link>
           <Link
-            href="/book-online-taxi-in-cuttack"
+            href="/book-online-taxi-in-kataka"
             className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 hover:bg-black/70 hover:border-[#FEC401]/60 border border-white/10 text-[11px] text-white transition-all"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
-            <span>Cuttack Twin-City</span>
+            <span>Kataka Twin-City</span>
           </Link>
 
           <span className="text-white/30 hidden md:inline mx-1">|</span>

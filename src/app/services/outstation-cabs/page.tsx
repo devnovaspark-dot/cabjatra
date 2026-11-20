@@ -4,7 +4,7 @@ import { ServiceDetailPage } from "@/components/services/ServiceDetailPage";
 export const metadata = {
   title: "Outstation Cabs Odisha — CABJATRA Intercity Cab Service",
   description:
-    "Reliable one-way and round-trip outstation cabs from Bhubaneswar, Puri, and Cuttack. Experienced highway drivers, clean AC cars, and transparent per-km billing.",
+    "Reliable one-way and round-trip outstation cabs from Bhubaneswar, Puri, and Kataka. Experienced highway drivers, clean AC cars, and transparent per-km billing.",
 };
 
 export default function OutstationCabsPage() {
@@ -78,7 +78,7 @@ export default function OutstationCabsPage() {
           a: "In standard outstation bookings, highway toll receipts and destination parking fees are either paid directly at booths or added as transparent line-items on your final trip invoice.",
         },
         {
-          q: "Can I book a one-way drop to Puri or Cuttack?",
+          q: "Can I book a one-way drop to Puri or Kataka?",
           a: "Yes! We support dedicated one-way outstation transfers between all approved Odisha hubs with economical one-way tariffs.",
         },
       ]}

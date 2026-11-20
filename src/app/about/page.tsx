@@ -91,15 +91,15 @@ export default function AboutPage() {
       cta: "Explore Puri Circuits",
     },
     {
-      city: "Cuttack",
+      city: "Kataka",
       code: "CTC",
       tag: "Silver City Corridor",
       role: "Commercial & High Court Corridor",
       detail: "Badambadi Transit Hub, OMP Square, Netaji Birthplace, and CDA Judicial District.",
       standby: "Standby Fleet Active",
       image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=85&w=900&auto=format&fit=crop",
-      link: "/book-cab?from=Cuttack",
-      cta: "Book Cuttack Cab",
+      link: "/book-cab?from=Kataka",
+      cta: "Book Kataka Cab",
     },
     {
       city: "Konark",

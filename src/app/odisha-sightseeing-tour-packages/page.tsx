@@ -173,8 +173,8 @@ export default function OdishaSightseeingTourPackagesPage() {
       a: "October through March is the peak tourism season, offering pleasant, sunny weather with cool coastal breezes. However, temple tours and coastal getaways operate comfortably year-round in our air-conditioned vehicles.",
     },
     {
-      q: "Can we start our Odisha sightseeing tour from Puri or Cuttack instead of Bhubaneswar?",
-      a: "Yes! Our private cab tours can begin from any location in Odisha, including Bhubaneswar Airport, Puri Railway Station, Cuttack, or your designated hotel.",
+      q: "Can we start our Odisha sightseeing tour from Puri or Kataka instead of Bhubaneswar?",
+      a: "Yes! Our private cab tours can begin from any location in Odisha, including Bhubaneswar Airport, Puri Railway Station, Kataka, or your designated hotel.",
     },
     {
       q: "Are temple priority darshan tickets included in the cab package?",

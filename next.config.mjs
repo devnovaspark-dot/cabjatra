@@ -13,6 +13,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/book-online-taxi-in-cuttack",
+        destination: "/book-online-taxi-in-kataka",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

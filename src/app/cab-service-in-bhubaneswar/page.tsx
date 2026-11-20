@@ -4,7 +4,7 @@ import { ServiceDetailPage } from "@/components/services/ServiceDetailPage";
 export const metadata = {
   title: "Cab Service in Bhubaneswar — Airport, Outstation & City Cabs | CABJATRA",
   description:
-    "Book reliable cab service in Bhubaneswar with CABJATRA. 24/7 BBI airport pickups, Infocity IT corridor rides, and intercity cabs to Puri & Cuttack with verified drivers.",
+    "Book reliable cab service in Bhubaneswar with CABJATRA. 24/7 BBI airport pickups, Infocity IT corridor rides, and intercity cabs to Puri & Kataka with verified drivers.",
 };
 
 export default function CabServiceInBhubaneswarPage() {
@@ -62,7 +62,7 @@ export default function CabServiceInBhubaneswarPage() {
           suvEstimate: "₹2,600 - ₹3,000",
         },
         {
-          route: "Bhubaneswar ⇄ Cuttack Badambadi / CDA",
+          route: "Bhubaneswar ⇄ Kataka Badambadi / CDA",
           distance: "28 km approx",
           approxDuration: "40 min via NH-16",
           sedanEstimate: "₹850 - ₹1,050",

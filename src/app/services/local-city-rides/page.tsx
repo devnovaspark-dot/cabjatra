@@ -2,9 +2,9 @@ import React from "react";
 import { ServiceDetailPage } from "@/components/services/ServiceDetailPage";
 
 export const metadata = {
-  title: "Local City Cabs — CABJATRA Bhubaneswar & Cuttack",
+  title: "Local City Cabs — CABJATRA Bhubaneswar & Kataka",
   description:
-    "Pre-book dependable point-to-point city rides in Bhubaneswar and Cuttack. Zero driver cancellations, clean cars, and timely pickups for daily family and office commutes.",
+    "Pre-book dependable point-to-point city rides in Bhubaneswar and Kataka. Zero driver cancellations, clean cars, and timely pickups for daily family and office commutes.",
 };
 
 export default function LocalCityRidesPage() {
@@ -46,7 +46,7 @@ export default function LocalCityRidesPage() {
           suvEstimate: "₹700 - ₹850",
         },
         {
-          route: "Bhubaneswar Jaydev Vihar ⇄ Cuttack Badambadi",
+          route: "Bhubaneswar Jaydev Vihar ⇄ Kataka Badambadi",
           distance: "26 km",
           approxDuration: "45 min",
           sedanEstimate: "₹750 - ₹900",

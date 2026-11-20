@@ -56,7 +56,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     id: "review-4",
     name: "Debabrata Routray",
     role: "Corporate Event Coordinator",
-    location: "Cuttack / Bhubaneswar",
+    location: "Kataka / Bhubaneswar",
     tripType: "Multi-Day Hourly Rentals (Fleet of 4 Sedans)",
     rating: 5,
     quote: "We hired CABJATRA for an academic conference spanning Utkal University and KIIT campus. Drivers adhered strictly to timelines and coordinate smoothly via WhatsApp. Superb corporate travel support.",

@@ -53,7 +53,7 @@ export default function AirportTransfersPage() {
           suvEstimate: "₹2,200 - ₹2,500",
         },
         {
-          route: "BBI Airport ⇄ Cuttack Badambadi / CDA",
+          route: "BBI Airport ⇄ Kataka Badambadi / CDA",
           distance: "32 km",
           approxDuration: "50 min",
           sedanEstimate: "₹950 - ₹1,100",

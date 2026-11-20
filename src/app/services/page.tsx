@@ -53,7 +53,7 @@ export default function ServicesPage() {
             Our Services
           </h1>
           <p className="text-xs sm:text-sm text-[#F1F5F9]/80 mt-3 leading-relaxed">
-            Discover dependable, comfortable, and transparent pre-booked mobility across Bhubaneswar, Puri, Cuttack, Konark, and beyond.
+            Discover dependable, comfortable, and transparent pre-booked mobility across Bhubaneswar, Puri, Kataka, Konark, and beyond.
           </p>
         </div>
       </section>

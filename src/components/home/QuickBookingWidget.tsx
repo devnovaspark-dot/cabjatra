@@ -128,7 +128,7 @@ export const QuickBookingWidget: React.FC = () => {
                 setDropLocation(e.target.value);
                 if (inputError) setInputError("");
               }}
-              placeholder="e.g. Puri Golden Beach, Konark, Cuttack"
+              placeholder="e.g. Puri Golden Beach, Konark, Kataka"
               className="w-full h-11 sm:h-12 px-3 sm:px-3.5 rounded-xl border border-white/20 bg-white text-xs font-bold text-[#0F172A] shadow-[inset_0_1px_2px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.15)] focus:outline-none focus:ring-2 focus:ring-[#FEC401] transition-all placeholder:text-[#667575]/70"
               required
             />

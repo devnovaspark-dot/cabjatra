@@ -66,7 +66,7 @@ const VERTICALS: MobilityVertical[] = [
     shortTag: "NH-16 & NH-316",
     tagline: "Point-to-point intercity highway journeys with verified commercial drivers",
     description:
-      "Direct intercity connectivity between Bhubaneswar, Puri, Cuttack, Konark, Sambalpur, and Rourkela. Driven by seasoned highway drivers with dual-zone air conditioning, comprehensive passenger insurance, and verified vehicle fitness.",
+      "Direct intercity connectivity between Bhubaneswar, Puri, Kataka, Konark, Sambalpur, and Rourkela. Driven by seasoned highway drivers with dual-zone air conditioning, comprehensive passenger insurance, and verified vehicle fitness.",
     image:
       "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=1200&auto=format&fit=crop",
     icon: Compass,

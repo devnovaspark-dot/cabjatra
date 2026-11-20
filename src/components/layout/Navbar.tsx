@@ -345,9 +345,9 @@ export const Navbar: React.FC = () => {
                         </div>
                       </Link>
 
-                      {/* 4. Book Online Taxi in Cuttack */}
+                      {/* 4. Book Online Taxi in Kataka */}
                       <Link
-                        href="/book-online-taxi-in-cuttack"
+                        href="/book-online-taxi-in-kataka"
                         onClick={() => setIsServicesOpen(false)}
                         className="group flex items-center justify-between p-2.5 rounded-2xl bg-white hover:bg-gradient-to-r hover:from-[#FAF9F5] hover:to-[#FFFBEB] border border-[#E2E8F0] hover:border-[#FEC401]/70 transition-all duration-150 shadow-xs hover:shadow-sm"
                         role="menuitem"
@@ -358,7 +358,7 @@ export const Navbar: React.FC = () => {
                           </div>
                           <div className="min-w-0">
                             <span className="block text-xs font-bold text-[#0F172A] group-hover:text-[#000B3B] truncate">
-                              Book Online Taxi in Cuttack
+                              Book Online Taxi in Kataka
                             </span>
                             <span className="block text-[10px] text-[#64748B] group-hover:text-[#000B3B]/80 font-medium truncate">
                               High Court &bull; SCB Medical &bull; NH-16 Express
@@ -806,15 +806,15 @@ export const Navbar: React.FC = () => {
                       </span>
                     </Link>
 
-                    {/* Online Taxi in Cuttack */}
+                    {/* Online Taxi in Kataka */}
                     <Link
-                      href="/book-online-taxi-in-cuttack"
+                      href="/book-online-taxi-in-kataka"
                       onClick={() => setMobileMenuOpen(false)}
                       className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
                     >
                       <div className="flex items-center gap-2">
                         <MapPin className="w-3.5 h-3.5 text-[#02146B]" />
-                        <span className="font-semibold text-[11.5px]">Book Online Taxi in Cuttack</span>
+                        <span className="font-semibold text-[11.5px]">Book Online Taxi in Kataka</span>
                       </div>
                       <span className="text-[9px] text-[#02146B] font-bold bg-[#02146B]/10 px-1.5 py-0.5 rounded">
                         Twin-City

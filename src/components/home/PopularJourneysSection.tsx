@@ -200,12 +200,12 @@ export const PopularJourneysSection: React.FC = () => {
             </div>
           </div>
 
-          {/* BENTO 4: TWIN CITY CORRIDOR (BHUBANESWAR TO CUTTACK) — 6 Columns */}
+          {/* BENTO 4: TWIN CITY CORRIDOR (BHUBANESWAR TO KATAKA) — 6 Columns */}
           <div className="lg:col-span-6 card-skeuo rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between group border border-[#D5DDD5] shadow-card bg-white">
             <div className="relative h-36 sm:h-52 w-full overflow-hidden border-b border-[#D6E0D6]">
               <Image
                 src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=85&w=900&auto=format&fit=crop"
-                alt="Highway transit between Bhubaneswar and Cuttack"
+                alt="Highway transit between Bhubaneswar and Kataka"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
@@ -216,7 +216,7 @@ export const PopularJourneysSection: React.FC = () => {
               </div>
 
               <div className="absolute bottom-2.5 sm:bottom-3 left-3 sm:left-4 right-3 sm:right-4 text-white">
-                <div className="text-sm sm:text-lg font-bold font-display drop-shadow-sm">Bhubaneswar ⇄ Cuttack Express</div>
+                <div className="text-sm sm:text-lg font-bold font-display drop-shadow-sm">Bhubaneswar ⇄ Kataka Express</div>
                 <div className="text-[10px] sm:text-[11px] text-[#F1F5F9]/90 flex items-center gap-1 mt-0.5">
                   <Clock className="w-3 h-3 text-[#FEC401]" />
                   <span>28 km • 40 min Direct via NH-16</span>
@@ -226,7 +226,7 @@ export const PopularJourneysSection: React.FC = () => {
 
             <div className="p-4 sm:p-6 space-y-2.5 sm:space-y-3">
               <p className="text-xs text-[#556464] leading-relaxed line-clamp-2 sm:line-clamp-none font-medium">
-                Seamless mobility connecting Infocity, Patia, Master Canteen, and CDA Cuttack / Badambadi for High Court appointments, SCB Medical, and daily transit.
+                Seamless mobility connecting Infocity, Patia, Master Canteen, and CDA Kataka / Badambadi for High Court appointments, SCB Medical, and daily transit.
               </p>
 
               <div className="pt-2.5 sm:pt-3 border-t border-[#E5ECE5] flex items-center justify-between gap-2">
@@ -235,7 +235,7 @@ export const PopularJourneysSection: React.FC = () => {
                   <span>Guaranteed Driver</span>
                 </span>
                 <Link
-                  href="/book-cab?service=local&to=Cuttack%20Badambadi"
+                  href="/book-cab?service=local&to=Kataka%20Badambadi"
                   className="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-gradient-to-b from-white to-[#EEF3EE] hover:bg-[#02146B] text-[#02146B] hover:text-white border border-[#CBD7CB] hover:border-transparent text-[11px] sm:text-xs font-semibold inline-flex items-center gap-1.5 transition shadow-skeuo shrink-0"
                 >
                   <span>Book Ride</span>

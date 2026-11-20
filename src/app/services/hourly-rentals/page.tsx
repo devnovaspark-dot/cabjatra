@@ -4,7 +4,7 @@ import { ServiceDetailPage } from "@/components/services/ServiceDetailPage";
 export const metadata = {
   title: "Hourly & Day Car Rentals — CABJATRA Odisha",
   description:
-    "Hire a private car and driver by the hour in Bhubaneswar and Cuttack. 4-hour, 8-hour, and 12-hour packages for business meetings, shopping, and temple tours.",
+    "Hire a private car and driver by the hour in Bhubaneswar and Kataka. 4-hour, 8-hour, and 12-hour packages for business meetings, shopping, and temple tours.",
 };
 
 export default function HourlyRentalsPage() {
@@ -71,8 +71,8 @@ export default function HourlyRentalsPage() {
           a: "You can easily extend your hourly package! Just inform your driver or contact our dispatch desk. Extra hours and extra kilometres are billed at standard, pre-disclosed rates.",
         },
         {
-          q: "Can I use an hourly package to go between Bhubaneswar and Cuttack?",
-          a: "Yes! As long as total distance and duration fit your chosen package, you can freely travel between twin cities Bhubaneswar and Cuttack.",
+          q: "Can I use an hourly package to go between Bhubaneswar and Kataka?",
+          a: "Yes! As long as total distance and duration fit your chosen package, you can freely travel between twin cities Bhubaneswar and Kataka.",
         },
       ]}
     />

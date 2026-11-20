@@ -33,7 +33,7 @@ const CATEGORIES: DiscoveryCategory[] = [
   },
   {
     title: "Outstation Travel",
-    subtitle: "One-way and round trips between Bhubaneswar, Puri, Cuttack, Konark, and Sambalpur.",
+    subtitle: "One-way and round trips between Bhubaneswar, Puri, Kataka, Konark, and Sambalpur.",
     icon: <Compass className="w-5 h-5 text-white" />,
     image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=600&auto=format&fit=crop",
     link: "/services/outstation-cabs",

@@ -22,7 +22,7 @@ export const FAQS_DATA: FaqItem[] = [
   },
   {
     question: "How does vehicle availability get checked?",
-    answer: "Our centralized Odisha dispatch desk reviews your requested pickup timing, route feasibility, and vehicle category against our active fleet schedule across Bhubaneswar, Cuttack, and Puri. Once a driver partner meets our service benchmarks (clean vehicle, verified license, route familiarity), your vehicle is reserved and the confirmation notification is sent to you, usually within 15–30 minutes.",
+    answer: "Our centralized Odisha dispatch desk reviews your requested pickup timing, route feasibility, and vehicle category against our active fleet schedule across Bhubaneswar, Kataka, and Puri. Once a driver partner meets our service benchmarks (clean vehicle, verified license, route familiarity), your vehicle is reserved and the confirmation notification is sent to you, usually within 15–30 minutes.",
     category: "service"
   },
   {

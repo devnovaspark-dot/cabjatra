@@ -27,7 +27,7 @@ export const COMPANY_CONFIG = {
     operationalHubs: [
       "Bhubaneswar (BBI Airport & Master Canteen)",
       "Puri (VIP Road & Marine Drive)",
-      "Cuttack (Badambadi & OMP Square)",
+      "Kataka (Badambadi & OMP Square)",
     ],
     operatingHours: "24 Hours Customer Assistance (Bookings: 06:00 AM – 11:00 PM)",
     whatsAppHelpNumber: "+91 70080 00000",
@@ -58,11 +58,11 @@ export const COMPANY_CONFIG = {
       pickupLocations: ["Puri Railway Station", "Grand Road (Bada Danda)", "Marine Drive Beach", "VIP Road"],
     },
     {
-      name: "Cuttack",
+      name: "Kataka",
       code: "CTC",
       badge: "Silver City",
       description: "Millennium city famous for silver filigree, Barabati Fort, and High Court corridor.",
-      pickupLocations: ["Cuttack Railway Station", "Badambadi Bus Terminal", "CDA Sector", "Madhupatna"],
+      pickupLocations: ["Kataka Railway Station", "Badambadi Bus Terminal", "CDA Sector", "Madhupatna"],
     },
     {
       name: "Konark",
