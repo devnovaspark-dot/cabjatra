@@ -1025,62 +1025,62 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
               {packages.map((pkg, idx) => {
                 const routePoints = getPackageRoute(pkg.title);
                 const isFeatured = idx === 0;
                 return (
                   <div
                     key={idx}
-                    className={`bg-white rounded-3xl overflow-hidden shadow-[0_10px_35px_rgba(0,11,59,0.06)] hover:shadow-[0_25px_50px_rgba(0,11,59,0.14)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative ${
-                      isFeatured ? "border-2 border-[#FEC401] shadow-[0_15px_45px_rgba(254,196,1,0.2)]" : "border border-slate-200/90"
+                    className={`bg-white rounded-2xl overflow-hidden shadow-[0_8px_25px_rgba(0,11,59,0.05)] hover:shadow-[0_18px_40px_rgba(0,11,59,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative ${
+                      isFeatured ? "border-2 border-[#FEC401] shadow-[0_12px_35px_rgba(254,196,1,0.18)]" : "border border-slate-200/90"
                     }`}
                   >
                     {/* Top Ribbon on Featured Package */}
                     {isFeatured && (
-                      <div className="bg-gradient-to-r from-[#FEC401] via-[#E5AD00] to-[#FEC401] text-[#000B3B] text-[10.5px] font-black uppercase tracking-wider text-center py-1.5 shadow-xs flex items-center justify-center gap-1.5">
-                        <Star className="w-3.5 h-3.5 fill-[#000B3B]" />
+                      <div className="bg-gradient-to-r from-[#FEC401] via-[#E5AD00] to-[#FEC401] text-[#000B3B] text-[10px] font-black uppercase tracking-wider text-center py-1 shadow-xs flex items-center justify-center gap-1.5">
+                        <Star className="w-3 h-3 fill-[#000B3B]" />
                         <span>#1 Most Recommended Odisha Itinerary</span>
                       </div>
                     )}
 
-                    <div className="p-6 sm:p-7 space-y-4">
+                    <div className="p-5 sm:p-5.5 space-y-3">
                       {/* Badge and Duration Row */}
                       <div className="flex items-center justify-between gap-2">
-                        <span className="text-[10.5px] font-black uppercase tracking-wider text-[#000B3B] bg-gradient-to-r from-[#FEC401] to-[#E5AD00] px-3.5 py-1.5 rounded-full shadow-xs flex items-center gap-1.5">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-[#000B3B] bg-gradient-to-r from-[#FEC401] to-[#E5AD00] px-3 py-1 rounded-full shadow-xs flex items-center gap-1">
                           <Sparkles className="w-3 h-3 text-[#000B3B]" />
                           <span>{pkg.badge}</span>
                         </span>
-                        <span className="text-xs text-[#0F172A] font-bold flex items-center gap-1.5 bg-[#FAF9F5] px-3 py-1.5 rounded-full border border-[#CBD5E1] shadow-2xs">
-                          <Clock className="w-3.5 h-3.5 text-[#000B3B]" />
+                        <span className="text-[11px] text-[#0F172A] font-bold flex items-center gap-1.5 bg-[#FAF9F5] px-2.5 py-1 rounded-full border border-[#CBD5E1] shadow-2xs">
+                          <Clock className="w-3 h-3 text-[#000B3B]" />
                           <span>{pkg.duration}</span>
                         </span>
                       </div>
 
                       {/* Package Title & Subtitle */}
-                      <div className="space-y-1">
-                        <h3 className="text-xl sm:text-2xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
+                      <div className="space-y-0.5">
+                        <h3 className="text-lg sm:text-xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
                           {pkg.title}
                         </h3>
-                        <p className="text-xs text-[#64748B] leading-relaxed">
+                        <p className="text-xs text-[#64748B] leading-relaxed line-clamp-2">
                           {pkg.subtitle}
                         </p>
                       </div>
 
                       {/* Visual Route Corridor Stepper */}
-                      <div className="p-3.5 rounded-2xl bg-gradient-to-r from-[#F8FAFC] via-[#FAF9F5] to-[#F8FAFC] border border-[#E2E8F0] space-y-2">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#64748B] flex items-center gap-1.5">
-                          <Route className="w-3.5 h-3.5 text-[#D97706]" />
+                      <div className="p-2.5 rounded-xl bg-gradient-to-r from-[#F8FAFC] via-[#FAF9F5] to-[#F8FAFC] border border-[#E2E8F0] space-y-1.5">
+                        <span className="text-[9.5px] font-bold uppercase tracking-wider text-[#64748B] flex items-center gap-1">
+                          <Route className="w-3 h-3 text-[#D97706]" />
                           <span>Tour Route Trajectory:</span>
                         </span>
-                        <div className="flex flex-wrap items-center gap-1 text-[11px] font-bold text-[#000B3B]">
+                        <div className="flex flex-wrap items-center gap-1 text-[10.5px] font-bold text-[#000B3B]">
                           {routePoints.map((pt, rIdx) => (
                             <React.Fragment key={rIdx}>
-                              <span className="bg-white px-2.5 py-1 rounded-lg border border-[#CBD5E1] shadow-2xs text-[#0F172A]">
+                              <span className="bg-white px-2 py-0.5 rounded-md border border-[#CBD5E1] shadow-2xs text-[#0F172A]">
                                 {pt}
                               </span>
                               {rIdx < routePoints.length - 1 && (
-                                <ArrowRight className="w-3 h-3 text-[#D97706] shrink-0" />
+                                <ArrowRight className="w-2.5 h-2.5 text-[#D97706] shrink-0" />
                               )}
                             </React.Fragment>
                           ))}
@@ -1088,37 +1088,37 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                       </div>
 
                       {/* Highlights List */}
-                      <div className="space-y-2 pt-2 border-t border-[#F1F5F9] text-xs text-[#334155]">
+                      <div className="space-y-1.5 pt-2 border-t border-[#F1F5F9] text-xs text-[#334155]">
                         {pkg.highlights.map((h, hIdx) => (
-                          <div key={hIdx} className="flex items-center gap-2.5">
-                            <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
-                              <Check className="w-2.5 h-2.5 stroke-[3]" />
+                          <div key={hIdx} className="flex items-center gap-2">
+                            <span className="w-3.5 h-3.5 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
+                              <Check className="w-2 h-2 stroke-[3]" />
                             </span>
-                            <span className="font-semibold text-[#1E293B]">{h}</span>
+                            <span className="font-semibold text-[#1E293B] text-[11.5px]">{h}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
                     {/* Tariff & Action Footer */}
-                    <div className="p-6 sm:p-7 pt-0 space-y-3">
-                      <div className="p-3.5 rounded-2xl bg-[#FAF9F5] border border-[#E2E8F0] flex items-center justify-between gap-3">
+                    <div className="p-5 sm:p-5.5 pt-0 space-y-2.5">
+                      <div className="p-2.5 sm:p-3 rounded-xl bg-[#FAF9F5] border border-[#E2E8F0] flex items-center justify-between gap-2.5">
                         <div>
-                          <span className="text-[9.5px] font-bold text-[#64748B] uppercase tracking-wider block">
+                          <span className="text-[9px] font-bold text-[#64748B] uppercase tracking-wider block">
                             All-Inclusive Cab Tariff
                           </span>
-                          <span className="text-xl font-black text-[#000B3B] block">
+                          <span className="text-lg font-black text-[#000B3B] block leading-tight">
                             {pkg.approxPrice}
                           </span>
                         </div>
-                        <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-1 rounded-full border border-[#BBF7D0]">
+                        <span className="text-[9.5px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2 py-0.5 rounded-full border border-[#BBF7D0]">
                           Tolls &amp; Fuel Included
                         </span>
                       </div>
 
                       <Link
                         href={`/book-tour?destination=${bookingTourSlug}`}
-                        className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md border border-white/10"
+                        className="w-full py-2.5 sm:py-3 px-4 rounded-xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md border border-white/10"
                       >
                         <span>Book This Tour Package</span>
                         <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1.5 transition-transform" />
