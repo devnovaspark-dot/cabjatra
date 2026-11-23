@@ -31,12 +31,45 @@ export const Navbar: React.FC = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [servicesTab, setServicesTab] = useState<"cab" | "tour">("cab");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isMobileCabExpanded, setIsMobileCabExpanded] = useState(true);
-  const [isMobileTourExpanded, setIsMobileTourExpanded] = useState(true);
+  const [isMobileCabExpanded, setIsMobileCabExpanded] = useState(false);
+  const [isMobileTourExpanded, setIsMobileTourExpanded] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleToggleMobileMenu = () => {
+    setMobileMenuOpen((prev) => {
+      const next = !prev;
+      if (next) {
+        setIsMobileCabExpanded(false);
+        setIsMobileTourExpanded(false);
+      }
+      return next;
+    });
+  };
+
+  const handleToggleMobileCab = () => {
+    setIsMobileCabExpanded((prev) => {
+      const next = !prev;
+      if (next) setIsMobileTourExpanded(false);
+      return next;
+    });
+  };
+
+  const handleToggleMobileTour = () => {
+    setIsMobileTourExpanded((prev) => {
+      const next = !prev;
+      if (next) setIsMobileCabExpanded(false);
+      return next;
+    });
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setIsMobileCabExpanded(false);
+    setIsMobileTourExpanded(false);
+  };
 
   const handleMouseEnterServices = () => {
     if (timeoutRef.current) {
@@ -83,7 +116,7 @@ export const Navbar: React.FC = () => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsServicesOpen(false);
-        setMobileMenuOpen(false);
+        closeMobileMenu();
       }
     };
 
@@ -96,7 +129,7 @@ export const Navbar: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    setMobileMenuOpen(false);
+    closeMobileMenu();
     setIsServicesOpen(false);
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
   }, [pathname]);
@@ -720,59 +753,60 @@ export const Navbar: React.FC = () => {
             </Link>
             <button
               type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-white bg-white/10 hover:bg-white/20 transition-colors"
-              aria-label="Toggle navigation"
+              onClick={handleToggleMobileMenu}
+              className="p-2 rounded-xl text-white bg-white/10 hover:bg-white/20 active:scale-95 transition-all"
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 text-[#FEC401]" /> : <Menu className="w-5 h-5 text-white" />}
             </button>
           </div>
         </nav>
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="mt-2.5 lg:hidden rounded-3xl border border-[#D5DDD5] bg-[#FAF9F5] p-5 space-y-3.5 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200">
-            {/* Mobile Drawer Brand Header */}
-            <div className="flex items-center justify-between pb-3 border-b border-[#E5EAE5]">
-              <BrandLogo size="sm" variant="dark" />
-              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#F1F5F9] text-[#02146B]">
-                24/7 Dispatch
-              </span>
-            </div>
-
-            {/* Mobile Booking Services Section with Sub-Dropdown */}
-            <div className="space-y-2 pb-2.5 border-b border-[#E5EAE5]">
-              {/* Book a Cab Expandable Container */}
-              <div className="rounded-2xl border border-[#D5DDD5] bg-white overflow-hidden shadow-xs">
-                <div className="p-3 bg-gradient-to-br from-[#02146B] to-[#000B3B] text-white flex items-center justify-between">
+          <div className="mt-2.5 lg:hidden rounded-3xl border border-slate-200/90 bg-[#FAF9F5] p-3.5 sm:p-4 space-y-3 shadow-[0_20px_50px_rgba(0,11,59,0.25)] max-h-[calc(100dvh-80px)] overflow-y-auto overscroll-contain animate-in fade-in slide-in-from-top-2 duration-200">
+            {/* Quick Booking Service Accordions (Both Closed by Default) */}
+            <div className="space-y-2 pb-2.5 border-b border-[#E2E8F0]">
+              {/* 1. Book a Cab Collapsible Card */}
+              <div className="rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs bg-white transition-all">
+                <div className="p-2.5 sm:p-3 bg-gradient-to-r from-[#000B3B] to-[#02146B] text-white flex items-center justify-between">
                   <Link
                     href="/book-cab"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center gap-2 text-xs font-bold"
+                    onClick={closeMobileMenu}
+                    className="flex items-center gap-2.5 min-w-0 flex-1 group"
                   >
-                    <Car className="w-4 h-4 text-[#FEC401]" />
-                    <span>Book a Cab</span>
-                    <span className="text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-[#FEC401] text-[#001162]">
-                      Instant
-                    </span>
+                    <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <Car className="w-4 h-4 text-[#FEC401]" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-xs font-bold text-white">Book a Cab</span>
+                        <span className="text-[8px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-[#FEC401] text-[#000B3B]">
+                          Instant
+                        </span>
+                      </div>
+                      <p className="text-[10px] text-white/70 truncate">Pre-booked commercial cabs across Odisha</p>
+                    </div>
                   </Link>
                   <button
                     type="button"
-                    onClick={() => setIsMobileCabExpanded(!isMobileCabExpanded)}
-                    className="p-1 rounded-lg bg-white/10 text-white hover:bg-white/20 transition-colors"
-                    aria-label="Toggle Cab Submenu"
+                    onClick={handleToggleMobileCab}
+                    className="p-1.5 rounded-lg bg-white/10 text-white hover:bg-white/20 active:scale-95 transition-all shrink-0 ml-1.5"
+                    aria-label="Toggle Cab Routes"
+                    aria-expanded={isMobileCabExpanded}
                   >
                     <ChevronDown
                       className={`w-4 h-4 transition-transform duration-200 ${
-                        isMobileCabExpanded ? "rotate-180 text-[#FEC401]" : ""
+                        isMobileCabExpanded ? "rotate-180 text-[#FEC401]" : "text-white/80"
                       }`}
                     />
                   </button>
                 </div>
 
                 {isMobileCabExpanded && (
-                  <div className="p-2.5 bg-[#FAF9F5] space-y-1.5 border-t border-[#E5EAE5]">
-                    <div className="text-[9.5px] font-bold uppercase tracking-wider text-[#02146B] px-1.5 py-0.5 flex items-center gap-1">
+                  <div className="p-2.5 bg-[#F8FAFC] space-y-1.5 border-t border-[#E2E8F0] animate-in fade-in duration-150">
+                    <div className="text-[9.5px] font-bold uppercase tracking-wider text-[#02146B] px-1.5 py-0.5 flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
                       <span>Dedicated City Cab Services:</span>
                     </div>
@@ -780,7 +814,7 @@ export const Navbar: React.FC = () => {
                     {/* Bhubaneswar */}
                     <Link
                       href="/cab-service-in-bhubaneswar"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={closeMobileMenu}
                       className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
                     >
                       <div className="flex items-center gap-2">
@@ -795,7 +829,7 @@ export const Navbar: React.FC = () => {
                     {/* Cab in Puri */}
                     <Link
                       href="/cab-service-in-puri"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={closeMobileMenu}
                       className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
                     >
                       <div className="flex items-center gap-2">
@@ -810,7 +844,7 @@ export const Navbar: React.FC = () => {
                     {/* Taxi in Puri */}
                     <Link
                       href="/taxi-service-in-puri"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={closeMobileMenu}
                       className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
                     >
                       <div className="flex items-center gap-2">
@@ -825,7 +859,7 @@ export const Navbar: React.FC = () => {
                     {/* Online Taxi in Kataka */}
                     <Link
                       href="/book-online-taxi-in-kataka"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={closeMobileMenu}
                       className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
                     >
                       <div className="flex items-center gap-2">
@@ -840,8 +874,8 @@ export const Navbar: React.FC = () => {
                     {/* Full Booking CTA */}
                     <Link
                       href="/book-cab"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-center gap-1.5 p-2 mt-1 rounded-xl bg-gradient-to-r from-[#02146B] to-[#000B3B] text-white text-[11px] font-bold"
+                      onClick={closeMobileMenu}
+                      className="flex items-center justify-center gap-1.5 p-2.5 mt-1 rounded-xl bg-gradient-to-r from-[#000B3B] to-[#02146B] text-white text-[11.5px] font-bold shadow-xs hover:brightness-110 active:translate-y-0.5 transition-all"
                     >
                       <span>Open Full Cab Fare Calculator</span>
                       <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
@@ -850,38 +884,45 @@ export const Navbar: React.FC = () => {
                 )}
               </div>
 
-              {/* Book a Tour Collapsible Mobile Card */}
-              <div className="rounded-2xl border border-[#D5DDD5] overflow-hidden shadow-skeuo">
-                <div className="p-3 bg-white text-[#000B3B] flex items-center justify-between">
+              {/* 2. Book a Tour Collapsible Card */}
+              <div className="rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs bg-white transition-all">
+                <div className="p-2.5 sm:p-3 bg-gradient-to-r from-[#000B3B] to-[#02146B] text-white flex items-center justify-between">
                   <Link
                     href="/book-tour"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center gap-2 text-xs font-bold"
+                    onClick={closeMobileMenu}
+                    className="flex items-center gap-2.5 min-w-0 flex-1 group"
                   >
-                    <Palmtree className="w-4 h-4 text-[#FEC401]" />
-                    <span>Book a Tour</span>
-                    <span className="text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-[#FEC401] text-[#000B3B]">
-                      Circuits
-                    </span>
+                    <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <Palmtree className="w-4 h-4 text-[#FEC401]" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-xs font-bold text-white">Book an Odisha Tour</span>
+                        <span className="text-[8px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-[#FEC401] text-[#000B3B]">
+                          Circuits
+                        </span>
+                      </div>
+                      <p className="text-[10px] text-white/70 truncate">Sacred circuits &amp; sightseeing itineraries</p>
+                    </div>
                   </Link>
-
                   <button
                     type="button"
-                    onClick={() => setIsMobileTourExpanded(!isMobileTourExpanded)}
-                    className="p-1 rounded-lg bg-[#000B3B]/5 hover:bg-[#000B3B]/10 text-[#000B3B] transition-colors"
-                    aria-label="Toggle Tour Submenu"
+                    onClick={handleToggleMobileTour}
+                    className="p-1.5 rounded-lg bg-white/10 text-white hover:bg-white/20 active:scale-95 transition-all shrink-0 ml-1.5"
+                    aria-label="Toggle Tour Circuits"
+                    aria-expanded={isMobileTourExpanded}
                   >
                     <ChevronDown
                       className={`w-4 h-4 transition-transform duration-200 ${
-                        isMobileTourExpanded ? "rotate-180 text-[#FEC401]" : ""
+                        isMobileTourExpanded ? "rotate-180 text-[#FEC401]" : "text-white/80"
                       }`}
                     />
                   </button>
                 </div>
 
                 {isMobileTourExpanded && (
-                  <div className="p-2.5 bg-[#FAF9F5] space-y-1.5 border-t border-[#E5EAE5]">
-                    <div className="text-[9.5px] font-bold uppercase tracking-wider text-[#02146B] px-1.5 py-0.5 flex items-center gap-1">
+                  <div className="p-2.5 bg-[#F8FAFC] space-y-1.5 border-t border-[#E2E8F0] animate-in fade-in duration-150">
+                    <div className="text-[9.5px] font-bold uppercase tracking-wider text-[#02146B] px-1.5 py-0.5 flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#FEC401]" />
                       <span>Curated Odisha Tour Packages:</span>
                     </div>
@@ -889,7 +930,7 @@ export const Navbar: React.FC = () => {
                     {/* 1. Odisha Tour Package by Cab */}
                     <Link
                       href="/odisha-tour-package-by-cab"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={closeMobileMenu}
                       className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
                     >
                       <div className="flex items-center gap-2">
@@ -904,7 +945,7 @@ export const Navbar: React.FC = () => {
                     {/* 2. Odisha Sightseeing Tour Packages */}
                     <Link
                       href="/odisha-sightseeing-tour-packages"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={closeMobileMenu}
                       className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
                     >
                       <div className="flex items-center gap-2">
@@ -919,7 +960,7 @@ export const Navbar: React.FC = () => {
                     {/* 3. Bhubaneswar Tour Packages */}
                     <Link
                       href="/bhubaneswar-tour-packages"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={closeMobileMenu}
                       className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
                     >
                       <div className="flex items-center gap-2">
@@ -934,7 +975,7 @@ export const Navbar: React.FC = () => {
                     {/* 4. Puri Tour Packages */}
                     <Link
                       href="/puri-tour-packages"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={closeMobileMenu}
                       className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
                     >
                       <div className="flex items-center gap-2">
@@ -942,14 +983,14 @@ export const Navbar: React.FC = () => {
                         <span className="font-semibold text-[11.5px]">Puri Tour Packages</span>
                       </div>
                       <span className="text-[9px] text-[#16A34A] font-bold bg-[#DCFCE7] px-1.5 py-0.5 rounded">
-                        Coast & Dham
+                        Coast &amp; Dham
                       </span>
                     </Link>
 
                     {/* 5. Konark Tour Packages */}
                     <Link
                       href="/konark-tour-packages"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={closeMobileMenu}
                       className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
                     >
                       <div className="flex items-center gap-2">
@@ -964,7 +1005,7 @@ export const Navbar: React.FC = () => {
                     {/* 6. Jagannath Puri Tour Package */}
                     <Link
                       href="/jagannath-puri-tour-package"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={closeMobileMenu}
                       className="flex items-center justify-between p-2 rounded-xl bg-white hover:bg-[#F1F5F9] text-xs font-medium text-[#0F172A] border border-[#E2E8F0] transition-all"
                     >
                       <div className="flex items-center gap-2">
@@ -979,8 +1020,8 @@ export const Navbar: React.FC = () => {
                     {/* Full Custom Tour CTA */}
                     <Link
                       href="/book-tour"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-center gap-1.5 p-2 mt-1 rounded-xl bg-gradient-to-r from-[#02146B] to-[#000B3B] text-white text-[11px] font-bold"
+                      onClick={closeMobileMenu}
+                      className="flex items-center justify-center gap-1.5 p-2.5 mt-1 rounded-xl bg-gradient-to-r from-[#000B3B] to-[#02146B] text-white text-[11.5px] font-bold shadow-xs hover:brightness-110 active:translate-y-0.5 transition-all"
                     >
                       <span>Custom Odisha Tour Planner</span>
                       <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
@@ -990,53 +1031,90 @@ export const Navbar: React.FC = () => {
               </div>
             </div>
 
-            {/* Standard Mobile Links */}
-            <div className="space-y-1">
+            {/* Standard Mobile Navigation Links */}
+            <div className="space-y-1 bg-white/70 p-1.5 rounded-2xl border border-slate-200/60">
               <Link
                 href="/"
-                className="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#0F172A] hover:bg-white"
-              >
-                Home
-              </Link>
-
-
-
-              <Link
-                href="/how-it-works"
-                className={`block px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-colors ${
-                  pathname === "/how-it-works"
-                    ? "text-[#02146B] bg-white font-bold"
-                    : "text-[#0F172A] hover:bg-white"
+                onClick={closeMobileMenu}
+                className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all ${
+                  pathname === "/"
+                    ? "text-[#000B3B] bg-white shadow-2xs border border-slate-200"
+                    : "text-[#334155] hover:text-[#000B3B] hover:bg-white/80"
                 }`}
               >
-                How It Works
+                <span>Home</span>
+                <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+              </Link>
+              <Link
+                href="/services"
+                onClick={closeMobileMenu}
+                className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all ${
+                  pathname === "/services"
+                    ? "text-[#000B3B] bg-white shadow-2xs border border-slate-200"
+                    : "text-[#334155] hover:text-[#000B3B] hover:bg-white/80"
+                }`}
+              >
+                <span>Services Overview</span>
+                <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+              </Link>
+              <Link
+                href="/how-it-works"
+                onClick={closeMobileMenu}
+                className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all ${
+                  pathname === "/how-it-works"
+                    ? "text-[#000B3B] bg-white shadow-2xs border border-slate-200"
+                    : "text-[#334155] hover:text-[#000B3B] hover:bg-white/80"
+                }`}
+              >
+                <span>How It Works</span>
+                <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
               </Link>
               <Link
                 href="/about"
-                className="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#0F172A] hover:bg-white"
+                onClick={closeMobileMenu}
+                className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all ${
+                  pathname === "/about"
+                    ? "text-[#000B3B] bg-white shadow-2xs border border-slate-200"
+                    : "text-[#334155] hover:text-[#000B3B] hover:bg-white/80"
+                }`}
               >
-                About Us
+                <span>About Us</span>
+                <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
               </Link>
               <Link
                 href="/contact"
-                className="block px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#0F172A] hover:bg-white"
+                onClick={closeMobileMenu}
+                className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all ${
+                  pathname === "/contact"
+                    ? "text-[#000B3B] bg-white shadow-2xs border border-slate-200"
+                    : "text-[#334155] hover:text-[#000B3B] hover:bg-white/80"
+                }`}
               >
-                Contact
+                <span>Contact</span>
+                <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
               </Link>
             </div>
 
-            <div className="pt-3 border-t border-[#E5EAE5] space-y-2.5">
+            {/* Bottom Actions & Support */}
+            <div className="pt-2.5 border-t border-slate-200 space-y-2">
               <a
                 href={COMPANY_CONFIG.contact.whatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-2xl bg-gradient-to-b from-[#02146B] to-[#000B3B] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-skeuo-button"
+                className="w-full py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#20BD5A] active:translate-y-0.5 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
               >
-                <MessageSquare className="w-4 h-4 text-[#FEC401]" />
-                <span>Chat on WhatsApp Concierge Desk</span>
+                <MessageSquare className="w-4 h-4 text-white" />
+                <span>WhatsApp 24/7 Concierge</span>
               </a>
-              <div className="text-center text-[11px] text-[#667575]">
-                Helpline: {COMPANY_CONFIG.contact.phoneDisplay}
+              <div className="flex items-center justify-center gap-2 py-0.5 text-[11px] text-[#64748B]">
+                <Phone className="w-3.5 h-3.5 text-[#000B3B]" />
+                <span>Direct Helpline:</span>
+                <a
+                  href={`tel:${COMPANY_CONFIG.contact.phoneRaw}`}
+                  className="font-bold text-[#000B3B] hover:underline"
+                >
+                  {COMPANY_CONFIG.contact.phoneDisplay}
+                </a>
               </div>
             </div>
           </div>
