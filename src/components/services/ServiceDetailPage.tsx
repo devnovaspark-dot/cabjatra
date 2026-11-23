@@ -92,6 +92,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
   const [dropLocation, setDropLocation] = useState<string>(
     bookingCategoryKey === "puri" ? "Bhubaneswar Airport (BBI)" : "Puri Jagannath Temple"
   );
+  const [isCustomDrop, setIsCustomDrop] = useState<boolean>(false);
+  const [customDrop, setCustomDrop] = useState<string>("");
+
   const [pickupDate, setPickupDate] = useState<string>("2026-11-24");
   const [pickupTime, setPickupTime] = useState<string>("09:00");
   const [selectedVehicle, setSelectedVehicle] = useState<string>("sedan");
@@ -99,10 +102,11 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
   const handleCabSearch = (e: React.FormEvent) => {
     e.preventDefault();
     const finalPickup = isCustomPickup ? customPickup.trim() : pickupCity;
+    const finalDrop = isCustomDrop ? customDrop.trim() : dropLocation;
     const query = new URLSearchParams({
       service: bookingCategoryKey || "outstation",
       from: finalPickup || "Bhubaneswar",
-      to: dropLocation,
+      to: finalDrop || "Puri Jagannath Temple",
       date: pickupDate,
       time: pickupTime,
       vehicle: selectedVehicle,
@@ -442,20 +446,71 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 
             {/* Field 2: Destination */}
             <div className="space-y-1.5">
-              <label className="text-[10.5px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#D97706]" />
-                <span>Drop Destination</span>
-              </label>
-              <div className="relative">
-                <input
-                  type="text"
-                  value={dropLocation}
-                  onChange={(e) => setDropLocation(e.target.value)}
-                  placeholder="e.g. Puri Jagannath Temple"
-                  className="w-full h-12 px-3.5 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all placeholder:text-[#94A3B8] shadow-2xs"
-                  required
-                />
+              <div className="flex items-center justify-between">
+                <label className="text-[10.5px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-[#D97706]" />
+                  <span>Drop Destination</span>
+                </label>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsCustomDrop(!isCustomDrop);
+                    if (!isCustomDrop) setCustomDrop("");
+                  }}
+                  className="text-[10px] font-semibold text-[#0284C7] hover:underline cursor-pointer"
+                >
+                  {isCustomDrop ? "From list" : "+ Add custom"}
+                </button>
               </div>
+              {isCustomDrop ? (
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={customDrop}
+                    onChange={(e) => setCustomDrop(e.target.value)}
+                    placeholder="Type custom drop location..."
+                    autoFocus
+                    className="w-full h-12 pl-3.5 pr-14 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all shadow-2xs"
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsCustomDrop(false);
+                      setCustomDrop("");
+                    }}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-bold text-[#64748B] hover:text-[#000B3B] bg-[#E2E8F0] hover:bg-[#CBD5E1] px-1.5 py-1 rounded transition cursor-pointer"
+                    title="Choose from list"
+                  >
+                    List ↺
+                  </button>
+                </div>
+              ) : (
+                <div className="relative">
+                  <select
+                    value={dropLocation}
+                    onChange={(e) => {
+                      if (e.target.value === "__custom__") {
+                        setIsCustomDrop(true);
+                        setCustomDrop("");
+                      } else {
+                        setDropLocation(e.target.value);
+                      }
+                    }}
+                    className="w-full h-12 pl-3.5 pr-8 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all cursor-pointer shadow-2xs"
+                  >
+                    <option value="Puri Jagannath Temple">Puri Jagannath Temple</option>
+                    <option value="Konark Sun Temple & Marine Drive">Konark Sun Temple &amp; Marine Drive</option>
+                    <option value="Bhubaneswar Airport (BBI)">Bhubaneswar Airport (BBI)</option>
+                    <option value="Bhubaneswar Railway Station">Bhubaneswar Railway Station</option>
+                    <option value="Kataka Hub">Kataka Hub</option>
+                    <option value="Chilika Lake (Satapada)">Chilika Lake (Satapada)</option>
+                    <option value="Dhauli Shanti Stupa">Dhauli Shanti Stupa</option>
+                    <option value="Lingaraj Temple Circuit">Lingaraj Temple Circuit</option>
+                    <option value="__custom__">➕ Other / Add Custom Location...</option>
+                  </select>
+                </div>
+              )}
             </div>
 
             {/* Field 3: Date & Time */}
@@ -553,24 +608,30 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
           {/* 3 Executive Showcase Cards - Magazine Quality Edge-to-Edge Frames */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
             {/* Card 1: Prime Commercial Sedan */}
-            <div className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(2,20,107,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+            <div className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-[0_10px_35px_rgba(0,11,59,0.06)] hover:shadow-[0_25px_50px_rgba(0,11,59,0.14)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative">
               <div>
-                {/* Visual Full-Bleed Vehicle Stage - No Image Spillout */}
-                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
+                {/* Visual Full-Bleed Vehicle Stage */}
+                <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-900">
                   <Image
                     src="/images/fleet/sedan.webp"
                     alt="Prime Sedan"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/30 pointer-events-none" />
 
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-white shadow-xs">
-                    Executive &amp; City Commutes
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[11px] font-bold text-white shadow-xs flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#38BDF8]" />
+                    <span>Executive Sedan</span>
                   </div>
-                  <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#FEC401] text-[11px] font-black text-[#000B3B] shadow-xs">
+                  <div className="absolute top-3.5 right-3.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-xs font-black text-[#000B3B] shadow-md">
                     ₹13/km
+                  </div>
+
+                  <div className="absolute bottom-3 left-3.5 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-[10.5px] font-semibold text-[#4ADE80] flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
+                    <span>Instant Dispatch Ready</span>
                   </div>
                 </div>
 
@@ -578,49 +639,59 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 <div className="p-6 space-y-4">
                   <div className="space-y-1">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
+                      <h3 className="text-2xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
                         Prime Sedan
                       </h3>
-                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
+                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-1 rounded-full border border-[#BBF7D0]">
                         Dual-Zone AC
                       </span>
                     </div>
-                    <p className="text-xs font-semibold text-[#02146B]">
-                      Maruti Swift Dzire, Toyota Etios
+                    <p className="text-xs font-bold text-[#02146B] flex items-center gap-1.5">
+                      <Car className="w-3.5 h-3.5 text-[#D97706]" />
+                      <span>Maruti Swift Dzire, Toyota Etios</span>
                     </p>
                     <p className="text-xs text-[#64748B] leading-relaxed pt-1">
                       Smooth highway stability, plush upholstery, and generous boot space for BBI airport transfers and Golden Triangle travel.
                     </p>
                   </div>
 
-                  {/* Clean Specs Row */}
-                  <div className="flex items-center justify-between text-xs text-[#475569] py-2.5 border-y border-[#F1F5F9]">
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <Users className="w-3.5 h-3.5 text-[#FEC401]" />
-                      <span>4 Seats</span>
-                    </span>
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <Briefcase className="w-3.5 h-3.5 text-[#FEC401]" />
-                      <span>3 Bags</span>
-                    </span>
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <AirVent className="w-3.5 h-3.5 text-[#16A34A]" />
-                      <span>Chilled AC</span>
-                    </span>
+                  {/* Clean Spec Matrix Metric Tiles */}
+                  <div className="grid grid-cols-3 gap-2 py-1">
+                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2.5 text-center">
+                      <Users className="w-4 h-4 text-[#D97706] mx-auto mb-1" />
+                      <span className="text-xs font-black text-[#0F172A] block">4 Seats</span>
+                      <span className="text-[10px] text-[#64748B] font-medium">Passenger Cap</span>
+                    </div>
+                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2.5 text-center">
+                      <Briefcase className="w-4 h-4 text-[#0284C7] mx-auto mb-1" />
+                      <span className="text-xs font-black text-[#0F172A] block">3 Bags</span>
+                      <span className="text-[10px] text-[#64748B] font-medium">Boot Bay</span>
+                    </div>
+                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2.5 text-center">
+                      <AirVent className="w-4 h-4 text-[#16A34A] mx-auto mb-1" />
+                      <span className="text-xs font-black text-[#0F172A] block">Chilled AC</span>
+                      <span className="text-[10px] text-[#64748B] font-medium">Dual Zone</span>
+                    </div>
                   </div>
 
                   {/* Feature Highlights */}
-                  <div className="space-y-1.5 text-xs text-[#475569]">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                  <div className="space-y-2 pt-1 text-xs text-[#475569]">
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </span>
                       <span>Extra rear legroom &amp; clean sanitized seating</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </span>
                       <span>Dedicated boot space for 3 large travel bags</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </span>
                       <span>Zero peak hour surge multiplier guarantee</span>
                     </div>
                   </div>
@@ -630,7 +701,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               <div className="p-6 pt-0">
                 <Link
                   href={`/book-cab?service=${bookingCategoryKey}&vehicle=sedan`}
-                  className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md border border-white/10"
+                  className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md border border-white/10"
                 >
                   <span>Book Prime Sedan</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
@@ -639,30 +710,36 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             </div>
 
             {/* Card 2: FEATURED HERO: Executive Toyota Innova Crysta SUV */}
-            <div className="bg-white rounded-3xl border-2 border-[#FEC401] overflow-hidden shadow-[0_16px_45px_rgba(254,196,1,0.18)] md:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative">
+            <div className="bg-white rounded-3xl border-2 border-[#FEC401] overflow-hidden shadow-[0_20px_50px_rgba(254,196,1,0.22)] md:-translate-y-3 hover:-translate-y-4 transition-all duration-300 flex flex-col justify-between group relative">
               {/* Crown Top Ribbon */}
-              <div className="bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-[#000B3B] text-[10.5px] font-black uppercase tracking-wider text-center py-1.5 shadow-xs flex items-center justify-center gap-1.5">
+              <div className="bg-gradient-to-r from-[#FEC401] via-[#E5AD00] to-[#FEC401] text-[#000B3B] text-[11px] font-black uppercase tracking-wider text-center py-2 shadow-xs flex items-center justify-center gap-1.5">
                 <Star className="w-3.5 h-3.5 fill-[#000B3B]" />
-                <span>#1 Most Booked for Family Tours &amp; Pilgrimages</span>
+                <span>#1 Most Booked &bull; Family Tours &amp; Pilgrimages</span>
               </div>
 
               <div>
-                {/* Visual Full-Bleed Vehicle Stage - No Image Spillout */}
-                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
+                {/* Visual Full-Bleed Vehicle Stage */}
+                <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-900">
                   <Image
                     src="/images/fleet/large-car.webp"
                     alt="Toyota Innova Crysta"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/30 pointer-events-none" />
 
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-white shadow-xs">
-                    Premium Family Class
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-[#FEC401]/50 text-[11px] font-bold text-[#FEC401] shadow-xs flex items-center gap-1.5">
+                    <Sparkles className="w-3 h-3 text-[#FEC401]" />
+                    <span>Premium Family Class</span>
                   </div>
-                  <div className="absolute top-3.5 right-3.5 px-3.5 py-1 rounded-full bg-[#FEC401] text-[11px] font-black text-[#000B3B] shadow-xs">
+                  <div className="absolute top-3.5 right-3.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-xs font-black text-[#000B3B] shadow-md">
                     ₹19/km
+                  </div>
+
+                  <div className="absolute bottom-3 left-3.5 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-[10.5px] font-semibold text-[#4ADE80] flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
+                    <span>Guaranteed Allocation</span>
                   </div>
                 </div>
 
@@ -670,49 +747,59 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 <div className="p-6 space-y-4">
                   <div className="space-y-1">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
+                      <h3 className="text-2xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
                         Innova Crysta / SUV
                       </h3>
-                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
+                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-1 rounded-full border border-[#BBF7D0]">
                         Independent Rear AC
                       </span>
                     </div>
-                    <p className="text-xs font-semibold text-[#02146B]">
-                      Toyota Innova Crysta, Maruti Ertiga
+                    <p className="text-xs font-bold text-[#02146B] flex items-center gap-1.5">
+                      <Car className="w-3.5 h-3.5 text-[#D97706]" />
+                      <span>Toyota Innova Crysta, Maruti Ertiga</span>
                     </p>
                     <p className="text-xs text-[#64748B] leading-relaxed pt-1">
                       Plush captain chairs, superior suspension, and dual AC blowers for senior citizens and family pilgrimages to Puri Dham.
                     </p>
                   </div>
 
-                  {/* Clean Specs Row */}
-                  <div className="flex items-center justify-between text-xs text-[#475569] py-2.5 border-y border-[#FEF3C7]">
-                    <span className="flex items-center gap-1.5 font-bold text-[#0F172A]">
-                      <Users className="w-3.5 h-3.5 text-[#FEC401]" />
-                      <span>7 Seats</span>
-                    </span>
-                    <span className="flex items-center gap-1.5 font-bold text-[#0F172A]">
-                      <Briefcase className="w-3.5 h-3.5 text-[#FEC401]" />
-                      <span>4–5 Bags</span>
-                    </span>
-                    <span className="flex items-center gap-1.5 font-bold text-[#16A34A]">
-                      <AirVent className="w-3.5 h-3.5 text-[#16A34A]" />
-                      <span>Dual AC Blowers</span>
-                    </span>
+                  {/* Clean Spec Matrix Metric Tiles */}
+                  <div className="grid grid-cols-3 gap-2 py-1">
+                    <div className="bg-[#FFFBEB] border border-[#FEF08A] rounded-xl p-2.5 text-center">
+                      <Users className="w-4 h-4 text-[#D97706] mx-auto mb-1" />
+                      <span className="text-xs font-black text-[#0F172A] block">7 Seats</span>
+                      <span className="text-[10px] text-[#64748B] font-medium">Passenger Cap</span>
+                    </div>
+                    <div className="bg-[#FFFBEB] border border-[#FEF08A] rounded-xl p-2.5 text-center">
+                      <Briefcase className="w-4 h-4 text-[#0284C7] mx-auto mb-1" />
+                      <span className="text-xs font-black text-[#0F172A] block">4–5 Bags</span>
+                      <span className="text-[10px] text-[#64748B] font-medium">Luggage Bay</span>
+                    </div>
+                    <div className="bg-[#FFFBEB] border border-[#FEF08A] rounded-xl p-2.5 text-center">
+                      <AirVent className="w-4 h-4 text-[#16A34A] mx-auto mb-1" />
+                      <span className="text-xs font-black text-[#0F172A] block">Dual Blowers</span>
+                      <span className="text-[10px] text-[#64748B] font-medium">Chilled AC</span>
+                    </div>
                   </div>
 
                   {/* Feature Highlights */}
-                  <div className="space-y-1.5 text-xs text-[#475569]">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                  <div className="space-y-2 pt-1 text-xs text-[#475569]">
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </span>
                       <span>Captain leatherette seats with armrests for comfort</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </span>
                       <span>High ground clearance for coastal &amp; temple terrain</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </span>
                       <span>Expansive luggage bay for Mahaprasad &amp; suitcases</span>
                     </div>
                   </div>
@@ -722,33 +809,39 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               <div className="p-6 pt-0">
                 <Link
                   href={`/book-cab?service=${bookingCategoryKey}&vehicle=large-car`}
-                  className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-md transition-all group-hover:shadow-lg"
+                  className="w-full py-4 px-4 rounded-2xl bg-gradient-to-r from-[#FEC401] via-[#E5AD00] to-[#FEC401] hover:brightness-105 active:translate-y-0.5 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-[0_10px_25px_rgba(254,196,1,0.42)] transition-all group-hover:shadow-xl"
                 >
                   <span>Book Innova Crysta</span>
-                  <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover:translate-x-1.5 transition-transform" />
                 </Link>
               </div>
             </div>
 
             {/* Card 3: Luxury Tempo Traveller & Urbania */}
-            <div className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(2,20,107,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+            <div className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-[0_10px_35px_rgba(0,11,59,0.06)] hover:shadow-[0_25px_50px_rgba(0,11,59,0.14)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative">
               <div>
-                {/* Visual Full-Bleed Vehicle Stage - No Image Spillout */}
-                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
+                {/* Visual Full-Bleed Vehicle Stage */}
+                <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-900">
                   <Image
                     src="/images/fleet/mini-bus.webp"
                     alt="Tempo Traveller"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/30 pointer-events-none" />
 
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-white shadow-xs">
-                    Group Tours &amp; Pilgrimages
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[11px] font-bold text-white shadow-xs flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#10B981]" />
+                    <span>Group Coach Class</span>
                   </div>
-                  <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#FEC401] text-[11px] font-black text-[#000B3B] shadow-xs">
+                  <div className="absolute top-3.5 right-3.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-xs font-black text-[#000B3B] shadow-md">
                     Custom Quote
+                  </div>
+
+                  <div className="absolute bottom-3 left-3.5 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-[10.5px] font-semibold text-[#4ADE80] flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
+                    <span>Pilgrimage &amp; Wedding Ready</span>
                   </div>
                 </div>
 
@@ -756,49 +849,59 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 <div className="p-6 space-y-4">
                   <div className="space-y-1">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
+                      <h3 className="text-2xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
                         Tempo Traveller / Urbania
                       </h3>
-                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
+                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-1 rounded-full border border-[#BBF7D0]">
                         Full Cabin AC
                       </span>
                     </div>
-                    <p className="text-xs font-semibold text-[#02146B]">
-                      Force Urbania, 12 to 17 Seater Luxury AC
+                    <p className="text-xs font-bold text-[#02146B] flex items-center gap-1.5">
+                      <Car className="w-3.5 h-3.5 text-[#D97706]" />
+                      <span>Force Urbania, 12 to 17 Seater Luxury AC</span>
                     </p>
                     <p className="text-xs text-[#64748B] leading-relaxed pt-1">
                       High-roof standing aisle, reclining push-back seating, and panoramic windows for extended family tours and wedding parties.
                     </p>
                   </div>
 
-                  {/* Clean Specs Row */}
-                  <div className="flex items-center justify-between text-xs text-[#475569] py-2.5 border-y border-[#F1F5F9]">
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <Users className="w-3.5 h-3.5 text-[#FEC401]" />
-                      <span>12–17 Seats</span>
-                    </span>
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <Briefcase className="w-3.5 h-3.5 text-[#FEC401]" />
-                      <span>10+ Bags</span>
-                    </span>
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <AirVent className="w-3.5 h-3.5 text-[#16A34A]" />
-                      <span>High Roof AC</span>
-                    </span>
+                  {/* Clean Spec Matrix Metric Tiles */}
+                  <div className="grid grid-cols-3 gap-2 py-1">
+                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2.5 text-center">
+                      <Users className="w-4 h-4 text-[#D97706] mx-auto mb-1" />
+                      <span className="text-xs font-black text-[#0F172A] block">12–17 Seats</span>
+                      <span className="text-[10px] text-[#64748B] font-medium">Passenger Cap</span>
+                    </div>
+                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2.5 text-center">
+                      <Briefcase className="w-4 h-4 text-[#0284C7] mx-auto mb-1" />
+                      <span className="text-xs font-black text-[#0F172A] block">10+ Bags</span>
+                      <span className="text-[10px] text-[#64748B] font-medium">Luggage Bay</span>
+                    </div>
+                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2.5 text-center">
+                      <AirVent className="w-4 h-4 text-[#16A34A] mx-auto mb-1" />
+                      <span className="text-xs font-black text-[#0F172A] block">Roof AC</span>
+                      <span className="text-[10px] text-[#64748B] font-medium">Full Cabin</span>
+                    </div>
                   </div>
 
                   {/* Feature Highlights */}
-                  <div className="space-y-1.5 text-xs text-[#475569]">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                  <div className="space-y-2 pt-1 text-xs text-[#475569]">
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </span>
                       <span>Push-back ergonomic seats &amp; individual reading lamps</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </span>
                       <span>Massive dedicated rear luggage bay for group cargo</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </span>
                       <span>Experienced long-route highway pilgrimage captain</span>
                     </div>
                   </div>
@@ -808,7 +911,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               <div className="p-6 pt-0">
                 <Link
                   href={`/book-cab?service=${bookingCategoryKey}&vehicle=mini-bus`}
-                  className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md border border-white/10"
+                  className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md border border-white/10"
                 >
                   <span>Enquire Group Cab</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
@@ -901,72 +1004,77 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               {routeFares.map((rf, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-3xl border border-[#E2E8F0] p-6 sm:p-7 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between space-y-4 group relative overflow-hidden"
+                  className="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-7 shadow-[0_10px_35px_rgba(0,11,59,0.06)] hover:shadow-[0_25px_50px_rgba(0,11,59,0.14)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-4 group relative overflow-hidden"
                 >
-                  <div className="space-y-3.5">
+                  {/* Top Golden Line on Hover */}
+                  <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#FEC401] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                  <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-black uppercase tracking-wider text-[#000B3B] bg-gradient-to-r from-[#FEC401] to-[#E5AD00] px-3 py-1 rounded-full shadow-xs">
+                      <span className="text-[10px] font-black uppercase tracking-wider text-[#000B3B] bg-gradient-to-r from-[#FEC401] to-[#E5AD00] px-3.5 py-1 rounded-full shadow-xs">
                         Corridor 0{idx + 1}
                       </span>
-                      <div className="flex items-center gap-1.5 text-xs text-[#000B3B] font-bold bg-[#F8FAFC] px-3 py-1 rounded-full border border-[#E2E8F0]">
-                        <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
+                      <div className="flex items-center gap-1.5 text-xs text-[#0F172A] font-bold bg-[#FAF9F5] px-3 py-1 rounded-full border border-[#E2E8F0]">
+                        <Clock className="w-3.5 h-3.5 text-[#D97706]" />
                         <span>{rf.approxDuration}</span>
                       </div>
                     </div>
 
-                    <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
+                    <h3 className="text-xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
                       {rf.route}
                     </h3>
 
                     {/* Path Indicator Graphic */}
-                    <div className="p-3 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-between text-xs text-[#475569]">
-                      <span className="font-bold flex items-center gap-1.5 text-[#000B3B]">
-                        <MapPin className="w-4 h-4 text-[#16A34A] shrink-0" />
-                        <span>Pickup Gate</span>
-                      </span>
-                      <div className="flex items-center gap-1.5 text-[10.5px] font-extrabold text-[#02146B] bg-white px-3 py-1 rounded-full border border-[#CBD5E1] shadow-xs">
-                        <Navigation className="w-3 h-3 text-[#FEC401]" />
-                        <span>{rf.distance}</span>
+                    <div className="p-3.5 rounded-2xl bg-gradient-to-r from-[#F8FAFC] via-[#FAF9F5] to-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-between text-xs">
+                      <div className="flex items-center gap-2 font-bold text-[#0F172A]">
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#16A34A] ring-4 ring-[#DCFCE7]" />
+                        <span>Pickup Hub</span>
                       </div>
-                      <span className="font-bold flex items-center gap-1.5 text-[#000B3B]">
-                        <MapPin className="w-4 h-4 text-[#02146B] shrink-0" />
-                        <span>Drop Gate</span>
-                      </span>
+                      <div className="flex-1 mx-3 sm:mx-4 flex items-center justify-center border-t-2 border-dashed border-[#CBD5E1] relative">
+                        <span className="bg-white px-2.5 py-0.5 rounded-full text-[10.5px] font-extrabold text-[#02146B] border border-[#CBD5E1] shadow-2xs -mt-3.5 flex items-center gap-1">
+                          <Navigation className="w-3 h-3 text-[#D97706]" />
+                          <span>{rf.distance}</span>
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2 font-bold text-[#0F172A]">
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#D97706] ring-4 ring-[#FEF3C7]" />
+                        <span>Destination</span>
+                      </div>
                     </div>
                   </div>
 
                   {/* Seamless Dual Vehicle Estimation */}
-                  <div className="pt-3 pb-2 border-y border-[#F1F5F9] grid grid-cols-2 gap-4">
-                    <div className="space-y-1">
-                      <span className="text-[10.5px] font-bold text-[#64748B] uppercase tracking-wider block">
+                  <div className="pt-3 pb-1 grid grid-cols-2 gap-3">
+                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-2xl p-3.5 space-y-1">
+                      <span className="text-[10px] font-bold text-[#64748B] uppercase tracking-wider block">
                         Prime Sedan
                       </span>
-                      <span className="text-lg font-black text-[#000B3B] block">
+                      <span className="text-xl font-black text-[#0F172A] block">
                         {rf.sedanEstimate}
                       </span>
                       <span className="text-[10.5px] text-[#16A34A] font-bold inline-flex items-center gap-1">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" /> Dzire / Etios
+                        <Check className="w-3 h-3 text-[#16A34A] stroke-[3]" /> Dzire / Etios
                       </span>
                     </div>
 
-                    <div className="space-y-1 border-l border-[#F1F5F9] pl-4">
-                      <span className="text-[10.5px] font-bold text-[#64748B] uppercase tracking-wider block">
+                    <div className="bg-[#FFFBEB] border border-[#FEF08A] rounded-2xl p-3.5 space-y-1">
+                      <span className="text-[10px] font-bold text-[#92400E] uppercase tracking-wider block">
                         Innova Crysta SUV
                       </span>
-                      <span className="text-lg font-black text-[#000B3B] block">
+                      <span className="text-xl font-black text-[#000B3B] block">
                         {rf.suvEstimate}
                       </span>
                       <span className="text-[10.5px] text-[#16A34A] font-bold inline-flex items-center gap-1">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" /> 7-Seater AC
+                        <Check className="w-3 h-3 text-[#16A34A] stroke-[3]" /> 7-Seater AC
                       </span>
                     </div>
                   </div>
 
                   {/* Book This Corridor Action */}
                   <div className="pt-2 flex items-center justify-between border-t border-[#F1F5F9]">
-                    <span className="text-[11px] text-[#64748B] font-medium flex items-center gap-1">
-                      <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
-                      <span>Transparent Pricing</span>
+                    <span className="text-[11px] text-[#64748B] font-medium flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4 text-[#16A34A]" />
+                      <span>Fixed Fare &bull; Tolls Included</span>
                     </span>
                     <Link
                       href={`/book-cab?service=${bookingCategoryKey}&to=${encodeURIComponent(
@@ -1022,19 +1130,19 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               const cardTag = pt.tag || defaultTags[i % defaultTags.length];
 
               const defaultPills = [
-                "✓ Real-Time Delay Buffer",
-                "✓ 0% App Cancellation",
-                "✓ Transparent Fixed Tariffs",
+                "Real-Time Delay Buffer",
+                "0% App Cancellation",
+                "Transparent Fixed Tariffs",
               ];
               const cardPill = pt.badge || defaultPills[i % defaultPills.length];
 
               return (
                 <div
                   key={i}
-                  className="rounded-3xl bg-white border border-[#E2E8F0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col group relative"
+                  className="rounded-3xl bg-white border border-slate-200/90 shadow-[0_10px_35px_rgba(0,11,59,0.06)] hover:shadow-[0_25px_50px_rgba(0,11,59,0.14)] hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col group relative"
                 >
                   {/* Top Photographic Header Frame */}
-                  <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-[#000B3B]">
+                  <div className="relative h-52 sm:h-56 w-full overflow-hidden bg-[#000B3B]">
                     <Image
                       src={cardImage}
                       alt={pt.title}
@@ -1046,12 +1154,12 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
 
                     <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between">
-                      <span className="px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[10px] font-bold text-[#FEC401] shadow-sm flex items-center gap-1.5">
-                        <Sparkles className="w-3 h-3 text-[#FEC401]" />
+                      <span className="px-3.5 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-[#FEC401] shadow-sm flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
                         <span>{cardTag}</span>
                       </span>
 
-                      <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-black text-xs flex items-center justify-center shadow-md">
+                      <span className="w-8 h-8 rounded-full bg-gradient-to-br from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-black text-xs flex items-center justify-center shadow-md">
                         0{i + 1}
                       </span>
                     </div>
@@ -1066,8 +1174,8 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 
                   {/* Body Content */}
                   <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
-                    <div className="space-y-2.5">
-                      <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
                         {pt.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-normal">
@@ -1075,13 +1183,14 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                       </p>
                     </div>
 
-                    <div className="pt-2 border-t border-[#F1F5F9] flex items-center justify-between">
-                      <span className="text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7]/80 px-2.5 py-1 rounded-lg border border-[#BBF7D0] inline-flex items-center gap-1">
-                        {cardPill}
+                    <div className="pt-3 border-t border-[#F1F5F9] flex items-center justify-between">
+                      <span className="text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7] px-3 py-1 rounded-full border border-[#BBF7D0] inline-flex items-center gap-1.5">
+                        <Check className="w-3 h-3 text-[#16A34A] stroke-[3]" />
+                        <span>{cardPill}</span>
                       </span>
-                      <span className="text-[10.5px] text-[#000B3B] font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                      <span className="text-xs text-[#000B3B] font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
                         <span>Verified</span>
-                        <ArrowRight className="w-3 h-3 text-[#FEC401]" />
+                        <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
                       </span>
                     </div>
                   </div>
@@ -1095,9 +1204,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             {/* Winner Card: CABJATRA Dedicated Chauffeur Service */}
             <div className="rounded-3xl bg-gradient-to-br from-[#000B3B] via-[#001353] to-[#000B3B] text-white p-7 sm:p-8 border-2 border-[#FEC401] shadow-[0_20px_50px_rgba(0,11,59,0.35)] relative flex flex-col justify-between overflow-hidden group">
               {/* Top Crown Ribbon */}
-              <div className="absolute top-0 right-0 bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-[#000B3B] text-[10px] font-black uppercase tracking-wider px-4 py-1.5 rounded-bl-2xl shadow-sm flex items-center gap-1.5">
+              <div className="absolute top-0 right-0 bg-gradient-to-r from-[#FEC401] via-[#E5AD00] to-[#FEC401] text-[#000B3B] text-[10.5px] font-black uppercase tracking-wider px-4 py-1.5 rounded-bl-2xl shadow-sm flex items-center gap-1.5">
                 <Star className="w-3.5 h-3.5 fill-[#000B3B]" />
-                <span>Recommended Choice</span>
+                <span>#1 Recommended Standard</span>
               </div>
 
               <div className="space-y-6">
@@ -1106,7 +1215,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                     <ShieldCheck className="w-4 h-4 text-[#FEC401]" />
                     <span>Odisha Commercial Fleet</span>
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
+                  <h3 className="text-2xl font-black font-display text-white">
                     CABJATRA Chauffeur Service
                   </h3>
                   <p className="text-xs text-[#CBD5E1]">
@@ -1117,13 +1226,13 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 {/* Verified Features Checklist */}
                 <ul className="space-y-3 text-xs sm:text-[13px]">
                   {comparisonRows.map((row, idx) => (
-                    <li key={idx} className="flex items-start gap-3 bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/10">
-                      <div className="p-1 rounded-full bg-[#10B981]/20 text-[#10B981] shrink-0 mt-0.5">
-                        <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
+                    <li key={idx} className="flex items-start gap-3 bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/15">
+                      <div className="p-1 rounded-full bg-[#10B981]/25 text-[#10B981] shrink-0 mt-0.5">
+                        <Check className="w-4 h-4 text-[#4ADE80] stroke-[3]" />
                       </div>
                       <div>
-                        <span className="text-[10.5px] text-white/60 block font-medium">{row.factor}</span>
-                        <span className="font-bold text-white">{row.cabjatra}</span>
+                        <span className="text-[10px] text-white/60 block font-bold uppercase tracking-wider">{row.factor}</span>
+                        <span className="font-bold text-white text-sm">{row.cabjatra}</span>
                       </div>
                     </li>
                   ))}
@@ -1133,7 +1242,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               <div className="pt-6 mt-6 border-t border-white/15">
                 <Link
                   href={`/book-cab?service=${bookingCategoryKey}&vehicle=sedan`}
-                  className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-skeuo-gold transition-all"
+                  className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 active:translate-y-0.5 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-[0_10px_25px_rgba(254,196,1,0.42)] transition-all"
                 >
                   <span>Reserve with Guaranteed Dispatch</span>
                   <ArrowRight className="w-4 h-4 text-[#000B3B]" />
@@ -1142,14 +1251,14 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             </div>
 
             {/* Risk Card: Generic App-Based Aggregators */}
-            <div className="rounded-3xl bg-white text-[#0F172A] p-7 sm:p-8 border border-[#E2E8F0] shadow-sm flex flex-col justify-between relative overflow-hidden">
+            <div className="rounded-3xl bg-[#FFF8F8] text-[#0F172A] p-7 sm:p-8 border-2 border-[#FECACA] shadow-sm flex flex-col justify-between relative overflow-hidden">
               <div className="space-y-6">
-                <div className="space-y-1">
-                  <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#DC2626] flex items-center gap-1.5">
-                    <XCircle className="w-4 h-4 text-[#DC2626]" />
+                <div className="space-y-2">
+                  <span className="text-[10.5px] font-black uppercase tracking-wider text-[#DC2626] bg-[#FEE2E2] px-3.5 py-1.5 rounded-full border border-[#FECACA] inline-flex items-center gap-1.5">
+                    <XCircle className="w-3.5 h-3.5 text-[#DC2626]" />
                     <span>Unpredictable Gig Aggregators</span>
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-bold font-display text-[#0F172A]">
+                  <h3 className="text-2xl font-black font-display text-[#0F172A]">
                     Generic Ride-Hailing Apps
                   </h3>
                   <p className="text-xs text-[#64748B]">
@@ -1160,30 +1269,28 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 {/* Risk Points Checklist */}
                 <ul className="space-y-3 text-xs sm:text-[13px]">
                   {comparisonRows.map((row, idx) => (
-                    <li key={idx} className="flex items-start gap-3 bg-[#FEF2F2]/60 p-3 rounded-2xl border border-[#FEE2E2]">
-                      <div className="p-1 rounded-full bg-[#EF4444]/15 text-[#EF4444] shrink-0 mt-0.5">
+                    <li key={idx} className="flex items-start gap-3 bg-[#FEF2F2] p-3.5 rounded-2xl border border-[#FEE2E2]">
+                      <div className="p-1 rounded-full bg-[#EF4444]/20 text-[#EF4444] shrink-0 mt-0.5">
                         <XCircle className="w-4 h-4 text-[#EF4444]" />
                       </div>
                       <div>
-                        <span className="text-[10.5px] text-[#64748B] block font-medium">{row.factor}</span>
-                        <span className="font-semibold text-[#991B1B]">{row.generic}</span>
+                        <span className="text-[10px] text-[#991B1B]/70 block font-bold uppercase tracking-wider">{row.factor}</span>
+                        <span className="font-bold text-[#991B1B] text-sm">{row.generic}</span>
                       </div>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-[#F1F5F9]">
-                <div className="p-3.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] text-center text-[11px] font-medium text-[#64748B]">
+              <div className="pt-6 mt-6 border-t border-[#FEE2E2]">
+                <div className="p-3.5 rounded-2xl bg-white border border-[#FECACA] text-center text-xs font-semibold text-[#991B1B]">
                   High cancellation rates &amp; unverified private vehicles during peak hours.
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* ========================================================================= */}
+      </section>{/* ========================================================================= */}
       {/* SECTION 5: HOW YOUR CAB RIDE WORKS (ANIMATED 3-STEP TIMELINE)             */}
       {/* ========================================================================= */}
       <section className="py-16 sm:py-20 bg-[#FAF9F5] border-b border-[#E2E8F0] relative overflow-hidden">
@@ -1211,7 +1318,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 return (
                   <div
                     key={i}
-                    className="p-7 sm:p-8 rounded-3xl bg-white border border-[#E2E8F0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.14)] hover:-translate-y-2.5 transition-all duration-300 relative space-y-5 group overflow-hidden"
+                    className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-[0_10px_35px_rgba(0,11,59,0.06)] hover:shadow-[0_25px_50px_rgba(0,11,59,0.14)] hover:-translate-y-2.5 transition-all duration-300 relative space-y-5 group overflow-hidden"
                   >
                     {/* Top Animated Progress Indicator */}
                     <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-transparent via-[#FEC401] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -1226,15 +1333,15 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                       </div>
 
                       {/* Step Number Badge */}
-                      <div className="px-3.5 py-1 rounded-full bg-[#FAF9F5] border border-[#E2E8F0] group-hover:border-[#FEC401] transition-colors">
-                        <span className="text-sm font-black font-display text-[#000B3B] group-hover:text-[#D97706] transition-colors">
-                          Step {st.num}
+                      <div className="px-3.5 py-1.5 rounded-full bg-[#FAF9F5] border border-[#CBD5E1] group-hover:border-[#FEC401] transition-colors">
+                        <span className="text-xs font-black font-display text-[#000B3B] group-hover:text-[#D97706] transition-colors">
+                          Step 0{st.num}
                         </span>
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] font-display group-hover:text-[#000B3B] transition-colors">
+                      <h3 className="text-xl font-black text-[#0F172A] font-display group-hover:text-[#000B3B] transition-colors">
                         {st.title}
                       </h3>
 
@@ -1244,8 +1351,8 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                     </div>
 
                     <div className="pt-3 border-t border-[#F1F5F9] flex items-center gap-1.5 text-[11px] font-bold text-[#16A34A]">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" />
-                      <span>Instant WhatsApp Voucher Confirmation</span>
+                      <Check className="w-3.5 h-3.5 text-[#16A34A] stroke-[3]" />
+                      <span>{i === 0 ? "Instant WhatsApp Voucher Confirmation" : i === 1 ? "Chauffeur Assigned 2 Hrs Prior" : "Guaranteed On-Time Doorstep Pickup"}</span>
                     </div>
                   </div>
                 );
