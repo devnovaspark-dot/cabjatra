@@ -163,12 +163,13 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
 
   return (
     <div className="bg-[#FAF9F5] min-h-screen text-[#0F172A] font-sans selection:bg-[#FEC401]/30">
+            {/* ========================================================================= */}
+      {/* SECTION 1: LUMINOUS ARCHITECTURAL HERO & INTERACTIVE TOUR STAGE           */}
       {/* ========================================================================= */}
-      {/* SECTION 1: CINEMATIC ARCHITECTURAL HERO & INTERACTIVE TOUR STAGE         */}
-      {/* ========================================================================= */}
-      <section className="relative bg-[#000B3B] text-white pt-24 sm:pt-28 pb-10 sm:pb-12 lg:pt-24 lg:pb-10 min-h-[calc(100vh-80px)] flex items-center overflow-hidden border-b border-black/20">
-        {/* Subtle Ambient Atmosphere - Zero Blue Fog */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#FEC401]/10 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative bg-gradient-to-b from-[#FFFDF9] via-[#FAF9F5] to-white text-[#0F172A] pt-28 sm:pt-32 pb-14 sm:pb-16 lg:pt-32 lg:pb-16 min-h-[calc(100vh-80px)] flex items-center overflow-hidden border-b border-[#E2E8F0]">
+        {/* Soft Golden Ambient Atmosphere - Zero Blue Void */}
+        <div className="absolute top-10 right-1/4 w-[500px] h-[500px] bg-[#FEC401]/12 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-10 left-10 w-[450px] h-[450px] bg-[#FEF3C7]/40 rounded-full blur-3xl pointer-events-none" />
 
         {/* Authentic City / Destination Landmark Atmospheric Backdrop */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -178,63 +179,88 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center scale-105 opacity-25 mix-blend-luminosity"
+            className="object-cover object-center opacity-15 mix-blend-multiply scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#000B3B] via-[#000B3B]/92 to-[#000B3B]/80" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B] via-transparent to-[#000B3B]/85" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF9F5] via-[#FAF9F5]/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-[#FAF9F5]/70" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* Left Column: Authoritative Heading, Deep Overview, Benefit Grid & Fast Actions (7 Cols) */}
-            <div className="lg:col-span-7 space-y-3.5 sm:space-y-4 text-center lg:text-left">
+            {/* Left Column: Authoritative Editorial Heading & Fast Actions (7 Cols) */}
+            <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
               {/* Refined Unified Badge & Social Proof Pill */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[11px] font-bold text-[#FEC401] shadow-soft">
-                  <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
-                  <span>{badge.split("&bull;")[0].trim()}</span>
-                  <span className="w-1 h-1 rounded-full bg-white/40" />
-                  <span className="text-white font-medium flex items-center gap-1">
-                    <Star className="w-3 h-3 text-[#FEC401] fill-[#FEC401]" /> 4.95/5 Rating &bull; {durationBadge}
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[11px] font-bold text-[#000B3B] shadow-xs">
+                  <div className="flex items-center gap-1.5 text-[#D97706]">
+                    <Sparkles className="w-3.5 h-3.5 text-[#D97706]" />
+                    <span>{badge.split("&bull;")[0].trim()}</span>
+                  </div>
+                  <span className="w-1 h-1 rounded-full bg-[#CBD5E1]" />
+                  <span className="text-[#475569] font-semibold flex items-center gap-1">
+                    <Star className="w-3.5 h-3.5 text-[#FEC401] fill-[#FEC401]" /> 4.95/5 Rating &bull; {durationBadge}
                   </span>
                 </div>
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-2xl sm:text-3xl lg:text-[40px] font-extrabold font-display tracking-tight text-[#FAF9F5] leading-[1.15]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold font-display tracking-tight text-[#000B3B] leading-[1.14]">
                 {title}
               </h1>
 
               {/* Subtitle - Punchy & Clear */}
-              <p className="text-xs sm:text-sm text-[#FEC401] font-semibold leading-relaxed max-w-xl mx-auto lg:mx-0">
+              <p className="text-xs sm:text-sm text-[#D97706] font-bold leading-relaxed max-w-xl mx-auto lg:mx-0">
                 {subtitle}
               </p>
 
               {/* Sleek Feature Assurances Single Strip */}
-              <div className="pt-0.5 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs">
-                <span className="px-2.5 py-1 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 text-white text-[11px] font-medium flex items-center gap-1.5 shadow-soft">
-                  <Car className="w-3 h-3 text-[#FEC401]" />
-                  <span>100% Commercial Fleet</span>
-                </span>
-                <span className="px-2.5 py-1 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 text-white text-[11px] font-medium flex items-center gap-1.5 shadow-soft">
-                  <Clock className="w-3 h-3 text-[#FEC401]" />
-                  <span>Flexible Sightseeing</span>
-                </span>
-                <span className="px-2.5 py-1 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 text-white text-[11px] font-medium flex items-center gap-1.5 shadow-soft">
-                  <AirVent className="w-3 h-3 text-[#FEC401]" />
-                  <span>Chilled Dual AC</span>
-                </span>
-                <span className="px-2.5 py-1 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 text-white text-[11px] font-medium flex items-center gap-1.5 shadow-soft">
-                  <MapPin className="w-3 h-3 text-[#FEC401]" />
-                  <span>Doorstep Hotel Pickups</span>
-                </span>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+                <div className="p-2.5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-[#FEF3C7] text-[#D97706] flex items-center justify-center shrink-0">
+                    <Car className="w-4 h-4 text-[#D97706]" />
+                  </div>
+                  <div className="text-left">
+                    <span className="text-[11px] font-bold text-[#0F172A] block leading-tight">100% Commercial</span>
+                    <span className="text-[9.5px] text-[#64748B] block leading-tight">Sightseeing Fleet</span>
+                  </div>
+                </div>
+
+                <div className="p-2.5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-[#FEF9C3] text-[#CA8A04] flex items-center justify-center shrink-0">
+                    <Clock className="w-4 h-4 text-[#CA8A04]" />
+                  </div>
+                  <div className="text-left">
+                    <span className="text-[11px] font-bold text-[#0F172A] block leading-tight">Flexible Halts</span>
+                    <span className="text-[9.5px] text-[#64748B] block leading-tight">Custom Pace</span>
+                  </div>
+                </div>
+
+                <div className="p-2.5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-[#E0F2FE] text-[#0284C7] flex items-center justify-center shrink-0">
+                    <AirVent className="w-4 h-4 text-[#0284C7]" />
+                  </div>
+                  <div className="text-left">
+                    <span className="text-[11px] font-bold text-[#0F172A] block leading-tight">Chilled Dual AC</span>
+                    <span className="text-[9.5px] text-[#64748B] block leading-tight">Full Cabin</span>
+                  </div>
+                </div>
+
+                <div className="p-2.5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
+                    <MapPin className="w-4 h-4 text-[#16A34A]" />
+                  </div>
+                  <div className="text-left">
+                    <span className="text-[11px] font-bold text-[#0F172A] block leading-tight">Hotel Pickup</span>
+                    <span className="text-[9.5px] text-[#64748B] block leading-tight">Direct Doorstep</span>
+                  </div>
+                </div>
               </div>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
                 <Link
                   href={`/book-tour?destination=${bookingTourSlug}&vehicle=${selectedHeroVehicleId}`}
-                  className="px-6 py-3 rounded-full bg-gradient-to-b from-[#FEC401] to-[#E5AD00] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 text-[#000B3B] font-extrabold text-xs inline-flex items-center gap-2 active:translate-y-0.5 transition-all"
+                  className="px-6 py-3.5 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] font-extrabold text-xs inline-flex items-center gap-2 shadow-[0_10px_25px_rgba(254,196,1,0.4)] active:translate-y-0.5 transition-all"
                 >
                   <Palmtree className="w-4 h-4 text-[#000B3B]" />
                   <span>Reserve This Tour Package</span>
@@ -245,47 +271,47 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   href={COMPANY_CONFIG.contact.whatsAppLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-3 rounded-full bg-white/10 hover:bg-white/15 backdrop-blur-md text-white font-semibold text-xs inline-flex items-center gap-2 border border-white/20 transition shadow-soft"
+                  className="px-5 py-3.5 rounded-full bg-white hover:bg-[#F8FAFC] text-[#000B3B] font-bold text-xs inline-flex items-center gap-2 border border-[#CBD5E1] shadow-xs transition"
                 >
-                  <MessageSquare className="w-4 h-4 text-[#FEC401]" />
+                  <MessageSquare className="w-4 h-4 text-[#16A34A]" />
                   <span>WhatsApp Concierge</span>
                 </a>
               </div>
 
               {/* Trust Assurances Clean Single Strip */}
-              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3.5 text-[10.5px] text-[#CBD5E1] border-t border-white/10">
-                <span className="flex items-center gap-1">
-                  <ShieldCheck className="w-3 h-3 text-[#FEC401]" />
+              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs text-[#64748B] border-t border-[#E2E8F0]">
+                <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#16A34A]" />
                   100% Commercial Fleet
                 </span>
-                <span className="flex items-center gap-1">
-                  <CheckCircle2 className="w-3 h-3 text-[#FEC401]" />
+                <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" />
                   Guaranteed Tariff Lock
                 </span>
-                <span className="flex items-center gap-1">
-                  <Clock className="w-3 h-3 text-[#FEC401]" />
+                <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
+                  <Clock className="w-3.5 h-3.5 text-[#16A34A]" />
                   {startingFromNote}
                 </span>
               </div>
             </div>
 
-            {/* Right Column: Clean Hero Vehicle Card with ZERO CLUTTER (5 Cols) */}
+            {/* Right Column: Clean Luxury Automotive Card (5 Cols) */}
             <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-              <div className="relative rounded-3xl overflow-hidden border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.55)] bg-[#00104A]/90 backdrop-blur-xl">
+              <div className="relative rounded-3xl overflow-hidden border border-[#E2E8F0] shadow-[0_20px_50px_rgba(0,11,59,0.10)] bg-white">
                 {/* Top Interactive Vehicle Switcher Header */}
-                <div className="px-4 py-2.5 flex items-center justify-between border-b border-white/10 bg-[#000B3B]/80">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#FEC401] flex items-center gap-1.5">
-                    <Car className="w-3.5 h-3.5 text-[#FEC401]" />
+                <div className="px-5 py-3 flex items-center justify-between border-b border-[#F1F5F9] bg-[#FAF9F5]">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#000B3B] flex items-center gap-1.5">
+                    <Car className="w-4 h-4 text-[#D97706]" />
                     <span>Private Tour Fleet</span>
                   </span>
-                  <div className="flex items-center gap-1 bg-black/40 p-0.5 rounded-lg border border-white/10">
+                  <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-[#E2E8F0] shadow-2xs">
                     <button
                       type="button"
                       onClick={() => setSelectedHeroVehicleId("sedan")}
-                      className={`px-2.5 py-1 rounded-md text-[10.5px] font-bold transition-all ${
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                         selectedHeroVehicleId === "sedan"
-                          ? "bg-[#FEC401] text-[#000B3B] shadow-xs"
-                          : "text-white/80 hover:text-white"
+                          ? "bg-[#000B3B] text-[#FEC401] shadow-xs"
+                          : "text-[#64748B] hover:text-[#000B3B]"
                       }`}
                     >
                       Prime Sedan
@@ -293,10 +319,10 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                     <button
                       type="button"
                       onClick={() => setSelectedHeroVehicleId("large-car")}
-                      className={`px-2.5 py-1 rounded-md text-[10.5px] font-bold transition-all ${
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                         selectedHeroVehicleId === "large-car"
-                          ? "bg-[#FEC401] text-[#000B3B] shadow-xs"
-                          : "text-white/80 hover:text-white"
+                          ? "bg-[#000B3B] text-[#FEC401] shadow-xs"
+                          : "text-[#64748B] hover:text-[#000B3B]"
                       }`}
                     >
                       Innova Crysta
@@ -304,10 +330,10 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   </div>
                 </div>
 
-                {/* 1. CLEAN VEHICLE PHOTO STAGE - ZERO TEXT OVER THE IMAGE */}
-                <div className="relative h-44 sm:h-48 w-full bg-gradient-to-b from-[#001654] via-[#000E3D] to-[#000B3B] flex items-center justify-center p-3 border-b border-white/10 overflow-hidden">
+                {/* 1. CLEAN VEHICLE PHOTO STAGE - Studio Light Aesthetics */}
+                <div className="relative h-48 sm:h-52 w-full bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9] to-white p-4 flex items-center justify-center overflow-hidden border-b border-[#F1F5F9]">
                   {/* Soft Radial Backlight Stage */}
-                  <div className="absolute inset-0 bg-radial-[at_center_center] from-[#FEC401]/15 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-radial-[at_center_center] from-[#FEC401]/10 via-transparent to-transparent pointer-events-none" />
 
                   <Image
                     src={currentHeroVehicle.image}
@@ -315,38 +341,67 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                     width={340}
                     height={190}
                     priority
-                    className="object-contain max-h-40 drop-shadow-[0_16px_28px_rgba(0,0,0,0.6)] transform hover:scale-105 transition-transform duration-500"
+                    className="object-contain max-h-42 drop-shadow-[0_16px_28px_rgba(0,11,59,0.12)] transform hover:scale-105 transition-transform duration-500"
                   />
+
+                  {/* Floating Dispatch Ready Badge */}
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-[10.5px] font-bold text-[#16A34A] shadow-xs flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
+                    <span>Dispatch Ready</span>
+                  </div>
                 </div>
 
-                {/* 2. MINIMALIST DETAILS & ACTION DECK - ZERO CLUTTER */}
-                <div className="p-4 sm:p-5 bg-[#000C38] flex flex-col gap-3">
+                {/* 2. REFINED DETAILS & ACTION DECK */}
+                <div className="p-5 sm:p-6 space-y-4 bg-white">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-base sm:text-lg font-bold font-display text-white">
+                      <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A]">
                         {currentHeroVehicle.name}
                       </h3>
-                      <p className="text-[11px] text-[#CBD5E1]">
-                        {currentHeroVehicle.passengers} Seats &bull; Chilled Dual AC
+                      <p className="text-xs text-[#64748B] font-medium">
+                        {currentHeroVehicle.models}
                       </p>
                     </div>
                     <div className="text-right">
-                      <span className="text-base sm:text-lg font-black text-[#FEC401] block leading-none">
+                      <span className="text-xl sm:text-2xl font-black text-[#000B3B] block leading-none">
                         {currentHeroVehicle.rate}
                       </span>
-                      <span className="text-[9.5px] font-bold text-[#10B981] inline-block mt-0.5">
-                        ● All Tolls Included
+                      <span className="text-[10px] font-bold text-[#D97706] bg-[#FEF3C7] px-2 py-0.5 rounded-full inline-block mt-1">
+                        All Tolls Included
                       </span>
                     </div>
                   </div>
 
-                  {/* Single Clean Booking CTA */}
+                  {/* Specs Row */}
+                  <div className="flex items-center justify-between text-xs text-[#475569] py-2.5 border-y border-[#F1F5F9]">
+                    <span className="flex items-center gap-1.5 font-medium">
+                      <Users className="w-3.5 h-3.5 text-[#D97706]" />
+                      <span>{currentHeroVehicle.passengers} Seats</span>
+                    </span>
+                    <span className="flex items-center gap-1.5 font-medium">
+                      <Briefcase className="w-3.5 h-3.5 text-[#D97706]" />
+                      <span>{currentHeroVehicle.luggage} Bags</span>
+                    </span>
+                    <span className="flex items-center gap-1.5 font-medium">
+                      <AirVent className="w-3.5 h-3.5 text-[#16A34A]" />
+                      <span>Dual AC</span>
+                    </span>
+                    <span className="flex items-center gap-1.5 font-medium">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#D97706]" />
+                      <span>Yellow-Plate</span>
+                    </span>
+                  </div>
+
+                  {/* High-Contrast Action Button */}
                   <Link
                     href={`/book-tour?destination=${bookingTourSlug}&vehicle=${currentHeroVehicle.id}`}
-                    className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-lg transition-all active:translate-y-0.5 group/btn"
+                    className="w-full py-3 px-5 rounded-2xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] hover:brightness-110 text-white text-xs font-bold flex items-center justify-between shadow-md transition-all group"
                   >
-                    <span>Reserve This Tour Package</span>
-                    <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover/btn:translate-x-1 transition-transform" />
+                    <span className="text-white font-extrabold">Reserve {currentHeroVehicle.name}</span>
+                    <div className="flex items-center gap-1 text-[#FEC401] font-black group-hover:translate-x-1 transition-transform">
+                      <span>Instant Voucher</span>
+                      <ArrowRight className="w-4 h-4 text-[#FEC401]" />
+                    </div>
                   </Link>
                 </div>
               </div>
@@ -355,7 +410,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
         </div>
       </section>
 
-      {/* ========================================================================= */}
+{/* ========================================================================= */}
       {/* SECTION 2: EXECUTIVE COMMERCIAL FLEET SELECTION                           */}
       {/* ========================================================================= */}
       <section className="py-14 sm:py-18 bg-[#F8FAFC] border-b border-[#E2E8F0]">
