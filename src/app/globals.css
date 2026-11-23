@@ -684,7 +684,7 @@
 
   @page {
     size: A4 portrait;
-    margin: 10mm 12mm;
+    margin: 8mm 10mm;
   }
 
   /* Ensure voucher avoids page breaks and stays within 1 sheet */
@@ -695,5 +695,7 @@
     max-width: 100% !important;
     margin: 0 auto !important;
     padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 }

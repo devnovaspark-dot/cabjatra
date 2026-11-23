@@ -856,148 +856,284 @@ function TourBookingContent() {
                 </div>
               </div>
 
-              {/* Minimalist, Attractive Official 1-Page Printable Tour Voucher */}
-              <div className="hidden print:block print-page-voucher w-full text-[#0F172A] font-sans bg-white">
-                {/* 1. Header: Logo & Clean Reference */}
-                <div className="flex items-center justify-between pb-4 border-b border-[#E2E8F0]">
-                  <div>
-                    <BrandLogo size="md" variant="dark" showTagline={false} />
-                    <p className="text-[11px] font-medium text-[#64748B] mt-1 tracking-wide">
-                      Curated Odisha Private Tours &amp; Heritage Circuits
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#94A3B8] block">
-                      Enquiry Reference
-                    </span>
-                    <strong className="font-mono text-lg font-black text-[#02146B] tracking-tight">
-                      {enquiryRefId}
-                    </strong>
-                    <div className="inline-flex items-center gap-1.5 mt-0.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
-                      <span className="text-[10px] font-bold text-[#059669] uppercase tracking-wider">
-                        Enquiry Confirmed
+              {/* ========================================================================= */}
+              {/* OFFICIAL REALISTIC 1-PAGE PRINTABLE TOUR VOUCHER / RECEIPT (WITH WATERMARK)*/}
+              {/* ========================================================================= */}
+              <div className="hidden print:block print-page-voucher w-full text-[#0F172A] font-sans bg-white relative">
+                {/* Security Top Accent Stripe */}
+                <div className="w-full h-2 bg-gradient-to-r from-[#000B3B] via-[#FEC401] to-[#000B3B] rounded-t-2xl" />
+
+                {/* Outer Security Border Container */}
+                <div className="border-2 border-[#000B3B] rounded-b-2xl p-6 relative overflow-hidden bg-white">
+
+                  {/* 1. Official Centered Diagonal Background Watermark */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0 overflow-hidden">
+                    <div className="transform -rotate-[32deg] text-center select-none border-4 border-dashed border-[#000B3B]/10 rounded-3xl p-8 max-w-md">
+                      <span className="block font-display font-black text-6xl tracking-[0.25em] text-[#000B3B]/10 select-none">
+                        CABJATRA
+                      </span>
+                      <span className="block font-mono font-bold text-base tracking-[0.3em] text-[#000B3B]/15 mt-2 select-none uppercase">
+                        Curated Tour Itinerary
+                      </span>
+                      <span className="block font-mono text-[10px] tracking-widest text-[#000B3B]/15 mt-1 select-none uppercase">
+                        Odisha Private Chauffeur &bull; Standby Fleet
                       </span>
                     </div>
                   </div>
-                </div>
 
-                {/* 2. Visual Circuit Hero */}
-                <div className="my-5 p-4 rounded-xl bg-[#F8FAFC] border border-[#F1F5F9]">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#94A3B8] block">Selected Circuit</span>
-                      <strong className="text-base font-bold text-[#0F172A]">{currentTour.title}</strong>
-                    </div>
-
-                    <div className="text-right">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#94A3B8] block">Duration</span>
-                      <strong className="text-base font-bold text-[#02146B]">{currentTour.duration}</strong>
-                    </div>
-                  </div>
-
-                  <div className="mt-3 pt-3 border-t border-[#E2E8F0]/60 flex items-center justify-between text-xs text-[#475569]">
-                    <span>
-                      <strong>Destinations:</strong> {currentTour.destinations.join(" ➔ ")}
-                    </span>
-                    <span>
-                      <strong>Departure Hub:</strong> {pickupCity}
-                    </span>
-                    <span>
-                      <strong>Start Date:</strong> {travelDate}
-                    </span>
-                  </div>
-                </div>
-
-                {/* 3. Clean 2-Column Information (Traveler & Fleet) */}
-                <div className="grid grid-cols-2 gap-6 my-5 text-xs">
-                  <div>
-                    <h4 className="text-[11px] font-black uppercase tracking-wider text-[#02146B] mb-2.5">
-                      Lead Traveler Information
-                    </h4>
-                    <div className="space-y-1.5 text-[#334155]">
-                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
-                        <span className="text-[#64748B]">Primary Contact:</span>
-                        <strong className="text-[#0F172A]">{primaryName || "Esteemed Traveler"}</strong>
+                  {/* Content sits above watermark */}
+                  <div className="relative z-10 space-y-4">
+                    {/* HEADER: Brand, Stamp, and Barcode */}
+                    <div className="flex items-start justify-between pb-3.5 border-b-2 border-[#000B3B]">
+                      <div>
+                        <BrandLogo size="md" variant="dark" showTagline={false} />
+                        <h2 className="text-xs font-black font-display text-[#000B3B] uppercase tracking-wider mt-1.5">
+                          Official Tour Confirmation &amp; Itinerary Manifest
+                        </h2>
+                        <p className="text-[10px] font-medium text-[#64748B] leading-tight">
+                          CabJatra Bespoke Odisha Tours &bull; Dedicated Private Chauffeur
+                        </p>
+                        <p className="text-[9px] text-[#94A3B8] font-mono mt-0.5">
+                          Tour Desk Ref: TOUR-OD-EXP-2026 &bull; 24/7 Concierge Desk
+                        </p>
                       </div>
-                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
-                        <span className="text-[#64748B]">Mobile Phone:</span>
-                        <strong className="text-[#02146B] font-bold">{primaryPhone || "—"}</strong>
-                      </div>
-                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
-                        <span className="text-[#64748B]">Email Address:</span>
-                        <span>{primaryEmail || "—"}</span>
-                      </div>
-                      <div className="flex justify-between py-1">
-                        <span className="text-[#64748B]">Total Group:</span>
-                        <span>{travelersCount} Traveler(s)</span>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div>
-                    <h4 className="text-[11px] font-black uppercase tracking-wider text-[#02146B] mb-2.5">
-                      Vehicle &amp; Standby Standards
-                    </h4>
-                    <div className="space-y-1.5 text-[#334155]">
-                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
-                        <span className="text-[#64748B]">Vehicle Class:</span>
-                        <strong className="text-[#0F172A] capitalize">
-                          {selectedVehicleType === "sedan"
-                            ? "Sedan (Dzire / Etios)"
-                            : selectedVehicleType === "suv"
-                            ? "SUV (Bolero / Scorpio)"
-                            : selectedVehicleType === "large-car"
-                            ? "Large car (Innova Crysta)"
-                            : "Mini bus (Force Urbania)"}
+                      {/* Center Official Rubber Stamp Seal */}
+                      <div className="hidden sm:block border-2 border-dashed border-[#15803D] bg-[#F0FDF4] rounded-xl p-2 text-center rotate-[-4deg]">
+                        <div className="flex items-center justify-center gap-1 text-[#15803D] text-[9px] font-black uppercase tracking-wider">
+                          <ShieldCheck className="w-3 h-3 text-[#15803D]" />
+                          <span>Verified &amp; Allocated</span>
+                        </div>
+                        <span className="text-[11px] font-black text-[#15803D] tracking-wider block font-mono">
+                          CABJATRA TOURS
+                        </span>
+                        <span className="text-[8px] font-bold text-[#166534] tracking-tight block uppercase">
+                          Dedicated Standby AC Cab
+                        </span>
+                      </div>
+
+                      {/* Right Reference & Barcode */}
+                      <div className="text-right flex flex-col items-end">
+                        <span className="text-[9.5px] font-bold uppercase tracking-wider text-[#64748B] block">
+                          Enquiry Reference
+                        </span>
+                        <div className="flex items-center gap-[2px] h-6 my-1">
+                          {[2, 1, 3, 1, 2, 4, 1, 3, 2, 1, 4, 2, 1, 3, 2, 1, 3, 2, 4, 1, 2].map((w, bIdx) => (
+                            <span
+                              key={bIdx}
+                              style={{ width: `${w}px` }}
+                              className="h-full bg-[#000B3B]"
+                            />
+                          ))}
+                        </div>
+                        <strong className="font-mono text-sm font-black text-[#000B3B] tracking-wider block">
+                          {enquiryRefId}
                         </strong>
-                      </div>
-                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
-                        <span className="text-[#64748B]">Standby Driver:</span>
-                        <strong className="text-[#10B981]">Dedicated Throughout Circuit</strong>
-                      </div>
-                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
-                        <span className="text-[#64748B]">Indicative Tariff:</span>
-                        <span>Starting from {currentTour.indicativePrice.sedan}</span>
-                      </div>
-                      <div className="flex justify-between py-1">
-                        <span className="text-[#64748B]">Driver Expertise:</span>
-                        <span>Odisha Routes &amp; Temple Protocols</span>
+                        <span className="text-[9.5px] font-bold text-[#15803D] uppercase tracking-wider mt-0.5 inline-flex items-center gap-1">
+                          <CheckCircle2 className="w-3 h-3 text-[#15803D]" />
+                          <span>Confirmed Tour Slip</span>
+                        </span>
                       </div>
                     </div>
-                  </div>
-                </div>
 
-                {/* 4. Minimalist Important Tour Guidelines */}
-                <div className="my-5 space-y-2 text-[11px] text-[#475569] leading-relaxed">
-                  <div className="flex items-start gap-2">
-                    <span className="text-[#02146B] font-bold mt-0.5">•</span>
-                    <p>
-                      <strong>Dedicated Standby Driver:</strong> Your commercial vehicle and driver remain exclusively with your family throughout the tour circuit with flexible stopovers.
-                    </p>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-[#02146B] font-bold mt-0.5">•</span>
-                    <p>
-                      <strong>Custom Sightseeing Flexibility:</strong> You may customize stoppage times at temples, museums, and seaside viewpoints according to your group&apos;s comfort.
-                    </p>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-[#02146B] font-bold mt-0.5">•</span>
-                    <p>
-                      <strong>Zero Hidden Costs:</strong> Tariff includes complete fuel, interstate toll taxes, vehicle parking, and driver night allowances.
-                    </p>
-                  </div>
-                </div>
+                    {/* SECTION 1: CIRCUIT MANIFEST */}
+                    <div className="border border-[#CBD5E1] rounded-xl overflow-hidden bg-white">
+                      <div className="bg-[#000B3B] text-white px-3.5 py-1 text-[10px] font-black uppercase tracking-wider flex items-center justify-between">
+                        <span>1. Curated Odisha Circuit Manifest</span>
+                        <span>Traveler Copy</span>
+                      </div>
+                      <div className="p-3.5 bg-gradient-to-r from-[#F8FAFC] via-white to-[#F8FAFC]">
+                        <div className="flex items-center justify-between gap-4">
+                          <div className="space-y-0.5">
+                            <span className="text-[9px] font-bold uppercase tracking-wider text-[#64748B] block">Tour Package</span>
+                            <strong className="text-sm sm:text-base font-black text-[#000B3B] block">{currentTour.title}</strong>
+                            <span className="text-[10px] text-[#64748B] font-medium block">
+                              Duration: {currentTour.duration}
+                            </span>
+                          </div>
 
-                {/* 5. Minimalist Clean Footer */}
-                <div className="pt-4 mt-6 border-t border-[#E2E8F0] flex items-center justify-between text-[10px] text-[#94A3B8]">
-                  <div>
-                    <span className="font-semibold text-[#64748B]">CABJATRA TOUR DESK</span> • Direct Assistance:{" "}
-                    <strong className="text-[#02146B]">{COMPANY_CONFIG.contact.phoneDisplay}</strong>
-                  </div>
-                  <div>
-                    <span>support@cabjatra.com • www.cabjatra.com</span>
+                          <div className="flex-1 max-w-[220px] flex flex-col items-center px-2">
+                            <span className="text-[9px] font-bold uppercase tracking-wider text-[#02146B] bg-[#FAF9F5] px-2 py-0.5 rounded-full border border-[#CBD5E1] shadow-2xs mb-1">
+                              Departure: {pickupCity}
+                            </span>
+                            <div className="w-full flex items-center gap-1">
+                              <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
+                              <div className="flex-1 border-t-2 border-dashed border-[#CBD5E1]" />
+                              <ArrowRight className="w-3.5 h-3.5 text-[#000B3B]" />
+                            </div>
+                            <span className="text-[8.5px] text-[#64748B] font-semibold mt-0.5">Start Date: {travelDate}</span>
+                          </div>
+
+                          <div className="space-y-0.5 text-right">
+                            <span className="text-[9px] font-bold uppercase tracking-wider text-[#64748B] block">Included Circuit</span>
+                            <strong className="text-xs font-bold text-[#000B3B] block max-w-[200px] truncate">
+                              {currentTour.destinations.join(" &bull; ")}
+                            </strong>
+                            <span className="text-[10px] text-[#15803D] font-bold block">
+                              Standby Private Chauffeur
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="mt-2.5 pt-2 border-t border-[#E2E8F0] grid grid-cols-3 gap-2 text-[10.5px]">
+                          <div>
+                            <span className="text-[#64748B] font-medium">Selected Vehicle: </span>
+                            <strong className="text-[#000B3B] capitalize">
+                              {selectedVehicleType === "sedan"
+                                ? "Sedan (Dzire / Etios)"
+                                : selectedVehicleType === "suv"
+                                ? "SUV (Bolero / Scorpio)"
+                                : selectedVehicleType === "large-car"
+                                ? "Large Car (Innova Crysta)"
+                                : "Mini Bus (Force Urbania)"}
+                            </strong>
+                          </div>
+                          <div className="text-center">
+                            <span className="text-[#64748B] font-medium">AC Standard: </span>
+                            <strong className="text-[#15803D]">Chilled Dual AC Throughout</strong>
+                          </div>
+                          <div className="text-right">
+                            <span className="text-[#64748B] font-medium">Driver Role: </span>
+                            <strong className="text-[#000B3B]">Temple &amp; Highway Specialist</strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* SECTION 2: TRAVELER & VEHICLE DETAILS */}
+                    <div className="grid grid-cols-2 gap-3.5 text-[11px]">
+                      {/* Traveler Col */}
+                      <div className="border border-[#CBD5E1] rounded-xl overflow-hidden bg-white">
+                        <div className="bg-[#FAF9F5] border-b border-[#CBD5E1] px-3 py-1 font-black text-[10px] text-[#000B3B] uppercase tracking-wider">
+                          Primary Traveler Manifest
+                        </div>
+                        <div className="p-2.5 space-y-1 divide-y divide-[#F1F5F9]">
+                          <div className="flex justify-between py-0.5">
+                            <span className="text-[#64748B]">Primary Contact:</span>
+                            <strong className="text-[#000B3B] font-bold">{primaryName || "Esteemed Traveler"}</strong>
+                          </div>
+                          <div className="flex justify-between py-0.5">
+                            <span className="text-[#64748B]">Mobile Phone:</span>
+                            <strong className="text-[#000B3B] font-mono font-bold">{primaryPhone || "—"}</strong>
+                          </div>
+                          <div className="flex justify-between py-0.5">
+                            <span className="text-[#64748B]">Email Address:</span>
+                            <span className="text-[#0F172A]">{primaryEmail || "—"}</span>
+                          </div>
+                          <div className="flex justify-between py-0.5">
+                            <span className="text-[#64748B]">Group Count:</span>
+                            <span className="font-semibold text-[#000B3B]">{travelersCount} Traveler(s)</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Standby Standards Col */}
+                      <div className="border border-[#CBD5E1] rounded-xl overflow-hidden bg-white">
+                        <div className="bg-[#FAF9F5] border-b border-[#CBD5E1] px-3 py-1 font-black text-[10px] text-[#000B3B] uppercase tracking-wider">
+                          Dedicated Standby Fleet Standards
+                        </div>
+                        <div className="p-2.5 space-y-1 divide-y divide-[#F1F5F9]">
+                          <div className="flex justify-between py-0.5">
+                            <span className="text-[#64748B]">Chauffeur Standby:</span>
+                            <strong className="text-[#15803D] font-bold">Exclusive Throughout Circuit</strong>
+                          </div>
+                          <div className="flex justify-between py-0.5">
+                            <span className="text-[#64748B]">Sightseeing Pace:</span>
+                            <span className="text-[#000B3B] font-semibold">100% Bespoke Flexible Stops</span>
+                          </div>
+                          <div className="flex justify-between py-0.5">
+                            <span className="text-[#64748B]">Luggage Custody:</span>
+                            <span className="text-[#000B3B] font-semibold">Safe During Temple Darshan</span>
+                          </div>
+                          <div className="flex justify-between py-0.5">
+                            <span className="text-[#64748B]">Tariff Standard:</span>
+                            <strong className="text-[#000B3B] font-bold">Starting from {currentTour.indicativePrice.sedan}</strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* SECTION 3: TOUR PROVISIONS & ITEMIZED CLARITY */}
+                    <div className="border border-[#CBD5E1] rounded-xl overflow-hidden bg-white">
+                      <div className="bg-[#000B3B] text-white px-3.5 py-1 text-[10px] font-black uppercase tracking-wider flex items-center justify-between">
+                        <span>2. Inclusions &amp; Pricing Clarity</span>
+                        <span>Zero Hidden Surprises</span>
+                      </div>
+                      <table className="w-full text-left border-collapse text-[11px]">
+                        <thead>
+                          <tr className="bg-[#FAF9F5] border-b border-[#CBD5E1] text-[9.5px] font-black uppercase tracking-wider text-[#64748B]">
+                            <th className="py-1.5 px-3">Service Inclusions</th>
+                            <th className="py-1.5 px-3">Scope &amp; Coverage</th>
+                            <th className="py-1.5 px-3 text-right">Standard</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-[#F1F5F9]">
+                          <tr>
+                            <td className="py-1.5 px-3 font-semibold text-[#000B3B]">
+                              Dedicated Private Vehicle &amp; Professional Local Chauffeur
+                            </td>
+                            <td className="py-1.5 px-3 text-[#64748B]">Entire Circuit Duration with Flexible Halts</td>
+                            <td className="py-1.5 px-3 text-right text-[#15803D] font-bold">✓ 100% Covered</td>
+                          </tr>
+                          <tr>
+                            <td className="py-1.5 px-3 text-[#334155]">
+                              Fuel Consumption, Road Taxes &amp; Chauffeur Night Stay
+                            </td>
+                            <td className="py-1.5 px-3 text-[#64748B]">All Sightseeing Destinations on Circuit</td>
+                            <td className="py-1.5 px-3 text-right text-[#15803D] font-bold">✓ 100% Covered</td>
+                          </tr>
+                          <tr>
+                            <td className="py-1.5 px-3 text-[#334155]">
+                              Interstate &amp; State Highway Toll Taxes + Designated Parking
+                            </td>
+                            <td className="py-1.5 px-3 text-[#64748B]">Temple &amp; Monument Parking Gates</td>
+                            <td className="py-1.5 px-3 text-right text-[#15803D] font-bold">✓ 100% Covered</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    {/* SECTION 4: TOUR PROTOCOLS */}
+                    <div className="border border-[#CBD5E1] rounded-xl p-3 bg-white space-y-1.5 text-[10px] text-[#475569] leading-relaxed">
+                      <div className="flex items-start gap-2">
+                        <span className="w-3.5 h-3.5 rounded-full bg-[#000B3B] text-white flex items-center justify-center font-bold text-[8px] shrink-0 mt-0.5">1</span>
+                        <p>
+                          <strong className="text-[#000B3B]">Flexible Sightseeing Halts:</strong> Pause for coastal tea along Marine Drive, sunrise photography at Chandrabhaga, or extend temple darshan at your family&apos;s comfort with zero rush.
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="w-3.5 h-3.5 rounded-full bg-[#000B3B] text-white flex items-center justify-center font-bold text-[8px] shrink-0 mt-0.5">2</span>
+                        <p>
+                          <strong className="text-[#000B3B]">Safe Luggage Custody:</strong> When visiting temples or taking boating safaris, your chauffeur stays with the vehicle ensuring 100% safe custody of luggage and temple offerings.
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="w-3.5 h-3.5 rounded-full bg-[#000B3B] text-white flex items-center justify-center font-bold text-[8px] shrink-0 mt-0.5">3</span>
+                        <p>
+                          <strong className="text-[#000B3B]">Concierge Assistance:</strong> Our dedicated 24/7 Odisha tour desk remains in active communication with your assigned chauffeur throughout the trip.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* FOOTER: Official Sign-off & Barcode Footer */}
+                    <div className="pt-3 border-t-2 border-[#000B3B] flex items-center justify-between text-[9px] text-[#64748B]">
+                      <div>
+                        <p className="font-bold text-[#000B3B]">
+                          CABJATRA BESPOKE TOUR DESK &bull; ODISHA
+                        </p>
+                        <p className="text-[#94A3B8]">
+                          Computer-generated official tour confirmation. No physical signature required.
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <p className="font-mono font-bold text-[#000B3B]">
+                          Direct Tour Desk: {COMPANY_CONFIG.contact.phoneDisplay}
+                        </p>
+                        <p className="text-[#94A3B8]">
+                          support@cabjatra.com &bull; www.cabjatra.com
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

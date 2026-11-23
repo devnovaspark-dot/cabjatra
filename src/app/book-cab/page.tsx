@@ -1216,189 +1216,318 @@ function CabBookingContent() {
                 </div>
               </div>
 
-              {/* Minimalist, Attractive Official 1-Page Printable Cab Voucher */}
-              <div className="hidden print:block print-page-voucher w-full text-[#0F172A] font-sans bg-white">
-                {/* 1. Header: Logo & Clean Reference */}
-                <div className="flex items-center justify-between pb-4 border-b border-[#E2E8F0]">
-                  <div>
-                    <BrandLogo size="md" variant="dark" showTagline={false} />
-                    <p className="text-[11px] font-medium text-[#64748B] mt-1 tracking-wide">
-                      Verified Commercial Fleet • Odisha
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#94A3B8] block">
-                      Booking Reference
-                    </span>
-                    <strong className="font-mono text-lg font-black text-[#02146B] tracking-tight">
-                      {bookingReference}
-                    </strong>
-                    <div className="inline-flex items-center gap-1.5 mt-0.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
-                      <span className="text-[10px] font-bold text-[#059669] uppercase tracking-wider">
-                        Confirmed Booking
+              {/* ========================================================================= */}
+              {/* OFFICIAL REALISTIC 1-PAGE PRINTABLE CAB VOUCHER / RECEIPT (WITH WATERMARK) */}
+              {/* ========================================================================= */}
+              <div className="hidden print:block print-page-voucher w-full text-[#0F172A] font-sans bg-white relative">
+                {/* Security Top Accent Stripe */}
+                <div className="w-full h-2 bg-gradient-to-r from-[#000B3B] via-[#FEC401] to-[#000B3B] rounded-t-2xl" />
+
+                {/* Outer Security Border Container */}
+                <div className="border-2 border-[#000B3B] rounded-b-2xl p-6 relative overflow-hidden bg-white">
+
+                  {/* 1. Official Centered Diagonal Background Watermark */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0 overflow-hidden">
+                    <div className="transform -rotate-[32deg] text-center select-none border-4 border-dashed border-[#000B3B]/10 rounded-3xl p-8 max-w-md">
+                      <span className="block font-display font-black text-6xl tracking-[0.25em] text-[#000B3B]/10 select-none">
+                        CABJATRA
+                      </span>
+                      <span className="block font-mono font-bold text-base tracking-[0.3em] text-[#000B3B]/15 mt-2 select-none uppercase">
+                        Official Booking Voucher
+                      </span>
+                      <span className="block font-mono text-[10px] tracking-widest text-[#000B3B]/15 mt-1 select-none uppercase">
+                        Verified Commercial Dispatch &bull; Odisha
                       </span>
                     </div>
                   </div>
-                </div>
 
-                {/* 2. Visual Route Hero: Bhubaneswar ➔ Destination */}
-                <div className="my-5 p-4 rounded-xl bg-[#F8FAFC] border border-[#F1F5F9]">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#94A3B8] block">Pickup City</span>
-                      <strong className="text-base font-bold text-[#0F172A]">{pickupCity}</strong>
-                    </div>
+                  {/* Content sits above watermark */}
+                  <div className="relative z-10 space-y-4">
+                    {/* HEADER: Brand, Stamp, and Barcode */}
+                    <div className="flex items-start justify-between pb-3.5 border-b-2 border-[#000B3B]">
+                      <div>
+                        <BrandLogo size="md" variant="dark" showTagline={false} />
+                        <h2 className="text-xs font-black font-display text-[#000B3B] uppercase tracking-wider mt-1.5">
+                          Official Travel Voucher &amp; Tax Receipt
+                        </h2>
+                        <p className="text-[10px] font-medium text-[#64748B] leading-tight">
+                          CabJatra Mobility Services &bull; Odisha Commercial Tourist Fleet
+                        </p>
+                        <p className="text-[9px] text-[#94A3B8] font-mono mt-0.5">
+                          Platform Dispatch Ref: CAB-OD-COMM-2026 &bull; 24/7 Operations Desk
+                        </p>
+                      </div>
 
-                    <div className="flex-1 px-6 flex items-center justify-center">
-                      <div className="w-full flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-[#02146B] shrink-0" />
-                        <div className="flex-1 border-t-2 border-dashed border-[#CBD5E1]" />
-                        <ArrowRight className="w-4 h-4 text-[#02146B] shrink-0" />
+                      {/* Center Official Rubber Stamp Seal */}
+                      <div className="hidden sm:block border-2 border-dashed border-[#15803D] bg-[#F0FDF4] rounded-xl p-2 text-center rotate-[-4deg]">
+                        <div className="flex items-center justify-center gap-1 text-[#15803D] text-[9px] font-black uppercase tracking-wider">
+                          <ShieldCheck className="w-3 h-3 text-[#15803D]" />
+                          <span>Verified &amp; Allocated</span>
+                        </div>
+                        <span className="text-[11px] font-black text-[#15803D] tracking-wider block font-mono">
+                          CABJATRA DISPATCH
+                        </span>
+                        <span className="text-[8px] font-bold text-[#166534] tracking-tight block uppercase">
+                          100% Commercial Fleet
+                        </span>
+                      </div>
+
+                      {/* Right Reference & Barcode */}
+                      <div className="text-right flex flex-col items-end">
+                        <span className="text-[9.5px] font-bold uppercase tracking-wider text-[#64748B] block">
+                          Booking Reference
+                        </span>
+                        <div className="flex items-center gap-[2px] h-6 my-1">
+                          {[2, 1, 3, 1, 2, 4, 1, 3, 2, 1, 4, 2, 1, 3, 2, 1, 3, 2, 4, 1, 2].map((w, bIdx) => (
+                            <span
+                              key={bIdx}
+                              style={{ width: `${w}px` }}
+                              className="h-full bg-[#000B3B]"
+                            />
+                          ))}
+                        </div>
+                        <strong className="font-mono text-sm font-black text-[#000B3B] tracking-wider block">
+                          {bookingReference}
+                        </strong>
+                        <span className="text-[9.5px] font-bold text-[#15803D] uppercase tracking-wider mt-0.5 inline-flex items-center gap-1">
+                          <CheckCircle2 className="w-3 h-3 text-[#15803D]" />
+                          <span>Pre-Allocated Voucher</span>
+                        </span>
                       </div>
                     </div>
 
-                    <div className="text-right">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#94A3B8] block">Destination</span>
-                      <strong className="text-base font-bold text-[#0F172A]">
-                        {serviceType === "hourly" ? hourlyPackage : dropLocation}
-                      </strong>
-                    </div>
-                  </div>
+                    {/* SECTION 1: JOURNEY MANIFEST */}
+                    <div className="border border-[#CBD5E1] rounded-xl overflow-hidden bg-white">
+                      <div className="bg-[#000B3B] text-white px-3.5 py-1 text-[10px] font-black uppercase tracking-wider flex items-center justify-between">
+                        <span>1. Transit Route &amp; Departure Manifest</span>
+                        <span>Passenger Copy</span>
+                      </div>
+                      <div className="p-3.5 bg-gradient-to-r from-[#F8FAFC] via-white to-[#F8FAFC]">
+                        <div className="flex items-center justify-between gap-4">
+                          <div className="space-y-0.5">
+                            <span className="text-[9px] font-bold uppercase tracking-wider text-[#64748B] block">Departure Origin</span>
+                            <strong className="text-sm sm:text-base font-black text-[#000B3B] block">{pickupCity}</strong>
+                            <span className="text-[10px] text-[#64748B] font-medium block">
+                              {pickupDate} at {pickupTime}
+                            </span>
+                          </div>
 
-                  <div className="mt-3 pt-3 border-t border-[#E2E8F0]/60 flex items-center justify-between text-xs text-[#475569]">
-                    <span>
-                      <strong>Format:</strong>{" "}
-                      {serviceType === "airport"
-                        ? "BBI Airport Transfer"
-                        : serviceType === "outstation"
-                        ? `Outstation (${tripWay === "round" ? "Round Trip" : "One-Way"})`
-                        : serviceType === "hourly"
-                        ? `Hourly Rental (${hourlyPackage})`
-                        : "Local City Transfer"}
-                    </span>
-                    <span>
-                      <strong>Scheduled:</strong> {pickupDate} at {pickupTime}
-                    </span>
-                    <span>
-                      <strong>Vehicle:</strong> {selectedVehicle.name} ({selectedVehicle.category})
-                    </span>
-                  </div>
-                </div>
+                          <div className="flex-1 max-w-[200px] flex flex-col items-center px-2">
+                            <span className="text-[9px] font-bold uppercase tracking-wider text-[#02146B] bg-[#FAF9F5] px-2 py-0.5 rounded-full border border-[#CBD5E1] shadow-2xs mb-1">
+                              {serviceType === "airport" ? "BBI Airport Transfer" : serviceType === "outstation" ? (tripWay === "round" ? "Outstation Round-Trip" : "Outstation One-Way") : serviceType === "hourly" ? `Hourly (${hourlyPackage})` : "Local City Transfer"}
+                            </span>
+                            <div className="w-full flex items-center gap-1">
+                              <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
+                              <div className="flex-1 border-t-2 border-dashed border-[#CBD5E1]" />
+                              <ArrowRight className="w-3.5 h-3.5 text-[#000B3B]" />
+                            </div>
+                            <span className="text-[8.5px] text-[#64748B] font-semibold mt-0.5">Direct Highway Transit</span>
+                          </div>
 
-                {/* 3. Clean 2-Column Information (Passenger & Fleet) */}
-                <div className="grid grid-cols-2 gap-6 my-5 text-xs">
-                  <div>
-                    <h4 className="text-[11px] font-black uppercase tracking-wider text-[#02146B] mb-2.5">
-                      Passenger Details
-                    </h4>
-                    <div className="space-y-1.5 text-[#334155]">
-                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
-                        <span className="text-[#64748B]">Lead Passenger:</span>
-                        <strong className="text-[#0F172A]">{passengerName || "Esteemed Traveler"}</strong>
-                      </div>
-                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
-                        <span className="text-[#64748B]">Mobile Number:</span>
-                        <strong className="text-[#02146B] font-bold">{passengerPhone || "—"}</strong>
-                      </div>
-                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
-                        <span className="text-[#64748B]">Email Address:</span>
-                        <span>{passengerEmail || "—"}</span>
-                      </div>
-                      <div className="flex justify-between py-1">
-                        <span className="text-[#64748B]">Group Size:</span>
-                        <span>{passengerCount} Passenger(s), {luggageCount} Luggage Bag(s)</span>
-                      </div>
-                    </div>
-                  </div>
+                          <div className="space-y-0.5 text-right">
+                            <span className="text-[9px] font-bold uppercase tracking-wider text-[#64748B] block">Destination</span>
+                            <strong className="text-sm sm:text-base font-black text-[#000B3B] block">
+                              {serviceType === "hourly" ? hourlyPackage : dropLocation}
+                            </strong>
+                            <span className="text-[10px] text-[#15803D] font-bold block">
+                              Dedicated Cab Waiting
+                            </span>
+                          </div>
+                        </div>
 
-                  <div>
-                    <h4 className="text-[11px] font-black uppercase tracking-wider text-[#02146B] mb-2.5">
-                      Vehicle &amp; Standards
-                    </h4>
-                    <div className="space-y-1.5 text-[#334155]">
-                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
-                        <span className="text-[#64748B]">Vehicle Class:</span>
-                        <strong className="text-[#0F172A]">{selectedVehicle.name}</strong>
-                      </div>
-                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
-                        <span className="text-[#64748B]">Air Conditioning:</span>
-                        <strong className="text-[#10B981]">Dual-Zone AC Guaranteed</strong>
-                      </div>
-                      <div className="flex justify-between py-1 border-b border-[#F1F5F9]">
-                        <span className="text-[#64748B]">Permit Standard:</span>
-                        <span>100% Yellow-Board Commercial</span>
-                      </div>
-                      <div className="flex justify-between py-1">
-                        <span className="text-[#64748B]">Driver:</span>
-                        <span>Commercial Badge &amp; Verified</span>
+                        <div className="mt-2.5 pt-2 border-t border-[#E2E8F0] grid grid-cols-3 gap-2 text-[10.5px]">
+                          <div>
+                            <span className="text-[#64748B] font-medium">Allocated Vehicle: </span>
+                            <strong className="text-[#000B3B]">{selectedVehicle.name} ({selectedVehicle.category})</strong>
+                          </div>
+                          <div className="text-center">
+                            <span className="text-[#64748B] font-medium">Cabin Climate: </span>
+                            <strong className="text-[#15803D]">Chilled Dual-Zone AC</strong>
+                          </div>
+                          <div className="text-right">
+                            <span className="text-[#64748B] font-medium">Permit: </span>
+                            <strong className="text-[#000B3B]">Commercial Yellow-Plate</strong>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
 
-                {/* 4. Minimalist Tariff & Payment Summary */}
-                <div className="my-5 p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0]">
-                  <h4 className="text-[11px] font-black uppercase tracking-wider text-[#02146B] mb-3">
-                    Tariff &amp; Advance Breakdown
-                  </h4>
-                  <div className="grid grid-cols-3 gap-4 text-center">
-                    <div className="p-2.5 bg-white rounded-lg border border-[#E2E8F0]">
-                      <span className="text-[10px] font-bold text-[#64748B] uppercase block">Total Tariff</span>
-                      <strong className="text-base font-black text-[#0F172A] block mt-0.5">
-                        ₹{fares.total.toLocaleString("en-IN")}
-                      </strong>
-                      <span className="text-[9px] text-[#94A3B8] block mt-0.5">All-inclusive (fuel, tolls &amp; driver)</span>
+                    {/* SECTION 2: PASSENGER & VEHICLE STANDARDS (2-COL TABLE) */}
+                    <div className="grid grid-cols-2 gap-3.5 text-[11px]">
+                      {/* Passenger Col */}
+                      <div className="border border-[#CBD5E1] rounded-xl overflow-hidden bg-white">
+                        <div className="bg-[#FAF9F5] border-b border-[#CBD5E1] px-3 py-1 font-black text-[10px] text-[#000B3B] uppercase tracking-wider">
+                          Lead Passenger Manifest
+                        </div>
+                        <div className="p-2.5 space-y-1 divide-y divide-[#F1F5F9]">
+                          <div className="flex justify-between py-0.5">
+                            <span className="text-[#64748B]">Primary Passenger:</span>
+                            <strong className="text-[#000B3B] font-bold">{passengerName || "Esteemed Traveler"}</strong>
+                          </div>
+                          <div className="flex justify-between py-0.5">
+                            <span className="text-[#64748B]">Mobile Number:</span>
+                            <strong className="text-[#000B3B] font-mono font-bold">{passengerPhone || "—"}</strong>
+                          </div>
+                          <div className="flex justify-between py-0.5">
+                            <span className="text-[#64748B]">Email Address:</span>
+                            <span className="text-[#0F172A]">{passengerEmail || "—"}</span>
+                          </div>
+                          <div className="flex justify-between py-0.5">
+                            <span className="text-[#64748B]">Group Manifest:</span>
+                            <span className="font-semibold text-[#000B3B]">{passengerCount} Passenger(s), {luggageCount} Luggage Bag(s)</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Chauffeur Col */}
+                      <div className="border border-[#CBD5E1] rounded-xl overflow-hidden bg-white">
+                        <div className="bg-[#FAF9F5] border-b border-[#CBD5E1] px-3 py-1 font-black text-[10px] text-[#000B3B] uppercase tracking-wider">
+                          Commercial Fleet Standards
+                        </div>
+                        <div className="p-2.5 space-y-1 divide-y divide-[#F1F5F9]">
+                          <div className="flex justify-between py-0.5">
+                            <span className="text-[#64748B]">Vehicle Class:</span>
+                            <strong className="text-[#000B3B] font-bold">{selectedVehicle.name}</strong>
+                          </div>
+                          <div className="flex justify-between py-0.5">
+                            <span className="text-[#64748B]">Permit Standard:</span>
+                            <span className="text-[#000B3B] font-semibold">100% Commercial Yellow-Plate</span>
+                          </div>
+                          <div className="flex justify-between py-0.5">
+                            <span className="text-[#64748B]">Luggage Custody:</span>
+                            <span className="text-[#000B3B] font-semibold">Sanitized Boot Space</span>
+                          </div>
+                          <div className="flex justify-between py-0.5">
+                            <span className="text-[#64748B]">Chauffeur Protocol:</span>
+                            <strong className="text-[#15803D] font-bold">Details Dispatched 2h Prior</strong>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
-                    <div className="p-2.5 bg-white rounded-lg border border-[#02146B]/20">
-                      <span className="text-[10px] font-bold text-[#02146B] uppercase block">10% Advance Deposit</span>
-                      <strong className="text-base font-black text-[#02146B] block mt-0.5">
-                        ₹{fares.advance.toLocaleString("en-IN")}
-                      </strong>
-                      <span className="text-[9px] text-[#059669] font-medium block mt-0.5">Dispatched via WhatsApp link</span>
+                    {/* SECTION 3: ITEMIZED TARIFF & PAYMENT LEDGER */}
+                    <div className="border border-[#CBD5E1] rounded-xl overflow-hidden bg-white">
+                      <div className="bg-[#000B3B] text-white px-3.5 py-1 text-[10px] font-black uppercase tracking-wider flex items-center justify-between">
+                        <span>2. Itemized Tariff &amp; Payment Ledger</span>
+                        <span>Zero Surge Guarantee</span>
+                      </div>
+                      <table className="w-full text-left border-collapse text-[11px]">
+                        <thead>
+                          <tr className="bg-[#FAF9F5] border-b border-[#CBD5E1] text-[9.5px] font-black uppercase tracking-wider text-[#64748B]">
+                            <th className="py-1.5 px-3">Description</th>
+                            <th className="py-1.5 px-3">Tariff Basis</th>
+                            <th className="py-1.5 px-3 text-center">Status</th>
+                            <th className="py-1.5 px-3 text-right">Amount (INR)</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-[#F1F5F9]">
+                          <tr>
+                            <td className="py-1.5 px-3 font-semibold text-[#000B3B]">
+                              Dedicated AC Commercial Cab Hire ({selectedVehicle.name})
+                            </td>
+                            <td className="py-1.5 px-3 text-[#64748B]">Fixed Corridor Fare</td>
+                            <td className="py-1.5 px-3 text-center text-[#15803D] font-bold">✓ Included</td>
+                            <td className="py-1.5 px-3 text-right font-mono font-bold text-[#000B3B]">
+                              ₹{fares.total.toLocaleString("en-IN")}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="py-1.5 px-3 text-[#334155]">
+                              Interstate &amp; National Highway Toll Taxes
+                            </td>
+                            <td className="py-1.5 px-3 text-[#64748B]">All Toll Gates</td>
+                            <td className="py-1.5 px-3 text-center text-[#15803D] font-bold">✓ Included</td>
+                            <td className="py-1.5 px-3 text-right font-mono text-[#64748B]">₹0.00</td>
+                          </tr>
+                          <tr>
+                            <td className="py-1.5 px-3 text-[#334155]">
+                              Fuel Charges, State Road Taxes &amp; Chauffeur Allowance
+                            </td>
+                            <td className="py-1.5 px-3 text-[#64748B]">Zero Peak Multiplier</td>
+                            <td className="py-1.5 px-3 text-center text-[#15803D] font-bold">✓ Included</td>
+                            <td className="py-1.5 px-3 text-right font-mono text-[#64748B]">₹0.00</td>
+                          </tr>
+                          <tr className="bg-[#F8FAFC] font-black text-xs border-t border-[#CBD5E1]">
+                            <td colSpan={3} className="py-2 px-3 text-[#000B3B] uppercase tracking-wider">
+                              Total Fixed Tariff (All-Inclusive Guaranteed)
+                            </td>
+                            <td className="py-2 px-3 text-right font-mono text-sm text-[#000B3B]">
+                              ₹{fares.total.toLocaleString("en-IN")}
+                            </td>
+                          </tr>
+                          <tr className="bg-[#F0FDF4] border-t border-[#BBF7D0]">
+                            <td colSpan={2} className="py-2 px-3">
+                              <strong className="text-[#15803D] text-xs uppercase block">Advance Booking Deposit Token</strong>
+                              <span className="text-[9.5px] text-[#166534]">Dispatched via official WhatsApp payment link upon review</span>
+                            </td>
+                            <td className="py-2 px-3 text-center">
+                              <span className="bg-[#DCFCE7] text-[#166534] px-2 py-0.5 rounded text-[9.5px] font-bold border border-[#BBF7D0]">
+                                To Confirm
+                              </span>
+                            </td>
+                            <td className="py-2 px-3 text-right font-mono text-sm font-black text-[#15803D]">
+                              ₹{fares.advance.toLocaleString("en-IN")}
+                            </td>
+                          </tr>
+                          <tr className="bg-[#FFFBEB] border-t border-[#FDE68A]">
+                            <td colSpan={2} className="py-2 px-3">
+                              <strong className="text-[#92400E] text-xs uppercase block">Balance Payable at Destination Drop</strong>
+                              <span className="text-[9.5px] text-[#78350F]">Directly payable to your assigned chauffeur via Cash or UPI upon safe drop</span>
+                            </td>
+                            <td className="py-2 px-3 text-center">
+                              <span className="bg-[#FEF3C7] text-[#92400E] px-2 py-0.5 rounded text-[9.5px] font-bold border border-[#FDE68A]">
+                                Pay at Drop
+                              </span>
+                            </td>
+                            <td className="py-2 px-3 text-right font-mono text-sm font-black text-[#B45309]">
+                              ₹{fares.balance.toLocaleString("en-IN")}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
 
-                    <div className="p-2.5 bg-white rounded-lg border border-[#E2E8F0]">
-                      <span className="text-[10px] font-bold text-[#64748B] uppercase block">Balance at Drop (90%)</span>
-                      <strong className="text-base font-black text-[#D97706] block mt-0.5">
-                        ₹{fares.balance.toLocaleString("en-IN")}
-                      </strong>
-                      <span className="text-[9px] text-[#94A3B8] block mt-0.5">Payable to driver via Cash or UPI</span>
+                    {/* SECTION 4: OFFICIAL DISPATCH PROTOCOLS & PASSENGER GUARANTEE */}
+                    <div className="border border-[#CBD5E1] rounded-xl p-3 bg-white space-y-1.5 text-[10px] text-[#475569] leading-relaxed">
+                      <div className="flex items-start gap-2">
+                        <span className="w-3.5 h-3.5 rounded-full bg-[#000B3B] text-white flex items-center justify-center font-bold text-[8px] shrink-0 mt-0.5">1</span>
+                        <p>
+                          <strong className="text-[#000B3B]">Chauffeur Allocation Protocol:</strong> Your driver&apos;s name, mobile number, and commercial taxi registration badge will be dispatched to your WhatsApp <strong>exactly 2 hours before pickup</strong>.
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="w-3.5 h-3.5 rounded-full bg-[#000B3B] text-white flex items-center justify-center font-bold text-[8px] shrink-0 mt-0.5">2</span>
+                        <p>
+                          <strong className="text-[#000B3B]">Zero Surge Tariff Guarantee:</strong> The tariff on this voucher is 100% locked. Drivers are legally prohibited from requesting dynamic surge pricing, night tolls, or luggage fees.
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="w-3.5 h-3.5 rounded-full bg-[#000B3B] text-white flex items-center justify-center font-bold text-[8px] shrink-0 mt-0.5">3</span>
+                        <p>
+                          <strong className="text-[#000B3B]">Full Deposit Refund Guarantee:</strong> 100% advance deposit refund is guaranteed if cancellation is requested at least 6 hours prior to the scheduled departure time.
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </div>
 
-                {/* 5. Minimalist Important Notes */}
-                <div className="my-5 space-y-2 text-[11px] text-[#475569] leading-relaxed">
-                  <div className="flex items-start gap-2">
-                    <span className="text-[#02146B] font-bold mt-0.5">•</span>
-                    <p>
-                      <strong>Driver Details:</strong> Your driver&apos;s contact number and taxi registration will be dispatched to your WhatsApp <strong>2 hours before pickup</strong>.
-                    </p>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-[#02146B] font-bold mt-0.5">•</span>
-                    <p>
-                      <strong>Zero Surge Guarantee:</strong> The tariff above is 100% fixed with zero surge pricing, midnight penalties, or extra driver allowances.
-                    </p>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-[#02146B] font-bold mt-0.5">•</span>
-                    <p>
-                      <strong>Free Cancellation:</strong> Full deposit refund guaranteed if cancellation is initiated at least 6 hours before departure.
-                    </p>
-                  </div>
-                </div>
-
-                {/* 6. Minimalist Clean Footer */}
-                <div className="pt-4 mt-6 border-t border-[#E2E8F0] flex items-center justify-between text-[10px] text-[#94A3B8]">
-                  <div>
-                    <span className="font-semibold text-[#64748B]">CABJATRA</span> • Dedicated Dispatch Control Room:{" "}
-                    <strong className="text-[#02146B]">{COMPANY_CONFIG.contact.phoneDisplay}</strong>
-                  </div>
-                  <div>
-                    <span>support@cabjatra.com • www.cabjatra.com</span>
+                    {/* FOOTER: Official Sign-off & Barcode Footer */}
+                    <div className="pt-3 border-t-2 border-[#000B3B] flex items-center justify-between text-[9px] text-[#64748B]">
+                      <div>
+                        <p className="font-bold text-[#000B3B]">
+                          CABJATRA MOBILITY SERVICES PRIVATE LIMITED
+                        </p>
+                        <p className="text-[#94A3B8]">
+                          This is an authentic computer-generated booking slip. No physical signature required.
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <p className="font-mono font-bold text-[#000B3B]">
+                          24/7 Dispatch Control: {COMPANY_CONFIG.contact.phoneDisplay}
+                        </p>
+                        <p className="text-[#94A3B8]">
+                          support@cabjatra.com &bull; www.cabjatra.com
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
