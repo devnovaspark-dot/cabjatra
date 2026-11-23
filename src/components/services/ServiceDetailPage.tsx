@@ -203,8 +203,8 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             {/* ========================================================================= */}
       {/* SECTION 1: LUMINOUS ARCHITECTURAL HERO & INTERACTIVE VEHICLE STAGE        */}
       {/* ========================================================================= */}
-      <section className="relative min-h-[82vh] lg:min-h-[88vh] flex items-center overflow-hidden border-b border-[#E2E8F0] pt-28 sm:pt-32 pb-16 sm:pb-20 bg-[#FAF9F5]">
-        {/* Authentic City Landmark Photographic Backdrop - Expansive & Unobstructed */}
+      <section className="relative min-h-[82vh] lg:min-h-[88vh] flex items-center overflow-hidden border-b border-[#E2E8F0] pt-28 sm:pt-32 pb-16 sm:pb-20">
+        {/* Authentic City Landmark Photographic Backdrop - 100% Vibrant, Clear & Zero White Shadow */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <Image
             src={activeCityBg}
@@ -214,16 +214,15 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             sizes="100vw"
             className="object-cover object-center"
           />
-          {/* Smooth directional daylight scrim - Transparent on right/center so authentic landmark shines, gentle on left for razor-sharp typography */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 via-50% to-white/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F5] via-transparent to-transparent opacity-90" />
+          {/* Minimal delicate tint - Zero white fog or milky shadow, authentic landmark fully visible */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/5 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-4 sm:py-6">
           <div className="max-w-3xl space-y-5 text-left">
             {/* Refined Unified Badge & Social Proof Pill */}
             <div className="flex flex-wrap items-center gap-2">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-sm border border-[#E2E8F0] text-[11px] font-bold text-[#000B3B] shadow-xs">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-[11px] font-bold text-[#000B3B] shadow-xs">
                 <div className="flex items-center gap-1.5 text-[#D97706]">
                   <Sparkles className="w-3.5 h-3.5 text-[#D97706]" />
                   <span>{badge}</span>
@@ -235,31 +234,31 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               </div>
             </div>
 
-            {/* Main Headline - Grand, Authoritative, Editorial */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-[#000B3B] leading-[1.12]">
+            {/* Main Headline - Grand, Authoritative, Editorial with Subtle Contrast Halo */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-[#000B3B] drop-shadow-[0_2px_8px_rgba(255,255,255,0.85)] leading-[1.12]">
               {title}
             </h1>
 
             {/* Subtitle - Punchy, High-Impact & Airy */}
-            <p className="text-sm sm:text-base lg:text-lg text-[#475569] leading-relaxed font-normal max-w-2xl">
+            <p className="text-sm sm:text-base lg:text-lg text-[#0F172A] leading-relaxed font-semibold drop-shadow-[0_1px_4px_rgba(255,255,255,0.9)] max-w-2xl">
               {subtitle}
             </p>
 
-            {/* Sleek Feature Highlights - Minimalist Inline Badges (Zero Clunky Cards) */}
+            {/* Sleek Feature Highlights - Minimalist Inline Badges */}
             <div className="flex flex-wrap items-center gap-2 pt-1">
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/90 backdrop-blur-sm border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-2xs">
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-xs">
                 <ShieldCheck className="w-4 h-4 text-[#D97706]" />
                 <span>100% Commercial Yellow-Plate</span>
               </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/90 backdrop-blur-sm border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-2xs">
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-xs">
                 <Zap className="w-4 h-4 text-[#CA8A04]" />
                 <span>Zero Surge Tariffs</span>
               </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/90 backdrop-blur-sm border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-2xs">
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-xs">
                 <AirVent className="w-4 h-4 text-[#0284C7]" />
                 <span>Chilled Dual AC Guaranteed</span>
               </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/90 backdrop-blur-sm border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-2xs">
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-xs">
                 <Clock className="w-4 h-4 text-[#16A34A]" />
                 <span>Live Flight Radar Sync</span>
               </div>
@@ -287,24 +286,26 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               </a>
             </div>
 
-            {/* Trust Assurances Clean Single Strip */}
-            <div className="pt-3 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#64748B] border-t border-[#E2E8F0]/80">
-              <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
-                <ShieldCheck className="w-4 h-4 text-[#16A34A]" />
-                Pre-Assigned Chauffeur
-              </span>
-              <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
-                <Clock className="w-4 h-4 text-[#16A34A]" />
-                Guaranteed Vehicle Allocation
-              </span>
-              <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
-                <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
-                Zero Last-Minute Cancellation
-              </span>
-              <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
-                <CreditCard className="w-4 h-4 text-[#16A34A]" />
-                Transparent Kilometre Rates
-              </span>
+            {/* Trust Assurances Clean Pill Strip */}
+            <div className="pt-2">
+              <div className="inline-flex flex-wrap items-center gap-x-5 gap-y-2 px-4 py-2.5 rounded-2xl bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-xs text-[#0F172A] shadow-xs">
+                <span className="flex items-center gap-1.5 font-bold">
+                  <ShieldCheck className="w-4 h-4 text-[#16A34A]" />
+                  Pre-Assigned Chauffeur
+                </span>
+                <span className="flex items-center gap-1.5 font-bold">
+                  <Clock className="w-4 h-4 text-[#16A34A]" />
+                  Guaranteed Vehicle Allocation
+                </span>
+                <span className="flex items-center gap-1.5 font-bold">
+                  <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
+                  Zero Last-Minute Cancellation
+                </span>
+                <span className="flex items-center gap-1.5 font-bold">
+                  <CreditCard className="w-4 h-4 text-[#16A34A]" />
+                  Transparent Rates
+                </span>
+              </div>
             </div>
           </div>
         </div>
