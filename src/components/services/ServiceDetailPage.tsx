@@ -349,22 +349,22 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
       {/* ========================================================================= */}
       {/* HORIZONTAL QUICK CAB RESERVATION FORM CARD (BEST UI/UX)                   */}
       {/* ========================================================================= */}
-      <section className="relative z-20 -mt-8 sm:-mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-10">
-        <div className="bg-white rounded-3xl border-2 border-[#FEC401]/80 shadow-[0_20px_50px_rgba(0,11,59,0.12),0_1px_3px_rgba(0,0,0,0.05)] p-5 sm:p-6 lg:p-7 relative overflow-hidden group">
+      <section className="relative z-20 -mt-6 sm:-mt-12 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mb-5 sm:mb-10">
+        <div className="bg-white rounded-2xl sm:rounded-3xl border-2 border-[#FEC401]/80 shadow-[0_20px_50px_rgba(0,11,59,0.12),0_1px_3px_rgba(0,0,0,0.05)] p-4 sm:p-6 lg:p-7 relative overflow-hidden group">
           {/* Top Subtle Amber Corner Accent */}
           <div className="absolute top-0 right-0 w-72 h-72 bg-[#FEC401]/10 rounded-full blur-3xl pointer-events-none" />
 
           {/* Form Header Pill & Title */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 sm:pb-5 mb-4 sm:mb-5 border-b border-[#F1F5F9] gap-2">
-            <div className="flex items-center gap-2.5">
-              <span className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#FEC401] to-[#E5AD00] text-[#000B3B] flex items-center justify-center font-black shadow-xs shrink-0">
-                <Car className="w-4 h-4 text-[#000B3B]" />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 sm:pb-5 mb-3 sm:mb-5 border-b border-[#F1F5F9] gap-2">
+            <div className="flex items-center gap-2 sm:gap-2.5">
+              <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-gradient-to-br from-[#FEC401] to-[#E5AD00] text-[#000B3B] flex items-center justify-center font-black shadow-xs shrink-0">
+                <Car className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#000B3B]" />
               </span>
               <div>
-                <h3 className="text-base sm:text-lg font-bold font-display text-[#0F172A] leading-tight">
+                <h3 className="text-sm sm:text-lg font-bold font-display text-[#0F172A] leading-tight">
                   Quick Cab Reservation &amp; Instant Fare Check
                 </h3>
-                <p className="text-xs text-[#64748B]">
+                <p className="text-[11px] sm:text-xs text-[#64748B]">
                   Pre-assigned verified chauffeur &bull; 100% Commercial AC fleet &bull; Zero peak surge multipliers
                 </p>
               </div>
@@ -590,28 +590,28 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
         </div>
       </section>
       {/* ========================================================================= */}
-      <section className="py-14 sm:py-18 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+      <section className="py-10 sm:py-18 bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-            <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-[#EEF2F6] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
+            <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-[#EEF2F6] px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-[#CBD5E1]">
               <Car className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Commercial Fleet Showcase</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
+            <h2 className="text-xl sm:text-3xl lg:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
               Choose the Right Cab for Your Journey
             </h2>
-            <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+            <p className="text-xs sm:text-sm text-[#64748B] mt-1.5 sm:mt-2">
               All vehicles are 100% commercial yellow-board registered, fully AC equipped, and maintained to pristine passenger hygiene standards.
             </p>
           </div>
 
           {/* 3 Executive Showcase Cards - Magazine Quality Edge-to-Edge Frames */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 items-stretch">
             {/* Card 1: Prime Commercial Sedan */}
-            <div className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-[0_10px_35px_rgba(0,11,59,0.06)] hover:shadow-[0_25px_50px_rgba(0,11,59,0.14)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative">
+            <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 overflow-hidden shadow-[0_10px_35px_rgba(0,11,59,0.06)] hover:shadow-[0_25px_50px_rgba(0,11,59,0.14)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative">
               <div>
                 {/* Visual Full-Bleed Vehicle Stage */}
-                <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-900">
+                <div className="relative h-44 sm:h-64 w-full overflow-hidden bg-slate-900">
                   <Image
                     src="/images/fleet/sedan.webp"
                     alt="Prime Sedan"
@@ -621,28 +621,28 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/30 pointer-events-none" />
 
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[11px] font-bold text-white shadow-xs flex items-center gap-1.5">
+                  <div className="absolute top-2.5 sm:top-3.5 left-2.5 sm:left-3.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[10px] sm:text-[11px] font-bold text-white shadow-xs flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#38BDF8]" />
                     <span>Executive Sedan</span>
                   </div>
-                  <div className="absolute top-3.5 right-3.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-xs font-black text-[#000B3B] shadow-md">
+                  <div className="absolute top-2.5 sm:top-3.5 right-2.5 sm:right-3.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-[11px] sm:text-xs font-black text-[#000B3B] shadow-md">
                     ₹13/km
                   </div>
 
-                  <div className="absolute bottom-3 left-3.5 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-[10.5px] font-semibold text-[#4ADE80] flex items-center gap-1.5">
+                  <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-3.5 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-[10px] sm:text-[10.5px] font-semibold text-[#4ADE80] flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
                     <span>Instant Dispatch Ready</span>
                   </div>
                 </div>
 
                 {/* Body Details */}
-                <div className="p-6 space-y-4">
+                <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
                   <div className="space-y-1">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-2xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
                         Prime Sedan
                       </h3>
-                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-1 rounded-full border border-[#BBF7D0]">
+                      <span className="text-[9.5px] sm:text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-[#BBF7D0]">
                         Dual-Zone AC
                       </span>
                     </div>
@@ -650,45 +650,45 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                       <Car className="w-3.5 h-3.5 text-[#D97706]" />
                       <span>Maruti Swift Dzire, Toyota Etios</span>
                     </p>
-                    <p className="text-xs text-[#64748B] leading-relaxed pt-1">
+                    <p className="text-xs text-[#64748B] leading-relaxed pt-0.5">
                       Smooth highway stability, plush upholstery, and generous boot space for BBI airport transfers and Golden Triangle travel.
                     </p>
                   </div>
 
                   {/* Clean Spec Matrix Metric Tiles */}
-                  <div className="grid grid-cols-3 gap-2 py-1">
-                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2.5 text-center">
-                      <Users className="w-4 h-4 text-[#D97706] mx-auto mb-1" />
+                  <div className="grid grid-cols-3 gap-1.5 sm:gap-2 py-1">
+                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2 sm:p-2.5 text-center">
+                      <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D97706] mx-auto mb-1" />
                       <span className="text-xs font-black text-[#0F172A] block">4 Seats</span>
-                      <span className="text-[10px] text-[#64748B] font-medium">Passenger Cap</span>
+                      <span className="text-[9.5px] sm:text-[10px] text-[#64748B] font-medium">Passenger Cap</span>
                     </div>
-                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2.5 text-center">
-                      <Briefcase className="w-4 h-4 text-[#0284C7] mx-auto mb-1" />
+                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2 sm:p-2.5 text-center">
+                      <Briefcase className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#0284C7] mx-auto mb-1" />
                       <span className="text-xs font-black text-[#0F172A] block">3 Bags</span>
-                      <span className="text-[10px] text-[#64748B] font-medium">Boot Bay</span>
+                      <span className="text-[9.5px] sm:text-[10px] text-[#64748B] font-medium">Boot Bay</span>
                     </div>
-                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2.5 text-center">
-                      <AirVent className="w-4 h-4 text-[#16A34A] mx-auto mb-1" />
+                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2 sm:p-2.5 text-center">
+                      <AirVent className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#16A34A] mx-auto mb-1" />
                       <span className="text-xs font-black text-[#0F172A] block">Chilled AC</span>
-                      <span className="text-[10px] text-[#64748B] font-medium">Dual Zone</span>
+                      <span className="text-[9.5px] sm:text-[10px] text-[#64748B] font-medium">Dual Zone</span>
                     </div>
                   </div>
 
                   {/* Feature Highlights */}
-                  <div className="space-y-2 pt-1 text-xs text-[#475569]">
-                    <div className="flex items-center gap-2.5">
+                  <div className="space-y-1.5 sm:space-y-2 pt-0.5 text-xs text-[#475569]">
+                    <div className="flex items-center gap-2">
                       <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
                         <Check className="w-2.5 h-2.5 stroke-[3]" />
                       </span>
                       <span>Extra rear legroom &amp; clean sanitized seating</span>
                     </div>
-                    <div className="flex items-center gap-2.5">
+                    <div className="flex items-center gap-2">
                       <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
                         <Check className="w-2.5 h-2.5 stroke-[3]" />
                       </span>
                       <span>Dedicated boot space for 3 large travel bags</span>
                     </div>
-                    <div className="flex items-center gap-2.5">
+                    <div className="flex items-center gap-2">
                       <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
                         <Check className="w-2.5 h-2.5 stroke-[3]" />
                       </span>
@@ -698,10 +698,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 </div>
               </div>
 
-              <div className="p-6 pt-0">
+              <div className="p-4 sm:p-6 pt-0">
                 <Link
                   href={`/book-cab?service=${bookingCategoryKey}&vehicle=sedan`}
-                  className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md border border-white/10"
+                  className="w-full py-2.5 sm:py-3.5 px-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md border border-white/10"
                 >
                   <span>Book Prime Sedan</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
@@ -710,16 +710,16 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             </div>
 
             {/* Card 2: FEATURED HERO: Executive Toyota Innova Crysta SUV */}
-            <div className="bg-white rounded-3xl border-2 border-[#FEC401] overflow-hidden shadow-[0_20px_50px_rgba(254,196,1,0.22)] md:-translate-y-3 hover:-translate-y-4 transition-all duration-300 flex flex-col justify-between group relative">
+            <div className="bg-white rounded-2xl sm:rounded-3xl border-2 border-[#FEC401] overflow-hidden shadow-[0_20px_50px_rgba(254,196,1,0.22)] md:-translate-y-3 hover:-translate-y-4 transition-all duration-300 flex flex-col justify-between group relative">
               {/* Crown Top Ribbon */}
-              <div className="bg-gradient-to-r from-[#FEC401] via-[#E5AD00] to-[#FEC401] text-[#000B3B] text-[11px] font-black uppercase tracking-wider text-center py-2 shadow-xs flex items-center justify-center gap-1.5">
+              <div className="bg-gradient-to-r from-[#FEC401] via-[#E5AD00] to-[#FEC401] text-[#000B3B] text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-center py-1.5 sm:py-2 shadow-xs flex items-center justify-center gap-1.5">
                 <Star className="w-3.5 h-3.5 fill-[#000B3B]" />
                 <span>#1 Most Booked &bull; Family Tours &amp; Pilgrimages</span>
               </div>
 
               <div>
                 {/* Visual Full-Bleed Vehicle Stage */}
-                <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-900">
+                <div className="relative h-44 sm:h-64 w-full overflow-hidden bg-slate-900">
                   <Image
                     src="/images/fleet/large-car.webp"
                     alt="Toyota Innova Crysta"
@@ -729,28 +729,28 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/30 pointer-events-none" />
 
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-[#FEC401]/50 text-[11px] font-bold text-[#FEC401] shadow-xs flex items-center gap-1.5">
+                  <div className="absolute top-2.5 sm:top-3.5 left-2.5 sm:left-3.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-[#FEC401]/50 text-[10px] sm:text-[11px] font-bold text-[#FEC401] shadow-xs flex items-center gap-1.5">
                     <Sparkles className="w-3 h-3 text-[#FEC401]" />
                     <span>Premium Family Class</span>
                   </div>
-                  <div className="absolute top-3.5 right-3.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-xs font-black text-[#000B3B] shadow-md">
+                  <div className="absolute top-2.5 sm:top-3.5 right-2.5 sm:right-3.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-[11px] sm:text-xs font-black text-[#000B3B] shadow-md">
                     ₹19/km
                   </div>
 
-                  <div className="absolute bottom-3 left-3.5 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-[10.5px] font-semibold text-[#4ADE80] flex items-center gap-1.5">
+                  <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-3.5 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-[10px] sm:text-[10.5px] font-semibold text-[#4ADE80] flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
                     <span>Guaranteed Allocation</span>
                   </div>
                 </div>
 
                 {/* Body Details */}
-                <div className="p-6 space-y-4">
+                <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
                   <div className="space-y-1">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-2xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
                         Innova Crysta / SUV
                       </h3>
-                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-1 rounded-full border border-[#BBF7D0]">
+                      <span className="text-[9.5px] sm:text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-[#BBF7D0]">
                         Independent Rear AC
                       </span>
                     </div>
@@ -758,45 +758,45 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                       <Car className="w-3.5 h-3.5 text-[#D97706]" />
                       <span>Toyota Innova Crysta, Maruti Ertiga</span>
                     </p>
-                    <p className="text-xs text-[#64748B] leading-relaxed pt-1">
+                    <p className="text-xs text-[#64748B] leading-relaxed pt-0.5">
                       Plush captain chairs, superior suspension, and dual AC blowers for senior citizens and family pilgrimages to Puri Dham.
                     </p>
                   </div>
 
                   {/* Clean Spec Matrix Metric Tiles */}
-                  <div className="grid grid-cols-3 gap-2 py-1">
-                    <div className="bg-[#FFFBEB] border border-[#FEF08A] rounded-xl p-2.5 text-center">
-                      <Users className="w-4 h-4 text-[#D97706] mx-auto mb-1" />
+                  <div className="grid grid-cols-3 gap-1.5 sm:gap-2 py-1">
+                    <div className="bg-[#FFFBEB] border border-[#FEF08A] rounded-xl p-2 sm:p-2.5 text-center">
+                      <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D97706] mx-auto mb-1" />
                       <span className="text-xs font-black text-[#0F172A] block">7 Seats</span>
-                      <span className="text-[10px] text-[#64748B] font-medium">Passenger Cap</span>
+                      <span className="text-[9.5px] sm:text-[10px] text-[#64748B] font-medium">Passenger Cap</span>
                     </div>
-                    <div className="bg-[#FFFBEB] border border-[#FEF08A] rounded-xl p-2.5 text-center">
-                      <Briefcase className="w-4 h-4 text-[#0284C7] mx-auto mb-1" />
+                    <div className="bg-[#FFFBEB] border border-[#FEF08A] rounded-xl p-2 sm:p-2.5 text-center">
+                      <Briefcase className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#0284C7] mx-auto mb-1" />
                       <span className="text-xs font-black text-[#0F172A] block">4–5 Bags</span>
-                      <span className="text-[10px] text-[#64748B] font-medium">Luggage Bay</span>
+                      <span className="text-[9.5px] sm:text-[10px] text-[#64748B] font-medium">Luggage Bay</span>
                     </div>
-                    <div className="bg-[#FFFBEB] border border-[#FEF08A] rounded-xl p-2.5 text-center">
-                      <AirVent className="w-4 h-4 text-[#16A34A] mx-auto mb-1" />
+                    <div className="bg-[#FFFBEB] border border-[#FEF08A] rounded-xl p-2 sm:p-2.5 text-center">
+                      <AirVent className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#16A34A] mx-auto mb-1" />
                       <span className="text-xs font-black text-[#0F172A] block">Dual Blowers</span>
-                      <span className="text-[10px] text-[#64748B] font-medium">Chilled AC</span>
+                      <span className="text-[9.5px] sm:text-[10px] text-[#64748B] font-medium">Chilled AC</span>
                     </div>
                   </div>
 
                   {/* Feature Highlights */}
-                  <div className="space-y-2 pt-1 text-xs text-[#475569]">
-                    <div className="flex items-center gap-2.5">
+                  <div className="space-y-1.5 sm:space-y-2 pt-0.5 text-xs text-[#475569]">
+                    <div className="flex items-center gap-2">
                       <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
                         <Check className="w-2.5 h-2.5 stroke-[3]" />
                       </span>
                       <span>Captain leatherette seats with armrests for comfort</span>
                     </div>
-                    <div className="flex items-center gap-2.5">
+                    <div className="flex items-center gap-2">
                       <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
                         <Check className="w-2.5 h-2.5 stroke-[3]" />
                       </span>
                       <span>High ground clearance for coastal &amp; temple terrain</span>
                     </div>
-                    <div className="flex items-center gap-2.5">
+                    <div className="flex items-center gap-2">
                       <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
                         <Check className="w-2.5 h-2.5 stroke-[3]" />
                       </span>
@@ -806,10 +806,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 </div>
               </div>
 
-              <div className="p-6 pt-0">
+              <div className="p-4 sm:p-6 pt-0">
                 <Link
                   href={`/book-cab?service=${bookingCategoryKey}&vehicle=large-car`}
-                  className="w-full py-4 px-4 rounded-2xl bg-gradient-to-r from-[#FEC401] via-[#E5AD00] to-[#FEC401] hover:brightness-105 active:translate-y-0.5 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-[0_10px_25px_rgba(254,196,1,0.42)] transition-all group-hover:shadow-xl"
+                  className="w-full py-3 sm:py-4 px-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#FEC401] via-[#E5AD00] to-[#FEC401] hover:brightness-105 active:translate-y-0.5 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-[0_10px_25px_rgba(254,196,1,0.42)] transition-all group-hover:shadow-xl"
                 >
                   <span>Book Innova Crysta</span>
                   <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover:translate-x-1.5 transition-transform" />
@@ -818,10 +818,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             </div>
 
             {/* Card 3: Luxury Tempo Traveller & Urbania */}
-            <div className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-[0_10px_35px_rgba(0,11,59,0.06)] hover:shadow-[0_25px_50px_rgba(0,11,59,0.14)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative">
+            <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 overflow-hidden shadow-[0_10px_35px_rgba(0,11,59,0.06)] hover:shadow-[0_25px_50px_rgba(0,11,59,0.14)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative">
               <div>
                 {/* Visual Full-Bleed Vehicle Stage */}
-                <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-900">
+                <div className="relative h-44 sm:h-64 w-full overflow-hidden bg-slate-900">
                   <Image
                     src="/images/fleet/mini-bus.webp"
                     alt="Tempo Traveller"
@@ -831,28 +831,28 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/30 pointer-events-none" />
 
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[11px] font-bold text-white shadow-xs flex items-center gap-1.5">
+                  <div className="absolute top-2.5 sm:top-3.5 left-2.5 sm:left-3.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[10px] sm:text-[11px] font-bold text-white shadow-xs flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#10B981]" />
                     <span>Group Coach Class</span>
                   </div>
-                  <div className="absolute top-3.5 right-3.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-xs font-black text-[#000B3B] shadow-md">
+                  <div className="absolute top-2.5 sm:top-3.5 right-2.5 sm:right-3.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-[11px] sm:text-xs font-black text-[#000B3B] shadow-md">
                     Custom Quote
                   </div>
 
-                  <div className="absolute bottom-3 left-3.5 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-[10.5px] font-semibold text-[#4ADE80] flex items-center gap-1.5">
+                  <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-3.5 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-[10px] sm:text-[10.5px] font-semibold text-[#4ADE80] flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
                     <span>Pilgrimage &amp; Wedding Ready</span>
                   </div>
                 </div>
 
                 {/* Body Details */}
-                <div className="p-6 space-y-4">
+                <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
                   <div className="space-y-1">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-2xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
                         Tempo Traveller / Urbania
                       </h3>
-                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-1 rounded-full border border-[#BBF7D0]">
+                      <span className="text-[9.5px] sm:text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-[#BBF7D0]">
                         Full Cabin AC
                       </span>
                     </div>
@@ -860,45 +860,45 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                       <Car className="w-3.5 h-3.5 text-[#D97706]" />
                       <span>Force Urbania, 12 to 17 Seater Luxury AC</span>
                     </p>
-                    <p className="text-xs text-[#64748B] leading-relaxed pt-1">
+                    <p className="text-xs text-[#64748B] leading-relaxed pt-0.5">
                       High-roof standing aisle, reclining push-back seating, and panoramic windows for extended family tours and wedding parties.
                     </p>
                   </div>
 
                   {/* Clean Spec Matrix Metric Tiles */}
-                  <div className="grid grid-cols-3 gap-2 py-1">
-                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2.5 text-center">
-                      <Users className="w-4 h-4 text-[#D97706] mx-auto mb-1" />
+                  <div className="grid grid-cols-3 gap-1.5 sm:gap-2 py-1">
+                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2 sm:p-2.5 text-center">
+                      <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D97706] mx-auto mb-1" />
                       <span className="text-xs font-black text-[#0F172A] block">12–17 Seats</span>
-                      <span className="text-[10px] text-[#64748B] font-medium">Passenger Cap</span>
+                      <span className="text-[9.5px] sm:text-[10px] text-[#64748B] font-medium">Passenger Cap</span>
                     </div>
-                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2.5 text-center">
-                      <Briefcase className="w-4 h-4 text-[#0284C7] mx-auto mb-1" />
+                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2 sm:p-2.5 text-center">
+                      <Briefcase className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#0284C7] mx-auto mb-1" />
                       <span className="text-xs font-black text-[#0F172A] block">10+ Bags</span>
-                      <span className="text-[10px] text-[#64748B] font-medium">Luggage Bay</span>
+                      <span className="text-[9.5px] sm:text-[10px] text-[#64748B] font-medium">Luggage Bay</span>
                     </div>
-                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2.5 text-center">
-                      <AirVent className="w-4 h-4 text-[#16A34A] mx-auto mb-1" />
+                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl p-2 sm:p-2.5 text-center">
+                      <AirVent className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#16A34A] mx-auto mb-1" />
                       <span className="text-xs font-black text-[#0F172A] block">Roof AC</span>
-                      <span className="text-[10px] text-[#64748B] font-medium">Full Cabin</span>
+                      <span className="text-[9.5px] sm:text-[10px] text-[#64748B] font-medium">Full Cabin</span>
                     </div>
                   </div>
 
                   {/* Feature Highlights */}
-                  <div className="space-y-2 pt-1 text-xs text-[#475569]">
-                    <div className="flex items-center gap-2.5">
+                  <div className="space-y-1.5 sm:space-y-2 pt-0.5 text-xs text-[#475569]">
+                    <div className="flex items-center gap-2">
                       <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
                         <Check className="w-2.5 h-2.5 stroke-[3]" />
                       </span>
                       <span>Push-back ergonomic seats &amp; individual reading lamps</span>
                     </div>
-                    <div className="flex items-center gap-2.5">
+                    <div className="flex items-center gap-2">
                       <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
                         <Check className="w-2.5 h-2.5 stroke-[3]" />
                       </span>
                       <span>Massive dedicated rear luggage bay for group cargo</span>
                     </div>
-                    <div className="flex items-center gap-2.5">
+                    <div className="flex items-center gap-2">
                       <span className="w-4 h-4 rounded-full bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
                         <Check className="w-2.5 h-2.5 stroke-[3]" />
                       </span>
@@ -908,10 +908,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 </div>
               </div>
 
-              <div className="p-6 pt-0">
+              <div className="p-4 sm:p-6 pt-0">
                 <Link
                   href={`/book-cab?service=${bookingCategoryKey}&vehicle=mini-bus`}
-                  className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md border border-white/10"
+                  className="w-full py-2.5 sm:py-3.5 px-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md border border-white/10"
                 >
                   <span>Enquire Group Cab</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
@@ -921,7 +921,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
           </div>
 
           {/* Fleet Quality Assurance Strip */}
-          <div className="mt-10 sm:mt-12 bg-white rounded-2xl border border-[#CBD5E1] p-5 sm:p-6 shadow-sm">
+          <div className="mt-8 sm:mt-12 bg-white rounded-xl sm:rounded-2xl border border-[#CBD5E1] p-4 sm:p-6 shadow-sm">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-left">
               <div className="flex items-start gap-3">
                 <div className="p-2 rounded-xl bg-[#FEF3C7] text-[#000B3B] shrink-0">
@@ -979,108 +979,108 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
       {/* SECTION 3: ROUTE PROFILES & FLEET AVAILABILITY CORRIDOR DECK (DIRECTLY DOWN FROM FLEET) */}
       {/* ========================================================================= */}
       {routeFares.length > 0 && (
-        <section className="py-16 sm:py-20 bg-white border-b border-[#E2E8F0]">
+        <section className="py-10 sm:py-20 bg-white border-b border-[#E2E8F0]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-12 gap-3 sm:gap-4">
               <div>
-                <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
+                <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-[#F1F5F9] px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-[#CBD5E1]">
                   <Compass className="w-3.5 h-3.5 text-[#FEC401]" />
                   <span>Popular Corridors</span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
+                <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
                   Curated Transit Corridors &amp; Indicative Tariffs
                 </h2>
-                <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+                <p className="text-xs sm:text-sm text-[#64748B] mt-1.5 sm:mt-2">
                   Transparent fare benchmarks for frequent routes. Pre-book your cab with guaranteed confirmation and zero surge pricing.
                 </p>
               </div>
-              <div className="text-[11px] text-[#000B3B] font-bold bg-[#FFFBEB] px-3.5 py-2 rounded-2xl border border-[#FEF08A] shadow-xs inline-flex items-center gap-2 self-start sm:self-auto">
-                <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
+              <div className="text-[10.5px] sm:text-[11px] text-[#000B3B] font-bold bg-[#FFFBEB] px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl border border-[#FEF08A] shadow-xs inline-flex items-center gap-1.5 sm:gap-2 self-start sm:self-auto">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" />
                 <span>Zero Hidden Toll Surcharges</span>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
               {routeFares.map((rf, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-7 shadow-[0_10px_35px_rgba(0,11,59,0.06)] hover:shadow-[0_25px_50px_rgba(0,11,59,0.14)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-4 group relative overflow-hidden"
+                  className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-4 sm:p-6 lg:p-7 shadow-[0_10px_35px_rgba(0,11,59,0.06)] hover:shadow-[0_25px_50px_rgba(0,11,59,0.14)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-3 sm:space-y-4 group relative overflow-hidden"
                 >
                   {/* Top Golden Line on Hover */}
                   <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#FEC401] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-black uppercase tracking-wider text-[#000B3B] bg-gradient-to-r from-[#FEC401] to-[#E5AD00] px-3.5 py-1 rounded-full shadow-xs">
+                      <span className="text-[9.5px] sm:text-[10px] font-black uppercase tracking-wider text-[#000B3B] bg-gradient-to-r from-[#FEC401] to-[#E5AD00] px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-full shadow-xs">
                         Corridor 0{idx + 1}
                       </span>
-                      <div className="flex items-center gap-1.5 text-xs text-[#0F172A] font-bold bg-[#FAF9F5] px-3 py-1 rounded-full border border-[#E2E8F0]">
-                        <Clock className="w-3.5 h-3.5 text-[#D97706]" />
+                      <div className="flex items-center gap-1 text-[11px] sm:text-xs text-[#0F172A] font-bold bg-[#FAF9F5] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-[#E2E8F0]">
+                        <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D97706]" />
                         <span>{rf.approxDuration}</span>
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
+                    <h3 className="text-lg sm:text-xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
                       {rf.route}
                     </h3>
 
                     {/* Path Indicator Graphic */}
-                    <div className="p-3.5 rounded-2xl bg-gradient-to-r from-[#F8FAFC] via-[#FAF9F5] to-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-between text-xs">
-                      <div className="flex items-center gap-2 font-bold text-[#0F172A]">
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#16A34A] ring-4 ring-[#DCFCE7]" />
+                    <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#F8FAFC] via-[#FAF9F5] to-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-between text-[11px] sm:text-xs">
+                      <div className="flex items-center gap-1.5 sm:gap-2 font-bold text-[#0F172A]">
+                        <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#16A34A] ring-2 sm:ring-4 ring-[#DCFCE7]" />
                         <span>Pickup Hub</span>
                       </div>
-                      <div className="flex-1 mx-3 sm:mx-4 flex items-center justify-center border-t-2 border-dashed border-[#CBD5E1] relative">
-                        <span className="bg-white px-2.5 py-0.5 rounded-full text-[10.5px] font-extrabold text-[#02146B] border border-[#CBD5E1] shadow-2xs -mt-3.5 flex items-center gap-1">
+                      <div className="flex-1 mx-2 sm:mx-4 flex items-center justify-center border-t-2 border-dashed border-[#CBD5E1] relative">
+                        <span className="bg-white px-2 py-0.5 rounded-full text-[10px] sm:text-[10.5px] font-extrabold text-[#02146B] border border-[#CBD5E1] shadow-2xs -mt-3 flex items-center gap-1">
                           <Navigation className="w-3 h-3 text-[#D97706]" />
                           <span>{rf.distance}</span>
                         </span>
                       </div>
-                      <div className="flex items-center gap-2 font-bold text-[#0F172A]">
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#D97706] ring-4 ring-[#FEF3C7]" />
+                      <div className="flex items-center gap-1.5 sm:gap-2 font-bold text-[#0F172A]">
+                        <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#D97706] ring-2 sm:ring-4 ring-[#FEF3C7]" />
                         <span>Destination</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Seamless Dual Vehicle Estimation */}
-                  <div className="pt-3 pb-1 grid grid-cols-2 gap-3">
-                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-2xl p-3.5 space-y-1">
-                      <span className="text-[10px] font-bold text-[#64748B] uppercase tracking-wider block">
+                  <div className="pt-2 sm:pt-3 pb-1 grid grid-cols-2 gap-2 sm:gap-3">
+                    <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-xl sm:rounded-2xl p-2.5 sm:p-3.5 space-y-0.5 sm:space-y-1">
+                      <span className="text-[9.5px] sm:text-[10px] font-bold text-[#64748B] uppercase tracking-wider block">
                         Prime Sedan
                       </span>
-                      <span className="text-xl font-black text-[#0F172A] block">
+                      <span className="text-lg sm:text-xl font-black text-[#0F172A] block">
                         {rf.sedanEstimate}
                       </span>
-                      <span className="text-[10.5px] text-[#16A34A] font-bold inline-flex items-center gap-1">
+                      <span className="text-[10px] sm:text-[10.5px] text-[#16A34A] font-bold inline-flex items-center gap-1">
                         <Check className="w-3 h-3 text-[#16A34A] stroke-[3]" /> Dzire / Etios
                       </span>
                     </div>
 
-                    <div className="bg-[#FFFBEB] border border-[#FEF08A] rounded-2xl p-3.5 space-y-1">
-                      <span className="text-[10px] font-bold text-[#92400E] uppercase tracking-wider block">
+                    <div className="bg-[#FFFBEB] border border-[#FEF08A] rounded-xl sm:rounded-2xl p-2.5 sm:p-3.5 space-y-0.5 sm:space-y-1">
+                      <span className="text-[9.5px] sm:text-[10px] font-bold text-[#92400E] uppercase tracking-wider block">
                         Innova Crysta SUV
                       </span>
-                      <span className="text-xl font-black text-[#000B3B] block">
+                      <span className="text-lg sm:text-xl font-black text-[#000B3B] block">
                         {rf.suvEstimate}
                       </span>
-                      <span className="text-[10.5px] text-[#16A34A] font-bold inline-flex items-center gap-1">
+                      <span className="text-[10px] sm:text-[10.5px] text-[#16A34A] font-bold inline-flex items-center gap-1">
                         <Check className="w-3 h-3 text-[#16A34A] stroke-[3]" /> 7-Seater AC
                       </span>
                     </div>
                   </div>
 
                   {/* Book This Corridor Action */}
-                  <div className="pt-2 flex items-center justify-between border-t border-[#F1F5F9]">
-                    <span className="text-[11px] text-[#64748B] font-medium flex items-center gap-1.5">
-                      <ShieldCheck className="w-4 h-4 text-[#16A34A]" />
+                  <div className="pt-2 flex items-center justify-between border-t border-[#F1F5F9] gap-2">
+                    <span className="text-[10.5px] sm:text-[11px] text-[#64748B] font-medium flex items-center gap-1 sm:gap-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#16A34A]" />
                       <span>Fixed Fare &bull; Tolls Included</span>
                     </span>
                     <Link
                       href={`/book-cab?service=${bookingCategoryKey}&to=${encodeURIComponent(
                         rf.route
                       )}`}
-                      className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 shadow-sm inline-flex items-center gap-2 group-hover:scale-105 transition-all border border-white/10"
+                      className="px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-[11px] sm:text-xs font-bold hover:brightness-110 shadow-sm inline-flex items-center gap-1.5 sm:gap-2 group-hover:scale-105 transition-all border border-white/10 shrink-0"
                     >
                       <span>Book Corridor</span>
                       <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
@@ -1096,24 +1096,24 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
       {/* ========================================================================= */}
       {/* SECTION 4: WHY CHOOSE CABJATRA + EXECUTIVE SHOWDOWN MATRIX                */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+      <section className="py-10 sm:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
+          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-16">
+            <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-[#F1F5F9] px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-[#CBD5E1]">
               <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Service Value Proposition</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
               Why Travelers Choose Our {title}
             </h2>
-            <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+            <p className="text-xs sm:text-sm text-[#64748B] mt-1.5 sm:mt-2">
               Unlike generic ride-hailing apps with rampant cancellations and surge gouging, CABJATRA provides scheduled certainty, verified commercial drivers, and pristine AC vehicles.
             </p>
           </div>
 
           {/* 3 High-Impact Service Value Proposition Cards with Real Photography */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-16">
             {whyUsPoints.slice(0, 3).map((pt, i) => {
               const defaultImages = [
                 "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=85&w=800&auto=format&fit=crop",
@@ -1139,10 +1139,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               return (
                 <div
                   key={i}
-                  className="rounded-3xl bg-white border border-slate-200/90 shadow-[0_10px_35px_rgba(0,11,59,0.06)] hover:shadow-[0_25px_50px_rgba(0,11,59,0.14)] hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col group relative"
+                  className="rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-[0_10px_35px_rgba(0,11,59,0.06)] hover:shadow-[0_25px_50px_rgba(0,11,59,0.14)] hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col group relative"
                 >
                   {/* Top Photographic Header Frame */}
-                  <div className="relative h-52 sm:h-56 w-full overflow-hidden bg-[#000B3B]">
+                  <div className="relative h-36 sm:h-56 w-full overflow-hidden bg-[#000B3B]">
                     <Image
                       src={cardImage}
                       alt={pt.title}
@@ -1153,19 +1153,19 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
 
-                    <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between">
-                      <span className="px-3.5 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-[#FEC401] shadow-sm flex items-center gap-1.5">
-                        <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
+                    <div className="absolute top-2.5 sm:top-3.5 inset-x-2.5 sm:inset-x-3.5 flex items-center justify-between">
+                      <span className="px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[9.5px] sm:text-[10.5px] font-bold text-[#FEC401] shadow-sm flex items-center gap-1.5">
+                        <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-[#FEC401]" />
                         <span>{cardTag}</span>
                       </span>
 
-                      <span className="w-8 h-8 rounded-full bg-gradient-to-br from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-black text-xs flex items-center justify-center shadow-md">
+                      <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-black text-[11px] sm:text-xs flex items-center justify-center shadow-md">
                         0{i + 1}
                       </span>
                     </div>
 
-                    <div className="absolute bottom-3 left-3.5 right-3.5">
-                      <span className="inline-flex items-center gap-1.5 text-[10.5px] font-extrabold text-white tracking-wide drop-shadow-md">
+                    <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-3.5 right-2.5 sm:right-3.5">
+                      <span className="inline-flex items-center gap-1.5 text-[9.5px] sm:text-[10.5px] font-extrabold text-white tracking-wide drop-shadow-md">
                         <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
                         <span>Guaranteed Commercial Standard</span>
                       </span>
@@ -1173,9 +1173,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                   </div>
 
                   {/* Body Content */}
-                  <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
+                  <div className="p-4 sm:p-6 lg:p-7 flex-1 flex flex-col justify-between space-y-3 sm:space-y-4">
+                    <div className="space-y-1.5 sm:space-y-2">
+                      <h3 className="text-lg sm:text-xl font-black font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
                         {pt.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-normal">
@@ -1183,8 +1183,8 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                       </p>
                     </div>
 
-                    <div className="pt-3 border-t border-[#F1F5F9] flex items-center justify-between">
-                      <span className="text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7] px-3 py-1 rounded-full border border-[#BBF7D0] inline-flex items-center gap-1.5">
+                    <div className="pt-2.5 sm:pt-3 border-t border-[#F1F5F9] flex items-center justify-between">
+                      <span className="text-[10px] sm:text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-[#BBF7D0] inline-flex items-center gap-1.5">
                         <Check className="w-3 h-3 text-[#16A34A] stroke-[3]" />
                         <span>{cardPill}</span>
                       </span>
@@ -1200,22 +1200,22 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
           </div>
 
           {/* Executive 2-Column Showdown Comparison Card */}
-          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 items-stretch">
             {/* Winner Card: CABJATRA Dedicated Chauffeur Service */}
-            <div className="rounded-3xl bg-gradient-to-br from-[#000B3B] via-[#001353] to-[#000B3B] text-white p-7 sm:p-8 border-2 border-[#FEC401] shadow-[0_20px_50px_rgba(0,11,59,0.35)] relative flex flex-col justify-between overflow-hidden group">
+            <div className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#000B3B] via-[#001353] to-[#000B3B] text-white p-4 sm:p-7 lg:p-8 border-2 border-[#FEC401] shadow-[0_20px_50px_rgba(0,11,59,0.35)] relative flex flex-col justify-between overflow-hidden group">
               {/* Top Crown Ribbon */}
-              <div className="absolute top-0 right-0 bg-gradient-to-r from-[#FEC401] via-[#E5AD00] to-[#FEC401] text-[#000B3B] text-[10.5px] font-black uppercase tracking-wider px-4 py-1.5 rounded-bl-2xl shadow-sm flex items-center gap-1.5">
-                <Star className="w-3.5 h-3.5 fill-[#000B3B]" />
+              <div className="absolute top-0 right-0 bg-gradient-to-r from-[#FEC401] via-[#E5AD00] to-[#FEC401] text-[#000B3B] text-[9.5px] sm:text-[10.5px] font-black uppercase tracking-wider px-3 sm:px-4 py-1 sm:py-1.5 rounded-bl-xl sm:rounded-bl-2xl shadow-sm flex items-center gap-1.5">
+                <Star className="w-3 sm:w-3.5 h-3 sm:h-3.5 fill-[#000B3B]" />
                 <span>#1 Recommended Standard</span>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <div className="space-y-1">
-                  <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#FEC401] flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-[#FEC401]" />
+                  <span className="text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-[#FEC401] flex items-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FEC401]" />
                     <span>Odisha Commercial Fleet</span>
                   </span>
-                  <h3 className="text-2xl font-black font-display text-white">
+                  <h3 className="text-xl sm:text-2xl font-black font-display text-white">
                     CABJATRA Chauffeur Service
                   </h3>
                   <p className="text-xs text-[#CBD5E1]">
@@ -1224,25 +1224,25 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 </div>
 
                 {/* Verified Features Checklist */}
-                <ul className="space-y-3 text-xs sm:text-[13px]">
+                <ul className="space-y-2 sm:space-y-3 text-xs sm:text-[13px]">
                   {comparisonRows.map((row, idx) => (
-                    <li key={idx} className="flex items-start gap-3 bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/15">
+                    <li key={idx} className="flex items-start gap-2.5 sm:gap-3 bg-white/10 backdrop-blur-md p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl border border-white/15">
                       <div className="p-1 rounded-full bg-[#10B981]/25 text-[#10B981] shrink-0 mt-0.5">
-                        <Check className="w-4 h-4 text-[#4ADE80] stroke-[3]" />
+                        <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#4ADE80] stroke-[3]" />
                       </div>
                       <div>
-                        <span className="text-[10px] text-white/60 block font-bold uppercase tracking-wider">{row.factor}</span>
-                        <span className="font-bold text-white text-sm">{row.cabjatra}</span>
+                        <span className="text-[9.5px] sm:text-[10px] text-white/60 block font-bold uppercase tracking-wider">{row.factor}</span>
+                        <span className="font-bold text-white text-xs sm:text-sm">{row.cabjatra}</span>
                       </div>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-white/15">
+              <div className="pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-white/15">
                 <Link
                   href={`/book-cab?service=${bookingCategoryKey}&vehicle=sedan`}
-                  className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 active:translate-y-0.5 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-[0_10px_25px_rgba(254,196,1,0.42)] transition-all"
+                  className="w-full py-3 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 active:translate-y-0.5 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-[0_10px_25px_rgba(254,196,1,0.42)] transition-all"
                 >
                   <span>Reserve with Guaranteed Dispatch</span>
                   <ArrowRight className="w-4 h-4 text-[#000B3B]" />
@@ -1251,14 +1251,14 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             </div>
 
             {/* Risk Card: Generic App-Based Aggregators */}
-            <div className="rounded-3xl bg-[#FFF8F8] text-[#0F172A] p-7 sm:p-8 border-2 border-[#FECACA] shadow-sm flex flex-col justify-between relative overflow-hidden">
-              <div className="space-y-6">
-                <div className="space-y-2">
-                  <span className="text-[10.5px] font-black uppercase tracking-wider text-[#DC2626] bg-[#FEE2E2] px-3.5 py-1.5 rounded-full border border-[#FECACA] inline-flex items-center gap-1.5">
+            <div className="rounded-2xl sm:rounded-3xl bg-[#FFF8F8] text-[#0F172A] p-4 sm:p-7 lg:p-8 border-2 border-[#FECACA] shadow-sm flex flex-col justify-between relative overflow-hidden">
+              <div className="space-y-4 sm:space-y-6">
+                <div className="space-y-1.5 sm:space-y-2">
+                  <span className="text-[9.5px] sm:text-[10.5px] font-black uppercase tracking-wider text-[#DC2626] bg-[#FEE2E2] px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-[#FECACA] inline-flex items-center gap-1.5">
                     <XCircle className="w-3.5 h-3.5 text-[#DC2626]" />
                     <span>Unpredictable Gig Aggregators</span>
                   </span>
-                  <h3 className="text-2xl font-black font-display text-[#0F172A]">
+                  <h3 className="text-xl sm:text-2xl font-black font-display text-[#0F172A]">
                     Generic Ride-Hailing Apps
                   </h3>
                   <p className="text-xs text-[#64748B]">
@@ -1267,43 +1267,45 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 </div>
 
                 {/* Risk Points Checklist */}
-                <ul className="space-y-3 text-xs sm:text-[13px]">
+                <ul className="space-y-2 sm:space-y-3 text-xs sm:text-[13px]">
                   {comparisonRows.map((row, idx) => (
-                    <li key={idx} className="flex items-start gap-3 bg-[#FEF2F2] p-3.5 rounded-2xl border border-[#FEE2E2]">
+                    <li key={idx} className="flex items-start gap-2.5 sm:gap-3 bg-[#FEF2F2] p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl border border-[#FEE2E2]">
                       <div className="p-1 rounded-full bg-[#EF4444]/20 text-[#EF4444] shrink-0 mt-0.5">
-                        <XCircle className="w-4 h-4 text-[#EF4444]" />
+                        <XCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#EF4444]" />
                       </div>
                       <div>
-                        <span className="text-[10px] text-[#991B1B]/70 block font-bold uppercase tracking-wider">{row.factor}</span>
-                        <span className="font-bold text-[#991B1B] text-sm">{row.generic}</span>
+                        <span className="text-[9.5px] sm:text-[10px] text-[#991B1B]/70 block font-bold uppercase tracking-wider">{row.factor}</span>
+                        <span className="font-bold text-[#991B1B] text-xs sm:text-sm">{row.generic}</span>
                       </div>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-[#FEE2E2]">
-                <div className="p-3.5 rounded-2xl bg-white border border-[#FECACA] text-center text-xs font-semibold text-[#991B1B]">
+              <div className="pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-[#FEE2E2]">
+                <div className="p-3 rounded-xl sm:rounded-2xl bg-white border border-[#FECACA] text-center text-xs font-semibold text-[#991B1B]">
                   High cancellation rates &amp; unverified private vehicles during peak hours.
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>{/* ========================================================================= */}
+      </section>
+
+      {/* ========================================================================= */}
       {/* SECTION 5: HOW YOUR CAB RIDE WORKS (ANIMATED 3-STEP TIMELINE)             */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-[#FAF9F5] border-b border-[#E2E8F0] relative overflow-hidden">
+      <section className="py-10 sm:py-20 bg-[#FAF9F5] border-b border-[#E2E8F0] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-white px-3.5 py-1.5 rounded-full border border-[#CBD5E1] shadow-xs">
+          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-16">
+            <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-white px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-[#CBD5E1] shadow-xs">
               <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Simple Booking Journey</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
               How Your Ride Works with CABJATRA
             </h2>
-            <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+            <p className="text-xs sm:text-sm text-[#64748B] mt-1.5 sm:mt-2">
               Transparent, reliable, and stress-free. From reservation to arrival, here is how we ensure 100% on-time dispatch.
             </p>
           </div>
@@ -1312,13 +1314,13 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             {/* Desktop Connecting Progress Track */}
             <div className="hidden md:block absolute top-16 left-[16%] right-[16%] h-1 bg-gradient-to-r from-[#FEC401] via-[#000B3B] to-[#FEC401] rounded-full z-0 opacity-20" />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 relative z-10">
               {steps.map((st, i) => {
                 const Icon = st.icon;
                 return (
                   <div
                     key={i}
-                    className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-[0_10px_35px_rgba(0,11,59,0.06)] hover:shadow-[0_25px_50px_rgba(0,11,59,0.14)] hover:-translate-y-2.5 transition-all duration-300 relative space-y-5 group overflow-hidden"
+                    className="p-4 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-[0_10px_35px_rgba(0,11,59,0.06)] hover:shadow-[0_25px_50px_rgba(0,11,59,0.14)] hover:-translate-y-2.5 transition-all duration-300 relative space-y-3 sm:space-y-5 group overflow-hidden"
                   >
                     {/* Top Animated Progress Indicator */}
                     <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-transparent via-[#FEC401] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -1327,21 +1329,21 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                       {/* Animated Step Node with Pulse Halo */}
                       <div className="relative">
                         <div className="absolute -inset-1 rounded-2xl bg-[#FEC401]/35 animate-pulse blur-xs group-hover:bg-[#FEC401]/60 transition-all" />
-                        <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-[#000B3B] to-[#02146B] text-[#FEC401] flex items-center justify-center shadow-md border border-white/10 group-hover:scale-108 transition-transform">
-                          <Icon className="w-6 h-6 text-[#FEC401]" />
+                        <div className="relative w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#000B3B] to-[#02146B] text-[#FEC401] flex items-center justify-center shadow-md border border-white/10 group-hover:scale-108 transition-transform">
+                          <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#FEC401]" />
                         </div>
                       </div>
 
                       {/* Step Number Badge */}
-                      <div className="px-3.5 py-1.5 rounded-full bg-[#FAF9F5] border border-[#CBD5E1] group-hover:border-[#FEC401] transition-colors">
-                        <span className="text-xs font-black font-display text-[#000B3B] group-hover:text-[#D97706] transition-colors">
+                      <div className="px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#FAF9F5] border border-[#CBD5E1] group-hover:border-[#FEC401] transition-colors">
+                        <span className="text-[11px] sm:text-xs font-black font-display text-[#000B3B] group-hover:text-[#D97706] transition-colors">
                           Step 0{st.num}
                         </span>
                       </div>
                     </div>
 
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-black text-[#0F172A] font-display group-hover:text-[#000B3B] transition-colors">
+                    <div className="space-y-1.5 sm:space-y-2">
+                      <h3 className="text-lg sm:text-xl font-black text-[#0F172A] font-display group-hover:text-[#000B3B] transition-colors">
                         {st.title}
                       </h3>
 
@@ -1350,7 +1352,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                       </p>
                     </div>
 
-                    <div className="pt-3 border-t border-[#F1F5F9] flex items-center gap-1.5 text-[11px] font-bold text-[#16A34A]">
+                    <div className="pt-2.5 sm:pt-3 border-t border-[#F1F5F9] flex items-center gap-1.5 text-[10.5px] sm:text-[11px] font-bold text-[#16A34A]">
                       <Check className="w-3.5 h-3.5 text-[#16A34A] stroke-[3]" />
                       <span>{i === 0 ? "Instant WhatsApp Voucher Confirmation" : i === 1 ? "Chauffeur Assigned 2 Hrs Prior" : "Guaranteed On-Time Doorstep Pickup"}</span>
                     </div>
@@ -1365,79 +1367,79 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 {/* ========================================================================= */ }
 {/* SECTION 6: CHARTER CLARITY (INCLUSIONS & EXCLUSIONS)                      */ }
 {/* ========================================================================= */ }
-<section className="py-16 sm:py-20 bg-white border-b border-[#E2E8F0]">
+<section className="py-10 sm:py-20 bg-white border-b border-[#E2E8F0]">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-      <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
+    <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-16">
+      <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
         Charter Clarity &amp; Transparency
       </h2>
-      <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+      <p className="text-xs sm:text-sm text-[#64748B] mt-1.5 sm:mt-2">
         We eliminate billing surprises and offline haggling before your journey even begins.
       </p>
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
       {/* Inclusions Card */}
-      <div className="p-7 sm:p-8 rounded-3xl bg-gradient-to-br from-[#F0FDF4]/50 via-white to-white border-2 border-[#BBF7D0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(22,163,74,0.1)] transition-all duration-300 space-y-5 relative overflow-hidden group">
-        <div className="absolute top-0 right-0 px-3.5 py-1 rounded-bl-2xl bg-[#DCFCE7] text-[10px] font-black text-[#166534] uppercase tracking-wider border-b border-l border-[#BBF7D0]">
+      <div className="p-4 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#F0FDF4]/50 via-white to-white border-2 border-[#BBF7D0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(22,163,74,0.1)] transition-all duration-300 space-y-3.5 sm:space-y-5 relative overflow-hidden group">
+        <div className="absolute top-0 right-0 px-3 sm:px-3.5 py-0.5 sm:py-1 rounded-bl-xl sm:rounded-bl-2xl bg-[#DCFCE7] text-[9.5px] sm:text-[10px] font-black text-[#166534] uppercase tracking-wider border-b border-l border-[#BBF7D0]">
           100% Covered
         </div>
 
-        <div className="flex items-center gap-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-[#16A34A] text-white flex items-center justify-center shadow-md">
-            <CheckCircle2 className="w-6 h-6 text-white" />
+        <div className="flex items-center gap-3 sm:gap-3.5">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#16A34A] text-white flex items-center justify-center shadow-md">
+            <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-[#0F172A] font-display">
+            <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] font-display">
               What Is Fully Included
             </h3>
             <p className="text-xs text-[#64748B]">Zero hidden surcharges on your basic quote</p>
           </div>
         </div>
 
-        <ul className="space-y-3 text-xs sm:text-sm text-[#334155]">
+        <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-[#334155]">
           {inclusions.map((inc, i) => (
-            <li key={i} className="flex items-start gap-3 bg-white/90 p-3 rounded-xl border border-[#E2E8F0]/70 shadow-xs">
+            <li key={i} className="flex items-start gap-2.5 sm:gap-3 bg-white/90 p-2.5 sm:p-3 rounded-xl border border-[#E2E8F0]/70 shadow-xs">
               <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
               <span className="font-medium text-[#1E293B]">{inc}</span>
             </li>
           ))}
         </ul>
 
-        <div className="pt-3 border-t border-[#BBF7D0]/60 text-[11px] font-bold text-[#166534] flex items-center gap-1.5">
+        <div className="pt-2.5 sm:pt-3 border-t border-[#BBF7D0]/60 text-[10.5px] sm:text-[11px] font-bold text-[#166534] flex items-center gap-1.5">
           <ShieldCheck className="w-4 h-4 text-[#16A34A]" />
           <span>Transparent Kilometre Metering • Dedicated Climate-Controlled Cabin</span>
         </div>
       </div>
 
       {/* Exclusions Card */}
-      <div className="p-7 sm:p-8 rounded-3xl bg-gradient-to-br from-[#FFFBEB]/50 via-white to-white border-2 border-[#FDE68A] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(217,119,6,0.1)] transition-all duration-300 space-y-5 relative overflow-hidden group">
-        <div className="absolute top-0 right-0 px-3.5 py-1 rounded-bl-2xl bg-[#FEF3C7] text-[10px] font-black text-[#92400E] uppercase tracking-wider border-b border-l border-[#FDE68A]">
+      <div className="p-4 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#FFFBEB]/50 via-white to-white border-2 border-[#FDE68A] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(217,119,6,0.1)] transition-all duration-300 space-y-3.5 sm:space-y-5 relative overflow-hidden group">
+        <div className="absolute top-0 right-0 px-3 sm:px-3.5 py-0.5 sm:py-1 rounded-bl-xl sm:rounded-bl-2xl bg-[#FEF3C7] text-[9.5px] sm:text-[10px] font-black text-[#92400E] uppercase tracking-wider border-b border-l border-[#FDE68A]">
           Pay at Actuals
         </div>
 
-        <div className="flex items-center gap-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-[#D97706] text-white flex items-center justify-center shadow-md">
-            <XCircle className="w-6 h-6 text-white" />
+        <div className="flex items-center gap-3 sm:gap-3.5">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#D97706] text-white flex items-center justify-center shadow-md">
+            <XCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-[#0F172A] font-display">
+            <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] font-display">
               Transparent Exclusions (Direct Receipts)
             </h3>
             <p className="text-xs text-[#64748B]">Settled directly with physical tax or parking slips</p>
           </div>
         </div>
 
-        <ul className="space-y-3 text-xs sm:text-sm text-[#64748B]">
+        <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-[#64748B]">
           {exclusions.map((exc, i) => (
-            <li key={i} className="flex items-start gap-3 bg-white/90 p-3 rounded-xl border border-[#E2E8F0]/70 shadow-xs">
+            <li key={i} className="flex items-start gap-2.5 sm:gap-3 bg-white/90 p-2.5 sm:p-3 rounded-xl border border-[#E2E8F0]/70 shadow-xs">
               <span className="w-2 h-2 rounded-full bg-[#D97706] shrink-0 mt-2" />
               <span className="text-[#475569] font-medium">{exc}</span>
             </li>
           ))}
         </ul>
 
-        <div className="pt-3 border-t border-[#FDE68A]/60 text-[11px] font-bold text-[#92400E] flex items-center gap-1.5">
+        <div className="pt-2.5 sm:pt-3 border-t border-[#FDE68A]/60 text-[10.5px] sm:text-[11px] font-bold text-[#92400E] flex items-center gap-1.5">
           <CreditCard className="w-4 h-4 text-[#D97706]" />
           <span>Zero Driver Haggling • You Retain All Physical Toll &amp; Parking Slips</span>
         </div>
@@ -1449,31 +1451,31 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 {/* ========================================================================= */ }
 {/* SECTION 7: VERIFIED TRAVELER REVIEWS WITH REAL AVATARS                     */ }
 {/* ========================================================================= */ }
-<section className="py-16 sm:py-20 bg-[#FAF9F5] border-b border-[#E2E8F0]">
+<section className="py-10 sm:py-20 bg-[#FAF9F5] border-b border-[#E2E8F0]">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-      <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-white px-3.5 py-1.5 rounded-full border border-[#CBD5E1] shadow-xs">
+    <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-16">
+      <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-white px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-[#CBD5E1] shadow-xs">
         <ThumbsUp className="w-3.5 h-3.5 text-[#FEC401]" />
         <span>Verified Rider Experiences</span>
       </div>
-      <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
+      <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
         Trusted by 12,000+ Travelers in Odisha
       </h2>
-      <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+      <p className="text-xs sm:text-sm text-[#64748B] mt-1.5 sm:mt-2">
         Read how fellow business executives, pilgrim families, and tourists experienced our commercial cab dispatch.
       </p>
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
       {TESTIMONIALS_DATA.slice(0, 3).map((t) => (
         <div
           key={t.id}
-          className="p-7 sm:p-8 rounded-3xl bg-white border border-[#E2E8F0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-5 relative group overflow-hidden"
+          className="p-4 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl bg-white border border-[#E2E8F0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-3.5 sm:space-y-5 relative group overflow-hidden"
         >
           {/* Top Subtle Amber Ambient Bar on Hover */}
           <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#FEC401] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {/* Rating Stars & Verified Date */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-1.5">
@@ -1481,7 +1483,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                   {[...Array(t.rating)].map((_, i) => (
                     <Star
                       key={i}
-                      className="w-4 h-4 fill-[#FEC401] text-[#FEC401]"
+                      className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#FEC401] text-[#FEC401]"
                     />
                   ))}
                 </div>
@@ -1490,14 +1492,14 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 </span>
               </div>
 
-              <span className="text-[11px] font-semibold text-[#64748B] bg-[#F8FAFC] px-2.5 py-0.5 rounded-full border border-[#E2E8F0]">
+              <span className="text-[10.5px] sm:text-[11px] font-semibold text-[#64748B] bg-[#F8FAFC] px-2.5 py-0.5 rounded-full border border-[#E2E8F0]">
                 {t.date}
               </span>
             </div>
 
             {/* Testimonial Quote */}
             <div className="relative">
-              <span className="absolute -top-3 -left-2 text-4xl text-[#FEC401]/20 font-serif select-none pointer-events-none">
+              <span className="absolute -top-3 -left-2 text-3xl sm:text-4xl text-[#FEC401]/20 font-serif select-none pointer-events-none">
                 “
               </span>
               <p className="text-xs sm:text-sm text-[#334155] leading-relaxed italic relative z-10 font-medium">
@@ -1507,9 +1509,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
           </div>
 
           {/* Customer Profile Row with Real Avatar Image */}
-          <div className="pt-4 border-t border-[#F1F5F9] flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3 min-w-0">
-              <div className="relative w-12 h-12 rounded-2xl overflow-hidden border-2 border-[#FEC401]/70 shadow-md shrink-0 bg-[#000B3B]">
+          <div className="pt-3 sm:pt-4 border-t border-[#F1F5F9] flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-[#FEC401]/70 shadow-md shrink-0 bg-[#000B3B]">
                 <Image
                   src={t.avatarUrl}
                   alt={t.name}
@@ -1524,7 +1526,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                     {t.name}
                   </h4>
                 </div>
-                <p className="text-[11px] text-[#64748B] truncate flex items-center gap-1">
+                <p className="text-[10.5px] sm:text-[11px] text-[#64748B] truncate flex items-center gap-1">
                   <MapPin className="w-3 h-3 text-[#94A3B8] shrink-0" />
                   <span>{t.location}</span>
                 </p>
@@ -1532,11 +1534,11 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             </div>
 
             <div className="text-right shrink-0">
-              <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-1 rounded-full border border-[#BBF7D0] inline-flex items-center gap-1">
+              <span className="text-[9.5px] sm:text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-[#BBF7D0] inline-flex items-center gap-1">
                 <CheckCircle2 className="w-3 h-3 text-[#16A34A]" />
                 <span>Verified</span>
               </span>
-              <p className="text-[9.5px] font-semibold text-[#000B3B] mt-1 text-right">
+              <p className="text-[9px] sm:text-[9.5px] font-semibold text-[#000B3B] mt-0.5 sm:mt-1 text-right">
                 {t.tripType}
               </p>
             </div>
@@ -1576,25 +1578,25 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 {/* ========================================================================= */ }
 {
   serviceFaq.length > 0 && (
-    <section className="py-16 sm:py-20 bg-white border-b border-[#E2E8F0]">
+    <section className="py-10 sm:py-20 bg-white border-b border-[#E2E8F0]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
+        <div className="text-center mb-6 sm:mb-12">
+          <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-[#F1F5F9] px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-[#CBD5E1]">
             <HelpCircle className="w-3.5 h-3.5 text-[#FEC401]" />
             <span>Frequently Asked Questions</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
             Frequently Asked Questions Regarding {title}
           </h2>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {serviceFaq.map((faq, idx) => {
             const isOpen = openFaqIndex === idx;
             return (
               <div
                 key={idx}
-                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
+                className={`rounded-xl sm:rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
                   ? "border-[#FEC401] shadow-[0_8px_25px_rgba(254,196,1,0.15)] bg-[#FFFDF5]"
                   : "border-[#E2E8F0] bg-white shadow-xs hover:border-[#CBD5E1]"
                   }`}
@@ -1602,10 +1604,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 <button
                   type="button"
                   onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                  className="w-full p-5 sm:p-6 text-left font-bold text-[#0F172A] text-sm sm:text-base font-display flex items-center justify-between gap-4 cursor-pointer"
+                  className="w-full p-3.5 sm:p-5 lg:p-6 text-left font-bold text-[#0F172A] text-xs sm:text-base font-display flex items-center justify-between gap-3 sm:gap-4 cursor-pointer"
                   aria-expanded={isOpen}
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2.5 sm:gap-3">
                     <span
                       className={`w-2 h-2 rounded-full transition-colors ${isOpen ? "bg-[#FEC401]" : "bg-[#CBD5E1]"
                         }`}
@@ -1613,20 +1615,20 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                     <span>{faq.q}</span>
                   </div>
                   <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${isOpen
+                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${isOpen
                       ? "bg-[#000B3B] text-[#FEC401]"
                       : "bg-[#F1F5F9] text-[#64748B]"
                       }`}
                   >
                     <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""
+                      className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""
                         }`}
                     />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-xs sm:text-sm text-[#475569] leading-relaxed border-t border-[#E2E8F0]/60">
+                  <div className="px-4 pb-4 pt-1 sm:px-6 sm:pb-6 text-xs sm:text-sm text-[#475569] leading-relaxed border-t border-[#E2E8F0]/60">
                     {faq.a}
                   </div>
                 )}
@@ -1636,7 +1638,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
         </div>
 
         {/* WhatsApp Quick Help Callout */}
-        <div className="mt-8 p-4 rounded-2xl bg-[#F0FDF4] border border-[#BBF7D0] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+        <div className="mt-6 sm:mt-8 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F0FDF4] border border-[#BBF7D0] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <div className="flex items-center gap-2.5">
             <MessageSquare className="w-5 h-5 text-[#16A34A] shrink-0" />
             <span className="text-xs font-semibold text-[#166534]">
