@@ -988,7 +988,7 @@ export const HeroSection: React.FC = () => {
         <span className="hidden sm:inline text-white/30">&bull;</span>
         <span className="inline-flex items-center gap-1.5 font-medium">
           <CheckCircle2 className="w-3.5 h-3.5 text-[#FEC401]" />
-          <span>10% Advance Deposit Model</span>
+          <span>Guaranteed Vehicle Allocation</span>
         </span>
         <span className="hidden sm:inline text-white/30">&bull;</span>
         <span className="inline-flex items-center gap-1.5 font-medium">
