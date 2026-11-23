@@ -103,20 +103,16 @@ export const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 print:hidden transition-all duration-200 ${
+      className={`fixed top-0 inset-x-0 z-50 print:hidden transition-colors duration-200 pointer-events-auto ${
         isBookingFlow || isScrolled
-          ? "bg-[#000B3B] border-b border-white/10 shadow-lg py-2 sm:py-2.5 px-3 sm:px-6 lg:px-8 pointer-events-auto"
-          : "pt-2 sm:pt-3.5 px-3 sm:px-6 lg:px-8 pointer-events-none"
+          ? "bg-[#000B3B] border-b border-white/10 shadow-lg py-2.5 sm:py-3 px-3 sm:px-6 lg:px-8"
+          : "bg-[#000B3B]/95 backdrop-blur-xl border-b border-white/10 shadow-md py-2.5 sm:py-3 px-3 sm:px-6 lg:px-8"
       }`}
     >
-      <div className="max-w-7xl mx-auto pointer-events-auto">
-        {/* Navigation Bar: Floating Luxury Island at Top, Seamless Docked Bar on Scroll / Booking */}
+      <div className="max-w-7xl mx-auto">
+        {/* Navigation Bar: Solid Luxury Docked Bar */}
         <nav
-          className={`w-full flex items-center justify-between transition-all duration-200 ${
-            isBookingFlow || isScrolled
-              ? "px-1 sm:px-2 py-0.5"
-              : "bg-[#001162]/85 backdrop-blur-xl rounded-2xl sm:rounded-full border border-white/15 shadow-[0_15px_35px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.15)] px-4 sm:px-7 py-2.5 sm:py-3"
-          }`}
+          className="w-full flex items-center justify-between"
           aria-label="Main Navigation"
         >
           {/* Bespoke Luxury Brand Logo */}
