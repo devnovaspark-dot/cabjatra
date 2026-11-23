@@ -166,12 +166,8 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
             {/* ========================================================================= */}
       {/* SECTION 1: LUMINOUS ARCHITECTURAL HERO & INTERACTIVE TOUR STAGE           */}
       {/* ========================================================================= */}
-      <section className="relative bg-gradient-to-b from-[#FFFDF9] via-[#FAF9F5] to-white text-[#0F172A] pt-28 sm:pt-32 pb-14 sm:pb-16 lg:pt-32 lg:pb-16 min-h-[calc(100vh-80px)] flex items-center overflow-hidden border-b border-[#E2E8F0]">
-        {/* Soft Golden Ambient Atmosphere - Zero Blue Void */}
-        <div className="absolute top-10 right-1/4 w-[500px] h-[500px] bg-[#FEC401]/12 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-10 left-10 w-[450px] h-[450px] bg-[#FEF3C7]/40 rounded-full blur-3xl pointer-events-none" />
-
-        {/* Authentic City / Destination Landmark Atmospheric Backdrop */}
+      <section className="relative min-h-[calc(100vh-80px)] flex items-center overflow-hidden border-b border-[#E2E8F0] pt-28 sm:pt-32 pb-14 sm:pb-16 lg:pt-32 lg:pb-16 bg-[#FAF9F5]">
+        {/* Authentic Destination Landmark Backdrop - Vibrant & Clearly Visible */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <Image
             src={activeCityBg}
@@ -179,10 +175,11 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center opacity-15 mix-blend-multiply scale-105"
+            className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF9F5] via-[#FAF9F5]/90 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-[#FAF9F5]/70" />
+          {/* Subtle directional scrim - Transparent on right so landmark is vibrant, gentle on left for razor-sharp typography */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 via-55% to-white/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F5] via-transparent to-transparent opacity-80" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -191,7 +188,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
             <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
               {/* Refined Unified Badge & Social Proof Pill */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[11px] font-bold text-[#000B3B] shadow-xs">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-sm border border-[#E2E8F0] text-[11px] font-bold text-[#000B3B] shadow-xs">
                   <div className="flex items-center gap-1.5 text-[#D97706]">
                     <Sparkles className="w-3.5 h-3.5 text-[#D97706]" />
                     <span>{badge.split("&bull;")[0].trim()}</span>
@@ -215,7 +212,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
 
               {/* Sleek Feature Assurances Single Strip */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
-                <div className="p-2.5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex items-center gap-2">
+                <div className="p-2.5 rounded-2xl bg-white/95 backdrop-blur-sm border border-[#E2E8F0] shadow-xs flex items-center gap-2">
                   <div className="w-7 h-7 rounded-lg bg-[#FEF3C7] text-[#D97706] flex items-center justify-center shrink-0">
                     <Car className="w-4 h-4 text-[#D97706]" />
                   </div>
@@ -225,7 +222,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   </div>
                 </div>
 
-                <div className="p-2.5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex items-center gap-2">
+                <div className="p-2.5 rounded-2xl bg-white/95 backdrop-blur-sm border border-[#E2E8F0] shadow-xs flex items-center gap-2">
                   <div className="w-7 h-7 rounded-lg bg-[#FEF9C3] text-[#CA8A04] flex items-center justify-center shrink-0">
                     <Clock className="w-4 h-4 text-[#CA8A04]" />
                   </div>
@@ -235,7 +232,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   </div>
                 </div>
 
-                <div className="p-2.5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex items-center gap-2">
+                <div className="p-2.5 rounded-2xl bg-white/95 backdrop-blur-sm border border-[#E2E8F0] shadow-xs flex items-center gap-2">
                   <div className="w-7 h-7 rounded-lg bg-[#E0F2FE] text-[#0284C7] flex items-center justify-center shrink-0">
                     <AirVent className="w-4 h-4 text-[#0284C7]" />
                   </div>
@@ -245,7 +242,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   </div>
                 </div>
 
-                <div className="p-2.5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex items-center gap-2">
+                <div className="p-2.5 rounded-2xl bg-white/95 backdrop-blur-sm border border-[#E2E8F0] shadow-xs flex items-center gap-2">
                   <div className="w-7 h-7 rounded-lg bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
                     <MapPin className="w-4 h-4 text-[#16A34A]" />
                   </div>
@@ -271,7 +268,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   href={COMPANY_CONFIG.contact.whatsAppLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-3.5 rounded-full bg-white hover:bg-[#F8FAFC] text-[#000B3B] font-bold text-xs inline-flex items-center gap-2 border border-[#CBD5E1] shadow-xs transition"
+                  className="px-5 py-3.5 rounded-full bg-white/95 hover:bg-white text-[#000B3B] font-bold text-xs inline-flex items-center gap-2 border border-[#CBD5E1] shadow-xs transition"
                 >
                   <MessageSquare className="w-4 h-4 text-[#16A34A]" />
                   <span>WhatsApp Concierge</span>
@@ -295,20 +292,16 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Clean Luxury Automotive Card (5 Cols) */}
+            {/* Right Column: Clean, Minimal Luxury Vehicle Card (5 Cols) - Zero Text Over Image */}
             <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-              <div className="relative rounded-3xl overflow-hidden border border-[#E2E8F0] shadow-[0_20px_50px_rgba(0,11,59,0.10)] bg-white">
-                {/* Top Interactive Vehicle Switcher Header */}
-                <div className="px-5 py-3 flex items-center justify-between border-b border-[#F1F5F9] bg-[#FAF9F5]">
-                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#000B3B] flex items-center gap-1.5">
-                    <Car className="w-4 h-4 text-[#D97706]" />
-                    <span>Private Tour Fleet</span>
-                  </span>
-                  <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-[#E2E8F0] shadow-2xs">
+              <div className="relative rounded-3xl overflow-hidden border border-[#E2E8F0] shadow-xl bg-white">
+                {/* Segmented Vehicle Switcher - Minimal & Focused */}
+                <div className="p-3 bg-[#F8FAFC] border-b border-[#E2E8F0] flex items-center justify-center">
+                  <div className="inline-flex items-center bg-white p-1 rounded-xl border border-[#E2E8F0] shadow-xs">
                     <button
                       type="button"
                       onClick={() => setSelectedHeroVehicleId("sedan")}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                      className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
                         selectedHeroVehicleId === "sedan"
                           ? "bg-[#000B3B] text-[#FEC401] shadow-xs"
                           : "text-[#64748B] hover:text-[#000B3B]"
@@ -319,22 +312,19 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                     <button
                       type="button"
                       onClick={() => setSelectedHeroVehicleId("large-car")}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                      className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
                         selectedHeroVehicleId === "large-car"
                           ? "bg-[#000B3B] text-[#FEC401] shadow-xs"
                           : "text-[#64748B] hover:text-[#000B3B]"
                       }`}
                     >
-                      Innova Crysta
+                      Innova Crysta / SUV
                     </button>
                   </div>
                 </div>
 
-                {/* 1. CLEAN VEHICLE PHOTO STAGE - Studio Light Aesthetics */}
+                {/* 1. CLEAN VEHICLE PHOTO STAGE - Absolutely Zero Text Over Image */}
                 <div className="relative h-48 sm:h-52 w-full bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9] to-white p-4 flex items-center justify-center overflow-hidden border-b border-[#F1F5F9]">
-                  {/* Soft Radial Backlight Stage */}
-                  <div className="absolute inset-0 bg-radial-[at_center_center] from-[#FEC401]/10 via-transparent to-transparent pointer-events-none" />
-
                   <Image
                     src={currentHeroVehicle.image}
                     alt={currentHeroVehicle.name}
@@ -343,65 +333,36 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                     priority
                     className="object-contain max-h-42 drop-shadow-[0_16px_28px_rgba(0,11,59,0.12)] transform hover:scale-105 transition-transform duration-500"
                   />
-
-                  {/* Floating Dispatch Ready Badge */}
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-[10.5px] font-bold text-[#16A34A] shadow-xs flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
-                    <span>Dispatch Ready</span>
-                  </div>
                 </div>
 
-                {/* 2. REFINED DETAILS & ACTION DECK */}
-                <div className="p-5 sm:p-6 space-y-4 bg-white">
-                  <div className="flex items-center justify-between">
+                {/* 2. MINIMALIST LUXURY DETAILS & DIRECT CTA - Zero Clutter */}
+                <div className="p-5 sm:p-6 bg-white space-y-4">
+                  <div className="flex items-baseline justify-between">
                     <div>
-                      <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A]">
+                      <h3 className="text-lg sm:text-xl font-bold font-display text-[#000B3B]">
                         {currentHeroVehicle.name}
                       </h3>
                       <p className="text-xs text-[#64748B] font-medium">
-                        {currentHeroVehicle.models}
+                        {currentHeroVehicle.passengers} Seats &bull; Dual AC &bull; {currentHeroVehicle.luggage} Bags
                       </p>
                     </div>
                     <div className="text-right">
                       <span className="text-xl sm:text-2xl font-black text-[#000B3B] block leading-none">
                         {currentHeroVehicle.rate}
                       </span>
-                      <span className="text-[10px] font-bold text-[#D97706] bg-[#FEF3C7] px-2 py-0.5 rounded-full inline-block mt-1">
+                      <span className="text-[10px] font-bold text-[#16A34A] block mt-0.5">
                         All Tolls Included
                       </span>
                     </div>
                   </div>
 
-                  {/* Specs Row */}
-                  <div className="flex items-center justify-between text-xs text-[#475569] py-2.5 border-y border-[#F1F5F9]">
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <Users className="w-3.5 h-3.5 text-[#D97706]" />
-                      <span>{currentHeroVehicle.passengers} Seats</span>
-                    </span>
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <Briefcase className="w-3.5 h-3.5 text-[#D97706]" />
-                      <span>{currentHeroVehicle.luggage} Bags</span>
-                    </span>
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <AirVent className="w-3.5 h-3.5 text-[#16A34A]" />
-                      <span>Dual AC</span>
-                    </span>
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <ShieldCheck className="w-3.5 h-3.5 text-[#D97706]" />
-                      <span>Yellow-Plate</span>
-                    </span>
-                  </div>
-
-                  {/* High-Contrast Action Button */}
+                  {/* Clean Booking CTA */}
                   <Link
                     href={`/book-tour?destination=${bookingTourSlug}&vehicle=${currentHeroVehicle.id}`}
-                    className="w-full py-3 px-5 rounded-2xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] hover:brightness-110 text-white text-xs font-bold flex items-center justify-between shadow-md transition-all group"
+                    className="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-sm transition-all group"
                   >
-                    <span className="text-white font-extrabold">Reserve {currentHeroVehicle.name}</span>
-                    <div className="flex items-center gap-1 text-[#FEC401] font-black group-hover:translate-x-1 transition-transform">
-                      <span>Instant Voucher</span>
-                      <ArrowRight className="w-4 h-4 text-[#FEC401]" />
-                    </div>
+                    <span>Reserve {currentHeroVehicle.name.split("/")[0].trim()}</span>
+                    <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
@@ -410,7 +371,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
         </div>
       </section>
 
-{/* ========================================================================= */}
+      {/* ========================================================================= */}
       {/* SECTION 2: EXECUTIVE COMMERCIAL FLEET SELECTION                           */}
       {/* ========================================================================= */}
       <section className="py-14 sm:py-18 bg-[#F8FAFC] border-b border-[#E2E8F0]">
