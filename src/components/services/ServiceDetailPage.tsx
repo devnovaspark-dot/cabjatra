@@ -203,8 +203,8 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             {/* ========================================================================= */}
       {/* SECTION 1: LUMINOUS ARCHITECTURAL HERO & INTERACTIVE VEHICLE STAGE        */}
       {/* ========================================================================= */}
-      <section className="relative min-h-[calc(100vh-80px)] flex items-center overflow-hidden border-b border-[#E2E8F0] pt-28 sm:pt-32 pb-14 sm:pb-16 lg:pt-32 lg:pb-16 bg-[#FAF9F5]">
-        {/* Authentic City Landmark Photographic Backdrop - Vibrant & Clearly Visible */}
+      <section className="relative min-h-[82vh] lg:min-h-[88vh] flex items-center overflow-hidden border-b border-[#E2E8F0] pt-28 sm:pt-32 pb-16 sm:pb-20 bg-[#FAF9F5]">
+        {/* Authentic City Landmark Photographic Backdrop - Expansive & Unobstructed */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <Image
             src={activeCityBg}
@@ -214,264 +214,97 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             sizes="100vw"
             className="object-cover object-center"
           />
-          {/* Subtle directional scrim - Transparent on right so landmark is vibrant, gentle on left for razor-sharp typography */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 via-55% to-white/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F5] via-transparent to-transparent opacity-80" />
+          {/* Smooth directional daylight scrim - Transparent on right/center so authentic landmark shines, gentle on left for razor-sharp typography */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 via-50% to-white/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F5] via-transparent to-transparent opacity-90" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* Left Column: Authoritative Editorial Heading & Fast Actions (7 Cols) */}
-            <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
-              {/* Refined Unified Badge & Social Proof Pill */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-sm border border-[#E2E8F0] text-[11px] font-bold text-[#000B3B] shadow-xs">
-                  <div className="flex items-center gap-1.5 text-[#D97706]">
-                    <Sparkles className="w-3.5 h-3.5 text-[#D97706]" />
-                    <span>{badge}</span>
-                  </div>
-                  <span className="w-1 h-1 rounded-full bg-[#CBD5E1]" />
-                  <span className="text-[#475569] font-semibold flex items-center gap-1">
-                    <Star className="w-3.5 h-3.5 text-[#FEC401] fill-[#FEC401]" /> 4.9/5 Rating &bull; 12.4k+ Rides
-                  </span>
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-4 sm:py-6">
+          <div className="max-w-3xl space-y-5 text-left">
+            {/* Refined Unified Badge & Social Proof Pill */}
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-sm border border-[#E2E8F0] text-[11px] font-bold text-[#000B3B] shadow-xs">
+                <div className="flex items-center gap-1.5 text-[#D97706]">
+                  <Sparkles className="w-3.5 h-3.5 text-[#D97706]" />
+                  <span>{badge}</span>
                 </div>
-              </div>
-
-              {/* Main Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold font-display tracking-tight text-[#000B3B] leading-[1.14]">
-                {title}
-              </h1>
-
-              {/* Subtitle - Punchy, High-Impact & Airy */}
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed font-normal max-w-xl mx-auto lg:mx-0">
-                {subtitle}
-              </p>
-
-              {/* Designer Feature Cards - 4 Micro Feature Blocks */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
-                <div className="p-2.5 rounded-2xl bg-white/95 backdrop-blur-sm border border-[#E2E8F0] shadow-xs flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-[#FEF3C7] text-[#D97706] flex items-center justify-center shrink-0">
-                    <ShieldCheck className="w-4 h-4 text-[#D97706]" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-[11px] font-bold text-[#0F172A] block leading-tight">100% Commercial</span>
-                    <span className="text-[9.5px] text-[#64748B] block leading-tight">Yellow-Plate Fleet</span>
-                  </div>
-                </div>
-
-                <div className="p-2.5 rounded-2xl bg-white/95 backdrop-blur-sm border border-[#E2E8F0] shadow-xs flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-[#FEF9C3] text-[#CA8A04] flex items-center justify-center shrink-0">
-                    <Zap className="w-4 h-4 text-[#CA8A04]" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-[11px] font-bold text-[#0F172A] block leading-tight">Zero Surge</span>
-                    <span className="text-[9.5px] text-[#64748B] block leading-tight">100% Fixed Tariffs</span>
-                  </div>
-                </div>
-
-                <div className="p-2.5 rounded-2xl bg-white/95 backdrop-blur-sm border border-[#E2E8F0] shadow-xs flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-[#E0F2FE] text-[#0284C7] flex items-center justify-center shrink-0">
-                    <AirVent className="w-4 h-4 text-[#0284C7]" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-[11px] font-bold text-[#0F172A] block leading-tight">Chilled Dual AC</span>
-                    <span className="text-[9.5px] text-[#64748B] block leading-tight">Always Active</span>
-                  </div>
-                </div>
-
-                <div className="p-2.5 rounded-2xl bg-white/95 backdrop-blur-sm border border-[#E2E8F0] shadow-xs flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
-                    <Clock className="w-4 h-4 text-[#16A34A]" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-[11px] font-bold text-[#0F172A] block leading-tight">Live Delay Buffer</span>
-                    <span className="text-[9.5px] text-[#64748B] block leading-tight">Flight Synced</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
-                <Link
-                  href={`/book-cab?service=${bookingCategoryKey}`}
-                  className="px-6 py-3.5 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] font-black text-xs inline-flex items-center gap-2 shadow-[0_10px_25px_rgba(254,196,1,0.4)] active:translate-y-0.5 transition-all"
-                >
-                  <Car className="w-4 h-4 text-[#000B3B]" />
-                  <span>Reserve This Cab</span>
-                  <ArrowRight className="w-4 h-4 text-[#000B3B]" />
-                </Link>
-
-                <a
-                  href={COMPANY_CONFIG.contact.whatsAppLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-5 py-3.5 rounded-full bg-white/95 hover:bg-white text-[#000B3B] font-bold text-xs inline-flex items-center gap-2 border border-[#CBD5E1] shadow-xs transition"
-                >
-                  <MessageSquare className="w-4 h-4 text-[#16A34A]" />
-                  <span>WhatsApp Concierge</span>
-                </a>
-              </div>
-
-              {/* Trust Assurances Clean Single Strip */}
-              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs text-[#64748B] border-t border-[#E2E8F0]">
-                <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#16A34A]" />
-                  Pre-Assigned Chauffeur
-                </span>
-                <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
-                  <Clock className="w-3.5 h-3.5 text-[#16A34A]" />
-                  Guaranteed Vehicle Dispatch
-                </span>
-                <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" />
-                  Zero Surge Pricing
-                </span>
-                <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
-                  <CreditCard className="w-3.5 h-3.5 text-[#16A34A]" />
-                  Transparent Fixed Rates
+                <span className="w-1 h-1 rounded-full bg-[#CBD5E1]" />
+                <span className="text-[#475569] font-semibold flex items-center gap-1">
+                  <Star className="w-3.5 h-3.5 text-[#FEC401] fill-[#FEC401]" /> 4.9/5 Rating &bull; 12.4k+ Verified Rides
                 </span>
               </div>
             </div>
 
-            {/* Right Column: Interactive Fast Fare & Route Booking Widget (5 Cols) - NO CAR IMAGE */}
-            <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-              <div className="relative rounded-3xl overflow-hidden border border-[#E2E8F0] shadow-2xl bg-white">
-                {/* Widget Header with Live Dispatch Pill */}
-                <div className="px-5 py-3.5 bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-7 h-7 rounded-lg bg-[#FEC401]/20 border border-[#FEC401]/30 flex items-center justify-center">
-                      <Navigation className="w-3.5 h-3.5 text-[#FEC401]" />
-                    </div>
-                    <div>
-                      <span className="text-xs font-black uppercase tracking-wider block text-white leading-tight">
-                        Instant Fare Calculator
-                      </span>
-                      <span className="text-[10px] text-[#FEC401] font-semibold block">
-                        Verified Yellow-Plate Tariffs
-                      </span>
-                    </div>
-                  </div>
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-bold text-white">
-                    <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-                    <span>Live Dispatch</span>
-                  </div>
-                </div>
+            {/* Main Headline - Grand, Authoritative, Editorial */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-[#000B3B] leading-[1.12]">
+              {title}
+            </h1>
 
-                {/* Corridor Selector Pills */}
-                <div className="p-3 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#64748B] block mb-2 px-1">
-                    Select Popular Route:
-                  </span>
-                  <div className="grid grid-cols-2 gap-1.5">
-                    {routeFares.slice(0, 4).map((rf, idx) => {
-                      const isSelected = (selectedRouteIdx || 0) === idx;
-                      const routeTitle = rf.route.includes("⇄")
-                        ? rf.route.split("⇄")[1]?.trim()
-                        : rf.route;
-                      return (
-                        <button
-                          key={idx}
-                          type="button"
-                          onClick={() => setSelectedRouteIdx(idx)}
-                          className={`px-2.5 py-2 rounded-xl text-left text-xs transition-all border ${
-                            isSelected
-                              ? "bg-[#000B3B] text-[#FEC401] border-[#000B3B] shadow-xs"
-                              : "bg-white text-[#475569] border-[#E2E8F0] hover:border-[#CBD5E1] hover:text-[#000B3B]"
-                          }`}
-                        >
-                          <div className="truncate text-[11px] font-extrabold leading-tight">{routeTitle}</div>
-                          <div className={`text-[9.5px] mt-0.5 font-medium truncate ${isSelected ? "text-white/80" : "text-[#94A3B8]"}`}>
-                            {rf.distance}
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
+            {/* Subtitle - Punchy, High-Impact & Airy */}
+            <p className="text-sm sm:text-base lg:text-lg text-[#475569] leading-relaxed font-normal max-w-2xl">
+              {subtitle}
+            </p>
 
-                {/* Selected Journey Visual & Pricing Details */}
-                {(() => {
-                  const activeRoute = routeFares[selectedRouteIdx || 0] || routeFares[0];
-                  const pickupName = activeRoute?.route.includes("⇄")
-                    ? activeRoute.route.split("⇄")[0]?.trim()
-                    : "City Pickup Hub";
-                  const dropName = activeRoute?.route.includes("⇄")
-                    ? activeRoute.route.split("⇄")[1]?.trim()
-                    : activeRoute?.route;
-
-                  return (
-                    <div className="p-5 space-y-4 bg-white">
-                      {/* Journey Flow Pins */}
-                      <div className="relative pl-6 space-y-3 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:border-l-2 before:border-dashed before:border-[#CBD5E1]">
-                        <div className="relative">
-                          <span className="absolute -left-6 top-1 w-3 h-3 rounded-full bg-[#10B981] ring-4 ring-[#DCFCE7]" />
-                          <span className="text-[10px] uppercase font-bold text-[#64748B] block leading-none">
-                            Pickup Origin
-                          </span>
-                          <span className="text-xs font-extrabold text-[#0F172A] block leading-tight mt-0.5 truncate">
-                            {pickupName}
-                          </span>
-                        </div>
-                        <div className="relative">
-                          <span className="absolute -left-6 top-1 w-3 h-3 rounded-full bg-[#000B3B] ring-4 ring-[#E2E8F0]" />
-                          <span className="text-[10px] uppercase font-bold text-[#64748B] block leading-none">
-                            Drop Destination
-                          </span>
-                          <span className="text-xs font-extrabold text-[#000B3B] block leading-tight mt-0.5 truncate">
-                            {dropName}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Distance & Travel Time Strip */}
-                      <div className="flex items-center justify-between p-2.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs">
-                        <span className="flex items-center gap-1.5 font-semibold text-[#475569]">
-                          <MapPin className="w-3.5 h-3.5 text-[#D97706]" />
-                          <span>{activeRoute?.distance}</span>
-                        </span>
-                        <span className="flex items-center gap-1.5 font-semibold text-[#475569]">
-                          <Clock className="w-3.5 h-3.5 text-[#0284C7]" />
-                          <span>{activeRoute?.approxDuration}</span>
-                        </span>
-                        <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2 py-0.5 rounded-md">
-                          All Tolls Included
-                        </span>
-                      </div>
-
-                      {/* Vehicle Class Tariff Options */}
-                      <div className="grid grid-cols-2 gap-2.5">
-                        <div className="p-3 rounded-2xl border-2 border-[#FEC401] bg-[#FFFDF0] relative shadow-xs">
-                          <span className="absolute -top-2 right-2 px-1.5 py-0.2 bg-[#FEC401] text-[#000B3B] text-[8.5px] font-black rounded uppercase">
-                            Most Booked
-                          </span>
-                          <span className="text-[11px] font-bold text-[#0F172A] block">Sedan (4 Seats)</span>
-                          <span className="text-base font-black text-[#000B3B] block leading-tight mt-1">
-                            {activeRoute?.sedanEstimate}
-                          </span>
-                          <span className="text-[9.5px] text-[#64748B] block mt-0.5 font-medium">Dzire / Etios AC</span>
-                        </div>
-
-                        <div className="p-3 rounded-2xl border border-[#E2E8F0] bg-white shadow-xs">
-                          <span className="text-[11px] font-bold text-[#0F172A] block">SUV (7 Seats)</span>
-                          <span className="text-base font-black text-[#000B3B] block leading-tight mt-1">
-                            {activeRoute?.suvEstimate}
-                          </span>
-                          <span className="text-[9.5px] text-[#64748B] block mt-0.5 font-medium">Innova / Ertiga AC</span>
-                        </div>
-                      </div>
-
-                      {/* Direct Booking CTA */}
-                      <Link
-                        href={`/book-cab?service=${bookingCategoryKey}&route=${encodeURIComponent(activeRoute?.route || "")}`}
-                        className="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-sm transition-all group"
-                      >
-                        <span>Confirm & Reserve This Route</span>
-                        <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </div>
-                  );
-                })()}
+            {/* Sleek Feature Highlights - Minimalist Inline Badges (Zero Clunky Cards) */}
+            <div className="flex flex-wrap items-center gap-2 pt-1">
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/90 backdrop-blur-sm border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-2xs">
+                <ShieldCheck className="w-4 h-4 text-[#D97706]" />
+                <span>100% Commercial Yellow-Plate</span>
               </div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/90 backdrop-blur-sm border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-2xs">
+                <Zap className="w-4 h-4 text-[#CA8A04]" />
+                <span>Zero Surge Tariffs</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/90 backdrop-blur-sm border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-2xs">
+                <AirVent className="w-4 h-4 text-[#0284C7]" />
+                <span>Chilled Dual AC Guaranteed</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/90 backdrop-blur-sm border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-2xs">
+                <Clock className="w-4 h-4 text-[#16A34A]" />
+                <span>Live Flight Radar Sync</span>
+              </div>
+            </div>
+
+            {/* Primary Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+              <Link
+                href={`/book-cab?service=${bookingCategoryKey}`}
+                className="px-7 py-4 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] font-black text-sm inline-flex items-center gap-2.5 shadow-[0_12px_28px_rgba(254,196,1,0.42)] active:translate-y-0.5 transition-all group"
+              >
+                <Car className="w-4 h-4 text-[#000B3B]" />
+                <span>Reserve Your Cab Now</span>
+                <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <a
+                href={COMPANY_CONFIG.contact.whatsAppLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-4 rounded-full bg-white hover:bg-[#F8FAFC] text-[#000B3B] font-bold text-sm inline-flex items-center gap-2 border border-[#CBD5E1] shadow-xs transition"
+              >
+                <MessageSquare className="w-4 h-4 text-[#16A34A]" />
+                <span>WhatsApp 24/7 Concierge</span>
+              </a>
+            </div>
+
+            {/* Trust Assurances Clean Single Strip */}
+            <div className="pt-3 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#64748B] border-t border-[#E2E8F0]/80">
+              <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
+                <ShieldCheck className="w-4 h-4 text-[#16A34A]" />
+                Pre-Assigned Chauffeur
+              </span>
+              <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
+                <Clock className="w-4 h-4 text-[#16A34A]" />
+                Guaranteed Vehicle Allocation
+              </span>
+              <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
+                <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
+                Zero Last-Minute Cancellation
+              </span>
+              <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
+                <CreditCard className="w-4 h-4 text-[#16A34A]" />
+                Transparent Kilometre Rates
+              </span>
             </div>
           </div>
         </div>

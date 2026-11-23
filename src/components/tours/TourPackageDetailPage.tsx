@@ -167,8 +167,8 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
             {/* ========================================================================= */}
       {/* SECTION 1: LUMINOUS ARCHITECTURAL HERO & INTERACTIVE TOUR STAGE           */}
       {/* ========================================================================= */}
-      <section className="relative min-h-[calc(100vh-80px)] flex items-center overflow-hidden border-b border-[#E2E8F0] pt-28 sm:pt-32 pb-14 sm:pb-16 lg:pt-32 lg:pb-16 bg-[#FAF9F5]">
-        {/* Authentic Destination Landmark Backdrop - Vibrant & Clearly Visible */}
+      <section className="relative min-h-[82vh] lg:min-h-[88vh] flex items-center overflow-hidden border-b border-[#E2E8F0] pt-28 sm:pt-32 pb-16 sm:pb-20 bg-[#FAF9F5]">
+        {/* Authentic Destination Landmark Photographic Backdrop - Expansive & Unobstructed */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <Image
             src={activeCityBg}
@@ -178,241 +178,93 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
             sizes="100vw"
             className="object-cover object-center"
           />
-          {/* Subtle directional scrim - Transparent on right so landmark is vibrant, gentle on left for razor-sharp typography */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 via-55% to-white/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F5] via-transparent to-transparent opacity-80" />
+          {/* Smooth directional daylight scrim - Transparent on right/center so authentic landmark shines, gentle on left for razor-sharp typography */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 via-50% to-white/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F5] via-transparent to-transparent opacity-90" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* Left Column: Authoritative Editorial Heading & Fast Actions (7 Cols) */}
-            <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
-              {/* Refined Unified Badge & Social Proof Pill */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-sm border border-[#E2E8F0] text-[11px] font-bold text-[#000B3B] shadow-xs">
-                  <div className="flex items-center gap-1.5 text-[#D97706]">
-                    <Sparkles className="w-3.5 h-3.5 text-[#D97706]" />
-                    <span>{badge.split("&bull;")[0].trim()}</span>
-                  </div>
-                  <span className="w-1 h-1 rounded-full bg-[#CBD5E1]" />
-                  <span className="text-[#475569] font-semibold flex items-center gap-1">
-                    <Star className="w-3.5 h-3.5 text-[#FEC401] fill-[#FEC401]" /> 4.95/5 Rating &bull; {durationBadge}
-                  </span>
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-4 sm:py-6">
+          <div className="max-w-3xl space-y-5 text-left">
+            {/* Refined Unified Badge & Social Proof Pill */}
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-sm border border-[#E2E8F0] text-[11px] font-bold text-[#000B3B] shadow-xs">
+                <div className="flex items-center gap-1.5 text-[#D97706]">
+                  <Sparkles className="w-3.5 h-3.5 text-[#D97706]" />
+                  <span>{badge.split("&bull;")[0].trim()}</span>
                 </div>
-              </div>
-
-              {/* Main Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold font-display tracking-tight text-[#000B3B] leading-[1.14]">
-                {title}
-              </h1>
-
-              {/* Subtitle - Punchy & Clear */}
-              <p className="text-xs sm:text-sm text-[#D97706] font-bold leading-relaxed max-w-xl mx-auto lg:mx-0">
-                {subtitle}
-              </p>
-
-              {/* Sleek Feature Assurances Single Strip */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
-                <div className="p-2.5 rounded-2xl bg-white/95 backdrop-blur-sm border border-[#E2E8F0] shadow-xs flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-[#FEF3C7] text-[#D97706] flex items-center justify-center shrink-0">
-                    <Car className="w-4 h-4 text-[#D97706]" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-[11px] font-bold text-[#0F172A] block leading-tight">100% Commercial</span>
-                    <span className="text-[9.5px] text-[#64748B] block leading-tight">Sightseeing Fleet</span>
-                  </div>
-                </div>
-
-                <div className="p-2.5 rounded-2xl bg-white/95 backdrop-blur-sm border border-[#E2E8F0] shadow-xs flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-[#FEF9C3] text-[#CA8A04] flex items-center justify-center shrink-0">
-                    <Clock className="w-4 h-4 text-[#CA8A04]" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-[11px] font-bold text-[#0F172A] block leading-tight">Flexible Halts</span>
-                    <span className="text-[9.5px] text-[#64748B] block leading-tight">Custom Pace</span>
-                  </div>
-                </div>
-
-                <div className="p-2.5 rounded-2xl bg-white/95 backdrop-blur-sm border border-[#E2E8F0] shadow-xs flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-[#E0F2FE] text-[#0284C7] flex items-center justify-center shrink-0">
-                    <AirVent className="w-4 h-4 text-[#0284C7]" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-[11px] font-bold text-[#0F172A] block leading-tight">Chilled Dual AC</span>
-                    <span className="text-[9.5px] text-[#64748B] block leading-tight">Full Cabin</span>
-                  </div>
-                </div>
-
-                <div className="p-2.5 rounded-2xl bg-white/95 backdrop-blur-sm border border-[#E2E8F0] shadow-xs flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-[#DCFCE7] text-[#16A34A] flex items-center justify-center shrink-0">
-                    <MapPin className="w-4 h-4 text-[#16A34A]" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-[11px] font-bold text-[#0F172A] block leading-tight">Hotel Pickup</span>
-                    <span className="text-[9.5px] text-[#64748B] block leading-tight">Direct Doorstep</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
-                <Link
-                  href={`/book-tour?destination=${bookingTourSlug}`}
-                  className="px-6 py-3.5 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] font-extrabold text-xs inline-flex items-center gap-2 shadow-[0_10px_25px_rgba(254,196,1,0.4)] active:translate-y-0.5 transition-all"
-                >
-                  <Palmtree className="w-4 h-4 text-[#000B3B]" />
-                  <span>Reserve This Tour Package</span>
-                  <ArrowRight className="w-4 h-4 text-[#000B3B]" />
-                </Link>
-
-                <a
-                  href={COMPANY_CONFIG.contact.whatsAppLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-5 py-3.5 rounded-full bg-white/95 hover:bg-white text-[#000B3B] font-bold text-xs inline-flex items-center gap-2 border border-[#CBD5E1] shadow-xs transition"
-                >
-                  <MessageSquare className="w-4 h-4 text-[#16A34A]" />
-                  <span>WhatsApp Concierge</span>
-                </a>
-              </div>
-
-              {/* Trust Assurances Clean Single Strip */}
-              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs text-[#64748B] border-t border-[#E2E8F0]">
-                <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#16A34A]" />
-                  100% Commercial Fleet
-                </span>
-                <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" />
-                  Guaranteed Tariff Lock
-                </span>
-                <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
-                  <Clock className="w-3.5 h-3.5 text-[#16A34A]" />
-                  {startingFromNote}
+                <span className="w-1 h-1 rounded-full bg-[#CBD5E1]" />
+                <span className="text-[#475569] font-semibold flex items-center gap-1">
+                  <Star className="w-3.5 h-3.5 text-[#FEC401] fill-[#FEC401]" /> 4.95/5 Rating &bull; {durationBadge}
                 </span>
               </div>
             </div>
 
-            {/* Right Column: Interactive Tour Pass & Itinerary Highlights Card (5 Cols) - NO CAR IMAGE */}
-            <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-              <div className="relative rounded-3xl overflow-hidden border border-[#E2E8F0] shadow-2xl bg-white">
-                {/* Header with Verified Departure Pill */}
-                <div className="px-5 py-3.5 bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-7 h-7 rounded-lg bg-[#FEC401]/20 border border-[#FEC401]/30 flex items-center justify-center">
-                      <Compass className="w-3.5 h-3.5 text-[#FEC401]" />
-                    </div>
-                    <div>
-                      <span className="text-xs font-black uppercase tracking-wider block text-white leading-tight">
-                        Curated Tour Package Pass
-                      </span>
-                      <span className="text-[10px] text-[#FEC401] font-semibold block">
-                        All-Inclusive Sightseeing Cab
-                      </span>
-                    </div>
-                  </div>
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-bold text-white">
-                    <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-                    <span>Guaranteed Departure</span>
-                  </div>
-                </div>
+            {/* Main Headline - Grand, Authoritative, Editorial */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-[#000B3B] leading-[1.12]">
+              {title}
+            </h1>
 
-                {/* Package Options Switcher */}
-                <div className="p-3 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#64748B] block mb-2 px-1">
-                    Select Tour Tier:
-                  </span>
-                  <div className="grid grid-cols-2 gap-1.5">
-                    {packages.slice(0, 4).map((pkg, idx) => {
-                      const isSelected = (selectedPackageIdx || 0) === idx;
-                      return (
-                        <button
-                          key={idx}
-                          type="button"
-                          onClick={() => setSelectedPackageIdx(idx)}
-                          className={`px-2.5 py-2 rounded-xl text-left text-xs transition-all border ${
-                            isSelected
-                              ? "bg-[#000B3B] text-[#FEC401] border-[#000B3B] shadow-xs"
-                              : "bg-white text-[#475569] border-[#E2E8F0] hover:border-[#CBD5E1] hover:text-[#000B3B]"
-                          }`}
-                        >
-                          <div className="truncate text-[11px] font-extrabold leading-tight">{pkg.title}</div>
-                          <div className={`text-[9.5px] mt-0.5 font-medium truncate ${isSelected ? "text-white/80" : "text-[#94A3B8]"}`}>
-                            {pkg.approxPrice}
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
+            {/* Subtitle - Punchy & Clear */}
+            <p className="text-sm sm:text-base lg:text-lg text-[#D97706] font-bold leading-relaxed max-w-2xl">
+              {subtitle}
+            </p>
 
-                {/* Selected Package Details */}
-                {(() => {
-                  const activePkg = packages[selectedPackageIdx || 0] || packages[0];
-                  return (
-                    <div className="p-5 space-y-4 bg-white">
-                      {/* Tour Package Highlights Box */}
-                      <div className="p-3.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2.5">
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs font-black text-[#000B3B] block">
-                            {activePkg?.title}
-                          </span>
-                          <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2 py-0.5 rounded-full">
-                            {activePkg?.duration}
-                          </span>
-                        </div>
-                        <p className="text-[11px] text-[#64748B] leading-relaxed">
-                          {activePkg?.subtitle}
-                        </p>
-                      </div>
-
-                      {/* Key Sightseeing Attractions Checklist */}
-                      <div className="space-y-1.5">
-                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#64748B] block">
-                          Included Tour Highlights:
-                        </span>
-                        <div className="grid grid-cols-1 gap-1.5">
-                          {activePkg?.highlights.slice(0, 3).map((hl, hIdx) => (
-                            <div key={hIdx} className="flex items-center gap-2 text-xs text-[#0F172A] font-semibold">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
-                              <span className="truncate">{hl}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Pricing & Inclusions Strip */}
-                      <div className="flex items-baseline justify-between pt-1 border-t border-[#F1F5F9]">
-                        <div>
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-[#64748B] block">
-                            Fixed Package Rate
-                          </span>
-                          <span className="text-2xl font-black text-[#000B3B] block leading-none mt-0.5">
-                            {activePkg?.approxPrice}
-                          </span>
-                        </div>
-                        <div className="text-right">
-                          <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2 py-0.5 rounded-full inline-block">
-                            ● Fuel & Tolls Included
-                          </span>
-                          <span className="text-[9.5px] text-[#64748B] block mt-1">
-                            Doorstep Pickup & Drop
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Direct Booking CTA */}
-                      <Link
-                        href={`/book-tour?destination=${bookingTourSlug}`}
-                        className="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-sm transition-all group"
-                      >
-                        <span>Reserve This Tour Package</span>
-                        <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </div>
-                  );
-                })()}
+            {/* Sleek Feature Highlights - Minimalist Inline Badges (Zero Clunky Cards) */}
+            <div className="flex flex-wrap items-center gap-2 pt-1">
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/90 backdrop-blur-sm border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-2xs">
+                <Car className="w-4 h-4 text-[#D97706]" />
+                <span>100% Commercial Sightseeing Fleet</span>
               </div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/90 backdrop-blur-sm border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-2xs">
+                <Clock className="w-4 h-4 text-[#CA8A04]" />
+                <span>Flexible Halts & Custom Pace</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/90 backdrop-blur-sm border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-2xs">
+                <AirVent className="w-4 h-4 text-[#0284C7]" />
+                <span>Chilled Full-Cabin AC</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/90 backdrop-blur-sm border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-2xs">
+                <MapPin className="w-4 h-4 text-[#16A34A]" />
+                <span>Hotel Doorstep Pickup & Return</span>
+              </div>
+            </div>
+
+            {/* Primary Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+              <Link
+                href={`/book-tour?destination=${bookingTourSlug}`}
+                className="px-7 py-4 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] font-extrabold text-sm inline-flex items-center gap-2.5 shadow-[0_12px_28px_rgba(254,196,1,0.42)] active:translate-y-0.5 transition-all group"
+              >
+                <Palmtree className="w-4 h-4 text-[#000B3B]" />
+                <span>Reserve This Tour Package Now</span>
+                <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <a
+                href={COMPANY_CONFIG.contact.whatsAppLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-4 rounded-full bg-white hover:bg-[#F8FAFC] text-[#000B3B] font-bold text-sm inline-flex items-center gap-2 border border-[#CBD5E1] shadow-xs transition"
+              >
+                <MessageSquare className="w-4 h-4 text-[#16A34A]" />
+                <span>WhatsApp 24/7 Concierge</span>
+              </a>
+            </div>
+
+            {/* Trust Assurances Clean Single Strip */}
+            <div className="pt-3 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#64748B] border-t border-[#E2E8F0]/80">
+              <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
+                <ShieldCheck className="w-4 h-4 text-[#16A34A]" />
+                100% Commercial Fleet
+              </span>
+              <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
+                <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
+                Guaranteed Tariff Lock
+              </span>
+              <span className="flex items-center gap-1.5 font-medium text-[#0F172A]">
+                <Clock className="w-4 h-4 text-[#16A34A]" />
+                {startingFromNote}
+              </span>
             </div>
           </div>
         </div>
