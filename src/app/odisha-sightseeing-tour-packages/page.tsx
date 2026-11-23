@@ -134,7 +134,7 @@ export default function OdishaSightseeingTourPackagesPage() {
     },
     {
       title: "Zero Hidden Kilometer Surges",
-      desc: "We quote fixed transparent rates. A simple 10% advance deposit locks your vehicle, with the remaining 90% settled at journey drop.",
+      desc: "We quote fixed transparent rates. Guaranteed vehicle allocation locks your ride, with hassle-free settlement at journey drop.",
     },
     {
       title: "Elderly & Family Friendly",
@@ -186,7 +186,7 @@ export default function OdishaSightseeingTourPackagesPage() {
     },
     {
       q: "How do I secure my booking?",
-      a: "You can book directly on our website or connect with our WhatsApp operations desk. A nominal 10% advance deposit confirms your car and driver, with the 90% balance paid directly at the end of the trip.",
+      a: "You can book directly on our website or connect with our WhatsApp operations desk. Instant confirmation secures your car and driver, with payment settled directly at the end of the trip.",
     },
   ];
 
@@ -199,7 +199,7 @@ export default function OdishaSightseeingTourPackagesPage() {
       heroImage="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=85&w=1600&auto=format&fit=crop"
       overview="Experience the rich soul of Odisha with our curated sightseeing cab packages. From the soaring spire of the Puri Jagannath Temple and the UNESCO World Heritage Sun Temple at Konark, to the tranquil waters of Chilika Lake and the ancient caves of Bhubaneswar, travel in total comfort with a private air-conditioned vehicle, verified local driver, and flexible sightseeing stops designed around your family."
       durationBadge="1 to 5 Days • 100% Flexible"
-      startingFromNote="Transparent Day Tariffs • 10% Advance"
+      startingFromNote="Transparent Day Tariffs • Instant Confirmation"
       destinations={destinations}
       packages={packages}
       itineraryDays={itineraryDays}

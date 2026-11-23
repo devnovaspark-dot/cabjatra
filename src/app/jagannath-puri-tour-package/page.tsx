@@ -141,8 +141,8 @@ export default function JagannathPuriTourPackagePage() {
       desc: "Our local drivers guide you on how to procure authentic hot earthen pot Mahaprasad and traditional Puri Khaja directly from trusted counters.",
     },
     {
-      title: "10% Advance Deposit Model",
-      desc: "Transparent fixed tariffs with no hidden surge pricing during Rath Yatra, holidays, or temple festivals. Remaining 90% settled at trip drop.",
+      title: "Guaranteed Fixed Pricing Model",
+      desc: "Transparent fixed tariffs with no hidden surge pricing during Rath Yatra, holidays, or temple festivals. Settled conveniently at trip drop.",
     },
     {
       title: "100% Commercial Yellow-Board Fleet",
@@ -185,7 +185,7 @@ export default function JagannathPuriTourPackagePage() {
     },
     {
       q: "How do I book a Jagannath Puri cab tour package?",
-      a: "Choose your preferred tour package on our website, pay a simple 10% advance deposit, and receive your driver's contact details and vehicle confirmation voucher instantly via WhatsApp.",
+      a: "Choose your preferred tour package on our website, receive instant confirmation, and get your driver's contact details and vehicle confirmation voucher instantly via WhatsApp.",
     },
   ];
 
@@ -198,7 +198,7 @@ export default function JagannathPuriTourPackagePage() {
       heroImage="https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?q=85&w=1600&auto=format&fit=crop"
       overview="Embark on a soul-stirring spiritual journey to Sri Jagannath Dham Puri, one of the four most sacred Char Dham pilgrimages of India. Behold the divine form of Lord Jagannath, Devi Subhadra, and Lord Balabhadra upon the Ratnavedi, walk through the hallowed Singhadwara Lion Gate, taste divine earthen-pot Mahaprasad at Anand Bazaar, and visit the sacred tanks of Panchatirtha. CABJATRA provides dedicated, senior-friendly private AC cabs, verified chauffeurs, and safe custody of your valuables during darshan."
       durationBadge="1 to 3 Days • Sacred Pilgrimage"
-      startingFromNote="From ₹1,650 • 10% Advance Deposit"
+      startingFromNote="From ₹1,650 • Guaranteed Allocation"
       destinations={destinations}
       packages={packages}
       itineraryDays={itineraryDays}

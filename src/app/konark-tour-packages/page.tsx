@@ -142,7 +142,7 @@ export default function KonarkTourPackagesPage() {
     },
     {
       title: "Fixed Transparent Tariffs",
-      desc: "Pay a simple 10% advance deposit. No hidden kilometer surcharges or peak hour surge traps.",
+      desc: "Transparent upfront pricing. No hidden kilometer surcharges or peak hour surge traps.",
     },
     {
       title: "100% Yellow-Board Commercial Fleet",
@@ -185,7 +185,7 @@ export default function KonarkTourPackagesPage() {
     },
     {
       q: "How do I book a Konark cab tour with Cabjatra?",
-      a: "Select your preferred tour package on our website, pay a simple 10% advance deposit, and receive your driver's contact details and vehicle confirmation voucher instantly via WhatsApp.",
+      a: "Select your preferred tour package on our website, receive instant confirmation, and get your driver's contact details and vehicle confirmation voucher instantly via WhatsApp.",
     },
   ];
 
@@ -198,7 +198,7 @@ export default function KonarkTourPackagesPage() {
       heroImage="https://images.unsplash.com/photo-1576235282476-debff2a4d0b9?q=85&w=1600&auto=format&fit=crop"
       overview="Behold the architectural wonder of the 13th-century Konark Sun Temple, a UNESCO World Heritage Site sculpted as a cosmic stone chariot with 24 colossal sundial wheels and 7 galloping horses. Combined with the scenic ocean expressway along the Puri-Konark Marine Drive and the golden sands of Chandrabhaga Beach, a private cab tour with CABJATRA delivers an unforgettable, unhurried coastal journey."
       durationBadge="Half Day to Full Day • 100% Flexible"
-      startingFromNote="From ₹1,850 • 10% Advance Deposit"
+      startingFromNote="From ₹1,850 • Instant Confirmation"
       destinations={destinations}
       packages={packages}
       itineraryDays={itineraryDays}

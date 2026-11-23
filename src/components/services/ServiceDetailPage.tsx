@@ -149,7 +149,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
     },
     {
       factor: "Advance Booking Certainty",
-      cabjatra: "Guaranteed Car Allocation with 10% Deposit",
+      cabjatra: "Guaranteed Car Allocation (Instant Confirmation)",
       generic: "Uncertain (Searches driver 15 mins before)",
       highlight: false,
     },
@@ -170,14 +170,14 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
     },
     {
       num: "02",
-      title: "Lock with 10% Advance Deposit",
+      title: "Instant Booking Confirmation",
       desc: "Secure your booking instantly. Our operations desk assigns your dedicated commercial vehicle and sends a WhatsApp confirmation voucher.",
       icon: CreditCard,
     },
     {
       num: "03",
       title: "Travel in Chilled AC Comfort",
-      desc: "Your verified driver arrives 15 minutes before departure with AC running. Pay the remaining 90% balance directly at destination drop via UPI or cash.",
+      desc: "Your verified driver arrives 15 minutes before departure with AC running. Pay conveniently at destination drop via UPI or cash.",
       icon: CheckCircle2,
     },
   ];
@@ -206,7 +206,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* Left Column: Authoritative Heading, Deep Overview, Benefit Grid & Fast Actions (7 Cols) */}
+            {/* Left Column: Clean, Elegant, Designer-Crafted Heading & Fast Actions (7 Cols) */}
             <div className="lg:col-span-7 space-y-4 sm:space-y-5 text-center lg:text-left">
               {/* Refined Unified Badge & Social Proof Pill */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
@@ -221,89 +221,43 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-[#FAF9F5] leading-[1.15]">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-white leading-[1.14]">
                 {title}
               </h1>
 
-              {/* Subtitle - Punchy & High-Impact */}
-              <p className="text-sm sm:text-base text-[#FEC401] font-semibold leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              {/* Subtitle - Punchy, High-Impact & Airy */}
+              <p className="text-sm sm:text-base text-[#F1F5F9]/90 leading-relaxed font-normal max-w-xl mx-auto lg:mx-0">
                 {subtitle}
               </p>
 
-              {/* Comprehensive Editorial Service Overview */}
-              {overview && (
-                <p className="text-xs sm:text-[13.5px] text-[#F1F5F9]/85 leading-relaxed font-normal max-w-2xl mx-auto lg:mx-0">
-                  {overview}
-                </p>
-              )}
-
-              {/* 4-Pillar High-Value Service Highlights Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-1 text-left max-w-2xl mx-auto lg:mx-0">
-                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 flex items-start gap-2.5 shadow-soft">
-                  <div className="w-8 h-8 rounded-xl bg-[#FEC401]/20 flex items-center justify-center shrink-0 border border-[#FEC401]/40 mt-0.5">
-                    <ShieldCheck className="w-4 h-4 text-[#FEC401]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-white leading-tight">100% Commercial Fleet</h4>
-                    <p className="text-[10.5px] text-[#CBD5E1] leading-tight mt-0.5">Yellow-board RTO certified with verified drivers</p>
-                  </div>
-                </div>
-
-                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 flex items-start gap-2.5 shadow-soft">
-                  <div className="w-8 h-8 rounded-xl bg-[#FEC401]/20 flex items-center justify-center shrink-0 border border-[#FEC401]/40 mt-0.5">
-                    <Zap className="w-4 h-4 text-[#FEC401]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-white leading-tight">Zero Surge Tariffs</h4>
-                    <p className="text-[10.5px] text-[#CBD5E1] leading-tight mt-0.5">Fixed transparent KM rates, no midnight spikes</p>
-                  </div>
-                </div>
-
-                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 flex items-start gap-2.5 shadow-soft">
-                  <div className="w-8 h-8 rounded-xl bg-[#FEC401]/20 flex items-center justify-center shrink-0 border border-[#FEC401]/40 mt-0.5">
-                    <Sparkles className="w-4 h-4 text-[#FEC401]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-white leading-tight">Chilled Dual-Zone AC</h4>
-                    <p className="text-[10.5px] text-[#CBD5E1] leading-tight mt-0.5">100% working AC guaranteed on every ride</p>
-                  </div>
-                </div>
-
-                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 flex items-start gap-2.5 shadow-soft">
-                  <div className="w-8 h-8 rounded-xl bg-[#FEC401]/20 flex items-center justify-center shrink-0 border border-[#FEC401]/40 mt-0.5">
-                    <Clock className="w-4 h-4 text-[#FEC401]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-white leading-tight">Flight Delay Buffer</h4>
-                    <p className="text-[10.5px] text-[#CBD5E1] leading-tight mt-0.5">Live BBI radar sync & 10% advance deposit</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Express Corridors & City Routing Tags */}
-              <div className="pt-0.5 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px]">
-                <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
-                  ✈️ Airport Pickups
+              {/* Designer Feature Chips - Single Sleek Horizontal Row */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1 text-xs text-white/90">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 shadow-xs font-medium">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
+                  <span>100% Commercial Fleet</span>
                 </span>
-                <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
-                  🏢 Tech Parks &amp; City Transit
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 shadow-xs font-medium">
+                  <Zap className="w-3.5 h-3.5 text-[#FEC401]" />
+                  <span>Zero Surge Tariffs</span>
                 </span>
-                <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
-                  🌊 Outstation Highway Drops
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 shadow-xs font-medium">
+                  <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
+                  <span>Chilled Dual AC</span>
                 </span>
-                <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
-                  🕒 4h/8h Flexible Rentals
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 shadow-xs font-medium">
+                  <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
+                  <span>Live Delay Buffer</span>
                 </span>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-1.5 sm:pt-2">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-1 sm:pt-2">
                 <Link
                   href={`/book-cab?service=${bookingCategoryKey}`}
-                  className="px-6 py-3.5 rounded-full bg-gradient-to-b from-[#FEC401] to-[#E5AD00] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 text-[#001162] font-black text-xs inline-flex items-center gap-2 active:translate-y-0.5 transition-all"
+                  className="px-7 py-3.5 rounded-full bg-gradient-to-b from-[#FEC401] to-[#E5AD00] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 text-[#001162] font-black text-xs inline-flex items-center gap-2 active:translate-y-0.5 transition-all"
                 >
                   <Car className="w-4 h-4 text-[#001162]" />
-                  <span>Reserve This Cab (10% Advance)</span>
+                  <span>Reserve This Cab</span>
                   <ArrowRight className="w-4 h-4 text-[#001162]" />
                 </Link>
 
@@ -334,7 +288,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CreditCard className="w-3.5 h-3.5 text-[#FEC401]" />
-                  10% Advance Deposit Model
+                  Transparent Fixed Rates
                 </span>
               </div>
             </div>
@@ -422,7 +376,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                     href={`/book-cab?service=${bookingCategoryKey}&vehicle=${currentHeroVehicle.id}`}
                     className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-between shadow-md transition-all active:translate-y-0.5 group"
                   >
-                    <span>Reserve {currentHeroVehicle.name} (10% Advance)</span>
+                    <span>Reserve {currentHeroVehicle.name}</span>
                     <ArrowRight className="w-3.5 h-3.5 text-[#000B3B] group-hover:translate-x-0.5 transition-transform" />
                   </Link>
                 </div>
@@ -433,9 +387,109 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 2: WHY CHOOSE CABJATRA + COMPARISON MATRIX                        */}
+      {/* SECTION 2: COMMERCIAL FLEET SELECTION                                     */}
       {/* ========================================================================= */}
       <section className="py-16 sm:py-20 bg-white border-b border-[#E2E8F0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
+              <Car className="w-3.5 h-3.5 text-[#FEC401]" />
+              <span>Commercial Fleet Selection</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
+              Choose the Right Cab for Your Journey
+            </h2>
+            <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+              All vehicles are 100% commercial yellow-board registered, fully AC equipped, and maintained to pristine passenger hygiene standards.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {VEHICLE_FLEET.slice(1, 4).map((vehicle) => (
+              <div
+                key={vehicle.id}
+                className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group"
+              >
+                {/* Visual Car Photo Frame with Luxury Ambient Lighting */}
+                <div className="relative h-52 sm:h-56 bg-gradient-to-br from-[#00082E] via-[#001162] to-[#02146B] p-4 flex items-center justify-center overflow-hidden border-b border-white/10">
+                  {/* Subtle Ambient Radial Glow */}
+                  <div className="absolute inset-0 bg-radial-[at_center_center] from-[#FEC401]/20 to-transparent pointer-events-none" />
+
+                  {/* Top Badges */}
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-[#FEC401]/50 text-[10px] font-bold text-[#FEC401] shadow-sm">
+                    {vehicle.tag || "Commercial AC"}
+                  </div>
+                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[10.5px] font-extrabold text-white shadow-sm">
+                    Base ₹{vehicle.ratePerKm}/km
+                  </div>
+
+                  <Image
+                    src={vehicle.image}
+                    alt={vehicle.name}
+                    width={320}
+                    height={180}
+                    className="object-contain max-h-40 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)]"
+                  />
+
+                  {/* Bottom Strip Badge */}
+                  <div className="absolute bottom-2.5 left-3 px-2.5 py-0.5 rounded-md bg-black/50 backdrop-blur-md border border-white/10 text-[9.5px] text-[#10B981] font-bold">
+                    ● Yellow-Board Commercial AC
+                  </div>
+                </div>
+
+                {/* Details Body */}
+                <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
+                        {vehicle.name}
+                      </h3>
+                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
+                        Dual-Zone AC
+                      </span>
+                    </div>
+
+                    <p className="text-xs font-semibold text-[#02146B] mb-2">
+                      {vehicle.models}
+                    </p>
+
+                    <p className="text-xs text-[#64748B] leading-relaxed line-clamp-2">
+                      {vehicle.subtitle}
+                    </p>
+                  </div>
+
+                  {/* Specs Pill Grid */}
+                  <div className="grid grid-cols-2 gap-2 text-[11px] text-[#475569] pt-2 border-t border-[#F1F5F9]">
+                    <div className="flex items-center gap-1.5 p-2 rounded-xl bg-[#F8FAFC]">
+                      <Users className="w-3.5 h-3.5 text-[#000B3B]" />
+                      <span>{vehicle.passengers} Passengers</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 p-2 rounded-xl bg-[#F8FAFC]">
+                      <Briefcase className="w-3.5 h-3.5 text-[#000B3B]" />
+                      <span>{vehicle.luggage} Luggage Bags</span>
+                    </div>
+                  </div>
+
+                  <div className="pt-2">
+                    <Link
+                      href={`/book-cab?service=${bookingCategoryKey}&vehicle=${vehicle.id}`}
+                      className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-between shadow-sm transition-all group-hover:shadow border border-white/10"
+                    >
+                      <span>Reserve {vehicle.name}</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* SECTION 3: WHY CHOOSE CABJATRA + COMPARISON MATRIX                        */}
+      {/* ========================================================================= */}
+      <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
@@ -472,7 +526,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               const defaultPills = [
                 "✓ Real-Time Delay Buffer",
                 "✓ 0% App Cancellation",
-                "✓ 10% Advance Deposit",
+                "✓ Transparent Fixed Tariffs",
               ];
               const cardPill = pt.badge || defaultPills[i % defaultPills.length];
 
@@ -601,106 +655,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* SECTION 3: COMMERCIAL AC FLEET SHOWCASE                                   */}
-      {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-white px-3.5 py-1.5 rounded-full border border-[#CBD5E1] shadow-xs">
-              <Car className="w-3.5 h-3.5 text-[#FEC401]" />
-              <span>Commercial Fleet Selection</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
-              Choose the Right Cab for Your Journey
-            </h2>
-            <p className="text-xs sm:text-sm text-[#64748B] mt-2">
-              Every vehicle in our fleet is yellow-board commercial registered, climate-controlled, sanitized before every assignment, and operated by a verified local driver.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {VEHICLE_FLEET.slice(1, 4).map((vehicle) => (
-              <div
-                key={vehicle.id}
-                className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group"
-              >
-                {/* Visual Car Photo Frame with Luxury Ambient Lighting */}
-                <div className="relative h-52 sm:h-56 bg-gradient-to-br from-[#00082E] via-[#001162] to-[#02146B] p-4 flex items-center justify-center overflow-hidden border-b border-white/10">
-                  {/* Subtle Ambient Radial Glow */}
-                  <div className="absolute inset-0 bg-radial-[at_center_center] from-[#FEC401]/20 to-transparent pointer-events-none" />
-
-                  {/* Top Badges */}
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-[#FEC401]/50 text-[10px] font-bold text-[#FEC401] shadow-sm">
-                    {vehicle.tag || "Commercial Class"}
-                  </div>
-                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[10.5px] font-extrabold text-white shadow-sm">
-                    Base ₹{vehicle.ratePerKm}/km
-                  </div>
-
-                  <Image
-                    src={vehicle.image}
-                    alt={vehicle.name}
-                    width={320}
-                    height={180}
-                    className="object-contain max-h-40 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)]"
-                  />
-
-                  {/* Bottom Strip Badge */}
-                  <div className="absolute bottom-2.5 left-3 px-2.5 py-0.5 rounded-md bg-black/50 backdrop-blur-md border border-white/10 text-[9.5px] text-[#10B981] font-bold">
-                    ● Yellow-Board Commercial AC
-                  </div>
-                </div>
-
-                {/* Details Body */}
-                <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between mb-1.5">
-                      <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
-                        {vehicle.name}
-                      </h3>
-                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
-                        Dual-Zone AC
-                      </span>
-                    </div>
-
-                    <p className="text-xs font-semibold text-[#02146B] mb-2">
-                      {vehicle.models}
-                    </p>
-
-                    <p className="text-xs text-[#64748B] leading-relaxed line-clamp-2">
-                      {vehicle.subtitle}
-                    </p>
-                  </div>
-
-                  {/* Specs Pill Grid */}
-                  <div className="grid grid-cols-2 gap-2 text-[11px] text-[#475569] pt-2 border-t border-[#F1F5F9]">
-                    <div className="flex items-center gap-2 p-2.5 rounded-xl bg-[#F8FAFC] border border-[#F1F5F9]">
-                      <Users className="w-3.5 h-3.5 text-[#000B3B]" />
-                      <span className="font-semibold">{vehicle.passengers} Passengers</span>
-                    </div>
-                    <div className="flex items-center gap-2 p-2.5 rounded-xl bg-[#F8FAFC] border border-[#F1F5F9]">
-                      <Briefcase className="w-3.5 h-3.5 text-[#000B3B]" />
-                      <span className="font-semibold">{vehicle.luggage} Luggage Bags</span>
-                    </div>
-                  </div>
-
-                  {/* Booking CTA */}
-                  <div className="pt-2">
-                    <Link
-                      href={`/book-cab?service=${bookingCategoryKey}&vehicle=${vehicle.id}`}
-                      className="w-full py-3 px-4 rounded-2xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-between shadow-md transition-all group-hover:scale-[1.01] border border-white/10"
-                    >
-                      <span>Reserve {vehicle.name} (10% Advance)</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ========================================================================= */}
       {/* SECTION 4: ROUTE PROFILES & FLEET AVAILABILITY CORRIDOR DECK             */}
@@ -718,7 +673,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                   Curated Transit Corridors &amp; Indicative Tariffs
                 </h2>
                 <p className="text-xs sm:text-sm text-[#64748B] mt-2">
-                  Transparent fare benchmarks for frequent routes. Pre-book your cab with a 10% advance deposit.
+                  Transparent fare benchmarks for frequent routes. Pre-book your cab with guaranteed confirmation and zero surge pricing.
                 </p>
               </div>
               <div className="text-[11px] text-[#000B3B] font-bold bg-[#FFFBEB] px-3.5 py-2 rounded-2xl border border-[#FEF08A] shadow-xs inline-flex items-center gap-2 self-start sm:self-auto">
@@ -796,7 +751,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                   <div className="pt-2 flex items-center justify-between border-t border-[#F1F5F9]">
                     <span className="text-[11px] text-[#64748B] font-medium flex items-center gap-1">
                       <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
-                      <span>10% Advance Deposit</span>
+                      <span>Transparent Pricing</span>
                     </span>
                     <Link
                       href={`/book-cab?service=${bookingCategoryKey}&to=${encodeURIComponent(
@@ -1186,7 +1141,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
           </h2>
 
           <p className="text-xs sm:text-sm text-[#F1F5F9]/80 max-w-xl mx-auto leading-relaxed">
-            Submit your travel route and date. Our dispatch team allocates a certified commercial yellow-board car and sends your driver voucher with a simple 10% advance deposit.
+            Submit your travel route and date. Our dispatch team allocates a certified commercial yellow-board car and sends your verified driver voucher with instant confirmation.
           </p>
 
           <div className="pt-4 flex flex-wrap justify-center gap-3.5">
@@ -1195,7 +1150,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               className="px-7 py-3.5 rounded-full bg-gradient-to-b from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-extrabold text-xs inline-flex items-center gap-2 border-t border-white/40 shadow-skeuo-gold hover:brightness-105 active:translate-y-0.5 transition-all"
             >
               <Car className="w-4 h-4 text-[#000B3B]" />
-              <span>Reserve Your Cab (10% Advance)</span>
+              <span>Reserve Your Cab Now</span>
               <ArrowRight className="w-4 h-4 text-[#000B3B]" />
             </Link>
 
@@ -1212,7 +1167,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
           <div className="pt-6 flex flex-wrap items-center justify-center gap-6 text-[11px] text-white/70 border-t border-white/10">
             <span>🛡️ 100% Commercial Fleet</span>
             <span>⚡ Zero Surge Pricing Guarantee</span>
-            <span>💳 10% Advance Deposit Model</span>
+            <span>💳 Transparent Fixed Tariffs</span>
           </div>
         </div>
       </section>

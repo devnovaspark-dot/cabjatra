@@ -28,6 +28,7 @@ import {
   Palmtree,
   CreditCard,
   Check,
+  AirVent,
 } from "lucide-react";
 import { COMPANY_CONFIG } from "@/data/company";
 import { VEHICLE_FLEET } from "@/data/vehicles";
@@ -158,47 +159,24 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                 </p>
               )}
 
-              {/* 4-Pillar Tour Highlights & Guarantees Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-1 text-left max-w-2xl mx-auto lg:mx-0">
-                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 flex items-start gap-2.5 shadow-soft">
-                  <div className="w-8 h-8 rounded-xl bg-[#FEC401]/20 flex items-center justify-center shrink-0 border border-[#FEC401]/40 mt-0.5">
-                    <Car className="w-4 h-4 text-[#FEC401]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-white leading-tight">Private Dedicated AC Cab</h4>
-                    <p className="text-[10.5px] text-[#CBD5E1] leading-tight mt-0.5">Sedan, Innova Crysta or Tempo with driver</p>
-                  </div>
-                </div>
-
-                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 flex items-start gap-2.5 shadow-soft">
-                  <div className="w-8 h-8 rounded-xl bg-[#FEC401]/20 flex items-center justify-center shrink-0 border border-[#FEC401]/40 mt-0.5">
-                    <Clock className="w-4 h-4 text-[#FEC401]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-white leading-tight">100% Flexible Sightseeing</h4>
-                    <p className="text-[10.5px] text-[#CBD5E1] leading-tight mt-0.5">Unhurried temple visits & patient driver waiting</p>
-                  </div>
-                </div>
-
-                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 flex items-start gap-2.5 shadow-soft">
-                  <div className="w-8 h-8 rounded-xl bg-[#FEC401]/20 flex items-center justify-center shrink-0 border border-[#FEC401]/40 mt-0.5">
-                    <MapPin className="w-4 h-4 text-[#FEC401]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-white leading-tight">Doorstep Terminal Pickups</h4>
-                    <p className="text-[10.5px] text-[#CBD5E1] leading-tight mt-0.5">Complimentary BBI airport or hotel lobby meet</p>
-                  </div>
-                </div>
-
-                <div className="p-2.5 sm:p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 flex items-start gap-2.5 shadow-soft">
-                  <div className="w-8 h-8 rounded-xl bg-[#FEC401]/20 flex items-center justify-center shrink-0 border border-[#FEC401]/40 mt-0.5">
-                    <CreditCard className="w-4 h-4 text-[#FEC401]" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-white leading-tight">10% Advance Deposit</h4>
-                    <p className="text-[10.5px] text-[#CBD5E1] leading-tight mt-0.5">Lock entire tour with 10%, pay 90% at drop</p>
-                  </div>
-                </div>
+              {/* Sleek Feature Assurances Single Strip */}
+              <div className="pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs">
+                <span className="px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white font-medium flex items-center gap-1.5 shadow-soft">
+                  <Car className="w-3.5 h-3.5 text-[#FEC401]" />
+                  <span>100% Commercial Fleet</span>
+                </span>
+                <span className="px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white font-medium flex items-center gap-1.5 shadow-soft">
+                  <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
+                  <span>Flexible Sightseeing</span>
+                </span>
+                <span className="px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white font-medium flex items-center gap-1.5 shadow-soft">
+                  <AirVent className="w-3.5 h-3.5 text-[#FEC401]" />
+                  <span>Chilled Dual AC</span>
+                </span>
+                <span className="px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white font-medium flex items-center gap-1.5 shadow-soft">
+                  <MapPin className="w-3.5 h-3.5 text-[#FEC401]" />
+                  <span>Doorstep Terminal Pickups</span>
+                </span>
               </div>
 
               {/* Circuit Feature Highlights Pills */}
@@ -224,7 +202,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   className="px-6 py-3.5 rounded-full bg-gradient-to-b from-[#FEC401] to-[#E5AD00] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 text-[#000B3B] font-extrabold text-xs inline-flex items-center gap-2 active:translate-y-0.5 transition-all"
                 >
                   <Palmtree className="w-4 h-4 text-[#000B3B]" />
-                  <span>Reserve This Tour (10% Advance)</span>
+                  <span>Reserve This Tour Package</span>
                   <ArrowRight className="w-4 h-4 text-[#000B3B]" />
                 </Link>
 
@@ -247,7 +225,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#FEC401]" />
-                  10% Advance Deposit Model
+                  Guaranteed Tariff Lock
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
@@ -301,7 +279,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                         Tariff Guarantee
                       </span>
                       <span className="text-xs sm:text-sm font-extrabold text-[#10B981] bg-[#10B981]/15 px-2.5 py-1 rounded-full border border-[#10B981]/30 inline-block mt-0.5">
-                        ✓ 10% Advance Deposit
+                        ✓ Guaranteed Tariff Lock
                       </span>
                     </div>
                   </div>
@@ -337,7 +315,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                     className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-extrabold text-xs flex items-center justify-center gap-2 shadow-skeuo-gold hover:brightness-105 active:scale-98 transition-all"
                   >
                     <Palmtree className="w-4 h-4 text-[#000B3B]" />
-                    <span>Reserve This Tour Package (10% Advance)</span>
+                    <span>Reserve This Tour Package</span>
                     <ArrowRight className="w-4 h-4 text-[#000B3B]" />
                   </Link>
                 </div>
@@ -348,9 +326,109 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 2: POPULAR DESTINATIONS & ATTRACTIONS COVERED                    */}
+      {/* SECTION 2: VEHICLE FLEET AVAILABLE FOR THIS TOUR                          */}
       {/* ========================================================================= */}
       <section className="py-16 sm:py-20 bg-white border-b border-[#E2E8F0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
+              <Car className="w-3.5 h-3.5 text-[#FEC401]" />
+              <span>Tour Vehicle Classes</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
+              Choose the Right Cab for Your Tour
+            </h2>
+            <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+              Comfort is paramount on multi-hour road trips. Select from our commercial yellow-board sedans, spacious Innova Crystas, or luxury Tempo Travellers.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {VEHICLE_FLEET.slice(1, 4).map((vehicle) => (
+              <div
+                key={vehicle.id}
+                className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group"
+              >
+                {/* Visual Car Photo Frame with Luxury Ambient Lighting */}
+                <div className="relative h-52 sm:h-56 bg-gradient-to-br from-[#00082E] via-[#001162] to-[#02146B] p-4 flex items-center justify-center overflow-hidden border-b border-white/10">
+                  {/* Subtle Ambient Radial Glow */}
+                  <div className="absolute inset-0 bg-radial-[at_center_center] from-[#FEC401]/20 to-transparent pointer-events-none" />
+
+                  {/* Top Badges */}
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-[#FEC401]/50 text-[10px] font-bold text-[#FEC401] shadow-sm">
+                    {vehicle.tag || "Tour Class"}
+                  </div>
+                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[10.5px] font-extrabold text-white shadow-sm">
+                    Base ₹{vehicle.ratePerKm}/km
+                  </div>
+
+                  <Image
+                    src={vehicle.image}
+                    alt={vehicle.name}
+                    width={320}
+                    height={180}
+                    className="object-contain max-h-40 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)]"
+                  />
+
+                  {/* Bottom Strip Badge */}
+                  <div className="absolute bottom-2.5 left-3 px-2.5 py-0.5 rounded-md bg-black/50 backdrop-blur-md border border-white/10 text-[9.5px] text-[#10B981] font-bold">
+                    ● Yellow-Board Commercial AC
+                  </div>
+                </div>
+
+                {/* Details Body */}
+                <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
+                        {vehicle.name}
+                      </h3>
+                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
+                        Dual-Zone AC
+                      </span>
+                    </div>
+
+                    <p className="text-xs font-semibold text-[#02146B] mb-2">
+                      {vehicle.models}
+                    </p>
+
+                    <p className="text-xs text-[#64748B] leading-relaxed line-clamp-2">
+                      {vehicle.subtitle}
+                    </p>
+                  </div>
+
+                  {/* Specs Pill Grid */}
+                  <div className="grid grid-cols-2 gap-2 text-[11px] text-[#475569] pt-2 border-t border-[#F1F5F9]">
+                    <div className="flex items-center gap-1.5 p-2 rounded-xl bg-[#F8FAFC]">
+                      <Users className="w-3.5 h-3.5 text-[#000B3B]" />
+                      <span>{vehicle.passengers} Passengers</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 p-2 rounded-xl bg-[#F8FAFC]">
+                      <Briefcase className="w-3.5 h-3.5 text-[#000B3B]" />
+                      <span>{vehicle.luggage} Luggage Bags</span>
+                    </div>
+                  </div>
+
+                  <div className="pt-2">
+                    <Link
+                      href={`/book-tour?destination=${bookingTourSlug}&vehicle=${vehicle.id}`}
+                      className="w-full py-3 px-4 rounded-xl bg-gradient-to-b from-[#000B3B] to-[#02146B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-between shadow-sm transition-all group-hover:shadow"
+                    >
+                      <span>Select {vehicle.name}</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* SECTION 3: POPULAR DESTINATIONS & ATTRACTIONS COVERED                    */}
+      {/* ========================================================================= */}
+      <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
@@ -461,7 +539,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               </div>
               <div className="text-[11px] text-[#000B3B] font-bold bg-[#FFFBEB] px-3.5 py-2 rounded-2xl border border-[#FEF08A] shadow-xs inline-flex items-center gap-2 self-start sm:self-auto">
                 <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
-                <span>10% Advance Deposit Model</span>
+                <span>Guaranteed Fixed Tariffs</span>
               </div>
             </div>
 
@@ -587,106 +665,6 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
           </div>
         </section>
       )}
-
-      {/* ========================================================================= */}
-      {/* SECTION 5: VEHICLE FLEET AVAILABLE FOR THIS TOUR                          */}
-      {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-white px-3.5 py-1.5 rounded-full border border-[#CBD5E1] shadow-xs">
-              <Car className="w-3.5 h-3.5 text-[#FEC401]" />
-              <span>Tour Vehicle Classes</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
-              Choose the Right Cab for Your Tour
-            </h2>
-            <p className="text-xs sm:text-sm text-[#64748B] mt-2">
-              Comfort is paramount on multi-hour road trips. Select from our commercial yellow-board sedans, spacious Innova Crystas, or luxury Tempo Travellers.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {VEHICLE_FLEET.slice(1, 4).map((vehicle) => (
-              <div
-                key={vehicle.id}
-                className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group"
-              >
-                {/* Visual Car Photo Frame with Luxury Ambient Lighting */}
-                <div className="relative h-52 sm:h-56 bg-gradient-to-br from-[#00082E] via-[#001162] to-[#02146B] p-4 flex items-center justify-center overflow-hidden border-b border-white/10">
-                  {/* Subtle Ambient Radial Glow */}
-                  <div className="absolute inset-0 bg-radial-[at_center_center] from-[#FEC401]/20 to-transparent pointer-events-none" />
-
-                  {/* Top Badges */}
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-[#FEC401]/50 text-[10px] font-bold text-[#FEC401] shadow-sm">
-                    {vehicle.tag || "Tour Class"}
-                  </div>
-                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[10.5px] font-extrabold text-white shadow-sm">
-                    Base ₹{vehicle.ratePerKm}/km
-                  </div>
-
-                  <Image
-                    src={vehicle.image}
-                    alt={vehicle.name}
-                    width={320}
-                    height={180}
-                    className="object-contain max-h-40 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)]"
-                  />
-
-                  {/* Bottom Strip Badge */}
-                  <div className="absolute bottom-2.5 left-3 px-2.5 py-0.5 rounded-md bg-black/50 backdrop-blur-md border border-white/10 text-[9.5px] text-[#10B981] font-bold">
-                    ● Yellow-Board Commercial AC
-                  </div>
-                </div>
-
-                {/* Details Body */}
-                <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between mb-1.5">
-                      <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
-                        {vehicle.name}
-                      </h3>
-                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
-                        Dual-Zone AC
-                      </span>
-                    </div>
-
-                    <p className="text-xs font-semibold text-[#02146B] mb-2">
-                      {vehicle.models}
-                    </p>
-
-                    <p className="text-xs text-[#64748B] leading-relaxed line-clamp-2">
-                      {vehicle.subtitle}
-                    </p>
-                  </div>
-
-                  {/* Specs Pill Grid */}
-                  <div className="grid grid-cols-2 gap-2 text-[11px] text-[#475569] pt-2 border-t border-[#F1F5F9]">
-                    <div className="flex items-center gap-1.5 p-2 rounded-xl bg-[#F8FAFC]">
-                      <Users className="w-3.5 h-3.5 text-[#000B3B]" />
-                      <span>{vehicle.passengers} Passengers</span>
-                    </div>
-                    <div className="flex items-center gap-1.5 p-2 rounded-xl bg-[#F8FAFC]">
-                      <Briefcase className="w-3.5 h-3.5 text-[#000B3B]" />
-                      <span>{vehicle.luggage} Luggage Bags</span>
-                    </div>
-                  </div>
-
-                  <div className="pt-2">
-                    <Link
-                      href={`/book-tour?destination=${bookingTourSlug}&vehicle=${vehicle.id}`}
-                      className="w-full py-3 px-4 rounded-xl bg-gradient-to-b from-[#000B3B] to-[#02146B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-between shadow-sm transition-all group-hover:shadow"
-                    >
-                      <span>Select {vehicle.name}</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ========================================================================= */}
       {/* SECTION 6: WHY CHOOSE CABJATRA FOR ODISHA TOURS                           */}
@@ -1113,7 +1091,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
           </h2>
 
           <p className="text-xs sm:text-sm text-[#F1F5F9]/80 max-w-xl mx-auto leading-relaxed">
-            Pick your dates, choose your preferred vehicle, and let our verified local chauffeurs show you the best of Odisha. Confirmed with a transparent 10% advance deposit.
+            Pick your dates, choose your preferred vehicle, and let our verified local chauffeurs show you the best of Odisha. Confirmed with guaranteed vehicle allocation and zero surge pricing.
           </p>
 
           <div className="pt-4 flex flex-wrap justify-center gap-3.5">
@@ -1122,7 +1100,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               className="px-7 py-3.5 rounded-full bg-gradient-to-b from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-extrabold text-xs inline-flex items-center gap-2 border-t border-white/40 shadow-skeuo-gold hover:brightness-105 active:translate-y-0.5 transition-all"
             >
               <Palmtree className="w-4 h-4 text-[#000B3B]" />
-              <span>Book Your Cab Tour (10% Advance)</span>
+              <span>Book Your Cab Tour Now</span>
               <ArrowRight className="w-4 h-4 text-[#000B3B]" />
             </Link>
 
@@ -1138,7 +1116,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
           <div className="pt-6 flex flex-wrap items-center justify-center gap-6 text-[11px] text-white/70 border-t border-white/10">
             <span>🛡️ 100% Commercial Yellow-Board Fleet</span>
             <span>⭐ Experienced Local Chauffeurs</span>
-            <span>💳 10% Advance Deposit Model</span>
+            <span>💳 Transparent Fixed Tariffs</span>
           </div>
         </div>
       </section>

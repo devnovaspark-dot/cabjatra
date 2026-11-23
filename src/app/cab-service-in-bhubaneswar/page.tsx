@@ -33,10 +33,10 @@ export default function CabServiceInBhubaneswarPage() {
         },
         {
           title: "Fixed Transparent Kilometre Pricing",
-          desc: "No peak hour surge traps, no offline AC negotiation haggling. A simple 10% advance deposit locks your vehicle, with the remaining 90% settled at your destination drop.",
+          desc: "No peak hour surge traps, no offline AC negotiation haggling. Guaranteed vehicle allocation locks your ride, with transparent billing settled at your destination drop.",
           image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=800&auto=format&fit=crop",
           tag: "Fixed Kilometer Tariffs",
-          badge: "✓ 10% Advance Deposit",
+          badge: "✓ Transparent Fixed Tariffs",
         },
       ]}
       routeFares={[
@@ -92,7 +92,7 @@ export default function CabServiceInBhubaneswarPage() {
         },
         {
           q: "What payment methods are supported?",
-          a: "You can secure your ride with a quick 10% advance deposit via UPI, GPay, PhonePe, or Cards. The remaining 90% is payable directly at drop via cash or UPI.",
+          a: "You can secure your ride with instant online booking via UPI, GPay, PhonePe, or Cards, and pay directly at drop via cash or UPI with zero surge pricing.",
         },
       ]}
     />

@@ -174,7 +174,7 @@ export default function OdishaTourPackageByCabPage() {
     },
     {
       title: "Easy Tour Planning & Booking",
-      desc: "Arrange your pickup point, route schedule, and dedicated vehicle in one place with a transparent 10% advance deposit.",
+      desc: "Arrange your pickup point, route schedule, and dedicated vehicle in one place with transparent fixed tariffs and instant booking.",
     },
     {
       title: "Explore More at Your Own Pace",
@@ -230,7 +230,7 @@ export default function OdishaTourPackageByCabPage() {
     },
     {
       q: "How can I book an Odisha tour package with Cabjatra?",
-      a: "You can book directly through our online Tour Planner on the website or reach our 24/7 WhatsApp Operations Desk with your travel dates, passenger count, and preferred route. Lock your reservation with a transparent 10% advance deposit, with the remaining 90% settled during your trip.",
+      a: "You can book directly through our online Tour Planner on the website or reach our 24/7 WhatsApp Operations Desk with your travel dates, passenger count, and preferred route. Lock your reservation with guaranteed car allocation and zero hidden charges.",
     },
   ];
 
@@ -243,7 +243,7 @@ export default function OdishaTourPackageByCabPage() {
       heroImage="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=1600&auto=format&fit=crop"
       overview="Explore the beauty, culture, temples, beaches and heritage of Odisha with an Odisha Tour Package offered by Cab from Cabjatra. Travel at your pace with a private cab, experienced driver and flexible sightseeing options covering Bhubaneswar, Puri, Konark, Chilika and popular destinations. Whether you are planning a family vacation, a temple visit, a weekend getaway or a multi-day Odisha road trip, enjoy a hassle-free journey with travel itineraries designed around your preferences."
       durationBadge="3 to 5 Days • 100% Flexible"
-      startingFromNote="Transparent Tariff • 10% Advance"
+      startingFromNote="Transparent Tariff • Instant Confirmation"
       destinations={destinations}
       packages={packages}
       itineraryDays={itineraryDays}

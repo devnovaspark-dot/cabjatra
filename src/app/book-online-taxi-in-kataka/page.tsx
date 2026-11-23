@@ -87,8 +87,8 @@ export default function BookOnlineTaxiInKatakaPage() {
           a: "Yes! We run regular point-to-point airport drops from all Kataka neighborhoods directly to the departure terminal at BBI Airport with zero delays.",
         },
         {
-          q: "How does the 10% advance deposit work?",
-          a: "Once your cab details are assigned, you pay a simple 10% advance deposit via UPI or Card to lock the driver and vehicle. The remaining 90% is paid directly at drop.",
+          q: "How does booking confirmation and payment work?",
+          a: "Once your cab details are assigned, your vehicle and verified driver are locked instantly. You can pay conveniently via UPI or cash directly at your destination drop.",
         },
         {
           q: "Can I hire a cab in Kataka for waiting during High Court hearings?",

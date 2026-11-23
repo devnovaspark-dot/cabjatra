@@ -142,7 +142,7 @@ export default function BhubaneswarTourPackagesPage() {
     },
     {
       title: "Fixed Transparent Tariffs",
-      desc: "Pay a nominal 10% advance deposit to lock your car. No hidden driver food charges or arbitrary kilometer inflation.",
+      desc: "Guaranteed fixed tariffs lock your car. No hidden driver food charges or arbitrary kilometer inflation.",
     },
     {
       title: "Punctual Airport & Station Pickups",
@@ -185,7 +185,7 @@ export default function BhubaneswarTourPackagesPage() {
     },
     {
       q: "How do I book a Bhubaneswar cab tour with Cabjatra?",
-      a: "Select your preferred tour package on our website, pay a simple 10% advance deposit, and receive your driver's contact details and vehicle voucher instantly via WhatsApp.",
+      a: "Select your preferred tour package on our website, receive instant confirmation, and get your driver's contact details and vehicle voucher instantly via WhatsApp.",
     },
   ];
 
@@ -198,7 +198,7 @@ export default function BhubaneswarTourPackagesPage() {
       heroImage="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=85&w=1600&auto=format&fit=crop"
       overview="Discover Bhubaneswar, the ancient capital of Kalinga and the Temple City of India. Home to over 500 ancient sandstone shrines, Emperor Ashoka's rock edicts at Dhauli, and the rock-hewn Jain monastic caves of Udayagiri, Bhubaneswar offers an extraordinary journey into India's spiritual and architectural heritage. Travel effortlessly with CABJATRA's private commercial AC cabs, verified local chauffeurs, and flexible itineraries tailored to your family's pace."
       durationBadge="Half Day to Full Day • 100% Flexible"
-      startingFromNote="From ₹1,199 • 10% Advance Deposit"
+      startingFromNote="From ₹1,199 • Instant Confirmation"
       destinations={destinations}
       packages={packages}
       itineraryDays={itineraryDays}

@@ -142,7 +142,7 @@ export default function PuriTourPackagesPage() {
     },
     {
       title: "Fixed Transparent Tariffs",
-      desc: "No peak-season surge traps or arbitrary pricing haggling during Rath Yatra or festival weekends. Guaranteed 10% advance deposit model.",
+      desc: "No peak-season surge traps or arbitrary pricing haggling during Rath Yatra or festival weekends. Guaranteed fixed transparent tariffs.",
     },
     {
       title: "Guaranteed Commercial Fleet",
@@ -185,7 +185,7 @@ export default function PuriTourPackagesPage() {
     },
     {
       q: "How do I book a Puri cab tour package with Cabjatra?",
-      a: "Choose your preferred Puri tour package on our website, pay a simple 10% advance deposit, and receive your driver's contact details and vehicle confirmation voucher instantly via WhatsApp.",
+      a: "Choose your preferred Puri tour package on our website, receive instant confirmation, and get your driver's contact details and vehicle confirmation voucher instantly via WhatsApp.",
     },
   ];
 
@@ -198,7 +198,7 @@ export default function PuriTourPackagesPage() {
       heroImage="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=85&w=1600&auto=format&fit=crop"
       overview="Visit the sacred abode of Mahaprabhu Jagannath with total peace of mind. As one of India's revered Char Dham pilgrimages, Puri is blessed with ancient spiritual energy, the vibrant Grand Road, the pristine Blue Flag Golden Beach, and the breathtaking coastal expressway to Konark. CABJATRA delivers 100% yellow-board commercial AC cabs, verified drivers who know every temple corridor bypass, and safe custody of your belongings during darshan."
       durationBadge="1 to 3 Days • 100% Flexible"
-      startingFromNote="From ₹1,450 • 10% Advance Deposit"
+      startingFromNote="From ₹1,450 • Guaranteed Fixed Tariffs"
       destinations={destinations}
       packages={packages}
       itineraryDays={itineraryDays}

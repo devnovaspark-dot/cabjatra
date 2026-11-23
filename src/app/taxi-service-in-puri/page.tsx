@@ -33,10 +33,10 @@ export default function TaxiServiceInPuriPage() {
         },
         {
           title: "Transparent Fixed Tariffs",
-          desc: "Never worry about inflated tourist pricing during Rath Yatra, holidays, or festival seasons. What you see is what you pay, backed by our 10% advance deposit model.",
+          desc: "Never worry about inflated tourist pricing during Rath Yatra, holidays, or festival seasons. What you see is what you pay, backed by our transparent fixed tariff guarantee.",
           image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=800&auto=format&fit=crop",
           tag: "Fixed Transparent Tariffs",
-          badge: "✓ 10% Advance Deposit",
+          badge: "✓ Transparent Fixed Tariffs",
         },
       ]}
       routeFares={[
