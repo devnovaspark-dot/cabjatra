@@ -234,74 +234,53 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Clean, Uncluttered Visual Destination Card with Rich Lower Deck (5 Cols) */}
+            {/* Right Column: High-Impact Cinematic Hero Visual Showcase (5 Cols) */}
             <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-              <div className="relative rounded-3xl overflow-hidden border-2 border-white/25 shadow-[0_24px_60px_rgba(0,0,0,0.7)] bg-[#000B3B] group">
-                {/* Visual Area with Destination Hero Image - Clean & Uncluttered */}
-                <div className="relative h-72 sm:h-80 w-full overflow-hidden">
-                  <Image
-                    src={heroImage}
-                    alt={title}
-                    fill
-                    priority
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                  />
+              <div className="relative rounded-[32px] overflow-hidden border border-white/20 shadow-[0_25px_70px_rgba(0,0,0,0.55)] bg-[#00082E] group h-[380px] sm:h-[430px]">
+                {/* Visual Area with Destination Hero Image - Clean, Edge-to-Edge */}
+                <Image
+                  src={heroImage}
+                  alt={title}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
 
-                  {/* Gentle Gradient at Top Edge for Badge Readability Only */}
-                  <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/70 via-black/30 to-transparent pointer-events-none" />
+                {/* Subtle Cinematic Vignette Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B] via-[#000B3B]/35 to-transparent pointer-events-none" />
 
-                  {/* Top Floating Badge */}
-                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-[#FEC401]/60 text-[11px] font-bold text-[#FEC401] shadow-lg flex items-center gap-1.5">
+                {/* Top Floating Glass Badges */}
+                <div className="absolute top-4 inset-x-4 flex items-center justify-between pointer-events-none">
+                  <div className="px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#FEC401]/60 text-[11px] font-bold text-[#FEC401] shadow-lg flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
                     <span>{badge.split("&bull;")[0].trim()}</span>
                   </div>
 
-                  {/* Top Right Duration Pill */}
-                  <div className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/25 text-[11px] font-bold text-white shadow-lg flex items-center gap-1.5">
+                  <div className="px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[11px] font-bold text-white shadow-lg flex items-center gap-1.5">
                     <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
                     <span>{durationBadge}</span>
                   </div>
                 </div>
 
-                {/* Card Bottom Action Deck */}
-                <div className="p-5 sm:p-6 bg-gradient-to-br from-[#02146B] to-[#000B3B] space-y-3.5 border-t border-white/15">
-                  <div className="flex items-center justify-between">
+                {/* Bottom Floating Glass Action Deck */}
+                <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/15 space-y-2.5">
+                  <div className="flex items-center justify-between text-white">
                     <div>
                       <span className="text-[10px] uppercase font-bold tracking-wider text-[#FEC401] block">
                         Private Chauffeur Tour
                       </span>
-                      <span className="text-base sm:text-lg font-bold text-white font-display">
+                      <span className="text-sm font-bold text-white font-display">
                         All Sightseeing Stops Covered
                       </span>
                     </div>
-                    <div className="text-right">
-                      <span className="text-[10px] font-bold text-[#94A3B8] uppercase block">
-                        Tariff Guarantee
-                      </span>
-                      <span className="text-xs sm:text-sm font-extrabold text-[#10B981] bg-[#10B981]/15 px-2.5 py-1 rounded-full border border-[#10B981]/30 inline-block mt-0.5">
-                        ✓ Guaranteed Tariff Lock
-                      </span>
-                    </div>
+                    <span className="text-[10.5px] font-bold text-[#10B981] bg-[#10B981]/20 px-2.5 py-1 rounded-full border border-[#10B981]/30">
+                      ✓ Guaranteed Tariff Lock
+                    </span>
                   </div>
 
-                  {/* Vehicle Fleet Choices Micro-Pills */}
-                  <div className="grid grid-cols-3 gap-2 text-center text-[10.5px] text-white/85 py-0.5">
-                    <div className="p-1.5 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center gap-1">
-                      <Car className="w-3 h-3 text-[#FEC401]" />
-                      <span>Sedan (4S)</span>
-                    </div>
-                    <div className="p-1.5 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center gap-1">
-                      <Car className="w-3 h-3 text-[#FEC401]" />
-                      <span>Innova (7S)</span>
-                    </div>
-                    <div className="p-1.5 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center gap-1">
-                      <Users className="w-3 h-3 text-[#FEC401]" />
-                      <span>Tempo (17S)</span>
-                    </div>
-                  </div>
-
-                  {/* Inclusions Micro-Strip */}
-                  <div className="flex flex-wrap items-center justify-between gap-2 text-[10.5px] text-[#CBD5E1] pt-1 border-t border-white/10">
+                  {/* Micro reassurance strip */}
+                  <div className="flex items-center justify-between text-[11px] text-[#CBD5E1] pt-1 border-t border-white/10">
                     <span className="flex items-center gap-1">
                       <Check className="w-3 h-3 text-[#10B981]" /> All Fuel &amp; Driver Allowance
                     </span>
@@ -312,11 +291,10 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
 
                   <Link
                     href={`/book-tour?destination=${bookingTourSlug}`}
-                    className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-extrabold text-xs flex items-center justify-center gap-2 shadow-skeuo-gold hover:brightness-105 active:scale-98 transition-all"
+                    className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-between shadow-md transition-all active:translate-y-0.5 group/btn"
                   >
-                    <Palmtree className="w-4 h-4 text-[#000B3B]" />
                     <span>Reserve This Tour Package</span>
-                    <ArrowRight className="w-4 h-4 text-[#000B3B]" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#000B3B] group-hover/btn:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
@@ -347,18 +325,18 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
             {VEHICLE_FLEET.slice(1, 4).map((vehicle) => (
               <div
                 key={vehicle.id}
-                className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(2,20,107,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group"
               >
-                {/* Visual Car Photo Frame with Luxury Ambient Lighting */}
-                <div className="relative h-52 sm:h-56 bg-gradient-to-br from-[#00082E] via-[#001162] to-[#02146B] p-4 flex items-center justify-center overflow-hidden border-b border-white/10">
-                  {/* Subtle Ambient Radial Glow */}
-                  <div className="absolute inset-0 bg-radial-[at_center_center] from-[#FEC401]/20 to-transparent pointer-events-none" />
+                {/* Visual Car Photo Frame with Light Showroom Stage */}
+                <div className="relative h-56 bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9]/70 to-white p-4 flex items-center justify-center overflow-hidden border-b border-[#F1F5F9]">
+                  {/* Subtle Light Radial Glow behind Car */}
+                  <div className="absolute inset-0 bg-radial-[at_center_center] from-[#FEC401]/10 via-transparent to-transparent pointer-events-none" />
 
                   {/* Top Badges */}
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-[#FEC401]/50 text-[10px] font-bold text-[#FEC401] shadow-sm">
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#E2E8F0] text-[10.5px] font-bold text-[#000B3B] shadow-xs">
                     {vehicle.tag || "Tour Class"}
                   </div>
-                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[10.5px] font-extrabold text-white shadow-sm">
+                  <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#000B3B] text-[10.5px] font-bold text-[#FEC401] shadow-xs">
                     Base ₹{vehicle.ratePerKm}/km
                   </div>
 
@@ -367,20 +345,21 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                     alt={vehicle.name}
                     width={320}
                     height={180}
-                    className="object-contain max-h-40 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)]"
+                    className="object-contain max-h-42 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_16px_28px_rgba(0,11,59,0.15)]"
                   />
 
                   {/* Bottom Strip Badge */}
-                  <div className="absolute bottom-2.5 left-3 px-2.5 py-0.5 rounded-md bg-black/50 backdrop-blur-md border border-white/10 text-[9.5px] text-[#10B981] font-bold">
-                    ● Yellow-Board Commercial AC
+                  <div className="absolute bottom-2.5 left-3.5 flex items-center gap-1.5 text-[10px] text-[#16A34A] font-bold">
+                    <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
+                    <span>Yellow-Board Commercial AC</span>
                   </div>
                 </div>
 
                 {/* Details Body */}
-                <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between mb-1.5">
-                      <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
+                <div className="p-6 sm:p-7 space-y-4 flex-1 flex flex-col justify-between">
+                  <div className="space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
                         {vehicle.name}
                       </h3>
                       <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
@@ -388,31 +367,35 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                       </span>
                     </div>
 
-                    <p className="text-xs font-semibold text-[#02146B] mb-2">
+                    <p className="text-xs font-semibold text-[#02146B]">
                       {vehicle.models}
                     </p>
 
-                    <p className="text-xs text-[#64748B] leading-relaxed line-clamp-2">
+                    <p className="text-xs text-[#64748B] leading-relaxed line-clamp-2 pt-0.5">
                       {vehicle.subtitle}
                     </p>
                   </div>
 
-                  {/* Specs Pill Grid */}
-                  <div className="grid grid-cols-2 gap-2 text-[11px] text-[#475569] pt-2 border-t border-[#F1F5F9]">
-                    <div className="flex items-center gap-1.5 p-2 rounded-xl bg-[#F8FAFC]">
-                      <Users className="w-3.5 h-3.5 text-[#000B3B]" />
-                      <span>{vehicle.passengers} Passengers</span>
-                    </div>
-                    <div className="flex items-center gap-1.5 p-2 rounded-xl bg-[#F8FAFC]">
-                      <Briefcase className="w-3.5 h-3.5 text-[#000B3B]" />
-                      <span>{vehicle.luggage} Luggage Bags</span>
-                    </div>
+                  {/* Clean Specs Row (NO NESTED BOXES) */}
+                  <div className="flex items-center justify-between text-xs text-[#475569] pt-3 border-t border-[#F1F5F9]">
+                    <span className="flex items-center gap-1.5 font-medium">
+                      <Users className="w-3.5 h-3.5 text-[#FEC401]" />
+                      <span>{vehicle.passengers} Seats</span>
+                    </span>
+                    <span className="flex items-center gap-1.5 font-medium">
+                      <Briefcase className="w-3.5 h-3.5 text-[#FEC401]" />
+                      <span>{vehicle.luggage} Bags</span>
+                    </span>
+                    <span className="flex items-center gap-1.5 font-medium">
+                      <AirVent className="w-3.5 h-3.5 text-[#16A34A]" />
+                      <span>Dual AC</span>
+                    </span>
                   </div>
 
                   <div className="pt-2">
                     <Link
                       href={`/book-tour?destination=${bookingTourSlug}&vehicle=${vehicle.id}`}
-                      className="w-full py-3 px-4 rounded-xl bg-gradient-to-b from-[#000B3B] to-[#02146B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-between shadow-sm transition-all group-hover:shadow"
+                      className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md border border-white/10"
                     >
                       <span>Select {vehicle.name}</span>
                       <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />

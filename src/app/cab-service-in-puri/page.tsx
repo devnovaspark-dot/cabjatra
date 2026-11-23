@@ -14,7 +14,7 @@ export default function CabServiceInPuriPage() {
       subtitle="Sacred temple transfers, VIP parking pass access, and scenic Marine Drive coastal cabs"
       tagline="Pilgrimage-ready commercial fleet with courteous drivers who know every temple bypass"
       badge="Puri Dham & Coastal Circuit"
-      heroImage="https://images.unsplash.com/photo-1775050416787-fe3179f0679e?q=85&w=1600&auto=format&fit=crop"
+      heroImage="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=85&w=1600&auto=format&fit=crop"
       overview="Visit the holy abode of Mahaprabhu Jagannath with complete peace of mind. CABJATRA provides dedicated commercial AC cabs in Puri for temple darshan, hotel check-ins along the Golden Beach, Marine Drive coastal tours to Konark, and return transfers to Bhubaneswar Airport. Our drivers hold designated temple corridor permits and treat senior family members with the utmost respect."
       whyUsPoints={[
         {
