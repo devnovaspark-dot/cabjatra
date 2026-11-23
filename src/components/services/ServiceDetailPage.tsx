@@ -84,8 +84,11 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
   // Router & Horizontal booking form card state
   const router = useRouter();
   const [pickupCity, setPickupCity] = useState<string>(
-    bookingCategoryKey === "puri" ? "Puri Hotel / Town" : bookingCategoryKey === "kataka" ? "Kataka Hub" : "Bhubaneswar Airport (BBI)"
+    bookingCategoryKey === "puri" ? "Puri" : bookingCategoryKey === "kataka" ? "Kataka" : "Bhubaneswar"
   );
+  const [isCustomPickup, setIsCustomPickup] = useState<boolean>(false);
+  const [customPickup, setCustomPickup] = useState<string>("");
+
   const [dropLocation, setDropLocation] = useState<string>(
     bookingCategoryKey === "puri" ? "Bhubaneswar Airport (BBI)" : "Puri Jagannath Temple"
   );
@@ -93,27 +96,12 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
   const [pickupTime, setPickupTime] = useState<string>("09:00");
   const [selectedVehicle, setSelectedVehicle] = useState<string>("sedan");
 
-  const cabPickupSuggestions = [
-    "Bhubaneswar Airport (BBI)",
-    "Bhubaneswar Railway Station",
-    "Puri Hotel / Beach",
-    "Kataka Hub",
-    "Patia Infocity",
-  ];
-
-  const cabDropSuggestions = [
-    "Puri Jagannath Temple",
-    "Konark Sun Temple",
-    "Bhubaneswar Airport (BBI)",
-    "Kataka Link Road Hub",
-    "Chilika Lake (Satapada)",
-  ];
-
   const handleCabSearch = (e: React.FormEvent) => {
     e.preventDefault();
+    const finalPickup = isCustomPickup ? customPickup.trim() : pickupCity;
     const query = new URLSearchParams({
       service: bookingCategoryKey || "outstation",
-      from: pickupCity,
+      from: finalPickup || "Bhubaneswar",
       to: dropLocation,
       date: pickupDate,
       time: pickupTime,
@@ -355,185 +343,178 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
       </section>
 
       {/* ========================================================================= */}
-      {/* HORIZONTAL / DUAL-TIER QUICK CAB RESERVATION FORM CARD (BEST UI/UX)       */}
+      {/* HORIZONTAL QUICK CAB RESERVATION FORM CARD (BEST UI/UX)                   */}
       {/* ========================================================================= */}
-      <section className="relative z-20 -mt-8 sm:-mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
-        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-[0_20px_55px_rgba(0,11,59,0.09),0_2px_10px_rgba(0,0,0,0.04)] p-5 sm:p-7 lg:p-8 relative overflow-hidden group">
-          {/* Top Subtle Amber Highlight Bar */}
-          <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#FEC401] via-[#E5AD00] to-[#FEC401]" />
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[#FEC401]/8 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative z-20 -mt-8 sm:-mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-10">
+        <div className="bg-white rounded-3xl border-2 border-[#FEC401]/80 shadow-[0_20px_50px_rgba(0,11,59,0.12),0_1px_3px_rgba(0,0,0,0.05)] p-5 sm:p-6 lg:p-7 relative overflow-hidden group">
+          {/* Top Subtle Amber Corner Accent */}
+          <div className="absolute top-0 right-0 w-72 h-72 bg-[#FEC401]/10 rounded-full blur-3xl pointer-events-none" />
 
           {/* Form Header Pill & Title */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 sm:pb-5 mb-5 sm:mb-6 border-b border-slate-100 gap-3">
-            <div className="flex items-center gap-3">
-              <span className="w-10 h-10 rounded-2xl bg-[#000B3B] text-[#FEC401] flex items-center justify-center font-black shadow-sm shrink-0">
-                <Car className="w-5 h-5 text-[#FEC401]" />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 sm:pb-5 mb-4 sm:mb-5 border-b border-[#F1F5F9] gap-2">
+            <div className="flex items-center gap-2.5">
+              <span className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#FEC401] to-[#E5AD00] text-[#000B3B] flex items-center justify-center font-black shadow-xs shrink-0">
+                <Car className="w-4 h-4 text-[#000B3B]" />
               </span>
               <div>
-                <div className="flex items-center gap-2">
-                  <h3 className="text-base sm:text-xl font-bold font-display text-[#0F172A] leading-tight">
-                    Quick Cab Reservation &amp; Instant Fare Check
-                  </h3>
-                  <span className="hidden md:inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#FEF3C7] text-[#92400E] border border-[#FDE68A]">
-                    Any Location Welcome
-                  </span>
-                </div>
-                <p className="text-xs text-[#64748B] mt-0.5">
-                  Type any doorstep address or select quick hubs &bull; 100% Commercial AC fleet &bull; Zero peak surge multipliers
+                <h3 className="text-base sm:text-lg font-bold font-display text-[#0F172A] leading-tight">
+                  Quick Cab Reservation &amp; Instant Fare Check
+                </h3>
+                <p className="text-xs text-[#64748B]">
+                  Pre-assigned verified chauffeur &bull; 100% Commercial AC fleet &bull; Zero peak surge multipliers
                 </p>
               </div>
             </div>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#ECFDF5] border border-[#A7F3D0] text-[11px] font-bold text-[#065F46] self-start sm:self-auto shrink-0 shadow-2xs">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#059669]" />
+            <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[11px] font-bold text-[#166534] self-start sm:self-auto">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" />
               <span>Instant WhatsApp Confirmation</span>
             </div>
           </div>
 
-          <form onSubmit={handleCabSearch} className="space-y-4 sm:space-y-5">
-            {/* ROW 1: GENEROUS LOCATIONS (2-COLUMN GRID ON DESKTOP, AMPLE ROOM TO TYPE) */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
-              {/* Field 1: Pickup Location / Address */}
-              <div className="bg-[#FAF9F5] hover:bg-[#F8F7F0] focus-within:bg-white rounded-2xl p-3.5 sm:p-4 border border-[#E2E8F0] focus-within:border-[#FEC401] focus-within:ring-2 focus-within:ring-[#FEC401]/25 transition-all shadow-2xs">
-                <div className="flex items-center justify-between mb-1.5">
-                  <label className="text-[11px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#16A34A]" />
-                    <span>Pickup Location / Doorstep Address / Hub</span>
-                  </label>
-                  <span className="text-[10px] font-semibold text-[#16A34A] bg-[#DCFCE7] px-2 py-0.5 rounded-md">
-                    Doorstep Pickup
-                  </span>
-                </div>
-                <div className="relative">
-                  <input
-                    type="text"
-                    value={pickupCity}
-                    onChange={(e) => setPickupCity(e.target.value)}
-                    placeholder="Type pickup address, airport terminal, railway station, or locality..."
-                    className="w-full bg-transparent text-sm sm:text-base font-bold text-[#0F172A] placeholder:text-[#94A3B8] placeholder:font-normal focus:outline-none"
-                    required
-                  />
-                </div>
-                {/* Quick Selection Pills */}
-                <div className="mt-2.5 pt-2 border-t border-slate-200/60 flex flex-wrap items-center gap-1.5">
-                  <span className="text-[10px] font-medium text-[#64748B]">Quick hubs:</span>
-                  {cabPickupSuggestions.map((hub) => (
-                    <button
-                      type="button"
-                      key={hub}
-                      onClick={() => setPickupCity(hub)}
-                      className={`text-[11px] px-2.5 py-1 rounded-lg font-medium transition cursor-pointer ${
-                        pickupCity === hub
-                          ? "bg-[#000B3B] text-[#FEC401] font-bold shadow-xs"
-                          : "bg-white hover:bg-[#FEC401]/15 text-[#334155] border border-slate-200/80"
-                      }`}
-                    >
-                      {hub}
-                    </button>
-                  ))}
-                </div>
+          {/* Form Fields: 5 Horizontal Columns on Desktop */}
+          <form onSubmit={handleCabSearch} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 items-end">
+            {/* Field 1: Pickup */}
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <label className="text-[10.5px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-[#16A34A]" />
+                  <span>Pickup Hub</span>
+                </label>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsCustomPickup(!isCustomPickup);
+                    if (!isCustomPickup) setCustomPickup("");
+                  }}
+                  className="text-[10px] font-semibold text-[#0284C7] hover:underline cursor-pointer"
+                >
+                  {isCustomPickup ? "From list" : "+ Add custom"}
+                </button>
               </div>
-
-              {/* Field 2: Drop Destination / Route */}
-              <div className="bg-[#FAF9F5] hover:bg-[#F8F7F0] focus-within:bg-white rounded-2xl p-3.5 sm:p-4 border border-[#E2E8F0] focus-within:border-[#FEC401] focus-within:ring-2 focus-within:ring-[#FEC401]/25 transition-all shadow-2xs">
-                <div className="flex items-center justify-between mb-1.5">
-                  <label className="text-[11px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#D97706]" />
-                    <span>Drop Destination / Hotel / City / Village</span>
-                  </label>
-                  <span className="text-[10px] font-semibold text-[#0284C7] bg-[#E0F2FE] px-2 py-0.5 rounded-md">
-                    Intercity &bull; Local &bull; Any Route
-                  </span>
-                </div>
+              {isCustomPickup ? (
                 <div className="relative">
                   <input
                     type="text"
-                    value={dropLocation}
-                    onChange={(e) => setDropLocation(e.target.value)}
-                    placeholder="Type drop location (e.g. Puri Jagannath Temple, Kataka, Konark, or custom address)..."
-                    className="w-full bg-transparent text-sm sm:text-base font-bold text-[#0F172A] placeholder:text-[#94A3B8] placeholder:font-normal focus:outline-none"
+                    value={customPickup}
+                    onChange={(e) => setCustomPickup(e.target.value)}
+                    placeholder="Type custom pickup location..."
+                    autoFocus
+                    className="w-full h-12 pl-3.5 pr-14 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all shadow-2xs"
                     required
                   />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsCustomPickup(false);
+                      setCustomPickup("");
+                    }}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-bold text-[#64748B] hover:text-[#000B3B] bg-[#E2E8F0] hover:bg-[#CBD5E1] px-1.5 py-1 rounded transition cursor-pointer"
+                    title="Choose from list"
+                  >
+                    List ↺
+                  </button>
                 </div>
-                {/* Quick Selection Pills */}
-                <div className="mt-2.5 pt-2 border-t border-slate-200/60 flex flex-wrap items-center gap-1.5">
-                  <span className="text-[10px] font-medium text-[#64748B]">Quick drops:</span>
-                  {cabDropSuggestions.map((dest) => (
-                    <button
-                      type="button"
-                      key={dest}
-                      onClick={() => setDropLocation(dest)}
-                      className={`text-[11px] px-2.5 py-1 rounded-lg font-medium transition cursor-pointer ${
-                        dropLocation === dest
-                          ? "bg-[#000B3B] text-[#FEC401] font-bold shadow-xs"
-                          : "bg-white hover:bg-[#FEC401]/15 text-[#334155] border border-slate-200/80"
-                      }`}
-                    >
-                      {dest}
-                    </button>
-                  ))}
+              ) : (
+                <div className="relative">
+                  <select
+                    value={pickupCity}
+                    onChange={(e) => {
+                      if (e.target.value === "__custom__") {
+                        setIsCustomPickup(true);
+                        setCustomPickup("");
+                      } else {
+                        setPickupCity(e.target.value);
+                      }
+                    }}
+                    className="w-full h-12 pl-3.5 pr-8 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all cursor-pointer shadow-2xs"
+                  >
+                    <option value="Bhubaneswar">Bhubaneswar (BBI / City)</option>
+                    <option value="Puri">Puri (Town / Beach)</option>
+                    <option value="Kataka">Kataka (Link Rd / Hub)</option>
+                    <option value="Konark">Konark (Sun Temple)</option>
+                    <option value="Berhampur">Berhampur</option>
+                    <option value="__custom__">➕ Other / Add Custom Location...</option>
+                  </select>
                 </div>
+              )}
+            </div>
+
+            {/* Field 2: Destination */}
+            <div className="space-y-1.5">
+              <label className="text-[10.5px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-[#D97706]" />
+                <span>Drop Destination</span>
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  value={dropLocation}
+                  onChange={(e) => setDropLocation(e.target.value)}
+                  placeholder="e.g. Puri Jagannath Temple"
+                  className="w-full h-12 px-3.5 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all placeholder:text-[#94A3B8] shadow-2xs"
+                  required
+                />
               </div>
             </div>
 
-            {/* ROW 2: CAB PARAMETERS & CALL TO ACTION (3/4 COLUMNS ON DESKTOP, ZERO TRUNCATION) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3.5 sm:gap-4 items-center">
-              {/* Field 3: Date & Time (lg:col-span-4) */}
-              <div className="lg:col-span-4 bg-[#FAF9F5] rounded-2xl p-3 border border-[#E2E8F0] focus-within:border-[#FEC401] focus-within:ring-2 focus-within:ring-[#FEC401]/25 transition-all">
-                <label className="text-[10.5px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5 mb-1">
-                  <Calendar className="w-3.5 h-3.5 text-[#0284C7]" />
-                  <span>Pickup Date &amp; Time</span>
-                </label>
-                <div className="grid grid-cols-2 gap-2">
-                  <input
-                    type="date"
-                    value={pickupDate}
-                    onChange={(e) => setPickupDate(e.target.value)}
-                    className="w-full bg-transparent text-xs sm:text-sm font-bold text-[#0F172A] focus:outline-none cursor-pointer"
-                    required
-                  />
-                  <input
-                    type="time"
-                    value={pickupTime}
-                    onChange={(e) => setPickupTime(e.target.value)}
-                    className="w-full bg-transparent text-xs sm:text-sm font-bold text-[#0F172A] focus:outline-none cursor-pointer text-right"
-                    required
-                  />
-                </div>
+            {/* Field 3: Date & Time */}
+            <div className="space-y-1.5">
+              <label className="text-[10.5px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-[#0284C7]" />
+                <span>Pickup Date &amp; Time</span>
+              </label>
+              <div className="grid grid-cols-2 gap-1.5">
+                <input
+                  type="date"
+                  value={pickupDate}
+                  onChange={(e) => setPickupDate(e.target.value)}
+                  className="w-full h-12 px-2.5 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all shadow-2xs"
+                  required
+                />
+                <input
+                  type="time"
+                  value={pickupTime}
+                  onChange={(e) => setPickupTime(e.target.value)}
+                  className="w-full h-12 px-2 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all shadow-2xs"
+                  required
+                />
               </div>
+            </div>
 
-              {/* Field 4: Preferred Cab Class (lg:col-span-4) - AMPLE ROOM SO NO TRUNCATION EVER */}
-              <div className="lg:col-span-4 bg-[#FAF9F5] rounded-2xl p-3 border border-[#E2E8F0] focus-within:border-[#FEC401] focus-within:ring-2 focus-within:ring-[#FEC401]/25 transition-all">
-                <label className="text-[10.5px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5 mb-1">
-                  <Car className="w-3.5 h-3.5 text-[#D97706]" />
-                  <span>Preferred Cab Class</span>
-                </label>
+            {/* Field 4: Fleet Class */}
+            <div className="space-y-1.5">
+              <label className="text-[10.5px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5">
+                <Car className="w-3.5 h-3.5 text-[#D97706]" />
+                <span>Preferred Cab Class</span>
+              </label>
+              <div className="relative">
                 <select
                   value={selectedVehicle}
                   onChange={(e) => setSelectedVehicle(e.target.value)}
-                  className="w-full bg-transparent text-sm font-bold text-[#0F172A] focus:outline-none cursor-pointer"
+                  className="w-full h-12 pl-3.5 pr-8 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all cursor-pointer shadow-2xs"
                 >
-                  <option value="sedan">Prime AC Sedan (Dzire / Etios &bull; 4 Pax)</option>
-                  <option value="large-car">Innova Crysta SUV (Dual AC &bull; 6–7 Pax)</option>
-                  <option value="mini-bus">Tempo Traveller AC (Group &bull; 12–17 Pax)</option>
+                  <option value="sedan">Prime Sedan (Dzire / 4 Pax)</option>
+                  <option value="large-car">Innova Crysta SUV (7 Pax)</option>
+                  <option value="mini-bus">Tempo Traveller (12–17 Pax)</option>
                 </select>
               </div>
+            </div>
 
-              {/* Field 5: Action Button (lg:col-span-4) */}
-              <div className="sm:col-span-2 lg:col-span-4">
-                <button
-                  type="submit"
-                  className="w-full h-[58px] rounded-2xl bg-gradient-to-r from-[#FEC401] via-[#E5AD00] to-[#FEC401] bg-[length:200%_auto] hover:bg-right hover:brightness-105 active:translate-y-0.5 text-[#000B3B] font-black text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-[0_10px_25px_rgba(254,196,1,0.42)] transition-all cursor-pointer group"
-                >
-                  <span>Search Available Cabs</span>
-                  <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
+            {/* Field 5: Action Button */}
+            <div>
+              <button
+                type="submit"
+                className="w-full h-12 rounded-xl bg-gradient-to-r from-[#FEC401] via-[#E5AD00] to-[#FEC401] bg-[length:200%_auto] hover:bg-right hover:brightness-105 active:translate-y-0.5 text-[#000B3B] font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_8px_20px_rgba(254,196,1,0.4)] transition-all cursor-pointer"
+              >
+                <span>Find Available Cabs</span>
+                <ArrowRight className="w-4 h-4 text-[#000B3B]" />
+              </button>
             </div>
           </form>
 
           {/* Bottom Micro-Assurances Strip */}
-          <div className="mt-4 pt-3.5 border-t border-slate-100 flex flex-wrap items-center justify-between text-[11px] text-[#64748B] gap-2">
+          <div className="mt-4 pt-3.5 border-t border-[#F1F5F9] flex flex-wrap items-center justify-between text-[11px] text-[#64748B] gap-2">
             <span className="flex items-center gap-1.5 font-medium">
               <ShieldCheck className="w-3.5 h-3.5 text-[#16A34A]" />
               <span>100% Commercial Yellow-Board Plates</span>
