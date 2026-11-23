@@ -14,7 +14,7 @@ export default function TaxiServiceInPuriPage() {
       subtitle="Guaranteed on-time taxi pickups at Puri Railway Station, hotel transfers, and coastal day tours"
       tagline="Skip the station auto haggling — pre-book verified yellow-board commercial taxis with fixed rates"
       badge="Puri Railway Station & Local Taxi"
-      heroImage="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=85&w=1600&auto=format&fit=crop"
+      heroImage="https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?q=85&w=1920&auto=format&fit=crop"
       overview="Arriving by train at Puri Railway Station or looking for reliable daily taxi hire in Puri? CABJATRA provides seamless online taxi booking with upfront, fixed pricing. Skip chaotic station exits, aggressive touts, and arbitrary auto haggling. Your certified driver meets you promptly at the station gate, helps with luggage, and drives you straight to your beachside resort in cool AC comfort."
       whyUsPoints={[
         {

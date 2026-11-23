@@ -195,7 +195,7 @@ export default function PuriTourPackagesPage() {
       subtitle="Experience holy Jagannath Dham, Blue Flag Golden Beach, and scenic Marine Drive coastal drives by private AC cab"
       tagline="Curated sacred pilgrimage and coastal sightseeing tours with verified local chauffeurs"
       badge="Puri Jagannath Dham & Coastal Marine Drive Trail"
-      heroImage="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=85&w=1600&auto=format&fit=crop"
+      heroImage="https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?q=85&w=1920&auto=format&fit=crop"
       overview="Visit the sacred abode of Mahaprabhu Jagannath with total peace of mind. As one of India's revered Char Dham pilgrimages, Puri is blessed with ancient spiritual energy, the vibrant Grand Road, the pristine Blue Flag Golden Beach, and the breathtaking coastal expressway to Konark. CABJATRA delivers 100% yellow-board commercial AC cabs, verified drivers who know every temple corridor bypass, and safe custody of your belongings during darshan."
       durationBadge="1 to 3 Days • 100% Flexible"
       startingFromNote="From ₹1,450 • Guaranteed Fixed Tariffs"

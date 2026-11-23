@@ -65,6 +65,7 @@ export interface TourDetailProps {
   tagline: string;
   badge: string;
   heroImage: string;
+  cityBgImage?: string;
   overview: string;
   durationBadge: string;
   startingFromNote: string;
@@ -89,6 +90,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
   subtitle,
   badge,
   heroImage,
+  cityBgImage,
   overview,
   durationBadge,
   startingFromNote,
@@ -101,38 +103,95 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
   faqs,
   bookingTourSlug,
 }) => {
+  // Hero interactive vehicle selector tab state
+  const [selectedHeroVehicleId, setSelectedHeroVehicleId] = useState<string>("large-car");
+
   // FAQ accordion state
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+
+  // Relevant hero vehicle data mapping
+  const heroVehicles = [
+    {
+      id: "large-car",
+      name: "Innova Crysta SUV",
+      models: "Toyota Innova Crysta, Maruti Ertiga",
+      passengers: 7,
+      luggage: 4,
+      rate: "From ₹19/km",
+      tag: "Family Favorite",
+      image: "/images/fleet/large-car.webp",
+      desc: "Dual-zone AC, plush captain seats & smooth highway comfort for Puri & Konark tours.",
+    },
+    {
+      id: "sedan",
+      name: "Prime Sedan",
+      models: "Swift Dzire, Toyota Etios",
+      passengers: 4,
+      luggage: 3,
+      rate: "From ₹13/km",
+      tag: "Couples & Small Families",
+      image: "/images/fleet/sedan.webp",
+      desc: "Chilled AC, plush legroom & generous boot space for day sightseeing circuits.",
+    },
+    {
+      id: "mini-bus",
+      name: "Tempo Traveller",
+      models: "Force Urbania, 12–17 Seater",
+      passengers: 17,
+      luggage: 10,
+      rate: "Custom Quote",
+      tag: "Group Pilgrimage",
+      image: "/images/fleet/mini-bus.webp",
+      desc: "Reclining push-back seats & panoramic windows for extended family groups.",
+    },
+  ];
+
+  const currentHeroVehicle =
+    heroVehicles.find((v) => v.id === selectedHeroVehicleId) || heroVehicles[0];
+
+  // Dynamic city landmark background resolution
+  const activeCityBg =
+    cityBgImage ||
+    heroImage ||
+    (bookingTourSlug === "temple" || title.toLowerCase().includes("bhubaneswar")
+      ? "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=85&w=1920&auto=format&fit=crop"
+      : bookingTourSlug === "puri" || title.toLowerCase().includes("puri")
+      ? "https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?q=85&w=1920&auto=format&fit=crop"
+      : bookingTourSlug === "konark" || title.toLowerCase().includes("konark")
+      ? "https://images.unsplash.com/photo-1576235282476-debff2a4d0b9?q=85&w=1920&auto=format&fit=crop"
+      : "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=85&w=1920&auto=format&fit=crop");
 
   return (
     <div className="bg-[#FAF9F5] min-h-screen text-[#0F172A] font-sans selection:bg-[#FEC401]/30">
       {/* ========================================================================= */}
       {/* SECTION 1: CINEMATIC ARCHITECTURAL HERO & INTERACTIVE TOUR STAGE         */}
       {/* ========================================================================= */}
-      <section className="relative bg-gradient-to-b from-[#000B3B] via-[#001162] to-[#000B3B] text-white pt-28 sm:pt-36 pb-16 lg:pt-36 lg:pb-20 overflow-hidden border-b border-black/20">
+      <section className="relative bg-[#000B3B] text-white pt-24 sm:pt-28 pb-10 sm:pb-12 lg:pt-24 lg:pb-10 min-h-[calc(100vh-80px)] flex items-center overflow-hidden border-b border-black/20">
         {/* Ambient Atmospheric Sheens */}
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#FEC401]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#02146B]/40 rounded-full blur-3xl pointer-events-none" />
 
-        {/* Scenic Backdrop Texture */}
-        <div className="absolute inset-0 z-0 opacity-30 mix-blend-luminosity pointer-events-none">
+        {/* Authentic City / Destination Landmark Atmospheric Backdrop */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <Image
-            src={heroImage}
-            alt={title}
+            src={activeCityBg}
+            alt={`${title} Destination Backdrop`}
             fill
             priority
-            className="object-cover object-center"
+            sizes="100vw"
+            className="object-cover object-center scale-105 opacity-25 mix-blend-luminosity"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B] via-[#000B3B]/80 to-[#000B3B]/90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#000B3B] via-[#000B3B]/92 to-[#000B3B]/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B] via-transparent to-[#000B3B]/85" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             {/* Left Column: Authoritative Heading, Deep Overview, Benefit Grid & Fast Actions (7 Cols) */}
-            <div className="lg:col-span-7 space-y-4 sm:space-y-5 text-center lg:text-left">
+            <div className="lg:col-span-7 space-y-3.5 sm:space-y-4 text-center lg:text-left">
               {/* Refined Unified Badge & Social Proof Pill */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[11px] font-bold text-[#FEC401] shadow-soft">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[11px] font-bold text-[#FEC401] shadow-soft">
                   <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
                   <span>{badge.split("&bull;")[0].trim()}</span>
                   <span className="w-1 h-1 rounded-full bg-white/40" />
@@ -143,63 +202,40 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-[#FAF9F5] leading-[1.15]">
+              <h1 className="text-2xl sm:text-3xl lg:text-[40px] font-extrabold font-display tracking-tight text-[#FAF9F5] leading-[1.15]">
                 {title}
               </h1>
 
               {/* Subtitle - Punchy & Clear */}
-              <p className="text-sm sm:text-base text-[#FEC401] font-semibold leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <p className="text-xs sm:text-sm text-[#FEC401] font-semibold leading-relaxed max-w-xl mx-auto lg:mx-0">
                 {subtitle}
               </p>
 
-              {/* Comprehensive Tour Overview Narrative */}
-              {overview && (
-                <p className="text-xs sm:text-[13.5px] text-[#F1F5F9]/85 leading-relaxed font-normal max-w-2xl mx-auto lg:mx-0">
-                  {overview}
-                </p>
-              )}
-
               {/* Sleek Feature Assurances Single Strip */}
-              <div className="pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs">
-                <span className="px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white font-medium flex items-center gap-1.5 shadow-soft">
-                  <Car className="w-3.5 h-3.5 text-[#FEC401]" />
+              <div className="pt-0.5 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs">
+                <span className="px-2.5 py-1 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 text-white text-[11px] font-medium flex items-center gap-1.5 shadow-soft">
+                  <Car className="w-3 h-3 text-[#FEC401]" />
                   <span>100% Commercial Fleet</span>
                 </span>
-                <span className="px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white font-medium flex items-center gap-1.5 shadow-soft">
-                  <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
+                <span className="px-2.5 py-1 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 text-white text-[11px] font-medium flex items-center gap-1.5 shadow-soft">
+                  <Clock className="w-3 h-3 text-[#FEC401]" />
                   <span>Flexible Sightseeing</span>
                 </span>
-                <span className="px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white font-medium flex items-center gap-1.5 shadow-soft">
-                  <AirVent className="w-3.5 h-3.5 text-[#FEC401]" />
+                <span className="px-2.5 py-1 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 text-white text-[11px] font-medium flex items-center gap-1.5 shadow-soft">
+                  <AirVent className="w-3 h-3 text-[#FEC401]" />
                   <span>Chilled Dual AC</span>
                 </span>
-                <span className="px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white font-medium flex items-center gap-1.5 shadow-soft">
-                  <MapPin className="w-3.5 h-3.5 text-[#FEC401]" />
-                  <span>Doorstep Terminal Pickups</span>
-                </span>
-              </div>
-
-              {/* Circuit Feature Highlights Pills */}
-              <div className="pt-0.5 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px]">
-                <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
-                  🛕 Temple Darshan Circuits
-                </span>
-                <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
-                  🏖️ Golden Beach &amp; Marine Drive
-                </span>
-                <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
-                  🐬 Chilika Dolphin Boat Safaris
-                </span>
-                <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 font-medium">
-                  🎨 Heritage Arts &amp; Raghurajpur
+                <span className="px-2.5 py-1 rounded-lg bg-white/10 backdrop-blur-md border border-white/15 text-white text-[11px] font-medium flex items-center gap-1.5 shadow-soft">
+                  <MapPin className="w-3 h-3 text-[#FEC401]" />
+                  <span>Doorstep Hotel Pickups</span>
                 </span>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-1.5 sm:pt-2">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
                 <Link
-                  href={`/book-tour?destination=${bookingTourSlug}`}
-                  className="px-6 py-3.5 rounded-full bg-gradient-to-b from-[#FEC401] to-[#E5AD00] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 text-[#000B3B] font-extrabold text-xs inline-flex items-center gap-2 active:translate-y-0.5 transition-all"
+                  href={`/book-tour?destination=${bookingTourSlug}&vehicle=${selectedHeroVehicleId}`}
+                  className="px-6 py-3 rounded-full bg-gradient-to-b from-[#FEC401] to-[#E5AD00] border-t border-white/40 shadow-skeuo-gold hover:brightness-105 text-[#000B3B] font-extrabold text-xs inline-flex items-center gap-2 active:translate-y-0.5 transition-all"
                 >
                   <Palmtree className="w-4 h-4 text-[#000B3B]" />
                   <span>Reserve This Tour Package</span>
@@ -210,91 +246,129 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   href={COMPANY_CONFIG.contact.whatsAppLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/15 backdrop-blur-md text-white font-semibold text-xs inline-flex items-center gap-2 border border-white/20 transition shadow-soft"
+                  className="px-5 py-3 rounded-full bg-white/10 hover:bg-white/15 backdrop-blur-md text-white font-semibold text-xs inline-flex items-center gap-2 border border-white/20 transition shadow-soft"
                 >
                   <MessageSquare className="w-4 h-4 text-[#FEC401]" />
-                  <span>WhatsApp Tour Concierge</span>
+                  <span>WhatsApp Concierge</span>
                 </a>
               </div>
 
               {/* Trust Assurances Clean Single Strip */}
-              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-[11px] text-[#F1F5F9]/80 border-t border-white/10">
-                <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
+              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3.5 text-[10.5px] text-[#CBD5E1] border-t border-white/10">
+                <span className="flex items-center gap-1">
+                  <ShieldCheck className="w-3 h-3 text-[#FEC401]" />
                   100% Commercial Fleet
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#FEC401]" />
+                <span className="flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3 text-[#FEC401]" />
                   Guaranteed Tariff Lock
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
+                <span className="flex items-center gap-1">
+                  <Clock className="w-3 h-3 text-[#FEC401]" />
                   {startingFromNote}
                 </span>
               </div>
             </div>
 
-            {/* Right Column: High-Impact Cinematic Hero Visual Showcase (5 Cols) */}
+            {/* Right Column: Clean Hero Vehicle Card with ZERO TEXT OVER IMAGE (5 Cols) */}
             <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-              <div className="relative rounded-[32px] overflow-hidden border border-white/20 shadow-[0_25px_70px_rgba(0,0,0,0.55)] bg-[#00082E] group h-[380px] sm:h-[430px]">
-                {/* Visual Area with Destination Hero Image - Clean, Edge-to-Edge */}
-                <Image
-                  src={heroImage}
-                  alt={title}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 42vw"
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-
-                {/* Subtle Cinematic Vignette Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#000B3B] via-[#000B3B]/35 to-transparent pointer-events-none" />
-
-                {/* Top Floating Glass Badges */}
-                <div className="absolute top-4 inset-x-4 flex items-center justify-between pointer-events-none">
-                  <div className="px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#FEC401]/60 text-[11px] font-bold text-[#FEC401] shadow-lg flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
-                    <span>{badge.split("&bull;")[0].trim()}</span>
-                  </div>
-
-                  <div className="px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[11px] font-bold text-white shadow-lg flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
-                    <span>{durationBadge}</span>
+              <div className="relative rounded-3xl overflow-hidden border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.55)] bg-[#00104A]/90 backdrop-blur-xl">
+                {/* Top Interactive Vehicle Switcher Header */}
+                <div className="px-4 py-2.5 flex items-center justify-between border-b border-white/10 bg-[#000B3B]/80">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#FEC401] flex items-center gap-1.5">
+                    <Car className="w-3.5 h-3.5 text-[#FEC401]" />
+                    <span>Private Tour Fleet</span>
+                  </span>
+                  <div className="flex items-center gap-1 bg-black/40 p-0.5 rounded-lg border border-white/10">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedHeroVehicleId("sedan")}
+                      className={`px-2.5 py-1 rounded-md text-[10.5px] font-bold transition-all ${
+                        selectedHeroVehicleId === "sedan"
+                          ? "bg-[#FEC401] text-[#000B3B] shadow-xs"
+                          : "text-white/80 hover:text-white"
+                      }`}
+                    >
+                      Prime Sedan
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedHeroVehicleId("large-car")}
+                      className={`px-2.5 py-1 rounded-md text-[10.5px] font-bold transition-all ${
+                        selectedHeroVehicleId === "large-car"
+                          ? "bg-[#FEC401] text-[#000B3B] shadow-xs"
+                          : "text-white/80 hover:text-white"
+                      }`}
+                    >
+                      Innova Crysta
+                    </button>
                   </div>
                 </div>
 
-                {/* Bottom Floating Glass Action Deck */}
-                <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/15 space-y-2.5">
-                  <div className="flex items-center justify-between text-white">
+                {/* 1. CLEAN VEHICLE PHOTO STAGE - ZERO TEXT OVER THE IMAGE */}
+                <div className="relative h-44 sm:h-48 w-full bg-gradient-to-b from-[#001654] via-[#000E3D] to-[#000B3B] flex items-center justify-center p-3 border-b border-white/10 overflow-hidden">
+                  {/* Soft Radial Backlight Stage */}
+                  <div className="absolute inset-0 bg-radial-[at_center_center] from-[#FEC401]/15 via-transparent to-transparent pointer-events-none" />
+
+                  <Image
+                    src={currentHeroVehicle.image}
+                    alt={currentHeroVehicle.name}
+                    width={340}
+                    height={190}
+                    priority
+                    className="object-contain max-h-40 drop-shadow-[0_16px_28px_rgba(0,0,0,0.6)] transform hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+
+                {/* 2. SEPARATE DETAILS & ACTION DECK - ALL TEXT POSITIONED BELOW THE PHOTO */}
+                <div className="p-4 sm:p-5 space-y-3 bg-[#000C38]">
+                  {/* Vehicle Title & Rate Header */}
+                  <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-[10px] uppercase font-bold tracking-wider text-[#FEC401] block">
-                        Private Chauffeur Tour
+                      <h3 className="text-base sm:text-lg font-bold font-display text-white">
+                        {currentHeroVehicle.name}
+                      </h3>
+                      <p className="text-[11px] text-[#FEC401] font-medium">
+                        {currentHeroVehicle.models}
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-base font-extrabold text-[#FEC401] block leading-none">
+                        {currentHeroVehicle.rate}
                       </span>
-                      <span className="text-sm font-bold text-white font-display">
-                        All Sightseeing Stops Covered
+                      <span className="text-[9.5px] font-bold text-[#10B981] bg-[#10B981]/15 px-2 py-0.5 rounded-full border border-[#10B981]/30 inline-block mt-1">
+                        ● All Tolls Included
                       </span>
                     </div>
-                    <span className="text-[10.5px] font-bold text-[#10B981] bg-[#10B981]/20 px-2.5 py-1 rounded-full border border-[#10B981]/30">
-                      ✓ Guaranteed Tariff Lock
+                  </div>
+
+                  {/* Vehicle Specifications Chips */}
+                  <div className="flex items-center justify-between text-[11px] text-[#CBD5E1] py-2 border-y border-white/10">
+                    <span className="flex items-center gap-1.5 font-medium">
+                      <Users className="w-3.5 h-3.5 text-[#FEC401]" />
+                      <span>{currentHeroVehicle.passengers} Seats</span>
+                    </span>
+                    <span className="flex items-center gap-1.5 font-medium">
+                      <Briefcase className="w-3.5 h-3.5 text-[#FEC401]" />
+                      <span>{currentHeroVehicle.luggage} Bags</span>
+                    </span>
+                    <span className="flex items-center gap-1.5 font-medium">
+                      <AirVent className="w-3.5 h-3.5 text-[#10B981]" />
+                      <span>Chilled Dual AC</span>
+                    </span>
+                    <span className="flex items-center gap-1.5 font-medium">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
+                      <span>Yellow-Board</span>
                     </span>
                   </div>
 
-                  {/* Micro reassurance strip */}
-                  <div className="flex items-center justify-between text-[11px] text-[#CBD5E1] pt-1 border-t border-white/10">
-                    <span className="flex items-center gap-1">
-                      <Check className="w-3 h-3 text-[#10B981]" /> All Fuel &amp; Driver Allowance
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Check className="w-3 h-3 text-[#10B981]" /> Doorstep Hotel Pickup
-                    </span>
-                  </div>
-
+                  {/* Direct High-Contrast Booking Button */}
                   <Link
-                    href={`/book-tour?destination=${bookingTourSlug}`}
-                    className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-between shadow-md transition-all active:translate-y-0.5 group/btn"
+                    href={`/book-tour?destination=${bookingTourSlug}&vehicle=${currentHeroVehicle.id}`}
+                    className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-between shadow-lg transition-all active:translate-y-0.5 group/btn"
                   >
                     <span>Reserve This Tour Package</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#000B3B] group-hover/btn:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover/btn:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
@@ -304,106 +378,353 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 2: VEHICLE FLEET AVAILABLE FOR THIS TOUR                          */}
+      {/* SECTION 2: EXECUTIVE COMMERCIAL FLEET SELECTION                           */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-white border-b border-[#E2E8F0]">
+      <section className="py-14 sm:py-18 bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+            <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-[#EEF2F6] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
               <Car className="w-3.5 h-3.5 text-[#FEC401]" />
               <span>Tour Vehicle Classes</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
               Choose the Right Cab for Your Tour
             </h2>
             <p className="text-xs sm:text-sm text-[#64748B] mt-2">
-              Comfort is paramount on multi-hour road trips. Select from our commercial yellow-board sedans, spacious Innova Crystas, or luxury Tempo Travellers.
+              All vehicles are 100% commercial yellow-board registered, fully AC equipped, and maintained to pristine passenger hygiene standards.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {VEHICLE_FLEET.slice(1, 4).map((vehicle) => (
-              <div
-                key={vehicle.id}
-                className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(2,20,107,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group"
-              >
-                {/* Visual Car Photo Frame with Light Showroom Stage */}
-                <div className="relative h-56 bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9]/70 to-white p-4 flex items-center justify-center overflow-hidden border-b border-[#F1F5F9]">
-                  {/* Subtle Light Radial Glow behind Car */}
-                  <div className="absolute inset-0 bg-radial-[at_center_center] from-[#FEC401]/10 via-transparent to-transparent pointer-events-none" />
-
-                  {/* Top Badges */}
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#E2E8F0] text-[10.5px] font-bold text-[#000B3B] shadow-xs">
-                    {vehicle.tag || "Tour Class"}
+          {/* 3 Executive Showcase Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+            {/* Card 1: Prime Commercial Sedan */}
+            <div className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(2,20,107,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                {/* Visual Vehicle Stage with Studio Light */}
+                <div className="relative h-52 bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9]/80 to-white p-4 flex items-center justify-center overflow-hidden border-b border-[#F1F5F9]">
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-[10.5px] font-bold text-[#000B3B] shadow-xs">
+                    Couples &amp; Small Families
                   </div>
                   <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#000B3B] text-[10.5px] font-bold text-[#FEC401] shadow-xs">
-                    Base ₹{vehicle.ratePerKm}/km
+                    Base ₹13/km
                   </div>
 
                   <Image
-                    src={vehicle.image}
-                    alt={vehicle.name}
+                    src="/images/fleet/sedan.webp"
+                    alt="Prime Sedan"
                     width={320}
                     height={180}
-                    className="object-contain max-h-42 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_16px_28px_rgba(0,11,59,0.15)]"
+                    className="object-contain max-h-38 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_14px_24px_rgba(0,11,59,0.14)]"
                   />
 
-                  {/* Bottom Strip Badge */}
                   <div className="absolute bottom-2.5 left-3.5 flex items-center gap-1.5 text-[10px] text-[#16A34A] font-bold">
                     <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
-                    <span>Yellow-Board Commercial AC</span>
+                    <span>Commercial Yellow Plate</span>
                   </div>
                 </div>
 
-                {/* Details Body */}
-                <div className="p-6 sm:p-7 space-y-4 flex-1 flex flex-col justify-between">
-                  <div className="space-y-1.5">
+                {/* Body Details */}
+                <div className="p-6 space-y-4">
+                  <div className="space-y-1">
                     <div className="flex items-center justify-between">
                       <h3 className="text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
-                        {vehicle.name}
+                        Prime Sedan
                       </h3>
                       <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
                         Dual-Zone AC
                       </span>
                     </div>
-
                     <p className="text-xs font-semibold text-[#02146B]">
-                      {vehicle.models}
+                      Maruti Swift Dzire, Toyota Etios
                     </p>
-
-                    <p className="text-xs text-[#64748B] leading-relaxed line-clamp-2 pt-0.5">
-                      {vehicle.subtitle}
+                    <p className="text-xs text-[#64748B] leading-relaxed pt-1">
+                      Smooth highway stability, plush upholstery, and generous boot space for BBI airport transfers and Golden Triangle travel.
                     </p>
                   </div>
 
-                  {/* Clean Specs Row (NO NESTED BOXES) */}
-                  <div className="flex items-center justify-between text-xs text-[#475569] pt-3 border-t border-[#F1F5F9]">
+                  {/* Clean Specs Row */}
+                  <div className="flex items-center justify-between text-xs text-[#475569] py-2.5 border-y border-[#F1F5F9]">
                     <span className="flex items-center gap-1.5 font-medium">
                       <Users className="w-3.5 h-3.5 text-[#FEC401]" />
-                      <span>{vehicle.passengers} Seats</span>
+                      <span>4 Seats</span>
                     </span>
                     <span className="flex items-center gap-1.5 font-medium">
                       <Briefcase className="w-3.5 h-3.5 text-[#FEC401]" />
-                      <span>{vehicle.luggage} Bags</span>
+                      <span>3 Bags</span>
                     </span>
                     <span className="flex items-center gap-1.5 font-medium">
                       <AirVent className="w-3.5 h-3.5 text-[#16A34A]" />
-                      <span>Dual AC</span>
+                      <span>Chilled AC</span>
                     </span>
                   </div>
 
-                  <div className="pt-2">
-                    <Link
-                      href={`/book-tour?destination=${bookingTourSlug}&vehicle=${vehicle.id}`}
-                      className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md border border-white/10"
-                    >
-                      <span>Select {vehicle.name}</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
-                    </Link>
+                  {/* Feature Highlights */}
+                  <div className="space-y-1.5 text-xs text-[#475569]">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                      <span>Extra rear legroom &amp; clean sanitized seating</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                      <span>Dedicated boot space for 3 large travel bags</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                      <span>Zero peak hour surge multiplier guarantee</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            ))}
+
+              <div className="p-6 pt-0">
+                <Link
+                  href={`/book-tour?destination=${bookingTourSlug}&vehicle=sedan`}
+                  className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md border border-white/10"
+                >
+                  <span>Select Prime Sedan</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 2: FEATURED HERO: Executive Toyota Innova Crysta SUV */}
+            <div className="bg-white rounded-3xl border-2 border-[#FEC401] overflow-hidden shadow-[0_16px_45px_rgba(254,196,1,0.18)] md:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative">
+              {/* Crown Top Ribbon */}
+              <div className="bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-[#000B3B] text-[10.5px] font-black uppercase tracking-wider text-center py-1.5 shadow-xs flex items-center justify-center gap-1.5">
+                <Star className="w-3.5 h-3.5 fill-[#000B3B]" />
+                <span>#1 Most Booked for Family Tours &amp; Pilgrimages</span>
+              </div>
+
+              <div>
+                {/* Visual Vehicle Stage */}
+                <div className="relative h-52 bg-gradient-to-b from-[#FFFBEB] via-[#FEF3C7]/40 to-white p-4 flex items-center justify-center overflow-hidden border-b border-[#FEF3C7]">
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#FEC401]/40 text-[10.5px] font-bold text-[#000B3B] shadow-xs">
+                    Premium Family Class
+                  </div>
+                  <div className="absolute top-3.5 right-3.5 px-3.5 py-1 rounded-full bg-[#000B3B] text-[11px] font-black text-[#FEC401] shadow-xs">
+                    Base ₹19/km
+                  </div>
+
+                  <Image
+                    src="/images/fleet/large-car.webp"
+                    alt="Toyota Innova Crysta"
+                    width={330}
+                    height={185}
+                    className="object-contain max-h-40 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_16px_28px_rgba(0,11,59,0.18)]"
+                  />
+
+                  <div className="absolute bottom-2.5 left-3.5 flex items-center gap-1.5 text-[10px] text-[#16A34A] font-bold">
+                    <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
+                    <span>Commercial Yellow Plate</span>
+                  </div>
+                </div>
+
+                {/* Body Details */}
+                <div className="p-6 space-y-4">
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
+                        Innova Crysta / SUV
+                      </h3>
+                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
+                        Independent Rear AC
+                      </span>
+                    </div>
+                    <p className="text-xs font-semibold text-[#02146B]">
+                      Toyota Innova Crysta, Maruti Ertiga
+                    </p>
+                    <p className="text-xs text-[#64748B] leading-relaxed pt-1">
+                      Plush captain chairs, superior suspension, and dual AC blowers for senior citizens and family pilgrimages to Puri Dham.
+                    </p>
+                  </div>
+
+                  {/* Clean Specs Row */}
+                  <div className="flex items-center justify-between text-xs text-[#475569] py-2.5 border-y border-[#FEF3C7]">
+                    <span className="flex items-center gap-1.5 font-bold text-[#0F172A]">
+                      <Users className="w-3.5 h-3.5 text-[#FEC401]" />
+                      <span>7 Seats</span>
+                    </span>
+                    <span className="flex items-center gap-1.5 font-bold text-[#0F172A]">
+                      <Briefcase className="w-3.5 h-3.5 text-[#FEC401]" />
+                      <span>4–5 Bags</span>
+                    </span>
+                    <span className="flex items-center gap-1.5 font-bold text-[#16A34A]">
+                      <AirVent className="w-3.5 h-3.5 text-[#16A34A]" />
+                      <span>Dual AC Blowers</span>
+                    </span>
+                  </div>
+
+                  {/* Feature Highlights */}
+                  <div className="space-y-1.5 text-xs text-[#475569]">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                      <span>Captain leatherette seats with armrests for comfort</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                      <span>High ground clearance for coastal &amp; temple terrain</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                      <span>Expansive luggage bay for Mahaprasad &amp; suitcases</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6 pt-0">
+                <Link
+                  href={`/book-tour?destination=${bookingTourSlug}&vehicle=large-car`}
+                  className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-md transition-all group-hover:shadow-lg"
+                >
+                  <span>Select Innova Crysta</span>
+                  <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 3: Luxury Tempo Traveller & Urbania */}
+            <div className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(2,20,107,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                {/* Visual Vehicle Stage with Studio Light */}
+                <div className="relative h-52 bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9]/80 to-white p-4 flex items-center justify-center overflow-hidden border-b border-[#F1F5F9]">
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-[10.5px] font-bold text-[#000B3B] shadow-xs">
+                    Group Tours &amp; Pilgrimages
+                  </div>
+                  <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#000B3B] text-[10.5px] font-bold text-[#FEC401] shadow-xs">
+                    Custom Quote
+                  </div>
+
+                  <Image
+                    src="/images/fleet/mini-bus.webp"
+                    alt="Tempo Traveller"
+                    width={320}
+                    height={180}
+                    className="object-contain max-h-38 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_14px_24px_rgba(0,11,59,0.14)]"
+                  />
+
+                  <div className="absolute bottom-2.5 left-3.5 flex items-center gap-1.5 text-[10px] text-[#16A34A] font-bold">
+                    <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
+                    <span>Commercial Yellow Plate</span>
+                  </div>
+                </div>
+
+                {/* Body Details */}
+                <div className="p-6 space-y-4">
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
+                        Tempo Traveller / Urbania
+                      </h3>
+                      <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
+                        Full Cabin AC
+                      </span>
+                    </div>
+                    <p className="text-xs font-semibold text-[#02146B]">
+                      Force Urbania, 12 to 17 Seater Luxury AC
+                    </p>
+                    <p className="text-xs text-[#64748B] leading-relaxed pt-1">
+                      High-roof standing aisle, reclining push-back seating, and panoramic windows for extended family tours and wedding parties.
+                    </p>
+                  </div>
+
+                  {/* Clean Specs Row */}
+                  <div className="flex items-center justify-between text-xs text-[#475569] py-2.5 border-y border-[#F1F5F9]">
+                    <span className="flex items-center gap-1.5 font-medium">
+                      <Users className="w-3.5 h-3.5 text-[#FEC401]" />
+                      <span>12–17 Seats</span>
+                    </span>
+                    <span className="flex items-center gap-1.5 font-medium">
+                      <Briefcase className="w-3.5 h-3.5 text-[#FEC401]" />
+                      <span>10+ Bags</span>
+                    </span>
+                    <span className="flex items-center gap-1.5 font-medium">
+                      <AirVent className="w-3.5 h-3.5 text-[#16A34A]" />
+                      <span>High Roof AC</span>
+                    </span>
+                  </div>
+
+                  {/* Feature Highlights */}
+                  <div className="space-y-1.5 text-xs text-[#475569]">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                      <span>Push-back ergonomic seats &amp; individual reading lamps</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                      <span>Massive dedicated rear luggage bay for group cargo</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                      <span>Experienced long-route highway pilgrimage captain</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6 pt-0">
+                <Link
+                  href={`/book-tour?destination=${bookingTourSlug}&vehicle=mini-bus`}
+                  className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md border border-white/10"
+                >
+                  <span>Enquire Group Cab</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Fleet Quality Assurance Strip */}
+          <div className="mt-10 sm:mt-12 bg-white rounded-2xl border border-[#CBD5E1] p-5 sm:p-6 shadow-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-left">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-[#FEF3C7] text-[#000B3B] shrink-0">
+                  <ShieldCheck className="w-4 h-4 text-[#D97706]" />
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-[#0F172A]">100% Yellow-Board Plates</h4>
+                  <p className="text-[11px] text-[#64748B] mt-0.5 leading-snug">
+                    State commercial road permits and comprehensive passenger insurance.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-[#DCFCE7] text-[#16A34A] shrink-0">
+                  <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-[#0F172A]">0% Cancellation Policy</h4>
+                  <p className="text-[11px] text-[#64748B] mt-0.5 leading-snug">
+                    Pre-assigned verified chauffeurs with guaranteed vehicle dispatch.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-[#E0F2FE] text-[#0284C7] shrink-0">
+                  <AirVent className="w-4 h-4 text-[#0284C7]" />
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-[#0F172A]">Chilled AC on Every Trip</h4>
+                  <p className="text-[11px] text-[#64748B] mt-0.5 leading-snug">
+                    100% air-conditioned comfort from departure to destination drop.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-xl bg-[#FEF9C3] text-[#CA8A04] shrink-0">
+                  <CreditCard className="w-4 h-4 text-[#CA8A04]" />
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-[#0F172A]">Transparent KM Billing</h4>
+                  <p className="text-[11px] text-[#64748B] mt-0.5 leading-snug">
+                    Direct honest kilometre rates with zero hidden surge multipliers.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

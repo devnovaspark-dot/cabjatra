@@ -196,7 +196,7 @@ export default function OdishaSightseeingTourPackagesPage() {
       subtitle="Discover Odisha's glorious temples, pristine coastal highways, and eco-wildlife lagoons by private AC cab"
       tagline="Curated private sightseeing itineraries with verified drivers and 100% commercial yellow-board fleet"
       badge="Comprehensive Odisha Sightseeing &bull; All Key Corridors"
-      heroImage="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=85&w=1600&auto=format&fit=crop"
+      heroImage="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=85&w=1920&auto=format&fit=crop"
       overview="Experience the rich soul of Odisha with our curated sightseeing cab packages. From the soaring spire of the Puri Jagannath Temple and the UNESCO World Heritage Sun Temple at Konark, to the tranquil waters of Chilika Lake and the ancient caves of Bhubaneswar, travel in total comfort with a private air-conditioned vehicle, verified local driver, and flexible sightseeing stops designed around your family."
       durationBadge="1 to 5 Days • 100% Flexible"
       startingFromNote="Transparent Day Tariffs • Instant Confirmation"
