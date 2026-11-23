@@ -105,6 +105,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
 }) => {
   // Hero interactive vehicle selector tab state
   const [selectedHeroVehicleId, setSelectedHeroVehicleId] = useState<string>("large-car");
+  const [selectedPackageIdx, setSelectedPackageIdx] = useState<number>(0);
 
   // FAQ accordion state
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -256,7 +257,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
                 <Link
-                  href={`/book-tour?destination=${bookingTourSlug}&vehicle=${selectedHeroVehicleId}`}
+                  href={`/book-tour?destination=${bookingTourSlug}`}
                   className="px-6 py-3.5 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] font-extrabold text-xs inline-flex items-center gap-2 shadow-[0_10px_25px_rgba(254,196,1,0.4)] active:translate-y-0.5 transition-all"
                 >
                   <Palmtree className="w-4 h-4 text-[#000B3B]" />
@@ -292,79 +293,125 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Clean, Minimal Luxury Vehicle Card (5 Cols) - Zero Text Over Image */}
+            {/* Right Column: Interactive Tour Pass & Itinerary Highlights Card (5 Cols) - NO CAR IMAGE */}
             <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-              <div className="relative rounded-3xl overflow-hidden border border-[#E2E8F0] shadow-xl bg-white">
-                {/* Segmented Vehicle Switcher - Minimal & Focused */}
-                <div className="p-3 bg-[#F8FAFC] border-b border-[#E2E8F0] flex items-center justify-center">
-                  <div className="inline-flex items-center bg-white p-1 rounded-xl border border-[#E2E8F0] shadow-xs">
-                    <button
-                      type="button"
-                      onClick={() => setSelectedHeroVehicleId("sedan")}
-                      className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                        selectedHeroVehicleId === "sedan"
-                          ? "bg-[#000B3B] text-[#FEC401] shadow-xs"
-                          : "text-[#64748B] hover:text-[#000B3B]"
-                      }`}
-                    >
-                      Prime Sedan
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setSelectedHeroVehicleId("large-car")}
-                      className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                        selectedHeroVehicleId === "large-car"
-                          ? "bg-[#000B3B] text-[#FEC401] shadow-xs"
-                          : "text-[#64748B] hover:text-[#000B3B]"
-                      }`}
-                    >
-                      Innova Crysta / SUV
-                    </button>
-                  </div>
-                </div>
-
-                {/* 1. CLEAN VEHICLE PHOTO STAGE - Absolutely Zero Text Over Image */}
-                <div className="relative h-48 sm:h-52 w-full bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9] to-white p-4 flex items-center justify-center overflow-hidden border-b border-[#F1F5F9]">
-                  <Image
-                    src={currentHeroVehicle.image}
-                    alt={currentHeroVehicle.name}
-                    width={340}
-                    height={190}
-                    priority
-                    className="object-contain max-h-42 drop-shadow-[0_16px_28px_rgba(0,11,59,0.12)] transform hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-
-                {/* 2. MINIMALIST LUXURY DETAILS & DIRECT CTA - Zero Clutter */}
-                <div className="p-5 sm:p-6 bg-white space-y-4">
-                  <div className="flex items-baseline justify-between">
+              <div className="relative rounded-3xl overflow-hidden border border-[#E2E8F0] shadow-2xl bg-white">
+                {/* Header with Verified Departure Pill */}
+                <div className="px-5 py-3.5 bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-7 h-7 rounded-lg bg-[#FEC401]/20 border border-[#FEC401]/30 flex items-center justify-center">
+                      <Compass className="w-3.5 h-3.5 text-[#FEC401]" />
+                    </div>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-bold font-display text-[#000B3B]">
-                        {currentHeroVehicle.name}
-                      </h3>
-                      <p className="text-xs text-[#64748B] font-medium">
-                        {currentHeroVehicle.passengers} Seats &bull; Dual AC &bull; {currentHeroVehicle.luggage} Bags
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <span className="text-xl sm:text-2xl font-black text-[#000B3B] block leading-none">
-                        {currentHeroVehicle.rate}
+                      <span className="text-xs font-black uppercase tracking-wider block text-white leading-tight">
+                        Curated Tour Package Pass
                       </span>
-                      <span className="text-[10px] font-bold text-[#16A34A] block mt-0.5">
-                        All Tolls Included
+                      <span className="text-[10px] text-[#FEC401] font-semibold block">
+                        All-Inclusive Sightseeing Cab
                       </span>
                     </div>
                   </div>
-
-                  {/* Clean Booking CTA */}
-                  <Link
-                    href={`/book-tour?destination=${bookingTourSlug}&vehicle=${currentHeroVehicle.id}`}
-                    className="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-sm transition-all group"
-                  >
-                    <span>Reserve {currentHeroVehicle.name.split("/")[0].trim()}</span>
-                    <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-bold text-white">
+                    <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
+                    <span>Guaranteed Departure</span>
+                  </div>
                 </div>
+
+                {/* Package Options Switcher */}
+                <div className="p-3 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#64748B] block mb-2 px-1">
+                    Select Tour Tier:
+                  </span>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    {packages.slice(0, 4).map((pkg, idx) => {
+                      const isSelected = (selectedPackageIdx || 0) === idx;
+                      return (
+                        <button
+                          key={idx}
+                          type="button"
+                          onClick={() => setSelectedPackageIdx(idx)}
+                          className={`px-2.5 py-2 rounded-xl text-left text-xs transition-all border ${
+                            isSelected
+                              ? "bg-[#000B3B] text-[#FEC401] border-[#000B3B] shadow-xs"
+                              : "bg-white text-[#475569] border-[#E2E8F0] hover:border-[#CBD5E1] hover:text-[#000B3B]"
+                          }`}
+                        >
+                          <div className="truncate text-[11px] font-extrabold leading-tight">{pkg.title}</div>
+                          <div className={`text-[9.5px] mt-0.5 font-medium truncate ${isSelected ? "text-white/80" : "text-[#94A3B8]"}`}>
+                            {pkg.approxPrice}
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Selected Package Details */}
+                {(() => {
+                  const activePkg = packages[selectedPackageIdx || 0] || packages[0];
+                  return (
+                    <div className="p-5 space-y-4 bg-white">
+                      {/* Tour Package Highlights Box */}
+                      <div className="p-3.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2.5">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-black text-[#000B3B] block">
+                            {activePkg?.title}
+                          </span>
+                          <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2 py-0.5 rounded-full">
+                            {activePkg?.duration}
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-[#64748B] leading-relaxed">
+                          {activePkg?.subtitle}
+                        </p>
+                      </div>
+
+                      {/* Key Sightseeing Attractions Checklist */}
+                      <div className="space-y-1.5">
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#64748B] block">
+                          Included Tour Highlights:
+                        </span>
+                        <div className="grid grid-cols-1 gap-1.5">
+                          {activePkg?.highlights.slice(0, 3).map((hl, hIdx) => (
+                            <div key={hIdx} className="flex items-center gap-2 text-xs text-[#0F172A] font-semibold">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                              <span className="truncate">{hl}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Pricing & Inclusions Strip */}
+                      <div className="flex items-baseline justify-between pt-1 border-t border-[#F1F5F9]">
+                        <div>
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-[#64748B] block">
+                            Fixed Package Rate
+                          </span>
+                          <span className="text-2xl font-black text-[#000B3B] block leading-none mt-0.5">
+                            {activePkg?.approxPrice}
+                          </span>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2 py-0.5 rounded-full inline-block">
+                            ● Fuel & Tolls Included
+                          </span>
+                          <span className="text-[9.5px] text-[#64748B] block mt-1">
+                            Doorstep Pickup & Drop
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Direct Booking CTA */}
+                      <Link
+                        href={`/book-tour?destination=${bookingTourSlug}`}
+                        className="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-sm transition-all group"
+                      >
+                        <span>Reserve This Tour Package</span>
+                        <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+                  );
+                })()}
               </div>
             </div>
           </div>

@@ -24,6 +24,7 @@ import {
   Check,
   CreditCard,
   Navigation,
+  Calculator,
   ThumbsUp,
   HelpCircle,
   TrendingDown,
@@ -81,6 +82,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 }) => {
   // Hero interactive vehicle selector tab state
   const [selectedHeroVehicleId, setSelectedHeroVehicleId] = useState<string>("large-car");
+  const [selectedRouteIdx, setSelectedRouteIdx] = useState<number>(0);
 
   // Dynamic city landmark background resolution
   const activeCityBg =
@@ -291,7 +293,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
                 <Link
-                  href={`/book-cab?service=${bookingCategoryKey}&vehicle=${selectedHeroVehicleId}`}
+                  href={`/book-cab?service=${bookingCategoryKey}`}
                   className="px-6 py-3.5 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] font-black text-xs inline-flex items-center gap-2 shadow-[0_10px_25px_rgba(254,196,1,0.4)] active:translate-y-0.5 transition-all"
                 >
                   <Car className="w-4 h-4 text-[#000B3B]" />
@@ -331,79 +333,144 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Clean, Minimal Luxury Vehicle Card (5 Cols) - Zero Text Over Image */}
+            {/* Right Column: Interactive Fast Fare & Route Booking Widget (5 Cols) - NO CAR IMAGE */}
             <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-              <div className="relative rounded-3xl overflow-hidden border border-[#E2E8F0] shadow-xl bg-white">
-                {/* Segmented Vehicle Switcher - Minimal & Focused */}
-                <div className="p-3 bg-[#F8FAFC] border-b border-[#E2E8F0] flex items-center justify-center">
-                  <div className="inline-flex items-center bg-white p-1 rounded-xl border border-[#E2E8F0] shadow-xs">
-                    <button
-                      type="button"
-                      onClick={() => setSelectedHeroVehicleId("sedan")}
-                      className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                        selectedHeroVehicleId === "sedan"
-                          ? "bg-[#000B3B] text-[#FEC401] shadow-xs"
-                          : "text-[#64748B] hover:text-[#000B3B]"
-                      }`}
-                    >
-                      Prime Sedan
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setSelectedHeroVehicleId("large-car")}
-                      className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                        selectedHeroVehicleId === "large-car"
-                          ? "bg-[#000B3B] text-[#FEC401] shadow-xs"
-                          : "text-[#64748B] hover:text-[#000B3B]"
-                      }`}
-                    >
-                      Innova Crysta / SUV
-                    </button>
-                  </div>
-                </div>
-
-                {/* 1. CLEAN VEHICLE PHOTO STAGE - Absolutely Zero Text Over Image */}
-                <div className="relative h-48 sm:h-52 w-full bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9] to-white p-4 flex items-center justify-center overflow-hidden border-b border-[#F1F5F9]">
-                  <Image
-                    src={currentHeroVehicle.image}
-                    alt={currentHeroVehicle.name}
-                    width={340}
-                    height={190}
-                    priority
-                    className="object-contain max-h-42 drop-shadow-[0_16px_28px_rgba(0,11,59,0.12)] transform hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-
-                {/* 2. MINIMALIST LUXURY DETAILS & DIRECT CTA - Zero Clutter */}
-                <div className="p-5 sm:p-6 bg-white space-y-4">
-                  <div className="flex items-baseline justify-between">
+              <div className="relative rounded-3xl overflow-hidden border border-[#E2E8F0] shadow-2xl bg-white">
+                {/* Widget Header with Live Dispatch Pill */}
+                <div className="px-5 py-3.5 bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-7 h-7 rounded-lg bg-[#FEC401]/20 border border-[#FEC401]/30 flex items-center justify-center">
+                      <Navigation className="w-3.5 h-3.5 text-[#FEC401]" />
+                    </div>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-bold font-display text-[#000B3B]">
-                        {currentHeroVehicle.name}
-                      </h3>
-                      <p className="text-xs text-[#64748B] font-medium">
-                        {currentHeroVehicle.passengers} Seats &bull; Dual AC &bull; {currentHeroVehicle.luggage} Bags
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <span className="text-xl sm:text-2xl font-black text-[#000B3B] block leading-none">
-                        {currentHeroVehicle.rate}
+                      <span className="text-xs font-black uppercase tracking-wider block text-white leading-tight">
+                        Instant Fare Calculator
                       </span>
-                      <span className="text-[10px] font-bold text-[#16A34A] block mt-0.5">
-                        All Tolls Included
+                      <span className="text-[10px] text-[#FEC401] font-semibold block">
+                        Verified Yellow-Plate Tariffs
                       </span>
                     </div>
                   </div>
-
-                  {/* Clean Booking CTA */}
-                  <Link
-                    href={`/book-cab?service=${bookingCategoryKey}&vehicle=${currentHeroVehicle.id}`}
-                    className="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-sm transition-all group"
-                  >
-                    <span>Reserve {currentHeroVehicle.name.split("/")[0].trim()}</span>
-                    <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-bold text-white">
+                    <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
+                    <span>Live Dispatch</span>
+                  </div>
                 </div>
+
+                {/* Corridor Selector Pills */}
+                <div className="p-3 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#64748B] block mb-2 px-1">
+                    Select Popular Route:
+                  </span>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    {routeFares.slice(0, 4).map((rf, idx) => {
+                      const isSelected = (selectedRouteIdx || 0) === idx;
+                      const routeTitle = rf.route.includes("⇄")
+                        ? rf.route.split("⇄")[1]?.trim()
+                        : rf.route;
+                      return (
+                        <button
+                          key={idx}
+                          type="button"
+                          onClick={() => setSelectedRouteIdx(idx)}
+                          className={`px-2.5 py-2 rounded-xl text-left text-xs transition-all border ${
+                            isSelected
+                              ? "bg-[#000B3B] text-[#FEC401] border-[#000B3B] shadow-xs"
+                              : "bg-white text-[#475569] border-[#E2E8F0] hover:border-[#CBD5E1] hover:text-[#000B3B]"
+                          }`}
+                        >
+                          <div className="truncate text-[11px] font-extrabold leading-tight">{routeTitle}</div>
+                          <div className={`text-[9.5px] mt-0.5 font-medium truncate ${isSelected ? "text-white/80" : "text-[#94A3B8]"}`}>
+                            {rf.distance}
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Selected Journey Visual & Pricing Details */}
+                {(() => {
+                  const activeRoute = routeFares[selectedRouteIdx || 0] || routeFares[0];
+                  const pickupName = activeRoute?.route.includes("⇄")
+                    ? activeRoute.route.split("⇄")[0]?.trim()
+                    : "City Pickup Hub";
+                  const dropName = activeRoute?.route.includes("⇄")
+                    ? activeRoute.route.split("⇄")[1]?.trim()
+                    : activeRoute?.route;
+
+                  return (
+                    <div className="p-5 space-y-4 bg-white">
+                      {/* Journey Flow Pins */}
+                      <div className="relative pl-6 space-y-3 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:border-l-2 before:border-dashed before:border-[#CBD5E1]">
+                        <div className="relative">
+                          <span className="absolute -left-6 top-1 w-3 h-3 rounded-full bg-[#10B981] ring-4 ring-[#DCFCE7]" />
+                          <span className="text-[10px] uppercase font-bold text-[#64748B] block leading-none">
+                            Pickup Origin
+                          </span>
+                          <span className="text-xs font-extrabold text-[#0F172A] block leading-tight mt-0.5 truncate">
+                            {pickupName}
+                          </span>
+                        </div>
+                        <div className="relative">
+                          <span className="absolute -left-6 top-1 w-3 h-3 rounded-full bg-[#000B3B] ring-4 ring-[#E2E8F0]" />
+                          <span className="text-[10px] uppercase font-bold text-[#64748B] block leading-none">
+                            Drop Destination
+                          </span>
+                          <span className="text-xs font-extrabold text-[#000B3B] block leading-tight mt-0.5 truncate">
+                            {dropName}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Distance & Travel Time Strip */}
+                      <div className="flex items-center justify-between p-2.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs">
+                        <span className="flex items-center gap-1.5 font-semibold text-[#475569]">
+                          <MapPin className="w-3.5 h-3.5 text-[#D97706]" />
+                          <span>{activeRoute?.distance}</span>
+                        </span>
+                        <span className="flex items-center gap-1.5 font-semibold text-[#475569]">
+                          <Clock className="w-3.5 h-3.5 text-[#0284C7]" />
+                          <span>{activeRoute?.approxDuration}</span>
+                        </span>
+                        <span className="text-[10px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2 py-0.5 rounded-md">
+                          All Tolls Included
+                        </span>
+                      </div>
+
+                      {/* Vehicle Class Tariff Options */}
+                      <div className="grid grid-cols-2 gap-2.5">
+                        <div className="p-3 rounded-2xl border-2 border-[#FEC401] bg-[#FFFDF0] relative shadow-xs">
+                          <span className="absolute -top-2 right-2 px-1.5 py-0.2 bg-[#FEC401] text-[#000B3B] text-[8.5px] font-black rounded uppercase">
+                            Most Booked
+                          </span>
+                          <span className="text-[11px] font-bold text-[#0F172A] block">Sedan (4 Seats)</span>
+                          <span className="text-base font-black text-[#000B3B] block leading-tight mt-1">
+                            {activeRoute?.sedanEstimate}
+                          </span>
+                          <span className="text-[9.5px] text-[#64748B] block mt-0.5 font-medium">Dzire / Etios AC</span>
+                        </div>
+
+                        <div className="p-3 rounded-2xl border border-[#E2E8F0] bg-white shadow-xs">
+                          <span className="text-[11px] font-bold text-[#0F172A] block">SUV (7 Seats)</span>
+                          <span className="text-base font-black text-[#000B3B] block leading-tight mt-1">
+                            {activeRoute?.suvEstimate}
+                          </span>
+                          <span className="text-[9.5px] text-[#64748B] block mt-0.5 font-medium">Innova / Ertiga AC</span>
+                        </div>
+                      </div>
+
+                      {/* Direct Booking CTA */}
+                      <Link
+                        href={`/book-cab?service=${bookingCategoryKey}&route=${encodeURIComponent(activeRoute?.route || "")}`}
+                        className="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-sm transition-all group"
+                      >
+                        <span>Confirm & Reserve This Route</span>
+                        <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+                  );
+                })()}
               </div>
             </div>
           </div>
