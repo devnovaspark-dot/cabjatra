@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import {
   Sparkles,
   MapPin,
@@ -103,6 +104,26 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
   faqs,
   bookingTourSlug,
 }) => {
+  // Router & Horizontal tour planner form card state
+  const router = useRouter();
+  const [selectedCircuit, setSelectedCircuit] = useState<string>(
+    bookingTourSlug || "golden-triangle"
+  );
+  const [tourPickup, setTourPickup] = useState<string>("Bhubaneswar Airport (BBI)");
+  const [tourDate, setTourDate] = useState<string>("2026-11-24");
+  const [selectedTourVehicle, setSelectedTourVehicle] = useState<string>("large-car");
+
+  const handleTourSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    const query = new URLSearchParams({
+      destination: selectedCircuit,
+      from: tourPickup,
+      date: tourDate,
+      vehicle: selectedTourVehicle,
+    });
+    router.push(`/book-tour?${query.toString()}`);
+  };
+
   // FAQ accordion state - all closed by default
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
@@ -247,7 +268,148 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 2: EXECUTIVE COMMERCIAL FLEET SELECTION                           */}
+      {/* HORIZONTAL TOUR PLANNER FORM CARD (CLEAN, ATTRACTIVE, BEST UI/UX)         */}
+      {/* ========================================================================= */}
+      <section className="relative z-20 -mt-8 sm:-mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-10">
+        <div className="bg-white rounded-3xl border-2 border-[#FEC401]/80 shadow-[0_20px_50px_rgba(0,11,59,0.12),0_1px_3px_rgba(0,0,0,0.05)] p-5 sm:p-6 lg:p-7 relative overflow-hidden group">
+          {/* Top Subtle Amber Corner Accent */}
+          <div className="absolute top-0 right-0 w-72 h-72 bg-[#FEC401]/10 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Form Header Pill & Title */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 sm:pb-5 mb-4 sm:mb-5 border-b border-[#F1F5F9] gap-2">
+            <div className="flex items-center gap-2.5">
+              <span className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#FEC401] to-[#E5AD00] text-[#000B3B] flex items-center justify-center font-black shadow-xs shrink-0">
+                <Palmtree className="w-4 h-4 text-[#000B3B]" />
+              </span>
+              <div>
+                <h3 className="text-base sm:text-lg font-bold font-display text-[#0F172A] leading-tight">
+                  Curated Odisha Tour Planner &amp; Instant Quote
+                </h3>
+                <p className="text-xs text-[#64748B]">
+                  Dedicated private AC cab &bull; Flexible sightseeing halts &bull; Background-verified local chauffeur
+                </p>
+              </div>
+            </div>
+
+            <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFFBEB] border border-[#FEF08A] text-[11px] font-bold text-[#92400E] self-start sm:self-auto">
+              <Sparkles className="w-3.5 h-3.5 text-[#D97706]" />
+              <span>100% Bespoke Flexible Stops</span>
+            </div>
+          </div>
+
+          {/* Form Fields: 5 Horizontal Columns on Desktop */}
+          <form onSubmit={handleTourSearch} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 items-end">
+            {/* Field 1: Tour Circuit */}
+            <div className="space-y-1.5">
+              <label className="text-[10.5px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5">
+                <Compass className="w-3.5 h-3.5 text-[#D97706]" />
+                <span>Odisha Tour Circuit</span>
+              </label>
+              <div className="relative">
+                <select
+                  value={selectedCircuit}
+                  onChange={(e) => setSelectedCircuit(e.target.value)}
+                  className="w-full h-12 pl-3.5 pr-8 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all cursor-pointer shadow-2xs"
+                >
+                  <option value="golden-triangle">Golden Triangle (Bhubaneswar-Puri-Konark)</option>
+                  <option value="puri-dham">Puri Jagannath Dham &amp; Beach (1-2 Days)</option>
+                  <option value="konark-marine-drive">Konark Sun Temple &amp; Marine Drive</option>
+                  <option value="chilika-satapada">Chilika Lake &amp; Dolphin Safari</option>
+                  <option value="bhubaneswar-heritage">Bhubaneswar Temple City Circuit</option>
+                  <option value="complete-odisha">Complete Odisha Grand Tour (4D/3N)</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Field 2: Pickup Hub */}
+            <div className="space-y-1.5">
+              <label className="text-[10.5px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-[#16A34A]" />
+                <span>Pickup Location</span>
+              </label>
+              <div className="relative">
+                <select
+                  value={tourPickup}
+                  onChange={(e) => setTourPickup(e.target.value)}
+                  className="w-full h-12 pl-3.5 pr-8 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all cursor-pointer shadow-2xs"
+                >
+                  <option value="Bhubaneswar Airport (BBI)">Bhubaneswar Airport (BBI)</option>
+                  <option value="Bhubaneswar Railway Station">Bhubaneswar Railway Station</option>
+                  <option value="Puri Hotel / Resort">Puri Hotel / Resort Doorstep</option>
+                  <option value="Kataka Hub">Kataka Hub</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Field 3: Start Date */}
+            <div className="space-y-1.5">
+              <label className="text-[10.5px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-[#0284C7]" />
+                <span>Tour Start Date</span>
+              </label>
+              <div className="relative">
+                <input
+                  type="date"
+                  value={tourDate}
+                  onChange={(e) => setTourDate(e.target.value)}
+                  className="w-full h-12 px-3.5 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all shadow-2xs"
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Field 4: Fleet & Group Size */}
+            <div className="space-y-1.5">
+              <label className="text-[10.5px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5">
+                <Users className="w-3.5 h-3.5 text-[#D97706]" />
+                <span>Cab &amp; Group Size</span>
+              </label>
+              <div className="relative">
+                <select
+                  value={selectedTourVehicle}
+                  onChange={(e) => setSelectedTourVehicle(e.target.value)}
+                  className="w-full h-12 pl-3.5 pr-8 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all cursor-pointer shadow-2xs"
+                >
+                  <option value="large-car">Innova Crysta SUV (4–7 Pax)</option>
+                  <option value="sedan">Prime Sedan (1–4 Pax)</option>
+                  <option value="mini-bus">Tempo Traveller (8–17 Group)</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Field 5: Action Button */}
+            <div>
+              <button
+                type="submit"
+                className="w-full h-12 rounded-xl bg-gradient-to-r from-[#FEC401] via-[#E5AD00] to-[#FEC401] bg-[length:200%_auto] hover:bg-right hover:brightness-105 active:translate-y-0.5 text-[#000B3B] font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_8px_20px_rgba(254,196,1,0.4)] transition-all cursor-pointer"
+              >
+                <span>Plan My Tour</span>
+                <ArrowRight className="w-4 h-4 text-[#000B3B]" />
+              </button>
+            </div>
+          </form>
+
+          {/* Bottom Micro-Assurances Strip */}
+          <div className="mt-4 pt-3.5 border-t border-[#F1F5F9] flex flex-wrap items-center justify-between text-[11px] text-[#64748B] gap-2">
+            <span className="flex items-center gap-1.5 font-medium">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#16A34A]" />
+              <span>Dedicated Chauffeur &bull; Safe Luggage Custody</span>
+            </span>
+            <span className="flex items-center gap-1.5 font-medium">
+              <Clock className="w-3.5 h-3.5 text-[#16A34A]" />
+              <span>Flexible Halts for Photos &amp; Refreshments</span>
+            </span>
+            <span className="flex items-center gap-1.5 font-medium">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" />
+              <span>Doorstep Hotel / Airport Terminal Pickup</span>
+            </span>
+            <span className="flex items-center gap-1.5 font-medium">
+              <AirVent className="w-3.5 h-3.5 text-[#0284C7]" />
+              <span>Chilled AC Running Throughout Journey</span>
+            </span>
+          </div>
+        </div>
+      </section>
       {/* ========================================================================= */}
       <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

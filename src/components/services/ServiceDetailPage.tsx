@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import {
   CheckCircle2,
   XCircle,
@@ -80,6 +81,31 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
   bookingCategoryKey,
   serviceFaq,
 }) => {
+  // Router & Horizontal booking form card state
+  const router = useRouter();
+  const [pickupCity, setPickupCity] = useState<string>(
+    bookingCategoryKey === "puri" ? "Puri" : bookingCategoryKey === "kataka" ? "Kataka" : "Bhubaneswar"
+  );
+  const [dropLocation, setDropLocation] = useState<string>(
+    bookingCategoryKey === "puri" ? "Bhubaneswar Airport (BBI)" : "Puri Jagannath Temple"
+  );
+  const [pickupDate, setPickupDate] = useState<string>("2026-11-24");
+  const [pickupTime, setPickupTime] = useState<string>("09:00");
+  const [selectedVehicle, setSelectedVehicle] = useState<string>("sedan");
+
+  const handleCabSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    const query = new URLSearchParams({
+      service: bookingCategoryKey || "outstation",
+      from: pickupCity,
+      to: dropLocation,
+      date: pickupDate,
+      time: pickupTime,
+      vehicle: selectedVehicle,
+    });
+    router.push(`/book-cab?${query.toString()}`);
+  };
+
   // Hero interactive vehicle selector tab state
   const [selectedHeroVehicleId, setSelectedHeroVehicleId] = useState<string>("large-car");
   const [selectedRouteIdx, setSelectedRouteIdx] = useState<number>(0);
@@ -313,7 +339,152 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 2: EXECUTIVE COMMERCIAL FLEET SELECTION                           */}
+      {/* HORIZONTAL QUICK CAB RESERVATION FORM CARD (BEST UI/UX)                   */}
+      {/* ========================================================================= */}
+      <section className="relative z-20 -mt-8 sm:-mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-10">
+        <div className="bg-white rounded-3xl border-2 border-[#FEC401]/80 shadow-[0_20px_50px_rgba(0,11,59,0.12),0_1px_3px_rgba(0,0,0,0.05)] p-5 sm:p-6 lg:p-7 relative overflow-hidden group">
+          {/* Top Subtle Amber Corner Accent */}
+          <div className="absolute top-0 right-0 w-72 h-72 bg-[#FEC401]/10 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Form Header Pill & Title */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 sm:pb-5 mb-4 sm:mb-5 border-b border-[#F1F5F9] gap-2">
+            <div className="flex items-center gap-2.5">
+              <span className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#FEC401] to-[#E5AD00] text-[#000B3B] flex items-center justify-center font-black shadow-xs shrink-0">
+                <Car className="w-4 h-4 text-[#000B3B]" />
+              </span>
+              <div>
+                <h3 className="text-base sm:text-lg font-bold font-display text-[#0F172A] leading-tight">
+                  Quick Cab Reservation &amp; Instant Fare Check
+                </h3>
+                <p className="text-xs text-[#64748B]">
+                  Pre-assigned verified chauffeur &bull; 100% Commercial AC fleet &bull; Zero peak surge multipliers
+                </p>
+              </div>
+            </div>
+
+            <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[11px] font-bold text-[#166534] self-start sm:self-auto">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" />
+              <span>Instant WhatsApp Confirmation</span>
+            </div>
+          </div>
+
+          {/* Form Fields: 5 Horizontal Columns on Desktop */}
+          <form onSubmit={handleCabSearch} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 items-end">
+            {/* Field 1: Pickup */}
+            <div className="space-y-1.5">
+              <label className="text-[10.5px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-[#16A34A]" />
+                <span>Pickup Hub</span>
+              </label>
+              <div className="relative">
+                <select
+                  value={pickupCity}
+                  onChange={(e) => setPickupCity(e.target.value)}
+                  className="w-full h-12 pl-3.5 pr-8 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all cursor-pointer shadow-2xs"
+                >
+                  <option value="Bhubaneswar">Bhubaneswar (BBI / City)</option>
+                  <option value="Puri">Puri (Town / Beach)</option>
+                  <option value="Kataka">Kataka (Link Rd / Hub)</option>
+                  <option value="Konark">Konark (Sun Temple)</option>
+                  <option value="Berhampur">Berhampur</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Field 2: Destination */}
+            <div className="space-y-1.5">
+              <label className="text-[10.5px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-[#D97706]" />
+                <span>Drop Destination</span>
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  value={dropLocation}
+                  onChange={(e) => setDropLocation(e.target.value)}
+                  placeholder="e.g. Puri Jagannath Temple"
+                  className="w-full h-12 px-3.5 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all placeholder:text-[#94A3B8] shadow-2xs"
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Field 3: Date & Time */}
+            <div className="space-y-1.5">
+              <label className="text-[10.5px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-[#0284C7]" />
+                <span>Pickup Date &amp; Time</span>
+              </label>
+              <div className="grid grid-cols-2 gap-1.5">
+                <input
+                  type="date"
+                  value={pickupDate}
+                  onChange={(e) => setPickupDate(e.target.value)}
+                  className="w-full h-12 px-2.5 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all shadow-2xs"
+                  required
+                />
+                <input
+                  type="time"
+                  value={pickupTime}
+                  onChange={(e) => setPickupTime(e.target.value)}
+                  className="w-full h-12 px-2 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all shadow-2xs"
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Field 4: Fleet Class */}
+            <div className="space-y-1.5">
+              <label className="text-[10.5px] font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5">
+                <Car className="w-3.5 h-3.5 text-[#D97706]" />
+                <span>Preferred Cab Class</span>
+              </label>
+              <div className="relative">
+                <select
+                  value={selectedVehicle}
+                  onChange={(e) => setSelectedVehicle(e.target.value)}
+                  className="w-full h-12 pl-3.5 pr-8 rounded-xl border border-[#CBD5E1] bg-[#FAF9F5] text-xs font-bold text-[#0F172A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FEC401] focus:border-[#FEC401] transition-all cursor-pointer shadow-2xs"
+                >
+                  <option value="sedan">Prime Sedan (Dzire / 4 Pax)</option>
+                  <option value="large-car">Innova Crysta SUV (7 Pax)</option>
+                  <option value="mini-bus">Tempo Traveller (12–17 Pax)</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Field 5: Action Button */}
+            <div>
+              <button
+                type="submit"
+                className="w-full h-12 rounded-xl bg-gradient-to-r from-[#FEC401] via-[#E5AD00] to-[#FEC401] bg-[length:200%_auto] hover:bg-right hover:brightness-105 active:translate-y-0.5 text-[#000B3B] font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_8px_20px_rgba(254,196,1,0.4)] transition-all cursor-pointer"
+              >
+                <span>Find Available Cabs</span>
+                <ArrowRight className="w-4 h-4 text-[#000B3B]" />
+              </button>
+            </div>
+          </form>
+
+          {/* Bottom Micro-Assurances Strip */}
+          <div className="mt-4 pt-3.5 border-t border-[#F1F5F9] flex flex-wrap items-center justify-between text-[11px] text-[#64748B] gap-2">
+            <span className="flex items-center gap-1.5 font-medium">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#16A34A]" />
+              <span>100% Commercial Yellow-Board Plates</span>
+            </span>
+            <span className="flex items-center gap-1.5 font-medium">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" />
+              <span>Guaranteed Vehicle Dispatch &amp; Allocation</span>
+            </span>
+            <span className="flex items-center gap-1.5 font-medium">
+              <Zap className="w-3.5 h-3.5 text-[#D97706]" />
+              <span>Zero Peak Hour Surge Multipliers</span>
+            </span>
+            <span className="flex items-center gap-1.5 font-medium">
+              <AirVent className="w-3.5 h-3.5 text-[#0284C7]" />
+              <span>Chilled Dual-Zone AC Guaranteed</span>
+            </span>
+          </div>
+        </div>
+      </section>
       {/* ========================================================================= */}
       <section className="py-14 sm:py-18 bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
