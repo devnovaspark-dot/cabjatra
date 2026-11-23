@@ -46,7 +46,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     location: "Mumbai",
     tripType: "Full-Day Chilika Lake & Dolphin Safari",
     rating: 5,
-    quote: "The 10% advance model gave us complete transparency. Once availability was confirmed, everything went smoothly. The driver even recommended an authentic coastal dhaba near Satapada that served the most delicious local crab curry.",
+    quote: "The pre-booked confirmed cab model gave us complete transparency. Once availability was confirmed, everything went smoothly. The driver even recommended an authentic coastal dhaba near Satapada that served the most delicious local crab curry.",
     date: "December 2025",
     avatarText: "SP",
     avatarUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=250&auto=format&fit=crop",

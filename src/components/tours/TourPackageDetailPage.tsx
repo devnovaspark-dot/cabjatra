@@ -21,17 +21,17 @@ import {
   Phone,
   Briefcase,
   Star,
-  Zap,
-  Navigation,
-  ThumbsUp,
-  HelpCircle,
+  AirVent,
   Palmtree,
   CreditCard,
-  Check,
-  AirVent,
+  Route,
+  HeartHandshake,
+  Award,
+  HelpCircle,
+  ThumbsUp,
+  ShieldAlert,
 } from "lucide-react";
 import { COMPANY_CONFIG } from "@/data/company";
-import { VEHICLE_FLEET } from "@/data/vehicles";
 import { TESTIMONIALS_DATA } from "@/data/testimonials";
 
 export interface TourDestinationItem {
@@ -103,52 +103,8 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
   faqs,
   bookingTourSlug,
 }) => {
-  // Hero interactive vehicle selector tab state
-  const [selectedHeroVehicleId, setSelectedHeroVehicleId] = useState<string>("large-car");
-  const [selectedPackageIdx, setSelectedPackageIdx] = useState<number>(0);
-
-  // FAQ accordion state
+  // FAQ accordion state - all closed by default
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-
-  // Relevant hero vehicle data mapping
-  const heroVehicles = [
-    {
-      id: "large-car",
-      name: "Innova Crysta SUV",
-      models: "Toyota Innova Crysta, Maruti Ertiga",
-      passengers: 7,
-      luggage: 4,
-      rate: "From ₹19/km",
-      tag: "Family Favorite",
-      image: "/images/fleet/large-car.webp",
-      desc: "Dual-zone AC, plush captain seats & smooth highway comfort for Puri & Konark tours.",
-    },
-    {
-      id: "sedan",
-      name: "Prime Sedan",
-      models: "Swift Dzire, Toyota Etios",
-      passengers: 4,
-      luggage: 3,
-      rate: "From ₹13/km",
-      tag: "Couples & Small Families",
-      image: "/images/fleet/sedan.webp",
-      desc: "Chilled AC, plush legroom & generous boot space for day sightseeing circuits.",
-    },
-    {
-      id: "mini-bus",
-      name: "Tempo Traveller",
-      models: "Force Urbania, 12–17 Seater",
-      passengers: 17,
-      luggage: 10,
-      rate: "Custom Quote",
-      tag: "Group Pilgrimage",
-      image: "/images/fleet/mini-bus.webp",
-      desc: "Reclining push-back seats & panoramic windows for extended family groups.",
-    },
-  ];
-
-  const currentHeroVehicle =
-    heroVehicles.find((v) => v.id === selectedHeroVehicleId) || heroVehicles[0];
 
   // Dynamic city landmark background resolution
   const activeCityBg =
@@ -162,13 +118,33 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
       ? "https://images.unsplash.com/photo-1576235282476-debff2a4d0b9?q=85&w=1920&auto=format&fit=crop"
       : "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=85&w=1920&auto=format&fit=crop");
 
+  // Route tags helper for packages
+  const getPackageRoute = (pkgTitle: string) => {
+    if (pkgTitle.toLowerCase().includes("golden triangle")) {
+      return ["Bhubaneswar", "Dhauli", "Puri Dham", "Konark Sun Temple", "Bhubaneswar"];
+    }
+    if (pkgTitle.toLowerCase().includes("puri") && pkgTitle.toLowerCase().includes("konark")) {
+      return ["Puri Beach Hotel", "Marine Drive", "Chandrabhaga", "Konark Sun Temple", "Return"];
+    }
+    if (pkgTitle.toLowerCase().includes("bhubaneswar")) {
+      return ["Airport/Station", "Lingaraj", "Mukteswar", "Dhauli Pagoda", "Khandagiri"];
+    }
+    if (pkgTitle.toLowerCase().includes("chilika") || pkgTitle.toLowerCase().includes("satapada")) {
+      return ["Puri / Bhubaneswar", "Scenic Highway", "Satapada Jetty", "Dolphin Point", "Return"];
+    }
+    if (pkgTitle.toLowerCase().includes("family")) {
+      return ["Doorstep Pickup", "Temple Circuit", "Coastal Marine Drive", "Lagoon Safari", "Hotel Drop"];
+    }
+    return ["Custom Departure", "Flexible Scenic Halts", "Bespoke Sightseeing", "Safe Drop"];
+  };
+
   return (
     <div className="bg-[#FAF9F5] min-h-screen text-[#0F172A] font-sans selection:bg-[#FEC401]/30">
-            {/* ========================================================================= */}
-      {/* SECTION 1: LUMINOUS ARCHITECTURAL HERO & INTERACTIVE TOUR STAGE           */}
+      {/* ========================================================================= */}
+      {/* SECTION 1: LUMINOUS ARCHITECTURAL HERO (NO CARDS, 100% VISIBLE LANDMARK)  */}
       {/* ========================================================================= */}
       <section className="relative min-h-[82vh] lg:min-h-[88vh] flex items-center overflow-hidden border-b border-[#E2E8F0] pt-28 sm:pt-32 pb-16 sm:pb-20">
-        {/* Authentic Destination Landmark Photographic Backdrop - 100% Vibrant, Clear & Zero White Shadow */}
+        {/* Authentic Destination Landmark Backdrop - Clear, Crisp & Zero Milky Fog */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <Image
             src={activeCityBg}
@@ -178,45 +154,44 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
             sizes="100vw"
             className="object-cover object-center"
           />
-          {/* Minimal delicate tint - Zero white fog or milky shadow, authentic landmark fully visible */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/5 to-transparent" />
+          {/* Subtle delicate gradient for crystal clear text readability while landmark stays fully visible */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/35 via-white/15 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F5] via-transparent to-black/10 pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-4 sm:py-6">
-          <div className="max-w-3xl space-y-5 text-left">
-            {/* Refined Unified Badge & Social Proof Pill */}
-            <div className="flex flex-wrap items-center gap-2">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-[11px] font-bold text-[#000B3B] shadow-xs">
-                <div className="flex items-center gap-1.5 text-[#D97706]">
-                  <Sparkles className="w-3.5 h-3.5 text-[#D97706]" />
-                  <span>{badge.split("&bull;")[0].trim()}</span>
-                </div>
-                <span className="w-1 h-1 rounded-full bg-[#CBD5E1]" />
-                <span className="text-[#475569] font-semibold flex items-center gap-1">
-                  <Star className="w-3.5 h-3.5 text-[#FEC401] fill-[#FEC401]" /> 4.95/5 Rating &bull; {durationBadge}
-                </span>
+          <div className="max-w-3xl space-y-6 text-left">
+            {/* Top Badge Pill */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-xs font-bold text-[#000B3B] shadow-xs">
+              <div className="flex items-center gap-1.5 text-[#D97706]">
+                <Sparkles className="w-4 h-4 text-[#D97706]" />
+                <span>{badge.split("&bull;")[0].trim()}</span>
               </div>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#CBD5E1]" />
+              <span className="text-[#475569] font-semibold flex items-center gap-1">
+                <Star className="w-3.5 h-3.5 text-[#FEC401] fill-[#FEC401]" /> 4.95/5 Rating &bull; {durationBadge}
+              </span>
             </div>
 
-            {/* Main Headline - Grand, Authoritative, Editorial with Subtle Contrast Halo */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-[#000B3B] drop-shadow-[0_2px_8px_rgba(255,255,255,0.85)] leading-[1.12]">
+            {/* Main Headline - Authoritative, Editorial with Subtle Contrast Halo */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-[#000B3B] drop-shadow-[0_2px_8px_rgba(255,255,255,0.9)] leading-[1.12]">
               {title}
             </h1>
 
-            {/* Subtitle - Punchy & Clear */}
-            <p className="text-sm sm:text-base lg:text-lg text-[#0F172A] font-bold leading-relaxed drop-shadow-[0_1px_4px_rgba(255,255,255,0.9)] max-w-2xl">
+            {/* Subtitle - Punchy, High-Impact & Airy */}
+            <p className="text-sm sm:text-base lg:text-lg text-[#0F172A] font-bold leading-relaxed drop-shadow-[0_1px_4px_rgba(255,255,255,0.95)] max-w-2xl">
               {subtitle}
             </p>
 
-            {/* Sleek Feature Highlights - Minimalist Inline Badges */}
-            <div className="flex flex-wrap items-center gap-2 pt-1">
+            {/* Minimalist Inline Feature Badges */}
+            <div className="flex flex-wrap items-center gap-2.5 pt-1">
               <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-xs">
                 <Car className="w-4 h-4 text-[#D97706]" />
-                <span>100% Commercial Sightseeing Fleet</span>
+                <span>100% Commercial Private Fleet</span>
               </div>
               <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-xs">
                 <Clock className="w-4 h-4 text-[#CA8A04]" />
-                <span>Flexible Halts & Custom Pace</span>
+                <span>Flexible Halts &amp; Custom Pace</span>
               </div>
               <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-xs">
                 <AirVent className="w-4 h-4 text-[#0284C7]" />
@@ -224,15 +199,15 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               </div>
               <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-xs">
                 <MapPin className="w-4 h-4 text-[#16A34A]" />
-                <span>Hotel Doorstep Pickup & Return</span>
+                <span>Hotel Doorstep Pickup &amp; Return</span>
               </div>
             </div>
 
-            {/* Primary Action Buttons */}
+            {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <Link
                 href={`/book-tour?destination=${bookingTourSlug}`}
-                className="px-7 py-4 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] font-extrabold text-sm inline-flex items-center gap-2.5 shadow-[0_12px_28px_rgba(254,196,1,0.42)] active:translate-y-0.5 transition-all group"
+                className="px-8 py-4 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] font-extrabold text-sm inline-flex items-center gap-2.5 shadow-[0_12px_28px_rgba(254,196,1,0.42)] active:translate-y-0.5 transition-all group"
               >
                 <Palmtree className="w-4 h-4 text-[#000B3B]" />
                 <span>Reserve This Tour Package Now</span>
@@ -274,17 +249,17 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
       {/* ========================================================================= */}
       {/* SECTION 2: EXECUTIVE COMMERCIAL FLEET SELECTION                           */}
       {/* ========================================================================= */}
-      <section className="py-14 sm:py-18 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+      <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-            <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-[#EEF2F6] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
-              <Car className="w-3.5 h-3.5 text-[#FEC401]" />
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-[#EEF2F6] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
+              <Car className="w-3.5 h-3.5 text-[#D97706]" />
               <span>Tour Vehicle Classes</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
               Choose the Right Cab for Your Tour
             </h2>
-            <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+            <p className="text-xs sm:text-sm text-[#64748B] mt-2 max-w-2xl mx-auto">
               All vehicles are 100% commercial yellow-board registered, fully AC equipped, and maintained to pristine passenger hygiene standards.
             </p>
           </div>
@@ -292,10 +267,10 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
           {/* 3 Executive Showcase Cards - Magazine Quality Edge-to-Edge Frames */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
             {/* Card 1: Prime Commercial Sedan */}
-            <div className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(2,20,107,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+            <div className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(2,20,107,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group">
               <div>
-                {/* Visual Full-Bleed Vehicle Stage - No Image Spillout */}
-                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
+                {/* Visual Vehicle Stage - Clean Presentation, No Spillout */}
+                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200">
                   <Image
                     src="/images/fleet/sedan.webp"
                     alt="Prime Sedan"
@@ -303,18 +278,16 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />
-
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-white shadow-xs">
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-white shadow-xs">
                     Couples &amp; Small Families
                   </div>
                   <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#FEC401] text-[11px] font-black text-[#000B3B] shadow-xs">
-                    ₹13/km
+                    From ₹13/km
                   </div>
                 </div>
 
                 {/* Body Details */}
-                <div className="p-6 space-y-4">
+                <div className="p-6 sm:p-7 space-y-4">
                   <div className="space-y-1">
                     <div className="flex items-center justify-between">
                       <h3 className="text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
@@ -333,14 +306,14 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   </div>
 
                   {/* Clean Specs Row */}
-                  <div className="flex items-center justify-between text-xs text-[#475569] py-2.5 border-y border-[#F1F5F9]">
+                  <div className="flex items-center justify-between text-xs text-[#475569] py-3 border-y border-[#F1F5F9]">
                     <span className="flex items-center gap-1.5 font-medium">
-                      <Users className="w-3.5 h-3.5 text-[#FEC401]" />
+                      <Users className="w-3.5 h-3.5 text-[#D97706]" />
                       <span>4 Seats</span>
                     </span>
                     <span className="flex items-center gap-1.5 font-medium">
-                      <Briefcase className="w-3.5 h-3.5 text-[#FEC401]" />
-                      <span>3 Bags</span>
+                      <Briefcase className="w-3.5 h-3.5 text-[#D97706]" />
+                      <span>3 Large Bags</span>
                     </span>
                     <span className="flex items-center gap-1.5 font-medium">
                       <AirVent className="w-3.5 h-3.5 text-[#16A34A]" />
@@ -349,14 +322,14 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   </div>
 
                   {/* Feature Highlights */}
-                  <div className="space-y-1.5 text-xs text-[#475569]">
+                  <div className="space-y-2 text-xs text-[#475569]">
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
                       <span>Extra rear legroom &amp; clean sanitized seating</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
-                      <span>Dedicated boot space for 3 large travel bags</span>
+                      <span>Dedicated boot space for temple offerings &amp; luggage</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
@@ -366,10 +339,10 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                 </div>
               </div>
 
-              <div className="p-6 pt-0">
+              <div className="p-6 sm:p-7 pt-0">
                 <Link
                   href={`/book-tour?destination=${bookingTourSlug}&vehicle=sedan`}
-                  className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md border border-white/10"
+                  className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md"
                 >
                   <span>Select Prime Sedan</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
@@ -378,16 +351,16 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
             </div>
 
             {/* Card 2: FEATURED HERO: Executive Toyota Innova Crysta SUV */}
-            <div className="bg-white rounded-3xl border-2 border-[#FEC401] overflow-hidden shadow-[0_16px_45px_rgba(254,196,1,0.18)] md:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative">
+            <div className="bg-white rounded-3xl border-2 border-[#FEC401] overflow-hidden shadow-[0_16px_45px_rgba(254,196,1,0.2)] md:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative">
               {/* Crown Top Ribbon */}
-              <div className="bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-[#000B3B] text-[10.5px] font-black uppercase tracking-wider text-center py-1.5 shadow-xs flex items-center justify-center gap-1.5">
+              <div className="bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-[#000B3B] text-[11px] font-black uppercase tracking-wider text-center py-2 shadow-xs flex items-center justify-center gap-1.5">
                 <Star className="w-3.5 h-3.5 fill-[#000B3B]" />
                 <span>#1 Most Booked for Family Tours &amp; Pilgrimages</span>
               </div>
 
               <div>
-                {/* Visual Full-Bleed Vehicle Stage - No Image Spillout */}
-                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
+                {/* Visual Vehicle Stage - Clean Presentation, No Spillout */}
+                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200">
                   <Image
                     src="/images/fleet/large-car.webp"
                     alt="Toyota Innova Crysta"
@@ -395,18 +368,16 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />
-
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-white shadow-xs">
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-white shadow-xs">
                     Premium Family Class
                   </div>
-                  <div className="absolute top-3.5 right-3.5 px-3.5 py-1 rounded-full bg-[#FEC401] text-[11px] font-black text-[#000B3B] shadow-xs">
-                    ₹19/km
+                  <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#FEC401] text-[11px] font-black text-[#000B3B] shadow-xs">
+                    From ₹19/km
                   </div>
                 </div>
 
                 {/* Body Details */}
-                <div className="p-6 space-y-4">
+                <div className="p-6 sm:p-7 space-y-4">
                   <div className="space-y-1">
                     <div className="flex items-center justify-between">
                       <h3 className="text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
@@ -425,13 +396,13 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   </div>
 
                   {/* Clean Specs Row */}
-                  <div className="flex items-center justify-between text-xs text-[#475569] py-2.5 border-y border-[#FEF3C7]">
+                  <div className="flex items-center justify-between text-xs text-[#475569] py-3 border-y border-[#FEF3C7]">
                     <span className="flex items-center gap-1.5 font-bold text-[#0F172A]">
-                      <Users className="w-3.5 h-3.5 text-[#FEC401]" />
+                      <Users className="w-3.5 h-3.5 text-[#D97706]" />
                       <span>7 Seats</span>
                     </span>
                     <span className="flex items-center gap-1.5 font-bold text-[#0F172A]">
-                      <Briefcase className="w-3.5 h-3.5 text-[#FEC401]" />
+                      <Briefcase className="w-3.5 h-3.5 text-[#D97706]" />
                       <span>4–5 Bags</span>
                     </span>
                     <span className="flex items-center gap-1.5 font-bold text-[#16A34A]">
@@ -441,7 +412,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   </div>
 
                   {/* Feature Highlights */}
-                  <div className="space-y-1.5 text-xs text-[#475569]">
+                  <div className="space-y-2 text-xs text-[#475569]">
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
                       <span>Captain leatherette seats with armrests for comfort</span>
@@ -458,7 +429,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                 </div>
               </div>
 
-              <div className="p-6 pt-0">
+              <div className="p-6 sm:p-7 pt-0">
                 <Link
                   href={`/book-tour?destination=${bookingTourSlug}&vehicle=large-car`}
                   className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-md transition-all group-hover:shadow-lg"
@@ -470,10 +441,10 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
             </div>
 
             {/* Card 3: Luxury Tempo Traveller & Urbania */}
-            <div className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(2,20,107,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+            <div className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(2,20,107,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group">
               <div>
-                {/* Visual Full-Bleed Vehicle Stage - No Image Spillout */}
-                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
+                {/* Visual Vehicle Stage - Clean Presentation, No Spillout */}
+                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200">
                   <Image
                     src="/images/fleet/mini-bus.webp"
                     alt="Tempo Traveller"
@@ -481,9 +452,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />
-
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-white shadow-xs">
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-white shadow-xs">
                     Group Tours &amp; Pilgrimages
                   </div>
                   <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#FEC401] text-[11px] font-black text-[#000B3B] shadow-xs">
@@ -492,7 +461,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                 </div>
 
                 {/* Body Details */}
-                <div className="p-6 space-y-4">
+                <div className="p-6 sm:p-7 space-y-4">
                   <div className="space-y-1">
                     <div className="flex items-center justify-between">
                       <h3 className="text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
@@ -511,13 +480,13 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   </div>
 
                   {/* Clean Specs Row */}
-                  <div className="flex items-center justify-between text-xs text-[#475569] py-2.5 border-y border-[#F1F5F9]">
+                  <div className="flex items-center justify-between text-xs text-[#475569] py-3 border-y border-[#F1F5F9]">
                     <span className="flex items-center gap-1.5 font-medium">
-                      <Users className="w-3.5 h-3.5 text-[#FEC401]" />
+                      <Users className="w-3.5 h-3.5 text-[#D97706]" />
                       <span>12–17 Seats</span>
                     </span>
                     <span className="flex items-center gap-1.5 font-medium">
-                      <Briefcase className="w-3.5 h-3.5 text-[#FEC401]" />
+                      <Briefcase className="w-3.5 h-3.5 text-[#D97706]" />
                       <span>10+ Bags</span>
                     </span>
                     <span className="flex items-center gap-1.5 font-medium">
@@ -527,7 +496,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   </div>
 
                   {/* Feature Highlights */}
-                  <div className="space-y-1.5 text-xs text-[#475569]">
+                  <div className="space-y-2 text-xs text-[#475569]">
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
                       <span>Push-back ergonomic seats &amp; individual reading lamps</span>
@@ -544,10 +513,10 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                 </div>
               </div>
 
-              <div className="p-6 pt-0">
+              <div className="p-6 sm:p-7 pt-0">
                 <Link
                   href={`/book-tour?destination=${bookingTourSlug}&vehicle=mini-bus`}
-                  className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md border border-white/10"
+                  className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 shadow-sm transition-all group-hover:shadow-md"
                 >
                   <span>Enquire Group Cab</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#FEC401] group-hover:translate-x-1 transition-transform" />
@@ -557,7 +526,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
           </div>
 
           {/* Fleet Quality Assurance Strip */}
-          <div className="mt-10 sm:mt-12 bg-white rounded-2xl border border-[#CBD5E1] p-5 sm:p-6 shadow-sm">
+          <div className="mt-12 bg-white rounded-2xl border border-[#CBD5E1] p-5 sm:p-6 shadow-sm">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-left">
               <div className="flex items-start gap-3">
                 <div className="p-2 rounded-xl bg-[#FEF3C7] text-[#000B3B] shrink-0">
@@ -576,9 +545,9 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#0F172A]">0% Cancellation Policy</h4>
+                  <h4 className="text-xs font-bold text-[#0F172A]">0% Driver Cancellation</h4>
                   <p className="text-[11px] text-[#64748B] mt-0.5 leading-snug">
-                    Pre-assigned verified chauffeurs with guaranteed vehicle dispatch.
+                    Pre-assigned verified chauffeurs with contractual vehicle dispatch.
                   </p>
                 </div>
               </div>
@@ -590,7 +559,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                 <div>
                   <h4 className="text-xs font-bold text-[#0F172A]">Chilled AC on Every Trip</h4>
                   <p className="text-[11px] text-[#64748B] mt-0.5 leading-snug">
-                    100% air-conditioned comfort from departure to destination drop.
+                    100% air-conditioned comfort from departure to final destination drop.
                   </p>
                 </div>
               </div>
@@ -612,20 +581,20 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 3: POPULAR DESTINATIONS & ATTRACTIONS COVERED                    */}
+      {/* SECTION 3: ICONIC ATTRACTIONS (MAGAZINE EDITORIAL QUALITY)                 */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+      <section className="py-16 sm:py-20 bg-white border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
-              <Compass className="w-3.5 h-3.5 text-[#FEC401]" />
+            <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
+              <Compass className="w-3.5 h-3.5 text-[#D97706]" />
               <span>Sightseeing Itinerary Highlights</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
               Iconic Attractions Covered in This Tour
             </h2>
-            <p className="text-xs sm:text-sm text-[#64748B] mt-2">
-              Every sightseeing point is covered with flexible waiting times. Spend as much time as you like without rigid tourist bus schedules.
+            <p className="text-xs sm:text-sm text-[#64748B] mt-2 max-w-2xl mx-auto">
+              Every sightseeing point is covered with flexible waiting times. Spend as much time as you like at temples, beaches, and monuments without rigid tour bus timetables.
             </p>
           </div>
 
@@ -635,11 +604,11 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                 key={i}
                 className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative"
               >
-                {/* Top Golden Ambient Line on Hover */}
+                {/* Top Golden Line on Hover */}
                 <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#FEC401] to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-20" />
 
                 {/* Image Frame */}
-                <div className="relative h-52 sm:h-56 w-full overflow-hidden bg-[#000B3B]">
+                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-[#000B3B]">
                   <Image
                     src={dest.image}
                     alt={dest.title}
@@ -652,14 +621,14 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                     <MapPin className="w-3 h-3 text-[#FEC401]" />
                     <span>{dest.tag}</span>
                   </div>
-                  <div className="absolute bottom-2.5 left-3.5 px-2.5 py-0.5 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[9.5px] text-[#10B981] font-bold">
+                  <div className="absolute bottom-2.5 left-3.5 px-2.5 py-0.5 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[10px] text-[#10B981] font-bold">
                     ● Included Sightseeing Circuit
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6 sm:p-7 space-y-4 flex-1 flex flex-col justify-between">
-                  <div className="space-y-2.5">
+                  <div className="space-y-2">
                     <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
                       {dest.title}
                     </h3>
@@ -687,14 +656,14 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                     </div>
                   )}
 
-                  <div className="pt-2 border-t border-[#F1F5F9] flex items-center justify-between text-[11px] font-bold text-[#16A34A]">
-                    <span className="inline-flex items-center gap-1">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" />
+                  <div className="pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-xs font-bold text-[#16A34A]">
+                    <span className="inline-flex items-center gap-1.5">
+                      <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
                       <span>Dedicated Chauffeur Waiting</span>
                     </span>
-                    <span className="text-[#000B3B] group-hover:translate-x-1 transition-transform inline-flex items-center gap-0.5">
+                    <span className="text-[#000B3B] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
                       <span>Explore</span>
-                      <ArrowRight className="w-3 h-3 text-[#FEC401]" />
+                      <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
                     </span>
                   </div>
                 </div>
@@ -705,146 +674,183 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 3: CURATED TOUR PACKAGES & TARIFF ESTIMATES                       */}
+      {/* SECTION 4: POPULAR TOUR PACKAGES & TARIFFS (EXECUTIVE SHOWCASE CARDS)     */}
       {/* ========================================================================= */}
       {packages && packages.length > 0 && (
         <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
               <div>
-                <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-white px-3.5 py-1.5 rounded-full border border-[#CBD5E1] shadow-xs">
-                  <Palmtree className="w-3.5 h-3.5 text-[#FEC401]" />
+                <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-white px-3.5 py-1.5 rounded-full border border-[#CBD5E1] shadow-xs">
+                  <Palmtree className="w-3.5 h-3.5 text-[#D97706]" />
                   <span>Curated Tour Options</span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
                   Popular Tour Itineraries &amp; Tariffs
                 </h2>
-                <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+                <p className="text-xs sm:text-sm text-[#64748B] mt-2 max-w-2xl">
                   Choose from popular itineraries designed for road comfort, or customize your stops with our tour desk.
                 </p>
               </div>
-              <div className="text-[11px] text-[#000B3B] font-bold bg-[#FFFBEB] px-3.5 py-2 rounded-2xl border border-[#FEF08A] shadow-xs inline-flex items-center gap-2 self-start sm:self-auto">
+              <div className="text-xs text-[#000B3B] font-bold bg-[#FFFBEB] px-4 py-2 rounded-2xl border border-[#FEF08A] shadow-xs inline-flex items-center gap-2 self-start sm:self-auto">
                 <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
                 <span>Guaranteed Fixed Tariffs</span>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {packages.map((pkg, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white rounded-3xl border border-[#E2E8F0] p-7 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-6 group relative overflow-hidden"
-                >
-                  {/* Top Golden Accent Edge */}
-                  <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#FEC401] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              {packages.map((pkg, idx) => {
+                const routePoints = getPackageRoute(pkg.title);
+                return (
+                  <div
+                    key={idx}
+                    className="bg-white rounded-3xl border border-[#E2E8F0] p-6 sm:p-7 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between space-y-5 group relative overflow-hidden"
+                  >
+                    {/* Top Golden Accent Edge */}
+                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#FEC401] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                  <div className="space-y-3.5">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10.5px] font-extrabold uppercase tracking-wider text-[#000B3B] bg-gradient-to-r from-[#FEC401] to-[#E5AD00] px-3 py-1 rounded-full shadow-xs">
-                        {pkg.badge}
-                      </span>
-                      <span className="text-xs text-[#64748B] font-bold flex items-center gap-1.5 bg-[#F8FAFC] px-2.5 py-1 rounded-full border border-[#E2E8F0]">
-                        <Clock className="w-3.5 h-3.5 text-[#000B3B]" />
-                        <span>{pkg.duration}</span>
-                      </span>
+                    <div className="space-y-4">
+                      {/* Badge and Duration Row */}
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[10.5px] font-extrabold uppercase tracking-wider text-[#000B3B] bg-gradient-to-r from-[#FEC401] to-[#E5AD00] px-3 py-1 rounded-full shadow-xs">
+                          {pkg.badge}
+                        </span>
+                        <span className="text-xs text-[#64748B] font-bold flex items-center gap-1.5 bg-[#F8FAFC] px-2.5 py-1 rounded-full border border-[#E2E8F0]">
+                          <Clock className="w-3.5 h-3.5 text-[#000B3B]" />
+                          <span>{pkg.duration}</span>
+                        </span>
+                      </div>
+
+                      {/* Package Title & Subtitle */}
+                      <div>
+                        <h3 className="text-xl sm:text-2xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
+                          {pkg.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed pt-1">
+                          {pkg.subtitle}
+                        </p>
+                      </div>
+
+                      {/* Visual Route Itinerary Trajectory */}
+                      <div className="bg-[#FAF9F5] p-3 rounded-2xl border border-[#E2E8F0]/80 space-y-1.5">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#94A3B8] flex items-center gap-1">
+                          <Route className="w-3 h-3 text-[#D97706]" />
+                          <span>Route Circuit Trajectory:</span>
+                        </span>
+                        <div className="flex flex-wrap items-center gap-1 text-[11px] font-bold text-[#000B3B]">
+                          {routePoints.map((pt, rIdx) => (
+                            <React.Fragment key={rIdx}>
+                              <span className="bg-white px-2 py-0.5 rounded-md border border-[#CBD5E1]/60 shadow-2xs">
+                                {pt}
+                              </span>
+                              {rIdx < routePoints.length - 1 && (
+                                <ArrowRight className="w-2.5 h-2.5 text-[#FEC401] shrink-0" />
+                              )}
+                            </React.Fragment>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Highlights List */}
+                      <ul className="space-y-2 pt-2 border-t border-[#F1F5F9] text-xs sm:text-sm text-[#334155]">
+                        {pkg.highlights.map((h, hIdx) => (
+                          <li key={hIdx} className="flex items-start gap-2.5">
+                            <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                            <span className="font-medium text-[#1E293B]">{h}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
-                      {pkg.title}
-                    </h3>
+                    {/* Tariff & Action Row */}
+                    <div className="pt-4 border-t border-[#F1F5F9] flex items-center justify-between gap-3">
+                      <div>
+                        <span className="text-[10px] font-bold text-[#94A3B8] block uppercase tracking-wider">
+                          Indicative Fare
+                        </span>
+                        <span className="text-base sm:text-lg font-black text-[#000B3B]">
+                          {pkg.approxPrice}
+                        </span>
+                      </div>
 
-                    <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-normal">
-                      {pkg.subtitle}
-                    </p>
-
-                    {/* Highlights List */}
-                    <ul className="space-y-2.5 pt-3 border-t border-[#F1F5F9] text-xs sm:text-sm text-[#334155]">
-                      {pkg.highlights.map((h, hIdx) => (
-                        <li key={hIdx} className="flex items-start gap-2.5">
-                          <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
-                          <span className="font-medium text-[#1E293B]">{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Tariff & Action */}
-                  <div className="pt-4 border-t border-[#F1F5F9] flex items-center justify-between gap-3">
-                    <div>
-                      <span className="text-[10px] font-bold text-[#94A3B8] block uppercase tracking-wider">
-                        Indicative Estimate
-                      </span>
-                      <span className="text-base sm:text-lg font-black text-[#000B3B]">
-                        {pkg.approxPrice}
-                      </span>
+                      <Link
+                        href={`/book-tour?destination=${bookingTourSlug}`}
+                        className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#000B3B] to-[#02146B] text-white text-xs font-bold hover:brightness-110 shadow-sm inline-flex items-center gap-1.5 transition active:translate-y-0.5"
+                      >
+                        <span>Book Package</span>
+                        <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
+                      </Link>
                     </div>
-
-                    <Link
-                      href={`/book-tour?destination=${bookingTourSlug}`}
-                      className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#000B3B] to-[#02146B] text-white text-xs font-bold hover:brightness-110 shadow-sm inline-flex items-center gap-1.5 transition active:translate-y-0.5"
-                    >
-                      <span>Book Package</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
-                    </Link>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
       )}
 
       {/* ========================================================================= */}
-      {/* SECTION 4: DAY-BY-DAY ROAD TRIP ITINERARY                                 */}
+      {/* SECTION 5: INTERACTIVE JOURNEY TIMELINE (DAY-BY-DAY ITINERARY)            */}
       {/* ========================================================================= */}
       {itineraryDays && itineraryDays.length > 0 && (
         <section className="py-16 sm:py-20 bg-white border-b border-[#E2E8F0]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
-              <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
-                <Calendar className="w-3.5 h-3.5 text-[#FEC401]" />
+              <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
+                <Calendar className="w-3.5 h-3.5 text-[#D97706]" />
                 <span>Suggested Travel Roadmap</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
                 Recommended Itinerary Schedule
               </h2>
-              <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+              <p className="text-xs sm:text-sm text-[#64748B] mt-2 max-w-2xl mx-auto">
                 Designed for seamless road travel without rushing your family. Timings and stopovers can be adjusted according to your flight or train schedule.
               </p>
             </div>
 
-            <div className="space-y-5">
+            {/* Vertical Connected Journey Timeline */}
+            <div className="relative pl-6 sm:pl-10 space-y-8 before:absolute before:left-[15px] sm:before:left-[21px] before:top-4 before:bottom-4 before:w-0.5 before:bg-gradient-to-b before:from-[#FEC401] before:via-[#000B3B]/30 before:to-[#16A34A]">
               {itineraryDays.map((dayItem, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 sm:p-7 rounded-3xl bg-white border border-[#E2E8F0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-lg transition-all space-y-3.5 relative overflow-hidden group"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-                    <span className="text-xs font-black uppercase tracking-wider text-[#000B3B] bg-gradient-to-r from-[#FEC401] to-[#E5AD00] px-3.5 py-1 rounded-full shadow-xs self-start">
-                      {dayItem.day}
-                    </span>
+                <div key={idx} className="relative group">
+                  {/* Glowing Milestone Pin */}
+                  <div className="absolute -left-[30px] sm:-left-[39px] top-1.5 w-8 h-8 rounded-full bg-white border-2 border-[#FEC401] shadow-md flex items-center justify-center text-xs font-black text-[#000B3B] group-hover:scale-110 group-hover:bg-[#FEC401] transition-all">
+                    0{idx + 1}
+                  </div>
+
+                  {/* Card Container */}
+                  <div className="p-6 sm:p-7 rounded-3xl bg-[#FAF9F5] border border-[#E2E8F0] shadow-[0_4px_20px_rgb(0,0,0,0.04)] hover:shadow-[0_12px_30px_rgba(0,11,59,0.08)] hover:bg-white transition-all space-y-3.5">
+                    <div className="flex flex-wrap items-center justify-between gap-2.5">
+                      <span className="text-xs font-black uppercase tracking-wider text-[#000B3B] bg-gradient-to-r from-[#FEC401] to-[#E5AD00] px-3.5 py-1 rounded-full shadow-xs">
+                        {dayItem.day}
+                      </span>
+                      <span className="text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0] inline-flex items-center gap-1">
+                        <CheckCircle2 className="w-3 h-3 text-[#16A34A]" />
+                        <span>Dedicated Chauffeur Assigned</span>
+                      </span>
+                    </div>
+
                     <h3 className="text-base sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors">
                       {dayItem.title}
                     </h3>
+
+                    <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-normal">
+                      {dayItem.desc}
+                    </p>
+
+                    {dayItem.highlights && dayItem.highlights.length > 0 && (
+                      <div className="pt-2 flex flex-wrap gap-2">
+                        {dayItem.highlights.map((hl, hlIdx) => (
+                          <span
+                            key={hlIdx}
+                            className="text-[11px] font-semibold text-[#000B3B] bg-white px-3 py-1 rounded-lg border border-[#E2E8F0] inline-flex items-center gap-1.5 shadow-2xs"
+                          >
+                            <Sparkles className="w-3 h-3 text-[#D97706]" />
+                            <span>{hl}</span>
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
-
-                  <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed pt-1 font-normal">
-                    {dayItem.desc}
-                  </p>
-
-                  {dayItem.highlights && dayItem.highlights.length > 0 && (
-                    <div className="pt-2 flex flex-wrap gap-2">
-                      {dayItem.highlights.map((hl, hlIdx) => (
-                        <span
-                          key={hlIdx}
-                          className="text-[11px] font-semibold text-[#000B3B] bg-[#FAF9F5] px-3 py-1 rounded-lg border border-[#E2E8F0] inline-flex items-center gap-1"
-                        >
-                          <CheckCircle2 className="w-3 h-3 text-[#16A34A]" />
-                          <span>{hl}</span>
-                        </span>
-                      ))}
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
@@ -853,112 +859,146 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
       )}
 
       {/* ========================================================================= */}
-      {/* SECTION 6: WHY CHOOSE CABJATRA FOR ODISHA TOURS                           */}
+      {/* SECTION 6: 3 LUXURY PILLARS (WHY TOUR ODISHA WITH CABJATRA)              */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-white border-b border-[#E2E8F0]">
+      <section className="py-16 sm:py-20 bg-[#FAF9F5] border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
-              <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
+            <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-white px-3.5 py-1.5 rounded-full border border-[#CBD5E1] shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#D97706]" />
               <span>Tour Value Proposition</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
               Why Tour Odisha with CABJATRA
             </h2>
-            <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+            <p className="text-xs sm:text-sm text-[#64748B] mt-2 max-w-2xl mx-auto">
               Traveling through Odisha is most rewarding when your transport is comfortable, your itinerary is flexible, and your driver acts as a dependable local guide.
             </p>
           </div>
 
-          {/* 3 High-Impact Tour Value Proposition Cards with Real Photography */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {whyChoosePoints.slice(0, 3).map((pt, i) => {
-              // Real photography mapping for highest visual authenticity
-              const defaultImages = [
-                "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=800&auto=format&fit=crop", // Scenic Highway / Flexible sightseeing
-                "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=85&w=800&auto=format&fit=crop", // Premium AC vehicle
-                "https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?q=85&w=800&auto=format&fit=crop", // Sacred temple / safe luggage custody
-              ];
-              const cardImage = pt.image || defaultImages[i % defaultImages.length];
-
-              const defaultTags = [
-                "Flexible Road Travel",
-                "Dedicated Private AC Fleet",
-                "Senior & Family First",
-              ];
-              const cardTag = pt.tag || defaultTags[i % defaultTags.length];
-
-              const defaultPills = [
-                "✓ Zero Metered Pressure",
-                "✓ 100% Commercial Board",
-                "✓ Safe Luggage Custody",
-              ];
-              const cardPill = pt.badge || defaultPills[i % defaultPills.length];
-
-              return (
-                <div
-                  key={i}
-                  className="rounded-3xl bg-white border border-[#E2E8F0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col group relative"
-                >
-                  {/* Top Photographic Header Frame */}
-                  <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-[#000B3B]">
-                    <Image
-                      src={cardImage}
-                      alt={pt.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
-                    />
-
-                    {/* Gradient Overlay for Text & Tag Contrast */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
-
-                    {/* Top Floating Badge & Step Number */}
-                    <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between">
-                      <span className="px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[10px] font-bold text-[#FEC401] shadow-sm flex items-center gap-1.5">
-                        <Sparkles className="w-3 h-3 text-[#FEC401]" />
-                        <span>{cardTag}</span>
-                      </span>
-
-                      <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-black text-xs flex items-center justify-center shadow-md">
-                        0{i + 1}
-                      </span>
-                    </div>
-
-                    {/* Bottom Micro-Assurance Overlay on Image */}
-                    <div className="absolute bottom-3 left-3.5 right-3.5">
-                      <span className="inline-flex items-center gap-1.5 text-[10.5px] font-extrabold text-white tracking-wide drop-shadow-md">
-                        <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
-                        <span>Guaranteed Tour Standard</span>
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Body Content */}
-                  <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
-                    <div className="space-y-2.5">
-                      <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
-                        {pt.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-normal">
-                        {pt.desc}
-                      </p>
-                    </div>
-
-                    {/* Bottom Highlight Assurance Pill */}
-                    <div className="pt-2 border-t border-[#F1F5F9] flex items-center justify-between">
-                      <span className="text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7]/80 px-2.5 py-1 rounded-lg border border-[#BBF7D0] inline-flex items-center gap-1">
-                        {cardPill}
-                      </span>
-                      <span className="text-[10.5px] text-[#000B3B] font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-                        <span>Verified</span>
-                        <ArrowRight className="w-3 h-3 text-[#FEC401]" />
-                      </span>
-                    </div>
-                  </div>
+            {/* Pillar 1 */}
+            <div className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group">
+              <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-[#000B3B]">
+                <Image
+                  src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=800&auto=format&fit=crop"
+                  alt="Flexible Road Travel"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-center group-hover:scale-108 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
+                <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between">
+                  <span className="px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[10px] font-bold text-[#FEC401] shadow-sm flex items-center gap-1.5">
+                    <Sparkles className="w-3 h-3 text-[#FEC401]" />
+                    <span>Flexible Road Travel</span>
+                  </span>
+                  <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-black text-xs flex items-center justify-center shadow-md">
+                    01
+                  </span>
                 </div>
-              );
-            })}
+              </div>
+              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
+                    Total Schedule Freedom &amp; Zero Meter Pressure
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-normal">
+                    Unlike crowded tourist buses that give you strict 30-minute timers, our cab stays with you. Pause for coastal tea, photography along Marine Drive, or extra time at Konark.
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-[#F1F5F9] flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-1 rounded-lg border border-[#BBF7D0]">
+                    ✓ Zero Meter Rush
+                  </span>
+                  <span className="text-xs text-[#000B3B] font-bold flex items-center gap-1">
+                    Verified <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Pillar 2 */}
+            <div className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group">
+              <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-[#000B3B]">
+                <Image
+                  src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=85&w=800&auto=format&fit=crop"
+                  alt="Dedicated Commercial Fleet"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-center group-hover:scale-108 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
+                <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between">
+                  <span className="px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[10px] font-bold text-[#FEC401] shadow-sm flex items-center gap-1.5">
+                    <ShieldCheck className="w-3 h-3 text-[#10B981]" />
+                    <span>100% Commercial Fleet</span>
+                  </span>
+                  <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-black text-xs flex items-center justify-center shadow-md">
+                    02
+                  </span>
+                </div>
+              </div>
+              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
+                    Dedicated Chauffeurs Who Double as Local Guides
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-normal">
+                    Background-verified, polite local drivers who understand temple etiquette, senior mobility needs, safe luggage custody during darshan, and the best local coastal food joints.
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-[#F1F5F9] flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-1 rounded-lg border border-[#BBF7D0]">
+                    ✓ Safe Luggage Custody
+                  </span>
+                  <span className="text-xs text-[#000B3B] font-bold flex items-center gap-1">
+                    Verified <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Pillar 3 */}
+            <div className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group">
+              <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-[#000B3B]">
+                <Image
+                  src="https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?q=85&w=800&auto=format&fit=crop"
+                  alt="Senior & Family First"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-center group-hover:scale-108 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
+                <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between">
+                  <span className="px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[10px] font-bold text-[#FEC401] shadow-sm flex items-center gap-1.5">
+                    <HeartHandshake className="w-3 h-3 text-[#FEC401]" />
+                    <span>Senior &amp; Family First</span>
+                  </span>
+                  <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-black text-xs flex items-center justify-center shadow-md">
+                    03
+                  </span>
+                </div>
+              </div>
+              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
+                    Comfort-Tuned Vehicles with Chilled Dual AC
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-normal">
+                    Pristine sanitized cabins, guaranteed chilled AC blowers, generous boot space for suitcases and Mahaprasad, and smooth highway shock absorbers for elderly comfort.
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-[#F1F5F9] flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-1 rounded-lg border border-[#BBF7D0]">
+                    ✓ Chilled AC Guaranteed
+                  </span>
+                  <span className="text-xs text-[#000B3B] font-bold flex items-center gap-1">
+                    Verified <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -966,13 +1006,13 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
       {/* ========================================================================= */}
       {/* SECTION 7: CHARTER CLARITY (INCLUSIONS & EXCLUSIONS)                      */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-[#FAF9F5] border-b border-[#E2E8F0]">
+      <section className="py-16 sm:py-20 bg-white border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
               Tour Inclusions &amp; Pricing Clarity
             </h2>
-            <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+            <p className="text-xs sm:text-sm text-[#64748B] mt-2 max-w-2xl mx-auto">
               Complete transparency with no hidden driver bata or surprise charges at the end of your trip.
             </p>
           </div>
@@ -1048,19 +1088,19 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 7.5: VERIFIED TRAVELER REVIEWS WITH REAL AVATARS                  */}
+      {/* SECTION 8: VERIFIED TRAVELER REVIEWS WITH REAL AVATARS                    */}
       {/* ========================================================================= */}
       <section className="py-16 sm:py-20 bg-[#FAF9F5] border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-white px-3.5 py-1.5 rounded-full border border-[#CBD5E1] shadow-xs">
-              <ThumbsUp className="w-3.5 h-3.5 text-[#FEC401]" />
+            <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-white px-3.5 py-1.5 rounded-full border border-[#CBD5E1] shadow-xs">
+              <ThumbsUp className="w-3.5 h-3.5 text-[#D97706]" />
               <span>Verified Tour Experiences</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
               Trusted by 12,000+ Travelers in Odisha
             </h2>
-            <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+            <p className="text-xs sm:text-sm text-[#64748B] mt-2 max-w-2xl mx-auto">
               Read how fellow families, pilgrim groups, and tourists experienced our curated cab tour packages.
             </p>
           </div>
@@ -1120,11 +1160,9 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                       />
                     </div>
                     <div className="min-w-0">
-                      <div className="flex items-center gap-1.5">
-                        <h4 className="text-xs sm:text-sm font-bold text-[#0F172A] truncate font-display">
-                          {t.name}
-                        </h4>
-                      </div>
+                      <h4 className="text-xs sm:text-sm font-bold text-[#0F172A] truncate font-display">
+                        {t.name}
+                      </h4>
                       <p className="text-[11px] text-[#64748B] truncate flex items-center gap-1">
                         <MapPin className="w-3 h-3 text-[#94A3B8] shrink-0" />
                         <span>{t.location}</span>
@@ -1173,14 +1211,14 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 8: SERVICE FAQ ACCORDION                                          */}
+      {/* SECTION 9: SERVICE FAQ ACCORDION (CLOSED BY DEFAULT, HIGH-CONTRAST)       */}
       {/* ========================================================================= */}
       {faqs && faqs.length > 0 && (
         <section className="py-16 sm:py-20 bg-white border-b border-[#E2E8F0]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
-                <HelpCircle className="w-3.5 h-3.5 text-[#FEC401]" />
+              <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#02146B] mb-2 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
+                <HelpCircle className="w-3.5 h-3.5 text-[#D97706]" />
                 <span>Frequently Asked Questions</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
@@ -1261,7 +1299,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
       )}
 
       {/* ========================================================================= */}
-      {/* SECTION 9: HIGH-IMPACT LUXURY BOTTOM BOOKING PAVILION                     */}
+      {/* SECTION 10: LUXURY BOTTOM BOOKING PAVILION                                */}
       {/* ========================================================================= */}
       <section className="py-16 sm:py-20 bg-gradient-to-br from-[#000B3B] via-[#001162] to-[#000B3B] text-white relative overflow-hidden">
         <div className="absolute top-0 right-1/3 w-96 h-96 bg-[#FEC401]/10 rounded-full blur-3xl pointer-events-none" />
@@ -1283,7 +1321,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
           <div className="pt-4 flex flex-wrap justify-center gap-3.5">
             <Link
               href={`/book-tour?destination=${bookingTourSlug}`}
-              className="px-7 py-3.5 rounded-full bg-gradient-to-b from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-extrabold text-xs inline-flex items-center gap-2 border-t border-white/40 shadow-skeuo-gold hover:brightness-105 active:translate-y-0.5 transition-all"
+              className="px-7 py-3.5 rounded-full bg-gradient-to-b from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-extrabold text-xs inline-flex items-center gap-2 border-t border-white/40 shadow-[0_10px_25px_rgba(254,196,1,0.35)] hover:brightness-105 active:translate-y-0.5 transition-all"
             >
               <Palmtree className="w-4 h-4 text-[#000B3B]" />
               <span>Book Your Cab Tour Now</span>
@@ -1292,7 +1330,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
 
             <a
               href={`tel:${COMPANY_CONFIG.contact.phoneRaw}`}
-              className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-semibold text-xs inline-flex items-center gap-2 border border-white/20 transition shadow-soft"
+              className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-semibold text-xs inline-flex items-center gap-2 border border-white/20 transition"
             >
               <Phone className="w-4 h-4 text-[#FEC401]" />
               <span>Call Helpline ({COMPANY_CONFIG.contact.phoneDisplay})</span>
