@@ -72,7 +72,7 @@ export default function LocalCityRidesPage() {
         },
         {
           q: "Does the driver ask for extra cash beyond the estimated fare?",
-          a: "Never. All fares adhere to our transparent quote. The 10% advance is credited, and the exact remaining balance is paid directly at the end of the trip.",
+          a: "Never. All fares adhere to our transparent quote. The advance deposit is credited, and the exact remaining balance is paid directly at the end of the trip.",
         },
       ]}
     />

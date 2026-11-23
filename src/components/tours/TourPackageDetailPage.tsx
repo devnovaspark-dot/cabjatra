@@ -107,7 +107,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
   const [selectedHeroVehicleId, setSelectedHeroVehicleId] = useState<string>("large-car");
 
   // FAQ accordion state
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   // Relevant hero vehicle data mapping
   const heroVehicles = [
@@ -167,9 +167,8 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
       {/* SECTION 1: CINEMATIC ARCHITECTURAL HERO & INTERACTIVE TOUR STAGE         */}
       {/* ========================================================================= */}
       <section className="relative bg-[#000B3B] text-white pt-24 sm:pt-28 pb-10 sm:pb-12 lg:pt-24 lg:pb-10 min-h-[calc(100vh-80px)] flex items-center overflow-hidden border-b border-black/20">
-        {/* Ambient Atmospheric Sheens */}
+        {/* Subtle Ambient Atmosphere - Zero Blue Fog */}
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#FEC401]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#02146B]/40 rounded-full blur-3xl pointer-events-none" />
 
         {/* Authentic City / Destination Landmark Atmospheric Backdrop */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -270,7 +269,7 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Clean Hero Vehicle Card with ZERO TEXT OVER IMAGE (5 Cols) */}
+            {/* Right Column: Clean Hero Vehicle Card with ZERO CLUTTER (5 Cols) */}
             <div className="lg:col-span-5 relative mt-4 lg:mt-0">
               <div className="relative rounded-3xl overflow-hidden border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.55)] bg-[#00104A]/90 backdrop-blur-xl">
                 {/* Top Interactive Vehicle Switcher Header */}
@@ -320,52 +319,31 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                   />
                 </div>
 
-                {/* 2. SEPARATE DETAILS & ACTION DECK - ALL TEXT POSITIONED BELOW THE PHOTO */}
-                <div className="p-4 sm:p-5 space-y-3 bg-[#000C38]">
-                  {/* Vehicle Title & Rate Header */}
+                {/* 2. MINIMALIST DETAILS & ACTION DECK - ZERO CLUTTER */}
+                <div className="p-4 sm:p-5 bg-[#000C38] flex flex-col gap-3">
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="text-base sm:text-lg font-bold font-display text-white">
                         {currentHeroVehicle.name}
                       </h3>
-                      <p className="text-[11px] text-[#FEC401] font-medium">
-                        {currentHeroVehicle.models}
+                      <p className="text-[11px] text-[#CBD5E1]">
+                        {currentHeroVehicle.passengers} Seats &bull; Chilled Dual AC
                       </p>
                     </div>
                     <div className="text-right">
-                      <span className="text-base font-extrabold text-[#FEC401] block leading-none">
+                      <span className="text-base sm:text-lg font-black text-[#FEC401] block leading-none">
                         {currentHeroVehicle.rate}
                       </span>
-                      <span className="text-[9.5px] font-bold text-[#10B981] bg-[#10B981]/15 px-2 py-0.5 rounded-full border border-[#10B981]/30 inline-block mt-1">
+                      <span className="text-[9.5px] font-bold text-[#10B981] inline-block mt-0.5">
                         ● All Tolls Included
                       </span>
                     </div>
                   </div>
 
-                  {/* Vehicle Specifications Chips */}
-                  <div className="flex items-center justify-between text-[11px] text-[#CBD5E1] py-2 border-y border-white/10">
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <Users className="w-3.5 h-3.5 text-[#FEC401]" />
-                      <span>{currentHeroVehicle.passengers} Seats</span>
-                    </span>
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <Briefcase className="w-3.5 h-3.5 text-[#FEC401]" />
-                      <span>{currentHeroVehicle.luggage} Bags</span>
-                    </span>
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <AirVent className="w-3.5 h-3.5 text-[#10B981]" />
-                      <span>Chilled Dual AC</span>
-                    </span>
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
-                      <span>Yellow-Board</span>
-                    </span>
-                  </div>
-
-                  {/* Direct High-Contrast Booking Button */}
+                  {/* Single Clean Booking CTA */}
                   <Link
                     href={`/book-tour?destination=${bookingTourSlug}&vehicle=${currentHeroVehicle.id}`}
-                    className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-between shadow-lg transition-all active:translate-y-0.5 group/btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-lg transition-all active:translate-y-0.5 group/btn"
                   >
                     <span>Reserve This Tour Package</span>
                     <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover/btn:translate-x-1 transition-transform" />
@@ -395,31 +373,27 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
             </p>
           </div>
 
-          {/* 3 Executive Showcase Cards */}
+          {/* 3 Executive Showcase Cards - Magazine Quality Edge-to-Edge Frames */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
             {/* Card 1: Prime Commercial Sedan */}
             <div className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(2,20,107,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
               <div>
-                {/* Visual Vehicle Stage with Studio Light */}
-                <div className="relative h-52 bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9]/80 to-white p-4 flex items-center justify-center overflow-hidden border-b border-[#F1F5F9]">
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-[10.5px] font-bold text-[#000B3B] shadow-xs">
-                    Couples &amp; Small Families
-                  </div>
-                  <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#000B3B] text-[10.5px] font-bold text-[#FEC401] shadow-xs">
-                    Base ₹13/km
-                  </div>
-
+                {/* Visual Full-Bleed Vehicle Stage - No Image Spillout */}
+                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
                   <Image
                     src="/images/fleet/sedan.webp"
                     alt="Prime Sedan"
-                    width={320}
-                    height={180}
-                    className="object-contain max-h-38 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_14px_24px_rgba(0,11,59,0.14)]"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />
 
-                  <div className="absolute bottom-2.5 left-3.5 flex items-center gap-1.5 text-[10px] text-[#16A34A] font-bold">
-                    <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
-                    <span>Commercial Yellow Plate</span>
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-white shadow-xs">
+                    Couples &amp; Small Families
+                  </div>
+                  <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#FEC401] text-[11px] font-black text-[#000B3B] shadow-xs">
+                    ₹13/km
                   </div>
                 </div>
 
@@ -496,26 +470,22 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
               </div>
 
               <div>
-                {/* Visual Vehicle Stage */}
-                <div className="relative h-52 bg-gradient-to-b from-[#FFFBEB] via-[#FEF3C7]/40 to-white p-4 flex items-center justify-center overflow-hidden border-b border-[#FEF3C7]">
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#FEC401]/40 text-[10.5px] font-bold text-[#000B3B] shadow-xs">
-                    Premium Family Class
-                  </div>
-                  <div className="absolute top-3.5 right-3.5 px-3.5 py-1 rounded-full bg-[#000B3B] text-[11px] font-black text-[#FEC401] shadow-xs">
-                    Base ₹19/km
-                  </div>
-
+                {/* Visual Full-Bleed Vehicle Stage - No Image Spillout */}
+                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
                   <Image
                     src="/images/fleet/large-car.webp"
                     alt="Toyota Innova Crysta"
-                    width={330}
-                    height={185}
-                    className="object-contain max-h-40 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_16px_28px_rgba(0,11,59,0.18)]"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />
 
-                  <div className="absolute bottom-2.5 left-3.5 flex items-center gap-1.5 text-[10px] text-[#16A34A] font-bold">
-                    <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
-                    <span>Commercial Yellow Plate</span>
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-white shadow-xs">
+                    Premium Family Class
+                  </div>
+                  <div className="absolute top-3.5 right-3.5 px-3.5 py-1 rounded-full bg-[#FEC401] text-[11px] font-black text-[#000B3B] shadow-xs">
+                    ₹19/km
                   </div>
                 </div>
 
@@ -586,26 +556,22 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
             {/* Card 3: Luxury Tempo Traveller & Urbania */}
             <div className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(2,20,107,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
               <div>
-                {/* Visual Vehicle Stage with Studio Light */}
-                <div className="relative h-52 bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9]/80 to-white p-4 flex items-center justify-center overflow-hidden border-b border-[#F1F5F9]">
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-[10.5px] font-bold text-[#000B3B] shadow-xs">
-                    Group Tours &amp; Pilgrimages
-                  </div>
-                  <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#000B3B] text-[10.5px] font-bold text-[#FEC401] shadow-xs">
-                    Custom Quote
-                  </div>
-
+                {/* Visual Full-Bleed Vehicle Stage - No Image Spillout */}
+                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
                   <Image
                     src="/images/fleet/mini-bus.webp"
                     alt="Tempo Traveller"
-                    width={320}
-                    height={180}
-                    className="object-contain max-h-38 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_14px_24px_rgba(0,11,59,0.14)]"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />
 
-                  <div className="absolute bottom-2.5 left-3.5 flex items-center gap-1.5 text-[10px] text-[#16A34A] font-bold">
-                    <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
-                    <span>Commercial Yellow Plate</span>
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-white shadow-xs">
+                    Group Tours &amp; Pilgrimages
+                  </div>
+                  <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#FEC401] text-[11px] font-black text-[#000B3B] shadow-xs">
+                    Custom Quote
                   </div>
                 </div>
 

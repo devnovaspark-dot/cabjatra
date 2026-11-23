@@ -94,7 +94,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
       : heroImage);
 
   // FAQ accordion state
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   // Relevant hero vehicle data mapping
   const heroVehicles = [
@@ -202,9 +202,8 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
       {/* SECTION 1: CINEMATIC ARCHITECTURAL HERO & INTERACTIVE VEHICLE STAGE     */}
       {/* ========================================================================= */}
       <section className="relative bg-[#000B3B] text-white pt-24 sm:pt-28 pb-10 sm:pb-12 lg:pt-24 lg:pb-10 min-h-[calc(100vh-80px)] flex items-center overflow-hidden border-b border-black/20">
-        {/* Ambient Atmospheric Sheens */}
+        {/* Subtle Ambient Atmosphere - Zero Blue Fog */}
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#FEC401]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#02146B]/40 rounded-full blur-3xl pointer-events-none" />
 
         {/* Authentic City Landmark Atmospheric Backdrop */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -309,7 +308,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Clean Hero Vehicle Card with ZERO TEXT OVER IMAGE (5 Cols) */}
+            {/* Right Column: Clean Hero Vehicle Card with ZERO CLUTTER (5 Cols) */}
             <div className="lg:col-span-5 relative mt-4 lg:mt-0">
               <div className="relative rounded-3xl overflow-hidden border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.55)] bg-[#00104A]/90 backdrop-blur-xl">
                 {/* Top Interactive Vehicle Switcher Header */}
@@ -359,54 +358,33 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                   />
                 </div>
 
-                {/* 2. SEPARATE DETAILS & ACTION DECK - ALL TEXT POSITIONED BELOW THE PHOTO */}
-                <div className="p-4 sm:p-5 space-y-3 bg-[#000C38]">
-                  {/* Vehicle Title & Rate Header */}
+                {/* 2. MINIMALIST DETAILS & ACTION DECK - ZERO CLUTTER */}
+                <div className="p-4 sm:p-5 bg-[#000C38] flex flex-col gap-3">
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="text-base sm:text-lg font-bold font-display text-white">
                         {currentHeroVehicle.name}
                       </h3>
-                      <p className="text-[11px] text-[#FEC401] font-medium">
-                        {currentHeroVehicle.models}
+                      <p className="text-[11px] text-[#CBD5E1]">
+                        {currentHeroVehicle.passengers} Seats &bull; Chilled Dual AC
                       </p>
                     </div>
                     <div className="text-right">
-                      <span className="text-base font-extrabold text-[#FEC401] block leading-none">
+                      <span className="text-base sm:text-lg font-black text-[#FEC401] block leading-none">
                         {currentHeroVehicle.rate}
                       </span>
-                      <span className="text-[9.5px] font-bold text-[#10B981] bg-[#10B981]/15 px-2 py-0.5 rounded-full border border-[#10B981]/30 inline-block mt-1">
-                        ● Dispatch Ready
+                      <span className="text-[9.5px] font-bold text-[#10B981] inline-block mt-0.5">
+                        ● All Tolls Included
                       </span>
                     </div>
                   </div>
 
-                  {/* Vehicle Specifications Chips */}
-                  <div className="flex items-center justify-between text-[11px] text-[#CBD5E1] py-2 border-y border-white/10">
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <Users className="w-3.5 h-3.5 text-[#FEC401]" />
-                      <span>{currentHeroVehicle.passengers} Seats</span>
-                    </span>
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <Briefcase className="w-3.5 h-3.5 text-[#FEC401]" />
-                      <span>{currentHeroVehicle.luggage} Bags</span>
-                    </span>
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <AirVent className="w-3.5 h-3.5 text-[#10B981]" />
-                      <span>Chilled Dual AC</span>
-                    </span>
-                    <span className="flex items-center gap-1.5 font-medium">
-                      <ShieldCheck className="w-3.5 h-3.5 text-[#FEC401]" />
-                      <span>Yellow-Board</span>
-                    </span>
-                  </div>
-
-                  {/* Direct High-Contrast Booking Button */}
+                  {/* Single Clean Booking CTA */}
                   <Link
                     href={`/book-cab?service=${bookingCategoryKey}&vehicle=${currentHeroVehicle.id}`}
-                    className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-between shadow-lg transition-all active:translate-y-0.5 group/btn"
+                    className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-lg transition-all active:translate-y-0.5 group/btn"
                   >
-                    <span>Reserve Your Cab Now</span>
+                    <span>Reserve Cab</span>
                     <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover/btn:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -434,31 +412,27 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             </p>
           </div>
 
-          {/* 3 Executive Showcase Cards */}
+          {/* 3 Executive Showcase Cards - Magazine Quality Edge-to-Edge Frames */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
             {/* Card 1: Prime Commercial Sedan */}
             <div className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(2,20,107,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
               <div>
-                {/* Visual Vehicle Stage with Studio Light */}
-                <div className="relative h-52 bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9]/80 to-white p-4 flex items-center justify-center overflow-hidden border-b border-[#F1F5F9]">
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-[10.5px] font-bold text-[#000B3B] shadow-xs">
-                    Executive &amp; City Commutes
-                  </div>
-                  <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#000B3B] text-[10.5px] font-bold text-[#FEC401] shadow-xs">
-                    Base ₹13/km
-                  </div>
-
+                {/* Visual Full-Bleed Vehicle Stage - No Image Spillout */}
+                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
                   <Image
                     src="/images/fleet/sedan.webp"
                     alt="Prime Sedan"
-                    width={320}
-                    height={180}
-                    className="object-contain max-h-38 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_14px_24px_rgba(0,11,59,0.14)]"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />
 
-                  <div className="absolute bottom-2.5 left-3.5 flex items-center gap-1.5 text-[10px] text-[#16A34A] font-bold">
-                    <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
-                    <span>Commercial Yellow Plate</span>
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-white shadow-xs">
+                    Executive &amp; City Commutes
+                  </div>
+                  <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#FEC401] text-[11px] font-black text-[#000B3B] shadow-xs">
+                    ₹13/km
                   </div>
                 </div>
 
@@ -535,26 +509,22 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               </div>
 
               <div>
-                {/* Visual Vehicle Stage */}
-                <div className="relative h-52 bg-gradient-to-b from-[#FFFBEB] via-[#FEF3C7]/40 to-white p-4 flex items-center justify-center overflow-hidden border-b border-[#FEF3C7]">
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#FEC401]/40 text-[10.5px] font-bold text-[#000B3B] shadow-xs">
-                    Premium Family Class
-                  </div>
-                  <div className="absolute top-3.5 right-3.5 px-3.5 py-1 rounded-full bg-[#000B3B] text-[11px] font-black text-[#FEC401] shadow-xs">
-                    Base ₹19/km
-                  </div>
-
+                {/* Visual Full-Bleed Vehicle Stage - No Image Spillout */}
+                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
                   <Image
                     src="/images/fleet/large-car.webp"
                     alt="Toyota Innova Crysta"
-                    width={330}
-                    height={185}
-                    className="object-contain max-h-40 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_16px_28px_rgba(0,11,59,0.18)]"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />
 
-                  <div className="absolute bottom-2.5 left-3.5 flex items-center gap-1.5 text-[10px] text-[#16A34A] font-bold">
-                    <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
-                    <span>Commercial Yellow Plate</span>
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-white shadow-xs">
+                    Premium Family Class
+                  </div>
+                  <div className="absolute top-3.5 right-3.5 px-3.5 py-1 rounded-full bg-[#FEC401] text-[11px] font-black text-[#000B3B] shadow-xs">
+                    ₹19/km
                   </div>
                 </div>
 
@@ -625,26 +595,22 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             {/* Card 3: Luxury Tempo Traveller & Urbania */}
             <div className="bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_45px_rgba(2,20,107,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
               <div>
-                {/* Visual Vehicle Stage with Studio Light */}
-                <div className="relative h-52 bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9]/80 to-white p-4 flex items-center justify-center overflow-hidden border-b border-[#F1F5F9]">
-                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-[10.5px] font-bold text-[#000B3B] shadow-xs">
-                    Group Tours &amp; Pilgrimages
-                  </div>
-                  <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#000B3B] text-[10.5px] font-bold text-[#FEC401] shadow-xs">
-                    Custom Quote
-                  </div>
-
+                {/* Visual Full-Bleed Vehicle Stage - No Image Spillout */}
+                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
                   <Image
                     src="/images/fleet/mini-bus.webp"
                     alt="Tempo Traveller"
-                    width={320}
-                    height={180}
-                    className="object-contain max-h-38 group-hover:scale-108 transition-transform duration-500 drop-shadow-[0_14px_24px_rgba(0,11,59,0.14)]"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />
 
-                  <div className="absolute bottom-2.5 left-3.5 flex items-center gap-1.5 text-[10px] text-[#16A34A] font-bold">
-                    <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
-                    <span>Commercial Yellow Plate</span>
+                  <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10.5px] font-bold text-white shadow-xs">
+                    Group Tours &amp; Pilgrimages
+                  </div>
+                  <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-[#FEC401] text-[11px] font-black text-[#000B3B] shadow-xs">
+                    Custom Quote
                   </div>
                 </div>
 
@@ -769,347 +735,387 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 3: WHY CHOOSE CABJATRA + COMPARISON MATRIX                        */}
+      {/* SECTION 3: ROUTE PROFILES & FLEET AVAILABILITY CORRIDOR DECK (DIRECTLY DOWN FROM FLEET) */}
       {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    {/* Section Header */}
-    <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-      <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
-        <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
-        <span>Service Value Proposition</span>
-      </div>
-      <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
-        Why Travelers Choose Our {title}
-      </h2>
-      <p className="text-xs sm:text-sm text-[#64748B] mt-2">
-        Unlike generic ride-hailing apps with rampant cancellations and surge gouging, CABJATRA provides scheduled certainty, verified commercial drivers, and pristine AC vehicles.
-      </p>
-    </div>
-
-    {/* 3 High-Impact Service Value Proposition Cards with Real Photography */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16">
-      {whyUsPoints.slice(0, 3).map((pt, i) => {
-        // Real photography mapping for highest visual authenticity
-        const defaultImages = [
-          "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=85&w=800&auto=format&fit=crop", // Airport / Flight radar / Punctual
-          "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=85&w=800&auto=format&fit=crop", // Verified chauffeur / Zero cancellations
-          "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=800&auto=format&fit=crop", // Transparent KM / Highway transit
-        ];
-        const cardImage = pt.image || defaultImages[i % defaultImages.length];
-
-        const defaultTags = [
-          "Punctual Dispatch",
-          "Pre-Assigned Chauffeur",
-          "Zero Surge Tariffs",
-        ];
-        const cardTag = pt.tag || defaultTags[i % defaultTags.length];
-
-        const defaultPills = [
-          "✓ Real-Time Delay Buffer",
-          "✓ 0% App Cancellation",
-          "✓ Transparent Fixed Tariffs",
-        ];
-        const cardPill = pt.badge || defaultPills[i % defaultPills.length];
-
-        return (
-          <div
-            key={i}
-            className="rounded-3xl bg-white border border-[#E2E8F0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col group relative"
-          >
-            {/* Top Photographic Header Frame */}
-            <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-[#000B3B]">
-              <Image
-                src={cardImage}
-                alt={pt.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
-              />
-
-              {/* Gradient Overlay for Text & Tag Contrast */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
-
-              {/* Top Floating Badge & Step Number */}
-              <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between">
-                <span className="px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[10px] font-bold text-[#FEC401] shadow-sm flex items-center gap-1.5">
-                  <Sparkles className="w-3 h-3 text-[#FEC401]" />
-                  <span>{cardTag}</span>
-                </span>
-
-                <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-black text-xs flex items-center justify-center shadow-md">
-                  0{i + 1}
-                </span>
-              </div>
-
-              {/* Bottom Micro-Assurance Overlay on Image */}
-              <div className="absolute bottom-3 left-3.5 right-3.5">
-                <span className="inline-flex items-center gap-1.5 text-[10.5px] font-extrabold text-white tracking-wide drop-shadow-md">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
-                  <span>Guaranteed Commercial Standard</span>
-                </span>
-              </div>
-            </div>
-
-            {/* Body Content */}
-            <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
-              <div className="space-y-2.5">
-                <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
-                  {pt.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-normal">
-                  {pt.desc}
+      {routeFares.length > 0 && (
+        <section className="py-16 sm:py-20 bg-white border-b border-[#E2E8F0]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+              <div>
+                <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
+                  <Compass className="w-3.5 h-3.5 text-[#FEC401]" />
+                  <span>Popular Corridors</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
+                  Curated Transit Corridors &amp; Indicative Tariffs
+                </h2>
+                <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+                  Transparent fare benchmarks for frequent routes. Pre-book your cab with guaranteed confirmation and zero surge pricing.
                 </p>
               </div>
-
-              {/* Bottom Highlight Assurance Pill */}
-              <div className="pt-2 border-t border-[#F1F5F9] flex items-center justify-between">
-                <span className="text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7]/80 px-2.5 py-1 rounded-lg border border-[#BBF7D0] inline-flex items-center gap-1">
-                  {cardPill}
-                </span>
-                <span className="text-[10.5px] text-[#000B3B] font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-                  <span>Verified</span>
-                  <ArrowRight className="w-3 h-3 text-[#FEC401]" />
-                </span>
+              <div className="text-[11px] text-[#000B3B] font-bold bg-[#FFFBEB] px-3.5 py-2 rounded-2xl border border-[#FEF08A] shadow-xs inline-flex items-center gap-2 self-start sm:self-auto">
+                <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
+                <span>Zero Hidden Toll Surcharges</span>
               </div>
             </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+              {routeFares.map((rf, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white rounded-3xl border border-[#E2E8F0] p-6 sm:p-7 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between space-y-4 group relative overflow-hidden"
+                >
+                  <div className="space-y-3.5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-black uppercase tracking-wider text-[#000B3B] bg-gradient-to-r from-[#FEC401] to-[#E5AD00] px-3 py-1 rounded-full shadow-xs">
+                        Corridor 0{idx + 1}
+                      </span>
+                      <div className="flex items-center gap-1.5 text-xs text-[#000B3B] font-bold bg-[#F8FAFC] px-3 py-1 rounded-full border border-[#E2E8F0]">
+                        <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
+                        <span>{rf.approxDuration}</span>
+                      </div>
+                    </div>
+
+                    <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
+                      {rf.route}
+                    </h3>
+
+                    {/* Path Indicator Graphic */}
+                    <div className="p-3 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-between text-xs text-[#475569]">
+                      <span className="font-bold flex items-center gap-1.5 text-[#000B3B]">
+                        <MapPin className="w-4 h-4 text-[#16A34A] shrink-0" />
+                        <span>Pickup Gate</span>
+                      </span>
+                      <div className="flex items-center gap-1.5 text-[10.5px] font-extrabold text-[#02146B] bg-white px-3 py-1 rounded-full border border-[#CBD5E1] shadow-xs">
+                        <Navigation className="w-3 h-3 text-[#FEC401]" />
+                        <span>{rf.distance}</span>
+                      </div>
+                      <span className="font-bold flex items-center gap-1.5 text-[#000B3B]">
+                        <MapPin className="w-4 h-4 text-[#02146B] shrink-0" />
+                        <span>Drop Gate</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Seamless Dual Vehicle Estimation */}
+                  <div className="pt-3 pb-2 border-y border-[#F1F5F9] grid grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <span className="text-[10.5px] font-bold text-[#64748B] uppercase tracking-wider block">
+                        Prime Sedan
+                      </span>
+                      <span className="text-lg font-black text-[#000B3B] block">
+                        {rf.sedanEstimate}
+                      </span>
+                      <span className="text-[10.5px] text-[#16A34A] font-bold inline-flex items-center gap-1">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" /> Dzire / Etios
+                      </span>
+                    </div>
+
+                    <div className="space-y-1 border-l border-[#F1F5F9] pl-4">
+                      <span className="text-[10.5px] font-bold text-[#64748B] uppercase tracking-wider block">
+                        Innova Crysta SUV
+                      </span>
+                      <span className="text-lg font-black text-[#000B3B] block">
+                        {rf.suvEstimate}
+                      </span>
+                      <span className="text-[10.5px] text-[#16A34A] font-bold inline-flex items-center gap-1">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" /> 7-Seater AC
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Book This Corridor Action */}
+                  <div className="pt-2 flex items-center justify-between border-t border-[#F1F5F9]">
+                    <span className="text-[11px] text-[#64748B] font-medium flex items-center gap-1">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
+                      <span>Transparent Pricing</span>
+                    </span>
+                    <Link
+                      href={`/book-cab?service=${bookingCategoryKey}&to=${encodeURIComponent(
+                        rf.route
+                      )}`}
+                      className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 shadow-sm inline-flex items-center gap-2 group-hover:scale-105 transition-all border border-white/10"
+                    >
+                      <span>Book Corridor</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        );
-      })}
-    </div>
+        </section>
+      )}
 
-    {/* Side-by-Side Comparison Matrix Card */}
-    <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden border border-[#E2E8F0] shadow-lg bg-white">
-      <div className="p-5 sm:p-6 bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div>
-          <span className="text-[10px] font-bold uppercase tracking-wider text-[#FEC401]">
-            Odisha Travel Comparison
-          </span>
-          <h3 className="text-lg sm:text-xl font-bold font-display text-white">
-            CABJATRA vs Generic Ride-Hailing Apps
-          </h3>
-        </div>
-        <div className="text-[11px] font-semibold text-[#10B981] bg-[#10B981]/20 border border-[#10B981]/30 px-3 py-1 rounded-full self-start sm:self-auto">
-          ✓ 100% Guaranteed Commercial Service
-        </div>
-      </div>
-
-      <div className="overflow-x-auto">
-        <table className="w-full text-left text-xs border-collapse">
-          <thead>
-            <tr className="border-b border-[#E2E8F0] bg-[#F8FAFC] text-[#475569] font-bold">
-              <th className="py-3.5 px-4 sm:px-6">Service Parameter</th>
-              <th className="py-3.5 px-4 sm:px-6 text-[#000B3B] bg-[#FFFBEB]/60 font-black">
-                CABJATRA Commercial Service
-              </th>
-              <th className="py-3.5 px-4 sm:px-6 text-[#64748B]">
-                Generic App-Based Cabs
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-[#E2E8F0]">
-            {comparisonRows.map((row, idx) => (
-              <tr
-                key={idx}
-                className={idx % 2 === 0 ? "bg-white" : "bg-[#FAF9F5]"}
-              >
-                <td className="py-3.5 px-4 sm:px-6 font-semibold text-[#0F172A]">
-                  {row.factor}
-                </td>
-                <td className="py-3.5 px-4 sm:px-6 font-bold text-[#000B3B] bg-[#FFFBEB]/60">
-                  <span className="inline-flex items-center gap-1.5 text-[#16A34A]">
-                    <CheckCircle2 className="w-4 h-4 shrink-0 text-[#16A34A]" />
-                    <span>{row.cabjatra}</span>
-                  </span>
-                </td>
-                <td className="py-3.5 px-4 sm:px-6 text-[#64748B]">
-                  <span className="inline-flex items-center gap-1.5 text-[#DC2626]">
-                    <XCircle className="w-4 h-4 shrink-0 text-[#DC2626]" />
-                    <span>{row.generic}</span>
-                  </span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-{/* ========================================================================= */ }
-{/* SECTION 4: ROUTE PROFILES & FLEET AVAILABILITY CORRIDOR DECK             */ }
-{/* ========================================================================= */ }
-{
-  routeFares.length > 0 && (
-    <section className="py-16 sm:py-20 bg-white border-b border-[#E2E8F0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
-          <div>
+      {/* ========================================================================= */}
+      {/* SECTION 4: WHY CHOOSE CABJATRA + EXECUTIVE SHOWDOWN MATRIX                */}
+      {/* ========================================================================= */}
+      <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-[#F1F5F9] px-3.5 py-1.5 rounded-full border border-[#CBD5E1]">
-              <Compass className="w-3.5 h-3.5 text-[#FEC401]" />
-              <span>Popular Corridors</span>
+              <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
+              <span>Service Value Proposition</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
-              Curated Transit Corridors &amp; Indicative Tariffs
+              Why Travelers Choose Our {title}
             </h2>
             <p className="text-xs sm:text-sm text-[#64748B] mt-2">
-              Transparent fare benchmarks for frequent routes. Pre-book your cab with guaranteed confirmation and zero surge pricing.
+              Unlike generic ride-hailing apps with rampant cancellations and surge gouging, CABJATRA provides scheduled certainty, verified commercial drivers, and pristine AC vehicles.
             </p>
           </div>
-          <div className="text-[11px] text-[#000B3B] font-bold bg-[#FFFBEB] px-3.5 py-2 rounded-2xl border border-[#FEF08A] shadow-xs inline-flex items-center gap-2 self-start sm:self-auto">
-            <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
-            <span>Zero Hidden Toll Surcharges</span>
-          </div>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {routeFares.map((rf, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-3xl border border-[#E2E8F0] p-6 sm:p-7 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between space-y-4 group relative overflow-hidden"
-            >
-              <div className="space-y-3.5">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-[#000B3B] bg-gradient-to-r from-[#FEC401] to-[#E5AD00] px-3 py-1 rounded-full shadow-xs">
-                    Corridor 0{idx + 1}
-                  </span>
-                  <div className="flex items-center gap-1.5 text-xs text-[#000B3B] font-bold bg-[#F8FAFC] px-3 py-1 rounded-full border border-[#E2E8F0]">
-                    <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
-                    <span>{rf.approxDuration}</span>
-                  </div>
-                </div>
+          {/* 3 High-Impact Service Value Proposition Cards with Real Photography */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16">
+            {whyUsPoints.slice(0, 3).map((pt, i) => {
+              const defaultImages = [
+                "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=85&w=800&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=85&w=800&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=800&auto=format&fit=crop",
+              ];
+              const cardImage = pt.image || defaultImages[i % defaultImages.length];
 
-                <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
-                  {rf.route}
-                </h3>
+              const defaultTags = [
+                "Punctual Dispatch",
+                "Pre-Assigned Chauffeur",
+                "Zero Surge Tariffs",
+              ];
+              const cardTag = pt.tag || defaultTags[i % defaultTags.length];
 
-                {/* Path Indicator Graphic */}
-                <div className="p-3 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-between text-xs text-[#475569]">
-                  <span className="font-bold flex items-center gap-1.5 text-[#000B3B]">
-                    <MapPin className="w-4 h-4 text-[#16A34A] shrink-0" />
-                    <span>Pickup Gate</span>
-                  </span>
-                  <div className="flex items-center gap-1.5 text-[10.5px] font-extrabold text-[#02146B] bg-white px-3 py-1 rounded-full border border-[#CBD5E1] shadow-xs">
-                    <Navigation className="w-3 h-3 text-[#FEC401]" />
-                    <span>{rf.distance}</span>
-                  </div>
-                  <span className="font-bold flex items-center gap-1.5 text-[#000B3B]">
-                    <MapPin className="w-4 h-4 text-[#02146B] shrink-0" />
-                    <span>Drop Gate</span>
-                  </span>
-                </div>
-              </div>
+              const defaultPills = [
+                "✓ Real-Time Delay Buffer",
+                "✓ 0% App Cancellation",
+                "✓ Transparent Fixed Tariffs",
+              ];
+              const cardPill = pt.badge || defaultPills[i % defaultPills.length];
 
-              {/* Seamless Dual Vehicle Estimation (NO NESTED BOXES) */}
-              <div className="pt-3 pb-2 border-y border-[#F1F5F9] grid grid-cols-2 gap-4">
-                <div className="space-y-1">
-                  <span className="text-[10.5px] font-bold text-[#64748B] uppercase tracking-wider block">
-                    Prime Sedan
-                  </span>
-                  <span className="text-lg font-black text-[#000B3B] block">
-                    {rf.sedanEstimate}
-                  </span>
-                  <span className="text-[10.5px] text-[#16A34A] font-bold inline-flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" /> Dzire / Etios
-                  </span>
-                </div>
-
-                <div className="space-y-1 border-l border-[#F1F5F9] pl-4">
-                  <span className="text-[10.5px] font-bold text-[#64748B] uppercase tracking-wider block">
-                    Innova Crysta SUV
-                  </span>
-                  <span className="text-lg font-black text-[#000B3B] block">
-                    {rf.suvEstimate}
-                  </span>
-                  <span className="text-[10.5px] text-[#16A34A] font-bold inline-flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" /> 7-Seater AC
-                  </span>
-                </div>
-              </div>
-
-              {/* Book This Corridor Action */}
-              <div className="pt-2 flex items-center justify-between border-t border-[#F1F5F9]">
-                <span className="text-[11px] text-[#64748B] font-medium flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
-                  <span>Transparent Pricing</span>
-                </span>
-                <Link
-                  href={`/book-cab?service=${bookingCategoryKey}&to=${encodeURIComponent(
-                    rf.route
-                  )}`}
-                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#000B3B] via-[#02146B] to-[#000B3B] text-white text-xs font-bold hover:brightness-110 shadow-sm inline-flex items-center gap-2 group-hover:scale-105 transition-all border border-white/10"
+              return (
+                <div
+                  key={i}
+                  className="rounded-3xl bg-white border border-[#E2E8F0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col group relative"
                 >
-                  <span>Book Corridor</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#FEC401]" />
+                  {/* Top Photographic Header Frame */}
+                  <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-[#000B3B]">
+                    <Image
+                      src={cardImage}
+                      alt={pt.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20" />
+
+                    <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between">
+                      <span className="px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-[10px] font-bold text-[#FEC401] shadow-sm flex items-center gap-1.5">
+                        <Sparkles className="w-3 h-3 text-[#FEC401]" />
+                        <span>{cardTag}</span>
+                      </span>
+
+                      <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#FEC401] to-[#E5AD00] text-[#000B3B] font-black text-xs flex items-center justify-center shadow-md">
+                        0{i + 1}
+                      </span>
+                    </div>
+
+                    <div className="absolute bottom-3 left-3.5 right-3.5">
+                      <span className="inline-flex items-center gap-1.5 text-[10.5px] font-extrabold text-white tracking-wide drop-shadow-md">
+                        <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
+                        <span>Guaranteed Commercial Standard</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+                    <div className="space-y-2.5">
+                      <h3 className="text-lg sm:text-xl font-bold font-display text-[#0F172A] group-hover:text-[#000B3B] transition-colors leading-snug">
+                        {pt.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-normal">
+                        {pt.desc}
+                      </p>
+                    </div>
+
+                    <div className="pt-2 border-t border-[#F1F5F9] flex items-center justify-between">
+                      <span className="text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7]/80 px-2.5 py-1 rounded-lg border border-[#BBF7D0] inline-flex items-center gap-1">
+                        {cardPill}
+                      </span>
+                      <span className="text-[10.5px] text-[#000B3B] font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                        <span>Verified</span>
+                        <ArrowRight className="w-3 h-3 text-[#FEC401]" />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Executive 2-Column Showdown Comparison Card */}
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+            {/* Winner Card: CABJATRA Dedicated Chauffeur Service */}
+            <div className="rounded-3xl bg-gradient-to-br from-[#000B3B] via-[#001353] to-[#000B3B] text-white p-7 sm:p-8 border-2 border-[#FEC401] shadow-[0_20px_50px_rgba(0,11,59,0.35)] relative flex flex-col justify-between overflow-hidden group">
+              {/* Top Crown Ribbon */}
+              <div className="absolute top-0 right-0 bg-gradient-to-r from-[#FEC401] to-[#E5AD00] text-[#000B3B] text-[10px] font-black uppercase tracking-wider px-4 py-1.5 rounded-bl-2xl shadow-sm flex items-center gap-1.5">
+                <Star className="w-3.5 h-3.5 fill-[#000B3B]" />
+                <span>Recommended Choice</span>
+              </div>
+
+              <div className="space-y-6">
+                <div className="space-y-1">
+                  <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#FEC401] flex items-center gap-1.5">
+                    <ShieldCheck className="w-4 h-4 text-[#FEC401]" />
+                    <span>Odisha Commercial Fleet</span>
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
+                    CABJATRA Chauffeur Service
+                  </h3>
+                  <p className="text-xs text-[#CBD5E1]">
+                    Guaranteed commercial transit backed by our 24/7 dedicated dispatch operations desk.
+                  </p>
+                </div>
+
+                {/* Verified Features Checklist */}
+                <ul className="space-y-3 text-xs sm:text-[13px]">
+                  {comparisonRows.map((row, idx) => (
+                    <li key={idx} className="flex items-start gap-3 bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/10">
+                      <div className="p-1 rounded-full bg-[#10B981]/20 text-[#10B981] shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
+                      </div>
+                      <div>
+                        <span className="text-[10.5px] text-white/60 block font-medium">{row.factor}</span>
+                        <span className="font-bold text-white">{row.cabjatra}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-white/15">
+                <Link
+                  href={`/book-cab?service=${bookingCategoryKey}&vehicle=sedan`}
+                  className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-skeuo-gold transition-all"
+                >
+                  <span>Reserve with Guaranteed Dispatch</span>
+                  <ArrowRight className="w-4 h-4 text-[#000B3B]" />
                 </Link>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
-{/* ========================================================================= */ }
-{/* SECTION 5: HOW YOUR CAB RIDE WORKS (3-STEP TIMELINE)                     */ }
-{/* ========================================================================= */ }
-<section className="py-16 sm:py-20 bg-[#FAF9F5] border-b border-[#E2E8F0]">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-      <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-white px-3.5 py-1.5 rounded-full border border-[#CBD5E1] shadow-xs">
-        <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
-        <span>Simple Booking Journey</span>
-      </div>
-      <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
-        How Your Ride Works with CABJATRA
-      </h2>
-      <p className="text-xs sm:text-sm text-[#64748B] mt-2">
-        Transparent, reliable, and stress-free. From reservation to arrival, here is how we ensure 100% on-time dispatch.
-      </p>
-    </div>
+            {/* Risk Card: Generic App-Based Aggregators */}
+            <div className="rounded-3xl bg-white text-[#0F172A] p-7 sm:p-8 border border-[#E2E8F0] shadow-sm flex flex-col justify-between relative overflow-hidden">
+              <div className="space-y-6">
+                <div className="space-y-1">
+                  <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#DC2626] flex items-center gap-1.5">
+                    <XCircle className="w-4 h-4 text-[#DC2626]" />
+                    <span>Unpredictable Gig Aggregators</span>
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold font-display text-[#0F172A]">
+                    Generic Ride-Hailing Apps
+                  </h3>
+                  <p className="text-xs text-[#64748B]">
+                    Uncommitted platform drivers with frequent cancellations and dynamic surge charges.
+                  </p>
+                </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative">
-      {steps.map((st, i) => {
-        const Icon = st.icon;
-        return (
-          <div
-            key={i}
-            className="p-7 sm:p-8 rounded-3xl bg-white border border-[#E2E8F0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.12)] hover:-translate-y-2 transition-all duration-300 relative space-y-4 group overflow-hidden"
-          >
-            {/* Top Golden Accent Edge */}
-            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#FEC401] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-            <div className="flex items-center justify-between">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#000B3B] to-[#02146B] text-[#FEC401] flex items-center justify-center shadow-md border border-white/10 group-hover:scale-105 transition-transform">
-                <Icon className="w-6 h-6 text-[#FEC401]" />
+                {/* Risk Points Checklist */}
+                <ul className="space-y-3 text-xs sm:text-[13px]">
+                  {comparisonRows.map((row, idx) => (
+                    <li key={idx} className="flex items-start gap-3 bg-[#FEF2F2]/60 p-3 rounded-2xl border border-[#FEE2E2]">
+                      <div className="p-1 rounded-full bg-[#EF4444]/15 text-[#EF4444] shrink-0 mt-0.5">
+                        <XCircle className="w-4 h-4 text-[#EF4444]" />
+                      </div>
+                      <div>
+                        <span className="text-[10.5px] text-[#64748B] block font-medium">{row.factor}</span>
+                        <span className="font-semibold text-[#991B1B]">{row.generic}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <span className="text-3xl font-black font-display text-[#E2E8F0] group-hover:text-[#FEC401] transition-colors">
-                {st.num}
-              </span>
-            </div>
 
-            <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] font-display group-hover:text-[#000B3B] transition-colors">
-              {st.title}
-            </h3>
-
-            <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-normal">
-              {st.desc}
-            </p>
-
-            <div className="pt-2 flex items-center gap-1.5 text-[11px] font-bold text-[#16A34A]">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" />
-              <span>Instant WhatsApp Confirmation</span>
+              <div className="pt-6 mt-6 border-t border-[#F1F5F9]">
+                <div className="p-3.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] text-center text-[11px] font-medium text-[#64748B]">
+                  High cancellation rates &amp; unverified private vehicles during peak hours.
+                </div>
+              </div>
             </div>
           </div>
-        );
-      })}
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* SECTION 5: HOW YOUR CAB RIDE WORKS (ANIMATED 3-STEP TIMELINE)             */}
+      {/* ========================================================================= */}
+      <section className="py-16 sm:py-20 bg-[#FAF9F5] border-b border-[#E2E8F0] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-wider text-[#02146B] mb-2.5 bg-white px-3.5 py-1.5 rounded-full border border-[#CBD5E1] shadow-xs">
+              <Clock className="w-3.5 h-3.5 text-[#FEC401]" />
+              <span>Simple Booking Journey</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
+              How Your Ride Works with CABJATRA
+            </h2>
+            <p className="text-xs sm:text-sm text-[#64748B] mt-2">
+              Transparent, reliable, and stress-free. From reservation to arrival, here is how we ensure 100% on-time dispatch.
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Desktop Connecting Progress Track */}
+            <div className="hidden md:block absolute top-16 left-[16%] right-[16%] h-1 bg-gradient-to-r from-[#FEC401] via-[#000B3B] to-[#FEC401] rounded-full z-0 opacity-20" />
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative z-10">
+              {steps.map((st, i) => {
+                const Icon = st.icon;
+                return (
+                  <div
+                    key={i}
+                    className="p-7 sm:p-8 rounded-3xl bg-white border border-[#E2E8F0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,11,59,0.14)] hover:-translate-y-2.5 transition-all duration-300 relative space-y-5 group overflow-hidden"
+                  >
+                    {/* Top Animated Progress Indicator */}
+                    <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-transparent via-[#FEC401] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                    <div className="flex items-center justify-between">
+                      {/* Animated Step Node with Pulse Halo */}
+                      <div className="relative">
+                        <div className="absolute -inset-1 rounded-2xl bg-[#FEC401]/35 animate-pulse blur-xs group-hover:bg-[#FEC401]/60 transition-all" />
+                        <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-[#000B3B] to-[#02146B] text-[#FEC401] flex items-center justify-center shadow-md border border-white/10 group-hover:scale-108 transition-transform">
+                          <Icon className="w-6 h-6 text-[#FEC401]" />
+                        </div>
+                      </div>
+
+                      {/* Step Number Badge */}
+                      <div className="px-3.5 py-1 rounded-full bg-[#FAF9F5] border border-[#E2E8F0] group-hover:border-[#FEC401] transition-colors">
+                        <span className="text-sm font-black font-display text-[#000B3B] group-hover:text-[#D97706] transition-colors">
+                          Step {st.num}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] font-display group-hover:text-[#000B3B] transition-colors">
+                        {st.title}
+                      </h3>
+
+                      <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed font-normal">
+                        {st.desc}
+                      </p>
+                    </div>
+
+                    <div className="pt-3 border-t border-[#F1F5F9] flex items-center gap-1.5 text-[11px] font-bold text-[#16A34A]">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" />
+                      <span>Instant WhatsApp Voucher Confirmation</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
 
 {/* ========================================================================= */ }
 {/* SECTION 6: CHARTER CLARITY (INCLUSIONS & EXCLUSIONS)                      */ }
