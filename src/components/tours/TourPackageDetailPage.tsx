@@ -154,51 +154,51 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
             sizes="100vw"
             className="object-cover object-center"
           />
-          {/* Subtle delicate gradient for crystal clear text readability while landmark stays fully visible */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/35 via-white/15 to-transparent pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F5] via-transparent to-black/10 pointer-events-none" />
+          {/* 100% Zero White Shadow: Cinematic contrast gradient that leaves authentic landmark vibrant & crystal-clear */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#000B3B]/85 via-[#000B3B]/45 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-radial-[at_center_top] from-transparent via-transparent to-black/35 pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-4 sm:py-6">
           <div className="max-w-3xl space-y-6 text-left">
             {/* Top Badge Pill */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-xs font-bold text-[#000B3B] shadow-xs">
-              <div className="flex items-center gap-1.5 text-[#D97706]">
-                <Sparkles className="w-4 h-4 text-[#D97706]" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-xs font-bold text-white shadow-xs">
+              <div className="flex items-center gap-1.5 text-[#FEC401]">
+                <Sparkles className="w-4 h-4 text-[#FEC401]" />
                 <span>{badge.split("&bull;")[0].trim()}</span>
               </div>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#CBD5E1]" />
-              <span className="text-[#475569] font-semibold flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
+              <span className="text-white/90 font-semibold flex items-center gap-1">
                 <Star className="w-3.5 h-3.5 text-[#FEC401] fill-[#FEC401]" /> 4.95/5 Rating &bull; {durationBadge}
               </span>
             </div>
 
-            {/* Main Headline - Authoritative, Editorial with Subtle Contrast Halo */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-[#000B3B] drop-shadow-[0_2px_8px_rgba(255,255,255,0.9)] leading-[1.12]">
+            {/* Main Headline - High-Contrast Editorial White & Gold */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-white drop-shadow-md leading-[1.12]">
               {title}
             </h1>
 
-            {/* Subtitle - Punchy, High-Impact & Airy */}
-            <p className="text-sm sm:text-base lg:text-lg text-[#0F172A] font-bold leading-relaxed drop-shadow-[0_1px_4px_rgba(255,255,255,0.95)] max-w-2xl">
+            {/* Subtitle - Punchy, High-Impact & Crystal Clear */}
+            <p className="text-sm sm:text-base lg:text-lg text-slate-100 font-medium leading-relaxed drop-shadow-sm max-w-2xl">
               {subtitle}
             </p>
 
             {/* Minimalist Inline Feature Badges */}
             <div className="flex flex-wrap items-center gap-2.5 pt-1">
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-xs">
-                <Car className="w-4 h-4 text-[#D97706]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/55 backdrop-blur-md border border-white/20 text-xs font-semibold text-white shadow-xs">
+                <Car className="w-4 h-4 text-[#FEC401]" />
                 <span>100% Commercial Private Fleet</span>
               </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-xs">
-                <Clock className="w-4 h-4 text-[#CA8A04]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/55 backdrop-blur-md border border-white/20 text-xs font-semibold text-white shadow-xs">
+                <Clock className="w-4 h-4 text-[#FEC401]" />
                 <span>Flexible Halts &amp; Custom Pace</span>
               </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-xs">
-                <AirVent className="w-4 h-4 text-[#0284C7]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/55 backdrop-blur-md border border-white/20 text-xs font-semibold text-white shadow-xs">
+                <AirVent className="w-4 h-4 text-[#38BDF8]" />
                 <span>Chilled Full-Cabin AC</span>
               </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-xs font-bold text-[#0F172A] shadow-xs">
-                <MapPin className="w-4 h-4 text-[#16A34A]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/55 backdrop-blur-md border border-white/20 text-xs font-semibold text-white shadow-xs">
+                <MapPin className="w-4 h-4 text-[#4ADE80]" />
                 <span>Hotel Doorstep Pickup &amp; Return</span>
               </div>
             </div>
@@ -218,26 +218,26 @@ export const TourPackageDetailPage: React.FC<TourDetailProps> = ({
                 href={COMPANY_CONFIG.contact.whatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-4 rounded-full bg-white hover:bg-[#F8FAFC] text-[#000B3B] font-bold text-sm inline-flex items-center gap-2 border border-[#CBD5E1] shadow-xs transition"
+                className="px-6 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm inline-flex items-center gap-2 border border-white/25 backdrop-blur-md shadow-xs transition"
               >
-                <MessageSquare className="w-4 h-4 text-[#16A34A]" />
+                <MessageSquare className="w-4 h-4 text-[#4ADE80]" />
                 <span>WhatsApp 24/7 Concierge</span>
               </a>
             </div>
 
             {/* Trust Assurances Clean Pill Strip */}
             <div className="pt-2">
-              <div className="inline-flex flex-wrap items-center gap-x-5 gap-y-2 px-4 py-2.5 rounded-2xl bg-white/95 backdrop-blur-md border border-[#E2E8F0] text-xs text-[#0F172A] shadow-xs">
+              <div className="inline-flex flex-wrap items-center gap-x-5 gap-y-2 px-4 py-2.5 rounded-2xl bg-black/55 backdrop-blur-md border border-white/20 text-xs text-white/95 shadow-xs">
                 <span className="flex items-center gap-1.5 font-bold">
-                  <ShieldCheck className="w-4 h-4 text-[#16A34A]" />
+                  <ShieldCheck className="w-4 h-4 text-[#4ADE80]" />
                   100% Commercial Fleet
                 </span>
                 <span className="flex items-center gap-1.5 font-bold">
-                  <Clock className="w-4 h-4 text-[#16A34A]" />
+                  <Clock className="w-4 h-4 text-[#4ADE80]" />
                   Guaranteed Tariff Lock
                 </span>
                 <span className="flex items-center gap-1.5 font-bold">
-                  <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#4ADE80]" />
                   {startingFromNote}
                 </span>
               </div>
