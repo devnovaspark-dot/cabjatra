@@ -5,42 +5,42 @@ export default function OdishaTourPackageByCabPage() {
   const destinations = [
     {
       title: "Bhubaneswar – The Temple City",
-      desc: "Explore ancient Kalinga architectural landmarks including Lingaraj Temple, Mukteswar, Rajarani, and Dhauli Peace Pagoda. The premier starting gateway for all Odisha tours.",
+      desc: "In Bhubaneswar Odishas capital city you can explore temples, architectural landmarks, museums and cultural attractions. Bhubaneswar is a starting point for Odisha sightseeing tours.",
       tag: "Capital & Temple City",
       image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=85&w=900&auto=format&fit=crop",
       keyAttractions: ["Lingaraj Temple", "Mukteswar Temple", "Dhauli Shanti Stupa", "Khandagiri Caves"],
     },
     {
       title: "Puri – The Spiritual Destination",
-      desc: "Visit the sacred Jagannath Temple, walk through the vibrant Grand Road (Bada Danda), and enjoy the pristine coastline of the Blue Flag Golden Beach.",
+      desc: "Visit the Jagannath Temple walk through the vibrant streets of Puri and enjoy the beautiful coastline. Puri is a destination for family holidays and pilgrimage tours.",
       tag: "Jagannath Dham & Beach",
       image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=85&w=900&auto=format&fit=crop",
       keyAttractions: ["Lord Jagannath Temple", "Puri Golden Beach", "Gundicha Temple", "Raghurajpur Village"],
     },
     {
       title: "Konark – Heritage & Architecture",
-      desc: "Discover the 13th-century Sun Temple of Konark, a UNESCO World Heritage Site renowned for its 24 colossal chariot stone wheels and coastal Chandrabhaga beach.",
+      desc: "Discover the Sun Temple of Konark a UNESCO World Heritage Site known for its magnificent stone architecture, sculptures and historical significance.",
       tag: "UNESCO World Heritage",
       image: "https://images.unsplash.com/photo-1576235282476-debff2a4d0b9?q=85&w=900&auto=format&fit=crop",
       keyAttractions: ["Konark Sun Temple", "Chandrabhaga Beach", "Puri-Konark Marine Drive", "ASI Museum"],
     },
     {
       title: "Chilika Lake – Nature & Scenic Beauty",
-      desc: "Experience Asia's largest brackish water lagoon. Enjoy scenic motorboat cruises across the open waters, tranquil island surroundings, and migratory birdwatching.",
+      desc: "Experience the beauty of Chilika Lake enjoy scenic surroundings visit popular lake destinations and explore the regions birdlife and boating experiences where available.",
       tag: "Asia's Largest Lagoon",
       image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=85&w=900&auto=format&fit=crop",
-      keyAttractions: ["Satapada Boat Jetty", "Irrawaddy Dolphins", "Rajhans Island", "Sea-Mouth Sandbar"],
+      keyAttractions: ["Satapada Boat Jetty", "Irrawaddy Dolphins", "Rajhans Island", "Scenic Lagoon Cruise"],
     },
     {
       title: "Dhauli – History & Peace",
-      desc: "Explore Dhauli Shanti Stupa (Peace Pagoda) perched on the river Daya, the historic battleground associated with the Kalinga War and Emperor Ashoka's enlightenment.",
+      desc: "Explore Dhauli Shanti Stupa and the historic region associated with the Kalinga War and Emperor Ashoka.",
       tag: "Peace Pagoda & Kalinga War",
       image: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?q=85&w=900&auto=format&fit=crop",
       keyAttractions: ["Dhauli White Stupa", "Ashokan Rock Edicts", "Daya River Viewpoint", "Light & Sound Show"],
     },
     {
       title: "Satapada – Dolphin & Lake Experience",
-      desc: "Explore the Satapada sector of Chilika, famous for OTDC motorized boat safaris, playful Irrawaddy dolphin sightings, and fresh coastal seafood delicacies.",
+      desc: "Explore the Satapada region of Chilika, known for its lake views and dolphin-watching opportunities, subject, to local conditions.",
       tag: "Irrawaddy Dolphin Sanctuary",
       image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=85&w=900&auto=format&fit=crop",
       keyAttractions: ["Dolphin Point", "OTDC Cruise Pier", "Crab & Prawn Stalls", "Chilika Sea Mouth"],
@@ -50,9 +50,9 @@ export default function OdishaTourPackageByCabPage() {
   const packages = [
     {
       title: "Bhubaneswar – Puri – Konark Tour Package",
-      subtitle: "The Celebrated Odisha Golden Triangle",
+      subtitle: "Explore Odishas known Golden Triangle, which includes temple architecture, spiritual places, historical spots and coastal adventures.",
       duration: "3 Days / 2 Nights or 4 Days",
-      badge: "Most Popular",
+      badge: "Golden Triangle Classic",
       approxPrice: "From ₹6,850 (Sedan)",
       highlights: [
         "Private AC Sedan/SUV for entire 3-day itinerary",
@@ -63,7 +63,7 @@ export default function OdishaTourPackageByCabPage() {
     },
     {
       title: "Puri – Konark Sightseeing Tour",
-      subtitle: "Sacred Darshan & Scenic Marine Drive",
+      subtitle: "See Jagannath Temple, Puri Beach, Konark Sun Temple and other places along the path.",
       duration: "1 Day / Same Day Return",
       badge: "Coastal Classic",
       approxPrice: "From ₹2,450 (Sedan)",
@@ -76,7 +76,7 @@ export default function OdishaTourPackageByCabPage() {
     },
     {
       title: "Bhubaneswar Local Sightseeing Tour",
-      subtitle: "Temple City Heritage Circuit",
+      subtitle: "Learn about the Temple City with a cab for visiting Lingaraj Temple, Mukteswar Temple, Rajarani Temple, Dhauli and other well-known places.",
       duration: "Full Day (8 Hrs / 80 Km)",
       badge: "Heritage Trail",
       approxPrice: "From ₹1,850 (Sedan)",
@@ -89,9 +89,9 @@ export default function OdishaTourPackageByCabPage() {
     },
     {
       title: "Puri – Chilika – Satapada Tour",
-      subtitle: "Lagoon Safari & Dolphin Watching",
+      subtitle: "Plan a trip from Puri to Chilika Lake and Satapada to enjoy the natural beauty of the area the views of the lake and the chance to see dolphins.",
       duration: "Full Day Excursion",
-      badge: "Eco Wildlife Safari",
+      badge: "Eco Lagoon Safari",
       approxPrice: "From ₹2,850 (Sedan)",
       highlights: [
         "Scenic highway drive from Puri to Satapada",
@@ -102,7 +102,7 @@ export default function OdishaTourPackageByCabPage() {
     },
     {
       title: "Odisha Family Tour Package",
-      subtitle: "Thoughtfully Paced for All Generations",
+      subtitle: "Have a trip for the family with easy sightseeing, good road travel and places that are good, for all ages.",
       duration: "4 Days / 3 Nights",
       badge: "Family & Seniors Friendly",
       approxPrice: "From ₹9,850 (Innova Crysta)",
@@ -115,7 +115,7 @@ export default function OdishaTourPackageByCabPage() {
     },
     {
       title: "Customised Odisha Tour Package",
-      subtitle: "Tailored Completely to Your Preferences",
+      subtitle: "Create your travel plan by picking places, sightseeing choices how long the trip will be, where to start and the type of cab you want.",
       duration: "100% Flexible",
       badge: "Bespoke Itinerary",
       approxPrice: "Transparent Kilometre Quote",
@@ -130,27 +130,27 @@ export default function OdishaTourPackageByCabPage() {
 
   const itineraryDays = [
     {
-      day: "Day 01",
-      title: "Bhubaneswar Local Sightseeing & Heritage Exploration",
-      desc: "Begin your journey with punctual pickup from BBI Airport or Master Canteen Railway Station. Explore ancient Kalinga architecture at Lingaraj Temple, Mukteswar, and Rajarani. Continue to Dhauli Shanti Stupa overlooking the historic Daya River. Optional extensions include the ancient rock-cut caves of Udayagiri & Khandagiri.",
+      day: "Day 1",
+      title: "Bhubaneswar Local Sightseeing",
+      desc: "Explore Bhubaneswar temples, heritage spots and cultural landmarks. I recommend adding Dhauli, Udayagiri and Khandagiri Caves if your schedule allows.",
       highlights: ["Lingaraj & Mukteswar Temples", "Dhauli Peace Pagoda", "Khandagiri Caves"],
     },
     {
-      day: "Day 02",
-      title: "Bhubaneswar to Puri via Pipili Appliqué Village",
-      desc: "Enjoy a scenic drive along the smooth NH-316 highway. Stop at Pipili village to admire vibrant Odisha appliqué handicrafts. Check into your Puri beach hotel, take a holy dip at the Golden Beach, and proceed for sacred Mahaprabhu Jagannath Temple darshan with guidance on police-approved corridor access.",
+      day: "Day 2",
+      title: "Bhubaneswar to Puri",
+      desc: "Travel to Puri visit Jagannath Temple explore sights and enjoy time at Puri Beach.",
       highlights: ["Pipili Craft Village", "Lord Jagannath Temple", "Puri Golden Beach"],
     },
     {
-      day: "Day 03",
-      title: "Puri to Konark via Marine Drive Coastal Highway & Return",
-      desc: "Drive along the breathtaking Marine Drive coastal road. Visit the tranquil Ramachandi Temple and Chandrabhaga Beach. Arrive at the UNESCO World Heritage Konark Sun Temple to marvel at the 24 colossal chariot wheels and intricate stone carvings. Return to Puri or Bhubaneswar for your departure.",
+      day: "Day 3",
+      title: "Puri to Konark & Return",
+      desc: "Visit Konark Sun Temple, Chandrabhaga Beach and other sights along the coast, before returning.",
       highlights: ["Marine Drive Highway", "Chandrabhaga Beach", "Konark Sun Temple"],
     },
     {
       day: "Optional Extension",
-      title: "Chilika Lake & Satapada Dolphin Cruise",
-      desc: "Add an extra day to visit Satapada on Chilika Lake. Board an OTDC motorboat to spot graceful Irrawaddy dolphins playfully surfacing in their natural sanctuary, visit Rajhans Island, and savor fresh coastal seafood delicacies.",
+      title: "Chilika Lake",
+      desc: "Extend your Odisha road trip to Chilika Lake or Satapada for a nature‑focused experience.",
       highlights: ["Satapada Boat Cruise", "Irrawaddy Dolphin Spotting", "Rajhans Island"],
     },
   ];
@@ -158,29 +158,35 @@ export default function OdishaTourPackageByCabPage() {
   const whyChoosePoints = [
     {
       title: "Flexible Travel Plans",
-      desc: "Pick the places you want to go, the travel dates you prefer, and the exact stops you want to make during your holiday without rigid tour bus timetables.",
+      desc: "Pick the places you want to go the days you want to travel and the places you want to stop at during your holiday.",
     },
     {
       title: "Convenient Private Cab Travel",
-      desc: "Explore Odisha with the ease of a private commercial AC cab for sightseeing trips between cities and journeys that last several days.",
+      desc: "See Odisha using the ease of a cab for sightseeing trips between cities and trips that last several days.",
     },
     {
       title: "Customised Tour Itineraries",
-      desc: "Design your trip based on how you are travelling, what you like, how many people are in your group, and your preferred travel pace.",
+      desc: "Design your trip based on how you are travelling what you like, how many people are in your group and where you want to go.",
     },
     {
-      title: "Family & Senior Citizen Comfort",
-      desc: "Clean, spacious vehicles with dual AC, patient drivers, and safe luggage custody so your family enjoys peaceful temple visits.",
+      title: "Family & Group Travel",
+      desc: "Make it easy for families, couples, friends and small groups to travel with vehicles that match what you need.",
     },
     {
-      title: "Easy Tour Planning & Booking",
-      desc: "Arrange your pickup point, route schedule, and dedicated vehicle in one place with transparent fixed tariffs and instant booking.",
+      title: "Easy Tour Planning",
+      desc: "Plan where you want to go where you want to start and your schedule in one place instead of arranging different transport options on your own.",
     },
     {
-      title: "Explore More at Your Own Pace",
-      desc: "Spend as much time as you want at iconic sights like the Konark Sun Temple or Puri Golden Beach without driver rush.",
+      title: "Explore More, at Your Own Pace",
+      desc: "Spend time at the places you like best and plan stops along the way according to your schedule.",
     },
   ];
+
+  const fleetVehicleDescriptions = {
+    sedan: "A sedan is suitable for couples, small families and travellers who want a point-to-point journey or sightseeing travel.",
+    suv: "An SUV is a choice for families, small groups and longer Odisha road trips that need extra space for people and bags.",
+    tempo: "A Tempo Traveller works best for families, friends and group tours that are visiting multiple destinations together.",
+  };
 
   const inclusions = [
     "Private commercial yellow-board vehicle (Sedan, SUV, or Tempo)",
@@ -201,57 +207,85 @@ export default function OdishaTourPackageByCabPage() {
 
   const faqs = [
     {
-      q: "What is included in an Odisha tour package by cab?",
-      a: "An Odisha tour package by cab generally includes private commercial AC vehicle transportation for all chosen destinations, dedicated driver allowances, fuel charges, doorstep pickup, and scheduled drops. Toll receipts and parking fees can be settled directly at actuals or bundled based on package preferences.",
+      q: "1. What is included in an Odisha tour package by cab?",
+      a: "An Odisha tour package by cab generally includes cab transportation to chosen destinations, sightseeing routes and pickup and drop‑off arrangements. The items that are included vary depending on the package and the booking details.",
     },
     {
-      q: "Can I customise my Odisha tour package?",
-      a: "Yes! You can completely customise your Odisha tour package. Choose your preferred pickup point (Bhubaneswar Airport, Railway Station, or Puri Hotel), select specific sightseeing spots, adjust the number of days, and pick the vehicle class that best fits your group.",
+      q: "2. Can I customise my Odisha tour package?",
+      a: "Yes you can customise your Odisha tour package by selecting destinations sightseeing spots, pickup points, travel length and vehicle type to match your preferences.",
     },
     {
-      q: "Which places can I visit on an Odisha cab tour?",
-      a: "Popular destinations include Bhubaneswar (Lingaraj, Mukteswar, Dhauli), Puri (Jagannath Temple, Golden Beach), Konark (Sun Temple, Chandrabhaga), Chilika Lake (Satapada dolphin sanctuary), Raghurajpur heritage craft village, and Pipli appliqué market.",
+      q: "3. Which places can I visit on an Odisha cab tour?",
+      a: "Popular destinations on an Odisha cab tour are Bhubaneswar, Puri, Konark, Chilika Lake, Satapada, Dhauli and other tourist spots across Odisha.",
     },
     {
-      q: "Can I book an Odisha tour package by car for my family?",
-      a: "Yes! A private cab tour is the safest and most comfortable option for families with senior citizens and young children. Our background-verified drivers drive patiently, accommodate frequent comfort stops, and assist with luggage custody during temple visits.",
+      q: "4. Can I book an Odisha tour package by car for my family?",
+      a: "Yes a private cab tour is an option for families who want to explore Odisha together with flexible sightseeing and comfortable transportation.",
     },
     {
-      q: "How many days are required for an Odisha tour?",
-      a: "A 2 to 3 day itinerary is ideal for exploring the famous Golden Triangle (Bhubaneswar, Puri, and Konark). If you wish to include Chilika Lake, Satapada dolphin safari, or Raghurajpur, a 4 to 5 day trip provides a relaxed, unhurried holiday.",
+      q: "5. How many days are required for an Odisha tour?",
+      a: "A 2–3 day trip is suitable for exploring places such as Bhubaneswar, Puri and Konark. A 4–5 day itinerary can add sights like Chilika depending on your travel plan.",
     },
     {
-      q: "Can I start my Odisha tour from Bhubaneswar?",
-      a: "Yes, Bhubaneswar (BBI Airport or Master Canteen Railway Station) is the primary gateway for Odisha travel. Our driver will meet you directly at the terminal with your name placard and begin your tour smoothly.",
+      q: "6. Can I start my Odisha tour from Bhubaneswar?",
+      a: "Yes Bhubaneswar is a starting point for exploring popular destinations such as Puri, Konark, Dhauli and Chilika.",
     },
     {
-      q: "Which cab is best for an Odisha tour?",
-      a: "A Sedan (Dzire/Etios) works great for couples and small families (up to 4 passengers). An SUV (Innova Crysta/Ertiga) is best for 5 to 7 passengers wanting extra legroom and luggage space. For larger groups of 8 to 17, a Tempo Traveller or Force Urbania is ideal.",
+      q: "7. Which cab is best for an Odisha tour?",
+      a: "A sedan works well for couples and small families an SUV is best for families or small groups that need space and a Tempo Traveller is good for larger groups.",
     },
     {
-      q: "How can I book an Odisha tour package with Cabjatra?",
-      a: "You can book directly through our online Tour Planner on the website or reach our 24/7 WhatsApp Operations Desk with your travel dates, passenger count, and preferred route. Lock your reservation with guaranteed car allocation and zero hidden charges.",
+      q: "8. How can I book an Odisha tour package, with Cabjatra?",
+      a: "You can contact Cabjatra with your travel dates, pickup location, destinations, number of passengers and preferred vehicle to plan your Odisha tour package.",
     },
   ];
 
+  const bottomCtaText = `I want to explore Odishas temples, beaches, heritage sites, lakes and scenic spots with a travel plan that fits my needs.
+Whether I want a Bhubaneswar–Puri–Konark sightseeing trip or a custom multi‑day road journey through Odisha Cabjatra helps me plan my trip, with cab rides.
+Choose where to go, pick my travel dates and get ready to explore Odisha.
+Plan your Odisha tour today and make your next road trip memorable.`;
+
   return (
     <TourPackageDetailPage
-      title="Odisha Tour Package by Cab"
-      subtitle="Explore the beauty, culture, temples, beaches and heritage of Odisha with flexible private cab travel"
+      title="Odisha Tour Package by Cab – Explore Odisha Your Way"
+      subtitle="Explore the beauty, culture, temples, beaches and heritage of Odisha with an Odisha Tour Package offered by Cab from Cabjatra. Travel at your pace with a private cab, experienced driver and flexible sightseeing options. These options cover Bhubaneswar, Puri, Konark, Chilika and popular destinations. Whether you are planning a family vacation, a temple visit, a weekend getaway or a multi‑day Odisha road trip enjoy a hassle‑free journey, with travel itineraries designed around your preferences."
       tagline="Travel at your pace with a private cab, experienced driver and flexible sightseeing options"
       badge="Golden Triangle &bull; 6 Destinations &bull; 100% Commercial Fleet"
       heroImage="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=85&w=1920&auto=format&fit=crop"
-      overview="Explore the beauty, culture, temples, beaches and heritage of Odisha with an Odisha Tour Package offered by Cab from Cabjatra. Travel at your pace with a private cab, experienced driver and flexible sightseeing options covering Bhubaneswar, Puri, Konark, Chilika and popular destinations. Whether you are planning a family vacation, a temple visit, a weekend getaway or a multi-day Odisha road trip, enjoy a hassle-free journey with travel itineraries designed around your preferences."
+      overview="Explore the beauty, culture, temples, beaches and heritage of Odisha with an Odisha Tour Package offered by Cab from Cabjatra. Travel at your pace with a private cab, experienced driver and flexible sightseeing options. These options cover Bhubaneswar, Puri, Konark, Chilika and popular destinations. Whether you are planning a family vacation, a temple visit, a weekend getaway or a multi-day Odisha road trip enjoy a hassle-free journey, with travel itineraries designed around your preferences."
       durationBadge="3 to 5 Days • 100% Flexible"
       startingFromNote="Transparent Tariff • Instant Confirmation"
+      heroCta1Label="Explore Odisha Tour Packages"
+      heroCta1Href="#packages"
+      heroCta2Label="Book Your Cab Tour"
+      heroCta2Href="/book-tour?destination=golden-triangle"
+      destinationsTitle="Popular Destinations Covered in Our Odisha Tour Packages"
+      destinationsSubtitle="Odisha offers a mix of spirituality, heritage, coastline, culture and nature. Our cab tour packages can help you explore many of Odishas popular tourist destinations."
       destinations={destinations}
+      packagesTitle="Popular Odisha Tour Packages by Cab"
+      packagesSubtitle="Choose from Odisha travel routes and sightseeing packages that are made for comfortable road travel and unforgettable experiences."
       packages={packages}
+      itineraryTitle="Plan Your Odisha Road Trip with a Flexible Itinerary"
+      itinerarySubtitle="Are you looking for an Odisha tour package by cab for 3 days or 4 days? I know how important it is to have a well‑planned itinerary that lets you explore attractions without rushing your journey."
+      itineraryFooterNote="Your Odisha tour package can be customised based on the number of days pickup point sightseeing preferences and travel pace."
       itineraryDays={itineraryDays}
+      whyChooseTitle="Why Choose Cabjatra for Your Odisha Tour?"
+      whyChooseSubtitle="Travelling through Odisha is more fun when your transportation is easy your plans are flexible and your trip is arranged to match what you want. Cabjatra helps you set up your sightseeing and travel between cities with a cab-based tour experience."
       whyChoosePoints={whyChoosePoints}
+      fleetTitle="Choose the Right Cab for Your Odisha Trip"
+      fleetSubtitle="The right vehicle can make a long-distance sightseeing trip more comfortable. Whether you are travelling as a couple with family or in a group choose a vehicle based on your passenger count, luggage and travel route."
+      fleetFooterNote="Share your passenger count and travel plan to find a cab, for your Odisha tour."
+      fleetVehicleDescriptions={fleetVehicleDescriptions}
+      fleetPosition="after-why-choose"
       inclusions={inclusions}
       exclusions={exclusions}
+      faqTitle="Frequently Asked Questions About Odisha Tour Packages by Cab"
       faqs={faqs}
       bookingTourSlug="golden-triangle"
+      bottomCtaTitle="Plan Your Odisha Tour with Cabjatra"
+      bottomCtaText={bottomCtaText}
+      bottomCtaPrimaryLabel="Book Your Odisha Cab Tour"
+      bottomCtaSecondaryLabel="Get a Customized Tour Quote"
     />
   );
 }
