@@ -1,5 +1,15 @@
 import React from "react";
+import type { Metadata } from "next";
 import { HeroSection } from "@/components/home/HeroSection";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Odisha Tour Package by Cab | Cabjatra",
+  },
+  description:
+    "Explore Odisha with Cabjatra’s flexible cab tour packages. Discover temples, beaches, heritage sites, and scenic destinations with comfortable travel and local expertise.",
+  keywords: ["Odisha Tour Package by Cab"],
+};
 import { PopularJourneysSection } from "@/components/home/PopularJourneysSection";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { VehicleFleetSection } from "@/components/home/VehicleFleetSection";

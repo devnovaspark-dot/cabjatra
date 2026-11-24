@@ -27,22 +27,27 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "CABJATRA — Premium Cab Booking & Odisha Travel Platform",
+  title: {
+    default: "Odisha Tour Package by Cab | Cabjatra",
+    template: "%s | Cabjatra",
+  },
   description:
-    "Explore Odisha with reliable pre-booked cabs, comfortable journeys, airport transfers to BBI, outstation cabs, hourly rentals, and curated Golden Triangle tour packages.",
+    "Explore Odisha with Cabjatra’s flexible cab tour packages. Discover temples, beaches, heritage sites, and scenic destinations with comfortable travel and local expertise.",
   keywords: [
-    "Cab booking Odisha",
-    "Bhubaneswar taxi service",
-    "BBI airport cab",
-    "Puri cab booking",
-    "Konark travel taxi",
-    "Chilika Lake tour",
-    "Odisha outstation cabs",
-    "CABJATRA",
+    "Odisha Tour Package by Cab",
   ],
   authors: [{ name: "NovaSpark Digital Marketing Pvt. Ltd." }],
   creator: "NovaSpark Digital Marketing Pvt. Ltd.",
   publisher: "NovaSpark Digital Marketing Pvt. Ltd.",
+  openGraph: {
+    title: "Odisha Tour Package by Cab | Cabjatra",
+    description:
+      "Explore Odisha with Cabjatra’s flexible cab tour packages. Discover temples, beaches, heritage sites, and scenic destinations with comfortable travel and local expertise.",
+    url: "https://cabjatra.vercel.app/",
+    siteName: "Cabjatra",
+    locale: "en_IN",
+    type: "website",
+  },
   robots: {
     index: false,
     follow: false,
@@ -100,6 +105,23 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org/",
+              "@type": "WebSite",
+              name: "Cabjatra",
+              url: "https://cabjatra.vercel.app/",
+              potentialAction: {
+                "@type": "SearchAction",
+                target:
+                  "https://cabjatra.vercel.app/_next/image?url=%2Fimages%2FCabjatra%402x.webp&w=384&q=75{search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
         />
         {/* Strip browser extension injected attributes (e.g. McAfee, Bitwarden, LastPass fdprocessedid) before React hydration */}
         <script

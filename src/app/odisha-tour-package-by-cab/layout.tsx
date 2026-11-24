@@ -1,22 +1,18 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Odisha Tour Package by Cab – Explore Odisha Your Way | Cabjatra",
+  title: {
+    absolute: "Odisha Tour Package by Cab | Cabjatra",
+  },
   description:
-    "Explore the beauty, culture, temples, beaches and heritage of Odisha with an Odisha Tour Package offered by Cab from Cabjatra. Private cab, experienced driver and flexible sightseeing options.",
+    "Explore Odisha with Cabjatra’s flexible cab tour packages. Discover temples, beaches, heritage sites, and scenic destinations with comfortable travel and local expertise.",
   keywords: [
     "Odisha Tour Package by Cab",
-    "Odisha cab tour",
-    "Bhubaneswar Puri Konark tour package",
-    "Odisha sightseeing by cab",
-    "Puri Konark sightseeing tour",
-    "Chilika Lake tour cab",
-    "Cabjatra Odisha tour",
   ],
   openGraph: {
-    title: "Odisha Tour Package by Cab – Explore Odisha Your Way | Cabjatra",
+    title: "Odisha Tour Package by Cab | Cabjatra",
     description:
-      "Explore the beauty, culture, temples, beaches and heritage of Odisha with an Odisha Tour Package offered by Cab from Cabjatra. Private cab, experienced driver and flexible sightseeing options.",
+      "Explore Odisha with Cabjatra’s flexible cab tour packages. Discover temples, beaches, heritage sites, and scenic destinations with comfortable travel and local expertise.",
     type: "website",
     locale: "en_IN",
   },
