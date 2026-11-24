@@ -58,7 +58,7 @@ export const FaqSection: React.FC = () => {
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 pb-4 sm:px-6 sm:pb-6 text-xs sm:text-sm text-[#556464] leading-relaxed border-t border-[#E5ECE5] pt-3.5 sm:pt-4 animate-in fade-in duration-200 bg-[#FAF9F5]/70">
+                  <div className="px-4 pb-4 sm:px-6 sm:pb-6 text-xs sm:text-sm text-[#556464] leading-relaxed border-t border-[#E5ECE5] pt-3.5 sm:pt-4 animate-in fade-in duration-200 bg-[#FAF9F5]/70 whitespace-pre-line">
                     <p>{faq.answer}</p>
                   </div>
                 )}

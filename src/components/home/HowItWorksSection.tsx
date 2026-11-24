@@ -253,10 +253,10 @@ export const HowItWorksSection: React.FC = () => {
       km: "KM 00",
       milestone: "Bhubaneswar Departure Hub",
       title: "Select Journey & Vehicle Class",
-      desc: "Pick your travel format—Airport pickup, Outstation highway trip, or Tour circuit. Select your verified AC Sedan, Innova Crysta, or Urbania with zero upfront lock-in.",
+      desc: "Pick your travel format: Bhubaneswar Airport (BBI) pickup, one-way or round-trip outstation cab, or Odisha tour circuit (Puri, Konark, Cuttack). Select your verified AC Sedan, Innova Crysta, or Urbania with zero upfront lock-in.",
       icon: <CalendarSearch className="w-5 h-5 text-[#FEC401]" />,
-      badge: "No Upfront Payment",
-      feature: "Instant route customization & transparent quote",
+      badge: "No Upfront Lock-in",
+      feature: "BBI pickup, outstation or Odisha tour circuits",
       corridor: "NH-316 Coastal Hub • Live Standby",
     },
     {
@@ -264,10 +264,10 @@ export const HowItWorksSection: React.FC = () => {
       km: "KM 25",
       milestone: "Fleet Safety Inspection",
       title: "Dispatch Fleet Verification",
-      desc: "Our Odisha operations desk manually verifies commercial vehicle fitness, yellow-board compliance, and matches an experienced, police-verified local driver.",
+      desc: "Our Odisha operations desk manually verifies commercial vehicle fitness, yellow-board compliance, and matches an experienced, police-verified cab driver.",
       icon: <ShieldCheck className="w-5 h-5 text-[#FEC401]" />,
       badge: "Manual Verification",
-      feature: "Background verified & highway-certified driver",
+      feature: "Police-verified driver & yellow-board fitness",
       corridor: "State Transport Authority (STA) Compliant",
     },
     {
@@ -275,10 +275,10 @@ export const HowItWorksSection: React.FC = () => {
       km: "KM 48",
       milestone: "Reservation Lock-in",
       title: "10% Advance Deposit Model",
-      desc: "Once your cab and driver are allocated, lock your ride with a transparent 10% advance deposit. Zero surge pricing guaranteed. Remaining 90% is settled at drop.",
+      desc: "Once we allocate your cab and driver, lock your ride with an online cab booking in Odisha and a transparent 10% advance deposit. Zero surge pricing guaranteed. The remaining 90% is settled at drop.",
       icon: <CheckCircle2 className="w-5 h-5 text-[#FEC401]" />,
-      badge: "Accountability Guarantee",
-      feature: "Zero surge traps • 100% refundable on 6hr notice",
+      badge: "10% Advance Model",
+      feature: "Zero surge pricing • Remaining 90% at drop",
       corridor: "Bank-Grade Razorpay / UPI Security",
     },
     {
@@ -286,10 +286,10 @@ export const HowItWorksSection: React.FC = () => {
       km: "KM 65",
       milestone: "Punctual Destination Arrival",
       title: "Punctual Driver Arrival",
-      desc: "Your professional driver coordinates via phone & WhatsApp, arrives with AC active at your doorstep 10 mins prior, and handles all luggage with zero cancellations.",
+      desc: "Your professional driver coordinates via phone & WhatsApp, arrives with AC active at your doorstep 10 mins prior, and handles all luggage for a stress-free intercity cab ride with zero cancellations",
       icon: <UserCheck className="w-5 h-5 text-[#FEC401]" />,
       badge: "Zero Cancellations",
-      feature: "Guaranteed on-time arrival with luggage assistance",
+      feature: "Doorstep arrival 10 mins prior with AC active",
       corridor: "Puri Jagannath Dham • Arrival Terminal",
     },
   ];
@@ -424,11 +424,9 @@ export const HowItWorksSection: React.FC = () => {
             <Sparkles className="w-3.5 h-3.5 text-[#FEC401]" />
             <span>The Pre-Booked Guarantee</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0F172A] font-display tracking-tight">
-            How CabJatra Works
-          </h2>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0F172A] font-display tracking-tight">\n            How CABJATRA Works\n          </h2>
           <p className="text-xs sm:text-sm text-[#556464] mt-2 leading-relaxed">
-            Our 4-step verified dispatch model guarantees zero cancellations, 100% yellow-board commercial fleet, and transparent tariffs across Odisha.
+            Our 4-step verified dispatch model guarantees zero cancellations, a 100% yellow-board commercial fleet, and transparent Odisha cab tariffs for every outstation cab booking and airport taxi transfer.
           </p>
 
           {/* Interactive Scroll Hint Badge */}
@@ -652,7 +650,7 @@ export const HowItWorksSection: React.FC = () => {
               The 10% Advance Guarantee Difference
             </h3>
             <p className="text-xs sm:text-sm text-[#667575] mt-1.5 leading-relaxed">
-              Why do generic ride-hailing apps fail tourists and families in Odisha? When drivers can cancel at will, schedules fall apart. Here is how our verified dispatch model protects you:
+              Why do generic ride-hailing apps fail tourists and families booking a cab service in Odisha? When drivers can cancel at will, schedules fall apart. Here is how our verified Odisha taxi booking model protects your journey:
             </p>
           </div>
 
@@ -669,11 +667,11 @@ export const HowItWorksSection: React.FC = () => {
               <ul className="space-y-2.5 text-xs text-[#667575]">
                 <li className="flex items-start gap-2">
                   <XCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
-                  <span><strong>Driver Cancellations:</strong> Frequent cancellations leaving passengers stranded at airports or temple gates.</span>
+                  <span><strong>Driver Cancellations:</strong> Frequent cancellations leaving passengers stranded at AIrports , railway stations, or Puri Jagannath Temple gates</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <XCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
-                  <span><strong>Surge Pricing Spikes:</strong> Sudden 2x–3x surge multipliers during rain, late nights, or festival rush.</span>
+                  <span><strong>Surge Pricing Spikes:</strong> Sudden 2x–3x surge multipliers during rain, late nights, or Rath Yatra festival rush.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <XCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
@@ -705,19 +703,19 @@ export const HowItWorksSection: React.FC = () => {
               <ul className="space-y-2.5 text-xs text-[#F1F5F9]/90 relative z-10">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#FEC401] shrink-0 mt-0.5" />
-                  <span><strong>Zero Driver Cancellations:</strong> Your allocated driver and commercial vehicle are contractually locked.</span>
+                  <span><strong>Zero Driver Cancellations:</strong> Your allocated driver and commercial yellow-board cab are contractually locked once confirmed.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#FEC401] shrink-0 mt-0.5" />
-                  <span><strong>100% Transparent Fixed Tariffs:</strong> Zero sudden surge gouging. Exact fare honored day or night.</span>
+                  <span><strong>100% Transparent Fixed Tariffs:</strong> Zero sudden surge gouging. Exact Odisha cab fare honoured day or night across Bhubaneswar, Puri, Konark, and Cuttack.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#FEC401] shrink-0 mt-0.5" />
-                  <span><strong>Guaranteed Dual-Zone AC:</strong> Pristine commercial vehicle hygiene with sanitized interiors guaranteed.</span>
+                  <span><strong>Guaranteed Dual-Zone AC:</strong> Pristine commercial vehicle hygiene with sanitised interiors guaranteed.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#FEC401] shrink-0 mt-0.5" />
-                  <span><strong>24/7 Human WhatsApp Desk:</strong> Direct phone and WhatsApp coordination with real Odisha dispatchers.</span>
+                  <span><strong>24/7 Human WhatsApp Desk:</strong> Direct phone and WhatsApp coordination with real Odisha dispatchers for airport taxi transfers and Odisha tour packages.</span>
                 </li>
               </ul>
             </div>

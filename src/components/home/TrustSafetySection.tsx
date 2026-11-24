@@ -6,35 +6,35 @@ export const TrustSafetySection: React.FC = () => {
   const pillars = [
     {
       title: "Driver Screening & Commercial Licensing",
-      desc: "Every driver undergoes background verification, holds a valid commercial driving license (yellow-board endorsement), and has verified highway expertise across Odisha corridors.",
+      desc: "Our verified cab driver in Odisha undergoes background verification, holds a valid commercial driving license (yellow-board endorsement), and has verified highway expertise across Odisha corridors, including Bhubaneswar to Puri and Konark routes",
       icon: <FileCheck2 className="w-5 h-5 text-[#FEC401]" />,
       actionText: "View Driver Policy",
       actionLink: "/terms-conditions",
       badge: "Strict Screening",
     },
     {
-      title: "Vehicle Standards & AC Sanitization",
-      desc: "Cabs are commercially registered with state transport permits, functioning dual-zone climate control, clean fabric or leatherette upholstery, and secure luggage boot space.",
+      title: "Vehicle Standards & AC Sanitisation",
+      desc: "Cabs are commercially registered with state transport permits; our AC cabs in Bhubaneswar feature dual-zone climate control, clean fabric or leatherette upholstery, and secure luggage boot space.",
       icon: <ShieldCheck className="w-5 h-5 text-[#FEC401]" />,
       actionText: "Fleet Standards",
       actionLink: "/services",
-      badge: "Commercial Yellow Board",
+      badge: "Vehicle Standards",
     },
     {
       title: "24/7 Operations Desk Support",
-      desc: "Live travel desk support for flight arrivals at BBI Airport, train delays, intermediate sightseeing halts, and instant WhatsApp driver coordination.",
+      desc: "Live travel desk support for on-time Bhubaneswar airport taxi (BBI Airport) arrivals, train delays, intermediate sightseeing halts, and instant WhatsApp driver coordination.",
       icon: <Headphones className="w-5 h-5 text-[#FEC401]" />,
       actionText: "Contact Support Desk",
       actionLink: "/contact",
-      badge: "Human Travel Desk",
+      badge: "24/7 Support",
     },
     {
       title: "Transparent Cancellation & Refund Terms",
-      desc: "Full refund of advance deposit for outstation trips cancelled with 12+ hours notice. Zero cancellation fee for rescheduled flights or weather disruptions.",
+      desc: "Full refund of advance deposit for outstation cab bookings cancelled with 12+ hours’ notice, with zero cancellation fee for rescheduled flights or weather disruptions.",
       icon: <RotateCcw className="w-5 h-5 text-[#FEC401]" />,
       actionText: "Cancellation Matrix",
       actionLink: "/cancellation-policy",
-      badge: "No Penalty Reschedules",
+      badge: "Transparent Terms",
     },
   ];
 
@@ -51,7 +51,7 @@ export const TrustSafetySection: React.FC = () => {
               Trust &amp; Safety Protocols
             </h2>
             <p className="text-xs sm:text-sm text-[#667575] mt-1 sm:mt-1.5 max-w-xl">
-              From driver background checks to transparent cancellation refunds, our operations protocol is built to protect travelers at every stage.
+              From driver background checks to transparent cancellation refunds, our Odisha taxi service operations protocol is built to protect travellers at every stage.
             </p>
           </div>
 
