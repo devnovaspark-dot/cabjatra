@@ -324,26 +324,26 @@ export const HeroSection: React.FC = () => {
       <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 w-full text-center space-y-2.5 sm:space-y-3 mt-1 sm:mt-0">
         
         {/* Short, Direct, High-Converting Headline */}
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-display tracking-tight text-white leading-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
-          Book Reliable Cabs <br />
+        <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold font-display tracking-tight text-white leading-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)] max-w-3xl mx-auto">
+          Odisha Tour Package by Cab <br className="hidden sm:inline" />
           <span className="italic font-display font-normal text-[#FEC401]">
-            Across Odisha.
+            — Explore Odisha Your Way
           </span>
         </h1>
 
         {/* Clear Concise Subtitle */}
-        <p className="text-xs sm:text-sm lg:text-base text-white/95 max-w-xl mx-auto font-normal leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
-          Punctual BBI airport pickups, outstation highway transfers &amp; sacred temple circuits. 100% yellow-board commercial fleet, zero surge pricing &amp; guaranteed on-time dispatch.
+        <p className="text-xs sm:text-sm lg:text-base text-white/95 max-w-2xl mx-auto font-normal leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+          Explore the beauty, culture, temples, beaches and heritage of Odisha with an Odisha Tour Package offered by Cab from Cabjatra. Travel at your pace with a private cab, experienced driver and flexible sightseeing options covering Bhubaneswar, Puri, Konark, Chilika and popular destinations.
         </p>
 
         {/* Action CTAs */}
-        <div className="pt-0.5 flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto">
+        <div className="pt-0.5 flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto">
           <Link
-            href="/book-cab"
+            href="/odisha-tour-package-by-cab"
             className="w-full sm:w-auto px-7 sm:px-8 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#FEC401] via-[#FFD700] to-[#E5AD00] text-[#001162] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(254,196,1,0.45),inset_0_1px_0_rgba(255,255,255,0.6)] hover:brightness-105 active:scale-[0.98] transition-all group cursor-pointer border border-[#FEC401]/60"
           >
-            <Car className="w-4 h-4 text-[#001162]" />
-            <span>Book Your Cab Now</span>
+            <Compass className="w-4 h-4 text-[#001162]" />
+            <span>Explore Odisha Tour Packages</span>
             <ArrowRight className="w-4 h-4 text-[#001162] group-hover:translate-x-1 transition-transform" />
           </Link>
 
@@ -351,8 +351,8 @@ export const HeroSection: React.FC = () => {
             href="/book-tour"
             className="w-full sm:w-auto px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/30 hover:border-[#FEC401]/70 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-[0.98] cursor-pointer"
           >
-            <Compass className="w-4 h-4 text-[#FEC401]" />
-            <span>Explore Curated Tours</span>
+            <Car className="w-4 h-4 text-[#FEC401]" />
+            <span>Book Your Cab Tour</span>
           </Link>
         </div>
 
