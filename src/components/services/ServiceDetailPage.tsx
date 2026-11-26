@@ -54,24 +54,47 @@ interface WhyUsPoint {
 interface ServiceDetailProps {
   title: string;
   subtitle: string;
-  tagline: string;
-  badge: string;
-  heroImage: string;
+  tagline?: string;
+  badge?: string;
+  heroImage?: string;
   cityBgImage?: string;
-  overview: string;
+  overview?: string;
   whyUsPoints: WhyUsPoint[];
   routeFares: RouteFare[];
   inclusions: string[];
   exclusions: string[];
   bookingCategoryKey: string;
   serviceFaq: { q: string; a: string }[];
+  heroHeadline?: string;
+  heroSubtitle?: string;
+  heroPills?: string[];
+  heroAssurances?: string[];
+  routesSectionSubtitle?: string;
+  whyChooseTitle?: string;
+  whyChooseSubtitle?: string;
+  cabjatraPoints?: { factor?: string; text: string }[];
+  genericSubtitle?: string;
+  genericPoints?: { factor?: string; text: string }[];
+  genericFooterNote?: string;
+  howItWorksTitle?: string;
+  howItWorksSubtitle?: string;
+  customSteps?: { num: string; title: string; desc: string; badge?: string }[];
+  charterClaritySubtitle?: string;
+  inclusionsSubtitle?: string;
+  inclusionsFooter?: string;
+  exclusionsSubtitle?: string;
+  exclusionsFooter?: string;
+  faqSectionTitle?: string;
+  readyToConfirmTitle?: string;
+  readyToConfirmSubtitle?: string;
+  readyToConfirmBadge?: string;
 }
 
 export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
   title,
   subtitle,
-  badge,
-  heroImage,
+  badge = "Puri Dham & Coastal Circuit",
+  heroImage = "https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?q=85&w=1920&auto=format&fit=crop",
   cityBgImage,
   overview,
   whyUsPoints,
@@ -80,6 +103,29 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
   exclusions,
   bookingCategoryKey,
   serviceFaq,
+  heroHeadline,
+  heroSubtitle,
+  heroPills,
+  heroAssurances,
+  routesSectionSubtitle,
+  whyChooseTitle,
+  whyChooseSubtitle,
+  cabjatraPoints,
+  genericSubtitle,
+  genericPoints,
+  genericFooterNote,
+  howItWorksTitle,
+  howItWorksSubtitle,
+  customSteps,
+  charterClaritySubtitle,
+  inclusionsSubtitle,
+  inclusionsFooter,
+  exclusionsSubtitle,
+  exclusionsFooter,
+  faqSectionTitle,
+  readyToConfirmTitle,
+  readyToConfirmSubtitle,
+  readyToConfirmBadge,
 }) => {
   // Router & Horizontal booking form card state
   const router = useRouter();
@@ -271,32 +317,30 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 
             {/* Main Headline - High-Contrast Editorial White */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-white drop-shadow-md leading-[1.12]">
-              {title}
+              {heroHeadline || title}
             </h1>
 
             {/* Subtitle - Punchy, High-Impact & Crystal Clear */}
             <p className="text-sm sm:text-base lg:text-lg text-slate-100 font-medium leading-relaxed drop-shadow-sm max-w-2xl">
-              {subtitle}
+              {heroSubtitle || subtitle}
             </p>
 
             {/* Sleek Feature Highlights - Minimalist Inline Badges */}
             <div className="flex flex-wrap items-center gap-2 pt-1">
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/55 backdrop-blur-md border border-white/20 text-xs font-semibold text-white shadow-xs">
-                <ShieldCheck className="w-4 h-4 text-[#FEC401]" />
-                <span>100% Commercial Yellow-Plate</span>
-              </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/55 backdrop-blur-md border border-white/20 text-xs font-semibold text-white shadow-xs">
-                <Zap className="w-4 h-4 text-[#FEC401]" />
-                <span>Zero Surge Tariffs</span>
-              </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/55 backdrop-blur-md border border-white/20 text-xs font-semibold text-white shadow-xs">
-                <AirVent className="w-4 h-4 text-[#38BDF8]" />
-                <span>Chilled Dual AC Guaranteed</span>
-              </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/55 backdrop-blur-md border border-white/20 text-xs font-semibold text-white shadow-xs">
-                <Clock className="w-4 h-4 text-[#4ADE80]" />
-                <span>Live Flight Radar Sync</span>
-              </div>
+              {(heroPills || [
+                "100% Commercial Yellow-Plate",
+                "Zero Surge Tariffs",
+                "Chilled Dual AC Guaranteed",
+                "Live Flight Radar Sync"
+              ]).map((pill, pIdx) => (
+                <div key={pIdx} className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/55 backdrop-blur-md border border-white/20 text-xs font-semibold text-white shadow-xs">
+                  {pIdx === 0 ? <ShieldCheck className="w-4 h-4 text-[#FEC401]" /> :
+                   pIdx === 1 ? <Zap className="w-4 h-4 text-[#FEC401]" /> :
+                   pIdx === 2 ? <AirVent className="w-4 h-4 text-[#38BDF8]" /> :
+                   <Clock className="w-4 h-4 text-[#4ADE80]" />}
+                  <span>{pill}</span>
+                </div>
+              ))}
             </div>
 
             {/* Primary Action Buttons */}
@@ -324,22 +368,17 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             {/* Trust Assurances Clean Pill Strip */}
             <div className="pt-2">
               <div className="inline-flex flex-wrap items-center gap-x-5 gap-y-2 px-4 py-2.5 rounded-2xl bg-black/55 backdrop-blur-md border border-white/20 text-xs text-white/95 shadow-xs">
-                <span className="flex items-center gap-1.5 font-bold">
-                  <ShieldCheck className="w-4 h-4 text-[#4ADE80]" />
-                  Pre-Assigned Chauffeur
-                </span>
-                <span className="flex items-center gap-1.5 font-bold">
-                  <Clock className="w-4 h-4 text-[#16A34A]" />
-                  Guaranteed Vehicle Allocation
-                </span>
-                <span className="flex items-center gap-1.5 font-bold">
-                  <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
-                  Zero Last-Minute Cancellation
-                </span>
-                <span className="flex items-center gap-1.5 font-bold">
-                  <CreditCard className="w-4 h-4 text-[#16A34A]" />
-                  Transparent Rates
-                </span>
+                {(heroAssurances || [
+                  "Pre-Assigned Chauffeur",
+                  "Guaranteed Vehicle Allocation",
+                  "Zero Last-Minute Cancellation",
+                  "Transparent Rates"
+                ]).map((assur, aIdx) => (
+                  <span key={aIdx} className="flex items-center gap-1.5 font-bold">
+                    <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
+                    {assur}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
@@ -1105,10 +1144,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               <span>Service Value Proposition</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
-              Why Travelers Choose Our {title}
+              {whyChooseTitle || `Why Travelers Choose Our ${title}`}
             </h2>
             <p className="text-xs sm:text-sm text-[#64748B] mt-1.5 sm:mt-2">
-              Unlike generic ride-hailing apps with rampant cancellations and surge gouging, CABJATRA provides scheduled certainty, verified commercial drivers, and pristine AC vehicles.
+              {whyChooseSubtitle || "Unlike generic ride-hailing apps with rampant cancellations and surge gouging, CABJATRA provides scheduled certainty, verified commercial drivers, and pristine AC vehicles."}
             </p>
           </div>
 
@@ -1225,13 +1264,18 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 
                 {/* Verified Features Checklist */}
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-[13px]">
-                  {comparisonRows.map((row, idx) => (
+                  {(cabjatraPoints
+                    ? cabjatraPoints.map((pt) => ({ factor: pt.factor, cabjatra: pt.text }))
+                    : comparisonRows
+                  ).map((row, idx) => (
                     <li key={idx} className="flex items-start gap-2.5 sm:gap-3 bg-white/10 backdrop-blur-md p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl border border-white/15">
                       <div className="p-1 rounded-full bg-[#10B981]/25 text-[#10B981] shrink-0 mt-0.5">
                         <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#4ADE80] stroke-[3]" />
                       </div>
                       <div>
-                        <span className="text-[9.5px] sm:text-[10px] text-white/60 block font-bold uppercase tracking-wider">{row.factor}</span>
+                        {row.factor && (
+                          <span className="text-[9.5px] sm:text-[10px] text-white/60 block font-bold uppercase tracking-wider">{row.factor}</span>
+                        )}
                         <span className="font-bold text-white text-xs sm:text-sm">{row.cabjatra}</span>
                       </div>
                     </li>
@@ -1262,19 +1306,24 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                     Generic Ride-Hailing Apps
                   </h3>
                   <p className="text-xs text-[#64748B]">
-                    Uncommitted platform drivers with frequent cancellations and dynamic surge charges.
+                    {genericSubtitle || "Reliable platform drivers with frequent cancellations and dynamic surge charges."}
                   </p>
                 </div>
 
                 {/* Risk Points Checklist */}
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-[13px]">
-                  {comparisonRows.map((row, idx) => (
+                  {(genericPoints
+                    ? genericPoints.map((pt) => ({ factor: pt.factor, generic: pt.text }))
+                    : comparisonRows
+                  ).map((row, idx) => (
                     <li key={idx} className="flex items-start gap-2.5 sm:gap-3 bg-[#FEF2F2] p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl border border-[#FEE2E2]">
                       <div className="p-1 rounded-full bg-[#EF4444]/20 text-[#EF4444] shrink-0 mt-0.5">
                         <XCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#EF4444]" />
                       </div>
                       <div>
-                        <span className="text-[9.5px] sm:text-[10px] text-[#991B1B]/70 block font-bold uppercase tracking-wider">{row.factor}</span>
+                        {row.factor && (
+                          <span className="text-[9.5px] sm:text-[10px] text-[#991B1B]/70 block font-bold uppercase tracking-wider">{row.factor}</span>
+                        )}
                         <span className="font-bold text-[#991B1B] text-xs sm:text-sm">{row.generic}</span>
                       </div>
                     </li>
@@ -1284,7 +1333,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 
               <div className="pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-[#FEE2E2]">
                 <div className="p-3 rounded-xl sm:rounded-2xl bg-white border border-[#FECACA] text-center text-xs font-semibold text-[#991B1B]">
-                  High cancellation rates &amp; unverified private vehicles during peak hours.
+                  {genericFooterNote || "High cancellation rates & unverified private vehicles during peak hours."}
                 </div>
               </div>
             </div>
@@ -1303,10 +1352,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
               <span>Simple Booking Journey</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
-              How Your Ride Works with CABJATRA
+              {howItWorksTitle || "How it works:"}
             </h2>
             <p className="text-xs sm:text-sm text-[#64748B] mt-1.5 sm:mt-2">
-              Transparent, reliable, and stress-free. From reservation to arrival, here is how we ensure 100% on-time dispatch.
+              {howItWorksSubtitle || "We offer complete transparency and hassle-free service and ensure 100% on-time pick-up for you."}
             </p>
           </div>
 
@@ -1315,8 +1364,8 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             <div className="hidden md:block absolute top-16 left-[16%] right-[16%] h-1 bg-gradient-to-r from-[#FEC401] via-[#000B3B] to-[#FEC401] rounded-full z-0 opacity-20" />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 relative z-10">
-              {steps.map((st, i) => {
-                const Icon = st.icon;
+              {(customSteps || steps).map((st, i) => {
+                const Icon = (st as any).icon || (i === 0 ? MapPin : i === 1 ? CreditCard : CheckCircle2);
                 return (
                   <div
                     key={i}
@@ -1337,7 +1386,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                       {/* Step Number Badge */}
                       <div className="px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#FAF9F5] border border-[#CBD5E1] group-hover:border-[#FEC401] transition-colors">
                         <span className="text-[11px] sm:text-xs font-black font-display text-[#000B3B] group-hover:text-[#D97706] transition-colors">
-                          Step 0{st.num}
+                          Step {st.num}
                         </span>
                       </div>
                     </div>
@@ -1354,7 +1403,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 
                     <div className="pt-2.5 sm:pt-3 border-t border-[#F1F5F9] flex items-center gap-1.5 text-[10.5px] sm:text-[11px] font-bold text-[#16A34A]">
                       <Check className="w-3.5 h-3.5 text-[#16A34A] stroke-[3]" />
-                      <span>{i === 0 ? "Instant WhatsApp Voucher Confirmation" : i === 1 ? "Chauffeur Assigned 2 Hrs Prior" : "Guaranteed On-Time Doorstep Pickup"}</span>
+                      <span>{(st as any).badge || (i === 0 ? "Instant WhatsApp Voucher Confirmation" : i === 1 ? "Driver allocated 2 hours beforehand" : "Guaranteed On-Time Doorstep Pickup")}</span>
                     </div>
                   </div>
                 );
@@ -1374,7 +1423,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
         Charter Clarity &amp; Transparency
       </h2>
       <p className="text-xs sm:text-sm text-[#64748B] mt-1.5 sm:mt-2">
-        We eliminate billing surprises and offline haggling before your journey even begins.
+        {charterClaritySubtitle || "We eliminate billing surprises and offline haggling before your journey even begins."}
       </p>
     </div>
 
@@ -1393,7 +1442,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] font-display">
               What Is Fully Included
             </h3>
-            <p className="text-xs text-[#64748B]">Zero hidden surcharges on your basic quote</p>
+            <p className="text-xs text-[#64748B]">{inclusionsSubtitle || "Zero hidden embellishments on your basic quote"}</p>
           </div>
         </div>
 
@@ -1408,7 +1457,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 
         <div className="pt-2.5 sm:pt-3 border-t border-[#BBF7D0]/60 text-[10.5px] sm:text-[11px] font-bold text-[#166534] flex items-center gap-1.5">
           <ShieldCheck className="w-4 h-4 text-[#16A34A]" />
-          <span>Transparent Kilometre Metering • Dedicated Climate-Controlled Cabin</span>
+          <span>{inclusionsFooter || "Transparent Kilometre Metering • Dedicated Climate-Controlled Cottage"}</span>
         </div>
       </div>
 
@@ -1426,7 +1475,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] font-display">
               Transparent Exclusions (Direct Receipts)
             </h3>
-            <p className="text-xs text-[#64748B]">Settled directly with physical tax or parking slips</p>
+            <p className="text-xs text-[#64748B]">{exclusionsSubtitle || "Settled directly with physical tax or parking slips"}</p>
           </div>
         </div>
 
@@ -1441,7 +1490,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
 
         <div className="pt-2.5 sm:pt-3 border-t border-[#FDE68A]/60 text-[10.5px] sm:text-[11px] font-bold text-[#92400E] flex items-center gap-1.5">
           <CreditCard className="w-4 h-4 text-[#D97706]" />
-          <span>Zero Driver Haggling • You Retain All Physical Toll &amp; Parking Slips</span>
+          <span>{exclusionsFooter || "UPI or cash at drop-off time"}</span>
         </div>
       </div>
     </div>
@@ -1586,7 +1635,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
             <span>Frequently Asked Questions</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
-            Frequently Asked Questions Regarding {title}
+            {faqSectionTitle || `Frequently Asked Questions Regarding ${title}`}
           </h2>
         </div>
 
@@ -1668,15 +1717,15 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
   <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
     <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[10.5px] font-bold text-[#FEC401]">
       <ShieldCheck className="w-3.5 h-3.5" />
-      <span>Dedicated Dispatch Desk Active 24/7</span>
+      <span>{readyToConfirmBadge || "Dedicated Dispatch Desk Active 24/7"}</span>
     </div>
 
     <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#FAF9F5] tracking-tight">
-      Ready to Confirm Your {title}?
+      {readyToConfirmTitle || `Ready to Confirm Your ${title}?`}
     </h2>
 
     <p className="text-xs sm:text-sm text-[#F1F5F9]/80 max-w-xl mx-auto leading-relaxed">
-      Submit your travel route and date. Our dispatch team allocates a certified commercial yellow-board car and sends your verified driver voucher with instant confirmation.
+      {readyToConfirmSubtitle || "Submit your travel route and date. Our dispatch team allocates a certified commercial yellow-board car and sends your verified driver voucher with instant confirmation."}
     </p>
 
     <div className="pt-4 flex flex-wrap justify-center gap-3.5">
