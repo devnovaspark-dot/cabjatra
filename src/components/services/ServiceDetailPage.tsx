@@ -69,19 +69,31 @@ interface ServiceDetailProps {
   heroSubtitle?: string;
   heroPills?: string[];
   heroAssurances?: string[];
+  ctaBookButtonText?: string;
+  secondaryCtaText?: string;
+  routesSectionTitle?: string;
   routesSectionSubtitle?: string;
   whyChooseTitle?: string;
   whyChooseSubtitle?: string;
+  cabjatraTitle?: string;
+  cabjatraSubtitle?: string;
   cabjatraPoints?: { factor?: string; text: string }[];
+  genericTitle?: string;
+  genericBadge?: string;
   genericSubtitle?: string;
   genericPoints?: { factor?: string; text: string }[];
   genericFooterNote?: string;
   howItWorksTitle?: string;
   howItWorksSubtitle?: string;
   customSteps?: { num: string; title: string; desc: string; badge?: string }[];
+  charterClarityTitle?: string;
   charterClaritySubtitle?: string;
+  inclusionsTitle?: string;
+  inclusionsBadge?: string;
   inclusionsSubtitle?: string;
   inclusionsFooter?: string;
+  exclusionsTitle?: string;
+  exclusionsBadge?: string;
   exclusionsSubtitle?: string;
   exclusionsFooter?: string;
   faqSectionTitle?: string;
@@ -93,8 +105,8 @@ interface ServiceDetailProps {
 export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
   title,
   subtitle,
-  badge = "Puri Dham & Coastal Circuit",
-  heroImage = "https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?q=85&w=1920&auto=format&fit=crop",
+  badge = "Bhubaneswar City & Airport Hub",
+  heroImage = "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=85&w=1920&auto=format&fit=crop",
   cityBgImage,
   overview,
   whyUsPoints,
@@ -107,19 +119,31 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
   heroSubtitle,
   heroPills,
   heroAssurances,
+  ctaBookButtonText,
+  secondaryCtaText,
+  routesSectionTitle,
   routesSectionSubtitle,
   whyChooseTitle,
   whyChooseSubtitle,
+  cabjatraTitle,
+  cabjatraSubtitle,
   cabjatraPoints,
+  genericTitle,
+  genericBadge,
   genericSubtitle,
   genericPoints,
   genericFooterNote,
   howItWorksTitle,
   howItWorksSubtitle,
   customSteps,
+  charterClarityTitle,
   charterClaritySubtitle,
+  inclusionsTitle,
+  inclusionsBadge,
   inclusionsSubtitle,
   inclusionsFooter,
+  exclusionsTitle,
+  exclusionsBadge,
   exclusionsSubtitle,
   exclusionsFooter,
   faqSectionTitle,
@@ -350,7 +374,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 className="px-7 py-4 rounded-full bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 text-[#000B3B] font-black text-sm inline-flex items-center gap-2.5 shadow-[0_12px_28px_rgba(254,196,1,0.42)] active:translate-y-0.5 transition-all group"
               >
                 <Car className="w-4 h-4 text-[#000B3B]" />
-                <span>Reserve Your Cab Now</span>
+                <span>{ctaBookButtonText || "Reserve Your Cab Now"}</span>
                 <ArrowRight className="w-4 h-4 text-[#000B3B] group-hover:translate-x-1 transition-transform" />
               </Link>
 
@@ -361,7 +385,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 className="px-6 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm inline-flex items-center gap-2 border border-white/25 backdrop-blur-md shadow-xs transition"
               >
                 <MessageSquare className="w-4 h-4 text-[#4ADE80]" />
-                <span>WhatsApp 24/7 Concierge</span>
+                <span>{secondaryCtaText || "WhatsApp 24/7 Concierge"}</span>
               </a>
             </div>
 
@@ -1027,10 +1051,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                   <span>Popular Corridors</span>
                 </div>
                 <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
-                  Curated Transit Corridors &amp; Indicative Tariffs
+                  {routesSectionTitle || "Curated Transit Corridors & Indicative Tariffs"}
                 </h2>
                 <p className="text-xs sm:text-sm text-[#64748B] mt-1.5 sm:mt-2">
-                  Transparent fare benchmarks for frequent routes. Pre-book your cab with guaranteed confirmation and zero surge pricing.
+                  {routesSectionSubtitle || "Transparent fare benchmarks for frequent routes. Pre-book your cab with guaranteed confirmation and zero surge pricing."}
                 </p>
               </div>
               <div className="text-[10.5px] sm:text-[11px] text-[#000B3B] font-bold bg-[#FFFBEB] px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl border border-[#FEF08A] shadow-xs inline-flex items-center gap-1.5 sm:gap-2 self-start sm:self-auto">
@@ -1255,10 +1279,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                     <span>Odisha Commercial Fleet</span>
                   </span>
                   <h3 className="text-xl sm:text-2xl font-black font-display text-white">
-                    CABJATRA Chauffeur Service
+                    {cabjatraTitle || "CABJATRA Chauffeur Service"}
                   </h3>
                   <p className="text-xs text-[#CBD5E1]">
-                    Guaranteed commercial transit backed by our 24/7 dedicated dispatch operations desk.
+                    {cabjatraSubtitle || "Guaranteed commercial transit backed by our 24/7 dedicated dispatch operations desk."}
                   </p>
                 </div>
 
@@ -1300,10 +1324,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 <div className="space-y-1.5 sm:space-y-2">
                   <span className="text-[9.5px] sm:text-[10.5px] font-black uppercase tracking-wider text-[#DC2626] bg-[#FEE2E2] px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full border border-[#FECACA] inline-flex items-center gap-1.5">
                     <XCircle className="w-3.5 h-3.5 text-[#DC2626]" />
-                    <span>Unpredictable Gig Aggregators</span>
+                    <span>{genericBadge || "Unpredictable Gig Aggregators"}</span>
                   </span>
                   <h3 className="text-xl sm:text-2xl font-black font-display text-[#0F172A]">
-                    Generic Ride-Hailing Apps
+                    {genericTitle || "Generic Ride-Hailing Apps"}
                   </h3>
                   <p className="text-xs text-[#64748B]">
                     {genericSubtitle || "Reliable platform drivers with frequent cancellations and dynamic surge charges."}
@@ -1420,7 +1444,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-16">
       <h2 className="text-2xl sm:text-4xl font-bold font-display text-[#0F172A] tracking-tight">
-        Charter Clarity &amp; Transparency
+        {charterClarityTitle || "Charter Clarity & Transparency"}
       </h2>
       <p className="text-xs sm:text-sm text-[#64748B] mt-1.5 sm:mt-2">
         {charterClaritySubtitle || "We eliminate billing surprises and offline haggling before your journey even begins."}
@@ -1431,7 +1455,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
       {/* Inclusions Card */}
       <div className="p-4 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#F0FDF4]/50 via-white to-white border-2 border-[#BBF7D0] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(22,163,74,0.1)] transition-all duration-300 space-y-3.5 sm:space-y-5 relative overflow-hidden group">
         <div className="absolute top-0 right-0 px-3 sm:px-3.5 py-0.5 sm:py-1 rounded-bl-xl sm:rounded-bl-2xl bg-[#DCFCE7] text-[9.5px] sm:text-[10px] font-black text-[#166534] uppercase tracking-wider border-b border-l border-[#BBF7D0]">
-          100% Covered
+          {inclusionsBadge || "100% Covered"}
         </div>
 
         <div className="flex items-center gap-3 sm:gap-3.5">
@@ -1440,7 +1464,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
           </div>
           <div>
             <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] font-display">
-              What Is Fully Included
+              {inclusionsTitle || "What Is Fully Included"}
             </h3>
             <p className="text-xs text-[#64748B]">{inclusionsSubtitle || "Zero hidden embellishments on your basic quote"}</p>
           </div>
@@ -1464,7 +1488,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
       {/* Exclusions Card */}
       <div className="p-4 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#FFFBEB]/50 via-white to-white border-2 border-[#FDE68A] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(217,119,6,0.1)] transition-all duration-300 space-y-3.5 sm:space-y-5 relative overflow-hidden group">
         <div className="absolute top-0 right-0 px-3 sm:px-3.5 py-0.5 sm:py-1 rounded-bl-xl sm:rounded-bl-2xl bg-[#FEF3C7] text-[9.5px] sm:text-[10px] font-black text-[#92400E] uppercase tracking-wider border-b border-l border-[#FDE68A]">
-          Pay at Actuals
+          {exclusionsBadge || "Pay at Actuals"}
         </div>
 
         <div className="flex items-center gap-3 sm:gap-3.5">
@@ -1473,7 +1497,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
           </div>
           <div>
             <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] font-display">
-              Transparent Exclusions (Direct Receipts)
+              {exclusionsTitle || "Transparent Exclusions (Direct Receipts)"}
             </h3>
             <p className="text-xs text-[#64748B]">{exclusionsSubtitle || "Settled directly with physical tax or parking slips"}</p>
           </div>
