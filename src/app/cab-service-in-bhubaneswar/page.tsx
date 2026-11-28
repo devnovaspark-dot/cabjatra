@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   keywords: [
     "Cab Service in Bhubaneswar",
     "Bhubaneswar taxi service",
-    "BBI Airport cab",
-    "Infocity cab Bhubaneswar",
-    "Bhubaneswar to Puri cab",
+    "BBI airport cab",
+    "Infocity Bhubaneswar cab",
+    "Bhubaneswar cab booking",
     "CABJATRA Bhubaneswar",
   ],
 };
@@ -23,7 +23,7 @@ export default function CabServiceInBhubaneswarPage() {
       subtitle="Seamless BBI Airport drops, daily Infocity office rides, and weekend intercity temple tours with verified drivers and Zero surge charges."
       heroHeadline="Cab Service in Bhubaneswar for Every Journey"
       heroSubtitle="Seamless BBI Airport drops, daily Infocity office rides, and weekend intercity temple tours with verified drivers and Zero surge charges."
-      tagline="Seamless BBI Airport drops, daily Infocity office rides, and weekend intercity temple tours with verified drivers and Zero surge charges."
+      tagline="Odisha's certified commercial cab service with guaranteed on-time dispatch"
       badge="Bhubaneswar City & Airport Hub"
       heroImage="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=85&w=1920&auto=format&fit=crop"
       heroPills={[
@@ -80,26 +80,28 @@ export default function CabServiceInBhubaneswarPage() {
           title: "Live Flight Tracking BBI",
           desc: "If you are delayed in the air, your driver is able to adapt on the ground. We monitor Bhubaneswar flights in real time and will stand by at no extra charge.",
           image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=85&w=800&auto=format&fit=crop",
-          tag: "BBI Flight Monitoring",
-          badge: "Live Flight Tracking",
+          tag: "Live Flight Tracking BBI",
+          badge: "BBI Radar Tracking",
         },
         {
           title: "No Cancelling",
           desc: "Drivers do not cancel at the last minute, and therefore you are not left waiting outside. All CABJATRA bookings are individually allocated and are supported by our assured car allocation system.",
           image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=85&w=800&auto=format&fit=crop",
-          tag: "0% Cancellation",
-          badge: "Already Allocated Drivers",
+          tag: "No Cancelling",
+          badge: "0% Cancellation",
         },
         {
           title: "Clear Kilometre Charges",
           desc: "There are no uplifts. Assured car allocation secures your car. Charges are then clearly calculated and paid for on arrival back at your destination.",
           image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=85&w=800&auto=format&fit=crop",
-          tag: "Simple & Open Pricing",
-          badge: "No Covert Uplifts",
+          tag: "Clear Kilometre Charges",
+          badge: "Zero Surge Charges",
         },
       ]}
+      cabjatraBadge="100% Commercial Fleet"
       cabjatraTitle="CABJATRA Driver Service"
       cabjatraSubtitle="Our assured car service is supported by our round-the-clock dispatch control centre."
+      cabjatraCtaText="Book with Assured Dispatch"
       cabjatraPoints={[
         {
           factor: "DRIVER CANCELLATION RATE",
@@ -126,8 +128,8 @@ export default function CabServiceInBhubaneswarPage() {
           text: "24/7 Human Support (Phone and WhatsApp)",
         },
       ]}
+      genericBadge="FLUCTUATING GIG BOOKING APPS"
       genericTitle="General Ride-hailing App Users"
-      genericBadge="Fluctuating Gig Booking Apps"
       genericSubtitle="Whilst drivers are trustworthy, there are often high cancellation rates and variable uplifts."
       genericPoints={[
         {
@@ -152,7 +154,7 @@ export default function CabServiceInBhubaneswarPage() {
         },
         {
           factor: "SUPPORT & DISPATCH DESK",
-          text: "Prior mentioned chatbot ‘ghosting’",
+          text: "Chatbot ‘ghosting’ occurs",
         },
       ]}
       genericFooterNote="High cancellation levels and uncertain private cars at busy times."
@@ -163,7 +165,7 @@ export default function CabServiceInBhubaneswarPage() {
           num: "001",
           title: "Select Route & Vehicle",
           desc: "Input your pick-up location, date and preferred car type (Sedan, SUV or Tempo).",
-          badge: "Select Route & Vehicle",
+          badge: "On-time door-to-door pickup and delivery",
         },
         {
           num: "002",
@@ -175,7 +177,7 @@ export default function CabServiceInBhubaneswarPage() {
           num: "003",
           title: "Experience assured and air-conditioned service",
           desc: "Your confirmed driver will be waiting 15 minutes before your appointed pick-up time and will have the air-con already switched on. Payment can be made either by UPI or in cash on return.",
-          badge: "On-time door-to-door pickup and delivery • Complete clarity is provided",
+          badge: "Complete clarity is provided",
         },
       ]}
       charterClarityTitle="Charter Openness"
@@ -189,7 +191,7 @@ export default function CabServiceInBhubaneswarPage() {
         "Additional waiting time for both temple darshan and beach sightseeing.",
         "Collection from hotel, resort or ashram within Bhubaneswar.",
       ]}
-      inclusionsFooter="Clear Kilometre Charges • Specialised Air-Conuted Cottage"
+      inclusionsFooter="Clear Kilometre Charges • Specialised Air-Conditioned Cabin"
       exclusionsBadge="PAY ON USAGE"
       exclusionsTitle="Open Non-charges (Receipts)"
       exclusionsSubtitle="Calculated and paid for using tangible receipts for tax and/or parking."
@@ -198,7 +200,7 @@ export default function CabServiceInBhubaneswarPage() {
         "OTDC Chilika/Satapada boat fare",
         "Individual guide and/or temple donations",
       ]}
-      exclusionsFooter="UPI or cash on drop-off"
+      exclusionsFooter="UPI or cash"
       bookingCategoryKey="bhubaneswar"
       faqSectionTitle="Frequently Asked Questions Regarding Cab Service in Bhubaneswar"
       serviceFaq={[
@@ -212,7 +214,7 @@ export default function CabServiceInBhubaneswarPage() {
         },
         {
           q: "How do I make payments?",
-          a: "Booking can easily be carried out on our website, where payment can be made by UPI, GPay, PhonePe and Card. Cash or UPI can also be used for payment on collection. There are no uplift fees.",
+          a: "UPI or cash. Booking can easily be carried out on our website, where payment can be made by UPI, GPay, PhonePe and Card. Cash or UPI can also be used for payment on collection. There are no uplift fees.",
         },
       ]}
       readyToConfirmTitle="Ready to Confirm Your Cab Service in Bhubaneswar?"

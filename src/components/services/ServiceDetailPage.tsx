@@ -77,6 +77,9 @@ interface ServiceDetailProps {
   whyChooseSubtitle?: string;
   cabjatraTitle?: string;
   cabjatraSubtitle?: string;
+  cabjatraBadge?: string;
+  cabjatraCtaText?: string;
+  fleetAssuranceCards?: { title: string; desc: string }[];
   cabjatraPoints?: { factor?: string; text: string }[];
   genericTitle?: string;
   genericBadge?: string;
@@ -100,6 +103,7 @@ interface ServiceDetailProps {
   readyToConfirmTitle?: string;
   readyToConfirmSubtitle?: string;
   readyToConfirmBadge?: string;
+  qualityAssuranceCards?: { title: string; desc: string }[];
 }
 
 export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
@@ -127,6 +131,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
   whyChooseSubtitle,
   cabjatraTitle,
   cabjatraSubtitle,
+  cabjatraBadge,
+  cabjatraCtaText,
+  fleetAssuranceCards,
   cabjatraPoints,
   genericTitle,
   genericBadge,
@@ -150,6 +157,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
   readyToConfirmTitle,
   readyToConfirmSubtitle,
   readyToConfirmBadge,
+  qualityAssuranceCards,
 }) => {
   // Router & Horizontal booking form card state
   const router = useRouter();
@@ -991,9 +999,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                   <ShieldCheck className="w-4 h-4 text-[#D97706]" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#0F172A]">100% Yellow-Board Plates</h4>
+                  <h4 className="text-xs font-bold text-[#0F172A]">{qualityAssuranceCards?.[0]?.title || "100% Yellow-Board Plates"}</h4>
                   <p className="text-[11px] text-[#64748B] mt-0.5 leading-snug">
-                    State commercial road permits and comprehensive passenger insurance.
+                    {qualityAssuranceCards?.[0]?.desc || "State commercial road permits and comprehensive passenger insurance."}
                   </p>
                 </div>
               </div>
@@ -1003,9 +1011,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                   <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#0F172A]">0% Cancellation Policy</h4>
+                  <h4 className="text-xs font-bold text-[#0F172A]">{qualityAssuranceCards?.[1]?.title || "0% Cancellation Policy"}</h4>
                   <p className="text-[11px] text-[#64748B] mt-0.5 leading-snug">
-                    Pre-assigned verified chauffeurs with guaranteed vehicle dispatch.
+                    {qualityAssuranceCards?.[1]?.desc || "Pre-assigned verified chauffeurs with guaranteed vehicle dispatch."}
                   </p>
                 </div>
               </div>
@@ -1015,9 +1023,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                   <AirVent className="w-4 h-4 text-[#0284C7]" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#0F172A]">Chilled AC on Every Trip</h4>
+                  <h4 className="text-xs font-bold text-[#0F172A]">{qualityAssuranceCards?.[2]?.title || "Chilled AC on Every Trip"}</h4>
                   <p className="text-[11px] text-[#64748B] mt-0.5 leading-snug">
-                    100% air-conditioned comfort from departure to destination drop.
+                    {qualityAssuranceCards?.[2]?.desc || "100% air-conditioned comfort from departure to destination drop."}
                   </p>
                 </div>
               </div>
@@ -1027,9 +1035,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                   <CreditCard className="w-4 h-4 text-[#CA8A04]" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#0F172A]">Transparent KM Billing</h4>
+                  <h4 className="text-xs font-bold text-[#0F172A]">{qualityAssuranceCards?.[3]?.title || "Transparent KM Billing"}</h4>
                   <p className="text-[11px] text-[#64748B] mt-0.5 leading-snug">
-                    Direct honest kilometre rates with zero hidden surge multipliers.
+                    {qualityAssuranceCards?.[3]?.desc || "Direct honest kilometre rates with zero hidden surge multipliers."}
                   </p>
                 </div>
               </div>
@@ -1276,7 +1284,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                 <div className="space-y-1">
                   <span className="text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-[#FEC401] flex items-center gap-1.5">
                     <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FEC401]" />
-                    <span>Odisha Commercial Fleet</span>
+                    <span>{cabjatraBadge || "Odisha Commercial Fleet"}</span>
                   </span>
                   <h3 className="text-xl sm:text-2xl font-black font-display text-white">
                     {cabjatraTitle || "CABJATRA Chauffeur Service"}
@@ -1312,7 +1320,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailProps> = ({
                   href={`/book-cab?service=${bookingCategoryKey}&vehicle=sedan`}
                   className="w-full py-3 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#FEC401] to-[#E5AD00] hover:brightness-105 active:translate-y-0.5 text-[#000B3B] text-xs font-black flex items-center justify-center gap-2 shadow-[0_10px_25px_rgba(254,196,1,0.42)] transition-all"
                 >
-                  <span>Reserve with Guaranteed Dispatch</span>
+                  <span>{cabjatraCtaText || "Reserve with Guaranteed Dispatch"}</span>
                   <ArrowRight className="w-4 h-4 text-[#000B3B]" />
                 </Link>
               </div>
